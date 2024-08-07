@@ -72,6 +72,7 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  * //   ExecutionTime: Number("int"),
  * //   RecommendedRuleset: "STRING_VALUE",
  * //   CreatedRulesetName: "STRING_VALUE",
+ * //   DataQualitySecurityConfiguration: "STRING_VALUE",
  * // };
  *
  * ```

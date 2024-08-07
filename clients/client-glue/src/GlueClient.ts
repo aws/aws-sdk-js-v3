@@ -92,6 +92,10 @@ import {
 } from "./commands/BatchGetTableOptimizerCommand";
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand";
+import {
+  BatchPutDataQualityStatisticAnnotationCommandInput,
+  BatchPutDataQualityStatisticAnnotationCommandOutput,
+} from "./commands/BatchPutDataQualityStatisticAnnotationCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
 import {
   BatchUpdatePartitionCommandInput,
@@ -251,6 +255,14 @@ import {
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
 import {
+  GetDataQualityModelCommandInput,
+  GetDataQualityModelCommandOutput,
+} from "./commands/GetDataQualityModelCommand";
+import {
+  GetDataQualityModelResultCommandInput,
+  GetDataQualityModelResultCommandOutput,
+} from "./commands/GetDataQualityModelResultCommand";
+import {
   GetDataQualityResultCommandInput,
   GetDataQualityResultCommandOutput,
 } from "./commands/GetDataQualityResultCommand";
@@ -378,6 +390,14 @@ import {
   ListDataQualityRulesetsCommandInput,
   ListDataQualityRulesetsCommandOutput,
 } from "./commands/ListDataQualityRulesetsCommand";
+import {
+  ListDataQualityStatisticAnnotationsCommandInput,
+  ListDataQualityStatisticAnnotationsCommandOutput,
+} from "./commands/ListDataQualityStatisticAnnotationsCommand";
+import {
+  ListDataQualityStatisticsCommandInput,
+  ListDataQualityStatisticsCommandOutput,
+} from "./commands/ListDataQualityStatisticsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
@@ -397,6 +417,10 @@ import {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  PutDataQualityProfileAnnotationCommandInput,
+  PutDataQualityProfileAnnotationCommandOutput,
+} from "./commands/PutDataQualityProfileAnnotationCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   PutSchemaVersionMetadataCommandInput,
@@ -550,6 +574,7 @@ export type ServiceInputTypes =
   | BatchGetTableOptimizerCommandInput
   | BatchGetTriggersCommandInput
   | BatchGetWorkflowsCommandInput
+  | BatchPutDataQualityStatisticAnnotationCommandInput
   | BatchStopJobRunCommandInput
   | BatchUpdatePartitionCommandInput
   | CancelDataQualityRuleRecommendationRunCommandInput
@@ -624,6 +649,8 @@ export type ServiceInputTypes =
   | GetCrawlersCommandInput
   | GetCustomEntityTypeCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
+  | GetDataQualityModelCommandInput
+  | GetDataQualityModelResultCommandInput
   | GetDataQualityResultCommandInput
   | GetDataQualityRuleRecommendationRunCommandInput
   | GetDataQualityRulesetCommandInput
@@ -686,6 +713,8 @@ export type ServiceInputTypes =
   | ListDataQualityRuleRecommendationRunsCommandInput
   | ListDataQualityRulesetEvaluationRunsCommandInput
   | ListDataQualityRulesetsCommandInput
+  | ListDataQualityStatisticAnnotationsCommandInput
+  | ListDataQualityStatisticsCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
@@ -699,6 +728,7 @@ export type ServiceInputTypes =
   | ListUsageProfilesCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
+  | PutDataQualityProfileAnnotationCommandInput
   | PutResourcePolicyCommandInput
   | PutSchemaVersionMetadataCommandInput
   | PutWorkflowRunPropertiesCommandInput
@@ -773,6 +803,7 @@ export type ServiceOutputTypes =
   | BatchGetTableOptimizerCommandOutput
   | BatchGetTriggersCommandOutput
   | BatchGetWorkflowsCommandOutput
+  | BatchPutDataQualityStatisticAnnotationCommandOutput
   | BatchStopJobRunCommandOutput
   | BatchUpdatePartitionCommandOutput
   | CancelDataQualityRuleRecommendationRunCommandOutput
@@ -847,6 +878,8 @@ export type ServiceOutputTypes =
   | GetCrawlersCommandOutput
   | GetCustomEntityTypeCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
+  | GetDataQualityModelCommandOutput
+  | GetDataQualityModelResultCommandOutput
   | GetDataQualityResultCommandOutput
   | GetDataQualityRuleRecommendationRunCommandOutput
   | GetDataQualityRulesetCommandOutput
@@ -909,6 +942,8 @@ export type ServiceOutputTypes =
   | ListDataQualityRuleRecommendationRunsCommandOutput
   | ListDataQualityRulesetEvaluationRunsCommandOutput
   | ListDataQualityRulesetsCommandOutput
+  | ListDataQualityStatisticAnnotationsCommandOutput
+  | ListDataQualityStatisticsCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
@@ -922,6 +957,7 @@ export type ServiceOutputTypes =
   | ListUsageProfilesCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
+  | PutDataQualityProfileAnnotationCommandOutput
   | PutResourcePolicyCommandOutput
   | PutSchemaVersionMetadataCommandOutput
   | PutWorkflowRunPropertiesCommandOutput

@@ -5,110 +5,38 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 
 import {
   Action,
-  Aggregate,
-  AmazonRedshiftSource,
-  AmazonRedshiftTarget,
-  AthenaConnectorSource,
   AuditContext,
-  BasicCatalogTarget,
-  CatalogDeltaSource,
-  CatalogHudiSource,
-  CatalogKafkaSource,
-  CatalogKinesisSource,
-  CatalogSource,
   Column,
-  ConnectionsList,
-  ConnectorDataSource,
-  ConnectorDataTarget,
   CrawlerTargets,
-  CsvHeaderOption,
-  CsvSerdeOption,
-  CustomCode,
   CustomEntityType,
   DataFormat,
   DataSource,
-  DirectJDBCSource,
-  DirectKafkaSource,
-  DirectKinesisSource,
-  DropDuplicates,
-  DropFields,
-  DropNullFields,
-  DynamicTransform,
-  DynamoDBCatalogSource,
   ErrorDetail,
-  EvaluateDataQuality,
-  EvaluateDataQualityMultiFrame,
   EventBatchingCondition,
   ExecutionClass,
-  ExecutionProperty,
-  FillMissingValues,
-  Filter,
-  GovernedCatalogSource,
-  GovernedCatalogTarget,
-  JDBCConnectorSource,
-  JDBCConnectorTarget,
-  JobCommand,
-  JobMode,
-  Join,
+  GlueTable,
+  InclusionAnnotationValue,
   LakeFormationConfiguration,
   LineageConfiguration,
-  Merge,
-  MicrosoftSQLServerCatalogSource,
-  MicrosoftSQLServerCatalogTarget,
-  MySQLCatalogSource,
-  MySQLCatalogTarget,
   NotificationProperty,
-  OracleSQLCatalogSource,
-  OracleSQLCatalogTarget,
   Partition,
   PartitionInput,
-  PIIDetection,
-  PostgreSQLCatalogSource,
-  PostgreSQLCatalogTarget,
+  PartitionValueList,
   Predicate,
-  Recipe,
   RecrawlPolicy,
-  RedshiftSource,
-  RedshiftTarget,
-  RelationalCatalogSource,
-  RenameField,
-  S3CatalogDeltaSource,
-  S3CatalogHudiSource,
-  S3CatalogSource,
-  S3CatalogTarget,
-  S3CsvSource,
-  S3DeltaCatalogTarget,
-  S3DeltaDirectTarget,
-  S3DeltaSource,
-  S3DirectTarget,
-  S3GlueParquetTarget,
-  S3HudiCatalogTarget,
-  S3HudiDirectTarget,
-  S3HudiSource,
-  S3JsonSource,
-  S3ParquetSource,
   SchemaChangePolicy,
   SchemaId,
-  SelectFields,
-  SelectFromCollection,
-  SnowflakeSource,
-  SnowflakeTarget,
   SourceControlAuthStrategy,
-  SourceControlDetails,
   SourceControlProvider,
-  SparkConnectorSource,
-  SparkConnectorTarget,
-  SparkSQL,
-  Spigot,
-  SplitFields,
+  StatisticAnnotation,
   StorageDescriptor,
   TableOptimizer,
   TableOptimizerConfiguration,
   TableOptimizerRun,
   TableOptimizerType,
   TaskStatusType,
+  TimestampedInclusionAnnotation,
   Trigger,
-  Union,
   WorkerType,
   Workflow,
   WorkflowRun,
@@ -119,11 +47,14 @@ import {
   ColumnStatistics,
   Compatibility,
   ConnectionInput,
+  CsvHeaderOption,
+  CsvSerdeOption,
   DatabaseInput,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   DataQualityTargetTable,
   EncryptionConfiguration,
+  EvaluationMetrics,
   JobBookmarkEntry,
   Language,
   Location,
@@ -135,18 +66,490 @@ import {
   RegistryStatus,
   ResourceShareType,
   ResourceUri,
+  SchemaColumn,
   SchemaStatus,
   SchemaVersionStatus,
-  Segment,
   Session,
   TableIdentifier,
   TableInput,
+  TransformEncryption,
   TransformFilterCriteria,
   TransformParameters,
   TransformSortCriteria,
-  UserDefinedFunctionInput,
+  TransformStatusType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetMLTransformsRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The filter transformation criteria.</p>
+   * @public
+   */
+  Filter?: TransformFilterCriteria;
+
+  /**
+   * <p>The sorting criteria.</p>
+   * @public
+   */
+  Sort?: TransformSortCriteria;
+}
+
+/**
+ * <p>A structure for a machine learning transform.</p>
+ * @public
+ */
+export interface MLTransform {
+  /**
+   * <p>The unique transform ID that is generated for the machine learning transform. The ID is
+   *       guaranteed to be unique and does not change.</p>
+   * @public
+   */
+  TransformId?: string;
+
+  /**
+   * <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
+   *       and can be changed at any time.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A user-defined, long-form description text for the machine learning transform.
+   *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The current status of the machine learning transform.</p>
+   * @public
+   */
+  Status?: TransformStatusType;
+
+  /**
+   * <p>A timestamp. The time and date that this machine learning transform was created.</p>
+   * @public
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>A list of Glue table definitions used by the transform.</p>
+   * @public
+   */
+  InputRecordTables?: GlueTable[];
+
+  /**
+   * <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
+   *       behavior of the machine learning transform by specifying what data it learns from and your
+   *       preference on various tradeoffs (such as precious vs. recall, or accuracy vs. cost).</p>
+   * @public
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   * <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+   * @public
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
+   * <p>A count identifier for the labeling files generated by Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
+   * @public
+   */
+  LabelCount?: number;
+
+  /**
+   * <p>A map of key-value pairs representing the columns and data types that this transform can
+   *       run against. Has an upper bound of 100 columns.</p>
+   * @public
+   */
+  Schema?: SchemaColumn[];
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p>
+   *          <ul>
+   *             <li>
+   *                <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string;
+
+  /**
+   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="http://aws.amazon.com/glue/pricing/">Glue pricing
+   *         page</a>. </p>
+   *          <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   * @public
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
+   *          <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   * @public
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The timeout in minutes of the machine learning transform.</p>
+   * @public
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
+   *       learning transform fails.</p>
+   * @public
+   */
+  MaxRetries?: number;
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   * @public
+   */
+  TransformEncryption?: TransformEncryption;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTransformsResponse {
+  /**
+   * <p>A list of machine learning transforms.</p>
+   * @public
+   */
+  Transforms: MLTransform[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetPartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partition in question resides. If none is provided,
+   *       the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partition resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partition's table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The values that define the partition.</p>
+   * @public
+   */
+  PartitionValues: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPartitionResponse {
+  /**
+   * <p>The requested information, in the form of a <code>Partition</code>
+   *       object.</p>
+   * @public
+   */
+  Partition?: Partition;
+}
+
+/**
+ * @public
+ */
+export interface GetPartitionIndexesRequest {
+  /**
+   * <p>The catalog ID where the table resides.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>Specifies the name of a database from which you want to retrieve partition indexes.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BackfillErrorCode = {
+  ENCRYPTED_PARTITION_ERROR: "ENCRYPTED_PARTITION_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PARTITION_TYPE_DATA_ERROR: "INVALID_PARTITION_TYPE_DATA_ERROR",
+  MISSING_PARTITION_VALUE_ERROR: "MISSING_PARTITION_VALUE_ERROR",
+  UNSUPPORTED_PARTITION_CHARACTER_ERROR: "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type BackfillErrorCode = (typeof BackfillErrorCode)[keyof typeof BackfillErrorCode];
+
+/**
+ * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
+ *          <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>
+ *          <ul>
+ *             <li>
+ *                <p>EncryptedPartitionError: The partitions are encrypted.</p>
+ *             </li>
+ *             <li>
+ *                <p>InvalidPartitionTypeDataError: The partition value doesn't match the data type for that partition column.</p>
+ *             </li>
+ *             <li>
+ *                <p>MissingPartitionValueError: The partitions are encrypted.</p>
+ *             </li>
+ *             <li>
+ *                <p>UnsupportedPartitionCharacterError: Characters inside the partition value are not supported. For example: U+0000 , U+0001, U+0002.</p>
+ *             </li>
+ *             <li>
+ *                <p>InternalError: Any error which does not belong to other error codes.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface BackfillError {
+  /**
+   * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
+   * @public
+   */
+  Code?: BackfillErrorCode;
+
+  /**
+   * <p>A list of a limited number of partitions in the response.</p>
+   * @public
+   */
+  Partitions?: PartitionValueList[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PartitionIndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionIndexStatus = (typeof PartitionIndexStatus)[keyof typeof PartitionIndexStatus];
+
+/**
+ * <p>A partition key pair consisting of a name and a type.</p>
+ * @public
+ */
+export interface KeySchemaElement {
+  /**
+   * <p>The name of a partition key.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of a partition key.</p>
+   * @public
+   */
+  Type: string | undefined;
+}
+
+/**
+ * <p>A descriptor for a partition index in a table.</p>
+ * @public
+ */
+export interface PartitionIndexDescriptor {
+  /**
+   * <p>The name of the partition index.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>A list of one or more keys, as <code>KeySchemaElement</code> structures, for the partition index.</p>
+   * @public
+   */
+  Keys: KeySchemaElement[] | undefined;
+
+  /**
+   * <p>The status of the partition index. </p>
+   *          <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The index creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The index creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The index is deleted from the list of indexes.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IndexStatus: PartitionIndexStatus | undefined;
+
+  /**
+   * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
+   * @public
+   */
+  BackfillErrors?: BackfillError[];
+}
+
+/**
+ * @public
+ */
+export interface GetPartitionIndexesResponse {
+  /**
+   * <p>A list of index descriptors.</p>
+   * @public
+   */
+  PartitionIndexDescriptorList?: PartitionIndexDescriptor[];
+
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Defines a non-overlapping region of a table's partitions, allowing
+ *       multiple requests to be run in parallel.</p>
+ * @public
+ */
+export interface Segment {
+  /**
+   * <p>The zero-based index number of the segment. For example, if the total number of segments
+   *       is 4, <code>SegmentNumber</code> values range from 0 through 3.</p>
+   * @public
+   */
+  SegmentNumber: number | undefined;
+
+  /**
+   * <p>The total number of segments.</p>
+   * @public
+   */
+  TotalSegments: number | undefined;
+}
 
 /**
  * @public
@@ -3534,6 +3937,234 @@ export interface ListDataQualityRulesetsResponse {
 }
 
 /**
+ * <p>A timestamp filter.</p>
+ * @public
+ */
+export interface TimestampFilter {
+  /**
+   * <p>The timestamp before which statistics should be included in the results.</p>
+   * @public
+   */
+  RecordedBefore?: Date;
+
+  /**
+   * <p>The timestamp after which statistics should be included in the results.</p>
+   * @public
+   */
+  RecordedAfter?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityStatisticAnnotationsRequest {
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>A timestamp filter.</p>
+   * @public
+   */
+  TimestampFilter?: TimestampFilter;
+
+  /**
+   * <p>The maximum number of results to return in this request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A pagination token to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityStatisticAnnotationsResponse {
+  /**
+   * <p>A list of <code>StatisticAnnotation</code> applied to the Statistic</p>
+   * @public
+   */
+  Annotations?: StatisticAnnotation[];
+
+  /**
+   * <p>A pagination token to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityStatisticsRequest {
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>A timestamp filter.</p>
+   * @public
+   */
+  TimestampFilter?: TimestampFilter;
+
+  /**
+   * <p>The maximum number of results to return in this request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StatisticEvaluationLevel = {
+  COLUMN: "Column",
+  DATASET: "Dataset",
+  MULTICOLUMN: "Multicolumn",
+} as const;
+
+/**
+ * @public
+ */
+export type StatisticEvaluationLevel = (typeof StatisticEvaluationLevel)[keyof typeof StatisticEvaluationLevel];
+
+/**
+ * <p>A run identifier.</p>
+ * @public
+ */
+export interface RunIdentifier {
+  /**
+   * <p>The Run ID.</p>
+   * @public
+   */
+  RunId?: string;
+
+  /**
+   * <p>The Job Run ID.</p>
+   * @public
+   */
+  JobRunId?: string;
+}
+
+/**
+ * <p>Summary information about a statistic.</p>
+ * @public
+ */
+export interface StatisticSummary {
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>The Run Identifier</p>
+   * @public
+   */
+  RunIdentifier?: RunIdentifier;
+
+  /**
+   * <p>The name of the statistic.</p>
+   * @public
+   */
+  StatisticName?: string;
+
+  /**
+   * <p>The value of the statistic.</p>
+   * @public
+   */
+  DoubleValue?: number;
+
+  /**
+   * <p>The evaluation level of the statistic. Possible values: <code>Dataset</code>, <code>Column</code>, <code>Multicolumn</code>.</p>
+   * @public
+   */
+  EvaluationLevel?: StatisticEvaluationLevel;
+
+  /**
+   * <p>The list of columns referenced by the statistic.</p>
+   * @public
+   */
+  ColumnsReferenced?: string[];
+
+  /**
+   * <p>The list of datasets referenced by the statistic.</p>
+   * @public
+   */
+  ReferencedDatasets?: string[];
+
+  /**
+   * <p>A <code>StatisticPropertiesMap</code>, which contains a <code>NameString</code> and <code>DescriptionString</code>
+   *          </p>
+   * @public
+   */
+  StatisticProperties?: Record<string, string>;
+
+  /**
+   * <p>The timestamp when the statistic was recorded.</p>
+   * @public
+   */
+  RecordedOn?: Date;
+
+  /**
+   * <p>The inclusion annotation for the statistic.</p>
+   * @public
+   */
+  InclusionAnnotation?: TimestampedInclusionAnnotation;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityStatisticsResponse {
+  /**
+   * <p>A <code>StatisticSummaryList</code>.</p>
+   * @public
+   */
+  Statistics?: StatisticSummary[];
+
+  /**
+   * <p>A pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
  * @public
  */
 export interface ListDevEndpointsRequest {
@@ -4254,6 +4885,29 @@ export interface PutDataCatalogEncryptionSettingsRequest {
  * @public
  */
 export interface PutDataCatalogEncryptionSettingsResponse {}
+
+/**
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationRequest {
+  /**
+   * <p>The ID of the data quality monitoring profile to annotate.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>The inclusion annotation value to apply to the profile.</p>
+   * @public
+   */
+  InclusionAnnotation: InclusionAnnotationValue | undefined;
+}
+
+/**
+ * <p>Left blank.</p>
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationResponse {}
 
 /**
  * @public
@@ -5276,6 +5930,12 @@ export interface StartDataQualityRuleRecommendationRunRequest {
    * @public
    */
   CreatedRulesetName?: string;
+
+  /**
+   * <p>The name of the security configuration created with the data quality encryption option.</p>
+   * @public
+   */
+  DataQualitySecurityConfiguration?: string;
 
   /**
    * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
@@ -7294,1468 +7954,17 @@ export interface UpdateUsageProfileRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateUsageProfileResponse {
-  /**
-   * <p>The name of the usage profile that was updated.</p>
-   * @public
-   */
-  Name?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateUserDefinedFunctionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the function to be updated is
-   *       located.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the function.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A <code>FunctionInput</code> object that redefines the function in the Data
-   *       Catalog.</p>
-   * @public
-   */
-  FunctionInput: UserDefinedFunctionInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserDefinedFunctionResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkflowRequest {
-  /**
-   * <p>Name of the workflow to be updated.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the workflow.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   * @public
-   */
-  DefaultRunProperties?: Record<string, string>;
-
-  /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   * @public
-   */
-  MaxConcurrentRuns?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkflowResponse {
-  /**
-   * <p>The name of the workflow which was specified in input.</p>
-   * @public
-   */
-  Name?: string;
-}
-
-/**
- * <p>Specifies the mapping of data property keys.</p>
- * @public
- */
-export interface Mapping {
-  /**
-   * <p>After the apply mapping, what the name of the column should be. Can be the same as <code>FromPath</code>.</p>
-   * @public
-   */
-  ToKey?: string;
-
-  /**
-   * <p>The table or column to be modified.</p>
-   * @public
-   */
-  FromPath?: string[];
-
-  /**
-   * <p>The type of the data to be modified.</p>
-   * @public
-   */
-  FromType?: string;
-
-  /**
-   * <p>The data type that the data is to be modified to.</p>
-   * @public
-   */
-  ToType?: string;
-
-  /**
-   * <p>If true, then the column is removed.</p>
-   * @public
-   */
-  Dropped?: boolean;
-
-  /**
-   * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
-   *          <p>For the children part, suppose you have the structure:</p>
-   *          <p>
-   *             <code>\{
-   *   "FromPath": "OuterStructure",
-   *   "ToKey": "OuterStructure",
-   *   "ToType": "Struct",
-   *   "Dropped": false,
-   *   "Chidlren": [\{
-   *        "FromPath": "inner",
-   *        "ToKey": "inner",
-   *        "ToType": "Double",
-   *       "Dropped": false,
-   *   \}]
-   * \}</code>
-   *          </p>
-   *          <p>You can specify a <code>Mapping</code> that looks like:</p>
-   *          <p>
-   *             <code>\{
-   *   "FromPath": "OuterStructure",
-   *   "ToKey": "OuterStructure",
-   *   "ToType": "Struct",
-   *   "Dropped": false,
-   *   "Chidlren": [\{
-   *        "FromPath": "inner",
-   *        "ToKey": "inner",
-   *        "ToType": "Double",
-   *       "Dropped": false,
-   *   \}]
-   * \}</code>
-   *          </p>
-   * @public
-   */
-  Children?: Mapping[];
-}
-
-/**
- * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
- * @public
- */
-export interface ApplyMapping {
-  /**
-   * <p>The name of the transform node.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The data inputs identified by their node names.</p>
-   * @public
-   */
-  Inputs: string[] | undefined;
-
-  /**
-   * <p>Specifies the mapping of data property keys in the data source to data property keys in the data target.</p>
-   * @public
-   */
-  Mapping: Mapping[] | undefined;
-}
-
-/**
- * <p>
- *             <code>CodeGenConfigurationNode</code> enumerates all valid Node types. One and only one of its member variables can be populated.</p>
- * @public
- */
-export interface CodeGenConfigurationNode {
-  /**
-   * <p>Specifies a connector to an Amazon Athena data source.</p>
-   * @public
-   */
-  AthenaConnectorSource?: AthenaConnectorSource;
-
-  /**
-   * <p>Specifies a connector to a JDBC data source.</p>
-   * @public
-   */
-  JDBCConnectorSource?: JDBCConnectorSource;
-
-  /**
-   * <p>Specifies a connector to an Apache Spark data source.</p>
-   * @public
-   */
-  SparkConnectorSource?: SparkConnectorSource;
-
-  /**
-   * <p>Specifies a data store in the Glue Data Catalog.</p>
-   * @public
-   */
-  CatalogSource?: CatalogSource;
-
-  /**
-   * <p>Specifies an Amazon Redshift data store.</p>
-   * @public
-   */
-  RedshiftSource?: RedshiftSource;
-
-  /**
-   * <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
-   * @public
-   */
-  S3CatalogSource?: S3CatalogSource;
-
-  /**
-   * <p>Specifies a command-separated value (CSV) data store stored in Amazon S3.</p>
-   * @public
-   */
-  S3CsvSource?: S3CsvSource;
-
-  /**
-   * <p>Specifies a JSON data store stored in Amazon S3.</p>
-   * @public
-   */
-  S3JsonSource?: S3JsonSource;
-
-  /**
-   * <p>Specifies an Apache Parquet data store stored in Amazon S3.</p>
-   * @public
-   */
-  S3ParquetSource?: S3ParquetSource;
-
-  /**
-   * <p>Specifies a relational catalog data store in the Glue Data Catalog.</p>
-   * @public
-   */
-  RelationalCatalogSource?: RelationalCatalogSource;
-
-  /**
-   * <p>Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.</p>
-   * @public
-   */
-  DynamoDBCatalogSource?: DynamoDBCatalogSource;
-
-  /**
-   * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
-   * @public
-   */
-  JDBCConnectorTarget?: JDBCConnectorTarget;
-
-  /**
-   * <p>Specifies a target that uses an Apache Spark connector.</p>
-   * @public
-   */
-  SparkConnectorTarget?: SparkConnectorTarget;
-
-  /**
-   * <p>Specifies a target that uses a Glue Data Catalog table.</p>
-   * @public
-   */
-  CatalogTarget?: BasicCatalogTarget;
-
-  /**
-   * <p>Specifies a target that uses Amazon Redshift.</p>
-   * @public
-   */
-  RedshiftTarget?: RedshiftTarget;
-
-  /**
-   * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
-   * @public
-   */
-  S3CatalogTarget?: S3CatalogTarget;
-
-  /**
-   * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
-   * @public
-   */
-  S3GlueParquetTarget?: S3GlueParquetTarget;
-
-  /**
-   * <p>Specifies a data target that writes to Amazon S3.</p>
-   * @public
-   */
-  S3DirectTarget?: S3DirectTarget;
-
-  /**
-   * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
-   * @public
-   */
-  ApplyMapping?: ApplyMapping;
-
-  /**
-   * <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
-   * @public
-   */
-  SelectFields?: SelectFields;
-
-  /**
-   * <p>Specifies a transform that chooses the data property keys that you want to drop.</p>
-   * @public
-   */
-  DropFields?: DropFields;
-
-  /**
-   * <p>Specifies a transform that renames a single data property key.</p>
-   * @public
-   */
-  RenameField?: RenameField;
-
-  /**
-   * <p>Specifies a transform that writes samples of the data to an Amazon S3 bucket.</p>
-   * @public
-   */
-  Spigot?: Spigot;
-
-  /**
-   * <p>Specifies a transform that joins two datasets into one dataset using a comparison phrase on the specified data property keys. You can use inner, outer, left, right, left semi, and left anti joins.</p>
-   * @public
-   */
-  Join?: Join;
-
-  /**
-   * <p>Specifies a transform that splits data property keys into two <code>DynamicFrames</code>. The output is a collection of <code>DynamicFrames</code>: one with selected data property keys, and one with the remaining data property keys.</p>
-   * @public
-   */
-  SplitFields?: SplitFields;
-
-  /**
-   * <p>Specifies a transform that chooses one <code>DynamicFrame</code> from a collection of <code>DynamicFrames</code>. The output is the selected <code>DynamicFrame</code>
-   *          </p>
-   * @public
-   */
-  SelectFromCollection?: SelectFromCollection;
-
-  /**
-   * <p>Specifies a transform that locates records in the dataset that have missing values and adds a new field with a value determined by imputation. The input data set is used to train the machine learning model that determines what the missing value should be.</p>
-   * @public
-   */
-  FillMissingValues?: FillMissingValues;
-
-  /**
-   * <p>Specifies a transform that splits a dataset into two, based on a filter condition.</p>
-   * @public
-   */
-  Filter?: Filter;
-
-  /**
-   * <p>Specifies a transform that uses custom code you provide to perform the data transformation. The output is a collection of DynamicFrames.</p>
-   * @public
-   */
-  CustomCode?: CustomCode;
-
-  /**
-   * <p>Specifies a transform where you enter a SQL query using Spark SQL syntax to transform the data. The output is a single <code>DynamicFrame</code>.</p>
-   * @public
-   */
-  SparkSQL?: SparkSQL;
-
-  /**
-   * <p>Specifies a direct Amazon Kinesis data source.</p>
-   * @public
-   */
-  DirectKinesisSource?: DirectKinesisSource;
-
-  /**
-   * <p>Specifies an Apache Kafka data store.</p>
-   * @public
-   */
-  DirectKafkaSource?: DirectKafkaSource;
-
-  /**
-   * <p>Specifies a Kinesis data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  CatalogKinesisSource?: CatalogKinesisSource;
-
-  /**
-   * <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
-   * @public
-   */
-  CatalogKafkaSource?: CatalogKafkaSource;
-
-  /**
-   * <p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are "null", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>
-   * @public
-   */
-  DropNullFields?: DropNullFields;
-
-  /**
-   * <p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>
-   * @public
-   */
-  Merge?: Merge;
-
-  /**
-   * <p>Specifies a transform that combines the rows from two or more datasets into a single result.</p>
-   * @public
-   */
-  Union?: Union;
-
-  /**
-   * <p>Specifies a transform that identifies, removes or masks PII data.</p>
-   * @public
-   */
-  PIIDetection?: PIIDetection;
-
-  /**
-   * <p>Specifies a transform that groups rows by chosen fields and computes the aggregated value by specified function.</p>
-   * @public
-   */
-  Aggregate?: Aggregate;
-
-  /**
-   * <p>Specifies a transform that removes rows of repeating data from a data set.</p>
-   * @public
-   */
-  DropDuplicates?: DropDuplicates;
-
-  /**
-   * <p>Specifies a data target that writes to a goverened catalog.</p>
-   * @public
-   */
-  GovernedCatalogTarget?: GovernedCatalogTarget;
-
-  /**
-   * <p>Specifies a data source in a goverened Data Catalog.</p>
-   * @public
-   */
-  GovernedCatalogSource?: GovernedCatalogSource;
-
-  /**
-   * <p>Specifies a Microsoft SQL server data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  MicrosoftSQLServerCatalogSource?: MicrosoftSQLServerCatalogSource;
-
-  /**
-   * <p>Specifies a MySQL data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  MySQLCatalogSource?: MySQLCatalogSource;
-
-  /**
-   * <p>Specifies an Oracle data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  OracleSQLCatalogSource?: OracleSQLCatalogSource;
-
-  /**
-   * <p>Specifies a PostgresSQL data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  PostgreSQLCatalogSource?: PostgreSQLCatalogSource;
-
-  /**
-   * <p>Specifies a target that uses Microsoft SQL.</p>
-   * @public
-   */
-  MicrosoftSQLServerCatalogTarget?: MicrosoftSQLServerCatalogTarget;
-
-  /**
-   * <p>Specifies a target that uses MySQL.</p>
-   * @public
-   */
-  MySQLCatalogTarget?: MySQLCatalogTarget;
-
-  /**
-   * <p>Specifies a target that uses Oracle SQL.</p>
-   * @public
-   */
-  OracleSQLCatalogTarget?: OracleSQLCatalogTarget;
-
-  /**
-   * <p>Specifies a target that uses Postgres SQL.</p>
-   * @public
-   */
-  PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget;
-
-  /**
-   * <p>Specifies a custom visual transform created by a user.</p>
-   * @public
-   */
-  DynamicTransform?: DynamicTransform;
-
-  /**
-   * <p>Specifies your data quality evaluation criteria.</p>
-   * @public
-   */
-  EvaluateDataQuality?: EvaluateDataQuality;
-
-  /**
-   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
-   * @public
-   */
-  S3CatalogHudiSource?: S3CatalogHudiSource;
-
-  /**
-   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
-   * @public
-   */
-  CatalogHudiSource?: CatalogHudiSource;
-
-  /**
-   * <p>Specifies a Hudi data source stored in Amazon S3.</p>
-   * @public
-   */
-  S3HudiSource?: S3HudiSource;
-
-  /**
-   * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  S3HudiCatalogTarget?: S3HudiCatalogTarget;
-
-  /**
-   * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
-   * @public
-   */
-  S3HudiDirectTarget?: S3HudiDirectTarget;
-
-  /**
-   * <p>Specifies the direct JDBC source connection.</p>
-   * @public
-   */
-  DirectJDBCSource?: DirectJDBCSource;
-
-  /**
-   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
-   * @public
-   */
-  S3CatalogDeltaSource?: S3CatalogDeltaSource;
-
-  /**
-   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
-   * @public
-   */
-  CatalogDeltaSource?: CatalogDeltaSource;
-
-  /**
-   * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
-   * @public
-   */
-  S3DeltaSource?: S3DeltaSource;
-
-  /**
-   * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
-   * @public
-   */
-  S3DeltaCatalogTarget?: S3DeltaCatalogTarget;
-
-  /**
-   * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
-   * @public
-   */
-  S3DeltaDirectTarget?: S3DeltaDirectTarget;
-
-  /**
-   * <p>Specifies a target that writes to a data source in Amazon Redshift.</p>
-   * @public
-   */
-  AmazonRedshiftSource?: AmazonRedshiftSource;
-
-  /**
-   * <p>Specifies a target that writes to a data target in Amazon Redshift.</p>
-   * @public
-   */
-  AmazonRedshiftTarget?: AmazonRedshiftTarget;
-
-  /**
-   * <p>Specifies your data quality evaluation criteria. Allows multiple input data and returns a collection of Dynamic Frames.</p>
-   * @public
-   */
-  EvaluateDataQualityMultiFrame?: EvaluateDataQualityMultiFrame;
-
-  /**
-   * <p>Specifies a Glue DataBrew recipe node.</p>
-   * @public
-   */
-  Recipe?: Recipe;
-
-  /**
-   * <p>Specifies a Snowflake data source.</p>
-   * @public
-   */
-  SnowflakeSource?: SnowflakeSource;
-
-  /**
-   * <p>Specifies a target that writes to a Snowflake data source.</p>
-   * @public
-   */
-  SnowflakeTarget?: SnowflakeTarget;
-
-  /**
-   * <p>Specifies a source generated with standard connection options.</p>
-   * @public
-   */
-  ConnectorDataSource?: ConnectorDataSource;
-
-  /**
-   * <p>Specifies a target generated with standard connection options.</p>
-   * @public
-   */
-  ConnectorDataTarget?: ConnectorDataTarget;
-}
-
-/**
- * @public
- */
-export interface CreateJobRequest {
-  /**
-   * <p>The name you assign to this job definition. It must be unique in your account.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A mode that describes how a job was created. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
-   *             </li>
-   *          </ul>
-   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
-   * @public
-   */
-  JobMode?: JobMode;
-
-  /**
-   * <p>Description of the job being defined.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>This field is reserved for future use.</p>
-   * @public
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-   * @public
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   * @public
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   * <p>The <code>JobCommand</code> that runs this job.</p>
-   * @public
-   */
-  Command: JobCommand | undefined;
-
-  /**
-   * <p>The default arguments for every run of this job, specified as name-value pairs.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that Glue itself consumes.</p>
-   *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets
-   *       from a Glue Connection, Secrets Manager or other secret management
-   *       mechanism if you intend to keep them within the Job. </p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Spark jobs,
-   *      see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Ray
-   *       jobs, see <a href="https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html">Using
-   *       job parameters in Ray jobs</a> in the developer guide.</p>
-   * @public
-   */
-  DefaultArguments?: Record<string, string>;
-
-  /**
-   * <p>Arguments for this job that are not overridden when providing job arguments
-   *       in a job run, specified as name-value pairs.</p>
-   * @public
-   */
-  NonOverridableArguments?: Record<string, string>;
-
-  /**
-   * <p>The connections used for this job.</p>
-   * @public
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   * <p>The maximum number of times to retry this job if it fails.</p>
-   * @public
-   */
-  MaxRetries?: number;
-
-  /**
-   * @deprecated
-   *
-   * <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *          <p>The number of Glue data processing units (DPUs) to allocate to this Job. You can
-   *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *       page</a>.</p>
-   * @public
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
-   * @public
-   */
-  Timeout?: number;
-
-  /**
-   * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
-   *       Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is
-   *       a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB
-   *       of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">
-   *       Glue pricing page</a>.</p>
-   *          <p>For Glue version 2.0+ jobs, you cannot specify a <code>Maximum capacity</code>.
-   *       Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-   *          <p>Do not set <code>MaxCapacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
-   *       job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *         Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
-   *         The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   * @public
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>Specifies configuration properties of a job notification.</p>
-   * @public
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
-   *       that Glue available in a job. The Python version indicates the version
-   *       supported for jobs of type Spark. </p>
-   *          <p>Ray jobs should set <code>GlueVersion</code> to <code>4.0</code> or greater. However,
-   *     the versions of Ray, Python and additional libraries available in your Ray job are determined
-   *     by the <code>Runtime</code> parameter of the Job command.</p>
-   *          <p>For more information about the available Glue versions and corresponding
-   *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
-   *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   * @public
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
-   *       G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
-   * @public
-   */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
-
-  /**
-   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
-   * @public
-   */
-  ExecutionClass?: ExecutionClass;
-
-  /**
-   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
-   * @public
-   */
-  SourceControlDetails?: SourceControlDetails;
-
-  /**
-   * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
-   *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
-   * @public
-   */
-  MaintenanceWindow?: string;
-}
-
-/**
- * <p>Specifies a job definition.</p>
- * @public
- */
-export interface Job {
-  /**
-   * <p>The name you assign to this job definition.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A mode that describes how a job was created. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
-   *             </li>
-   *          </ul>
-   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
-   * @public
-   */
-  JobMode?: JobMode;
-
-  /**
-   * <p>A description of the job.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>This field is reserved for future use.</p>
-   * @public
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-   * @public
-   */
-  Role?: string;
-
-  /**
-   * <p>The time and date that this job definition was created.</p>
-   * @public
-   */
-  CreatedOn?: Date;
-
-  /**
-   * <p>The last point in time when this job definition was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   * @public
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   * <p>The <code>JobCommand</code> that runs this job.</p>
-   * @public
-   */
-  Command?: JobCommand;
-
-  /**
-   * <p>The default arguments for every run of this job, specified as name-value pairs.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that Glue itself consumes.</p>
-   *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets
-   *       from a Glue Connection, Secrets Manager or other secret management
-   *       mechanism if you intend to keep them within the Job. </p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Spark jobs,
-   *      see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Ray
-   *       jobs, see <a href="https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html">Using
-   *       job parameters in Ray jobs</a> in the developer guide.</p>
-   * @public
-   */
-  DefaultArguments?: Record<string, string>;
-
-  /**
-   * <p>Arguments for this job that are not overridden when providing job arguments
-   *       in a job run, specified as name-value pairs.</p>
-   * @public
-   */
-  NonOverridableArguments?: Record<string, string>;
-
-  /**
-   * <p>The connections used for this job.</p>
-   * @public
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   * <p>The maximum number of times to retry this job after a JobRun fails.</p>
-   * @public
-   */
-  MaxRetries?: number;
-
-  /**
-   * @deprecated
-   *
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *          <p>The number of Glue data processing units (DPUs) allocated to runs of this job. You can
-   *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *       page</a>.</p>
-   *          <p></p>
-   * @public
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
-   * @public
-   */
-  Timeout?: number;
-
-  /**
-   * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
-   *       Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is
-   *       a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB
-   *       of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">
-   *         Glue pricing page</a>.</p>
-   *          <p>For Glue version 2.0 or later jobs, you cannot specify a <code>Maximum capacity</code>.
-   *       Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-   *          <p>Do not set <code>MaxCapacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
-   *       job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *             Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
-   *             The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
-   *       G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   * @public
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>Specifies configuration properties of a job notification.</p>
-   * @public
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
-   *       that Glue available in a job. The Python version indicates the version
-   *       supported for jobs of type Spark. </p>
-   *          <p>Ray jobs should set <code>GlueVersion</code> to <code>4.0</code> or greater. However,
-   *     the versions of Ray, Python and additional libraries available in your Ray job are determined
-   *     by the <code>Runtime</code> parameter of the Job command.</p>
-   *          <p>For more information about the available Glue versions and corresponding
-   *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
-   *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   * @public
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
-   * @public
-   */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
-
-  /**
-   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
-   * @public
-   */
-  ExecutionClass?: ExecutionClass;
-
-  /**
-   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
-   * @public
-   */
-  SourceControlDetails?: SourceControlDetails;
-
-  /**
-   * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
-   *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
-   * @public
-   */
-  MaintenanceWindow?: string;
-
-  /**
-   * <p>The name of an Glue usage profile associated with the job.</p>
-   * @public
-   */
-  ProfileName?: string;
-}
-
-/**
- * <p>Specifies information used to update an existing job definition. The previous job
- *       definition is completely overwritten by this information.</p>
- * @public
- */
-export interface JobUpdate {
-  /**
-   * <p>A mode that describes how a job was created. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
-   *             </li>
-   *          </ul>
-   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
-   * @public
-   */
-  JobMode?: JobMode;
-
-  /**
-   * <p>Description of the job being defined.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>This field is reserved for future use.</p>
-   * @public
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
-   *       (required).</p>
-   * @public
-   */
-  Role?: string;
-
-  /**
-   * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   * @public
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   * <p>The <code>JobCommand</code> that runs this job (required).</p>
-   * @public
-   */
-  Command?: JobCommand;
-
-  /**
-   * <p>The default arguments for every run of this job, specified as name-value pairs.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that Glue itself consumes.</p>
-   *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets
-   *       from a Glue Connection, Secrets Manager or other secret management
-   *       mechanism if you intend to keep them within the Job. </p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Spark jobs,
-   *      see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-   *          <p>For information about the arguments you can provide to this field when configuring Ray
-   *       jobs, see <a href="https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html">Using
-   *       job parameters in Ray jobs</a> in the developer guide.</p>
-   * @public
-   */
-  DefaultArguments?: Record<string, string>;
-
-  /**
-   * <p>Arguments for this job that are not overridden when providing job arguments
-   *       in a job run, specified as name-value pairs.</p>
-   * @public
-   */
-  NonOverridableArguments?: Record<string, string>;
-
-  /**
-   * <p>The connections used for this job.</p>
-   * @public
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   * <p>The maximum number of times to retry this job if it fails.</p>
-   * @public
-   */
-  MaxRetries?: number;
-
-  /**
-   * @deprecated
-   *
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *          <p>The number of Glue data processing units (DPUs) to allocate to this job. You can
-   *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *       page</a>.</p>
-   * @public
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
-   * @public
-   */
-  Timeout?: number;
-
-  /**
-   * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
-   *       Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is
-   *       a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB
-   *       of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">
-   *       Glue pricing page</a>.</p>
-   *          <p>For Glue version 2.0+ jobs, you cannot specify a <code>Maximum capacity</code>.
-   *       Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-   *          <p>Do not set <code>MaxCapacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
-   *       job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *         Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
-   *         The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
-   *       G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   * @public
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>Specifies the configuration properties of a job notification.</p>
-   * @public
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
-   *       that Glue available in a job. The Python version indicates the version
-   *       supported for jobs of type Spark. </p>
-   *          <p>Ray jobs should set <code>GlueVersion</code> to <code>4.0</code> or greater. However,
-   *     the versions of Ray, Python and additional libraries available in your Ray job are determined
-   *     by the <code>Runtime</code> parameter of the Job command.</p>
-   *          <p>For more information about the available Glue versions and corresponding
-   *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
-   *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   * @public
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
-   * @public
-   */
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
-
-  /**
-   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
-   * @public
-   */
-  ExecutionClass?: ExecutionClass;
-
-  /**
-   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
-   * @public
-   */
-  SourceControlDetails?: SourceControlDetails;
-
-  /**
-   * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
-   *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
-   * @public
-   */
-  MaintenanceWindow?: string;
-}
-
-/**
- * @public
- */
-export interface GetJobResponse {
-  /**
-   * <p>The requested job definition.</p>
-   * @public
-   */
-  Job?: Job;
-}
-
-/**
- * @public
- */
-export interface UpdateJobRequest {
-  /**
-   * <p>The name of the job definition to update.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>Specifies the values with which to update the job definition. Unspecified configuration is removed or reset to default values.</p>
-   * @public
-   */
-  JobUpdate: JobUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchGetJobsResponse {
-  /**
-   * <p>A list of job definitions.</p>
-   * @public
-   */
-  Jobs?: Job[];
-
-  /**
-   * <p>A list of names of jobs not found.</p>
-   * @public
-   */
-  JobsNotFound?: string[];
-}
-
-/**
- * @public
- */
-export interface GetJobsResponse {
-  /**
-   * <p>A list of job definitions.</p>
-   * @public
-   */
-  Jobs?: Job[];
-
-  /**
-   * <p>A continuation token, if not all job definitions have yet been returned.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
  * @internal
  */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+export const StatisticSummaryFilterSensitiveLog = (obj: StatisticSummary): any => ({
   ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
+  ...(obj.StatisticProperties && { StatisticProperties: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
+export const ListDataQualityStatisticsResponseFilterSensitiveLog = (obj: ListDataQualityStatisticsResponse): any => ({
   ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JobUpdateFilterSensitiveLog = (obj: JobUpdate): any => ({
-  ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-  ...(obj.Job && { Job: JobFilterSensitiveLog(obj.Job) }),
-});
-
-/**
- * @internal
- */
-export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
-  ...obj,
-  ...(obj.JobUpdate && { JobUpdate: JobUpdateFilterSensitiveLog(obj.JobUpdate) }),
-});
-
-/**
- * @internal
- */
-export const BatchGetJobsResponseFilterSensitiveLog = (obj: BatchGetJobsResponse): any => ({
-  ...obj,
-  ...(obj.Jobs && { Jobs: obj.Jobs.map((item) => JobFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetJobsResponseFilterSensitiveLog = (obj: GetJobsResponse): any => ({
-  ...obj,
-  ...(obj.Jobs && { Jobs: obj.Jobs.map((item) => JobFilterSensitiveLog(item)) }),
+  ...(obj.Statistics && { Statistics: obj.Statistics.map((item) => StatisticSummaryFilterSensitiveLog(item)) }),
 });

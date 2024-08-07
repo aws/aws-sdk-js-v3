@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
@@ -452,6 +452,92 @@ export interface AmazonRedshiftTarget {
    * @public
    */
   Inputs?: string[];
+}
+
+/**
+ * <p>A failed annotation.</p>
+ * @public
+ */
+export interface AnnotationError {
+  /**
+   * <p>The Profile ID for the failed annotation.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>The Statistic ID for the failed annotation.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The reason why the annotation failed.</p>
+   * @public
+   */
+  FailureReason?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InclusionAnnotationValue = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type InclusionAnnotationValue = (typeof InclusionAnnotationValue)[keyof typeof InclusionAnnotationValue];
+
+/**
+ * <p>A timestamped inclusion annotation.</p>
+ * @public
+ */
+export interface TimestampedInclusionAnnotation {
+  /**
+   * <p>The inclusion annotation value.</p>
+   * @public
+   */
+  Value?: InclusionAnnotationValue;
+
+  /**
+   * <p>The timestamp when the inclusion annotation was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date;
+}
+
+/**
+ * <p>A Statistic Annotation.</p>
+ * @public
+ */
+export interface StatisticAnnotation {
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The timestamp when the annotated statistic was recorded.</p>
+   * @public
+   */
+  StatisticRecordedOn?: Date;
+
+  /**
+   * <p>The inclusion annotation applied to the statistic.</p>
+   * @public
+   */
+  InclusionAnnotation?: TimestampedInclusionAnnotation;
 }
 
 /**
@@ -2606,6 +2692,12 @@ export interface MetricBasedObservation {
   MetricName?: string;
 
   /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
    * <p>An object of type <code>DataQualityMetricValues</code> representing the analysis of the data quality metric value.</p>
    * @public
    */
@@ -2686,6 +2778,12 @@ export interface DataQualityRuleResult {
    * @public
    */
   EvaluatedMetrics?: Record<string, number>;
+
+  /**
+   * <p>The evaluated rule.</p>
+   * @public
+   */
+  EvaluatedRule?: string;
 }
 
 /**
@@ -2698,6 +2796,12 @@ export interface DataQualityResult {
    * @public
    */
   ResultId?: string;
+
+  /**
+   * <p>The Profile ID for the data quality result.</p>
+   * @public
+   */
+  ProfileId?: string;
 
   /**
    * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
@@ -8626,6 +8730,58 @@ export interface BatchGetWorkflowsResponse {
 }
 
 /**
+ * <p>An Inclusion Annotation.</p>
+ * @public
+ */
+export interface DatapointInclusionAnnotation {
+  /**
+   * <p>The ID of the data quality profile the statistic belongs to.</p>
+   * @public
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string;
+
+  /**
+   * <p>The inclusion annotation value to apply to the statistic.</p>
+   * @public
+   */
+  InclusionAnnotation?: InclusionAnnotationValue;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutDataQualityStatisticAnnotationRequest {
+  /**
+   * <p>A list of <code>DatapointInclusionAnnotation</code>'s.</p>
+   * @public
+   */
+  InclusionAnnotations: DatapointInclusionAnnotation[] | undefined;
+
+  /**
+   * <p>Client Token.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutDataQualityStatisticAnnotationResponse {
+  /**
+   * <p>A list of <code>AnnotationError</code>'s.</p>
+   * @public
+   */
+  FailedInclusionAnnotations?: AnnotationError[];
+}
+
+/**
  * @public
  */
 export interface BatchStopJobRunRequest {
@@ -8978,188 +9134,51 @@ export interface CheckSchemaVersionValidityResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface CreateBlueprintRequest {
-  /**
-   * <p>The name of the blueprint.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the blueprint.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
-   * @public
-   */
-  BlueprintLocation: string | undefined;
-
-  /**
-   * <p>The tags to be applied to this blueprint.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
+export const DataQualityAnalyzerResultFilterSensitiveLog = (obj: DataQualityAnalyzerResult): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EvaluationMessage && { EvaluationMessage: SENSITIVE_STRING }),
+  ...(obj.EvaluatedMetrics && { EvaluatedMetrics: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateBlueprintResponse {
-  /**
-   * <p>Returns the name of the blueprint that was registered.</p>
-   * @public
-   */
-  Name?: string;
-}
+export const DataQualityObservationFilterSensitiveLog = (obj: DataQualityObservation): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const CsvHeaderOption = {
-  ABSENT: "ABSENT",
-  PRESENT: "PRESENT",
-  UNKNOWN: "UNKNOWN",
-} as const;
+export const DataQualityRuleResultFilterSensitiveLog = (obj: DataQualityRuleResult): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EvaluationMessage && { EvaluationMessage: SENSITIVE_STRING }),
+  ...(obj.EvaluatedMetrics && { EvaluatedMetrics: SENSITIVE_STRING }),
+  ...(obj.EvaluatedRule && { EvaluatedRule: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type CsvHeaderOption = (typeof CsvHeaderOption)[keyof typeof CsvHeaderOption];
+export const DataQualityResultFilterSensitiveLog = (obj: DataQualityResult): any => ({
+  ...obj,
+  ...(obj.RuleResults && { RuleResults: obj.RuleResults.map((item) => DataQualityRuleResultFilterSensitiveLog(item)) }),
+  ...(obj.AnalyzerResults && {
+    AnalyzerResults: obj.AnalyzerResults.map((item) => DataQualityAnalyzerResultFilterSensitiveLog(item)),
+  }),
+  ...(obj.Observations && {
+    Observations: obj.Observations.map((item) => DataQualityObservationFilterSensitiveLog(item)),
+  }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const CsvSerdeOption = {
-  LazySimpleSerDe: "LazySimpleSerDe",
-  None: "None",
-  OpenCSVSerDe: "OpenCSVSerDe",
-} as const;
-
-/**
- * @public
- */
-export type CsvSerdeOption = (typeof CsvSerdeOption)[keyof typeof CsvSerdeOption];
-
-/**
- * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
- * @public
- */
-export interface CreateCsvClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A custom symbol to denote what separates each column entry in the row.</p>
-   * @public
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
-   * @public
-   */
-  QuoteSymbol?: string;
-
-  /**
-   * <p>Indicates whether the CSV file contains a header.</p>
-   * @public
-   */
-  ContainsHeader?: CsvHeaderOption;
-
-  /**
-   * <p>A list of strings representing column names.</p>
-   * @public
-   */
-  Header?: string[];
-
-  /**
-   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   * @public
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   * <p>Enables the processing of files that contain only one column.</p>
-   * @public
-   */
-  AllowSingleColumn?: boolean;
-
-  /**
-   * <p>Enables the configuration of custom datatypes.</p>
-   * @public
-   */
-  CustomDatatypeConfigured?: boolean;
-
-  /**
-   * <p>Creates a list of supported custom datatypes.</p>
-   * @public
-   */
-  CustomDatatypes?: string[];
-
-  /**
-   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
-   * @public
-   */
-  Serde?: CsvSerdeOption;
-}
-
-/**
- * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
- *       to create.</p>
- * @public
- */
-export interface CreateGrokClassifierRequest {
-  /**
-   * <p>An identifier of the data format that the classifier matches,
-   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
-   * @public
-   */
-  Classification: string | undefined;
-
-  /**
-   * <p>The name of the new classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The grok pattern used by this classifier.</p>
-   * @public
-   */
-  GrokPattern: string | undefined;
-
-  /**
-   * <p>Optional custom grok patterns used by this classifier.</p>
-   * @public
-   */
-  CustomPatterns?: string;
-}
-
-/**
- * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
- * @public
- */
-export interface CreateJsonClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
-   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   * @public
-   */
-  JsonPath: string | undefined;
-}
+export const BatchGetDataQualityResultResponseFilterSensitiveLog = (obj: BatchGetDataQualityResultResponse): any => ({
+  ...obj,
+});

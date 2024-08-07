@@ -48,6 +48,7 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  *     DatabaseName: "STRING_VALUE", // required
  *     CatalogId: "STRING_VALUE",
  *   },
+ *   DataQualitySecurityConfiguration: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new CreateDataQualityRulesetCommand(input);

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateUsageProfileRequest, UpdateUsageProfileResponse } from "../models/models_2";
+import { UpdateUsageProfileRequest } from "../models/models_2";
+import { UpdateUsageProfileResponse } from "../models/models_3";
 import { de_UpdateUsageProfileCommand, se_UpdateUsageProfileCommand } from "../protocols/Aws_json1_1";
 
 /**

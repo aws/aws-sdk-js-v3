@@ -52,6 +52,7 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * //   CreatedOn: new Date("TIMESTAMP"),
  * //   LastModifiedOn: new Date("TIMESTAMP"),
  * //   RecommendationRunId: "STRING_VALUE",
+ * //   DataQualitySecurityConfiguration: "STRING_VALUE",
  * // };
  *
  * ```

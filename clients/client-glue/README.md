@@ -327,6 +327,14 @@ BatchGetWorkflows
 </details>
 <details>
 <summary>
+BatchPutDataQualityStatisticAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/BatchPutDataQualityStatisticAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchPutDataQualityStatisticAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchPutDataQualityStatisticAnnotationCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchStopJobRun
 </summary>
 
@@ -943,6 +951,22 @@ GetDataflowGraph
 </details>
 <details>
 <summary>
+GetDataQualityModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataQualityModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataQualityModelResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataQualityModelResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelResultCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataQualityResult
 </summary>
 
@@ -1415,6 +1439,22 @@ ListDataQualityRulesets
 </details>
 <details>
 <summary>
+ListDataQualityStatisticAnnotations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDataQualityStatisticAnnotationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticAnnotationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticAnnotationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataQualityStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDataQualityStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDevEndpoints
 </summary>
 
@@ -1515,6 +1555,14 @@ PutDataCatalogEncryptionSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataCatalogEncryptionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutDataQualityProfileAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataQualityProfileAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataQualityProfileAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataQualityProfileAnnotationCommandOutput/)
 
 </details>
 <details>

@@ -65,6 +65,10 @@ import {
 } from "../commands/BatchGetTableOptimizerCommand";
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "../commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "../commands/BatchGetWorkflowsCommand";
+import {
+  BatchPutDataQualityStatisticAnnotationCommandInput,
+  BatchPutDataQualityStatisticAnnotationCommandOutput,
+} from "../commands/BatchPutDataQualityStatisticAnnotationCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "../commands/BatchStopJobRunCommand";
 import {
   BatchUpdatePartitionCommandInput,
@@ -224,6 +228,14 @@ import {
 } from "../commands/GetDataCatalogEncryptionSettingsCommand";
 import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "../commands/GetDataflowGraphCommand";
 import {
+  GetDataQualityModelCommandInput,
+  GetDataQualityModelCommandOutput,
+} from "../commands/GetDataQualityModelCommand";
+import {
+  GetDataQualityModelResultCommandInput,
+  GetDataQualityModelResultCommandOutput,
+} from "../commands/GetDataQualityModelResultCommand";
+import {
   GetDataQualityResultCommandInput,
   GetDataQualityResultCommandOutput,
 } from "../commands/GetDataQualityResultCommand";
@@ -351,6 +363,14 @@ import {
   ListDataQualityRulesetsCommandInput,
   ListDataQualityRulesetsCommandOutput,
 } from "../commands/ListDataQualityRulesetsCommand";
+import {
+  ListDataQualityStatisticAnnotationsCommandInput,
+  ListDataQualityStatisticAnnotationsCommandOutput,
+} from "../commands/ListDataQualityStatisticAnnotationsCommand";
+import {
+  ListDataQualityStatisticsCommandInput,
+  ListDataQualityStatisticsCommandOutput,
+} from "../commands/ListDataQualityStatisticsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "../commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "../commands/ListMLTransformsCommand";
@@ -370,6 +390,10 @@ import {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "../commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  PutDataQualityProfileAnnotationCommandInput,
+  PutDataQualityProfileAnnotationCommandOutput,
+} from "../commands/PutDataQualityProfileAnnotationCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutSchemaVersionMetadataCommandInput,
@@ -533,6 +557,7 @@ import {
   BatchGetTriggersRequest,
   BatchGetWorkflowsRequest,
   BatchGetWorkflowsResponse,
+  BatchPutDataQualityStatisticAnnotationRequest,
   BatchStopJobRunRequest,
   BatchTableOptimizer,
   BatchUpdatePartitionRequest,
@@ -560,11 +585,8 @@ import {
   Crawler,
   CrawlerNodeDetails,
   CrawlerTargets,
-  CreateBlueprintRequest,
-  CreateCsvClassifierRequest,
-  CreateGrokClassifierRequest,
-  CreateJsonClassifierRequest,
   CustomCode,
+  DatapointInclusionAnnotation,
   DataQualityAnalyzerResult,
   DataQualityMetricValues,
   DataQualityObservation,
@@ -698,11 +720,13 @@ import {
   Spigot,
   SplitFields,
   SqlAlias,
+  StatisticAnnotation,
   StorageDescriptor,
   StreamingDataPreviewOptions,
   TableOptimizer,
   TableOptimizerConfiguration,
   TableOptimizerRun,
+  TimestampedInclusionAnnotation,
   TransformConfigParameter,
   Union,
   UpsertRedshiftTargetOptions,
@@ -735,14 +759,18 @@ import {
   ConnectionPropertyKey,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateBlueprintRequest,
   CreateClassifierRequest,
   CreateConnectionRequest,
   CreateCrawlerRequest,
+  CreateCsvClassifierRequest,
   CreateCustomEntityTypeRequest,
   CreateDatabaseRequest,
   CreateDataQualityRulesetRequest,
   CreateDevEndpointRequest,
   CreateDevEndpointResponse,
+  CreateGrokClassifierRequest,
+  CreateJsonClassifierRequest,
   CreateMLTransformRequest,
   CreatePartitionIndexRequest,
   CreatePartitionRequest,
@@ -845,6 +873,10 @@ import {
   GetDatabasesResponse,
   GetDataCatalogEncryptionSettingsRequest,
   GetDataflowGraphRequest,
+  GetDataQualityModelRequest,
+  GetDataQualityModelResponse,
+  GetDataQualityModelResultRequest,
+  GetDataQualityModelResultResponse,
   GetDataQualityResultRequest,
   GetDataQualityResultResponse,
   GetDataQualityRuleRecommendationRunRequest,
@@ -871,11 +903,6 @@ import {
   GetMLTaskRunsResponse,
   GetMLTransformRequest,
   GetMLTransformResponse,
-  GetMLTransformsRequest,
-  GetMLTransformsResponse,
-  GetPartitionIndexesRequest,
-  GetPartitionRequest,
-  GetPartitionResponse,
   GrokClassifier,
   IcebergInput,
   IdempotentParameterMismatchException,
@@ -884,7 +911,6 @@ import {
   Location,
   LongColumnStatisticsData,
   MappingEntry,
-  MLTransform,
   MLUserDataEncryption,
   OpenTableFormatInput,
   OperationNotSupportedException,
@@ -898,9 +924,9 @@ import {
   S3Encryption,
   SchedulerTransitioningException,
   SchemaColumn,
-  Segment,
   Session,
   SessionCommand,
+  StatisticModelResult,
   StringColumnStatisticsData,
   TableIdentifier,
   TableInput,
@@ -918,9 +944,6 @@ import {
   XMLClassifier,
 } from "../models/models_1";
 import {
-  ApplyMapping,
-  BatchGetJobsResponse,
-  CodeGenConfigurationNode,
   ColumnStatisticsError,
   ColumnStatisticsTaskNotRunningException,
   ColumnStatisticsTaskRunningException,
@@ -930,7 +953,6 @@ import {
   CrawlerNotRunningException,
   CrawlerStoppingException,
   CrawlsFilter,
-  CreateJobRequest,
   DataQualityResultDescription,
   DataQualityResultFilterCriteria,
   DataQualityRuleRecommendationRunDescription,
@@ -940,8 +962,11 @@ import {
   DataQualityRulesetFilterCriteria,
   DataQualityRulesetListDetails,
   DevEndpointCustomLibraries,
-  GetJobResponse,
-  GetJobsResponse,
+  GetMLTransformsRequest,
+  GetMLTransformsResponse,
+  GetPartitionIndexesRequest,
+  GetPartitionRequest,
+  GetPartitionResponse,
   GetPartitionsRequest,
   GetPartitionsResponse,
   GetPlanRequest,
@@ -998,8 +1023,6 @@ import {
   IllegalBlueprintStateException,
   IllegalWorkflowStateException,
   ImportCatalogToGlueRequest,
-  Job,
-  JobUpdate,
   ListBlueprintsRequest,
   ListColumnStatisticsTaskRunsRequest,
   ListCrawlersRequest,
@@ -1014,6 +1037,10 @@ import {
   ListDataQualityRulesetEvaluationRunsResponse,
   ListDataQualityRulesetsRequest,
   ListDataQualityRulesetsResponse,
+  ListDataQualityStatisticAnnotationsRequest,
+  ListDataQualityStatisticAnnotationsResponse,
+  ListDataQualityStatisticsRequest,
+  ListDataQualityStatisticsResponse,
   ListDevEndpointsRequest,
   ListJobsRequest,
   ListMLTransformsRequest,
@@ -1030,14 +1057,15 @@ import {
   ListUsageProfilesRequest,
   ListUsageProfilesResponse,
   ListWorkflowsRequest,
-  Mapping,
   MetadataKeyValuePair,
+  MLTransform,
   MLTransformNotReadyException,
   NoScheduleException,
   PermissionType,
   PermissionTypeMismatchException,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
+  PutDataQualityProfileAnnotationRequest,
   PutResourcePolicyRequest,
   PutSchemaVersionMetadataInput,
   PutWorkflowRunPropertiesRequest,
@@ -1054,6 +1082,7 @@ import {
   SearchTablesRequest,
   SearchTablesResponse,
   SecurityConfiguration,
+  Segment,
   SortCriterion,
   StartBlueprintRunRequest,
   StartColumnStatisticsTaskRunRequest,
@@ -1069,6 +1098,7 @@ import {
   StartTriggerRequest,
   StartWorkflowRunRequest,
   Statement,
+  StatisticSummary,
   StopColumnStatisticsTaskRunRequest,
   StopCrawlerRequest,
   StopCrawlerScheduleRequest,
@@ -1079,6 +1109,7 @@ import {
   Table,
   TableVersion,
   TagResourceRequest,
+  TimestampFilter,
   TriggerUpdate,
   UnfilteredPartition,
   UntagResourceRequest,
@@ -1097,7 +1128,6 @@ import {
   UpdateDevEndpointRequest,
   UpdateGrokClassifierRequest,
   UpdateJobFromSourceControlRequest,
-  UpdateJobRequest,
   UpdateJsonClassifierRequest,
   UpdateMLTransformRequest,
   UpdatePartitionRequest,
@@ -1108,13 +1138,25 @@ import {
   UpdateTableRequest,
   UpdateTriggerRequest,
   UpdateUsageProfileRequest,
-  UpdateUserDefinedFunctionRequest,
-  UpdateWorkflowRequest,
   UpdateXMLClassifierRequest,
   UsageProfileDefinition,
   UserDefinedFunction,
   VersionMismatchException,
 } from "../models/models_2";
+import {
+  ApplyMapping,
+  BatchGetJobsResponse,
+  CodeGenConfigurationNode,
+  CreateJobRequest,
+  GetJobResponse,
+  GetJobsResponse,
+  Job,
+  JobUpdate,
+  Mapping,
+  UpdateJobRequest,
+  UpdateUserDefinedFunctionRequest,
+  UpdateWorkflowRequest,
+} from "../models/models_3";
 
 /**
  * serializeAws_json1_1BatchCreatePartitionCommand
@@ -1306,6 +1348,19 @@ export const se_BatchGetWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetWorkflows");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1BatchPutDataQualityStatisticAnnotationCommand
+ */
+export const se_BatchPutDataQualityStatisticAnnotationCommand = async (
+  input: BatchPutDataQualityStatisticAnnotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchPutDataQualityStatisticAnnotation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2313,6 +2368,32 @@ export const se_GetDataflowGraphCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetDataQualityModelCommand
+ */
+export const se_GetDataQualityModelCommand = async (
+  input: GetDataQualityModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityModel");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetDataQualityModelResultCommand
+ */
+export const se_GetDataQualityModelResultCommand = async (
+  input: GetDataQualityModelResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityModelResult");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetDataQualityResultCommand
  */
 export const se_GetDataQualityResultCommand = async (
@@ -3077,6 +3158,32 @@ export const se_ListDataQualityRulesetsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListDataQualityStatisticAnnotationsCommand
+ */
+export const se_ListDataQualityStatisticAnnotationsCommand = async (
+  input: ListDataQualityStatisticAnnotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityStatisticAnnotations");
+  let body: any;
+  body = JSON.stringify(se_ListDataQualityStatisticAnnotationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListDataQualityStatisticsCommand
+ */
+export const se_ListDataQualityStatisticsCommand = async (
+  input: ListDataQualityStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityStatistics");
+  let body: any;
+  body = JSON.stringify(se_ListDataQualityStatisticsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListDevEndpointsCommand
  */
 export const se_ListDevEndpointsCommand = async (
@@ -3240,6 +3347,19 @@ export const se_PutDataCatalogEncryptionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutDataCatalogEncryptionSettings");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutDataQualityProfileAnnotationCommand
+ */
+export const se_PutDataQualityProfileAnnotationCommand = async (
+  input: PutDataQualityProfileAnnotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutDataQualityProfileAnnotation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4241,6 +4361,26 @@ export const de_BatchGetWorkflowsCommand = async (
   let contents: any = {};
   contents = de_BatchGetWorkflowsResponse(data, context);
   const response: BatchGetWorkflowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchPutDataQualityStatisticAnnotationCommand
+ */
+export const de_BatchPutDataQualityStatisticAnnotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchPutDataQualityStatisticAnnotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: BatchPutDataQualityStatisticAnnotationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5788,6 +5928,46 @@ export const de_GetDataflowGraphCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetDataQualityModelCommand
+ */
+export const de_GetDataQualityModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataQualityModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDataQualityModelResponse(data, context);
+  const response: GetDataQualityModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDataQualityModelResultCommand
+ */
+export const de_GetDataQualityModelResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataQualityModelResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDataQualityModelResultResponse(data, context);
+  const response: GetDataQualityModelResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetDataQualityResultCommand
  */
 export const de_GetDataQualityResultCommand = async (
@@ -6968,6 +7148,46 @@ export const de_ListDataQualityRulesetsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListDataQualityStatisticAnnotationsCommand
+ */
+export const de_ListDataQualityStatisticAnnotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataQualityStatisticAnnotationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDataQualityStatisticAnnotationsResponse(data, context);
+  const response: ListDataQualityStatisticAnnotationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDataQualityStatisticsCommand
+ */
+export const de_ListDataQualityStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataQualityStatisticsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDataQualityStatisticsResponse(data, context);
+  const response: ListDataQualityStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListDevEndpointsCommand
  */
 export const de_ListDevEndpointsCommand = async (
@@ -7221,6 +7441,26 @@ export const de_PutDataCatalogEncryptionSettingsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: PutDataCatalogEncryptionSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutDataQualityProfileAnnotationCommand
+ */
+export const de_PutDataQualityProfileAnnotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataQualityProfileAnnotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutDataQualityProfileAnnotationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -9107,6 +9347,8 @@ const se_BatchCreatePartitionRequest = (input: BatchCreatePartitionRequest, cont
 
 // se_BatchGetWorkflowsRequest omitted.
 
+// se_BatchPutDataQualityStatisticAnnotationRequest omitted.
+
 // se_BatchStopJobRunJobRunIdList omitted.
 
 // se_BatchStopJobRunRequest omitted.
@@ -9602,6 +9844,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 
 // se_DataLakePrincipal omitted.
 
+// se_DatapointInclusionAnnotation omitted.
+
 // se_DataQualityEvaluationRunAdditionalRunOptions omitted.
 
 /**
@@ -9940,6 +10184,10 @@ const se_FindMatchesParameters = (input: FindMatchesParameters, context: __Serde
 
 // se_GetDataflowGraphRequest omitted.
 
+// se_GetDataQualityModelRequest omitted.
+
+// se_GetDataQualityModelResultRequest omitted.
+
 // se_GetDataQualityResultRequest omitted.
 
 // se_GetDataQualityRuleRecommendationRunRequest omitted.
@@ -10188,6 +10436,8 @@ const se_GetUnfilteredTableMetadataRequest = (
 
 // se_ImportCatalogToGlueRequest omitted.
 
+// se_InclusionAnnotationList omitted.
+
 // se_JDBCConnectorOptions omitted.
 
 // se_JDBCConnectorSource omitted.
@@ -10366,6 +10616,35 @@ const se_ListDataQualityRulesetsRequest = (input: ListDataQualityRulesetsRequest
     MaxResults: [],
     NextToken: [],
     Tags: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1ListDataQualityStatisticAnnotationsRequest
+ */
+const se_ListDataQualityStatisticAnnotationsRequest = (
+  input: ListDataQualityStatisticAnnotationsRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    MaxResults: [],
+    NextToken: [],
+    ProfileId: [],
+    StatisticId: [],
+    TimestampFilter: (_) => se_TimestampFilter(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_1ListDataQualityStatisticsRequest
+ */
+const se_ListDataQualityStatisticsRequest = (input: ListDataQualityStatisticsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    MaxResults: [],
+    NextToken: [],
+    ProfileId: [],
+    StatisticId: [],
+    TimestampFilter: (_) => se_TimestampFilter(_, context),
   });
 };
 
@@ -10578,6 +10857,8 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 // se_PublicKeysList omitted.
 
 // se_PutDataCatalogEncryptionSettingsRequest omitted.
+
+// se_PutDataQualityProfileAnnotationRequest omitted.
 
 // se_PutResourcePolicyRequest omitted.
 
@@ -10882,6 +11163,16 @@ const se_TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __Serde
 
 // se_TaskRunSortCriteria omitted.
 
+/**
+ * serializeAws_json1_1TimestampFilter
+ */
+const se_TimestampFilter = (input: TimestampFilter, context: __SerdeContext): any => {
+  return take(input, {
+    RecordedAfter: (_) => _.getTime() / 1_000,
+    RecordedBefore: (_) => _.getTime() / 1_000,
+  });
+};
+
 // se_TokenUrlParametersMap omitted.
 
 // se_TransformConfigParameter omitted.
@@ -11139,6 +11430,22 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
 
 // de_AmazonRedshiftTarget omitted.
 
+// de_AnnotationError omitted.
+
+// de_AnnotationErrorList omitted.
+
+/**
+ * deserializeAws_json1_1AnnotationList
+ */
+const de_AnnotationList = (output: any, context: __SerdeContext): StatisticAnnotation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StatisticAnnotation(entry, context);
+    });
+  return retVal;
+};
+
 /**
  * deserializeAws_json1_1ApplyMapping
  */
@@ -11264,6 +11571,8 @@ const de_BatchGetWorkflowsResponse = (output: any, context: __SerdeContext): Bat
     Workflows: (_: any) => de_Workflows(_, context),
   }) as any;
 };
+
+// de_BatchPutDataQualityStatisticAnnotationResponse omitted.
 
 // de_BatchStopJobRunError omitted.
 
@@ -12185,6 +12494,7 @@ const de_DataQualityResult = (output: any, context: __SerdeContext): DataQuality
     JobName: __expectString,
     JobRunId: __expectString,
     Observations: (_: any) => de_DataQualityObservations(_, context),
+    ProfileId: __expectString,
     ResultId: __expectString,
     RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
@@ -12272,6 +12582,7 @@ const de_DataQualityRuleResult = (output: any, context: __SerdeContext): DataQua
   return take(output, {
     Description: __expectString,
     EvaluatedMetrics: (_: any) => de_EvaluatedMetricsMap(_, context),
+    EvaluatedRule: __expectString,
     EvaluationMessage: __expectString,
     Name: __expectString,
     Result: __expectString,
@@ -12867,6 +13178,31 @@ const de_GetDatabasesResponse = (output: any, context: __SerdeContext): GetDatab
 // de_GetDataflowGraphResponse omitted.
 
 /**
+ * deserializeAws_json1_1GetDataQualityModelResponse
+ */
+const de_GetDataQualityModelResponse = (output: any, context: __SerdeContext): GetDataQualityModelResponse => {
+  return take(output, {
+    CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    StartedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetDataQualityModelResultResponse
+ */
+const de_GetDataQualityModelResultResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDataQualityModelResultResponse => {
+  return take(output, {
+    CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Model: (_: any) => de_StatisticModelResults(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetDataQualityResultResponse
  */
 const de_GetDataQualityResultResponse = (output: any, context: __SerdeContext): GetDataQualityResultResponse => {
@@ -12878,6 +13214,7 @@ const de_GetDataQualityResultResponse = (output: any, context: __SerdeContext): 
     JobName: __expectString,
     JobRunId: __expectString,
     Observations: (_: any) => de_DataQualityObservations(_, context),
+    ProfileId: __expectString,
     ResultId: __expectString,
     RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
@@ -12897,6 +13234,7 @@ const de_GetDataQualityRuleRecommendationRunResponse = (
   return take(output, {
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CreatedRulesetName: __expectString,
+    DataQualitySecurityConfiguration: __expectString,
     DataSource: _json,
     ErrorString: __expectString,
     ExecutionTime: __expectInt32,
@@ -12943,6 +13281,7 @@ const de_GetDataQualityRulesetEvaluationRunResponse = (
 const de_GetDataQualityRulesetResponse = (output: any, context: __SerdeContext): GetDataQualityRulesetResponse => {
   return take(output, {
     CreatedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataQualitySecurityConfiguration: __expectString,
     Description: __expectString,
     LastModifiedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
@@ -13743,6 +14082,32 @@ const de_ListDataQualityRulesetsResponse = (output: any, context: __SerdeContext
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1ListDataQualityStatisticAnnotationsResponse
+ */
+const de_ListDataQualityStatisticAnnotationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDataQualityStatisticAnnotationsResponse => {
+  return take(output, {
+    Annotations: (_: any) => de_AnnotationList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDataQualityStatisticsResponse
+ */
+const de_ListDataQualityStatisticsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDataQualityStatisticsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Statistics: (_: any) => de_StatisticSummaryList(_, context),
+  }) as any;
+};
+
 // de_ListDevEndpointsResponse omitted.
 
 // de_ListJobsResponse omitted.
@@ -13859,6 +14224,7 @@ const de_MetricBasedObservation = (output: any, context: __SerdeContext): Metric
     MetricName: __expectString,
     MetricValues: (_: any) => de_DataQualityMetricValues(_, context),
     NewRules: _json,
+    StatisticId: __expectString,
   }) as any;
 };
 
@@ -14064,6 +14430,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 
 // de_PutDataCatalogEncryptionSettingsResponse omitted.
 
+// de_PutDataQualityProfileAnnotationResponse omitted.
+
 // de_PutResourcePolicyResponse omitted.
 
 // de_PutSchemaVersionMetadataResponse omitted.
@@ -14087,6 +14455,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_RedshiftSource omitted.
 
 // de_RedshiftTarget omitted.
+
+// de_ReferenceDatasetsList omitted.
 
 // de_RegisterSchemaVersionResponse omitted.
 
@@ -14113,6 +14483,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_ResumeWorkflowRunResponse omitted.
 
 // de_RulesetNames omitted.
+
+// de_RunIdentifier omitted.
 
 // de_RunMetrics omitted.
 
@@ -14367,6 +14739,77 @@ const de_StatementList = (output: any, context: __SerdeContext): Statement[] => 
 
 // de_StatementOutputData omitted.
 
+/**
+ * deserializeAws_json1_1StatisticAnnotation
+ */
+const de_StatisticAnnotation = (output: any, context: __SerdeContext): StatisticAnnotation => {
+  return take(output, {
+    InclusionAnnotation: (_: any) => de_TimestampedInclusionAnnotation(_, context),
+    ProfileId: __expectString,
+    StatisticId: __expectString,
+    StatisticRecordedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StatisticModelResult
+ */
+const de_StatisticModelResult = (output: any, context: __SerdeContext): StatisticModelResult => {
+  return take(output, {
+    ActualValue: __limitedParseDouble,
+    Date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InclusionAnnotation: __expectString,
+    LowerBound: __limitedParseDouble,
+    PredictedValue: __limitedParseDouble,
+    UpperBound: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StatisticModelResults
+ */
+const de_StatisticModelResults = (output: any, context: __SerdeContext): StatisticModelResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StatisticModelResult(entry, context);
+    });
+  return retVal;
+};
+
+// de_StatisticPropertiesMap omitted.
+
+/**
+ * deserializeAws_json1_1StatisticSummary
+ */
+const de_StatisticSummary = (output: any, context: __SerdeContext): StatisticSummary => {
+  return take(output, {
+    ColumnsReferenced: _json,
+    DoubleValue: __limitedParseDouble,
+    EvaluationLevel: __expectString,
+    InclusionAnnotation: (_: any) => de_TimestampedInclusionAnnotation(_, context),
+    ProfileId: __expectString,
+    RecordedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReferencedDatasets: _json,
+    RunIdentifier: _json,
+    StatisticId: __expectString,
+    StatisticName: __expectString,
+    StatisticProperties: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StatisticSummaryList
+ */
+const de_StatisticSummaryList = (output: any, context: __SerdeContext): StatisticSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StatisticSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_StopColumnStatisticsTaskRunResponse omitted.
 
 // de_StopCrawlerResponse omitted.
@@ -14533,6 +14976,16 @@ const de_TaskRunList = (output: any, context: __SerdeContext): TaskRun[] => {
 };
 
 // de_TaskRunProperties omitted.
+
+/**
+ * deserializeAws_json1_1TimestampedInclusionAnnotation
+ */
+const de_TimestampedInclusionAnnotation = (output: any, context: __SerdeContext): TimestampedInclusionAnnotation => {
+  return take(output, {
+    LastModifiedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Value: __expectString,
+  }) as any;
+};
 
 // de_TokenUrlParametersMap omitted.
 

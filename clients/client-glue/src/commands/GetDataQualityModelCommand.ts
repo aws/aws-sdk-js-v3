@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_3";
-import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_json1_1";
+import { GetDataQualityModelRequest, GetDataQualityModelResponse } from "../models/models_1";
+import { de_GetDataQualityModelCommand, se_GetDataQualityModelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,48 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateWorkflowCommand}.
+ * The input for {@link GetDataQualityModelCommand}.
  */
-export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
+export interface GetDataQualityModelCommandInput extends GetDataQualityModelRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateWorkflowCommand}.
+ * The output of {@link GetDataQualityModelCommand}.
  */
-export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __MetadataBearer {}
+export interface GetDataQualityModelCommandOutput extends GetDataQualityModelResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing workflow.</p>
+ * <p>Retrieve the training status of the model along with more information (CompletedOn, StartedOn, FailureReason).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetDataQualityModelCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetDataQualityModelCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = { // UpdateWorkflowRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DefaultRunProperties: { // WorkflowRunProperties
- *     "<keys>": "STRING_VALUE",
- *   },
- *   MaxConcurrentRuns: Number("int"),
+ * const input = { // GetDataQualityModelRequest
+ *   StatisticId: "STRING_VALUE",
+ *   ProfileId: "STRING_VALUE", // required
  * };
- * const command = new UpdateWorkflowCommand(input);
+ * const command = new GetDataQualityModelCommand(input);
  * const response = await client.send(command);
- * // { // UpdateWorkflowResponse
- * //   Name: "STRING_VALUE",
+ * // { // GetDataQualityModelResponse
+ * //   Status: "RUNNING" || "SUCCEEDED" || "FAILED",
+ * //   StartedOn: new Date("TIMESTAMP"),
+ * //   CompletedOn: new Date("TIMESTAMP"),
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
- * @returns {@link UpdateWorkflowCommandOutput}
- * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
- * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
+ * @param GetDataQualityModelCommandInput - {@link GetDataQualityModelCommandInput}
+ * @returns {@link GetDataQualityModelCommandOutput}
+ * @see {@link GetDataQualityModelCommandInput} for command's `input` shape.
+ * @see {@link GetDataQualityModelCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
- *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
@@ -77,10 +73,10 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  *
  * @public
  */
-export class UpdateWorkflowCommand extends $Command
+export class GetDataQualityModelCommand extends $Command
   .classBuilder<
-    UpdateWorkflowCommandInput,
-    UpdateWorkflowCommandOutput,
+    GetDataQualityModelCommandInput,
+    GetDataQualityModelCommandOutput,
     GlueClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +90,9 @@ export class UpdateWorkflowCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSGlue", "UpdateWorkflow", {})
-  .n("GlueClient", "UpdateWorkflowCommand")
+  .s("AWSGlue", "GetDataQualityModel", {})
+  .n("GlueClient", "GetDataQualityModelCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateWorkflowCommand)
-  .de(de_UpdateWorkflowCommand)
+  .ser(se_GetDataQualityModelCommand)
+  .de(de_GetDataQualityModelCommand)
   .build() {}

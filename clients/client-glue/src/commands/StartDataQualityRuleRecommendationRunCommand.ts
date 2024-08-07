@@ -61,6 +61,7 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  *   NumberOfWorkers: Number("int"),
  *   Timeout: Number("int"),
  *   CreatedRulesetName: "STRING_VALUE",
+ *   DataQualitySecurityConfiguration: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);

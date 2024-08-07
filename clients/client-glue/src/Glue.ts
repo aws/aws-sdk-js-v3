@@ -78,6 +78,11 @@ import {
   BatchGetWorkflowsCommandOutput,
 } from "./commands/BatchGetWorkflowsCommand";
 import {
+  BatchPutDataQualityStatisticAnnotationCommand,
+  BatchPutDataQualityStatisticAnnotationCommandInput,
+  BatchPutDataQualityStatisticAnnotationCommandOutput,
+} from "./commands/BatchPutDataQualityStatisticAnnotationCommand";
+import {
   BatchStopJobRunCommand,
   BatchStopJobRunCommandInput,
   BatchStopJobRunCommandOutput,
@@ -435,6 +440,16 @@ import {
   GetDataflowGraphCommandOutput,
 } from "./commands/GetDataflowGraphCommand";
 import {
+  GetDataQualityModelCommand,
+  GetDataQualityModelCommandInput,
+  GetDataQualityModelCommandOutput,
+} from "./commands/GetDataQualityModelCommand";
+import {
+  GetDataQualityModelResultCommand,
+  GetDataQualityModelResultCommandInput,
+  GetDataQualityModelResultCommandOutput,
+} from "./commands/GetDataQualityModelResultCommand";
+import {
   GetDataQualityResultCommand,
   GetDataQualityResultCommandInput,
   GetDataQualityResultCommandOutput,
@@ -666,6 +681,16 @@ import {
   ListDataQualityRulesetsCommandOutput,
 } from "./commands/ListDataQualityRulesetsCommand";
 import {
+  ListDataQualityStatisticAnnotationsCommand,
+  ListDataQualityStatisticAnnotationsCommandInput,
+  ListDataQualityStatisticAnnotationsCommandOutput,
+} from "./commands/ListDataQualityStatisticAnnotationsCommand";
+import {
+  ListDataQualityStatisticsCommand,
+  ListDataQualityStatisticsCommandInput,
+  ListDataQualityStatisticsCommandOutput,
+} from "./commands/ListDataQualityStatisticsCommand";
+import {
   ListDevEndpointsCommand,
   ListDevEndpointsCommandInput,
   ListDevEndpointsCommandOutput,
@@ -722,6 +747,11 @@ import {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  PutDataQualityProfileAnnotationCommand,
+  PutDataQualityProfileAnnotationCommandInput,
+  PutDataQualityProfileAnnotationCommandOutput,
+} from "./commands/PutDataQualityProfileAnnotationCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -982,6 +1012,7 @@ const commands = {
   BatchGetTableOptimizerCommand,
   BatchGetTriggersCommand,
   BatchGetWorkflowsCommand,
+  BatchPutDataQualityStatisticAnnotationCommand,
   BatchStopJobRunCommand,
   BatchUpdatePartitionCommand,
   CancelDataQualityRuleRecommendationRunCommand,
@@ -1059,6 +1090,8 @@ const commands = {
   GetDatabasesCommand,
   GetDataCatalogEncryptionSettingsCommand,
   GetDataflowGraphCommand,
+  GetDataQualityModelCommand,
+  GetDataQualityModelResultCommand,
   GetDataQualityResultCommand,
   GetDataQualityRuleRecommendationRunCommand,
   GetDataQualityRulesetCommand,
@@ -1118,6 +1151,8 @@ const commands = {
   ListDataQualityRuleRecommendationRunsCommand,
   ListDataQualityRulesetEvaluationRunsCommand,
   ListDataQualityRulesetsCommand,
+  ListDataQualityStatisticAnnotationsCommand,
+  ListDataQualityStatisticsCommand,
   ListDevEndpointsCommand,
   ListJobsCommand,
   ListMLTransformsCommand,
@@ -1131,6 +1166,7 @@ const commands = {
   ListUsageProfilesCommand,
   ListWorkflowsCommand,
   PutDataCatalogEncryptionSettingsCommand,
+  PutDataQualityProfileAnnotationCommand,
   PutResourcePolicyCommand,
   PutSchemaVersionMetadataCommand,
   PutWorkflowRunPropertiesCommand,
@@ -1435,6 +1471,23 @@ export interface Glue {
     args: BatchGetWorkflowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetWorkflowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutDataQualityStatisticAnnotationCommand}
+   */
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutDataQualityStatisticAnnotationCommandOutput>;
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    cb: (err: any, data?: BatchPutDataQualityStatisticAnnotationCommandOutput) => void
+  ): void;
+  batchPutDataQualityStatisticAnnotation(
+    args: BatchPutDataQualityStatisticAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutDataQualityStatisticAnnotationCommandOutput) => void
   ): void;
 
   /**
@@ -2590,6 +2643,40 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetDataQualityModelCommand}
+   */
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityModelCommandOutput>;
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    cb: (err: any, data?: GetDataQualityModelCommandOutput) => void
+  ): void;
+  getDataQualityModel(
+    args: GetDataQualityModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataQualityModelResultCommand}
+   */
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityModelResultCommandOutput>;
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    cb: (err: any, data?: GetDataQualityModelResultCommandOutput) => void
+  ): void;
+  getDataQualityModelResult(
+    args: GetDataQualityModelResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityModelResultCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataQualityResultCommand}
    */
   getDataQualityResult(
@@ -3448,6 +3535,42 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListDataQualityStatisticAnnotationsCommand}
+   */
+  listDataQualityStatisticAnnotations(): Promise<ListDataQualityStatisticAnnotationsCommandOutput>;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityStatisticAnnotationsCommandOutput>;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    cb: (err: any, data?: ListDataQualityStatisticAnnotationsCommandOutput) => void
+  ): void;
+  listDataQualityStatisticAnnotations(
+    args: ListDataQualityStatisticAnnotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityStatisticAnnotationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataQualityStatisticsCommand}
+   */
+  listDataQualityStatistics(): Promise<ListDataQualityStatisticsCommandOutput>;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityStatisticsCommandOutput>;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    cb: (err: any, data?: ListDataQualityStatisticsCommandOutput) => void
+  ): void;
+  listDataQualityStatistics(
+    args: ListDataQualityStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityStatisticsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDevEndpointsCommand}
    */
   listDevEndpoints(): Promise<ListDevEndpointsCommandOutput>;
@@ -3639,6 +3762,23 @@ export interface Glue {
     args: PutDataCatalogEncryptionSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDataQualityProfileAnnotationCommand}
+   */
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataQualityProfileAnnotationCommandOutput>;
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    cb: (err: any, data?: PutDataQualityProfileAnnotationCommandOutput) => void
+  ): void;
+  putDataQualityProfileAnnotation(
+    args: PutDataQualityProfileAnnotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataQualityProfileAnnotationCommandOutput) => void
   ): void;
 
   /**
