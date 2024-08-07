@@ -119,6 +119,7 @@ export const initializeWithMaximalConfiguration = () => {
     useGlobalEndpoint: false,
     signingEscapePath: false,
     bucketEndpoint: false,
+    sigv4aSigningRegionSet: [],
   };
 
   const s3 = new S3Client(config);
