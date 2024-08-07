@@ -372,7 +372,7 @@ export interface CreateDataIntegrationRequest {
   Description?: string;
 
   /**
-   * <p>The KMS key for the DataIntegration.</p>
+   * <p>The KMS key ARN for the DataIntegration.</p>
    * @public
    */
   KmsKey: string | undefined;
@@ -381,7 +381,7 @@ export interface CreateDataIntegrationRequest {
    * <p>The URI of the data source.</p>
    * @public
    */
-  SourceURI: string | undefined;
+  SourceURI?: string;
 
   /**
    * <p>The name of the data and how often it should be pulled from the source.</p>
@@ -446,7 +446,7 @@ export interface CreateDataIntegrationResponse {
   Description?: string;
 
   /**
-   * <p>The KMS key for the DataIntegration.</p>
+   * <p>The KMS key ARN for the DataIntegration.</p>
    * @public
    */
   KmsKey?: string;
@@ -489,6 +489,154 @@ export interface CreateDataIntegrationResponse {
    * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionMode = {
+  ON_DEMAND: "ON_DEMAND",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
+
+/**
+ * <p>The start and end time for data pull from the source.</p>
+ * @public
+ */
+export interface OnDemandConfiguration {
+  /**
+   * <p>The start time for data pull from the source as an Unix/epoch string in
+   *       milliseconds</p>
+   * @public
+   */
+  StartTime: string | undefined;
+
+  /**
+   * <p>The end time for data pull from the source as an Unix/epoch string in
+   *       milliseconds</p>
+   * @public
+   */
+  EndTime?: string;
+}
+
+/**
+ * <p>The configuration for how the files should be pulled from the source.</p>
+ * @public
+ */
+export interface ExecutionConfiguration {
+  /**
+   * <p>The mode for data import/export execution.</p>
+   * @public
+   */
+  ExecutionMode: ExecutionMode | undefined;
+
+  /**
+   * <p>The start and end time for data pull from the source.</p>
+   * @public
+   */
+  OnDemandConfiguration?: OnDemandConfiguration;
+
+  /**
+   * <p>The name of the data and how often it should be pulled from the source.</p>
+   * @public
+   */
+  ScheduleConfiguration?: ScheduleConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataIntegrationAssociationRequest {
+  /**
+   * <p>A unique identifier for the DataIntegration.</p>
+   * @public
+   */
+  DataIntegrationIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the client that is associated with the DataIntegration
+   *       association.</p>
+   * @public
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   * @public
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
+
+  /**
+   * <p>The URI of the data destination.</p>
+   * @public
+   */
+  DestinationURI?: string;
+
+  /**
+   * <p>The mapping of metadata to be extracted from the data.</p>
+   * @public
+   */
+  ClientAssociationMetadata?: Record<string, string>;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The configuration for how the files should be pulled from the source.</p>
+   * @public
+   */
+  ExecutionConfiguration?: ExecutionConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataIntegrationAssociationResponse {
+  /**
+   * <p>A unique identifier. for the DataIntegrationAssociation.</p>
+   * @public
+   */
+  DataIntegrationAssociationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
+   * @public
+   */
+  DataIntegrationArn?: string;
+}
+
+/**
+ * <p>The specified resource was not found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -573,28 +721,6 @@ export interface DeleteApplicationRequest {
  * @public
  */
 export interface DeleteApplicationResponse {}
-
-/**
- * <p>The specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -754,13 +880,13 @@ export interface GetDataIntegrationResponse {
   Name?: string;
 
   /**
-   * <p>The KMS key for the DataIntegration.</p>
+   * <p>The KMS key ARN for the DataIntegration.</p>
    * @public
    */
   Description?: string;
 
   /**
-   * <p>The KMS key for the DataIntegration.</p>
+   * <p>The KMS key ARN for the DataIntegration.</p>
    * @public
    */
   KmsKey?: string;
@@ -1015,6 +1141,39 @@ export interface ListDataIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * <p>The execution status of the last job.</p>
+ * @public
+ */
+export interface LastExecutionStatus {
+  /**
+   * <p>The job status enum string.</p>
+   * @public
+   */
+  ExecutionStatus?: ExecutionStatus;
+
+  /**
+   * <p>The status message of a job.</p>
+   * @public
+   */
+  StatusMessage?: string;
+}
+
+/**
  * <p>Summary information about the DataIntegration association.</p>
  * @public
  */
@@ -1037,6 +1196,24 @@ export interface DataIntegrationAssociationSummary {
    * @public
    */
   ClientId?: string;
+
+  /**
+   * <p>The URI of the data destination.</p>
+   * @public
+   */
+  DestinationURI?: string;
+
+  /**
+   * <p>The execution status of the last job.</p>
+   * @public
+   */
+  LastExecutionStatus?: LastExecutionStatus;
+
+  /**
+   * <p>The configuration for how the files should be pulled from the source.</p>
+   * @public
+   */
+  ExecutionConfiguration?: ExecutionConfiguration;
 }
 
 /**
@@ -1424,6 +1601,34 @@ export interface UpdateDataIntegrationRequest {
  * @public
  */
 export interface UpdateDataIntegrationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDataIntegrationAssociationRequest {
+  /**
+   * <p>A unique identifier for the DataIntegration.</p>
+   * @public
+   */
+  DataIntegrationIdentifier: string | undefined;
+
+  /**
+   * <p>A unique identifier. of the DataIntegrationAssociation resource</p>
+   * @public
+   */
+  DataIntegrationAssociationIdentifier: string | undefined;
+
+  /**
+   * <p>The configuration for how the files should be pulled from the source.</p>
+   * @public
+   */
+  ExecutionConfiguration: ExecutionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataIntegrationAssociationResponse {}
 
 /**
  * @public

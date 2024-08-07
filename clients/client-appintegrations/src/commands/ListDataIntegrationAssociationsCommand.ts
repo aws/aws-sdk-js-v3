@@ -58,6 +58,23 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * //       DataIntegrationAssociationArn: "STRING_VALUE",
  * //       DataIntegrationArn: "STRING_VALUE",
  * //       ClientId: "STRING_VALUE",
+ * //       DestinationURI: "STRING_VALUE",
+ * //       LastExecutionStatus: { // LastExecutionStatus
+ * //         ExecutionStatus: "COMPLETED" || "IN_PROGRESS" || "FAILED",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //       ExecutionConfiguration: { // ExecutionConfiguration
+ * //         ExecutionMode: "ON_DEMAND" || "SCHEDULED", // required
+ * //         OnDemandConfiguration: { // OnDemandConfiguration
+ * //           StartTime: "STRING_VALUE", // required
+ * //           EndTime: "STRING_VALUE",
+ * //         },
+ * //         ScheduleConfiguration: { // ScheduleConfiguration
+ * //           FirstExecutionFrom: "STRING_VALUE",
+ * //           Object: "STRING_VALUE",
+ * //           ScheduleExpression: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

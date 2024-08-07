@@ -44,7 +44,7 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   KmsKey: "STRING_VALUE", // required
- *   SourceURI: "STRING_VALUE", // required
+ *   SourceURI: "STRING_VALUE",
  *   ScheduleConfig: { // ScheduleConfiguration
  *     FirstExecutionFrom: "STRING_VALUE",
  *     Object: "STRING_VALUE",

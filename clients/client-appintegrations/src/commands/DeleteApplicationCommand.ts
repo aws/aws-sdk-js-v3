@@ -28,7 +28,8 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Application. Only Applications that don't have any Application Associations can be deleted.</p>
+ * <p>Deletes the Application. Only Applications that don't have any Application Associations
+ *       can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

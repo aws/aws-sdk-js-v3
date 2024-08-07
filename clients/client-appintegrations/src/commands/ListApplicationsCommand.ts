@@ -28,8 +28,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release and subject to change.</p>
- *          <p>Lists applications in the account.</p>
+ * <p>Lists applications in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

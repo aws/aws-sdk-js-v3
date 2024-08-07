@@ -28,8 +28,7 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release and subject to change.</p>
- *          <p>Updates and persists an Application resource.</p>
+ * <p>Updates and persists an Application resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

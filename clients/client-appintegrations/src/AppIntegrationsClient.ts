@@ -55,6 +55,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
+  CreateDataIntegrationAssociationCommandInput,
+  CreateDataIntegrationAssociationCommandOutput,
+} from "./commands/CreateDataIntegrationAssociationCommand";
+import {
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
 } from "./commands/CreateDataIntegrationCommand";
@@ -106,6 +110,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
+  UpdateDataIntegrationAssociationCommandInput,
+  UpdateDataIntegrationAssociationCommandOutput,
+} from "./commands/UpdateDataIntegrationAssociationCommand";
+import {
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
 } from "./commands/UpdateDataIntegrationCommand";
@@ -129,6 +137,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateApplicationCommandInput
+  | CreateDataIntegrationAssociationCommandInput
   | CreateDataIntegrationCommandInput
   | CreateEventIntegrationCommandInput
   | DeleteApplicationCommandInput
@@ -147,6 +156,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
+  | UpdateDataIntegrationAssociationCommandInput
   | UpdateDataIntegrationCommandInput
   | UpdateEventIntegrationCommandInput;
 
@@ -155,6 +165,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
+  | CreateDataIntegrationAssociationCommandOutput
   | CreateDataIntegrationCommandOutput
   | CreateEventIntegrationCommandOutput
   | DeleteApplicationCommandOutput
@@ -173,6 +184,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
+  | UpdateDataIntegrationAssociationCommandOutput
   | UpdateDataIntegrationCommandOutput
   | UpdateEventIntegrationCommandOutput;
 
@@ -348,13 +360,40 @@ export type AppIntegrationsClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface AppIntegrationsClientResolvedConfig extends AppIntegrationsClientResolvedConfigType {}
 
 /**
- * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+ *             data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
  *       applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see
- *         <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
- *         integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents
- *         using Amazon Connect Wisdom</a> in the <i>Amazon Connect Administrator
- *         Guide</i>.</p>
+ *       the following topics in the <i>Amazon Connect Administrator
+ *       Guide</i>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/3p-apps.html">Third-party
+ *             applications (3p apps) in the agent workspace</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html">Use
+ *             Amazon Q in Connect for generative AI–powered agent assistance in
+ *           real-time</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export class AppIntegrationsClient extends __Client<

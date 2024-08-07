@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./CreateApplicationCommand";
+export * from "./CreateDataIntegrationAssociationCommand";
 export * from "./CreateDataIntegrationCommand";
 export * from "./CreateEventIntegrationCommand";
 export * from "./DeleteApplicationCommand";
@@ -18,5 +19,6 @@ export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateApplicationCommand";
+export * from "./UpdateDataIntegrationAssociationCommand";
 export * from "./UpdateDataIntegrationCommand";
 export * from "./UpdateEventIntegrationCommand";
