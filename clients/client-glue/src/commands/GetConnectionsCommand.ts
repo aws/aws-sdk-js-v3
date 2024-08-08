@@ -41,7 +41,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA",
  *   },
  *   HidePassword: true || false,
  *   NextToken: "STRING_VALUE",
@@ -54,7 +54,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * //     { // Connection
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
+ * //       ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA",
  * //       MatchCriteria: [ // MatchCriteria
  * //         "STRING_VALUE",
  * //       ],

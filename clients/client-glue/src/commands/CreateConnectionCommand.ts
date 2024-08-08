@@ -41,7 +41,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *   ConnectionInput: { // ConnectionInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE", // required
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA", // required
  *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],

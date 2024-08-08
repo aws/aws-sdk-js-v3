@@ -990,13 +990,9 @@ import {
   GetTableOptimizerRequest,
   GetTableOptimizerResponse,
   GetTableRequest,
-  GetTableResponse,
   GetTablesRequest,
-  GetTablesResponse,
   GetTableVersionRequest,
-  GetTableVersionResponse,
   GetTableVersionsRequest,
-  GetTableVersionsResponse,
   GetTagsRequest,
   GetTriggerRequest,
   GetTriggersRequest,
@@ -1005,7 +1001,6 @@ import {
   GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
   GetUnfilteredTableMetadataRequest,
-  GetUnfilteredTableMetadataResponse,
   GetUsageProfileRequest,
   GetUsageProfileResponse,
   GetUserDefinedFunctionRequest,
@@ -1080,7 +1075,6 @@ import {
   SchedulerRunningException,
   SchemaVersionNumber,
   SearchTablesRequest,
-  SearchTablesResponse,
   SecurityConfiguration,
   Segment,
   SortCriterion,
@@ -1106,8 +1100,6 @@ import {
   StopTriggerRequest,
   StopWorkflowRunRequest,
   SupportedDialect,
-  Table,
-  TableVersion,
   TagResourceRequest,
   TimestampFilter,
   TriggerUpdate,
@@ -1138,10 +1130,13 @@ import {
   UpdateTableRequest,
   UpdateTriggerRequest,
   UpdateUsageProfileRequest,
+  UpdateUserDefinedFunctionRequest,
+  UpdateWorkflowRequest,
   UpdateXMLClassifierRequest,
   UsageProfileDefinition,
   UserDefinedFunction,
   VersionMismatchException,
+  ViewValidation,
 } from "../models/models_2";
 import {
   ApplyMapping,
@@ -1150,12 +1145,20 @@ import {
   CreateJobRequest,
   GetJobResponse,
   GetJobsResponse,
+  GetTableResponse,
+  GetTablesResponse,
+  GetTableVersionResponse,
+  GetTableVersionsResponse,
+  GetUnfilteredTableMetadataResponse,
   Job,
   JobUpdate,
   Mapping,
+  SearchTablesResponse,
+  StatusDetails,
+  Table,
+  TableStatus,
+  TableVersion,
   UpdateJobRequest,
-  UpdateUserDefinedFunctionRequest,
-  UpdateWorkflowRequest,
 } from "../models/models_3";
 
 /**
@@ -10296,6 +10299,7 @@ const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): an
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
+    IncludeStatusDetails: [],
     Name: [],
     QueryAsOfTime: (_) => _.getTime() / 1_000,
     TransactionId: [],
@@ -10310,6 +10314,7 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
     CatalogId: [],
     DatabaseName: [],
     Expression: [],
+    IncludeStatusDetails: [],
     MaxResults: [],
     NextToken: [],
     QueryAsOfTime: (_) => _.getTime() / 1_000,
@@ -14810,6 +14815,16 @@ const de_StatisticSummaryList = (output: any, context: __SerdeContext): Statisti
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1StatusDetails
+ */
+const de_StatusDetails = (output: any, context: __SerdeContext): StatusDetails => {
+  return take(output, {
+    RequestedChange: (_: any) => de_Table(_, context),
+    ViewValidations: (_: any) => de_ViewValidationList(_, context),
+  }) as any;
+};
+
 // de_StopColumnStatisticsTaskRunResponse omitted.
 
 // de_StopCrawlerResponse omitted.
@@ -14860,6 +14875,7 @@ const de_Table = (output: any, context: __SerdeContext): Table => {
     Parameters: _json,
     PartitionKeys: _json,
     Retention: __expectInt32,
+    Status: (_: any) => de_TableStatus(_, context),
     StorageDescriptor: _json,
     TableType: __expectString,
     TargetTable: _json,
@@ -14925,6 +14941,22 @@ const de_TableOptimizerRuns = (output: any, context: __SerdeContext): TableOptim
       return de_TableOptimizerRun(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1TableStatus
+ */
+const de_TableStatus = (output: any, context: __SerdeContext): TableStatus => {
+  return take(output, {
+    Action: __expectString,
+    Details: (_: any) => de_StatusDetails(_, context),
+    Error: _json,
+    RequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestedBy: __expectString,
+    State: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+  }) as any;
 };
 
 /**
@@ -15191,6 +15223,32 @@ const de_UserDefinedFunctionList = (output: any, context: __SerdeContext): UserD
 // de_ViewRepresentationList omitted.
 
 // de_ViewSubObjectsList omitted.
+
+/**
+ * deserializeAws_json1_1ViewValidation
+ */
+const de_ViewValidation = (output: any, context: __SerdeContext): ViewValidation => {
+  return take(output, {
+    Dialect: __expectString,
+    DialectVersion: __expectString,
+    Error: _json,
+    State: __expectString,
+    UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ViewValidationText: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ViewValidationList
+ */
+const de_ViewValidationList = (output: any, context: __SerdeContext): ViewValidation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ViewValidation(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1Workflow

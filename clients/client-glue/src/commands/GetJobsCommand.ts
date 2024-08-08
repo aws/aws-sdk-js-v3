@@ -308,6 +308,9 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //             Inputs: [ // required
  * //               "STRING_VALUE",
  * //             ],
+ * //             PartitionKeys: [ // GlueStudioPathList
+ * //               "<EnclosedInStringProperties>",
+ * //             ],
  * //             Database: "STRING_VALUE", // required
  * //             Table: "STRING_VALUE", // required
  * //           },
@@ -333,7 +336,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //             Inputs: [ // required
  * //               "STRING_VALUE",
  * //             ],
- * //             PartitionKeys: [ // GlueStudioPathList
+ * //             PartitionKeys: [
  * //               "<EnclosedInStringProperties>",
  * //             ],
  * //             Table: "STRING_VALUE", // required
@@ -407,9 +410,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //           DropFields: { // DropFields
  * //             Name: "STRING_VALUE", // required
  * //             Inputs: "<OneInput>", // required
- * //             Paths: [ // required
- * //               "<EnclosedInStringProperties>",
- * //             ],
+ * //             Paths: "<GlueStudioPathList>", // required
  * //           },
  * //           RenameField: { // RenameField
  * //             Name: "STRING_VALUE", // required

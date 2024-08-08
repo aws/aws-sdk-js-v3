@@ -299,6 +299,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
+ *           PartitionKeys: [ // GlueStudioPathList
+ *             "<EnclosedInStringProperties>",
+ *           ],
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
@@ -324,7 +327,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
- *           PartitionKeys: [ // GlueStudioPathList
+ *           PartitionKeys: [
  *             "<EnclosedInStringProperties>",
  *           ],
  *           Table: "STRING_VALUE", // required
@@ -398,9 +401,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *         DropFields: { // DropFields
  *           Name: "STRING_VALUE", // required
  *           Inputs: "<OneInput>", // required
- *           Paths: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
+ *           Paths: "<GlueStudioPathList>", // required
  *         },
  *         RenameField: { // RenameField
  *           Name: "STRING_VALUE", // required

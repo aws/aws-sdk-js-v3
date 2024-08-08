@@ -299,6 +299,7 @@ export interface CreateClassifierResponse {}
  * @enum
  */
 export const ConnectionPropertyKey = {
+  CLUSTER_IDENTIFIER: "CLUSTER_IDENTIFIER",
   CONFIG_FILES: "CONFIG_FILES",
   CONNECTION_URL: "CONNECTION_URL",
   CONNECTOR_CLASS_NAME: "CONNECTOR_CLASS_NAME",
@@ -306,6 +307,7 @@ export const ConnectionPropertyKey = {
   CONNECTOR_URL: "CONNECTOR_URL",
   CUSTOM_JDBC_CERT: "CUSTOM_JDBC_CERT",
   CUSTOM_JDBC_CERT_STRING: "CUSTOM_JDBC_CERT_STRING",
+  DATABASE: "DATABASE",
   ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
   ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
   ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD: "ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD",
@@ -338,10 +340,12 @@ export const ConnectionPropertyKey = {
   KAFKA_SSL_ENABLED: "KAFKA_SSL_ENABLED",
   PASSWORD: "PASSWORD",
   PORT: "PORT",
+  REGION: "REGION",
   ROLE_ARN: "ROLE_ARN",
   SECRET_ID: "SECRET_ID",
   SKIP_CUSTOM_JDBC_CERT_VALIDATION: "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
   USER_NAME: "USERNAME",
+  WORKGROUP_NAME: "WORKGROUP_NAME",
 } as const;
 
 /**
@@ -362,6 +366,8 @@ export const ConnectionType = {
   NETWORK: "NETWORK",
   SALESFORCE: "SALESFORCE",
   SFTP: "SFTP",
+  VIEW_VALIDATION_ATHENA: "VIEW_VALIDATION_ATHENA",
+  VIEW_VALIDATION_REDSHIFT: "VIEW_VALIDATION_REDSHIFT",
 } as const;
 
 /**
@@ -478,6 +484,14 @@ export interface ConnectionInput {
    *                      <p>Requires the <code>AuthenticationConfiguration</code> member to be configured.</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIEW_VALIDATION_REDSHIFT</code> - Designates a connection used for view validation by Amazon Redshift.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIEW_VALIDATION_ATHENA</code> - Designates a connection used for view validation by Amazon Athena.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5665,6 +5679,26 @@ export interface Connection {
    *             <li>
    *                <p>
    *                   <code>KAFKA_SASL_GSSAPI_PRINCIPAL</code> - The name of the Kerberos princial used by Glue. For more information, see <a href="https://kafka.apache.org/documentation/#security_sasl_kerberos_clientconfig">Kafka Documentation: Configuring Kafka Brokers</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROLE_ARN</code> - The role to be used for running queries.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REGION</code> - The Amazon Web Services Region where queries will be run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WORKGROUP_NAME</code> - The name of an Amazon Redshift serverless workgroup or Amazon Athena workgroup in which queries will run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLUSTER_IDENTIFIER</code> - The cluster identifier of an Amazon Redshift cluster in which queries will run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATABASE</code> - The Amazon Redshift database that you are connecting to.</p>
    *             </li>
    *          </ul>
    * @public

@@ -6,7 +6,6 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 import {
   Action,
   AuditContext,
-  Column,
   CrawlerTargets,
   CustomEntityType,
   DataFormat,
@@ -29,7 +28,6 @@ import {
   SourceControlAuthStrategy,
   SourceControlProvider,
   StatisticAnnotation,
-  StorageDescriptor,
   TableOptimizer,
   TableOptimizerConfiguration,
   TableOptimizerRun,
@@ -70,13 +68,13 @@ import {
   SchemaStatus,
   SchemaVersionStatus,
   Session,
-  TableIdentifier,
   TableInput,
   TransformEncryption,
   TransformFilterCriteria,
   TransformParameters,
   TransformSortCriteria,
   TransformStatusType,
+  UserDefinedFunctionInput,
   ViewDialect,
 } from "./models_1";
 
@@ -1585,6 +1583,12 @@ export interface GetTableRequest {
    * @public
    */
   QueryAsOfTime?: Date;
+
+  /**
+   * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
+   * @public
+   */
+  IncludeStatusDetails?: boolean;
 }
 
 /**
@@ -1609,6 +1613,79 @@ export interface FederatedTable {
    * @public
    */
   ConnectionName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAction = {
+  CREATE: "CREATE",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceAction = (typeof ResourceAction)[keyof typeof ResourceAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceState = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  STOPPED: "STOPPED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceState = (typeof ResourceState)[keyof typeof ResourceState];
+
+/**
+ * <p>A structure that contains information for an analytical engine to validate a view, prior to persisting the view metadata. Used in the case of direct <code>UpdateTable</code> or <code>CreateTable</code> API calls.</p>
+ * @public
+ */
+export interface ViewValidation {
+  /**
+   * <p>The dialect of the query engine.</p>
+   * @public
+   */
+  Dialect?: ViewDialect;
+
+  /**
+   * <p>The version of the dialect of the query engine. For example, 3.0.0.</p>
+   * @public
+   */
+  DialectVersion?: string;
+
+  /**
+   * <p>The <code>SELECT</code> query that defines the view, as provided by the customer.</p>
+   * @public
+   */
+  ViewValidationText?: string;
+
+  /**
+   * <p>The time of the last update.</p>
+   * @public
+   */
+  UpdateTime?: Date;
+
+  /**
+   * <p>The state of the validation.</p>
+   * @public
+   */
+  State?: ResourceState;
+
+  /**
+   * <p>An error associated with the validation.</p>
+   * @public
+   */
+  Error?: ErrorDetail;
 }
 
 /**
@@ -1687,188 +1764,6 @@ export interface ViewDefinition {
    * @public
    */
   Representations?: ViewRepresentation[];
-}
-
-/**
- * <p>Represents a collection of related data organized in columns and rows.</p>
- * @public
- */
-export interface Table {
-  /**
-   * <p>The table name. For Hive compatibility, this must be entirely
-   *       lowercase.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The name of the database where the table metadata resides.
-   *       For Hive compatibility, this must be all lowercase.</p>
-   * @public
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>A description of the table.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The owner of the table.</p>
-   * @public
-   */
-  Owner?: string;
-
-  /**
-   * <p>The time when the table definition was created in the Data Catalog.</p>
-   * @public
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The last time that the table was updated.</p>
-   * @public
-   */
-  UpdateTime?: Date;
-
-  /**
-   * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
-   *       be reliable.</p>
-   * @public
-   */
-  LastAccessTime?: Date;
-
-  /**
-   * <p>The last time that column statistics were computed for this table.</p>
-   * @public
-   */
-  LastAnalyzedTime?: Date;
-
-  /**
-   * <p>The retention time for this table.</p>
-   * @public
-   */
-  Retention?: number;
-
-  /**
-   * <p>A storage descriptor containing information about the physical storage
-   *       of this table.</p>
-   * @public
-   */
-  StorageDescriptor?: StorageDescriptor;
-
-  /**
-   * <p>A list of columns by which the table is partitioned. Only primitive
-   *       types are supported as partition keys.</p>
-   *          <p>When you create a table used by Amazon Athena, and you do not specify any
-   *         <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to
-   *       an empty list. For example:</p>
-   *          <p>
-   *             <code>"PartitionKeys": []</code>
-   *          </p>
-   * @public
-   */
-  PartitionKeys?: Column[];
-
-  /**
-   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
-   *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
-   * @public
-   */
-  ViewOriginalText?: string;
-
-  /**
-   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
-   * @public
-   */
-  ViewExpandedText?: string;
-
-  /**
-   * <p>The type of this table.
-   *       Glue will create tables with the <code>EXTERNAL_TABLE</code> type.
-   *       Other services, such as Athena, may create tables with additional table types.
-   *     </p>
-   *          <p>Glue related table types:</p>
-   *          <dl>
-   *             <dt>EXTERNAL_TABLE</dt>
-   *             <dd>
-   *                <p>Hive compatible attribute - indicates a non-Hive managed table.</p>
-   *             </dd>
-   *             <dt>GOVERNED</dt>
-   *             <dd>
-   *                <p>Used by Lake Formation.
-   *             The Glue Data Catalog understands <code>GOVERNED</code>.</p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  TableType?: string;
-
-  /**
-   * <p>These key-value pairs define properties associated with the table.</p>
-   * @public
-   */
-  Parameters?: Record<string, string>;
-
-  /**
-   * <p>The person or entity who created the table.</p>
-   * @public
-   */
-  CreatedBy?: string;
-
-  /**
-   * <p>Indicates whether the table has been registered with Lake Formation.</p>
-   * @public
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-
-  /**
-   * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
-   * @public
-   */
-  TargetTable?: TableIdentifier;
-
-  /**
-   * <p>The ID of the Data Catalog in which the table resides.</p>
-   * @public
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The ID of the table version.</p>
-   * @public
-   */
-  VersionId?: string;
-
-  /**
-   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
-   * @public
-   */
-  FederatedTable?: FederatedTable;
-
-  /**
-   * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
-   * @public
-   */
-  ViewDefinition?: ViewDefinition;
-
-  /**
-   * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
-   * @public
-   */
-  IsMultiDialectView?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetTableResponse {
-  /**
-   * <p>The <code>Table</code> object that defines the specified table.</p>
-   * @public
-   */
-  Table?: Table;
 }
 
 /**
@@ -1977,24 +1872,12 @@ export interface GetTablesRequest {
    * @public
    */
   QueryAsOfTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetTablesResponse {
-  /**
-   * <p>A list of the requested <code>Table</code> objects.</p>
-   * @public
-   */
-  TableList?: Table[];
 
   /**
-   * <p>A continuation token, present if the current list segment is
-   *       not the last.</p>
+   * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
-  NextToken?: string;
+  IncludeStatusDetails?: boolean;
 }
 
 /**
@@ -2027,35 +1910,6 @@ export interface GetTableVersionRequest {
    * @public
    */
   VersionId?: string;
-}
-
-/**
- * <p>Specifies a version of a table.</p>
- * @public
- */
-export interface TableVersion {
-  /**
-   * <p>The table in question.</p>
-   * @public
-   */
-  Table?: Table;
-
-  /**
-   * <p>The ID value that identifies this table version. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
-   * @public
-   */
-  VersionId?: string;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionResponse {
-  /**
-   * <p>The requested table version.</p>
-   * @public
-   */
-  TableVersion?: TableVersion;
 }
 
 /**
@@ -2094,25 +1948,6 @@ export interface GetTableVersionsRequest {
    * @public
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionsResponse {
-  /**
-   * <p>A list of strings identifying available versions of the
-   *       specified table.</p>
-   * @public
-   */
-  TableVersions?: TableVersion[];
-
-  /**
-   * <p>A continuation token, if the list of available versions does
-   *       not include the last one.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**
@@ -2696,72 +2531,6 @@ export interface ColumnRowFilter {
    * @public
    */
   RowFilterExpression?: string;
-}
-
-/**
- * @public
- */
-export interface GetUnfilteredTableMetadataResponse {
-  /**
-   * <p>A Table object containing the table metadata.</p>
-   * @public
-   */
-  Table?: Table;
-
-  /**
-   * <p>A list of column names that the user has been granted access to.</p>
-   * @public
-   */
-  AuthorizedColumns?: string[];
-
-  /**
-   * <p>A Boolean value that indicates whether the partition location is registered
-   *           with Lake Formation.</p>
-   * @public
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-
-  /**
-   * <p>A list of column row filters.</p>
-   * @public
-   */
-  CellFilters?: ColumnRowFilter[];
-
-  /**
-   * <p>A cryptographically generated query identifier generated by Glue or Lake Formation.</p>
-   * @public
-   */
-  QueryAuthorizationId?: string;
-
-  /**
-   * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
-   * @public
-   */
-  IsMultiDialectView?: boolean;
-
-  /**
-   * <p>The resource ARN of the parent resource extracted from the request.</p>
-   * @public
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>A flag that instructs the engine not to push user-provided operations into the logical plan of the view during query planning. However, if set this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
-   * @public
-   */
-  IsProtected?: boolean;
-
-  /**
-   * <p>The Lake Formation data permissions of the caller on the table. Used to authorize the call when no view context is found.</p>
-   * @public
-   */
-  Permissions?: Permission[];
-
-  /**
-   * <p>The filter that applies to the table. For example when applying the filter in SQL, it would go in the <code>WHERE</code> clause and can be evaluated by using an <code>AND</code> operator with any other predicates applied by the user querying the table.</p>
-   * @public
-   */
-  RowFilter?: string;
 }
 
 /**
@@ -5650,23 +5419,12 @@ export interface SearchTablesRequest {
    * @public
    */
   ResourceShareType?: ResourceShareType;
-}
-
-/**
- * @public
- */
-export interface SearchTablesResponse {
-  /**
-   * <p>A continuation token, present if the current list segment is not the last.</p>
-   * @public
-   */
-  NextToken?: string;
 
   /**
-   * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
+   * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
-  TableList?: Table[];
+  IncludeStatusDetails?: boolean;
 }
 
 /**
@@ -7951,6 +7709,94 @@ export interface UpdateUsageProfileRequest {
    * @public
    */
   Configuration: ProfileConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUsageProfileResponse {
+  /**
+   * <p>The name of the usage profile that was updated.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserDefinedFunctionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the function to be updated is
+   *       located.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A <code>FunctionInput</code> object that redefines the function in the Data
+   *       Catalog.</p>
+   * @public
+   */
+  FunctionInput: UserDefinedFunctionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserDefinedFunctionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateWorkflowRequest {
+  /**
+   * <p>Name of the workflow to be updated.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the workflow.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   * @public
+   */
+  DefaultRunProperties?: Record<string, string>;
+
+  /**
+   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+   * @public
+   */
+  MaxConcurrentRuns?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkflowResponse {
+  /**
+   * <p>The name of the workflow which was specified in input.</p>
+   * @public
+   */
+  Name?: string;
 }
 
 /**

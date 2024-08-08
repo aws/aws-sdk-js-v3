@@ -301,6 +301,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Inputs: [ // required
  *           "STRING_VALUE",
  *         ],
+ *         PartitionKeys: [ // GlueStudioPathList
+ *           "<EnclosedInStringProperties>",
+ *         ],
  *         Database: "STRING_VALUE", // required
  *         Table: "STRING_VALUE", // required
  *       },
@@ -326,7 +329,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Inputs: [ // required
  *           "STRING_VALUE",
  *         ],
- *         PartitionKeys: [ // GlueStudioPathList
+ *         PartitionKeys: [
  *           "<EnclosedInStringProperties>",
  *         ],
  *         Table: "STRING_VALUE", // required
@@ -400,9 +403,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       DropFields: { // DropFields
  *         Name: "STRING_VALUE", // required
  *         Inputs: "<OneInput>", // required
- *         Paths: [ // required
- *           "<EnclosedInStringProperties>",
- *         ],
+ *         Paths: "<GlueStudioPathList>", // required
  *       },
  *       RenameField: { // RenameField
  *         Name: "STRING_VALUE", // required

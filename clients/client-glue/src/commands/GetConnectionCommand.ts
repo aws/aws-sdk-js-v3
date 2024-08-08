@@ -46,7 +46,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //   Connection: { // Connection
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
+ * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA",
  * //     MatchCriteria: [ // MatchCriteria
  * //       "STRING_VALUE",
  * //     ],

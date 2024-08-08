@@ -3664,6 +3664,12 @@ export interface BasicCatalogTarget {
   Inputs: string[] | undefined;
 
   /**
+   * <p>The partition keys used to distribute data across multiple partitions or shards based on a specific key or set of key.</p>
+   * @public
+   */
+  PartitionKeys?: string[][];
+
+  /**
    * <p>The database that contains the table you want to use as the target. This database must already exist in the Data Catalog.</p>
    * @public
    */
