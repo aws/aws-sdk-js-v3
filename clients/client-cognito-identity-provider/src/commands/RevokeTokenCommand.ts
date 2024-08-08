@@ -10,7 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog, RevokeTokenResponse } from "../models/models_0";
+import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog } from "../models/models_0";
+import { RevokeTokenResponse } from "../models/models_1";
 import { de_RevokeTokenCommand, se_RevokeTokenCommand } from "../protocols/Aws_json1_1";
 
 /**

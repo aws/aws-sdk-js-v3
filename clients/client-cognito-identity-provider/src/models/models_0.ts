@@ -3648,6 +3648,39 @@ export interface AdminUserGlobalSignOutResponse {}
  * @public
  * @enum
  */
+export const AdvancedSecurityEnabledModeType = {
+  AUDIT: "AUDIT",
+  ENFORCED: "ENFORCED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedSecurityEnabledModeType =
+  (typeof AdvancedSecurityEnabledModeType)[keyof typeof AdvancedSecurityEnabledModeType];
+
+/**
+ * <p>Advanced security configuration options for additional authentication types
+ *             in your user pool, including custom authentication and refresh-token
+ *             authentication.
+ *         </p>
+ * @public
+ */
+export interface AdvancedSecurityAdditionalFlowsType {
+  /**
+   * <p>The operating mode of advanced security features in custom authentication with
+   *             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">
+   *                 Custom authentication challenge Lambda triggers</a>.
+   *         </p>
+   * @public
+   */
+  CustomAuthMode?: AdvancedSecurityEnabledModeType;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AdvancedSecurityModeType = {
   AUDIT: "AUDIT",
   ENFORCED: "ENFORCED",
@@ -5502,10 +5535,22 @@ export interface UsernameConfigurationType {
  */
 export interface UserPoolAddOnsType {
   /**
-   * <p>The operating mode of advanced security features in your user pool.</p>
+   * <p>The operating mode of advanced security features for standard authentication types
+   *             in your user pool, including username-password and secure remote password (SRP)
+   *             authentication.
+   *         </p>
    * @public
    */
   AdvancedSecurityMode: AdvancedSecurityModeType | undefined;
+
+  /**
+   * <p>Advanced security configuration options for additional authentication types
+   *             in your user pool, including custom authentication and refresh-token
+   *             authentication.
+   *         </p>
+   * @public
+   */
+  AdvancedSecurityAdditionalFlows?: AdvancedSecurityAdditionalFlowsType;
 }
 
 /**
@@ -9660,32 +9705,6 @@ export interface RevokeTokenRequest {
    * @public
    */
   ClientSecret?: string;
-}
-
-/**
- * @public
- */
-export interface RevokeTokenResponse {}
-
-/**
- * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
- *             invalid access token in the request.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
 }
 
 /**

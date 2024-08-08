@@ -187,6 +187,9 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //     },
  * //     UserPoolAddOns: { // UserPoolAddOnsType
  * //       AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ * //       AdvancedSecurityAdditionalFlows: { // AdvancedSecurityAdditionalFlowsType
+ * //         CustomAuthMode: "AUDIT" || "ENFORCED",
+ * //       },
  * //     },
  * //     UsernameConfiguration: { // UsernameConfigurationType
  * //       CaseSensitive: true || false, // required

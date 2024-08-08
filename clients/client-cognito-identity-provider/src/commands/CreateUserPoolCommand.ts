@@ -193,6 +193,9 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *   ],
  *   UserPoolAddOns: { // UserPoolAddOnsType
  *     AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ *     AdvancedSecurityAdditionalFlows: { // AdvancedSecurityAdditionalFlowsType
+ *       CustomAuthMode: "AUDIT" || "ENFORCED",
+ *     },
  *   },
  *   UsernameConfiguration: { // UsernameConfigurationType
  *     CaseSensitive: true || false, // required
@@ -331,6 +334,9 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //     },
  * //     UserPoolAddOns: { // UserPoolAddOnsType
  * //       AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ * //       AdvancedSecurityAdditionalFlows: { // AdvancedSecurityAdditionalFlowsType
+ * //         CustomAuthMode: "AUDIT" || "ENFORCED",
+ * //       },
  * //     },
  * //     UsernameConfiguration: { // UsernameConfigurationType
  * //       CaseSensitive: true || false, // required

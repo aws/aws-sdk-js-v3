@@ -54,6 +54,32 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface RevokeTokenResponse {}
+
+/**
+ * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
+ *             invalid access token in the request.</p>
+ * @public
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
  * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
  *             for the user pool client.</p>
  * @public

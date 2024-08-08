@@ -339,6 +339,7 @@ import {
   AdminUpdateDeviceStatusRequest,
   AdminUpdateUserAttributesRequest,
   AdminUserGlobalSignOutRequest,
+  AdvancedSecurityAdditionalFlowsType,
   AliasAttributeType,
   AliasExistsException,
   AnalyticsConfigurationType,
@@ -492,7 +493,6 @@ import {
   TooManyFailedAttemptsException,
   TooManyRequestsException,
   UICustomizationType,
-  UnauthorizedException,
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
   UnsupportedUserStateException,
@@ -533,6 +533,7 @@ import {
   StopUserImportJobRequest,
   StopUserImportJobResponse,
   TagResourceRequest,
+  UnauthorizedException,
   UnsupportedOperationException,
   UnsupportedTokenTypeException,
   UntagResourceRequest,
@@ -4794,6 +4795,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_AdminUserGlobalSignOutRequest omitted.
 
+// se_AdvancedSecurityAdditionalFlowsType omitted.
+
 // se_AliasAttributesListType omitted.
 
 // se_AnalyticsConfigurationType omitted.
@@ -5216,6 +5219,8 @@ const de_AdminListUserAuthEventsResponse = (output: any, context: __SerdeContext
 // de_AdminUpdateUserAttributesResponse omitted.
 
 // de_AdminUserGlobalSignOutResponse omitted.
+
+// de_AdvancedSecurityAdditionalFlowsType omitted.
 
 // de_AliasAttributesListType omitted.
 

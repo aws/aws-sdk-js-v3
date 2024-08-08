@@ -170,6 +170,9 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *   },
  *   UserPoolAddOns: { // UserPoolAddOnsType
  *     AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ *     AdvancedSecurityAdditionalFlows: { // AdvancedSecurityAdditionalFlowsType
+ *       CustomAuthMode: "AUDIT" || "ENFORCED",
+ *     },
  *   },
  *   AccountRecoverySetting: { // AccountRecoverySettingType
  *     RecoveryMechanisms: [ // RecoveryMechanismsType
