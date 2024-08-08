@@ -11,7 +11,7 @@ import {
   ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
   ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_ModifyVpnTunnelOptionsCommand, se_ModifyVpnTunnelOptionsCommand } from "../protocols/Aws_ec2";
 
 /**

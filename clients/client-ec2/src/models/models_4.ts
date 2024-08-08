@@ -4,7 +4,6 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   _InstanceType,
   ActiveInstance,
-  AllocationStrategy,
   AlternatePathHint,
   AttachmentStatus,
   CurrencyCodeValues,
@@ -19,7 +18,6 @@ import {
   ResourceType,
   SecurityGroupRule,
   Tag,
-  TagSpecification,
 } from "./models_0";
 
 import {
@@ -32,9 +30,7 @@ import {
   Ec2InstanceConnectEndpoint,
   EnaSrdSpecificationRequest,
   FleetLaunchTemplateSpecification,
-  FleetType,
   HostnameType,
-  InstanceInterruptionBehavior,
   InstanceIpv6Address,
   InstanceRequirements,
   InternetGateway,
@@ -61,7 +57,6 @@ import {
   PlatformValues,
   PrivateIpAddressSpecification,
   StateReason,
-  TargetCapacityUnitType,
   Tenancy,
 } from "./models_1";
 
@@ -89,12 +84,261 @@ import {
   Filter,
   HypervisorType,
   IdFormat,
-  Image,
+  ImageState,
+  ImageTypeValues,
+  ImdsSupportValues,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
-  VirtualizationType,
+  TpmSupportValues,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const VirtualizationType = {
+  hvm: "hvm",
+  paravirtual: "paravirtual",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualizationType = (typeof VirtualizationType)[keyof typeof VirtualizationType];
+
+/**
+ * <p>Describes an image.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The architecture of the image.</p>
+   * @public
+   */
+  Architecture?: ArchitectureValues;
+
+  /**
+   * <p>The date and time the image was created.</p>
+   * @public
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The location of the AMI.</p>
+   * @public
+   */
+  ImageLocation?: string;
+
+  /**
+   * <p>The type of image.</p>
+   * @public
+   */
+  ImageType?: ImageTypeValues;
+
+  /**
+   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
+   * 				this image has public launch permissions or <code>false</code>
+   * 				if it has only implicit and explicit launch permissions.</p>
+   * @public
+   */
+  Public?: boolean;
+
+  /**
+   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
+   * @public
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the image.</p>
+   * @public
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
+   * @public
+   */
+  Platform?: PlatformValues;
+
+  /**
+   * <p>The platform details associated with the billing code of the AMI. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+   *         AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PlatformDetails?: string;
+
+  /**
+   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
+   *         	List API</a>. You can view these fields on the <b>Instances</b> or
+   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
+   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
+   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
+   *     	command in the CLI.</p>
+   * @public
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>Any product codes associated with the AMI.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
+   * @public
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
+   * @public
+   */
+  State?: ImageState;
+
+  /**
+   * <p>Any block device mapping entries.</p>
+   * @public
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>The description of the AMI that was provided during image creation.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   * @public
+   */
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The hypervisor type of the image. Only <code>xen</code> is supported. <code>ovm</code> is
+   *       not supported.</p>
+   * @public
+   */
+  Hypervisor?: HypervisorType;
+
+  /**
+   * <p>The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).</p>
+   * @public
+   */
+  ImageOwnerAlias?: string;
+
+  /**
+   * <p>The name of the AMI that was provided during image creation.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   * @public
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
+   * @public
+   */
+  RootDeviceType?: DeviceType;
+
+  /**
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   * @public
+   */
+  SriovNetSupport?: string;
+
+  /**
+   * <p>The reason for the state change.</p>
+   * @public
+   */
+  StateReason?: StateReason;
+
+  /**
+   * <p>Any tags assigned to the image.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The type of virtualization of the AMI.</p>
+   * @public
+   */
+  VirtualizationType?: VirtualizationType;
+
+  /**
+   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BootMode?: BootModeValues;
+
+  /**
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  TpmSupport?: TpmSupportValues;
+
+  /**
+   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
+   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
+   *       nearest minute.</p>
+   * @public
+   */
+  DeprecationTime?: string;
+
+  /**
+   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
+   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
+   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
+   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImdsSupport?: ImdsSupportValues;
+
+  /**
+   * <p>The ID of the instance that the AMI was created from if the AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>. This field only appears if the AMI was created using
+   *       CreateImage.</p>
+   * @public
+   */
+  SourceInstanceId?: string;
+
+  /**
+   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+   * @public
+   */
+  DeregistrationProtection?: string;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *       format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
+   *          <note>
+   *             <p>
+   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
+   *          </note>
+   * @public
+   */
+  LastLaunchedTime?: string;
+}
 
 /**
  * @public
@@ -12145,340 +12389,6 @@ export interface SpotCapacityRebalance {
 }
 
 /**
- * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
- *             interrupted.</p>
- * @public
- */
-export interface SpotMaintenanceStrategies {
-  /**
-   * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
-   *             Spot Instance is at an elevated risk of being interrupted. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
-   *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  CapacityRebalance?: SpotCapacityRebalance;
-}
-
-/**
- * <p>Describes the configuration of a Spot Fleet request.</p>
- * @public
- */
-export interface SpotFleetRequestConfigData {
-  /**
-   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
-   *             pools specified by the Spot Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Allocation
-   *                 strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <dl>
-   *             <dt>priceCapacityOptimized (recommended)</dt>
-   *             <dd>
-   *                <p>Spot Fleet identifies the pools with
-   *                    the highest capacity availability for the number of instances that are launching. This means
-   *                    that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
-   *                    in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.</p>
-   *             </dd>
-   *             <dt>capacityOptimized</dt>
-   *             <dd>
-   *                <p>Spot Fleet identifies the pools with
-   *                    the highest capacity availability for the number of instances that are launching. This means
-   *                    that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
-   *                    in the near term. To give certain
-   *           instance types a higher chance of launching first, use
-   *           <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
-   *           using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *           assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *           the priorities on a best-effort basis, but optimizes for capacity first.
-   *           <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
-   *           launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
-   *           <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *           capacity.</p>
-   *             </dd>
-   *             <dt>diversified</dt>
-   *             <dd>
-   *                <p>Spot Fleet requests instances from all of the Spot Instance pools that you
-   *           specify.</p>
-   *             </dd>
-   *             <dt>lowestPrice (not recommended)</dt>
-   *             <dd>
-   *                <important>
-   *                   <p>We don't recommend the <code>lowestPrice</code> allocation strategy because
-   *                      it has the highest risk of interruption for your Spot Instances.</p>
-   *                </important>
-   *                <p>Spot Fleet requests instances from the lowest priced Spot Instance pool that has available
-   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
-   *                   come from the next lowest priced pool that has available capacity. If a pool runs
-   *                   out of capacity before fulfilling your desired capacity, Spot Fleet will continue to
-   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
-   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
-   *                   this strategy only considers instance price and not capacity availability, it
-   *                   might lead to high interruption rates.</p>
-   *             </dd>
-   *          </dl>
-   *          <p>Default: <code>lowestPrice</code>
-   *          </p>
-   * @public
-   */
-  AllocationStrategy?: AllocationStrategy;
-
-  /**
-   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
-   *             you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order, launching
-   *             the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the priority
-   *             that you assign to each Spot Fleet launch template override, launching the highest priority
-   *             first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
-   * @public
-   */
-  OnDemandAllocationStrategy?: OnDemandAllocationStrategy;
-
-  /**
-   * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
-   *             interrupted.</p>
-   * @public
-   */
-  SpotMaintenanceStrategies?: SpotMaintenanceStrategies;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of your
-   *             listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if you decrease the
-   *             target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
-   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
-   * @public
-   */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target capacity. You
-   *             cannot set this value.</p>
-   * @public
-   */
-  FulfilledCapacity?: number;
-
-  /**
-   * <p>The number of On-Demand units fulfilled by this request compared to the set target
-   *             On-Demand capacity.</p>
-   * @public
-   */
-  OnDemandFulfilledCapacity?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role
-   *          that grants the Spot Fleet the permission to request, launch, terminate, and tag instances
-   *          on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
-   *             Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet can
-   *          terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
-   *             <code>TerminateInstancesWithExpiration</code>.</p>
-   * @public
-   */
-  IamFleetRole: string | undefined;
-
-  /**
-   * <p>The launch specifications for the Spot Fleet request. If you specify
-   *                 <code>LaunchSpecifications</code>, you can't specify
-   *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
-   *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
-   *          <note>
-   *             <p>If an AMI specified in a launch specification is deregistered or disabled, no new
-   *             instances can be launched from the AMI. For fleets of type <code>maintain</code>, the
-   *             target capacity will not be maintained.</p>
-   *          </note>
-   * @public
-   */
-  LaunchSpecifications?: SpotFleetLaunchSpecification[];
-
-  /**
-   * <p>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
-   *             you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
-   *             in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
-   * @public
-   */
-  LaunchTemplateConfigs?: LaunchTemplateConfig[];
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The number of units to request for the Spot Fleet. You can choose to set the target
-   *             capacity in terms of instances or a performance characteristic that is important to your
-   *             application workload, such as vCPUs, memory, or I/O. If the request type is
-   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
-   *             later.</p>
-   * @public
-   */
-  TargetCapacity: number | undefined;
-
-  /**
-   * <p>The number of On-Demand units to request. You can choose to set the target capacity in
-   *             terms of instances or a performance characteristic that is important to your application
-   *             workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
-   *             you can specify a target capacity of 0 and add capacity later.</p>
-   * @public
-   */
-  OnDemandTargetCapacity?: number;
-
-  /**
-   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay. You
-   *             can use the <code>onDemandMaxTotalPrice</code> parameter, the
-   *                 <code>spotMaxTotalPrice</code> parameter, or both parameters to ensure that your
-   *             fleet cost does not exceed your budget. If you set a maximum price per hour for the
-   *             On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the
-   *             maximum amount you're willing to pay. When the maximum amount you're willing to pay is
-   *             reached, the fleet stops launching instances even if it hasn’t met the target
-   *             capacity.</p>
-   *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
-   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
-   *             for surplus credits. The <code>onDemandMaxTotalPrice</code> does not account for surplus
-   *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>onDemandMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
-   *                <i>Amazon EC2 User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  OnDemandMaxTotalPrice?: string;
-
-  /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use
-   *          the <code>spotMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
-   *          parameter, or both parameters to ensure that your fleet cost does not exceed your budget.
-   *          If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will
-   *          launch instances until it reaches the maximum amount you're willing to pay. When the
-   *          maximum amount you're willing to pay is reached, the fleet stops launching instances even
-   *          if it hasn’t met the target capacity.</p>
-   *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
-   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
-   *             for surplus credits. The <code>spotMaxTotalPrice</code> does not account for surplus
-   *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>spotMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
-   *                <i>Amazon EC2 User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  SpotMaxTotalPrice?: string;
-
-  /**
-   * <p>Indicates whether running Spot Instances are terminated when the Spot Fleet request
-   *             expires.</p>
-   * @public
-   */
-  TerminateInstancesWithExpiration?: boolean;
-
-  /**
-   * <p>The type of request. Indicates whether the Spot Fleet only requests the target
-   *             capacity or also attempts to maintain it. When this value is <code>request</code>, the
-   *             Spot Fleet only places the required requests. It does not attempt to replenish Spot
-   *             Instances if capacity is diminished, nor does it submit requests in alternative Spot
-   *             pools if capacity is not available. When this value is <code>maintain</code>, the Spot
-   *             Fleet maintains the target capacity. The Spot Fleet places the required requests to meet
-   *             capacity and automatically replenishes any interrupted instances. Default:
-   *                 <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
-   *             Fleet.</p>
-   * @public
-   */
-  Type?: FleetType;
-
-  /**
-   * <p>The start date and time of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             By default, Amazon EC2 starts fulfilling the request immediately.</p>
-   * @public
-   */
-  ValidFrom?: Date;
-
-  /**
-   * <p>The end date and time of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill
-   *             the request. If no value is specified, the Spot Fleet request remains until you cancel
-   *             it.</p>
-   * @public
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>Indicates whether Spot Fleet should replace unhealthy instances.</p>
-   * @public
-   */
-  ReplaceUnhealthyInstances?: boolean;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is
-   *                 <code>terminate</code>.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
-
-  /**
-   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet
-   *             request. Spot Fleet registers the running Spot Instances with the specified Classic Load
-   *             Balancers and target groups.</p>
-   *          <p>With Network Load Balancers, Spot Fleet cannot register instances that have the
-   *             following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2,
-   *             M3, and T1.</p>
-   * @public
-   */
-  LoadBalancersConfig?: LoadBalancersConfig;
-
-  /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid
-   *             only when Spot <b>AllocationStrategy</b> is set to
-   *                 <code>lowest-price</code>. Spot Fleet selects the cheapest Spot pools and evenly
-   *             allocates your target Spot capacity across the number of Spot pools that you
-   *             specify.</p>
-   *          <p>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a
-   *             best effort basis. If a pool runs out of Spot capacity before fulfilling your target
-   *             capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest
-   *             pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
-   *             the number of pools that you specified. Similarly, if most of the pools have no Spot
-   *             capacity, you might receive your full target capacity from fewer than the number of
-   *             pools that you specified.</p>
-   * @public
-   */
-  InstancePoolsToUseCount?: number;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string;
-
-  /**
-   * <p>The unit for the target capacity. You can specify this parameter only when
-   *          using attribute-based instance type selection.</p>
-   *          <p>Default: <code>units</code> (the number of instances)</p>
-   * @public
-   */
-  TargetCapacityUnitType?: TargetCapacityUnitType;
-
-  /**
-   * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
-   *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
-   *             Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-   *                 template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
-   *             the <code>
-   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a>
-   *             </code> (valid only if you use
-   *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag your resources</a>.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
  * @internal
  */
 export const SnapshotDetailFilterSensitiveLog = (obj: SnapshotDetail): any => ({
@@ -12547,14 +12457,4 @@ export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
 export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
-  ...obj,
-  ...(obj.LaunchSpecifications && {
-    LaunchSpecifications: obj.LaunchSpecifications.map((item) => SpotFleetLaunchSpecificationFilterSensitiveLog(item)),
-  }),
 });

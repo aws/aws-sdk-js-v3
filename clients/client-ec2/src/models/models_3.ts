@@ -22,7 +22,6 @@ import {
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
-  FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
   HostMaintenance,
@@ -52,6 +51,7 @@ import {
   DiskImageFormat,
   EgressOnlyInternetGateway,
   ExportTask,
+  FleetCapacityReservation,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
   FleetLaunchTemplateOverrides,
@@ -61,6 +61,7 @@ import {
   FleetType,
   InstanceLifecycle,
   LaunchTemplateAndOverridesResponse,
+  LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -69,7 +70,6 @@ import {
   PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
-  StateReason,
   TargetCapacityUnitType,
   TrafficType,
   TransportProtocol,
@@ -91,6 +91,38 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -8961,253 +8993,6 @@ export const TpmSupportValues = {
  * @public
  */
 export type TpmSupportValues = (typeof TpmSupportValues)[keyof typeof TpmSupportValues];
-
-/**
- * @public
- * @enum
- */
-export const VirtualizationType = {
-  hvm: "hvm",
-  paravirtual: "paravirtual",
-} as const;
-
-/**
- * @public
- */
-export type VirtualizationType = (typeof VirtualizationType)[keyof typeof VirtualizationType];
-
-/**
- * <p>Describes an image.</p>
- * @public
- */
-export interface Image {
-  /**
-   * <p>The architecture of the image.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues;
-
-  /**
-   * <p>The date and time the image was created.</p>
-   * @public
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The location of the AMI.</p>
-   * @public
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The type of image.</p>
-   * @public
-   */
-  ImageType?: ImageTypeValues;
-
-  /**
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
-   * 				this image has public launch permissions or <code>false</code>
-   * 				if it has only implicit and explicit launch permissions.</p>
-   * @public
-   */
-  Public?: boolean;
-
-  /**
-   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
-   * @public
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the image.</p>
-   * @public
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
-   * @public
-   */
-  Platform?: PlatformValues;
-
-  /**
-   * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
-   *         AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PlatformDetails?: string;
-
-  /**
-   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         	List API</a>. You can view these fields on the <b>Instances</b> or
-   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
-   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
-   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
-   *     	command in the CLI.</p>
-   * @public
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>Any product codes associated with the AMI.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
-   * @public
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
-   * @public
-   */
-  State?: ImageState;
-
-  /**
-   * <p>Any block device mapping entries.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The description of the AMI that was provided during image creation.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   * @public
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The hypervisor type of the image. Only <code>xen</code> is supported. <code>ovm</code> is
-   *       not supported.</p>
-   * @public
-   */
-  Hypervisor?: HypervisorType;
-
-  /**
-   * <p>The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).</p>
-   * @public
-   */
-  ImageOwnerAlias?: string;
-
-  /**
-   * <p>The name of the AMI that was provided during image creation.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   * @public
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
-   * @public
-   */
-  RootDeviceType?: DeviceType;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   * @public
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The reason for the state change.</p>
-   * @public
-   */
-  StateReason?: StateReason;
-
-  /**
-   * <p>Any tags assigned to the image.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The type of virtualization of the AMI.</p>
-   * @public
-   */
-  VirtualizationType?: VirtualizationType;
-
-  /**
-   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BootMode?: BootModeValues;
-
-  /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TpmSupport?: TpmSupportValues;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
-   * @public
-   */
-  DeprecationTime?: string;
-
-  /**
-   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
-   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
-   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
-   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ImdsSupport?: ImdsSupportValues;
-
-  /**
-   * <p>The ID of the instance that the AMI was created from if the AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>. This field only appears if the AMI was created using
-   *       CreateImage.</p>
-   * @public
-   */
-  SourceInstanceId?: string;
-
-  /**
-   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
-   * @public
-   */
-  DeregistrationProtection?: string;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *       format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
-   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
-   *          <note>
-   *             <p>
-   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
-   *          </note>
-   * @public
-   */
-  LastLaunchedTime?: string;
-}
 
 /**
  * @internal

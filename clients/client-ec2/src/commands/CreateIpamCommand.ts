@@ -61,6 +61,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   Tier: "free" || "advanced",
+ *   EnablePrivateGua: true || false,
  * };
  * const command = new CreateIpamCommand(input);
  * const response = await client.send(command);
@@ -91,6 +92,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * //     ResourceDiscoveryAssociationCount: Number("int"),
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
+ * //     EnablePrivateGua: true || false,
  * //   },
  * // };
  *

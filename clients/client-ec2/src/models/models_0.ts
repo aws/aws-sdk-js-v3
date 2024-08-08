@@ -5006,6 +5006,35 @@ export interface AssociateSubnetCidrBlockRequest {
  * @public
  * @enum
  */
+export const IpSource = {
+  amazon: "amazon",
+  byoip: "byoip",
+  none: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type IpSource = (typeof IpSource)[keyof typeof IpSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ipv6AddressAttribute = {
+  private: "private",
+  public: "public",
+} as const;
+
+/**
+ * @public
+ */
+export type Ipv6AddressAttribute = (typeof Ipv6AddressAttribute)[keyof typeof Ipv6AddressAttribute];
+
+/**
+ * @public
+ * @enum
+ */
 export const SubnetCidrBlockStateCode = {
   associated: "associated",
   associating: "associating",
@@ -5060,6 +5089,18 @@ export interface SubnetIpv6CidrBlockAssociation {
    * @public
    */
   Ipv6CidrBlockState?: SubnetCidrBlockState;
+
+  /**
+   * <p>Public IPv6 addresses are those advertised on the internet from Amazon Web Services. Private IP addresses are not and cannot be advertised on the internet from Amazon Web Services.</p>
+   * @public
+   */
+  Ipv6AddressAttribute?: Ipv6AddressAttribute;
+
+  /**
+   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
+   * @public
+   */
+  IpSource?: IpSource;
 }
 
 /**
@@ -5574,6 +5615,18 @@ export interface VpcIpv6CidrBlockAssociation {
    * @public
    */
   Ipv6Pool?: string;
+
+  /**
+   * <p>Public IPv6 addresses are those advertised on the internet from Amazon Web Services. Private IP addresses are not and cannot be advertised on the internet from Amazon Web Services.</p>
+   * @public
+   */
+  Ipv6AddressAttribute?: Ipv6AddressAttribute;
+
+  /**
+   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
+   * @public
+   */
+  IpSource?: IpSource;
 }
 
 /**
@@ -9673,155 +9726,6 @@ export interface CreateCapacityReservationFleetRequest {
    * @public
    */
   DryRun?: boolean;
-}
-
-/**
- * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
- * @public
- */
-export interface FleetCapacityReservation {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId?: string;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  InstancePlatform?: CapacityReservationInstancePlatform;
-
-  /**
-   * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  TotalInstanceCount?: number;
-
-  /**
-   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
-   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  FulfilledCapacity?: number;
-
-  /**
-   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized instance types.</p>
-   * @public
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation was created.</p>
-   * @public
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
-   * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Weight?: number;
-
-  /**
-   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
-   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Priority?: number;
-}
-
-/**
- * @public
- */
-export interface CreateCapacityReservationFleetResult {
-  /**
-   * <p>The ID of the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  CapacityReservationFleetId?: string;
-
-  /**
-   * <p>The status of the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  State?: CapacityReservationFleetState;
-
-  /**
-   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.</p>
-   * @public
-   */
-  TotalTargetCapacity?: number;
-
-  /**
-   * <p>The requested capacity units that have been successfully reserved.</p>
-   * @public
-   */
-  TotalFulfilledCapacity?: number;
-
-  /**
-   * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
-
-  /**
-   * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  AllocationStrategy?: string;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
-   * @public
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
-   * @public
-   */
-  EndDate?: Date;
-
-  /**
-   * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
-   * @public
-   */
-  Tenancy?: FleetCapacityReservationTenancy;
-
-  /**
-   * <p>Information about the individual Capacity Reservations in the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  FleetCapacityReservations?: FleetCapacityReservation[];
-
-  /**
-   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
-   * @public
-   */
-  Tags?: Tag[];
 }
 
 /**

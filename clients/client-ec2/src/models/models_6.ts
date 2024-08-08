@@ -117,7 +117,6 @@ import {
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
-  VirtualizationType,
 } from "./models_3";
 
 import {
@@ -143,11 +142,11 @@ import {
   SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
+  VirtualizationType,
 } from "./models_4";
 
 import {
   EkPubKeyFormat,
-  EkPubKeyType,
   InstanceFamilyCreditSpecification,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
@@ -155,6 +154,53 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * @enum
+ */
+export const EkPubKeyType = {
+  ECC_SEC_P384: "ecc-sec-p384",
+  RSA_2048: "rsa-2048",
+} as const;
+
+/**
+ * @public
+ */
+export type EkPubKeyType = (typeof EkPubKeyType)[keyof typeof EkPubKeyType];
+
+/**
+ * @public
+ */
+export interface GetInstanceTpmEkPubRequest {
+  /**
+   * <p>The ID of the instance for which to get the public endorsement key.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The required public endorsement key type.</p>
+   * @public
+   */
+  KeyType: EkPubKeyType | undefined;
+
+  /**
+   * <p>The required public endorsement key format. Specify <code>der</code> for a DER-encoded public
+   *             key that is compatible with OpenSSL. Specify <code>tpmt</code> for a TPM 2.0 format that is
+   *             compatible with tpm2-tools. The returned key is base64 encoded.</p>
+   * @public
+   */
+  KeyFormat: EkPubKeyFormat | undefined;
+
+  /**
+   * <p>Specify this parameter to verify whether the request will succeed, without actually making the
+   *             request. If the request will succeed, the response is <code>DryRunOperation</code>. Otherwise,
+   *             the response is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -981,6 +1027,21 @@ export interface GetIpamDiscoveredResourceCidrsRequest {
  * @public
  * @enum
  */
+export const IpamResourceCidrIpSource = {
+  amazon: "amazon",
+  byoip: "byoip",
+  none: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamResourceCidrIpSource = (typeof IpamResourceCidrIpSource)[keyof typeof IpamResourceCidrIpSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpamNetworkInterfaceAttachmentStatus = {
   available: "available",
   in_use: "in-use",
@@ -1044,6 +1105,12 @@ export interface IpamDiscoveredResourceCidr {
    * @public
    */
   ResourceCidr?: string;
+
+  /**
+   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
+   * @public
+   */
+  IpSource?: IpamResourceCidrIpSource;
 
   /**
    * <p>The resource type.</p>
@@ -6414,6 +6481,12 @@ export interface ModifyIpamRequest {
    * @public
    */
   Tier?: IpamTier;
+
+  /**
+   * <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
+   * @public
+   */
+  EnablePrivateGua?: boolean;
 }
 
 /**
@@ -9581,76 +9654,6 @@ export interface ModifyVpnTunnelOptionsSpecification {
 }
 
 /**
- * @public
- */
-export interface ModifyVpnTunnelOptionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>The tunnel options to modify.</p>
-   * @public
-   */
-  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
-   *          <p>Valid values: <code>True</code> | <code>False</code>
-   *          </p>
-   * @public
-   */
-  SkipTunnelReplacement?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection;
-}
-
-/**
- * @public
- */
-export interface MonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
  * @internal
  */
 export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
@@ -9870,20 +9873,4 @@ export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && { TunnelOptions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
 });

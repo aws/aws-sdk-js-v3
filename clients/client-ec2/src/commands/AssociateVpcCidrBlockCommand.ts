@@ -66,6 +66,8 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * //     },
  * //     NetworkBorderGroup: "STRING_VALUE",
  * //     Ipv6Pool: "STRING_VALUE",
+ * //     Ipv6AddressAttribute: "public" || "private",
+ * //     IpSource: "amazon" || "byoip" || "none",
  * //   },
  * //   CidrBlockAssociation: { // VpcCidrBlockAssociation
  * //     AssociationId: "STRING_VALUE",

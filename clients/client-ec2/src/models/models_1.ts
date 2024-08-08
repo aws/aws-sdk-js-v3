@@ -16,6 +16,10 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
+  CapacityReservationFleetState,
+  CapacityReservationInstancePlatform,
+  FleetCapacityReservationTenancy,
+  FleetInstanceMatchCriteria,
   InstanceEventWindow,
   NatGatewayAddress,
   PortRange,
@@ -29,6 +33,155 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
+ * @public
+ */
+export interface FleetCapacityReservation {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  TotalInstanceCount?: number;
+
+  /**
+   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  FulfilledCapacity?: number;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized instance types.</p>
+   * @public
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was created.</p>
+   * @public
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
+   * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Weight?: number;
+
+  /**
+   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Priority?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationFleetResult {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  CapacityReservationFleetId?: string;
+
+  /**
+   * <p>The status of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  State?: CapacityReservationFleetState;
+
+  /**
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number;
+
+  /**
+   * <p>The requested capacity units that have been successfully reserved.</p>
+   * @public
+   */
+  TotalFulfilledCapacity?: number;
+
+  /**
+   * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
+
+  /**
+   * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  AllocationStrategy?: string;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
+   * @public
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
+   * @public
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
+   * @public
+   */
+  Tenancy?: FleetCapacityReservationTenancy;
+
+  /**
+   * <p>Information about the individual Capacity Reservations in the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  FleetCapacityReservations?: FleetCapacityReservation[];
+
+  /**
+   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -5331,6 +5484,12 @@ export interface CreateIpamRequest {
    * @public
    */
   Tier?: IpamTier;
+
+  /**
+   * <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
+   * @public
+   */
+  EnablePrivateGua?: boolean;
 }
 
 /**
@@ -5473,6 +5632,12 @@ export interface Ipam {
    * @public
    */
   Tier?: IpamTier;
+
+  /**
+   * <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
+   * @public
+   */
+  EnablePrivateGua?: boolean;
 }
 
 /**
@@ -11237,75 +11402,6 @@ export interface CreateNetworkInterfaceRequest {
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
-}
-
-/**
- * <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
- *             IP address (for a network interface which resides in a subnet in a Wavelength
- *             Zone).</p>
- * @public
- */
-export interface NetworkInterfaceAssociation {
-  /**
-   * <p>The allocation ID.</p>
-   * @public
-   */
-  AllocationId?: string;
-
-  /**
-   * <p>The association ID.</p>
-   * @public
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The ID of the Elastic IP address owner.</p>
-   * @public
-   */
-  IpOwnerId?: string;
-
-  /**
-   * <p>The public DNS name.</p>
-   * @public
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The address of the Elastic IP address bound to the network
-   *             interface.</p>
-   * @public
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>The customer-owned IP address associated with the network interface.</p>
-   * @public
-   */
-  CustomerOwnedIp?: string;
-
-  /**
-   * <p>The carrier IP address associated with the network interface.</p>
-   *          <p>This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.</p>
-   * @public
-   */
-  CarrierIp?: string;
-}
-
-/**
- * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
- * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
- * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
- * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
- * 			environment needs.</p>
- * @public
- */
-export interface AttachmentEnaSrdUdpSpecification {
-  /**
-   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
-   * 			you must first enable ENA Express.</p>
-   * @public
-   */
-  EnaSrdUdpEnabled?: boolean;
 }
 
 /**

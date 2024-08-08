@@ -51,6 +51,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  *     },
  *   ],
  *   Tier: "free" || "advanced",
+ *   EnablePrivateGua: true || false,
  * };
  * const command = new ModifyIpamCommand(input);
  * const response = await client.send(command);
@@ -81,6 +82,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * //     ResourceDiscoveryAssociationCount: Number("int"),
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
+ * //     EnablePrivateGua: true || false,
  * //   },
  * // };
  *

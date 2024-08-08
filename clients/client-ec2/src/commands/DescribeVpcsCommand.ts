@@ -74,6 +74,8 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //           },
  * //           NetworkBorderGroup: "STRING_VALUE",
  * //           Ipv6Pool: "STRING_VALUE",
+ * //           Ipv6AddressAttribute: "public" || "private",
+ * //           IpSource: "amazon" || "byoip" || "none",
  * //         },
  * //       ],
  * //       CidrBlockAssociationSet: [ // VpcCidrBlockAssociationSet

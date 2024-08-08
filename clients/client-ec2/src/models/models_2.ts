@@ -33,7 +33,6 @@ import {
 } from "./models_0";
 
 import {
-  AttachmentEnaSrdUdpSpecification,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
@@ -47,13 +46,80 @@ import {
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
-  LocalGatewayRoute,
-  NetworkInterfaceAssociation,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
+ *             IP address (for a network interface which resides in a subnet in a Wavelength
+ *             Zone).</p>
+ * @public
+ */
+export interface NetworkInterfaceAssociation {
+  /**
+   * <p>The allocation ID.</p>
+   * @public
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The association ID.</p>
+   * @public
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The ID of the Elastic IP address owner.</p>
+   * @public
+   */
+  IpOwnerId?: string;
+
+  /**
+   * <p>The public DNS name.</p>
+   * @public
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The address of the Elastic IP address bound to the network
+   *             interface.</p>
+   * @public
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The customer-owned IP address associated with the network interface.</p>
+   * @public
+   */
+  CustomerOwnedIp?: string;
+
+  /**
+   * <p>The carrier IP address associated with the network interface.</p>
+   *          <p>This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.</p>
+   * @public
+   */
+  CarrierIp?: string;
+}
+
+/**
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ * @public
+ */
+export interface AttachmentEnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   * @public
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
 
 /**
  * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
@@ -9169,38 +9235,6 @@ export interface DeleteLocalGatewayRouteRequest {
    * @public
    */
   DestinationPrefixListId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   * @public
-   */
-  Route?: LocalGatewayRoute;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**

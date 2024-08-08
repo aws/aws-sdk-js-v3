@@ -65,6 +65,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceOwnerId: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
+ * //       IpSource: "amazon" || "byoip" || "none",
  * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag

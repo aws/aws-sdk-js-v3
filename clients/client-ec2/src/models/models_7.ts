@@ -42,7 +42,13 @@ import {
   SpotInstanceType,
 } from "./models_1";
 
-import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
+import {
+  SnapshotState,
+  SSEType,
+  TransitGatewayRoute,
+  VpnConnection,
+  VpnConnectionFilterSensitiveLog,
+} from "./models_2";
 
 import {
   ArchitectureValues,
@@ -71,19 +77,89 @@ import {
   PublicIpv4PoolRange,
   ScheduledInstance,
   SnapshotAttributeName,
-  SpotFleetRequestConfigData,
-  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
 
 import {
   Purchase,
   RunInstancesMonitoringEnabled,
+  SpotFleetRequestConfigData,
+  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
 } from "./models_5";
 
-import { CapacityReservationSpecification } from "./models_6";
+import { CapacityReservationSpecification, ModifyVpnTunnelOptionsSpecification } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>The tunnel options to modify.</p>
+   * @public
+   */
+  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  SkipTunnelReplacement?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection;
+}
+
+/**
+ * @public
+ */
+export interface MonitorInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes the monitoring of an instance.</p>
@@ -496,7 +572,7 @@ export interface ProvisionPublicIpv4PoolCidrRequest {
   PoolId: string | undefined;
 
   /**
-   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.</p>
+   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool. The least specific netmask length you can define is 24.</p>
    * @public
    */
   NetmaskLength: number | undefined;
@@ -5157,6 +5233,22 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && { TunnelOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
 
 /**
  * @internal

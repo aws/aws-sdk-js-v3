@@ -52,6 +52,8 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * //       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
  * //       StatusMessage: "STRING_VALUE",
  * //     },
+ * //     Ipv6AddressAttribute: "public" || "private",
+ * //     IpSource: "amazon" || "byoip" || "none",
  * //   },
  * //   SubnetId: "STRING_VALUE",
  * // };

@@ -2295,7 +2295,6 @@ import {
   CopySnapshotRequest,
   CopySnapshotResult,
   CreateCapacityReservationFleetRequest,
-  CreateCapacityReservationFleetResult,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   DeviceOptions,
@@ -2305,7 +2304,6 @@ import {
   FailedCapacityReservationFleetCancellationResult,
   FirewallStatefulRule,
   FirewallStatelessRule,
-  FleetCapacityReservation,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -2382,7 +2380,6 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
-  AttachmentEnaSrdUdpSpecification,
   AttributeValue,
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
@@ -2403,6 +2400,7 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCapacityReservationFleetResult,
   CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
   CreateClientVpnEndpointRequest,
@@ -2495,6 +2493,7 @@ import {
   ExportToS3TaskSpecification,
   FederatedAuthenticationRequest,
   FilterPortRange,
+  FleetCapacityReservation,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
@@ -2586,7 +2585,6 @@ import {
   NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
-  NetworkInterfaceAssociation,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
@@ -2617,6 +2615,7 @@ import {
 } from "../models/models_1";
 import {
   AttachmentEnaSrdSpecification,
+  AttachmentEnaSrdUdpSpecification,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
@@ -2761,8 +2760,6 @@ import {
   DeleteLaunchTemplateVersionsResponseSuccessItem,
   DeleteLaunchTemplateVersionsResult,
   DeleteLocalGatewayRouteRequest,
-  DeleteLocalGatewayRouteResult,
-  DeleteLocalGatewayRouteTableRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2774,6 +2771,7 @@ import {
   Ipv6PrefixSpecification,
   LastError,
   NetworkInterface,
+  NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
   NetworkInterfaceIpv6Address,
   NetworkInterfacePermission,
@@ -2877,6 +2875,8 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteLocalGatewayRouteResult,
+  DeleteLocalGatewayRouteTableRequest,
   DeleteLocalGatewayRouteTableResult,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
@@ -3098,7 +3098,6 @@ import {
   HostProperties,
   HostReservation,
   IdFormat,
-  Image,
   ImageAttribute,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
@@ -3119,7 +3118,6 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
-  VirtualizationType,
 } from "../models/models_3";
 import {
   ArchitectureType,
@@ -3278,6 +3276,7 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  Image,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportSnapshotTask,
@@ -3368,9 +3367,7 @@ import {
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
-  SpotFleetRequestConfigData,
   SpotFleetTagSpecification,
-  SpotMaintenanceStrategies,
   SpotPlacement,
   SupportedAdditionalProcessorFeature,
   TargetGroup,
@@ -3378,6 +3375,7 @@ import {
   UsageClassType,
   UserBucketDetails,
   VCpuInfo,
+  VirtualizationType,
 } from "../models/models_4";
 import {
   AssociatedRole,
@@ -3625,7 +3623,6 @@ import {
   GetImageBlockPublicAccessStateResult,
   GetInstanceMetadataDefaultsRequest,
   GetInstanceMetadataDefaultsResult,
-  GetInstanceTpmEkPubRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
@@ -3639,8 +3636,10 @@ import {
   RunInstancesMonitoringEnabled,
   ServiceDetail,
   SpotFleetRequestConfig,
+  SpotFleetRequestConfigData,
   SpotInstanceRequest,
   SpotInstanceStatus,
+  SpotMaintenanceStrategies,
   SpotPrice,
   StaleIpPermission,
   StaleSecurityGroup,
@@ -3674,6 +3673,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetInstanceTpmEkPubRequest,
   GetInstanceTpmEkPubResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
@@ -3905,10 +3905,7 @@ import {
   ModifyVpnConnectionResult,
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsSpecification,
-  MonitorInstancesRequest,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3962,6 +3959,9 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpnTunnelOptionsRequest,
+  ModifyVpnTunnelOptionsResult,
+  MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
@@ -30370,6 +30370,9 @@ const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext)
   if (input[_Ti] != null) {
     entries[_Ti] = input[_Ti];
   }
+  if (input[_EPG] != null) {
+    entries[_EPG] = input[_EPG];
+  }
   return entries;
 };
 
@@ -46083,6 +46086,9 @@ const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext)
   }
   if (input[_Ti] != null) {
     entries[_Ti] = input[_Ti];
+  }
+  if (input[_EPG] != null) {
+    entries[_EPG] = input[_EPG];
   }
   return entries;
 };
@@ -68960,6 +68966,9 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_tie] != null) {
     contents[_Ti] = __expectString(output[_tie]);
   }
+  if (output[_ePG] != null) {
+    contents[_EPG] = __parseBoolean(output[_ePG]);
+  }
   return contents;
 };
 
@@ -69146,6 +69155,9 @@ const de_IpamDiscoveredResourceCidr = (output: any, context: __SerdeContext): Ip
   }
   if (output[_rCe] != null) {
     contents[_RC] = __expectString(output[_rCe]);
+  }
+  if (output[_iSpo] != null) {
+    contents[_ISpo] = __expectString(output[_iSpo]);
   }
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
@@ -78183,6 +78195,12 @@ const de_SubnetIpv6CidrBlockAssociation = (output: any, context: __SerdeContext)
   if (output[_iCBS] != null) {
     contents[_ICBS] = de_SubnetCidrBlockState(output[_iCBS], context);
   }
+  if (output[_iAA] != null) {
+    contents[_IAA] = __expectString(output[_iAA]);
+  }
+  if (output[_iSpo] != null) {
+    contents[_ISpo] = __expectString(output[_iSpo]);
+  }
   return contents;
 };
 
@@ -81889,6 +81907,12 @@ const de_VpcIpv6CidrBlockAssociation = (output: any, context: __SerdeContext): V
   if (output[_iPpvo] != null) {
     contents[_IPpv] = __expectString(output[_iPpvo]);
   }
+  if (output[_iAA] != null) {
+    contents[_IAA] = __expectString(output[_iAA]);
+  }
+  if (output[_iSpo] != null) {
+    contents[_ISpo] = __expectString(output[_iSpo]);
+  }
   return contents;
 };
 
@@ -83247,6 +83271,7 @@ const _EOIGg = "EgressOnlyInternetGateways";
 const _EOS = "EbsOptimizedSupport";
 const _EOn = "EnclaveOptions";
 const _EP = "ExcludePaths";
+const _EPG = "EnablePrivateGua";
 const _EPI = "EnablePrimaryIpv6";
 const _EPg = "EgressPackets";
 const _ERAOS = "EnableReachabilityAnalyzerOrganizationSharing";
@@ -83448,6 +83473,7 @@ const _Hi = "Hibernate";
 const _Ho = "Hosts";
 const _I = "Issuer";
 const _IA = "Ipv6Addresses";
+const _IAA = "Ipv6AddressAttribute";
 const _IAC = "Ipv6AddressCount";
 const _IAI = "IncludeAllInstances";
 const _IAIn = "InferenceAcceleratorInfo";
@@ -83621,6 +83647,7 @@ const _ISnt = "IntegrateServices";
 const _ISp = "Ipv6Support";
 const _ISpa = "IpamScope";
 const _ISpam = "IpamScopes";
+const _ISpo = "IpSource";
 const _ISpv = "Ipv6Supported";
 const _IT = "InstanceType";
 const _ITA = "InstanceTagAttribute";
@@ -85293,6 +85320,7 @@ const _eOIGS = "egressOnlyInternetGatewaySet";
 const _eOS = "ebsOptimizedSupport";
 const _eOn = "enclaveOptions";
 const _eP = "egressPackets";
+const _ePG = "enablePrivateGua";
 const _ePS = "excludePathSet";
 const _eRNDAAAAR = "enableResourceNameDnsAAAARecord";
 const _eRNDAR = "enableResourceNameDnsARecord";
@@ -85418,6 +85446,7 @@ const _hTo = "hostnameType";
 const _hZI = "hostedZoneId";
 const _i = "item";
 const _iA = "interfaceAssociation";
+const _iAA = "ipv6AddressAttribute";
 const _iAC = "ipv6AddressCount";
 const _iAI = "inferenceAcceleratorInfo";
 const _iAPI = "ipv4AddressesPerInterface";
@@ -85565,6 +85594,7 @@ const _iSns = "instanceSet";
 const _iSnst = "instanceState";
 const _iSnsta = "instanceStatus";
 const _iSp = "ipamSet";
+const _iSpo = "ipSource";
 const _iSpv = "ipv6Supported";
 const _iSpvu = "ipv6Support";
 const _iT = "instanceType";

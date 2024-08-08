@@ -71,6 +71,7 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * //     ResourceDiscoveryAssociationCount: Number("int"),
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
+ * //     EnablePrivateGua: true || false,
  * //   },
  * // };
  *

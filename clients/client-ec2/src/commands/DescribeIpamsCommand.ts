@@ -84,6 +84,7 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * //       ResourceDiscoveryAssociationCount: Number("int"),
  * //       StateMessage: "STRING_VALUE",
  * //       Tier: "free" || "advanced",
+ * //       EnablePrivateGua: true || false,
  * //     },
  * //   ],
  * // };

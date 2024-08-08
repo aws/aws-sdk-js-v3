@@ -64,6 +64,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //         },
  * //         NetworkBorderGroup: "STRING_VALUE",
  * //         Ipv6Pool: "STRING_VALUE",
+ * //         Ipv6AddressAttribute: "public" || "private",
+ * //         IpSource: "amazon" || "byoip" || "none",
  * //       },
  * //     ],
  * //     CidrBlockAssociationSet: [ // VpcCidrBlockAssociationSet
