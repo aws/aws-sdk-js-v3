@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.627.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.626.0...v3.627.0) (2024-08-08)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added support for threat protection for custom authentication in Amazon Cognito user pools. ([e2e4ccc](https://github.com/aws/aws-sdk-js-v3/commit/e2e4cccb7a504ee0578ba36d7152eafa61494613))
+
+
+
+
+
 # [3.625.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.624.0...v3.625.0) (2024-08-06)
 
 
