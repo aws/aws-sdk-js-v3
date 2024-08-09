@@ -46,6 +46,12 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  *        <code>SEVERITY</code>
  *                </p>
  *             </dd>
+ *             <dt>AMAZON_LINUX_2023</dt>
+ *             <dd>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
+ *             </dd>
  *             <dt>CENTOS</dt>
  *             <dd>
  *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |

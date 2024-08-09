@@ -32,7 +32,8 @@ export interface DescribeInstancePropertiesCommandInput extends DescribeInstance
 export interface DescribeInstancePropertiesCommandOutput extends DescribeInstancePropertiesResult, __MetadataBearer {}
 
 /**
- * <p>An API operation used by the Systems Manager console to display information about Systems Manager managed nodes.</p>
+ * <p>An API operation used by the Systems Manager console to display information about Systems Manager managed
+ *    nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

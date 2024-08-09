@@ -3664,17 +3664,26 @@ export interface PatchRule {
   /**
    * <p>The number of days after the release date of each patch matched by the rule that the patch
    *    is marked as approved in the patch baseline. For example, a value of <code>7</code> means that
-   *    patches are approved seven days after they are released. Not supported on Debian Server or Ubuntu
-   *    Server.</p>
+   *    patches are approved seven days after they are released.</p>
+   *          <note>
+   *             <p>This parameter is marked as not required, but your request must include a value
+   *     for either <code>ApproveAfterDays</code> or <code>ApproveUntilDate</code>.</p>
+   *          </note>
+   *          <p> Not supported for Debian Server or Ubuntu Server.</p>
    * @public
    */
   ApproveAfterDays?: number;
 
   /**
    * <p>The cutoff date for auto approval of released patches. Any patches released on or before
-   *    this date are installed automatically. Not supported on Debian Server or Ubuntu Server.</p>
+   *    this date are installed automatically.</p>
    *          <p>Enter dates in the format <code>YYYY-MM-DD</code>. For example,
    *    <code>2021-12-31</code>.</p>
+   *          <note>
+   *             <p>This parameter is marked as not required, but your request must include a value
+   *     for either <code>ApproveUntilDate</code> or <code>ApproveAfterDays</code>.</p>
+   *          </note>
+   *          <p>Not supported for Debian Server or Ubuntu Server.</p>
    * @public
    */
   ApproveUntilDate?: string;
@@ -3850,26 +3859,31 @@ export interface CreatePatchBaselineRequest {
   /**
    * <p>The action for Patch Manager to take on patches included in the
    *     <code>RejectedPackages</code> list.</p>
-   *          <ul>
-   *             <li>
+   *          <dl>
+   *             <dt>ALLOW_AS_DEPENDENCY</dt>
+   *             <dd>
    *                <p>
-   *                   <b>
-   *                      <code>ALLOW_AS_DEPENDENCY</code>
-   *                   </b>: A package in the
-   *       <code>Rejected</code> patches list is installed only if it is a dependency of another package.
-   *      It is considered compliant with the patch baseline, and its status is reported as
-   *       <code>InstalledOther</code>. This is the default action if no option is specified.</p>
-   *             </li>
-   *             <li>
+   *                   <b>Linux and macOS</b>: A package in the rejected patches list
+   *       is installed only if it is a dependency of another package. It is considered compliant with
+   *       the patch baseline, and its status is reported as <code>INSTALLED_OTHER</code>. This is the
+   *       default action if no option is specified.</p>
    *                <p>
-   *                   <b>BLOCK</b>: Packages in the <b>Rejected
-   *       patches</b> list, and packages that include them as dependencies, aren't installed by
-   *      Patch Manager under any circumstances. If a package was installed before it was added to the
-   *       <b>Rejected patches</b> list, or is installed outside of Patch
-   *      Manager afterward, it's considered noncompliant with the patch baseline and its status is
-   *      reported as <i>InstalledRejected</i>.</p>
-   *             </li>
-   *          </ul>
+   *                   <b>Windows Server</b>: Windows Server doesn't support the
+   *       concept of package dependencies. If a package in the rejected patches list and already
+   *       installed on the node, its status is reported as <code>INSTALLED_OTHER</code>. Any package not
+   *       already installed on the node is skipped. This is the default action if no option is
+   *       specified.</p>
+   *             </dd>
+   *             <dt>BLOCK</dt>
+   *             <dd>
+   *                <p>
+   *                   <b>All OSs</b>: Packages in the rejected patches list, and
+   *       packages that include them as dependencies, aren't installed by Patch Manager under any
+   *       circumstances. If a package was installed before it was added to the rejected patches list, or
+   *       is installed outside of Patch Manager afterward, it's considered noncompliant with the patch
+   *       baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   RejectedPatchesAction?: PatchAction;
@@ -7698,10 +7712,15 @@ export interface InstanceInformation {
   ActivationId?: string;
 
   /**
-   * <p>The Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
-   *    managed node. This call doesn't return the IAM role for Amazon Elastic Compute Cloud
-   *     (Amazon EC2) instances. To retrieve the IAM role for an EC2 instance, use
-   *    the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
+   * <p>The role assigned to an Amazon EC2 instance configured with a Systems Manager
+   *    Quick Setup host management configuration or the role assigned to an on-premises managed
+   *    node.</p>
+   *          <p> This call doesn't return the IAM role for <i>unmanaged</i>
+   *    Amazon EC2 instances (instances not configured for Systems Manager). To retrieve the
+   *    role for an unmanaged instance, use the Amazon EC2 <code>DescribeInstances</code> operation. For
+   *    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
+   *     <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the
+   *     <i>Amazon Web Services CLI Command Reference</i>.</p>
    * @public
    */
   IamRole?: string;
@@ -8509,7 +8528,8 @@ export const InstancePropertyFilterKey = {
 export type InstancePropertyFilterKey = (typeof InstancePropertyFilterKey)[keyof typeof InstancePropertyFilterKey];
 
 /**
- * <p>Describes a filter for a specific list of managed nodes. You can filter node information by using tags. You specify tags by using a key-value mapping.</p>
+ * <p>Describes a filter for a specific list of managed nodes. You can filter node information by
+ *    using tags. You specify tags by using a key-value mapping.</p>
  * @public
  */
 export interface InstancePropertyFilter {
@@ -8544,7 +8564,7 @@ export interface DescribeInstancePropertiesRequest {
 
   /**
    * <p>The maximum number of items to return for the call. The call also returns a token that you
-   *         can specify in a subsequent call to get the next set of results.</p>
+   *    can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
   MaxResults?: number;
@@ -8562,7 +8582,8 @@ export interface DescribeInstancePropertiesRequest {
  */
 export interface InstanceProperty {
   /**
-   * <p>The value of the EC2 <code>Name</code> tag associated with the node. If a <code>Name</code> tag hasn't been applied to the node, this value is blank.</p>
+   * <p>The value of the EC2 <code>Name</code> tag associated with the node. If a <code>Name</code>
+   *    tag hasn't been applied to the node, this value is blank.</p>
    * @public
    */
   Name?: string;
@@ -8580,13 +8601,15 @@ export interface InstanceProperty {
   InstanceType?: string;
 
   /**
-   * <p>The instance profile attached to the node. If an instance profile isn't attached to the node, this value is blank.</p>
+   * <p>The instance profile attached to the node. If an instance profile isn't attached to the
+   *    node, this value is blank.</p>
    * @public
    */
   InstanceRole?: string;
 
   /**
-   * <p>The name of the key pair associated with the node. If a key pair isnt't associated with the node, this value is blank.</p>
+   * <p>The name of the key pair associated with the node. If a key pair isnt't associated with the
+   *    node, this value is blank.</p>
    * @public
    */
   KeyName?: string;
@@ -8598,13 +8621,14 @@ export interface InstanceProperty {
   InstanceState?: string;
 
   /**
-   * <p>The CPU architecture of the node. For example, x86_64.</p>
+   * <p>The CPU architecture of the node. For example, <code>x86_64</code>.</p>
    * @public
    */
   Architecture?: string;
 
   /**
-   * <p>The public IPv4 address assigned to the node. If a public IPv4 address isn't assigned to the node, this value is blank.</p>
+   * <p>The public IPv4 address assigned to the node. If a public IPv4 address isn't assigned to the
+   *    node, this value is blank.</p>
    * @public
    */
   IPAddress?: string;
@@ -8652,13 +8676,15 @@ export interface InstanceProperty {
   PlatformVersion?: string;
 
   /**
-   * <p>The activation ID created by Systems Manager when the server or virtual machine (VM) was registered</p>
+   * <p>The activation ID created by Systems Manager when the server or virtual machine (VM) was
+   *    registered</p>
    * @public
    */
   ActivationId?: string;
 
   /**
-   * <p>The IAM role used in the hybrid activation to register the node with Systems Manager.</p>
+   * <p>The IAM role used in the hybrid activation to register the node with
+   *    Systems Manager.</p>
    * @public
    */
   IamRole?: string;
@@ -8730,7 +8756,7 @@ export interface DescribeInstancePropertiesResult {
 
   /**
    * <p>The token for the next set of properties to return. Use this token to get the next set of
-   *         results.</p>
+   *    results.</p>
    * @public
    */
   NextToken?: string;

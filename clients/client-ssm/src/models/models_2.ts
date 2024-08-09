@@ -1516,8 +1516,16 @@ export interface UpdateMaintenanceWindowTaskResult {
   TaskArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service
-   * (Amazon SNS) notifications for maintenance window Run Command tasks.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for
+   *                 Amazon Web Services Systems Manager to assume when running a maintenance window task. If you do not specify a
+   *                 service role ARN, Systems Manager uses a service-linked role in your account. If no
+   *                 appropriate service-linked role for Systems Manager exists in your account, it is created when
+   *                 you run <code>RegisterTaskWithMaintenanceWindow</code>.</p>
+   *          <p>However, for an improved security posture, we strongly recommend creating a custom
+   *                 policy and custom service role for running your maintenance window tasks. The policy
+   *                 can be crafted to provide only the permissions needed for your particular
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   ServiceRoleArn?: string;
@@ -1881,26 +1889,31 @@ export interface UpdatePatchBaselineRequest {
   /**
    * <p>The action for Patch Manager to take on patches included in the
    *     <code>RejectedPackages</code> list.</p>
-   *          <ul>
-   *             <li>
+   *          <dl>
+   *             <dt>ALLOW_AS_DEPENDENCY</dt>
+   *             <dd>
    *                <p>
-   *                   <b>
-   *                      <code>ALLOW_AS_DEPENDENCY</code>
-   *                   </b>: A package in the
-   *       <code>Rejected</code> patches list is installed only if it is a dependency of another package.
-   *      It is considered compliant with the patch baseline, and its status is reported as
-   *       <code>InstalledOther</code>. This is the default action if no option is specified.</p>
-   *             </li>
-   *             <li>
+   *                   <b>Linux and macOS</b>: A package in the rejected patches list
+   *       is installed only if it is a dependency of another package. It is considered compliant with
+   *       the patch baseline, and its status is reported as <code>INSTALLED_OTHER</code>. This is the
+   *       default action if no option is specified.</p>
    *                <p>
-   *                   <b>BLOCK</b>: Packages in the <b>Rejected
-   *       patches</b> list, and packages that include them as dependencies, aren't installed by
-   *      Patch Manager under any circumstances. If a package was installed before it was added to the
-   *       <b>Rejected patches</b> list, or is installed outside of Patch
-   *      Manager afterward, it's considered noncompliant with the patch baseline and its status is
-   *      reported as <i>InstalledRejected</i>.</p>
-   *             </li>
-   *          </ul>
+   *                   <b>Windows Server</b>: Windows Server doesn't support the
+   *       concept of package dependencies. If a package in the rejected patches list and already
+   *       installed on the node, its status is reported as <code>INSTALLED_OTHER</code>. Any package not
+   *       already installed on the node is skipped. This is the default action if no option is
+   *       specified.</p>
+   *             </dd>
+   *             <dt>BLOCK</dt>
+   *             <dd>
+   *                <p>
+   *                   <b>All OSs</b>: Packages in the rejected patches list, and
+   *       packages that include them as dependencies, aren't installed by Patch Manager under any
+   *       circumstances. If a package was installed before it was added to the rejected patches list, or
+   *       is installed outside of Patch Manager afterward, it's considered noncompliant with the patch
+   *       baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *             </dd>
+   *          </dl>
    * @public
    */
   RejectedPatchesAction?: PatchAction;
