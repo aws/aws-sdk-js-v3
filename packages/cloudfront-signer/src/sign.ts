@@ -240,6 +240,8 @@ function getResource(url: URL): string {
   switch (url.protocol) {
     case "http:":
     case "https:":
+    case "ws:":
+    case "wss:":
       return url.toString();
     case "rtmp:":
       return url.pathname.replace(/^\//, "") + url.search + url.hash;
