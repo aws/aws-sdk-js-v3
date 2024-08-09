@@ -3,7 +3,7 @@ import { EndpointParameters, EndpointV2 } from "@smithy/types";
 import * as fs from "fs";
 import * as path from "path";
 
-import { EndpointExpectation, EndpointTestCase, ErrorExpectation, ServiceNamespace } from "./integration-test-types";
+import { EndpointExpectation, EndpointTestCase, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
   const root = path.join(__dirname, "..", "..");
@@ -84,7 +84,7 @@ async function runTestCase(
   params.serviceId = serviceId;
 
   it(documentation || "undocumented testcase", async () => {
-    if (isEndpointExpectation(expectation)) {
+    if ("endpoint" in expectation) {
       const { endpoint } = expectation;
       if (operationInputs) {
         for (const operationInput of operationInputs) {
@@ -99,7 +99,7 @@ async function runTestCase(
         assertEndpointResolvedCorrectly(endpoint, observed);
       }
     }
-    if (isErrorExpectation(expectation)) {
+    if ("error" in expectation) {
       const { error } = expectation;
       const pass = (err: any) => err;
       const normalizeQuotes = (s: string) => s.replace(/`/g, "");
@@ -139,12 +139,4 @@ function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint
   if (authSchemes) {
     expect(observed.properties?.authSchemes).toEqual(authSchemes);
   }
-}
-
-function isEndpointExpectation(expectation: object): expectation is EndpointExpectation {
-  return "endpoint" in expectation;
-}
-
-function isErrorExpectation(expectation: object): expectation is ErrorExpectation {
-  return "error" in expectation;
 }
