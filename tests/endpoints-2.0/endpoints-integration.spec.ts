@@ -51,78 +51,70 @@ function runTestCases(
 ) {
   const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
   if (tests?.testCases) {
-    for (const testCase of tests.testCases) {
-      runTestCase(testCase, service, defaultEndpointResolver, serviceId);
+    const testCases = tests.testCases as EndpointTestCase[];
+    for (const testCase of testCases) {
+      const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
+
+      for (const key of Object.keys(params)) {
+        // e.g. S3Control::UseArnRegion as a param key indicates
+        // an error with the test case, it will be ignored.
+        if (key.includes(":")) {
+          delete params[key];
+        }
+      }
+
+      if (params.UseGlobalEndpoint || params.Region === "aws-global") {
+        it.skip(documentation || "undocumented testcase", () => {});
+        continue;
+      }
+
+      params.serviceId = serviceId;
+
+      it(documentation || "undocumented testcase", async () => {
+        if ("endpoint" in expectation) {
+          const { endpoint } = expectation;
+          if (operationInputs) {
+            for (const operationInput of operationInputs) {
+              const { operationName, operationParams = {} } = operationInput;
+              const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], params);
+              const observed = defaultEndpointResolver(endpointParams as any);
+              assertEndpointResolvedCorrectly(endpoint, observed);
+            }
+          } else {
+            const endpointParams = await resolveParams({}, {}, params);
+            const observed = defaultEndpointResolver(endpointParams as any);
+            assertEndpointResolvedCorrectly(endpoint, observed);
+          }
+        }
+        if ("error" in expectation) {
+          const { error } = expectation;
+          const pass = (err: any) => err;
+          const normalizeQuotes = (s: string) => s.replace(/`/g, "");
+          if (operationInputs) {
+            for (const operationInput of operationInputs) {
+              const { operationName, operationParams = {} } = operationInput;
+              const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], {
+                ...params,
+                endpointProvider: defaultEndpointResolver,
+              }).catch(pass);
+              const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
+              expect(observedError).not.toBeUndefined();
+              expect(observedError?.url).toBeUndefined();
+              // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
+            }
+          } else {
+            const endpointParams = await resolveParams({}, {}, params).catch(pass);
+            const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
+            expect(observedError).not.toBeUndefined();
+            expect(observedError?.url).toBeUndefined();
+            // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
+          }
+        }
+      });
     }
   } else {
     it.skip("has no test cases", () => {});
   }
-}
-
-async function runTestCase(
-  testCase: EndpointTestCase,
-  service: ServiceNamespace,
-  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
-  serviceId: string
-) {
-  const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
-
-  for (const key of Object.keys(params)) {
-    // e.g. S3Control::UseArnRegion as a param key indicates
-    // an error with the test case, it will be ignored.
-    if (key.includes(":")) {
-      delete params[key];
-    }
-  }
-
-  if (params.UseGlobalEndpoint || params.Region === "aws-global") {
-    it.skip(documentation || "undocumented testcase", () => {});
-    return;
-  }
-
-  params.serviceId = serviceId;
-
-  it(documentation || "undocumented testcase", async () => {
-    if ("endpoint" in expectation) {
-      const { endpoint } = expectation;
-      if (operationInputs) {
-        for (const operationInput of operationInputs) {
-          const { operationName, operationParams = {} } = operationInput;
-          const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], params);
-          const observed = defaultEndpointResolver(endpointParams as any);
-          assertEndpointResolvedCorrectly(endpoint, observed);
-        }
-      } else {
-        const endpointParams = await resolveParams({}, {}, params);
-        const observed = defaultEndpointResolver(endpointParams as any);
-        assertEndpointResolvedCorrectly(endpoint, observed);
-      }
-    }
-    if ("error" in expectation) {
-      const { error } = expectation;
-      const pass = (err: any) => err;
-      const normalizeQuotes = (s: string) => s.replace(/`/g, "");
-      if (operationInputs) {
-        for (const operationInput of operationInputs) {
-          const { operationName, operationParams = {} } = operationInput;
-          const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], {
-            ...params,
-            endpointProvider: defaultEndpointResolver,
-          }).catch(pass);
-          const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
-          expect(observedError).not.toBeUndefined();
-          expect(observedError?.url).toBeUndefined();
-          // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
-        }
-      } else {
-        const endpointParams = await resolveParams({}, {}, params).catch(pass);
-        const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
-        expect(observedError).not.toBeUndefined();
-        expect(observedError?.url).toBeUndefined();
-        // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
-      }
-    }
-  });
 }
 
 function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint"], observed: EndpointV2) {
