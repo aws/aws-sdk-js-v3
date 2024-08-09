@@ -13,7 +13,7 @@ describe("client list", () => {
     expect(clientList.length).toBeGreaterThan(300);
   });
 
-  for (const client of clientList) {
+  describe.each(clientList)(`%s endpoint test cases`, (client) => {
     const serviceName = client.slice(7);
 
     let defaultEndpointResolver: any;
@@ -33,22 +33,20 @@ describe("client list", () => {
       }
     }
 
-    describe(`client-${serviceName} endpoint test cases`, () => {
-      if (defaultEndpointResolver && model) {
-        const [, service] = Object.entries(model.shapes).find(
-          ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
-        ) as any;
-        const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-        if (tests?.testCases) {
-          runTestCases(tests, service, defaultEndpointResolver, "");
-        } else {
-          it.skip("has no test cases", () => {});
-        }
+    if (defaultEndpointResolver && model) {
+      const [, service] = Object.entries(model.shapes).find(
+        ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
+      ) as any;
+      const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
+      if (tests?.testCases) {
+        runTestCases(tests, service, defaultEndpointResolver, "");
       } else {
-        it.skip("unable to load endpoint resolver, or test cases", () => {});
+        it.skip("has no test cases", () => {});
       }
-    });
-  }
+    } else {
+      it.skip("unable to load endpoint resolver, or test cases", () => {});
+    }
+  });
 });
 
 function runTestCases(
