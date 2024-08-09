@@ -5,53 +5,51 @@ import * as path from "path";
 
 import { EndpointExpectation, EndpointTestCase, ErrorExpectation, ServiceNamespace } from "./integration-test-types";
 
-const clientList: string[] = [];
-const root = path.join(__dirname, "..", "..");
-const clients = fs.readdirSync(path.join(root, "clients"));
-clientList.push(...clients);
-
 describe("client list", () => {
+  const root = path.join(__dirname, "..", "..");
+  const clientList = fs.readdirSync(path.join(root, "clients"));
+
   it("should be at least 300 clients", () => {
     expect(clientList.length).toBeGreaterThan(300);
   });
-});
 
-for (const client of clientList) {
-  const serviceName = client.slice(7);
+  for (const client of clientList) {
+    const serviceName = client.slice(7);
 
-  let defaultEndpointResolver: any;
-  let model: any;
+    let defaultEndpointResolver: any;
+    let model: any;
 
-  // this may also work with dynamic async import() in a beforeAll() block,
-  // but needs more effort than using synchronous require().
-  try {
-    defaultEndpointResolver =
-      require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
-    model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
-  } catch (e) {
-    defaultEndpointResolver = null;
-    model = null;
-    if (e.code !== "MODULE_NOT_FOUND") {
-      console.error(e);
-    }
-  }
-
-  describe(`client-${serviceName} endpoint test cases`, () => {
-    if (defaultEndpointResolver && model) {
-      const [, service] = Object.entries(model.shapes).find(
-        ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
-      ) as any;
-      const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-      if (tests?.testCases) {
-        runTestCases(tests, service, defaultEndpointResolver, "");
-      } else {
-        it.skip("has no test cases", () => {});
+    // this may also work with dynamic async import() in a beforeAll() block,
+    // but needs more effort than using synchronous require().
+    try {
+      defaultEndpointResolver =
+        require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
+      model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
+    } catch (e) {
+      defaultEndpointResolver = null;
+      model = null;
+      if (e.code !== "MODULE_NOT_FOUND") {
+        console.error(e);
       }
-    } else {
-      it.skip("unable to load endpoint resolver, or test cases", () => {});
     }
-  });
-}
+
+    describe(`client-${serviceName} endpoint test cases`, () => {
+      if (defaultEndpointResolver && model) {
+        const [, service] = Object.entries(model.shapes).find(
+          ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
+        ) as any;
+        const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
+        if (tests?.testCases) {
+          runTestCases(tests, service, defaultEndpointResolver, "");
+        } else {
+          it.skip("has no test cases", () => {});
+        }
+      } else {
+        it.skip("unable to load endpoint resolver, or test cases", () => {});
+      }
+    });
+  }
+});
 
 function runTestCases(
   { testCases }: { testCases: EndpointTestCase[] },
