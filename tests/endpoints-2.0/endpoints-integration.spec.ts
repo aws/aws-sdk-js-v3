@@ -19,9 +19,9 @@ describe("client list", () => {
 for (const client of clientList) {
   const serviceName = client.slice(7);
 
-  let defaultEndpointResolver;
-  let namespace;
-  let model;
+  let defaultEndpointResolver: any;
+  let namespace: any;
+  let model: any;
 
   // this may also work with dynamic async import() in a beforeAll() block,
   // but needs more effort than using synchronous require().
@@ -41,7 +41,9 @@ for (const client of clientList) {
 
   describe(`client-${serviceName} endpoint test cases`, () => {
     if (defaultEndpointResolver && namespace && model) {
-      const [, service] = Object.entries(model.shapes).find(([k, v]) => v?.["type"] === "service") as any;
+      const [, service] = Object.entries(model.shapes).find(
+        ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
+      ) as any;
       const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
       if (tests?.testCases) {
         runTestCases(tests, service, defaultEndpointResolver, "");
@@ -106,8 +108,8 @@ async function runTestCase(
     }
     if (isErrorExpectation(expectation)) {
       const { error } = expectation;
-      const pass = (err) => err;
-      const normalizeQuotes = (s) => s.replace(/`/g, "");
+      const pass = (err: any) => err;
+      const normalizeQuotes = (s: string) => s.replace(/`/g, "");
       if (operationInputs) {
         for (const operationInput of operationInputs) {
           const { operationName, operationParams = {} } = operationInput;
