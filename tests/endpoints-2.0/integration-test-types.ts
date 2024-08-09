@@ -1,4 +1,5 @@
 import { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
+import { RuleSetObject } from "@smithy/types";
 
 export interface EndpointTestCase {
   documentation?: string;
@@ -38,6 +39,7 @@ export interface ServiceModel {
     "aws.api#service": {
       serviceId: string;
     };
+    "smithy.rules#endpointRuleSet": RuleSetObject;
     "smithy.rules#endpointTests"?: {
       testCases: EndpointTestCase[];
     };

@@ -1,5 +1,6 @@
 import { resolveParams } from "@smithy/middleware-endpoint";
-import { EndpointParameters, EndpointV2 } from "@smithy/types";
+import { EndpointV2 } from "@smithy/types";
+import { resolveEndpoint, EndpointParams } from "@smithy/util-endpoints";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -16,19 +17,15 @@ describe("client list", () => {
   describe.each(clientList)(`%s endpoint test cases`, (client) => {
     const serviceName = client.slice(7);
 
-    let defaultEndpointResolver: any;
     let namespace: any;
     let model: any;
 
     // this may also work with dynamic async import() in a beforeAll() block,
     // but needs more effort than using synchronous require().
     try {
-      defaultEndpointResolver =
-        require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
       namespace = require(`@aws-sdk/client-${serviceName}`);
       model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
     } catch (e) {
-      defaultEndpointResolver = null;
       namespace = null;
       model = null;
       if (e.code !== "MODULE_NOT_FOUND") {
@@ -36,11 +33,11 @@ describe("client list", () => {
       }
     }
 
-    if (defaultEndpointResolver && namespace && model) {
+    if (namespace && model) {
       for (const value of Object.values(model.shapes)) {
         if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
           const service = value as ServiceModel;
-          runTestCases(service, namespace, defaultEndpointResolver);
+          runTestCases(service, namespace);
           break;
         }
       }
@@ -50,13 +47,13 @@ describe("client list", () => {
   });
 });
 
-function runTestCases(
-  service: ServiceModel,
-  namespace: ServiceNamespace,
-  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2
-) {
+function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
   const serviceId = service.traits["aws.api#service"].serviceId;
   const testCases = service.traits["smithy.rules#endpointTests"]?.testCases;
+
+  const ruleSet = service.traits["smithy.rules#endpointRuleSet"];
+  const defaultEndpointResolver = (endpointParams: EndpointParams) => resolveEndpoint(ruleSet, { endpointParams });
+
   if (testCases) {
     for (const testCase of testCases) {
       const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
@@ -83,12 +80,12 @@ function runTestCases(
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
               const endpointParams = await resolveParams(operationParams, namespace[`${operationName}Command`], params);
-              const observed = defaultEndpointResolver(endpointParams as any);
+              const observed = defaultEndpointResolver(endpointParams as EndpointParams);
               assertEndpointResolvedCorrectly(endpoint, observed);
             }
           } else {
             const endpointParams = await resolveParams({}, {}, params);
-            const observed = defaultEndpointResolver(endpointParams as any);
+            const observed = defaultEndpointResolver(endpointParams as EndpointParams);
             assertEndpointResolvedCorrectly(endpoint, observed);
           }
         }
