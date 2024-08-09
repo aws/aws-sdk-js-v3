@@ -3660,10 +3660,9 @@ export type AdvancedSecurityEnabledModeType =
   (typeof AdvancedSecurityEnabledModeType)[keyof typeof AdvancedSecurityEnabledModeType];
 
 /**
- * <p>Advanced security configuration options for additional authentication types
- *             in your user pool, including custom authentication and refresh-token
- *             authentication.
- *         </p>
+ * <p>Advanced security configuration options for additional authentication types in your
+ *             user pool, including custom
+ *             authentication. </p>
  * @public
  */
 export interface AdvancedSecurityAdditionalFlowsType {
@@ -5544,10 +5543,9 @@ export interface UserPoolAddOnsType {
   AdvancedSecurityMode: AdvancedSecurityModeType | undefined;
 
   /**
-   * <p>Advanced security configuration options for additional authentication types
-   *             in your user pool, including custom authentication and refresh-token
-   *             authentication.
-   *         </p>
+   * <p>Advanced security configuration options for additional authentication types in your
+   *             user pool, including custom
+   *             authentication. </p>
    * @public
    */
   AdvancedSecurityAdditionalFlows?: AdvancedSecurityAdditionalFlowsType;
