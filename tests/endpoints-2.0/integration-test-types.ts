@@ -30,3 +30,16 @@ export type ErrorExpectation = {
 export interface ServiceNamespace {
   [Command: string]: EndpointParameterInstructionsSupplier;
 }
+
+export interface ServiceModel {
+  type: "service";
+  version: string;
+  traits: {
+    "aws.api#service": {
+      serviceId: string;
+    };
+    "smithy.rules#endpointTests": {
+      testCases: EndpointTestCase[];
+    };
+  };
+}

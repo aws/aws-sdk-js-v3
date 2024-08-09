@@ -3,7 +3,7 @@ import { EndpointParameters, EndpointV2 } from "@smithy/types";
 import * as fs from "fs";
 import * as path from "path";
 
-import { EndpointExpectation, EndpointTestCase, ServiceNamespace } from "./integration-test-types";
+import { EndpointExpectation, EndpointTestCase, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
   const root = path.join(__dirname, "..", "..");
@@ -17,6 +17,7 @@ describe("client list", () => {
     const serviceName = client.slice(7);
 
     let defaultEndpointResolver: any;
+    let namespace: any;
     let model: any;
 
     // this may also work with dynamic async import() in a beforeAll() block,
@@ -24,28 +25,34 @@ describe("client list", () => {
     try {
       defaultEndpointResolver =
         require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
+      namespace = require(`@aws-sdk/client-${serviceName}`);
       model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
     } catch (e) {
       defaultEndpointResolver = null;
+      namespace = null;
       model = null;
       if (e.code !== "MODULE_NOT_FOUND") {
         console.error(e);
       }
     }
 
-    if (defaultEndpointResolver && model) {
-      const [, service] = Object.entries(model.shapes).find(
-        ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
-      ) as any;
-      runTestCases(service, defaultEndpointResolver, "");
+    if (defaultEndpointResolver && namespace && model) {
+      for (const value of Object.values(model.shapes)) {
+        if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
+          const service = value as ServiceModel;
+          runTestCases(service, namespace, defaultEndpointResolver, "");
+          break;
+        }
+      }
     } else {
-      it.skip("unable to load endpoint resolver, or test cases", () => {});
+      it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
     }
   });
 });
 
 function runTestCases(
-  service: ServiceNamespace,
+  service: ServiceModel,
+  namespace: ServiceNamespace,
   defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
   serviceId: string
 ) {
@@ -76,7 +83,7 @@ function runTestCases(
           if (operationInputs) {
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
-              const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], params);
+              const endpointParams = await resolveParams(operationParams, namespace[`${operationName}Command`], params);
               const observed = defaultEndpointResolver(endpointParams as any);
               assertEndpointResolvedCorrectly(endpoint, observed);
             }
@@ -93,7 +100,7 @@ function runTestCases(
           if (operationInputs) {
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
-              const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], {
+              const endpointParams = await resolveParams(operationParams, namespace[`${operationName}Command`], {
                 ...params,
                 endpointProvider: defaultEndpointResolver,
               }).catch(pass);
