@@ -38,7 +38,7 @@ export interface ServiceModel {
     "aws.api#service": {
       serviceId: string;
     };
-    "smithy.rules#endpointTests": {
+    "smithy.rules#endpointTests"?: {
       testCases: EndpointTestCase[];
     };
   };

@@ -3,7 +3,7 @@ import { EndpointParameters, EndpointV2 } from "@smithy/types";
 import * as fs from "fs";
 import * as path from "path";
 
-import { EndpointExpectation, EndpointTestCase, ServiceModel, ServiceNamespace } from "./integration-test-types";
+import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
   const root = path.join(__dirname, "..", "..");
@@ -40,7 +40,7 @@ describe("client list", () => {
       for (const value of Object.values(model.shapes)) {
         if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
           const service = value as ServiceModel;
-          runTestCases(service, namespace, defaultEndpointResolver, "");
+          runTestCases(service, namespace, defaultEndpointResolver);
           break;
         }
       }
@@ -53,12 +53,11 @@ describe("client list", () => {
 function runTestCases(
   service: ServiceModel,
   namespace: ServiceNamespace,
-  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
-  serviceId: string
+  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2
 ) {
-  const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-  if (tests?.testCases) {
-    const testCases = tests.testCases as EndpointTestCase[];
+  const serviceId = service.traits["aws.api#service"].serviceId;
+  const testCases = service.traits["smithy.rules#endpointTests"]?.testCases;
+  if (testCases) {
     for (const testCase of testCases) {
       const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
 
