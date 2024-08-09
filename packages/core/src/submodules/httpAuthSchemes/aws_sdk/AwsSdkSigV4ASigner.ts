@@ -22,7 +22,13 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
     const { config, signer, signingRegion, signingRegionSet, signingName } = await validateSigningProperties(
       signingProperties
     );
-    const multiRegionOverride: string | undefined = signingRegionSet?.join?.(",") ?? signingRegion;
+
+    const configResolvedSigningRegionSet = await config.sigv4aSigningRegionSet?.();
+
+    const multiRegionOverride: string | undefined = (
+      configResolvedSigningRegionSet ??
+      signingRegionSet ?? [signingRegion]
+    ).join(",");
 
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),

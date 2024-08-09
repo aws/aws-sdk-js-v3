@@ -11,6 +11,7 @@ import {
 } from "@smithy/types";
 
 import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
+import { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
  * @internal
@@ -25,7 +26,7 @@ const throwSigningPropertyError = <T>(name: string, property: T | undefined): T 
 /**
  * @internal
  */
-interface AwsSdkSigV4Config {
+interface AwsSdkSigV4Config extends AwsSdkSigV4AAuthResolvedConfig {
   systemClockOffset: number;
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
 }

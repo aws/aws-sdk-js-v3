@@ -1,8 +1,12 @@
 // smithy-typescript generated code
 import {
+  AwsSdkSigV4AAuthInputConfig,
+  AwsSdkSigV4AAuthResolvedConfig,
+  AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
 import { signatureV4CrtContainer } from "@aws-sdk/signature-v4-multi-region";
@@ -279,7 +283,7 @@ export const defaultEventBridgeHttpAuthSchemeProvider: EventBridgeHttpAuthScheme
 /**
  * @internal
  */
-export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**
    * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
@@ -296,7 +300,7 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig, AwsSdkSigV4AAuthResolvedConfig {
   /**
    * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
@@ -314,10 +318,11 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
  * @internal
  */
 export const resolveHttpAuthSchemeConfig = <T>(
-  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved & AwsSdkSigV4APreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
+  const config_1 = resolveAwsSdkSigV4AConfig(config_0);
   return {
-    ...config_0,
+    ...config_1,
   } as T & HttpAuthSchemeResolvedConfig;
 };
