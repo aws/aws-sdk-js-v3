@@ -3912,7 +3912,7 @@ it("RestXmlSerializesEmptyString:Request", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restXml:Request", async () => {
+it("SDKAppliedContentEncoding_restXml:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3945,7 +3945,7 @@ it.skip("SDKAppliedContentEncoding_restXml:Request", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restXml:Request", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restXml:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

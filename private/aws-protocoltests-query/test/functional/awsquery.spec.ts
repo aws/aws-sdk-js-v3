@@ -1043,7 +1043,7 @@ it("QueryNoInputAndOutput:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_awsQuery:Request", async () => {
+it("SDKAppliedContentEncoding_awsQuery:Request", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -1076,7 +1076,7 @@ it.skip("SDKAppliedContentEncoding_awsQuery:Request", async () => {
  * traits are ignored in the awsQuery protocol.
  *
  */
-it.skip("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsQuery:Request", async () => {
+it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsQuery:Request", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
