@@ -27,7 +27,7 @@ export { $Command };
  *
  * The input for {@link GetObjectCommand}.
  */
-export interface GetObjectCommandInput extends GetObjectRequest { }
+export interface GetObjectCommandInput extends GetObjectRequest {}
 /**
  * @public
  *
@@ -368,4 +368,4 @@ export class GetObjectCommand extends $Command
   .f(GetObjectRequestFilterSensitiveLog, GetObjectOutputFilterSensitiveLog)
   .ser(se_GetObjectCommand)
   .de(de_GetObjectCommand)
-  .build() { }
+  .build() {}
