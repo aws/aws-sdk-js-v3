@@ -37,12 +37,7 @@ describe("client list", () => {
       const [, service] = Object.entries(model.shapes).find(
         ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
       ) as any;
-      const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-      if (tests?.testCases) {
-        runTestCases(tests, service, defaultEndpointResolver, "");
-      } else {
-        it.skip("has no test cases", () => {});
-      }
+      runTestCases(service, defaultEndpointResolver, "");
     } else {
       it.skip("unable to load endpoint resolver, or test cases", () => {});
     }
@@ -50,13 +45,17 @@ describe("client list", () => {
 });
 
 function runTestCases(
-  { testCases }: { testCases: EndpointTestCase[] },
   service: ServiceNamespace,
   defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
   serviceId: string
 ) {
-  for (const testCase of testCases) {
-    runTestCase(testCase, service, defaultEndpointResolver, serviceId);
+  const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
+  if (tests?.testCases) {
+    for (const testCase of tests.testCases) {
+      runTestCase(testCase, service, defaultEndpointResolver, serviceId);
+    }
+  } else {
+    it.skip("has no test cases", () => {});
   }
 }
 
