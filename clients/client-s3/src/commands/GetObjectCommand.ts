@@ -194,7 +194,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = { // GetObjectRequest
+ * const input = { // GetObjectCommandInput
  *   Bucket: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
  *   IfModifiedSince: new Date("TIMESTAMP"),
@@ -219,7 +219,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
- * // { // GetObjectOutput
+ * // { // GetObjectCommandOutput
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   DeleteMarker: true || false,
  * //   AcceptRanges: "STRING_VALUE",
