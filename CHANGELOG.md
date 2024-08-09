@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.628.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.627.0...v3.628.0) (2024-08-09)
+
+
+### Features
+
+* **client-connect:** This release supports adding RoutingCriteria via UpdateContactRoutingData public API. ([1c86676](https://github.com/aws/aws-sdk-js-v3/commit/1c86676ebc7cfd24f0fb16d3310abc98d8890ffe))
+* **clients:** update client endpoints as of 2024-08-09 ([3189a4a](https://github.com/aws/aws-sdk-js-v3/commit/3189a4a4b39ccd955d43b71409dff960277458b4))
+
+
+
+
+
 # [3.627.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.626.0...v3.627.0) (2024-08-08)
 
 
