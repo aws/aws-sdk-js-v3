@@ -758,6 +758,7 @@ import {
   AgentHierarchyGroups,
   AgentInfo,
   AgentQualityMetrics,
+  AgentsCriteria,
   AgentStatus,
   AgentStatusReference,
   AgentStatusSearchFilter,
@@ -816,6 +817,7 @@ import {
   LexBot,
   LexV2Bot,
   LimitExceededException,
+  MatchCriteria,
   MediaConcurrency,
   MonitorCapability,
   NotificationRecipientType,
@@ -994,6 +996,9 @@ import {
   QuickConnectSearchFilter,
   ResourceTagsSearchCriteria,
   RoutingCriteria,
+  RoutingCriteriaInput,
+  RoutingCriteriaInputStep,
+  RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
   SearchableContactAttributes,
@@ -5914,6 +5919,7 @@ export const se_UpdateContactRoutingDataCommand = async (
     take(input, {
       QueuePriority: [],
       QueueTimeAdjustmentSeconds: [],
+      RoutingCriteria: (_) => se_RoutingCriteriaInput(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -12551,7 +12557,11 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentHierarchyGroups omitted.
 
+// se_AgentIds omitted.
+
 // se_AgentResourceIdList omitted.
+
+// se_AgentsCriteria omitted.
 
 // se_AgentsMinOneMaxHundred omitted.
 
@@ -12596,6 +12606,19 @@ const se_AgentStatusSearchCriteria = (input: AgentStatusSearchCriteria, context:
 // se_AssignContactCategoryActionDefinition omitted.
 
 // se_AttributeAndCondition omitted.
+
+/**
+ * serializeAws_restJson1AttributeCondition
+ */
+const se_AttributeCondition = (input: AttributeCondition, context: __SerdeContext): any => {
+  return take(input, {
+    ComparisonOperator: [],
+    MatchCriteria: _json,
+    Name: [],
+    ProficiencyLevel: __serializeFloat,
+    Value: [],
+  });
+};
 
 // se_AttributeOrConditionList omitted.
 
@@ -12850,6 +12873,28 @@ const se_EvaluationFormSection = (input: EvaluationFormSection, context: __Serde
 // se_EventBridgeActionDefinition omitted.
 
 /**
+ * serializeAws_restJson1Expression
+ */
+const se_Expression = (input: Expression, context: __SerdeContext): any => {
+  return take(input, {
+    AndExpression: (_) => se_Expressions(_, context),
+    AttributeCondition: (_) => se_AttributeCondition(_, context),
+    OrExpression: (_) => se_Expressions(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1Expressions
+ */
+const se_Expressions = (input: Expression[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Expression(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1FieldValue
  */
 const se_FieldValue = (input: FieldValue, context: __SerdeContext): any => {
@@ -12985,6 +13030,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 // se_LexV2Bot omitted.
 
 // se_ListCondition omitted.
+
+// se_MatchCriteria omitted.
 
 // se_MediaConcurrencies omitted.
 
@@ -13182,6 +13229,38 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 // se_ResourceTagsSearchCriteria omitted.
 
 // se_ResourceTypeList omitted.
+
+/**
+ * serializeAws_restJson1RoutingCriteriaInput
+ */
+const se_RoutingCriteriaInput = (input: RoutingCriteriaInput, context: __SerdeContext): any => {
+  return take(input, {
+    Steps: (_) => se_RoutingCriteriaInputSteps(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingCriteriaInputStep
+ */
+const se_RoutingCriteriaInputStep = (input: RoutingCriteriaInputStep, context: __SerdeContext): any => {
+  return take(input, {
+    Expiry: _json,
+    Expression: (_) => se_Expression(_, context),
+  });
+};
+
+// se_RoutingCriteriaInputStepExpiry omitted.
+
+/**
+ * serializeAws_restJson1RoutingCriteriaInputSteps
+ */
+const se_RoutingCriteriaInputSteps = (input: RoutingCriteriaInputStep[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RoutingCriteriaInputStep(entry, context);
+    });
+};
 
 // se_RoutingExpressions omitted.
 

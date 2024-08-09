@@ -4757,36 +4757,17 @@ export interface UpdateContactFlowNameRequest {
 export interface UpdateContactFlowNameResponse {}
 
 /**
+ * <p>Specify whether this routing criteria step should apply for only a limited amount of time,  or if it should
+ *    never expire.</p>
  * @public
  */
-export interface UpdateContactRoutingDataRequest {
+export interface RoutingCriteriaInputStepExpiry {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The number of seconds that the contact will be routed only to agents matching this routing  step, if expiry
+   *    was configured for this routing step.</p>
    * @public
    */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The number of seconds to add or subtract from the contact's routing age. Contacts are routed
-   *    to agents on a first-come, first-serve basis. This means that changing their amount of time in
-   *    queue compared to others also changes their position in queue.</p>
-   * @public
-   */
-  QueueTimeAdjustmentSeconds?: number;
-
-  /**
-   * <p>Priority of the contact in the queue. The default priority for new contacts is 5. You can
-   *    raise the priority of a contact compared to other contacts in the queue by assigning them a
-   *    higher priority, such as 1 or 2.</p>
-   * @public
-   */
-  QueuePriority?: number;
+  DurationInSeconds?: number;
 }
 
 /**
@@ -6985,6 +6966,25 @@ export interface DescribeEvaluationFormResponse {
 }
 
 /**
+ * <p>Step defines the list of agents to be routed or route based on the agent requirements such as ProficiencyLevel,
+ *    Name, or Value.</p>
+ * @public
+ */
+export interface RoutingCriteriaInputStep {
+  /**
+   * <p>An object to specify the expiration of a routing step.</p>
+   * @public
+   */
+  Expiry?: RoutingCriteriaInputStepExpiry;
+
+  /**
+   * <p>A tagged union to specify expression for a routing step.</p>
+   * @public
+   */
+  Expression?: Expression;
+}
+
+/**
  * @public
  */
 export interface SearchAgentStatusesRequest {
@@ -7507,6 +7507,21 @@ export interface RoutingCriteria {
 }
 
 /**
+ * <p>An object to define the RoutingCriteria.</p>
+ * @public
+ */
+export interface RoutingCriteriaInput {
+  /**
+   * <p>When Amazon Connect does not find an available agent meeting the requirements in a step for
+   *    a given step duration, the routing criteria will move on to the next step sequentially until a
+   *    join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent
+   *    in the queue.</p>
+   * @public
+   */
+  Steps?: RoutingCriteriaInputStep[];
+}
+
+/**
  * <p>Contains information about a contact.</p>
  * @public
  */
@@ -7721,6 +7736,46 @@ export interface Contact {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue>;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactRoutingDataRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The number of seconds to add or subtract from the contact's routing age. Contacts are routed
+   *    to agents on a first-come, first-serve basis. This means that changing their amount of time in
+   *    queue compared to others also changes their position in queue.</p>
+   * @public
+   */
+  QueueTimeAdjustmentSeconds?: number;
+
+  /**
+   * <p>Priority of the contact in the queue. The default priority for new contacts is 5. You can
+   *    raise the priority of a contact compared to other contacts in the queue by assigning them a
+   *    higher priority, such as 1 or 2.</p>
+   * @public
+   */
+  QueuePriority?: number;
+
+  /**
+   * <p>Updates the routing criteria on the contact. These properties can be used to change how a
+   *    contact is routed within the queue.</p>
+   * @public
+   */
+  RoutingCriteria?: RoutingCriteriaInput;
 }
 
 /**

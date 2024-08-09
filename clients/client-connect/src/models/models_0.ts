@@ -615,14 +615,14 @@ export interface AgentQualityMetrics {
 }
 
 /**
- * <p>Can be used to define a list of preferred agents to target the contact within the queue.
+ * <p>Can be used to define a list of preferred agents to target the contact to within the queue.
  *    Note that agents must have the queue in their routing profile in order to be offered the
  *    contact.</p>
  * @public
  */
 export interface AgentsCriteria {
   /**
-   * <p>An object to specify a list of agents, by Agent ID.</p>
+   * <p>An object to specify a list of agents, by user ID.</p>
    * @public
    */
   AgentIds?: string[];
@@ -7056,12 +7056,12 @@ export interface Expiry {
 }
 
 /**
- * <p>An object to define <code>AgentsCriteria</code>.</p>
+ * <p>An object to define AgentsCriteria.</p>
  * @public
  */
 export interface MatchCriteria {
   /**
-   * <p>An object to define <code>AgentIds</code>.</p>
+   * <p>An object to define agentIds.</p>
    * @public
    */
   AgentsCriteria?: AgentsCriteria;

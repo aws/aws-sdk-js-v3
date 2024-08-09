@@ -52,6 +52,56 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *   ContactId: "STRING_VALUE", // required
  *   QueueTimeAdjustmentSeconds: Number("int"),
  *   QueuePriority: Number("long"),
+ *   RoutingCriteria: { // RoutingCriteriaInput
+ *     Steps: [ // RoutingCriteriaInputSteps
+ *       { // RoutingCriteriaInputStep
+ *         Expiry: { // RoutingCriteriaInputStepExpiry
+ *           DurationInSeconds: Number("int"),
+ *         },
+ *         Expression: { // Expression
+ *           AttributeCondition: { // AttributeCondition
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             ProficiencyLevel: Number("float"),
+ *             MatchCriteria: { // MatchCriteria
+ *               AgentsCriteria: { // AgentsCriteria
+ *                 AgentIds: [ // AgentIds
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ComparisonOperator: "STRING_VALUE",
+ *           },
+ *           AndExpression: [ // Expressions
+ *             {
+ *               AttributeCondition: {
+ *                 Name: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 ProficiencyLevel: Number("float"),
+ *                 MatchCriteria: {
+ *                   AgentsCriteria: {
+ *                     AgentIds: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 ComparisonOperator: "STRING_VALUE",
+ *               },
+ *               AndExpression: [
+ *                 "<Expression>",
+ *               ],
+ *               OrExpression: [
+ *                 "<Expression>",
+ *               ],
+ *             },
+ *           ],
+ *           OrExpression: [
+ *             "<Expression>",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateContactRoutingDataCommand(input);
  * const response = await client.send(command);

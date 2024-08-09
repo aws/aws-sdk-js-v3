@@ -8869,31 +8869,27 @@ export interface RealTimeContactAnalysisSegmentPostContactSummary {
   Status: RealTimeContactAnalysisPostContactSummaryStatus | undefined;
 
   /**
-   * <p>If the summary failed to be generated, one of the following failure codes
-   *    occurs:</p>
+   * <p>If the summary failed to be generated, one of the following failure codes occurs:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached
-   *      your service quota.</p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached your service
+   *      quota.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have
-   *      at least one turn from both the participants in order to generate the
-   *      summary.</p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have at least
+   *      one turn from both the participants in order to generate the summary.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be
-   *      provided because it failed to meet system safety guidelines.</p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be provided because it
+   *      failed to meet system safety guidelines.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for
-   *      example, you're using a
-   *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a>
-   *      that isn't supported by generative AI-powered post-contact summaries.
+   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for example, you're
+   *      using a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a> that isn't supported by generative AI-powered post-contact summaries.
    *     </p>
    *             </li>
    *             <li>
