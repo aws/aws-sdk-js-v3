@@ -20,7 +20,6 @@ for (const client of clientList) {
   const serviceName = client.slice(7);
 
   let defaultEndpointResolver: any;
-  let namespace: any;
   let model: any;
 
   // this may also work with dynamic async import() in a beforeAll() block,
@@ -28,11 +27,9 @@ for (const client of clientList) {
   try {
     defaultEndpointResolver =
       require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
-    namespace = require(`@aws-sdk/client-${serviceName}`);
     model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
   } catch (e) {
     defaultEndpointResolver = null;
-    namespace = null;
     model = null;
     if (e.code !== "MODULE_NOT_FOUND") {
       console.error(e);
@@ -40,7 +37,7 @@ for (const client of clientList) {
   }
 
   describe(`client-${serviceName} endpoint test cases`, () => {
-    if (defaultEndpointResolver && namespace && model) {
+    if (defaultEndpointResolver && model) {
       const [, service] = Object.entries(model.shapes).find(
         ([k, v]) => typeof v === "object" && v !== null && "type" in v && v.type === "service"
       ) as any;
@@ -51,7 +48,7 @@ for (const client of clientList) {
         it.skip("has no test cases", () => {});
       }
     } else {
-      it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
+      it.skip("unable to load endpoint resolver, or test cases", () => {});
     }
   });
 }
