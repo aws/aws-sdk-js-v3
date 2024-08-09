@@ -1,13 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
 
 jest.mock("@smithy/signature-v4");
-
 jest.mock("@aws-sdk/signature-v4-crt");
+jest.mock("@smithy/signature-v4a");
 
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4 } from "@smithy/signature-v4";
+import { SignatureV4a } from "@smithy/signature-v4a";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
+import { signatureV4aContainer } from "./signature-v4a-container";
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
 
 describe("SignatureV4MultiRegion", () => {
@@ -28,6 +30,7 @@ describe("SignatureV4MultiRegion", () => {
 
   beforeEach(() => {
     signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
+    signatureV4aContainer.SignatureV4a = SignatureV4a as any;
     jest.clearAllMocks();
   });
 
@@ -59,33 +62,41 @@ describe("SignatureV4MultiRegion", () => {
     expect(CrtSignerV4.mock.instances[0].presign).toBeCalledTimes(1);
   });
 
-  it("should throw if sign with SigV4a in unsupported runtime", async () => {
-    expect.assertions(1);
-    const signer = new SignatureV4MultiRegion({ ...params, runtime: "browser" });
-    await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      "This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js"
-    );
+  it("should presign with SigV4a signer if signingRegion is '*'", async () => {
+    const signer = new SignatureV4MultiRegion(params);
+    await signer.presign(minimalRequest, { signingRegion: "*" });
+    //@ts-ignore
+    expect(SignatureV4a.mock.instances[0].presign).toBeCalledTimes(1);
   });
 
-  it("should throw if preSign with SigV4a in unsupported runtime", async () => {
-    expect.assertions(1);
-    const signer = new SignatureV4MultiRegion({ ...params, runtime: "browser" });
-    await expect(signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      "This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js"
-    );
+  it("should sign with SigV4a signer if signingRegion is '*'", async () => {
+    const signer = new SignatureV4MultiRegion(params);
+    await signer.sign(minimalRequest, { signingRegion: "*" });
+    //@ts-ignore
+    expect(SignatureV4a.mock.instances[0].sign).toBeCalledTimes(1);
   });
 
-  it("should throw if sign with SigV4a and signature-v4-crt is not installed", async () => {
+  it("should use CrtSignerV4 if available", async () => {
+    const signer = new SignatureV4MultiRegion(params);
+    await signer.sign(minimalRequest, { signingRegion: "*" });
+    expect(CrtSignerV4).toHaveBeenCalledTimes(1);
+  });
+
+  it("should use SignatureV4a if CrtSignerV4 is not available", async () => {
     signatureV4CrtContainer.CrtSignerV4 = null;
+    const signer = new SignatureV4MultiRegion(params);
+    await signer.sign(minimalRequest, { signingRegion: "*" });
+    expect(SignatureV4a).toHaveBeenCalledTimes(1);
+  });
+
+  it("should throw if neither CrtSignerV4 nor SignatureV4a is available", async () => {
+    signatureV4CrtContainer.CrtSignerV4 = null;
+    signatureV4aContainer.SignatureV4a = null;
     expect.assertions(1);
     const signer = new SignatureV4MultiRegion({ ...params });
     await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      "\n" +
-        `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
-        `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
-        `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
-        "For more information please go to " +
-        "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
+      "Neither CRT nor JS SigV4a implementation is available. " +
+        "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a."
     );
   });
 });
