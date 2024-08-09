@@ -60,12 +60,16 @@ public final class AwsTraitsUtils {
     }
 
     public static boolean isSigV4AsymmetricService(Model model, TypeScriptSettings settings) {
-        if (ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES.contains(settings.getService())) {
+        return isSigV4AsymmetricService(model, settings.getService(model));
+    }
+
+    public static boolean isSigV4AsymmetricService(Model model, ServiceShape service) {
+        if (ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES.contains(service.getId())) {
             return true;
         }
 
         return ServiceIndex.of(model)
-            .getEffectiveAuthSchemes(settings.getService(), ServiceIndex.AuthSchemeMode.NO_AUTH_AWARE)
+            .getEffectiveAuthSchemes(service, ServiceIndex.AuthSchemeMode.NO_AUTH_AWARE)
             .containsKey(SigV4ATrait.ID);
     }
 
