@@ -25,6 +25,7 @@ A collection of all credential providers, with default clients.
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
 1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
+1. [Creating a custom credentials chain](#chain)
 
 ## `fromCognitoIdentity()`
 
@@ -704,14 +705,14 @@ CLI profile name [123456789011_ReadOnly]: my-sso-profile<ENTER>
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" })});
+const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" }) });
 ```
 
 Alternatively, the SSO credential provider is supported in shared INI credentials provider
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" })});
+const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" }) });
 ```
 
 3. To log out from the current SSO session, use the AWS CLI:
@@ -781,6 +782,43 @@ const credentialProvider = fromNodeProviderChain({
   // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
   // Optional. Custom STS client configurations overriding the default ones.
   clientConfig: { region },
+});
+```
+
+## `chain()`
+
+You can use this helper to create a credential chain of your own.
+
+```ts
+import { fromEnv, fromIni, createCredentialChain } from "@aws-sdk/credential-providers";
+import { S3 } from "@aws-sdk/client-s3";
+
+// You can mix existing AWS SDK credential providers
+// and custom async functions returning credential objects.
+new S3({
+  credentials: createCredentialChain(
+    fromEnv(),
+    async () => {
+      // credentials customized by your code...
+      return credentials;
+    },
+    fromIni()
+  ),
+});
+
+// Set a max duration on the credentials (client side only).
+// A set expiration will cause the credentials function to be called again
+// when the time left is less than 5 minutes.
+new S3({
+  // expire after 15 minutes (in milliseconds).
+  credentials: createCredentialChain(fromEnv(), fromIni()).expireAfter(15 * 60_000),
+});
+
+// Apply shared init properties.
+const init = { logger: console };
+
+new S3({
+  credentials: createCredentialChain(fromEnv(init), fromIni(init)),
 });
 ```
 
