@@ -206,6 +206,10 @@ import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "../comman
 import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyImageCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands/CopySnapshotCommand";
 import {
+  CreateCapacityReservationBySplittingCommandInput,
+  CreateCapacityReservationBySplittingCommandOutput,
+} from "../commands/CreateCapacityReservationBySplittingCommand";
+import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "../commands/CreateCapacityReservationCommand";
@@ -1917,6 +1921,10 @@ import {
   MoveByoipCidrToIpamCommandInput,
   MoveByoipCidrToIpamCommandOutput,
 } from "../commands/MoveByoipCidrToIpamCommand";
+import {
+  MoveCapacityReservationInstancesCommandInput,
+  MoveCapacityReservationInstancesCommandOutput,
+} from "../commands/MoveCapacityReservationInstancesCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "../commands/ProvisionByoipCidrCommand";
 import {
   ProvisionIpamByoasnCommandInput,
@@ -2294,7 +2302,8 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
-  CreateCapacityReservationFleetRequest,
+  CreateCapacityReservationBySplittingRequest,
+  CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   DeviceOptions,
@@ -2400,6 +2409,7 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCapacityReservationFleetRequest,
   CreateCapacityReservationFleetResult,
   CreateCarrierGatewayRequest,
   CreateCarrierGatewayResult,
@@ -2473,7 +2483,6 @@ import {
   CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
-  CreateNetworkInterfaceRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2622,6 +2631,7 @@ import {
   ConnectionTrackingConfiguration,
   CreateNetworkInterfacePermissionRequest,
   CreateNetworkInterfacePermissionResult,
+  CreateNetworkInterfaceRequest,
   CreateNetworkInterfaceResult,
   CreatePlacementGroupRequest,
   CreatePlacementGroupResult,
@@ -2758,8 +2768,6 @@ import {
   DeleteLaunchTemplateVersionsRequest,
   DeleteLaunchTemplateVersionsResponseErrorItem,
   DeleteLaunchTemplateVersionsResponseSuccessItem,
-  DeleteLaunchTemplateVersionsResult,
-  DeleteLocalGatewayRouteRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2875,6 +2883,8 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteLaunchTemplateVersionsResult,
+  DeleteLocalGatewayRouteRequest,
   DeleteLocalGatewayRouteResult,
   DeleteLocalGatewayRouteTableRequest,
   DeleteLocalGatewayRouteTableResult,
@@ -3364,7 +3374,6 @@ import {
   SnapshotDetail,
   SnapshotTaskDetail,
   SnapshotTierStatus,
-  SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
   SpotFleetTagSpecification,
@@ -3622,7 +3631,6 @@ import {
   GetImageBlockPublicAccessStateRequest,
   GetImageBlockPublicAccessStateResult,
   GetInstanceMetadataDefaultsRequest,
-  GetInstanceMetadataDefaultsResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
@@ -3635,6 +3643,7 @@ import {
   Purchase,
   RunInstancesMonitoringEnabled,
   ServiceDetail,
+  SpotCapacityRebalance,
   SpotFleetRequestConfig,
   SpotFleetRequestConfigData,
   SpotInstanceRequest,
@@ -3673,6 +3682,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetInstanceMetadataDefaultsResult,
   GetInstanceTpmEkPubRequest,
   GetInstanceTpmEkPubResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
@@ -3904,8 +3914,6 @@ import {
   ModifyVpnConnectionRequest,
   ModifyVpnConnectionResult,
   ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelOptionsSpecification,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3959,14 +3967,18 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelOptionsRequest,
   ModifyVpnTunnelOptionsResult,
+  ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
   MoveByoipCidrToIpamRequest,
   MoveByoipCidrToIpamResult,
+  MoveCapacityReservationInstancesRequest,
+  MoveCapacityReservationInstancesResult,
   PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
@@ -5059,6 +5071,23 @@ export const se_CreateCapacityReservationCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateCapacityReservationRequest(input, context),
     [_A]: _CCRr,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateCapacityReservationBySplittingCommand
+ */
+export const se_CreateCapacityReservationBySplittingCommand = async (
+  input: CreateCapacityReservationBySplittingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateCapacityReservationBySplittingRequest(input, context),
+    [_A]: _CCRBS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13599,6 +13628,23 @@ export const se_MoveByoipCidrToIpamCommand = async (
 };
 
 /**
+ * serializeAws_ec2MoveCapacityReservationInstancesCommand
+ */
+export const se_MoveCapacityReservationInstancesCommand = async (
+  input: MoveCapacityReservationInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_MoveCapacityReservationInstancesRequest(input, context),
+    [_A]: _MCRI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2ProvisionByoipCidrCommand
  */
 export const se_ProvisionByoipCidrCommand = async (
@@ -15839,6 +15885,26 @@ export const de_CreateCapacityReservationCommand = async (
   let contents: any = {};
   contents = de_CreateCapacityReservationResult(data, context);
   const response: CreateCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateCapacityReservationBySplittingCommand
+ */
+export const de_CreateCapacityReservationBySplittingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityReservationBySplittingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCapacityReservationBySplittingResult(data, context);
+  const response: CreateCapacityReservationBySplittingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -25766,6 +25832,26 @@ export const de_MoveByoipCidrToIpamCommand = async (
 };
 
 /**
+ * deserializeAws_ec2MoveCapacityReservationInstancesCommand
+ */
+export const de_MoveCapacityReservationInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveCapacityReservationInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_MoveCapacityReservationInstancesResult(data, context);
+  const response: MoveCapacityReservationInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2ProvisionByoipCidrCommand
  */
 export const de_ProvisionByoipCidrCommand = async (
@@ -29483,6 +29569,39 @@ const se_CpuOptionsRequest = (input: CpuOptionsRequest, context: __SerdeContext)
   }
   if (input[_ASS] != null) {
     entries[_ASS] = input[_ASS];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateCapacityReservationBySplittingRequest
+ */
+const se_CreateCapacityReservationBySplittingRequest = (
+  input: CreateCapacityReservationBySplittingRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_SCRI] != null) {
+    entries[_SCRI] = input[_SCRI];
+  }
+  if (input[_IC] != null) {
+    entries[_IC] = input[_IC];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -33688,8 +33807,8 @@ const se_DeleteSubnetCidrReservationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_SCRI] != null) {
-    entries[_SCRI] = input[_SCRI];
+  if (input[_SCRIu] != null) {
+    entries[_SCRIu] = input[_SCRIu];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -45356,6 +45475,9 @@ const se_ModifyCapacityReservationRequest = (input: ModifyCapacityReservationReq
   if (input[_AId] != null) {
     entries[_AId] = input[_AId];
   }
+  if (input[_IMC] != null) {
+    entries[_IMC] = input[_IMC];
+  }
   return entries;
 };
 
@@ -47800,6 +47922,35 @@ const se_MoveByoipCidrToIpamRequest = (input: MoveByoipCidrToIpamRequest, contex
   }
   if (input[_IPO] != null) {
     entries[_IPO] = input[_IPO];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2MoveCapacityReservationInstancesRequest
+ */
+const se_MoveCapacityReservationInstancesRequest = (
+  input: MoveCapacityReservationInstancesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_SCRI] != null) {
+    entries[_SCRI] = input[_SCRI];
+  }
+  if (input[_DCRI] != null) {
+    entries[_DCRI] = input[_DCRI];
+  }
+  if (input[_IC] != null) {
+    entries[_IC] = input[_IC];
   }
   return entries;
 };
@@ -57347,6 +57498,26 @@ const de_CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
 };
 
 /**
+ * deserializeAws_ec2CreateCapacityReservationBySplittingResult
+ */
+const de_CreateCapacityReservationBySplittingResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCapacityReservationBySplittingResult => {
+  const contents: any = {};
+  if (output[_sCR] != null) {
+    contents[_SCR] = de_CapacityReservation(output[_sCR], context);
+  }
+  if (output[_dCR] != null) {
+    contents[_DCRe] = de_CapacityReservation(output[_dCR], context);
+  }
+  if (output[_iC] != null) {
+    contents[_IC] = __strictParseInt32(output[_iC]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateCapacityReservationFleetResult
  */
 const de_CreateCapacityReservationFleetResult = (
@@ -58101,8 +58272,8 @@ const de_CreateSubnetCidrReservationResult = (
   context: __SerdeContext
 ): CreateSubnetCidrReservationResult => {
   const contents: any = {};
-  if (output[_sCR] != null) {
-    contents[_SCR] = de_SubnetCidrReservation(output[_sCR], context);
+  if (output[_sCRu] != null) {
+    contents[_SCRu] = de_SubnetCidrReservation(output[_sCRu], context);
   }
   return contents;
 };
@@ -72594,6 +72765,26 @@ const de_MoveByoipCidrToIpamResult = (output: any, context: __SerdeContext): Mov
 };
 
 /**
+ * deserializeAws_ec2MoveCapacityReservationInstancesResult
+ */
+const de_MoveCapacityReservationInstancesResult = (
+  output: any,
+  context: __SerdeContext
+): MoveCapacityReservationInstancesResult => {
+  const contents: any = {};
+  if (output[_sCR] != null) {
+    contents[_SCR] = de_CapacityReservation(output[_sCR], context);
+  }
+  if (output[_dCR] != null) {
+    contents[_DCRe] = de_CapacityReservation(output[_dCR], context);
+  }
+  if (output[_iC] != null) {
+    contents[_IC] = __strictParseInt32(output[_iC]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2MovingAddressStatus
  */
 const de_MovingAddressStatus = (output: any, context: __SerdeContext): MovingAddressStatus => {
@@ -78145,7 +78336,7 @@ const de_SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCi
 const de_SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetCidrReservation => {
   const contents: any = {};
   if (output[_sCRI] != null) {
-    contents[_SCRI] = __expectString(output[_sCRI]);
+    contents[_SCRIu] = __expectString(output[_sCRI]);
   }
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
@@ -82588,6 +82779,7 @@ const _CCGr = "CreateCustomerGateway";
 const _CCO = "ClientConnectOptions";
 const _CCP = "CreateCoipPool";
 const _CCR = "CancelCapacityReservation";
+const _CCRBS = "CreateCapacityReservationBySplitting";
 const _CCRF = "CancelCapacityReservationFleets";
 const _CCRFE = "CancelCapacityReservationFleetError";
 const _CCRFr = "CreateCapacityReservationFleet";
@@ -82856,6 +83048,8 @@ const _DCP = "DeleteCoipPool";
 const _DCPe = "DescribeCoipPools";
 const _DCR = "DescribeCapacityReservations";
 const _DCRF = "DescribeCapacityReservationFleets";
+const _DCRI = "DestinationCapacityReservationId";
+const _DCRe = "DestinationCapacityReservation";
 const _DCT = "DescribeConversionTasks";
 const _DCVAR = "DescribeClientVpnAuthorizationRules";
 const _DCVC = "DescribeClientVpnConnections";
@@ -83821,6 +84015,7 @@ const _MC = "MaxCount";
 const _MCOIOL = "MapCustomerOwnedIpOnLaunch";
 const _MCR = "ModifyCapacityReservation";
 const _MCRF = "ModifyCapacityReservationFleet";
+const _MCRI = "MoveCapacityReservationInstances";
 const _MCVE = "ModifyClientVpnEndpoint";
 const _MCi = "MinCount";
 const _MCis = "MissingComponent";
@@ -84408,8 +84603,10 @@ const _SC = "SubnetConfigurations";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
 const _SCB = "SourceCidrBlock";
-const _SCR = "SubnetCidrReservation";
-const _SCRI = "SubnetCidrReservationId";
+const _SCR = "SourceCapacityReservation";
+const _SCRI = "SourceCapacityReservationId";
+const _SCRIu = "SubnetCidrReservationId";
+const _SCRu = "SubnetCidrReservation";
 const _SCSIG = "SustainedClockSpeedInGhz";
 const _SCc = "ScopeCount";
 const _SCe = "ServiceConfiguration";
@@ -85188,6 +85385,7 @@ const _dC = "destinationCidr";
 const _dCA = "domainCertificateArn";
 const _dCAR = "deliverCrossAccountRole";
 const _dCB = "destinationCidrBlock";
+const _dCR = "destinationCapacityReservation";
 const _dCS = "dhcpConfigurationSet";
 const _dCe = "defaultCores";
 const _dEKI = "dataEncryptionKeyId";
@@ -86133,8 +86331,9 @@ const _sC = "serviceConfiguration";
 const _sCA = "serverCertificateArn";
 const _sCAE = "serialConsoleAccessEnabled";
 const _sCB = "sourceCidrBlock";
-const _sCR = "subnetCidrReservation";
+const _sCR = "sourceCapacityReservation";
 const _sCRI = "subnetCidrReservationId";
+const _sCRu = "subnetCidrReservation";
 const _sCS = "serviceConfigurationSet";
 const _sCSIG = "sustainedClockSpeedInGhz";
 const _sCc = "scopeCount";

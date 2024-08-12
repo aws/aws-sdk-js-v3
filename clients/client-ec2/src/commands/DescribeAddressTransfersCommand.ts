@@ -36,7 +36,7 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  *       pending transfer by using this action. After seven days, the
  *       transfer expires and ownership of the Elastic IP
  *       address returns to the source
- *       account. Accepted transfers are visible to the source account for three days
+ *       account. Accepted transfers are visible to the source account for 14 days
  *         after the transfers have been accepted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

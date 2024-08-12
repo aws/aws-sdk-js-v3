@@ -84,14 +84,45 @@ import {
   Filter,
   HypervisorType,
   IdFormat,
-  ImageState,
   ImageTypeValues,
   ImdsSupportValues,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
-  TpmSupportValues,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageState = {
+  available: "available",
+  deregistered: "deregistered",
+  disabled: "disabled",
+  error: "error",
+  failed: "failed",
+  invalid: "invalid",
+  pending: "pending",
+  transient: "transient",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageState = (typeof ImageState)[keyof typeof ImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TpmSupportValues = {
+  v2_0: "v2.0",
+} as const;
+
+/**
+ * @public
+ */
+export type TpmSupportValues = (typeof TpmSupportValues)[keyof typeof TpmSupportValues];
 
 /**
  * @public
@@ -8319,7 +8350,7 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Service.</p>
+   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Services service.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8507,7 +8538,7 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service
+   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Services service
    * 		               (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
    *             </li>
    *             <li>
@@ -8738,7 +8769,7 @@ export interface DescribePrefixListsRequest {
  */
 export interface PrefixList {
   /**
-   * <p>The IP address range of the Amazon Web Service.</p>
+   * <p>The IP address range of the Amazon Web Services service.</p>
    * @public
    */
   Cidrs?: string[];
@@ -10116,7 +10147,7 @@ export interface DescribeRouteTablesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Service
+   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services service
    *                     specified in a route in the table.</p>
    *             </li>
    *             <li>
@@ -12336,57 +12367,6 @@ export const OnDemandAllocationStrategy = {
  * @public
  */
 export type OnDemandAllocationStrategy = (typeof OnDemandAllocationStrategy)[keyof typeof OnDemandAllocationStrategy];
-
-/**
- * @public
- * @enum
- */
-export const ReplacementStrategy = {
-  LAUNCH: "launch",
-  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
-} as const;
-
-/**
- * @public
- */
-export type ReplacementStrategy = (typeof ReplacementStrategy)[keyof typeof ReplacementStrategy];
-
-/**
- * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
- *             Spot Instance is at an elevated risk of being interrupted. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
- *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface SpotCapacityRebalance {
-  /**
-   * <p>The replacement strategy to use. Only available for fleets of type
-   *             <code>maintain</code>.</p>
-   *          <p>
-   *             <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
-   *             rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet
-   *             does not terminate the instances that receive a rebalance notification. You can
-   *             terminate the old instances, or you can leave them running. You are charged for all
-   *             instances while they are running. </p>
-   *          <p>
-   *             <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
-   *             Instance when a rebalance notification is emitted for an existing Spot Instance in the
-   *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
-   *             terminates the instances that received a rebalance notification.</p>
-   * @public
-   */
-  ReplacementStrategy?: ReplacementStrategy;
-
-  /**
-   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-   *             Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
-   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
-   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
-   * @public
-   */
-  TerminationDelay?: number;
-}
 
 /**
  * @internal

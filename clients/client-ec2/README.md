@@ -656,6 +656,14 @@ CreateCapacityReservation
 </details>
 <details>
 <summary>
+CreateCapacityReservationBySplitting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateCapacityReservationBySplittingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateCapacityReservationBySplittingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateCapacityReservationBySplittingCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCapacityReservationFleet
 </summary>
 
@@ -4668,6 +4676,14 @@ MoveByoipCidrToIpam
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/MoveByoipCidrToIpamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveByoipCidrToIpamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveByoipCidrToIpamCommandOutput/)
+
+</details>
+<details>
+<summary>
+MoveCapacityReservationInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/MoveCapacityReservationInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveCapacityReservationInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveCapacityReservationInstancesCommandOutput/)
 
 </details>
 <details>

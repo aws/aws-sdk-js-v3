@@ -274,6 +274,11 @@ import {
   CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
+  CreateCapacityReservationBySplittingCommand,
+  CreateCapacityReservationBySplittingCommandInput,
+  CreateCapacityReservationBySplittingCommandOutput,
+} from "./commands/CreateCapacityReservationBySplittingCommand";
+import {
   CreateCapacityReservationCommand,
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
@@ -2725,6 +2730,11 @@ import {
   MoveByoipCidrToIpamCommandOutput,
 } from "./commands/MoveByoipCidrToIpamCommand";
 import {
+  MoveCapacityReservationInstancesCommand,
+  MoveCapacityReservationInstancesCommandInput,
+  MoveCapacityReservationInstancesCommandOutput,
+} from "./commands/MoveCapacityReservationInstancesCommand";
+import {
   ProvisionByoipCidrCommand,
   ProvisionByoipCidrCommandInput,
   ProvisionByoipCidrCommandOutput,
@@ -3118,6 +3128,7 @@ const commands = {
   CopyImageCommand,
   CopySnapshotCommand,
   CreateCapacityReservationCommand,
+  CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationFleetCommand,
   CreateCarrierGatewayCommand,
   CreateClientVpnEndpointCommand,
@@ -3620,6 +3631,7 @@ const commands = {
   MonitorInstancesCommand,
   MoveAddressToVpcCommand,
   MoveByoipCidrToIpamCommand,
+  MoveCapacityReservationInstancesCommand,
   ProvisionByoipCidrCommand,
   ProvisionIpamByoasnCommand,
   ProvisionIpamPoolCidrCommand,
@@ -4609,6 +4621,23 @@ export interface EC2 {
     args: CreateCapacityReservationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityReservationBySplittingCommand}
+   */
+  createCapacityReservationBySplitting(
+    args: CreateCapacityReservationBySplittingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityReservationBySplittingCommandOutput>;
+  createCapacityReservationBySplitting(
+    args: CreateCapacityReservationBySplittingCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationBySplittingCommandOutput) => void
+  ): void;
+  createCapacityReservationBySplitting(
+    args: CreateCapacityReservationBySplittingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityReservationBySplittingCommandOutput) => void
   ): void;
 
   /**
@@ -13036,6 +13065,23 @@ export interface EC2 {
     args: MoveByoipCidrToIpamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: MoveByoipCidrToIpamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link MoveCapacityReservationInstancesCommand}
+   */
+  moveCapacityReservationInstances(
+    args: MoveCapacityReservationInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MoveCapacityReservationInstancesCommandOutput>;
+  moveCapacityReservationInstances(
+    args: MoveCapacityReservationInstancesCommandInput,
+    cb: (err: any, data?: MoveCapacityReservationInstancesCommandOutput) => void
+  ): void;
+  moveCapacityReservationInstances(
+    args: MoveCapacityReservationInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MoveCapacityReservationInstancesCommandOutput) => void
   ): void;
 
   /**

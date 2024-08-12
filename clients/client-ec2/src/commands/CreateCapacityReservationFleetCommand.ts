@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCapacityReservationFleetRequest } from "../models/models_0";
-import { CreateCapacityReservationFleetResult } from "../models/models_1";
+import { CreateCapacityReservationFleetRequest, CreateCapacityReservationFleetResult } from "../models/models_1";
 import {
   de_CreateCapacityReservationFleetCommand,
   se_CreateCapacityReservationFleetCommand,

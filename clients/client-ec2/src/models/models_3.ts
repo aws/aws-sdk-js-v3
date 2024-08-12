@@ -22,7 +22,6 @@ import {
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
-  FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
   HostMaintenance,
   HostRecovery,
@@ -52,6 +51,7 @@ import {
   EgressOnlyInternetGateway,
   ExportTask,
   FleetCapacityReservation,
+  FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
   FleetLaunchTemplateOverrides,
@@ -76,6 +76,8 @@ import {
 } from "./models_1";
 
 import {
+  DeleteLaunchTemplateVersionsResponseErrorItem,
+  DeleteLaunchTemplateVersionsResponseSuccessItem,
   FleetStateCode,
   GroupIdentifier,
   SubnetCidrReservation,
@@ -91,6 +93,57 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResult {
+  /**
+   * <p>Information about the launch template versions that were successfully deleted.</p>
+   * @public
+   */
+  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[];
+
+  /**
+   * <p>Information about the launch template versions that could not be deleted.</p>
+   * @public
+   */
+  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>
+   *          Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use
+   *          <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string;
+}
 
 /**
  * @public
@@ -8960,39 +9013,6 @@ export const DeviceType = {
  * @public
  */
 export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
-
-/**
- * @public
- * @enum
- */
-export const ImageState = {
-  available: "available",
-  deregistered: "deregistered",
-  disabled: "disabled",
-  error: "error",
-  failed: "failed",
-  invalid: "invalid",
-  pending: "pending",
-  transient: "transient",
-} as const;
-
-/**
- * @public
- */
-export type ImageState = (typeof ImageState)[keyof typeof ImageState];
-
-/**
- * @public
- * @enum
- */
-export const TpmSupportValues = {
-  v2_0: "v2.0",
-} as const;
-
-/**
- * @public
- */
-export type TpmSupportValues = (typeof TpmSupportValues)[keyof typeof TpmSupportValues];
 
 /**
  * @internal

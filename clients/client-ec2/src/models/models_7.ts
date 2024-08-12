@@ -43,11 +43,19 @@ import {
 } from "./models_1";
 
 import {
+  IKEVersionsRequestListValue,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
   SnapshotState,
   SSEType,
   TransitGatewayRoute,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
 import {
@@ -59,7 +67,6 @@ import {
   ImdsSupportValues,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
-  TpmSupportValues,
 } from "./models_3";
 
 import {
@@ -78,6 +85,7 @@ import {
   ScheduledInstance,
   SnapshotAttributeName,
   SpotPlacement,
+  TpmSupportValues,
 } from "./models_4";
 
 import {
@@ -89,7 +97,254 @@ import {
   SpotInstanceRequestFilterSensitiveLog,
 } from "./models_5";
 
-import { CapacityReservationSpecification, ModifyVpnTunnelOptionsSpecification } from "./models_6";
+import { CapacityReservationSpecification } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelCertificateResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection;
+}
+
+/**
+ * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsSpecification {
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.0.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.1.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.2.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.3.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.4.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.5.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.169.252/30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TunnelInsideCidr?: string;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
+   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   * @public
+   */
+  TunnelInsideIpv6Cidr?: string;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and the customer gateway.</p>
+   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
+   * @public
+   */
+  PreSharedKey?: string;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 28,800.</p>
+   *          <p>Default: <code>28800</code>
+   *          </p>
+   * @public
+   */
+  Phase1LifetimeSeconds?: number;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>3600</code>
+   *          </p>
+   * @public
+   */
+  Phase2LifetimeSeconds?: number;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
+   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>270</code>
+   *          </p>
+   * @public
+   */
+  RekeyMarginTimeSeconds?: number;
+
+  /**
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
+   *          <p>Constraints: A value between 0 and 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   * @public
+   */
+  RekeyFuzzPercentage?: number;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   *          <p>Constraints: A value between 64 and 2048.</p>
+   *          <p>Default: <code>1024</code>
+   *          </p>
+   * @public
+   */
+  ReplayWindowSize?: number;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
+   *          <p>Constraints: A value greater than or equal to 30.</p>
+   *          <p>Default: <code>40</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutSeconds?: number;
+
+  /**
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          </p>
+   *          <p>Default: <code>clear</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutAction?: string;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          </p>
+   * @public
+   */
+  IKEVersions?: IKEVersionsRequestListValue[];
+
+  /**
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
+   *          <p>Valid Values: <code>add</code> | <code>start</code>
+   *          </p>
+   *          <p>Default: <code>add</code>
+   *          </p>
+   * @public
+   */
+  StartupAction?: string;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   * @public
+   */
+  LogOptions?: VpnTunnelLogOptionsSpecification;
+
+  /**
+   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   * @public
+   */
+  EnableTunnelLifecycleControl?: boolean;
+}
 
 /**
  * @public
@@ -281,6 +536,75 @@ export interface MoveByoipCidrToIpamResult {
    * @public
    */
   ByoipCidr?: ByoipCidr;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>
+   * 			The ID of the Capacity Reservation from which you want to move capacity.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservationId: string | undefined;
+
+  /**
+   * <p>
+   * 			The ID of the Capacity Reservation that you want to move capacity into.
+   * 		</p>
+   * @public
+   */
+  DestinationCapacityReservationId: string | undefined;
+
+  /**
+   * <p>The number of instances that you want to move from the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesResult {
+  /**
+   * <p>
+   * 			Information about the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservation?: CapacityReservation;
+
+  /**
+   * <p>
+   * 			Information about the destination Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  DestinationCapacityReservation?: CapacityReservation;
+
+  /**
+   * <p>
+   * 			The number of instances that were moved from the source Capacity Reservation to the destination Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount?: number;
 }
 
 /**
@@ -5233,6 +5557,24 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelCertificateResultFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
+  obj: ModifyVpnTunnelOptionsSpecification
+): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

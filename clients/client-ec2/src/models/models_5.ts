@@ -110,11 +110,61 @@ import {
   LoadBalancersConfig,
   OnDemandAllocationStrategy,
   RIProductDescription,
-  SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetLaunchSpecificationFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplacementStrategy = (typeof ReplacementStrategy)[keyof typeof ReplacementStrategy];
+
+/**
+ * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
+ *             Spot Instance is at an elevated risk of being interrupted. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
+ *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface SpotCapacityRebalance {
+  /**
+   * <p>The replacement strategy to use. Only available for fleets of type
+   *             <code>maintain</code>.</p>
+   *          <p>
+   *             <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
+   *             rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet
+   *             does not terminate the instances that receive a rebalance notification. You can
+   *             terminate the old instances, or you can leave them running. You are charged for all
+   *             instances while they are running. </p>
+   *          <p>
+   *             <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
+   *             Instance when a rebalance notification is emitted for an existing Spot Instance in the
+   *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+   *             terminates the instances that received a rebalance notification.</p>
+   * @public
+   */
+  ReplacementStrategy?: ReplacementStrategy;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *             Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
+   * @public
+   */
+  TerminationDelay?: number;
+}
 
 /**
  * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -9455,31 +9505,6 @@ export interface InstanceMetadataDefaultsResponse {
    */
   InstanceMetadataTags?: InstanceMetadataTagsState;
 }
-
-/**
- * @public
- */
-export interface GetInstanceMetadataDefaultsResult {
-  /**
-   * <p>The account-level default IMDS settings.</p>
-   * @public
-   */
-  AccountLevel?: InstanceMetadataDefaultsResponse;
-}
-
-/**
- * @public
- * @enum
- */
-export const EkPubKeyFormat = {
-  der: "der",
-  tpmt: "tpmt",
-} as const;
-
-/**
- * @public
- */
-export type EkPubKeyFormat = (typeof EkPubKeyFormat)[keyof typeof EkPubKeyFormat];
 
 /**
  * @internal

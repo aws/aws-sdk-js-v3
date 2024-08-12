@@ -28,11 +28,10 @@ export interface ModifyCapacityReservationCommandInput extends ModifyCapacityRes
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You
- * 			cannot change a Capacity Reservation's instance type, EBS optimization, instance store settings,
- * 			platform, Availability Zone, or instance eligibility. If you need to modify any of these
- * 			attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with
- * 			the required attributes.</p>
+ * <p>Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions under which it is to be released. You
+ * 		    can't modify a Capacity Reservation's instance type, EBS optimization, platform, instance store settings, Availability Zone, or
+ * 		    tenancy. If you need to modify any of these attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with
+ * 		    the required attributes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html">Modify an active Capacity Reservation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +46,7 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  *   Accept: true || false,
  *   DryRun: true || false,
  *   AdditionalInfo: "STRING_VALUE",
+ *   InstanceMatchCriteria: "open" || "targeted",
  * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);

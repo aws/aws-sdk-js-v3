@@ -235,6 +235,10 @@ import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "./command
 import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
 import {
+  CreateCapacityReservationBySplittingCommandInput,
+  CreateCapacityReservationBySplittingCommandOutput,
+} from "./commands/CreateCapacityReservationBySplittingCommand";
+import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
@@ -1946,6 +1950,10 @@ import {
   MoveByoipCidrToIpamCommandInput,
   MoveByoipCidrToIpamCommandOutput,
 } from "./commands/MoveByoipCidrToIpamCommand";
+import {
+  MoveCapacityReservationInstancesCommandInput,
+  MoveCapacityReservationInstancesCommandOutput,
+} from "./commands/MoveCapacityReservationInstancesCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "./commands/ProvisionByoipCidrCommand";
 import {
   ProvisionIpamByoasnCommandInput,
@@ -2239,6 +2247,7 @@ export type ServiceInputTypes =
   | CopyFpgaImageCommandInput
   | CopyImageCommandInput
   | CopySnapshotCommandInput
+  | CreateCapacityReservationBySplittingCommandInput
   | CreateCapacityReservationCommandInput
   | CreateCapacityReservationFleetCommandInput
   | CreateCarrierGatewayCommandInput
@@ -2742,6 +2751,7 @@ export type ServiceInputTypes =
   | MonitorInstancesCommandInput
   | MoveAddressToVpcCommandInput
   | MoveByoipCidrToIpamCommandInput
+  | MoveCapacityReservationInstancesCommandInput
   | ProvisionByoipCidrCommandInput
   | ProvisionIpamByoasnCommandInput
   | ProvisionIpamPoolCidrCommandInput
@@ -2869,6 +2879,7 @@ export type ServiceOutputTypes =
   | CopyFpgaImageCommandOutput
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
+  | CreateCapacityReservationBySplittingCommandOutput
   | CreateCapacityReservationCommandOutput
   | CreateCapacityReservationFleetCommandOutput
   | CreateCarrierGatewayCommandOutput
@@ -3372,6 +3383,7 @@ export type ServiceOutputTypes =
   | MonitorInstancesCommandOutput
   | MoveAddressToVpcCommandOutput
   | MoveByoipCidrToIpamCommandOutput
+  | MoveCapacityReservationInstancesCommandOutput
   | ProvisionByoipCidrCommandOutput
   | ProvisionIpamByoasnCommandOutput
   | ProvisionIpamPoolCidrCommandOutput
