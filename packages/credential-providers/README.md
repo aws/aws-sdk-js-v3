@@ -797,9 +797,7 @@ import { S3 } from "@aws-sdk/client-s3";
 // and custom async functions returning credential objects.
 new S3({
   credentials: chain(fromEnv(), fromIni(), async () => {
-    return {
-      ...myCredentialsFromSomewhereElse,
-    };
+    return myCredentialsFromSomewhereElse;
   }),
 });
 
