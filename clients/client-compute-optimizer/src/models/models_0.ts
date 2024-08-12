@@ -2702,7 +2702,7 @@ export interface ECSServiceRecommendationFilter {
    *          <ul>
    *             <li>
    *                <p>If you specify the <code>name</code> parameter as <code>Finding</code>, specify
-   *                     <code>Optimized</code>, <code>NotOptimized</code>, or <code>Unavailable</code>.</p>
+   *                     <code>Optimized</code>, <code>Underprovisioned</code>, or <code>Overprovisioned</code>.</p>
    *             </li>
    *             <li>
    *                <p>If you specify the <code>name</code> parameter as <code>FindingReasonCode</code>, specify
@@ -8883,8 +8883,17 @@ export interface PutRecommendationPreferencesRequest {
    *             The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed.
    *             When this preference isn't specified, we use the default value <code>DAYS_14</code>.
    *         </p>
+   *          <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.
+   *             </p>
    *          <note>
-   *             <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Amazon EC2 instance lookback preferences can be set at the organization, account, and resource levels.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Auto Scaling group lookback preferences can only be set at the resource level.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
