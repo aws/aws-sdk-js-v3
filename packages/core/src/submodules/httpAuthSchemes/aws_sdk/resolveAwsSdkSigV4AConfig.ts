@@ -39,7 +39,7 @@ export interface AwsSdkSigV4AAuthResolvedConfig {
 export const resolveAwsSdkSigV4AConfig = <T>(
   config: T & AwsSdkSigV4AAuthInputConfig & AwsSdkSigV4APreviouslyResolved
 ): T & AwsSdkSigV4AAuthResolvedConfig => {
-  config.sigv4aSigningRegionSet = normalizeProvider(config.sigv4aSigningRegionSet ?? []);
+  config.sigv4aSigningRegionSet = normalizeProvider(config.sigv4aSigningRegionSet);
   return config as T & AwsSdkSigV4AAuthResolvedConfig;
 };
 
