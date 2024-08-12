@@ -82,10 +82,7 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
             const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
             expect(observedError).not.toBeUndefined();
             expect(observedError?.url).toBeUndefined();
-            // ToDo: debug why 'client-s3 > empty arn type' test case is failing
-            if (serviceId !== "s3" && documentation !== "empty arn type") {
-              expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
-            }
+            expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
           }
         }
       });
