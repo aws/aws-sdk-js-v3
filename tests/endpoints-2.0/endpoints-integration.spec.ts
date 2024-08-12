@@ -52,7 +52,8 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
           if (operationInputs) {
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
-              const endpointParams = await resolveParams(operationParams, namespace[`${operationName}Command`], params);
+              const command = namespace[`${operationName}Command`];
+              const endpointParams = await resolveParams(operationParams, command, params);
               const observed = defaultEndpointResolver(endpointParams as EndpointParams);
               assertEndpointResolvedCorrectly(endpoint, observed);
             }
@@ -69,10 +70,8 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
           if (operationInputs) {
             for (const operationInput of operationInputs) {
               const { operationName, operationParams = {} } = operationInput;
-              const endpointParams = await resolveParams(operationParams, namespace[`${operationName}Command`], {
-                ...params,
-                endpointProvider: defaultEndpointResolver,
-              }).catch(pass);
+              const command = namespace[`${operationName}Command`];
+              const endpointParams = await resolveParams(operationParams, command, params);
               const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
               expect(observedError).not.toBeUndefined();
               expect(observedError?.url).toBeUndefined();
