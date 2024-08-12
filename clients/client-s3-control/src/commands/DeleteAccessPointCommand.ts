@@ -90,7 +90,7 @@ export class DeleteAccessPointCommand extends $Command
   .ep({
     ...commonParams,
     RequiresAccountId: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "AccessPointName" },
+    AccessPointName: { type: "contextParams", name: "Name" },
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
