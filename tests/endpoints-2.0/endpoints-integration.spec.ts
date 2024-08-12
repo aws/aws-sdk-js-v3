@@ -1,14 +1,14 @@
 import { resolveParams } from "@smithy/middleware-endpoint";
 import { EndpointV2 } from "@smithy/types";
 import { resolveEndpoint, EndpointParams } from "@smithy/util-endpoints";
-import * as fs from "fs";
-import * as path from "path";
+import { readdirSync } from "fs";
+import { join } from "path";
 
 import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
-  const root = path.join(__dirname, "..", "..");
-  const clientList = fs.readdirSync(path.join(root, "clients"));
+  const root = join(__dirname, "..", "..");
+  const clientList = readdirSync(join(root, "clients"));
 
   it("should be at least 300 clients", () => {
     expect(clientList.length).toBeGreaterThan(300);
@@ -24,7 +24,7 @@ describe("client list", () => {
     // but needs more effort than using synchronous require().
     try {
       namespace = require(`@aws-sdk/client-${serviceName}`);
-      model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
+      model = require(join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
     } catch (e) {
       namespace = null;
       model = null;
