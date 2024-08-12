@@ -1,39 +1,28 @@
 import { resolveParams } from "@smithy/middleware-endpoint";
 import { EndpointV2 } from "@smithy/types";
 import { resolveEndpoint, EndpointParams } from "@smithy/util-endpoints";
-import { readdirSync } from "fs";
+import { existsSync, readdirSync } from "fs";
 import { join } from "path";
 
 import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
   const root = join(__dirname, "..", "..");
-  const clientList = readdirSync(join(root, "clients"));
+  const clientPackageNameList = readdirSync(join(root, "clients"));
 
   it("should be at least 300 clients", () => {
-    expect(clientList.length).toBeGreaterThan(300);
+    expect(clientPackageNameList.length).toBeGreaterThan(300);
   });
 
-  describe.each(clientList)(`%s endpoint test cases`, (client) => {
-    const serviceName = client.slice(7);
+  describe.each(clientPackageNameList)(`%s endpoint test cases`, (clientPackageName) => {
+    const serviceName = clientPackageName.slice(7);
 
-    let namespace: any;
-    let model: any;
+    // since client package name list is populated from clients folder, we know it exists.
+    const namespace = require(`@aws-sdk/${clientPackageName}`);
+    const modelPath = join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
-    // this may also work with dynamic async import() in a beforeAll() block,
-    // but needs more effort than using synchronous require().
-    try {
-      namespace = require(`@aws-sdk/client-${serviceName}`);
-      model = require(join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
-    } catch (e) {
-      namespace = null;
-      model = null;
-      if (e.code !== "MODULE_NOT_FOUND") {
-        console.error(e);
-      }
-    }
-
-    if (namespace && model) {
+    if (existsSync(modelPath)) {
+      const model = require(modelPath);
       for (const value of Object.values(model.shapes)) {
         if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
           const service = value as ServiceModel;
@@ -41,8 +30,6 @@ describe("client list", () => {
           break;
         }
       }
-    } else {
-      it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
     }
   });
 });
