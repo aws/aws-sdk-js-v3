@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** default sigv4aSigningRegionSet to undefined ([#6375](https://github.com/aws/aws-sdk-js-v3/issues/6375)) ([8cccf59](https://github.com/aws/aws-sdk-js-v3/commit/8cccf59cdb2b033b76e9903c6d50d8d274f278d1))
+
+
+### Features
+
+* **core/httpAuthSchemes:** set configuration sources for sigv4a signingRegionSet ([#6368](https://github.com/aws/aws-sdk-js-v3/issues/6368)) ([03bb39f](https://github.com/aws/aws-sdk-js-v3/commit/03bb39fe253caad974494828ffeefddc9ffded78))
+
+
+
+
+
 # [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
 
 **Note:** Version bump only for package @aws-sdk/core

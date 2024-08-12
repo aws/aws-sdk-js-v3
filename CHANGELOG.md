@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** default sigv4aSigningRegionSet to undefined ([#6375](https://github.com/aws/aws-sdk-js-v3/issues/6375)) ([8cccf59](https://github.com/aws/aws-sdk-js-v3/commit/8cccf59cdb2b033b76e9903c6d50d8d274f278d1))
+
+
+### Features
+
+* **client-config-service:** Documentation update for the OrganizationConfigRuleName regex pattern. ([032e287](https://github.com/aws/aws-sdk-js-v3/commit/032e287f9de45d62888187f39aacef086ddb5bf1))
+* **client-ec2:** This release adds new capabilities to manage On-Demand Capacity Reservations including the ability to split your reservation, move capacity between reservations, and modify the instance eligibility of your reservation. ([6e0db43](https://github.com/aws/aws-sdk-js-v3/commit/6e0db432b8b0f0e85123c972640c2df1cb77c29d))
+* **client-eks:** Added support for new AL2023 GPU AMIs to the supported AMITypes. ([54703e4](https://github.com/aws/aws-sdk-js-v3/commit/54703e4732426233b7af0340d1778d45b11e1083))
+* **client-medialive:** AWS Elemental MediaLive now supports now supports editing the PID values for a Multiplex. ([4f1db8e](https://github.com/aws/aws-sdk-js-v3/commit/4f1db8e5f44cf24b54cfbe92240384be53dfe3bb))
+* **client-sagemaker:** Releasing large data support as part of CreateAutoMLJobV2 in SageMaker Autopilot and CreateDomain API for SageMaker Canvas. ([014f34c](https://github.com/aws/aws-sdk-js-v3/commit/014f34c3c59c8bd89a632b46c2282ee8329acda7))
+* **core/httpAuthSchemes:** set configuration sources for sigv4a signingRegionSet ([#6368](https://github.com/aws/aws-sdk-js-v3/issues/6368)) ([03bb39f](https://github.com/aws/aws-sdk-js-v3/commit/03bb39fe253caad974494828ffeefddc9ffded78))
+
+
+
+
+
 # [3.628.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.627.0...v3.628.0) (2024-08-09)
 
 

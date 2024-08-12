@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+
+### Features
+
+* **client-sagemaker:** Releasing large data support as part of CreateAutoMLJobV2 in SageMaker Autopilot and CreateDomain API for SageMaker Canvas. ([014f34c](https://github.com/aws/aws-sdk-js-v3/commit/014f34c3c59c8bd89a632b46c2282ee8329acda7))
+
+
+
+
+
 # [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
