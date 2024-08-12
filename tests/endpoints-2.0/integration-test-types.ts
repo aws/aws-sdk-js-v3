@@ -1,4 +1,5 @@
 import { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
+import { RuleSetObject } from "@smithy/types";
 
 export interface EndpointTestCase {
   documentation?: string;
@@ -29,4 +30,18 @@ export type ErrorExpectation = {
 
 export interface ServiceNamespace {
   [Command: string]: EndpointParameterInstructionsSupplier;
+}
+
+export interface ServiceModel {
+  type: "service";
+  version: string;
+  traits: {
+    "aws.api#service": {
+      serviceId: string;
+    };
+    "smithy.rules#endpointRuleSet": RuleSetObject;
+    "smithy.rules#endpointTests"?: {
+      testCases: EndpointTestCase[];
+    };
+  };
 }
