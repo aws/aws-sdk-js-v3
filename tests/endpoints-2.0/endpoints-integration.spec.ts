@@ -44,12 +44,6 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
   if (testCases) {
     for (const testCase of testCases) {
       const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
-
-      if (params.UseGlobalEndpoint || params.Region === "aws-global") {
-        it.skip(documentation || "undocumented testcase", () => {});
-        continue;
-      }
-
       params.serviceId = serviceId;
 
       it(documentation || "undocumented testcase", async () => {
