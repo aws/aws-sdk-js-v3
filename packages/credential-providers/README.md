@@ -790,27 +790,35 @@ const credentialProvider = fromNodeProviderChain({
 You can use this helper to create a credential chain of your own.
 
 ```ts
-import { fromEnv, fromIni, chain } from "@aws-sdk/credential-providers";
+import { fromEnv, fromIni, createCredentialChain } from "@aws-sdk/credential-providers";
 import { S3 } from "@aws-sdk/client-s3";
 
 // You can mix existing AWS SDK credential providers
 // and custom async functions returning credential objects.
 new S3({
-  credentials: chain(fromEnv(), fromIni(), async () => {
-    return myCredentialsFromSomewhereElse;
-  }),
+  credentials: createCredentialChain(
+    fromEnv(),
+    async () => {
+      // credentials customized by your code...
+      return credentials;
+    },
+    fromIni()
+  ),
 });
 
 // Set a max duration on the credentials (client side only).
 // A set expiration will cause the credentials function to be called again
-// after the given duration.
+// when the time left is less than 5 minutes.
 new S3({
-  credentials: chain(fromEnv(), fromIni()).expireAfter(15 * 60_000), // 15 minutes in milliseconds.
+  // expire after 15 minutes (in milliseconds).
+  credentials: createCredentialChain(fromEnv(), fromIni()).expireAfter(15 * 60_000),
 });
 
-// apply shared init properties.
+// Apply shared init properties.
+const init = { logger: console };
+
 new S3({
-  credentials: chain(...[fromEnv, fromIni].map((p) => p({ logger: console }))),
+  credentials: createCredentialChain(fromEnv(init), fromIni(init)),
 });
 ```
 

@@ -15,40 +15,43 @@ type Mutable<Type> = {
 /**
  * @example
  * ```js
- * import { fromEnv, fromIni, chain } from "@aws-sdk/credential-providers";
+ * import { fromEnv, fromIni, createCredentialChain } from '@aws-sdk/credential-providers';
  * import { S3 } from '@aws-sdk/client-s3';
  *
- * // basic chain.
+ * // You can mix existing AWS SDK credential providers
+ * // and custom async functions returning credential objects.
  * new S3({
- *   credentials: chain(
+ *   credentials: createCredentialChain(
  *     fromEnv(),
+ *     async () => {
+ *       // credentials customized by your code...
+ *       return credentials;
+ *     },
  *     fromIni()
- *   )
+ *   ),
  * });
  *
- * // set a max duration on the credentials (client side only).
+ * // Set a max duration on the credentials (client side only).
+ * // A set expiration will cause the credentials function to be called again
+ * // when the time left is less than 5 minutes.
  * new S3({
- *   credentials: chain(
- *     fromEnv(),
- *     fromIni()
- *   ).expireAfter(15 * 60_000) // 15 minutes in milliseconds.
+ *   // expire after 15 minutes (in milliseconds).
+ *   credentials: createCredentialChain(fromEnv(), fromIni()).expireAfter(15 * 60_000),
  * });
  *
- * // apply shared init properties.
+ * // Apply shared init properties.
+ * const init = { logger: console };
+ *
  * new S3({
- *   credentials: chain(...[
- *     fromEnv,
- *     fromIni
- *   ].map(p => p({ logger: console })))
+ *   credentials: createCredentialChain(fromEnv(init), fromIni(init)),
  * });
- *
  * ```
  *
  * @param credentialProviders - one or more credential providers.
  * @returns a single AwsCredentialIdentityProvider that calls the given
  * providers in sequence until one succeeds or all fail.
  */
-export const chain = (
+export const createCredentialChain = (
   ...credentialProviders: AwsCredentialIdentityProvider[]
 ): AwsCredentialIdentityProvider & CustomCredentialChainOptions => {
   let expireAfter = -1;
@@ -61,6 +64,11 @@ export const chain = (
   };
   const withOptions = Object.assign(baseFunction, {
     expireAfter(milliseconds: number) {
+      if (milliseconds < 5 * 60_000) {
+        throw new Error(
+          "@aws-sdk/credential-providers - createCredentialChain(...).expireAfter(ms) may not be called with a duration lower than five minutes."
+        );
+      }
       expireAfter = milliseconds;
       return withOptions;
     },

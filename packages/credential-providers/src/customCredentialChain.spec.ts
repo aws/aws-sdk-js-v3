@@ -1,9 +1,9 @@
 import { ProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
-import { chain } from "./customCredentialChain";
+import { createCredentialChain } from "./customCredentialChain";
 
-describe(chain.name, () => {
+describe(createCredentialChain.name, () => {
   const mockCredentials: AwsCredentialIdentity = {
     accessKeyId: "AKI",
     secretAccessKey: "SAK",
@@ -14,7 +14,7 @@ describe(chain.name, () => {
   };
 
   it("should throw an error if zero providers are chained", async () => {
-    const credentialProvider = chain();
+    const credentialProvider = createCredentialChain();
 
     try {
       await credentialProvider();
@@ -26,7 +26,7 @@ describe(chain.name, () => {
   });
 
   it("should create a custom chain", async () => {
-    const credentialProvider = chain(async () => mockCredentials);
+    const credentialProvider = createCredentialChain(async () => mockCredentials);
 
     const credentials = await credentialProvider();
 
@@ -34,7 +34,7 @@ describe(chain.name, () => {
   });
 
   it("should resolve a successful provider function", async () => {
-    const credentialProvider = chain(failure, failure, async () => mockCredentials, failure);
+    const credentialProvider = createCredentialChain(failure, failure, async () => mockCredentials, failure);
 
     const credentials = await credentialProvider();
 
@@ -42,7 +42,7 @@ describe(chain.name, () => {
   });
 
   it("should resolve the first successful provider function", async () => {
-    const credentialProvider = chain(
+    const credentialProvider = createCredentialChain(
       failure,
       failure,
       async () => ({ ...mockCredentials, order: "1st" }),
@@ -56,18 +56,26 @@ describe(chain.name, () => {
   });
 
   it("should allow setting a duration", async () => {
-    const credentialProvider: AwsCredentialIdentityProvider = chain(
+    const credentialProvider: AwsCredentialIdentityProvider = createCredentialChain(
       failure,
       failure,
       async () => ({ ...mockCredentials, order: "1st" }),
       failure,
       async () => ({ ...mockCredentials, order: "2nd" })
-    ).expireAfter(15_000);
+    ).expireAfter(6 * 60_000);
 
     const credentials = await credentialProvider();
 
     expect(credentials.expiration).toBeDefined();
     expect(credentials.expiration?.getTime()).toBeGreaterThan(Date.now());
-    expect(credentials.expiration?.getTime()).toBeLessThan(Date.now() + 30_000);
+    expect(credentials.expiration?.getTime()).toBeLessThan(Date.now() + 375_000);
+  });
+
+  it("it should throw an error for durations less than 5 minutes", async () => {
+    expect(() => {
+      createCredentialChain(async () => mockCredentials).expireAfter(299_999);
+    }).toThrow(
+      "@aws-sdk/credential-providers - createCredentialChain(...).expireAfter(ms) may not be called with a duration lower than five minutes."
+    );
   });
 });
