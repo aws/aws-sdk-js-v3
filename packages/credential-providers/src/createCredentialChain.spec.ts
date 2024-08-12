@@ -1,7 +1,7 @@
 import { ProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
-import { createCredentialChain } from "./customCredentialChain";
+import { createCredentialChain } from "./createCredentialChain";
 
 describe(createCredentialChain.name, () => {
   const mockCredentials: AwsCredentialIdentity = {

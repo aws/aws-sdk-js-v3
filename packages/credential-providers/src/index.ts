@@ -1,4 +1,4 @@
-export * from "./customCredentialChain";
+export * from "./createCredentialChain";
 export * from "./fromCognitoIdentity";
 export * from "./fromCognitoIdentityPool";
 export * from "./fromContainerMetadata";
