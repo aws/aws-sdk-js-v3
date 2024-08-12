@@ -7445,6 +7445,30 @@ export interface MultiplexProgramPacketIdentifiersMap {
    * @public
    */
   VideoPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  AribCaptionsPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  DvbTeletextPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EcmPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  Smpte2038Pid?: number;
 }
 
 /**

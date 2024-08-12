@@ -5039,6 +5039,12 @@ export interface UpdateMultiplexRequest {
    * @public
    */
   Name?: string;
+
+  /**
+   * Placeholder documentation for MultiplexPacketIdentifiersMapping
+   * @public
+   */
+  PacketIdentifiersMapping?: Record<string, MultiplexProgramPacketIdentifiersMap>;
 }
 
 /**

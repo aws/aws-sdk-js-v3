@@ -44,6 +44,37 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  *     TransportStreamReservedBitrate: Number("int"),
  *   },
  *   Name: "STRING_VALUE",
+ *   PacketIdentifiersMapping: { // MultiplexPacketIdentifiersMapping
+ *     "<keys>": { // MultiplexProgramPacketIdentifiersMap
+ *       AudioPids: [ // __listOf__integer
+ *         Number("int"),
+ *       ],
+ *       DvbSubPids: [
+ *         Number("int"),
+ *       ],
+ *       DvbTeletextPid: Number("int"),
+ *       EtvPlatformPid: Number("int"),
+ *       EtvSignalPid: Number("int"),
+ *       KlvDataPids: [
+ *         Number("int"),
+ *       ],
+ *       PcrPid: Number("int"),
+ *       PmtPid: Number("int"),
+ *       PrivateMetadataPid: Number("int"),
+ *       Scte27Pids: [
+ *         Number("int"),
+ *       ],
+ *       Scte35Pid: Number("int"),
+ *       TimedMetadataPid: Number("int"),
+ *       VideoPid: Number("int"),
+ *       AribCaptionsPid: Number("int"),
+ *       DvbTeletextPids: [
+ *         Number("int"),
+ *       ],
+ *       EcmPid: Number("int"),
+ *       Smpte2038Pid: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new UpdateMultiplexCommand(input);
  * const response = await client.send(command);

@@ -2413,6 +2413,7 @@ export const se_UpdateMultiplexCommand = async (
     take(input, {
       multiplexSettings: [, (_) => se_MultiplexSettings(_, context), `MultiplexSettings`],
       name: [, , `Name`],
+      packetIdentifiersMapping: [, (_) => se_MultiplexPacketIdentifiersMapping(_, context), `PacketIdentifiersMapping`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -5017,6 +5018,8 @@ const de_UnprocessableEntityExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se___listOf__integer omitted.
+
 // se___listOf__string omitted.
 
 // se___listOf__stringPatternS omitted.
@@ -7051,6 +7054,22 @@ const se_MultiplexOutputSettings = (input: MultiplexOutputSettings, context: __S
 };
 
 /**
+ * serializeAws_restJson1MultiplexPacketIdentifiersMapping
+ */
+const se_MultiplexPacketIdentifiersMapping = (
+  input: Record<string, MultiplexProgramPacketIdentifiersMap>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_MultiplexProgramPacketIdentifiersMap(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1MultiplexProgramChannelDestinationSettings
  */
 const se_MultiplexProgramChannelDestinationSettings = (
@@ -7060,6 +7079,34 @@ const se_MultiplexProgramChannelDestinationSettings = (
   return take(input, {
     multiplexId: [, , `MultiplexId`],
     programName: [, , `ProgramName`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MultiplexProgramPacketIdentifiersMap
+ */
+const se_MultiplexProgramPacketIdentifiersMap = (
+  input: MultiplexProgramPacketIdentifiersMap,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    aribCaptionsPid: [, , `AribCaptionsPid`],
+    audioPids: [, _json, `AudioPids`],
+    dvbSubPids: [, _json, `DvbSubPids`],
+    dvbTeletextPid: [, , `DvbTeletextPid`],
+    dvbTeletextPids: [, _json, `DvbTeletextPids`],
+    ecmPid: [, , `EcmPid`],
+    etvPlatformPid: [, , `EtvPlatformPid`],
+    etvSignalPid: [, , `EtvSignalPid`],
+    klvDataPids: [, _json, `KlvDataPids`],
+    pcrPid: [, , `PcrPid`],
+    pmtPid: [, , `PmtPid`],
+    privateMetadataPid: [, , `PrivateMetadataPid`],
+    scte27Pids: [, _json, `Scte27Pids`],
+    scte35Pid: [, , `Scte35Pid`],
+    smpte2038Pid: [, , `Smpte2038Pid`],
+    timedMetadataPid: [, , `TimedMetadataPid`],
+    videoPid: [, , `VideoPid`],
   });
 };
 
@@ -10692,9 +10739,12 @@ const de_MultiplexProgramPacketIdentifiersMap = (
   context: __SerdeContext
 ): MultiplexProgramPacketIdentifiersMap => {
   return take(output, {
+    AribCaptionsPid: [, __expectInt32, `aribCaptionsPid`],
     AudioPids: [, _json, `audioPids`],
     DvbSubPids: [, _json, `dvbSubPids`],
     DvbTeletextPid: [, __expectInt32, `dvbTeletextPid`],
+    DvbTeletextPids: [, _json, `dvbTeletextPids`],
+    EcmPid: [, __expectInt32, `ecmPid`],
     EtvPlatformPid: [, __expectInt32, `etvPlatformPid`],
     EtvSignalPid: [, __expectInt32, `etvSignalPid`],
     KlvDataPids: [, _json, `klvDataPids`],
@@ -10703,6 +10753,7 @@ const de_MultiplexProgramPacketIdentifiersMap = (
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     Scte27Pids: [, _json, `scte27Pids`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
+    Smpte2038Pid: [, __expectInt32, `smpte2038Pid`],
     TimedMetadataPid: [, __expectInt32, `timedMetadataPid`],
     VideoPid: [, __expectInt32, `videoPid`],
   }) as any;

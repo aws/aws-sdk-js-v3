@@ -81,6 +81,12 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * //     Scte35Pid: Number("int"),
  * //     TimedMetadataPid: Number("int"),
  * //     VideoPid: Number("int"),
+ * //     AribCaptionsPid: Number("int"),
+ * //     DvbTeletextPids: [
+ * //       Number("int"),
+ * //     ],
+ * //     EcmPid: Number("int"),
+ * //     Smpte2038Pid: Number("int"),
  * //   },
  * //   PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
  * //     { // MultiplexProgramPipelineDetail
