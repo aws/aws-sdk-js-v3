@@ -45,14 +45,6 @@ function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
     for (const testCase of testCases) {
       const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
 
-      for (const key of Object.keys(params)) {
-        // e.g. S3Control::UseArnRegion as a param key indicates
-        // an error with the test case, it will be ignored.
-        if (key.includes(":")) {
-          delete params[key];
-        }
-      }
-
       if (params.UseGlobalEndpoint || params.Region === "aws-global") {
         it.skip(documentation || "undocumented testcase", () => {});
         continue;
