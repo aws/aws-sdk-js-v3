@@ -947,6 +947,7 @@ import {
   AutoMLCandidateGenerationConfig,
   AutoMLCandidateStep,
   AutoMLChannel,
+  AutoMLComputeConfig,
   AutoMLContainerDefinition,
   AutoMLDataSource,
   AutoMLDataSplitConfig,
@@ -1041,12 +1042,11 @@ import {
   CreateArtifactResponse,
   CreateAutoMLJobRequest,
   CreateAutoMLJobResponse,
-  CreateAutoMLJobV2Request,
-  CreateAutoMLJobV2Response,
-  CreateClusterRequest,
   CustomImage,
   DataSource,
   DirectDeploySettings,
+  EmrServerlessComputeConfig,
+  EmrServerlessSettings,
   FileSystemConfig,
   FileSystemDataSource,
   FillingType,
@@ -1127,6 +1127,9 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateAutoMLJobV2Request,
+  CreateAutoMLJobV2Response,
+  CreateClusterRequest,
   CreateClusterResponse,
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
@@ -1214,7 +1217,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  DatasetDefinition,
   DefaultEbsStorageSettings,
   DefaultSpaceSettings,
   DefaultSpaceStorageSettings,
@@ -1353,7 +1355,6 @@ import {
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
   RecommendationJobVpcConfig,
-  RedshiftDatasetDefinition,
   ResourceLimits,
   RetryStrategy,
   RollingUpdatePolicy,
@@ -1407,6 +1408,7 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DatasetDefinition,
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
@@ -1559,9 +1561,7 @@ import {
   DescribeMlflowTrackingServerResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
-  DescribeModelCardExportJobRequest,
   DescribeModelCardRequest,
-  DescribeModelCardResponse,
   DescribeModelInput,
   DescribeModelOutput,
   EbsStorageSettings,
@@ -1592,7 +1592,6 @@ import {
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
-  ModelCardExportArtifacts,
   ModelClientConfig,
   ModelConfiguration,
   ModelDeployResult,
@@ -1622,6 +1621,7 @@ import {
   ProvisioningParameter,
   RealTimeInferenceRecommendation,
   RecommendationMetrics,
+  RedshiftDatasetDefinition,
   RemoteDebugConfig,
   ResolvedAttributes,
   RetentionPolicy,
@@ -1645,7 +1645,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeModelCardExportJobRequest,
   DescribeModelCardExportJobResponse,
+  DescribeModelCardResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
   DescribeModelPackageGroupInput,
@@ -1844,10 +1846,9 @@ import {
   ListModelCardsResponse,
   ListModelCardVersionsRequest,
   ListModelCardVersionsResponse,
-  ListModelExplainabilityJobDefinitionsRequest,
-  ListModelExplainabilityJobDefinitionsResponse,
   MetricData,
   MetricSpecification,
+  ModelCardExportArtifacts,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -1886,6 +1887,8 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelExplainabilityJobDefinitionsRequest,
+  ListModelExplainabilityJobDefinitionsResponse,
   ListModelMetadataRequest,
   ListModelMetadataResponse,
   ListModelPackageGroupsInput,
@@ -13185,6 +13188,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AutoMLChannel omitted.
 
+// se_AutoMLComputeConfig omitted.
+
 // se_AutoMLDataSource omitted.
 
 /**
@@ -13406,6 +13411,7 @@ const se_CreateAutoMLJobRequest = (input: CreateAutoMLJobRequest, context: __Ser
  */
 const se_CreateAutoMLJobV2Request = (input: CreateAutoMLJobV2Request, context: __SerdeContext): any => {
   return take(input, {
+    AutoMLComputeConfig: _json,
     AutoMLJobInputDataConfig: _json,
     AutoMLJobName: [],
     AutoMLJobObjective: _json,
@@ -14137,6 +14143,10 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 // se_EFSFileSystem omitted.
 
 // se_EFSFileSystemConfig omitted.
+
+// se_EmrServerlessComputeConfig omitted.
+
+// se_EmrServerlessSettings omitted.
 
 // se_EmrSettings omitted.
 
@@ -17213,6 +17223,15 @@ const de_AutoMLChannel = (output: any, context: __SerdeContext): AutoMLChannel =
 };
 
 /**
+ * deserializeAws_json1_1AutoMLComputeConfig
+ */
+const de_AutoMLComputeConfig = (output: any, context: __SerdeContext): AutoMLComputeConfig => {
+  return take(output, {
+    EmrServerlessComputeConfig: (_: any) => de_EmrServerlessComputeConfig(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1AutoMLContainerDefinition
  */
 const de_AutoMLContainerDefinition = (output: any, context: __SerdeContext): AutoMLContainerDefinition => {
@@ -17735,6 +17754,7 @@ const de_CandidateSteps = (output: any, context: __SerdeContext): AutoMLCandidat
 const de_CanvasAppSettings = (output: any, context: __SerdeContext): CanvasAppSettings => {
   return take(output, {
     DirectDeploySettings: (_: any) => de_DirectDeploySettings(_, context),
+    EmrServerlessSettings: (_: any) => de_EmrServerlessSettings(_, context),
     GenerativeAiSettings: (_: any) => de_GenerativeAiSettings(_, context),
     IdentityProviderOAuthSettings: (_: any) => de_IdentityProviderOAuthSettings(_, context),
     KendraSettings: (_: any) => de_KendraSettings(_, context),
@@ -19849,6 +19869,7 @@ const de_DescribeAutoMLJobResponse = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeAutoMLJobV2Response = (output: any, context: __SerdeContext): DescribeAutoMLJobV2Response => {
   return take(output, {
+    AutoMLComputeConfig: (_: any) => de_AutoMLComputeConfig(_, context),
     AutoMLJobArn: __expectString,
     AutoMLJobArtifacts: (_: any) => de_AutoMLJobArtifacts(_, context),
     AutoMLJobInputDataConfig: (_: any) => de_AutoMLJobInputDataConfig(_, context),
@@ -21588,6 +21609,25 @@ const de_EFSFileSystemConfig = (output: any, context: __SerdeContext): EFSFileSy
   return take(output, {
     FileSystemId: __expectString,
     FileSystemPath: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EmrServerlessComputeConfig
+ */
+const de_EmrServerlessComputeConfig = (output: any, context: __SerdeContext): EmrServerlessComputeConfig => {
+  return take(output, {
+    ExecutionRoleARN: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EmrServerlessSettings
+ */
+const de_EmrServerlessSettings = (output: any, context: __SerdeContext): EmrServerlessSettings => {
+  return take(output, {
+    ExecutionRoleArn: __expectString,
+    Status: __expectString,
   }) as any;
 };
 

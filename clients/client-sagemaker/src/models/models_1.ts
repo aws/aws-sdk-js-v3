@@ -9,8 +9,14 @@ import {
   AppSecurityGroupManagement,
   AppType,
   AsyncInferenceConfig,
-  AthenaDatasetDefinition,
   AuthMode,
+  AutoMLComputeConfig,
+  AutoMLDataSplitConfig,
+  AutoMLJobChannel,
+  AutoMLJobObjective,
+  AutoMLOutputDataConfig,
+  AutoMLProblemTypeConfig,
+  AutoMLSecurityConfig,
   AutoParameter,
   AutoRollbackConfig,
   Autotune,
@@ -28,6 +34,7 @@ import {
   Channel,
   CheckpointConfig,
   ClarifyExplainerConfig,
+  ClusterInstanceGroupSpecification,
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
@@ -48,6 +55,7 @@ import {
   MetricsSource,
   ModelApprovalStatus,
   ModelDataSource,
+  ModelDeployConfig,
   OutputDataConfig,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
@@ -65,6 +73,181 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Request {
+  /**
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>An array of channel objects describing the input data and their location. Each channel
+   *          is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> attribute in the <code>CreateAutoMLJob</code> input parameters.
+   *          The supported formats depend on the problem type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For tabular problem types: <code>S3Prefix</code>,
+   *                <code>ManifestFile</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>,
+   *                   <code>AugmentedManifestFile</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For text classification: <code>S3Prefix</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For time-series forecasting: <code>S3Prefix</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For text generation (LLMs fine-tuning): <code>S3Prefix</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Provides information about encryption and the Amazon S3 output path needed to
+   *          store artifacts from an AutoML job.</p>
+   * @public
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>Defines the configuration settings of one of the supported problem types.</p>
+   * @public
+   */
+  AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
+
+  /**
+   * <p>The ARN of the role that is used to access the data.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, such as by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
+   *          resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
+   * @public
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
+   *          the default objective metric depends on the problem type. For the list of default values
+   *          per problem type, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a>.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>For tabular problem types: You must either provide both the
+   *                      <code>AutoMLJobObjective</code> and indicate the type of supervised learning
+   *                   problem in <code>AutoMLProblemTypeConfig</code>
+   *                      (<code>TabularJobConfig.ProblemType</code>), or none at all.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For text generation problem types (LLMs fine-tuning):
+   *                   Fine-tuning language models in Autopilot does not
+   *                   require setting the <code>AutoMLJobObjective</code> field. Autopilot fine-tunes LLMs
+   *                   without requiring multiple candidates to be trained and evaluated.
+   *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
+   *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
+   *                   you can evaluate the quality of its generated text using different metrics.
+   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-metrics.html">Metrics for
+   *                         fine-tuning LLMs in Autopilot</a>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+   *          deployment.</p>
+   * @public
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>This structure specifies how to split the data into train and validation
+   *          datasets.</p>
+   *          <p>The validation and training datasets must contain the same headers. For jobs created by
+   *          calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in
+   *          size.</p>
+   *          <note>
+   *             <p>This attribute must not be set for the time-series forecasting problem type, as Autopilot
+   *             automatically splits the input dataset into training and validation sets.</p>
+   *          </note>
+   * @public
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+
+  /**
+   * <p>Specifies the compute configuration for the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLComputeConfig?: AutoMLComputeConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Response {
+  /**
+   * <p>The unique ARN assigned to the AutoMLJob when it is created.</p>
+   * @public
+   */
+  AutoMLJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterRequest {
+  /**
+   * <p>The name for the new SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The instance groups to be created in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceGroups: ClusterInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Custom tags for managing the SageMaker HyperPod cluster as an Amazon Web Services resource. You can
+   *          add tags to your cluster in the same way you add them in other Amazon Web Services services
+   *          that support tagging. To learn more about tagging Amazon Web Services resources in general,
+   *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
+   *                Amazon Web Services Resources User Guide</a>.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -2144,6 +2327,7 @@ export const MlTools = {
   ENDPOINTS: "Endpoints",
   EXPERIMENTS: "Experiments",
   FEATURE_STORE: "FeatureStore",
+  INFERENCE_OPTIMIZATION: "InferenceOptimization",
   INFERENCE_RECOMMENDER: "InferenceRecommender",
   JUMP_START: "JumpStart",
   MODELS: "Models",
@@ -3313,6 +3497,27 @@ export interface ProductionVariant {
    *          <p>By selecting an AMI version, you can ensure that your inference environment is
    *             compatible with specific software requirements, such as CUDA driver versions, Linux
    *             kernel versions, or Amazon Web Services Neuron driver versions.</p>
+   *          <p>The AMI version names, and their configurations, are the following:</p>
+   *          <dl>
+   *             <dt>al2-ami-sagemaker-inference-gpu-2</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 535.54.03</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>CUDA driver version: 12.2</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Supported instance types: ml.g4dn.*, ml.g5.*, ml.g6.*, ml.p3.*,
+   *                                 ml.p4d.*, ml.p4de.*, ml.p5.*</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
    * @public
    */
   InferenceAmiVersion?: ProductionVariantInferenceAmiVersion;
@@ -12624,127 +12829,6 @@ export const RedshiftResultFormat = {
  * @public
  */
 export type RedshiftResultFormat = (typeof RedshiftResultFormat)[keyof typeof RedshiftResultFormat];
-
-/**
- * <p>Configuration for Redshift Dataset Definition input.</p>
- * @public
- */
-export interface RedshiftDatasetDefinition {
-  /**
-   * <p>The Redshift cluster Identifier.</p>
-   * @public
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * <p>The name of the Redshift database used in Redshift query execution.</p>
-   * @public
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>The database user name used in Redshift query execution.</p>
-   * @public
-   */
-  DbUser: string | undefined;
-
-  /**
-   * <p>The SQL query statements to be executed.</p>
-   * @public
-   */
-  QueryString: string | undefined;
-
-  /**
-   * <p>The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.</p>
-   * @public
-   */
-  ClusterRoleArn: string | undefined;
-
-  /**
-   * <p>The location in Amazon S3 where the Redshift query results are stored.</p>
-   * @public
-   */
-  OutputS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data from a
-   *             Redshift execution.</p>
-   * @public
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The data storage format for Redshift query results.</p>
-   * @public
-   */
-  OutputFormat: RedshiftResultFormat | undefined;
-
-  /**
-   * <p>The compression used for Redshift query results.</p>
-   * @public
-   */
-  OutputCompression?: RedshiftResultCompressionType;
-}
-
-/**
- * <p>Configuration for Dataset Definition inputs. The Dataset Definition input must specify
- *             exactly one of either <code>AthenaDatasetDefinition</code> or <code>RedshiftDatasetDefinition</code>
- *             types.</p>
- * @public
- */
-export interface DatasetDefinition {
-  /**
-   * <p>Configuration for Athena Dataset Definition input.</p>
-   * @public
-   */
-  AthenaDatasetDefinition?: AthenaDatasetDefinition;
-
-  /**
-   * <p>Configuration for Redshift Dataset Definition input.</p>
-   * @public
-   */
-  RedshiftDatasetDefinition?: RedshiftDatasetDefinition;
-
-  /**
-   * <p>The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a
-   *             processing job. <code>LocalPath</code> is an absolute path to the input data. This is a required
-   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
-   * @public
-   */
-  LocalPath?: string;
-
-  /**
-   * <p>Whether the generated dataset is <code>FullyReplicated</code> or
-   *             <code>ShardedByS3Key</code> (default).</p>
-   * @public
-   */
-  DataDistributionType?: DataDistributionType;
-
-  /**
-   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code> (default) mode,
-   *             Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store
-   *             (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used
-   *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
-   *             algorithm without using the EBS volume.</p>
-   * @public
-   */
-  InputMode?: InputMode;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProcessingS3CompressionType = {
-  GZIP: "Gzip",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type ProcessingS3CompressionType =
-  (typeof ProcessingS3CompressionType)[keyof typeof ProcessingS3CompressionType];
 
 /**
  * @internal

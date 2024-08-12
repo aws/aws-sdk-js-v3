@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeModelCardExportJobRequest } from "../models/models_2";
-import { DescribeModelCardExportJobResponse } from "../models/models_3";
+import { DescribeModelCardExportJobRequest, DescribeModelCardExportJobResponse } from "../models/models_3";
 import { de_DescribeModelCardExportJobCommand, se_DescribeModelCardExportJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

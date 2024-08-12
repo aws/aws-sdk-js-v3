@@ -15,9 +15,11 @@ import {
   AppType,
   ArtifactSource,
   AsyncInferenceConfig,
+  AthenaDatasetDefinition,
   AuthMode,
   AutoMLCandidate,
   AutoMLChannel,
+  AutoMLComputeConfig,
   AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
   AutoMLJobChannel,
@@ -76,10 +78,10 @@ import {
 
 import {
   DataCaptureConfig,
+  DataDistributionType,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  DatasetDefinition,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
@@ -109,6 +111,7 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InputConfig,
+  InputMode,
   JobType,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -119,8 +122,6 @@ import {
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
-  ModelCardSecurityConfig,
-  ModelCardStatus,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -132,7 +133,6 @@ import {
   OnlineStoreConfig,
   OutputConfig,
   ProcessingInstanceType,
-  ProcessingS3CompressionType,
   ProcessingS3UploadMode,
   Processor,
   ProductionVariant,
@@ -143,6 +143,8 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
+  RedshiftResultCompressionType,
+  RedshiftResultFormat,
   RetryStrategy,
   ShadowModeConfig,
   ThroughputMode,
@@ -150,6 +152,127 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * <p>Configuration for Redshift Dataset Definition input.</p>
+ * @public
+ */
+export interface RedshiftDatasetDefinition {
+  /**
+   * <p>The Redshift cluster Identifier.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The name of the Redshift database used in Redshift query execution.</p>
+   * @public
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The database user name used in Redshift query execution.</p>
+   * @public
+   */
+  DbUser: string | undefined;
+
+  /**
+   * <p>The SQL query statements to be executed.</p>
+   * @public
+   */
+  QueryString: string | undefined;
+
+  /**
+   * <p>The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.</p>
+   * @public
+   */
+  ClusterRoleArn: string | undefined;
+
+  /**
+   * <p>The location in Amazon S3 where the Redshift query results are stored.</p>
+   * @public
+   */
+  OutputS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data from a
+   *             Redshift execution.</p>
+   * @public
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The data storage format for Redshift query results.</p>
+   * @public
+   */
+  OutputFormat: RedshiftResultFormat | undefined;
+
+  /**
+   * <p>The compression used for Redshift query results.</p>
+   * @public
+   */
+  OutputCompression?: RedshiftResultCompressionType;
+}
+
+/**
+ * <p>Configuration for Dataset Definition inputs. The Dataset Definition input must specify
+ *             exactly one of either <code>AthenaDatasetDefinition</code> or <code>RedshiftDatasetDefinition</code>
+ *             types.</p>
+ * @public
+ */
+export interface DatasetDefinition {
+  /**
+   * <p>Configuration for Athena Dataset Definition input.</p>
+   * @public
+   */
+  AthenaDatasetDefinition?: AthenaDatasetDefinition;
+
+  /**
+   * <p>Configuration for Redshift Dataset Definition input.</p>
+   * @public
+   */
+  RedshiftDatasetDefinition?: RedshiftDatasetDefinition;
+
+  /**
+   * <p>The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a
+   *             processing job. <code>LocalPath</code> is an absolute path to the input data. This is a required
+   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
+   * @public
+   */
+  LocalPath?: string;
+
+  /**
+   * <p>Whether the generated dataset is <code>FullyReplicated</code> or
+   *             <code>ShardedByS3Key</code> (default).</p>
+   * @public
+   */
+  DataDistributionType?: DataDistributionType;
+
+  /**
+   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code> (default) mode,
+   *             Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store
+   *             (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used
+   *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
+   *             algorithm without using the EBS volume.</p>
+   * @public
+   */
+  InputMode?: InputMode;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingS3CompressionType =
+  (typeof ProcessingS3CompressionType)[keyof typeof ProcessingS3CompressionType];
 
 /**
  * @public
@@ -288,7 +411,7 @@ export interface ProcessingS3Output {
    *             entrypoint is invoked.</p>
    * @public
    */
-  LocalPath: string | undefined;
+  LocalPath?: string;
 
   /**
    * <p>Whether to upload the results of the processing job continuously or after the job
@@ -4467,6 +4590,12 @@ export interface DescribeAutoMLJobV2Response {
    * @public
    */
   SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>The compute configuration used for the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLComputeConfig?: AutoMLComputeConfig;
 }
 
 /**
@@ -9331,147 +9460,6 @@ export const ModelCardProcessingStatus = {
 export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
 
 /**
- * @public
- */
-export interface DescribeModelCardResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card.</p>
-   * @public
-   */
-  ModelCardArn: string | undefined;
-
-  /**
-   * <p>The name of the model card.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The version of the model card.</p>
-   * @public
-   */
-  ModelCardVersion: number | undefined;
-
-  /**
-   * <p>The content of the model card.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Draft</code>: The model card is a work in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PendingReview</code>: The model card is pending review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Approved</code>: The model card is approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
-   *                card, but it can still be exported.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ModelCardStatus: ModelCardStatus | undefined;
-
-  /**
-   * <p>The security configuration used to protect model card content.</p>
-   * @public
-   */
-  SecurityConfig?: ModelCardSecurityConfig;
-
-  /**
-   * <p>The date and time the model card was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy: UserContext | undefined;
-
-  /**
-   * <p>The date and time the model card was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>The processing status of model card deletion. The <code>ModelCardProcessingStatus</code> updates throughout the different deletion steps.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DeletePending</code>: Model card deletion request received.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DeleteInProgress</code>: Model card deletion is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ContentDeleted</code>: Deleted model card content.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ExportJobsDeleted</code>: Deleted all export jobs associated with the model card.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DeleteCompleted</code>: Successfully deleted the model card.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DeleteFailed</code>: The model card failed to delete.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ModelCardProcessingStatus?: ModelCardProcessingStatus;
-}
-
-/**
- * @public
- */
-export interface DescribeModelCardExportJobRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
-   * @public
-   */
-  ModelCardExportJobArn: string | undefined;
-}
-
-/**
- * <p>The artifacts of the model card export job.</p>
- * @public
- */
-export interface ModelCardExportArtifacts {
-  /**
-   * <p>The Amazon S3 URI of the exported model artifacts.</p>
-   * @public
-   */
-  S3ExportArtifacts: string | undefined;
-}
-
-/**
  * @internal
  */
 export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
@@ -9485,12 +9473,4 @@ export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
 export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceRequest): any => ({
   ...obj,
   ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
-});
-
-/**
- * @internal
- */
-export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
 });

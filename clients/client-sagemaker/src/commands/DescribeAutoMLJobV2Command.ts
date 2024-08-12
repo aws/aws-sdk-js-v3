@@ -273,6 +273,11 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //       ],
  * //     },
  * //   },
+ * //   AutoMLComputeConfig: { // AutoMLComputeConfig
+ * //     EmrServerlessComputeConfig: { // EmrServerlessComputeConfig
+ * //       ExecutionRoleARN: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

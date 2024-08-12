@@ -87,7 +87,7 @@ export interface DescribeProcessingJobCommandOutput extends DescribeProcessingJo
  * //         OutputName: "STRING_VALUE", // required
  * //         S3Output: { // ProcessingS3Output
  * //           S3Uri: "STRING_VALUE", // required
- * //           LocalPath: "STRING_VALUE", // required
+ * //           LocalPath: "STRING_VALUE",
  * //           S3UploadMode: "Continuous" || "EndOfJob", // required
  * //         },
  * //         FeatureStoreOutput: { // ProcessingFeatureStoreOutput

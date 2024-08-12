@@ -185,6 +185,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       GenerativeAiSettings: { // GenerativeAiSettings
  *         AmazonBedrockRoleArn: "STRING_VALUE",
  *       },
+ *       EmrServerlessSettings: { // EmrServerlessSettings
+ *         ExecutionRoleArn: "STRING_VALUE",
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
  *     },
  *     CodeEditorAppSettings: { // CodeEditorAppSettings
  *       DefaultResourceSpec: {
@@ -253,7 +257,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings
  *       HiddenMlTools: [ // HiddenMlToolsList
- *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects",
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization",
  *       ],
  *       HiddenAppTypes: [ // HiddenAppTypesList
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",

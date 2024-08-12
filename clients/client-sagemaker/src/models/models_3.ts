@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
@@ -72,6 +74,7 @@ import {
   InstanceMetadataServiceConfiguration,
   LabelingJobInputConfig,
   ModelCardExportOutputConfig,
+  ModelCardSecurityConfig,
   ModelCardStatus,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
@@ -146,7 +149,7 @@ import {
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
-  ModelCardExportArtifacts,
+  ModelCardProcessingStatus,
   ModelClientConfig,
   ModelConfiguration,
   NotificationConfiguration,
@@ -179,6 +182,147 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeModelCardResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   * @public
+   */
+  ModelCardArn: string | undefined;
+
+  /**
+   * <p>The name of the model card.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card.</p>
+   * @public
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The content of the model card.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
+   *                card, but it can still be exported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelCardStatus: ModelCardStatus | undefined;
+
+  /**
+   * <p>The security configuration used to protect model card content.</p>
+   * @public
+   */
+  SecurityConfig?: ModelCardSecurityConfig;
+
+  /**
+   * <p>The date and time the model card was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy: UserContext | undefined;
+
+  /**
+   * <p>The date and time the model card was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The processing status of model card deletion. The <code>ModelCardProcessingStatus</code> updates throughout the different deletion steps.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DeletePending</code>: Model card deletion request received.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteInProgress</code>: Model card deletion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContentDeleted</code>: Deleted model card content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExportJobsDeleted</code>: Deleted all export jobs associated with the model card.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteCompleted</code>: Successfully deleted the model card.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteFailed</code>: The model card failed to delete.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelCardProcessingStatus?: ModelCardProcessingStatus;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelCardExportJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
+   * @public
+   */
+  ModelCardExportJobArn: string | undefined;
+}
+
+/**
+ * <p>The artifacts of the model card export job.</p>
+ * @public
+ */
+export interface ModelCardExportArtifacts {
+  /**
+   * <p>The Amazon S3 URI of the exported model artifacts.</p>
+   * @public
+   */
+  S3ExportArtifacts: string | undefined;
+}
 
 /**
  * @public
@@ -11497,96 +11641,12 @@ export interface ListModelCardVersionsResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ListModelExplainabilityJobDefinitionsRequest {
-  /**
-   * <p>Name of the endpoint to monitor for model explainability.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
-   *    The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for model explainability jobs whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model explainability jobs created before a specified
-   *          time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model explainability jobs created after a specified
-   *          time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-}
-
-/**
- * @public
- */
-export interface ListModelExplainabilityJobDefinitionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelMetadataFilterType = {
-  DOMAIN: "Domain",
-  FRAMEWORK: "Framework",
-  FRAMEWORKVERSION: "FrameworkVersion",
-  TASK: "Task",
-} as const;
-
-/**
- * @public
- */
-export type ModelMetadataFilterType = (typeof ModelMetadataFilterType)[keyof typeof ModelMetadataFilterType];
+export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
