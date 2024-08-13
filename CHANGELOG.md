@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.630.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.629.0...v3.630.0) (2024-08-13)
+
+
+### Bug Fixes
+
+* **client-s3-control:** populate memberName as contextParams value ([#6376](https://github.com/aws/aws-sdk-js-v3/issues/6376)) ([7867ee1](https://github.com/aws/aws-sdk-js-v3/commit/7867ee1b954001ecf290b379dc3fa6319cbd46f4))
+
+
+### Features
+
+* **client-amplify:** Add a new field "cacheConfig" that enables users to configure the CDN cache settings for an App ([db3560c](https://github.com/aws/aws-sdk-js-v3/commit/db3560cfcb9b9074e70026d357f34ca0250b5a9c))
+* **client-appstream:** This release includes following new APIs: CreateThemeForStack, DescribeThemeForStack, UpdateThemeForStack, DeleteThemeForStack to support custom branding programmatically. ([86d89c6](https://github.com/aws/aws-sdk-js-v3/commit/86d89c6647dab08f9dd88540a3e3323f5ddb6fff))
+* **client-fis:** This release adds support for additional error information on experiment failure. It adds the error code, location, and account id on relevant failures to the GetExperiment and ListExperiment API responses. ([d69b927](https://github.com/aws/aws-sdk-js-v3/commit/d69b9277bffaafe4aa97166ac6bda5e46ed05765))
+* **client-glue:** Add AttributesToGet parameter support for Glue GetTables ([3d999b6](https://github.com/aws/aws-sdk-js-v3/commit/3d999b614c4cbd9db561e1ea32b6bbdea00df7e2))
+* **client-neptune-graph:** Amazon Neptune Analytics provides a new option for customers to load data into a graph using the RDF (Resource Description Framework) NTRIPLES format. When loading NTRIPLES files, use the value `convertToIri` for the `blankNodeHandling` parameter. ([223369d](https://github.com/aws/aws-sdk-js-v3/commit/223369d64ea566a3dd959a8c77a37d64e83915ce))
+* **credential-providers:** add custom credential chain helper ([#6374](https://github.com/aws/aws-sdk-js-v3/issues/6374)) ([1a479dc](https://github.com/aws/aws-sdk-js-v3/commit/1a479dc8a26dfacef950b4d86631f168b55f3561))
+
+
+
+
+
 # [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
 
 

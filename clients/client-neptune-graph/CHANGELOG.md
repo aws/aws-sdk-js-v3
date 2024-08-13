@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.630.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.629.0...v3.630.0) (2024-08-13)
+
+
+### Features
+
+* **client-neptune-graph:** Amazon Neptune Analytics provides a new option for customers to load data into a graph using the RDF (Resource Description Framework) NTRIPLES format. When loading NTRIPLES files, use the value `convertToIri` for the `blankNodeHandling` parameter. ([223369d](https://github.com/aws/aws-sdk-js-v3/commit/223369d64ea566a3dd959a8c77a37d64e83915ce))
+
+
+
+
+
 # [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

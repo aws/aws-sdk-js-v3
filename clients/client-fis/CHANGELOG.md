@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.630.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.629.0...v3.630.0) (2024-08-13)
+
+
+### Features
+
+* **client-fis:** This release adds support for additional error information on experiment failure. It adds the error code, location, and account id on relevant failures to the GetExperiment and ListExperiment API responses. ([d69b927](https://github.com/aws/aws-sdk-js-v3/commit/d69b9277bffaafe4aa97166ac6bda5e46ed05765))
+
+
+
+
+
 # [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-fis

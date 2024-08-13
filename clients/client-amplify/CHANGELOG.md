@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.630.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.629.0...v3.630.0) (2024-08-13)
+
+
+### Features
+
+* **client-amplify:** Add a new field "cacheConfig" that enables users to configure the CDN cache settings for an App ([db3560c](https://github.com/aws/aws-sdk-js-v3/commit/db3560cfcb9b9074e70026d357f34ca0250b5a9c))
+
+
+
+
+
 # [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-amplify
