@@ -25,7 +25,7 @@ A collection of all credential providers, with default clients.
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
 1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
-1. [Creating a custom credentials chain](#chain)
+1. [Creating a custom credentials chain](#createCredentialChain)
 
 ## `fromCognitoIdentity()`
 
@@ -785,9 +785,24 @@ const credentialProvider = fromNodeProviderChain({
 });
 ```
 
-## `chain()`
+## `createCredentialChain()`
 
 You can use this helper to create a credential chain of your own.
+
+A credential chain is created from a list of functions of the signature () => Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>,
+composed together such that the overall chain has the **same** signature.
+
+That is why you can provide the chained credential provider to the same field (`credentials`) as any single provider function.
+
+All the providers from this package are compatible, and can be used to create such a chain.
+
+As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credential object returned does not contain
+an `expiration` (type `Date`), the client will only ever call the provider function once. You do not need to memoize this function.
+
+To enable automatic refresh, the credential provider function should set an `expiration` (`Date`) field. When this expiration approaches within 5 minutes, the 
+provider function will be called again by the client in the course of making SDK requests.
+
+To assist with this, the `createCredentialChain` has a chainable helper `.expireAfter(milliseconds: number)`. An example is included below.
 
 ```ts
 import { fromEnv, fromIni, createCredentialChain } from "@aws-sdk/credential-providers";
@@ -810,7 +825,9 @@ new S3({
 // A set expiration will cause the credentials function to be called again
 // when the time left is less than 5 minutes.
 new S3({
-  // expire after 15 minutes (in milliseconds).
+  // This setting indicates expiry after 15 minutes (in milliseconds) with `15 * 60_000`.
+  // Due to the 5 minute expiry window, the function will be called approximately every
+  // 10 minutes under continuous usage of this client.
   credentials: createCredentialChain(fromEnv(), fromIni()).expireAfter(15 * 60_000),
 });
 
