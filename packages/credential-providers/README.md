@@ -789,15 +789,15 @@ const credentialProvider = fromNodeProviderChain({
 
 You can use this helper to create a credential chain of your own.
 
-A credential chain is a list of functions of the signature `() => Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>`,
+A credential chain is created from a list of functions of the signature () => Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>,
 composed together such that the overall chain has the **same** signature.
 
 That is why you can provide the chained credential provider to the same field (`credentials`) as any single provider function.
 
 All the providers from this package are compatible, and can be used to create such a chain.
 
-As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credentials returned do not contain
-an `expiration` (type `Date`), the client will only ever call the provider function once.
+As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credential object returned does not contain
+an `expiration` (type `Date`), the client will only ever call the provider function once. You do not need to memoize this function.
 
 To enable automatic refresh, the credential provider function should set an `expiration` (`Date`) field. When this expiration approaches within 5 minutes, the 
 provider function will be called again by the client in the course of making SDK requests.
