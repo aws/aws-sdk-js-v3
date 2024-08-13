@@ -56,6 +56,11 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * //     state: { // ExperimentState
  * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
  * //       reason: "STRING_VALUE",
+ * //       error: { // ExperimentError
+ * //         accountId: "STRING_VALUE",
+ * //         code: "STRING_VALUE",
+ * //         location: "STRING_VALUE",
+ * //       },
  * //     },
  * //     targets: { // ExperimentTargetMap
  * //       "<keys>": { // ExperimentTarget

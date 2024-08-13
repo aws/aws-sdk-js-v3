@@ -1343,6 +1343,8 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
 
 // de_ExperimentCloudWatchLogsLogConfiguration omitted.
 
+// de_ExperimentError omitted.
+
 // de_ExperimentLogConfiguration omitted.
 
 // de_ExperimentOptions omitted.

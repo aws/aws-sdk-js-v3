@@ -1075,6 +1075,30 @@ export interface ExperimentLogConfiguration {
 }
 
 /**
+ * <p>Describes the error when an experiment has <code>failed</code>.</p>
+ * @public
+ */
+export interface ExperimentError {
+  /**
+   * <p>The Amazon Web Services Account ID where the experiment failure occurred.</p>
+   * @public
+   */
+  accountId?: string;
+
+  /**
+   * <p>The error code for the failed experiment.</p>
+   * @public
+   */
+  code?: string;
+
+  /**
+   * <p>Context for the section of the experiment template that failed.</p>
+   * @public
+   */
+  location?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1109,6 +1133,12 @@ export interface ExperimentState {
    * @public
    */
   reason?: string;
+
+  /**
+   * <p>The error information of the experiment when the action has <code>failed</code>.</p>
+   * @public
+   */
+  error?: ExperimentError;
 }
 
 /**

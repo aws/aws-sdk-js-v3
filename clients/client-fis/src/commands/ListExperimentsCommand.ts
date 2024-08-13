@@ -51,6 +51,11 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * //       state: { // ExperimentState
  * //         status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
  * //         reason: "STRING_VALUE",
+ * //         error: { // ExperimentError
+ * //           accountId: "STRING_VALUE",
+ * //           code: "STRING_VALUE",
+ * //           location: "STRING_VALUE",
+ * //         },
  * //       },
  * //       creationTime: new Date("TIMESTAMP"),
  * //       tags: { // TagMap
