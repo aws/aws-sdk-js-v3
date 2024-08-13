@@ -15,6 +15,16 @@ describe(parseArn.name, () => {
       },
     ],
     [
+      "arn:aws:s3:us-west-2:123456789012::myendpoint",
+      {
+        partition: "aws",
+        service: "s3",
+        region: "us-west-2",
+        accountId: "123456789012",
+        resourceId: ["", "myendpoint"],
+      },
+    ],
+    [
       "arn:aws:s3:us-west-2:123456789012:accesspoint/myendpoint",
       {
         partition: "aws",
