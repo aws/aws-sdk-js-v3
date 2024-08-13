@@ -98,6 +98,10 @@ import {
 } from "./commands/CreateImageBuilderStreamingURLCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "./commands/CreateStreamingURLCommand";
+import {
+  CreateThemeForStackCommandInput,
+  CreateThemeForStackCommandOutput,
+} from "./commands/CreateThemeForStackCommand";
 import { CreateUpdatedImageCommandInput, CreateUpdatedImageCommandOutput } from "./commands/CreateUpdatedImageCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
@@ -123,6 +127,10 @@ import {
   DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
+import {
+  DeleteThemeForStackCommandInput,
+  DeleteThemeForStackCommandOutput,
+} from "./commands/DeleteThemeForStackCommand";
 import {
   DeleteUsageReportSubscriptionCommandInput,
   DeleteUsageReportSubscriptionCommandOutput,
@@ -165,6 +173,10 @@ import {
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
 import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
+import {
+  DescribeThemeForStackCommandInput,
+  DescribeThemeForStackCommandOutput,
+} from "./commands/DescribeThemeForStackCommand";
 import {
   DescribeUsageReportSubscriptionsCommandInput,
   DescribeUsageReportSubscriptionsCommandOutput,
@@ -237,6 +249,10 @@ import {
 } from "./commands/UpdateImagePermissionsCommand";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
+  UpdateThemeForStackCommandInput,
+  UpdateThemeForStackCommandOutput,
+} from "./commands/UpdateThemeForStackCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -269,6 +285,7 @@ export type ServiceInputTypes =
   | CreateImageBuilderStreamingURLCommandInput
   | CreateStackCommandInput
   | CreateStreamingURLCommandInput
+  | CreateThemeForStackCommandInput
   | CreateUpdatedImageCommandInput
   | CreateUsageReportSubscriptionCommandInput
   | CreateUserCommandInput
@@ -282,6 +299,7 @@ export type ServiceInputTypes =
   | DeleteImageCommandInput
   | DeleteImagePermissionsCommandInput
   | DeleteStackCommandInput
+  | DeleteThemeForStackCommandInput
   | DeleteUsageReportSubscriptionCommandInput
   | DeleteUserCommandInput
   | DescribeAppBlockBuilderAppBlockAssociationsCommandInput
@@ -297,6 +315,7 @@ export type ServiceInputTypes =
   | DescribeImagesCommandInput
   | DescribeSessionsCommandInput
   | DescribeStacksCommandInput
+  | DescribeThemeForStackCommandInput
   | DescribeUsageReportSubscriptionsCommandInput
   | DescribeUserStackAssociationsCommandInput
   | DescribeUsersCommandInput
@@ -325,7 +344,8 @@ export type ServiceInputTypes =
   | UpdateEntitlementCommandInput
   | UpdateFleetCommandInput
   | UpdateImagePermissionsCommandInput
-  | UpdateStackCommandInput;
+  | UpdateStackCommandInput
+  | UpdateThemeForStackCommandInput;
 
 /**
  * @public
@@ -349,6 +369,7 @@ export type ServiceOutputTypes =
   | CreateImageBuilderStreamingURLCommandOutput
   | CreateStackCommandOutput
   | CreateStreamingURLCommandOutput
+  | CreateThemeForStackCommandOutput
   | CreateUpdatedImageCommandOutput
   | CreateUsageReportSubscriptionCommandOutput
   | CreateUserCommandOutput
@@ -362,6 +383,7 @@ export type ServiceOutputTypes =
   | DeleteImageCommandOutput
   | DeleteImagePermissionsCommandOutput
   | DeleteStackCommandOutput
+  | DeleteThemeForStackCommandOutput
   | DeleteUsageReportSubscriptionCommandOutput
   | DeleteUserCommandOutput
   | DescribeAppBlockBuilderAppBlockAssociationsCommandOutput
@@ -377,6 +399,7 @@ export type ServiceOutputTypes =
   | DescribeImagesCommandOutput
   | DescribeSessionsCommandOutput
   | DescribeStacksCommandOutput
+  | DescribeThemeForStackCommandOutput
   | DescribeUsageReportSubscriptionsCommandOutput
   | DescribeUserStackAssociationsCommandOutput
   | DescribeUsersCommandOutput
@@ -405,7 +428,8 @@ export type ServiceOutputTypes =
   | UpdateEntitlementCommandOutput
   | UpdateFleetCommandOutput
   | UpdateImagePermissionsCommandOutput
-  | UpdateStackCommandOutput;
+  | UpdateStackCommandOutput
+  | UpdateThemeForStackCommandOutput;
 
 /**
  * @public

@@ -117,6 +117,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * //         VpceId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //   },
  * // };
  *

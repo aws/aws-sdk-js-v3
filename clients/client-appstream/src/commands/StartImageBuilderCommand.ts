@@ -88,6 +88,7 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  * //         VpceId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //   },
  * // };
  *

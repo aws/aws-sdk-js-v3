@@ -92,6 +92,7 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * //           VpceId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -87,6 +87,7 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * //         VpceId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //   },
  * // };
  *

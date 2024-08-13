@@ -66,6 +66,10 @@ import {
 } from "../commands/CreateImageBuilderStreamingURLCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand";
 import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "../commands/CreateStreamingURLCommand";
+import {
+  CreateThemeForStackCommandInput,
+  CreateThemeForStackCommandOutput,
+} from "../commands/CreateThemeForStackCommand";
 import { CreateUpdatedImageCommandInput, CreateUpdatedImageCommandOutput } from "../commands/CreateUpdatedImageCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
@@ -91,6 +95,10 @@ import {
   DeleteImagePermissionsCommandOutput,
 } from "../commands/DeleteImagePermissionsCommand";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "../commands/DeleteStackCommand";
+import {
+  DeleteThemeForStackCommandInput,
+  DeleteThemeForStackCommandOutput,
+} from "../commands/DeleteThemeForStackCommand";
 import {
   DeleteUsageReportSubscriptionCommandInput,
   DeleteUsageReportSubscriptionCommandOutput,
@@ -133,6 +141,10 @@ import {
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "../commands/DescribeImagesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "../commands/DescribeSessionsCommand";
 import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "../commands/DescribeStacksCommand";
+import {
+  DescribeThemeForStackCommandInput,
+  DescribeThemeForStackCommandOutput,
+} from "../commands/DescribeThemeForStackCommand";
 import {
   DescribeUsageReportSubscriptionsCommandInput,
   DescribeUsageReportSubscriptionsCommandOutput,
@@ -204,6 +216,10 @@ import {
   UpdateImagePermissionsCommandOutput,
 } from "../commands/UpdateImagePermissionsCommand";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
+import {
+  UpdateThemeForStackCommandInput,
+  UpdateThemeForStackCommandOutput,
+} from "../commands/UpdateThemeForStackCommand";
 import { AppStreamServiceException as __BaseException } from "../models/AppStreamServiceException";
 import {
   AccessEndpoint,
@@ -245,6 +261,8 @@ import {
   CreateStackResult,
   CreateStreamingURLRequest,
   CreateStreamingURLResult,
+  CreateThemeForStackRequest,
+  CreateThemeForStackResult,
   CreateUpdatedImageRequest,
   CreateUpdatedImageResult,
   CreateUsageReportSubscriptionRequest,
@@ -261,6 +279,7 @@ import {
   DeleteImageRequest,
   DeleteImageResult,
   DeleteStackRequest,
+  DeleteThemeForStackRequest,
   DeleteUsageReportSubscriptionRequest,
   DeleteUserRequest,
   DescribeAppBlockBuilderAppBlockAssociationsRequest,
@@ -286,6 +305,8 @@ import {
   DescribeSessionsResult,
   DescribeStacksRequest,
   DescribeStacksResult,
+  DescribeThemeForStackRequest,
+  DescribeThemeForStackResult,
   DescribeUsageReportSubscriptionsRequest,
   DescribeUsageReportSubscriptionsResult,
   DescribeUsersRequest,
@@ -345,6 +366,9 @@ import {
   StorageConnector,
   StreamingExperienceSettings,
   TagResourceRequest,
+  Theme,
+  ThemeAttribute,
+  ThemeFooterLink,
   UntagResourceRequest,
   UpdateAppBlockBuilderRequest,
   UpdateAppBlockBuilderResult,
@@ -359,6 +383,8 @@ import {
   UpdateImagePermissionsRequest,
   UpdateStackRequest,
   UpdateStackResult,
+  UpdateThemeForStackRequest,
+  UpdateThemeForStackResult,
   UsageReportSubscription,
   User,
   UserSetting,
@@ -601,6 +627,19 @@ export const se_CreateStreamingURLCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateThemeForStackCommand
+ */
+export const se_CreateThemeForStackCommand = async (
+  input: CreateThemeForStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateThemeForStack");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateUpdatedImageCommand
  */
 export const se_CreateUpdatedImageCommand = async (
@@ -764,6 +803,19 @@ export const se_DeleteStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStack");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteThemeForStackCommand
+ */
+export const se_DeleteThemeForStackCommand = async (
+  input: DeleteThemeForStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteThemeForStack");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -959,6 +1011,19 @@ export const se_DescribeStacksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStacks");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeThemeForStackCommand
+ */
+export const se_DescribeThemeForStackCommand = async (
+  input: DescribeThemeForStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeThemeForStack");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1342,6 +1407,19 @@ export const se_UpdateStackCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateThemeForStackCommand
+ */
+export const se_UpdateThemeForStackCommand = async (
+  input: UpdateThemeForStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateThemeForStack");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1AssociateAppBlockBuilderAppBlockCommand
  */
 export const de_AssociateAppBlockBuilderAppBlockCommand = async (
@@ -1702,6 +1780,26 @@ export const de_CreateStreamingURLCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateThemeForStackCommand
+ */
+export const de_CreateThemeForStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateThemeForStackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateThemeForStackResult(data, context);
+  const response: CreateThemeForStackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateUpdatedImageCommand
  */
 export const de_CreateUpdatedImageCommand = async (
@@ -1955,6 +2053,26 @@ export const de_DeleteStackCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteStackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteThemeForStackCommand
+ */
+export const de_DeleteThemeForStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteThemeForStackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteThemeForStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2255,6 +2373,26 @@ export const de_DescribeStacksCommand = async (
   let contents: any = {};
   contents = de_DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeThemeForStackCommand
+ */
+export const de_DescribeThemeForStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeThemeForStackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeThemeForStackResult(data, context);
+  const response: DescribeThemeForStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2842,6 +2980,26 @@ export const de_UpdateStackCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateThemeForStackCommand
+ */
+export const de_UpdateThemeForStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThemeForStackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateThemeForStackResult(data, context);
+  const response: UpdateThemeForStackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -3181,6 +3339,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_CreateStreamingURLRequest omitted.
 
+// se_CreateThemeForStackRequest omitted.
+
 // se_CreateUpdatedImageRequest omitted.
 
 // se_CreateUsageReportSubscriptionRequest omitted.
@@ -3206,6 +3366,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DeleteImageRequest omitted.
 
 // se_DeleteStackRequest omitted.
+
+// se_DeleteThemeForStackRequest omitted.
 
 // se_DeleteUsageReportSubscriptionRequest omitted.
 
@@ -3236,6 +3398,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DescribeSessionsRequest omitted.
 
 // se_DescribeStacksRequest omitted.
+
+// se_DescribeThemeForStackRequest omitted.
 
 // se_DescribeUsageReportSubscriptionsRequest omitted.
 
@@ -3323,6 +3487,12 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_Tags omitted.
 
+// se_ThemeAttributes omitted.
+
+// se_ThemeFooterLink omitted.
+
+// se_ThemeFooterLinks omitted.
+
 // se_UntagResourceRequest omitted.
 
 // se_UpdateAppBlockBuilderRequest omitted.
@@ -3338,6 +3508,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_UpdateImagePermissionsRequest omitted.
 
 // se_UpdateStackRequest omitted.
+
+// se_UpdateThemeForStackRequest omitted.
 
 // se_UsbDeviceFilterStrings omitted.
 
@@ -3596,6 +3768,15 @@ const de_CreateStreamingURLResult = (output: any, context: __SerdeContext): Crea
 };
 
 /**
+ * deserializeAws_json1_1CreateThemeForStackResult
+ */
+const de_CreateThemeForStackResult = (output: any, context: __SerdeContext): CreateThemeForStackResult => {
+  return take(output, {
+    Theme: (_: any) => de_Theme(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateUpdatedImageResult
  */
 const de_CreateUpdatedImageResult = (output: any, context: __SerdeContext): CreateUpdatedImageResult => {
@@ -3642,6 +3823,8 @@ const de_DeleteImageResult = (output: any, context: __SerdeContext): DeleteImage
 };
 
 // de_DeleteStackResult omitted.
+
+// de_DeleteThemeForStackResult omitted.
 
 // de_DeleteUsageReportSubscriptionResult omitted.
 
@@ -3750,6 +3933,15 @@ const de_DescribeStacksResult = (output: any, context: __SerdeContext): Describe
   return take(output, {
     NextToken: __expectString,
     Stacks: (_: any) => de_StackList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeThemeForStackResult
+ */
+const de_DescribeThemeForStackResult = (output: any, context: __SerdeContext): DescribeThemeForStackResult => {
+  return take(output, {
+    Theme: (_: any) => de_Theme(_, context),
   }) as any;
 };
 
@@ -3927,15 +4119,19 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     DisplayName: __expectString,
+    DynamicAppProvidersEnabled: __expectString,
     ImageBuilderName: __expectString,
     ImageBuilderSupported: __expectBoolean,
     ImageErrors: (_: any) => de_ResourceErrors(_, context),
     ImagePermissions: _json,
+    ImageSharedWithOthers: __expectString,
+    LatestAppstreamAgentVersion: __expectString,
     Name: __expectString,
     Platform: __expectString,
     PublicBaseImageReleasedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     State: __expectString,
     StateChangeReason: _json,
+    SupportedInstanceFamilies: _json,
     Visibility: __expectString,
   }) as any;
 };
@@ -3957,6 +4153,7 @@ const de_ImageBuilder = (output: any, context: __SerdeContext): ImageBuilder => 
     ImageArn: __expectString,
     ImageBuilderErrors: (_: any) => de_ResourceErrors(_, context),
     InstanceType: __expectString,
+    LatestAppstreamAgentVersion: __expectString,
     Name: __expectString,
     NetworkAccessConfiguration: _json,
     Platform: __expectString,
@@ -4196,6 +4393,26 @@ const de_StopImageBuilderResult = (output: any, context: __SerdeContext): StopIm
 
 // de_Tags omitted.
 
+/**
+ * deserializeAws_json1_1Theme
+ */
+const de_Theme = (output: any, context: __SerdeContext): Theme => {
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StackName: __expectString,
+    State: __expectString,
+    ThemeFaviconURL: __expectString,
+    ThemeFooterLinks: _json,
+    ThemeOrganizationLogoURL: __expectString,
+    ThemeStyling: __expectString,
+    ThemeTitleText: __expectString,
+  }) as any;
+};
+
+// de_ThemeFooterLink omitted.
+
+// de_ThemeFooterLinks omitted.
+
 // de_UntagResourceResponse omitted.
 
 /**
@@ -4251,6 +4468,15 @@ const de_UpdateFleetResult = (output: any, context: __SerdeContext): UpdateFleet
 const de_UpdateStackResult = (output: any, context: __SerdeContext): UpdateStackResult => {
   return take(output, {
     Stack: (_: any) => de_Stack(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateThemeForStackResult
+ */
+const de_UpdateThemeForStackResult = (output: any, context: __SerdeContext): UpdateThemeForStackResult => {
+  return take(output, {
+    Theme: (_: any) => de_Theme(_, context),
   }) as any;
 };
 

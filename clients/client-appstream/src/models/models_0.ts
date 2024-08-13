@@ -2183,6 +2183,27 @@ export interface CreateFleetRequest {
    *                <p>stream.graphics.g4dn.16xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g5.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.24xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -2881,6 +2902,21 @@ export interface CreateImageBuilderRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const LatestAppstreamAgentVersion = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type LatestAppstreamAgentVersion =
+  (typeof LatestAppstreamAgentVersion)[keyof typeof LatestAppstreamAgentVersion];
+
+/**
  * <p>Describes the network details of the fleet or image builder instance.</p>
  * @public
  */
@@ -3168,6 +3204,12 @@ export interface ImageBuilder {
    * @public
    */
   AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>Indicates whether the image builder is using the latest AppStream 2.0 agent version or not.</p>
+   * @public
+   */
+  LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion;
 }
 
 /**
@@ -3597,6 +3639,160 @@ export interface CreateStreamingURLResult {
 }
 
 /**
+ * <p>The website links that display in the catalog page footer.</p>
+ * @public
+ */
+export interface ThemeFooterLink {
+  /**
+   * <p>The name of the websites that display in the catalog page footer.</p>
+   * @public
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The URL of the websites that display in the catalog page footer.</p>
+   * @public
+   */
+  FooterLinkURL?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeStyling = {
+  BLUE: "BLUE",
+  LIGHT_BLUE: "LIGHT_BLUE",
+  PINK: "PINK",
+  RED: "RED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeStyling = (typeof ThemeStyling)[keyof typeof ThemeStyling];
+
+/**
+ * @public
+ */
+export interface CreateThemeForStackRequest {
+  /**
+   * <p>The name of the stack for the theme.</p>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.</p>
+   * @public
+   */
+  FooterLinks?: ThemeFooterLink[];
+
+  /**
+   * <p>The title that is displayed at the top of the browser tab during users' application streaming sessions.</p>
+   * @public
+   */
+  TitleText: string | undefined;
+
+  /**
+   * <p>The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.</p>
+   * @public
+   */
+  ThemeStyling: ThemeStyling | undefined;
+
+  /**
+   * <p>The organization logo that appears on the streaming application catalog page.</p>
+   * @public
+   */
+  OrganizationLogoS3Location: S3Location | undefined;
+
+  /**
+   * <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
+   * @public
+   */
+  FaviconS3Location: S3Location | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeState = (typeof ThemeState)[keyof typeof ThemeState];
+
+/**
+ * <p>The custom branding theme, which might include a custom logo, website links, and other branding to display to users.</p>
+ * @public
+ */
+export interface Theme {
+  /**
+   * <p>The stack that has the custom branding theme.</p>
+   * @public
+   */
+  StackName?: string;
+
+  /**
+   * <p>The state of the theme.</p>
+   * @public
+   */
+  State?: ThemeState;
+
+  /**
+   * <p>The browser tab page title.</p>
+   * @public
+   */
+  ThemeTitleText?: string;
+
+  /**
+   * <p>The color that is used for the website links, text, buttons, and catalog page background.</p>
+   * @public
+   */
+  ThemeStyling?: ThemeStyling;
+
+  /**
+   * <p>The website links that display in the catalog page footer.</p>
+   * @public
+   */
+  ThemeFooterLinks?: ThemeFooterLink[];
+
+  /**
+   * <p>The URL of the logo that displays in the catalog page header.</p>
+   * @public
+   */
+  ThemeOrganizationLogoURL?: string;
+
+  /**
+   * <p>The URL of the icon that displays at the top of a user's browser tab during streaming sessions.</p>
+   * @public
+   */
+  ThemeFaviconURL?: string;
+
+  /**
+   * <p>The time the theme was created.</p>
+   * @public
+   */
+  CreatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateThemeForStackResult {
+  /**
+   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * @public
+   */
+  Theme?: Theme;
+}
+
+/**
  * @public
  */
 export interface CreateUpdatedImageRequest {
@@ -3642,6 +3838,20 @@ export interface CreateUpdatedImageRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DynamicAppProvidersEnabled = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamicAppProvidersEnabled = (typeof DynamicAppProvidersEnabled)[keyof typeof DynamicAppProvidersEnabled];
+
+/**
  * <p>Describes the permissions for an image. </p>
  * @public
  */
@@ -3658,6 +3868,20 @@ export interface ImagePermissions {
    */
   allowImageBuilder?: boolean;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSharedWithOthers = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSharedWithOthers = (typeof ImageSharedWithOthers)[keyof typeof ImageSharedWithOthers];
 
 /**
  * @public
@@ -3834,6 +4058,56 @@ export interface Image {
    * @public
    */
   ImageErrors?: ResourceError[];
+
+  /**
+   * <p>Indicates whether the image is using the latest AppStream 2.0 agent version or not.</p>
+   * @public
+   */
+  LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion;
+
+  /**
+   * <p>The supported instances families that determine which image a customer can use when the customer launches a fleet or image builder. The following instances families are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose</p>
+   *             </li>
+   *             <li>
+   *                <p>Compute Optimized</p>
+   *             </li>
+   *             <li>
+   *                <p>Memory Optimized</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics Design</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics Pro</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics G4</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics G5</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SupportedInstanceFamilies?: string[];
+
+  /**
+   * <p>Indicates whether dynamic app providers are enabled within an AppStream 2.0 image or not.</p>
+   * @public
+   */
+  DynamicAppProvidersEnabled?: DynamicAppProvidersEnabled;
+
+  /**
+   * <p>Indicates whether the image is shared with another account ID.</p>
+   * @public
+   */
+  ImageSharedWithOthers?: ImageSharedWithOthers;
 }
 
 /**
@@ -4162,6 +4436,22 @@ export interface DeleteStackRequest {
  * @public
  */
 export interface DeleteStackResult {}
+
+/**
+ * @public
+ */
+export interface DeleteThemeForStackRequest {
+  /**
+   * <p>The name of the stack for the theme.</p>
+   * @public
+   */
+  StackName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeForStackResult {}
 
 /**
  * @public
@@ -4903,6 +5193,28 @@ export interface DescribeStacksResult {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeForStackRequest {
+  /**
+   * <p>The name of the stack for the theme.</p>
+   * @public
+   */
+  StackName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeForStackResult {
+  /**
+   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * @public
+   */
+  Theme?: Theme;
 }
 
 /**
@@ -6380,6 +6692,83 @@ export interface UpdateStackResult {
    * @public
    */
   Stack?: Stack;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeAttribute = {
+  FOOTER_LINKS: "FOOTER_LINKS",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeAttribute = (typeof ThemeAttribute)[keyof typeof ThemeAttribute];
+
+/**
+ * @public
+ */
+export interface UpdateThemeForStackRequest {
+  /**
+   * <p>The name of the stack for the theme.</p>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.</p>
+   * @public
+   */
+  FooterLinks?: ThemeFooterLink[];
+
+  /**
+   * <p>The title that is displayed at the top of the browser tab during users' application streaming sessions.</p>
+   * @public
+   */
+  TitleText?: string;
+
+  /**
+   * <p>The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.</p>
+   * @public
+   */
+  ThemeStyling?: ThemeStyling;
+
+  /**
+   * <p>The organization logo that appears on the streaming application catalog page.</p>
+   * @public
+   */
+  OrganizationLogoS3Location?: S3Location;
+
+  /**
+   * <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
+   * @public
+   */
+  FaviconS3Location?: S3Location;
+
+  /**
+   * <p>Specifies whether custom branding should be applied to catalog page or not.</p>
+   * @public
+   */
+  State?: ThemeState;
+
+  /**
+   * <p>The attributes to delete.</p>
+   * @public
+   */
+  AttributesToDelete?: ThemeAttribute[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeForStackResult {
+  /**
+   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * @public
+   */
+  Theme?: Theme;
 }
 
 /**

@@ -82,6 +82,11 @@ import {
   CreateStreamingURLCommandOutput,
 } from "./commands/CreateStreamingURLCommand";
 import {
+  CreateThemeForStackCommand,
+  CreateThemeForStackCommandInput,
+  CreateThemeForStackCommandOutput,
+} from "./commands/CreateThemeForStackCommand";
+import {
   CreateUpdatedImageCommand,
   CreateUpdatedImageCommandInput,
   CreateUpdatedImageCommandOutput,
@@ -130,6 +135,11 @@ import {
   DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand";
 import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
+import {
+  DeleteThemeForStackCommand,
+  DeleteThemeForStackCommandInput,
+  DeleteThemeForStackCommandOutput,
+} from "./commands/DeleteThemeForStackCommand";
 import {
   DeleteUsageReportSubscriptionCommand,
   DeleteUsageReportSubscriptionCommandInput,
@@ -201,6 +211,11 @@ import {
   DescribeStacksCommandInput,
   DescribeStacksCommandOutput,
 } from "./commands/DescribeStacksCommand";
+import {
+  DescribeThemeForStackCommand,
+  DescribeThemeForStackCommandInput,
+  DescribeThemeForStackCommandOutput,
+} from "./commands/DescribeThemeForStackCommand";
 import {
   DescribeUsageReportSubscriptionsCommand,
   DescribeUsageReportSubscriptionsCommandInput,
@@ -318,6 +333,11 @@ import {
   UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand";
 import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
+import {
+  UpdateThemeForStackCommand,
+  UpdateThemeForStackCommandInput,
+  UpdateThemeForStackCommandOutput,
+} from "./commands/UpdateThemeForStackCommand";
 
 const commands = {
   AssociateAppBlockBuilderAppBlockCommand,
@@ -338,6 +358,7 @@ const commands = {
   CreateImageBuilderStreamingURLCommand,
   CreateStackCommand,
   CreateStreamingURLCommand,
+  CreateThemeForStackCommand,
   CreateUpdatedImageCommand,
   CreateUsageReportSubscriptionCommand,
   CreateUserCommand,
@@ -351,6 +372,7 @@ const commands = {
   DeleteImageBuilderCommand,
   DeleteImagePermissionsCommand,
   DeleteStackCommand,
+  DeleteThemeForStackCommand,
   DeleteUsageReportSubscriptionCommand,
   DeleteUserCommand,
   DescribeAppBlockBuilderAppBlockAssociationsCommand,
@@ -366,6 +388,7 @@ const commands = {
   DescribeImagesCommand,
   DescribeSessionsCommand,
   DescribeStacksCommand,
+  DescribeThemeForStackCommand,
   DescribeUsageReportSubscriptionsCommand,
   DescribeUsersCommand,
   DescribeUserStackAssociationsCommand,
@@ -395,6 +418,7 @@ const commands = {
   UpdateFleetCommand,
   UpdateImagePermissionsCommand,
   UpdateStackCommand,
+  UpdateThemeForStackCommand,
 };
 
 export interface AppStream {
@@ -681,6 +705,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link CreateThemeForStackCommand}
+   */
+  createThemeForStack(
+    args: CreateThemeForStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThemeForStackCommandOutput>;
+  createThemeForStack(
+    args: CreateThemeForStackCommandInput,
+    cb: (err: any, data?: CreateThemeForStackCommandOutput) => void
+  ): void;
+  createThemeForStack(
+    args: CreateThemeForStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThemeForStackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUpdatedImageCommand}
    */
   createUpdatedImage(
@@ -873,6 +914,23 @@ export interface AppStream {
     args: DeleteStackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteThemeForStackCommand}
+   */
+  deleteThemeForStack(
+    args: DeleteThemeForStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThemeForStackCommandOutput>;
+  deleteThemeForStack(
+    args: DeleteThemeForStackCommandInput,
+    cb: (err: any, data?: DeleteThemeForStackCommandOutput) => void
+  ): void;
+  deleteThemeForStack(
+    args: DeleteThemeForStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThemeForStackCommandOutput) => void
   ): void;
 
   /**
@@ -1124,6 +1182,23 @@ export interface AppStream {
     args: DescribeStacksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeStacksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeThemeForStackCommand}
+   */
+  describeThemeForStack(
+    args: DescribeThemeForStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThemeForStackCommandOutput>;
+  describeThemeForStack(
+    args: DescribeThemeForStackCommandInput,
+    cb: (err: any, data?: DescribeThemeForStackCommandOutput) => void
+  ): void;
+  describeThemeForStack(
+    args: DescribeThemeForStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThemeForStackCommandOutput) => void
   ): void;
 
   /**
@@ -1560,6 +1635,23 @@ export interface AppStream {
     args: UpdateStackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateThemeForStackCommand}
+   */
+  updateThemeForStack(
+    args: UpdateThemeForStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThemeForStackCommandOutput>;
+  updateThemeForStack(
+    args: UpdateThemeForStackCommandInput,
+    cb: (err: any, data?: UpdateThemeForStackCommandOutput) => void
+  ): void;
+  updateThemeForStack(
+    args: UpdateThemeForStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThemeForStackCommandOutput) => void
   ): void;
 }
 

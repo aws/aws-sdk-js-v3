@@ -107,6 +107,12 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //         ErrorTimestamp: new Date("TIMESTAMP"),
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
+ * //     SupportedInstanceFamilies: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
+ * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //   },
  * //   canUpdateImage: true || false,
  * // };

@@ -87,6 +87,7 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * //         VpceId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //   },
  * // };
  *

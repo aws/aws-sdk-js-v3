@@ -107,6 +107,12 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //           ErrorTimestamp: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       LatestAppstreamAgentVersion: "TRUE" || "FALSE",
+ * //       SupportedInstanceFamilies: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
+ * //       ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
