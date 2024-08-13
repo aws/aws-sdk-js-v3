@@ -74,16 +74,6 @@ describe(parseArn.name, () => {
         resourceId: ["myTopic"],
       },
     ],
-    [
-      "arn:aws:s3:us-west-2:123456789012:my:folder/my:file",
-      {
-        partition: "aws",
-        service: "s3",
-        region: "us-west-2",
-        accountId: "123456789012",
-        resourceId: ["my", "folder", "my", "file"],
-      },
-    ],
   ];
 
   it.each(VALID_TEST_CASES)("returns for valid arn %s", (input: string, outout: EndpointARN) => {

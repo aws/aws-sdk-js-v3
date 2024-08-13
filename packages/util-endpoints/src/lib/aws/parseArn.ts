@@ -17,7 +17,9 @@ export const parseArn = (value: string): EndpointARN | null => {
 
   if (arn !== "arn" || partition === "" || service === "" || resourcePath.join(ARN_DELIMITER) === "") return null;
 
-  const resourceId = resourcePath.map((resource) => resource.split(RESOURCE_DELIMITER)).flat();
+  const resourceId = resourcePath[0].includes(RESOURCE_DELIMITER)
+    ? resourcePath[0].split(RESOURCE_DELIMITER)
+    : resourcePath;
 
   return {
     partition,
