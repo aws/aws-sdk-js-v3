@@ -44,7 +44,7 @@ export interface GetImportTaskCommandOutput extends GetImportTaskOutput, __Metad
  * //   graphId: "STRING_VALUE",
  * //   taskId: "STRING_VALUE", // required
  * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER",
+ * //   format: "CSV" || "OPEN_CYPHER" || "NTRIPLES",
  * //   roleArn: "STRING_VALUE", // required
  * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
  * //   importOptions: { // ImportOptions Union: only one key present

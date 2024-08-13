@@ -224,6 +224,7 @@ export const se_CreateGraphUsingImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      blankNodeHandling: [],
       deletionProtection: [],
       failOnError: [],
       format: [],
@@ -682,6 +683,7 @@ export const se_StartImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      blankNodeHandling: [],
       failOnError: [],
       format: [],
       importOptions: (_) => _json(_),

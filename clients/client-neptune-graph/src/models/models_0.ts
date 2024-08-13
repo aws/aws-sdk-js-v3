@@ -2295,6 +2295,7 @@ export interface CancelImportTaskInput {
  */
 export const Format = {
   CSV: "CSV",
+  NTRIPLES: "NTRIPLES",
   OPEN_CYPHER: "OPEN_CYPHER",
 } as const;
 
@@ -2369,6 +2370,19 @@ export interface CancelImportTaskOutput {
    */
   status: ImportTaskStatus | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const BlankNodeHandling = {
+  CONVERT_TO_IRI: "convertToIri",
+} as const;
+
+/**
+ * @public
+ */
+export type BlankNodeHandling = (typeof BlankNodeHandling)[keyof typeof BlankNodeHandling];
 
 /**
  * <p>Options for how to import Neptune data.</p>
@@ -2552,6 +2566,14 @@ export interface CreateGraphUsingImportTaskInput {
   format?: Format;
 
   /**
+   * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported,
+   *       meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling RDF values</a>.</p>
+   * @public
+   */
+  blankNodeHandling?: BlankNodeHandling;
+
+  /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
    * @public
    */
@@ -2584,8 +2606,9 @@ export interface CreateGraphUsingImportTaskOutput {
   /**
    * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies
    *       the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
-   *       CSV format</a> or <code>OPENCYPHER</code>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
-   *       load format</a>.</p>
+   *       CSV format</a>, <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
+   *       load format</a>, or <code>ntriples</code>, which identifies the
+   *      <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html">RDF n-triples</a> format.</p>
    * @public
    */
   format?: Format;
@@ -2927,6 +2950,14 @@ export interface StartImportTaskInput {
    * @public
    */
   format?: Format;
+
+  /**
+   * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported,
+   *       meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling RDF values</a>.</p>
+   * @public
+   */
+  blankNodeHandling?: BlankNodeHandling;
 
   /**
    * <p>The unique identifier of the Neptune Analytics graph.</p>
