@@ -112,6 +112,40 @@ export interface AutoBranchCreationConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CacheConfigType = {
+  AMPLIFY_MANAGED: "AMPLIFY_MANAGED",
+  AMPLIFY_MANAGED_NO_COOKIES: "AMPLIFY_MANAGED_NO_COOKIES",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheConfigType = (typeof CacheConfigType)[keyof typeof CacheConfigType];
+
+/**
+ * <p>Describes the cache configuration for an Amplify app.</p>
+ *          <p>For more
+ *             information about how Amplify applies an optimal cache configuration for
+ *             your app based on the type of content that is being served, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/managing-cache-configuration">Managing cache configuration</a> in the <i>Amplify User
+ *                 guide</i>.</p>
+ * @public
+ */
+export interface CacheConfig {
+  /**
+   * <p>The type of cache configuration to use for an Amplify app.</p>
+   *          <p>The <code>AMPLIFY_MANAGED</code> cache configuration automatically applies an
+   *             optimized cache configuration for your app based on its platform, routing rules, and
+   *             rewrite rules. This is the default setting.</p>
+   *          <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache key.</p>
+   * @public
+   */
+  type: CacheConfigType | undefined;
+}
+
+/**
  * <p>Describes a custom rewrite or redirect rule. </p>
  * @public
  */
@@ -329,6 +363,12 @@ export interface CreateAppRequest {
    * @public
    */
   autoBranchCreationConfig?: AutoBranchCreationConfig;
+
+  /**
+   * <p>The cache configuration for the Amplify app.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig;
 }
 
 /**
@@ -543,6 +583,14 @@ export interface App {
    * @public
    */
   repositoryCloneMethod?: RepositoryCloneMethod;
+
+  /**
+   * <p>The cache configuration for the Amplify app. If you don't specify the
+   *             cache configuration <code>type</code>, Amplify uses the default
+   *                 <code>AMPLIFY_MANAGED</code> setting.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig;
 }
 
 /**
@@ -1278,7 +1326,7 @@ export interface Certificate {
    *             import) the certificate in the US East (N. Virginia) Region (us-east-1). For more
    *             information about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into
    *                     Certificate Manager</a> in the <i>ACM User
-   *                 guide</i> .</p>
+   *                 guide</i>.</p>
    * @public
    */
   type: CertificateType | undefined;
@@ -2937,6 +2985,12 @@ export interface UpdateAppRequest {
    * @public
    */
   accessToken?: string;
+
+  /**
+   * <p>The cache configuration for the Amplify app.</p>
+   * @public
+   */
+  cacheConfig?: CacheConfig;
 }
 
 /**

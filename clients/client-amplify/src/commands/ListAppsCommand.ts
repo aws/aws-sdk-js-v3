@@ -99,6 +99,9 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * //         pullRequestEnvironmentName: "STRING_VALUE",
  * //       },
  * //       repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //       cacheConfig: { // CacheConfig
+ * //         type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

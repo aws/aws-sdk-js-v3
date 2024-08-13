@@ -84,6 +84,9 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   repository: "STRING_VALUE",
  *   oauthToken: "STRING_VALUE",
  *   accessToken: "STRING_VALUE",
+ *   cacheConfig: { // CacheConfig
+ *     type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ *   },
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
@@ -144,6 +147,9 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * //       pullRequestEnvironmentName: "STRING_VALUE",
  * //     },
  * //     repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //     cacheConfig: { // CacheConfig
+ * //       type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //     },
  * //   },
  * // };
  *

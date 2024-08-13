@@ -99,6 +99,7 @@ import {
   BackendEnvironment,
   BadRequestException,
   Branch,
+  CacheConfig,
   CertificateSettings,
   CustomRule,
   DependentServiceFailureException,
@@ -135,6 +136,7 @@ export const se_CreateAppCommand = async (
       autoBranchCreationPatterns: (_) => _json(_),
       basicAuthCredentials: [],
       buildSpec: [],
+      cacheConfig: (_) => _json(_),
       customHeaders: [],
       customRules: (_) => _json(_),
       description: [],
@@ -830,6 +832,7 @@ export const se_UpdateAppCommand = async (
       autoBranchCreationPatterns: (_) => _json(_),
       basicAuthCredentials: [],
       buildSpec: [],
+      cacheConfig: (_) => _json(_),
       customHeaders: [],
       customRules: (_) => _json(_),
       description: [],
@@ -1904,6 +1907,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_Backend omitted.
 
+// se_CacheConfig omitted.
+
 // se_CertificateSettings omitted.
 
 // se_CustomRule omitted.
@@ -1931,6 +1936,7 @@ const de_App = (output: any, context: __SerdeContext): App => {
     autoBranchCreationPatterns: _json,
     basicAuthCredentials: __expectString,
     buildSpec: __expectString,
+    cacheConfig: _json,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     customHeaders: __expectString,
     customRules: _json,
@@ -2051,6 +2057,8 @@ const de_Branches = (output: any, context: __SerdeContext): Branch[] => {
     });
   return retVal;
 };
+
+// de_CacheConfig omitted.
 
 // de_Certificate omitted.
 
