@@ -1100,6 +1100,7 @@ import {
   StopTriggerRequest,
   StopWorkflowRunRequest,
   SupportedDialect,
+  TableAttributes,
   TagResourceRequest,
   TimestampFilter,
   TriggerUpdate,
@@ -10311,6 +10312,7 @@ const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): an
  */
 const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): any => {
   return take(input, {
+    AttributesToGet: _json,
     CatalogId: [],
     DatabaseName: [],
     Expression: [],
@@ -11121,6 +11123,8 @@ const se_StringColumnStatisticsData = (input: StringColumnStatisticsData, contex
 // se_StringList omitted.
 
 // se_SupportedDialect omitted.
+
+// se_TableAttributesList omitted.
 
 // se_TableIdentifier omitted.
 

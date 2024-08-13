@@ -1826,6 +1826,20 @@ export interface GetTableOptimizerResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const TableAttributes = {
+  NAME: "NAME",
+  TABLE_TYPE: "TABLE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type TableAttributes = (typeof TableAttributes)[keyof typeof TableAttributes];
+
+/**
+ * @public
  */
 export interface GetTablesRequest {
   /**
@@ -1878,6 +1892,23 @@ export interface GetTablesRequest {
    * @public
    */
   IncludeStatusDetails?: boolean;
+
+  /**
+   * <p> Specifies the table fields returned by the <code>GetTables</code> call. This parameter doesn’t accept an empty list. The request must include <code>NAME</code>.</p>
+   *          <p>The following are the valid combinations of values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NAME</code> - Names of all tables in the database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NAME</code>, <code>TABLE_TYPE</code> - Names of all tables and the table types.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributesToGet?: TableAttributes[];
 }
 
 /**
@@ -7786,17 +7817,6 @@ export interface UpdateWorkflowRequest {
    * @public
    */
   MaxConcurrentRuns?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkflowResponse {
-  /**
-   * <p>The name of the workflow which was specified in input.</p>
-   * @public
-   */
-  Name?: string;
 }
 
 /**

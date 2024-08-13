@@ -46,6 +46,9 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *   TransactionId: "STRING_VALUE",
  *   QueryAsOfTime: new Date("TIMESTAMP"),
  *   IncludeStatusDetails: true || false,
+ *   AttributesToGet: [ // TableAttributesList
+ *     "NAME" || "TABLE_TYPE",
+ *   ],
  * };
  * const command = new GetTablesCommand(input);
  * const response = await client.send(command);

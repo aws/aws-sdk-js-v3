@@ -97,6 +97,17 @@ import {
 } from "./models_2";
 
 /**
+ * @public
+ */
+export interface UpdateWorkflowResponse {
+  /**
+   * <p>The name of the workflow which was specified in input.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
  * <p>Specifies the mapping of data property keys.</p>
  * @public
  */
