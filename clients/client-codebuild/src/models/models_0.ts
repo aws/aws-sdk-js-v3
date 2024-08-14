@@ -75,6 +75,7 @@ export const AuthType = {
   CODECONNECTIONS: "CODECONNECTIONS",
   OAUTH: "OAUTH",
   PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
 } as const;
 
 /**
@@ -1459,6 +1460,7 @@ export interface BuildBatchPhase {
 export const SourceAuthType = {
   CODECONNECTIONS: "CODECONNECTIONS",
   OAUTH: "OAUTH",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
 } as const;
 
 /**
@@ -1469,13 +1471,11 @@ export type SourceAuthType = (typeof SourceAuthType)[keyof typeof SourceAuthType
 /**
  * <p>Information about the authorization settings for CodeBuild to access the source code to be
  *             built.</p>
- *          <p>This information is for the CodeBuild console's use only. Your code should not get or set
- *             this information directly.</p>
  * @public
  */
 export interface SourceAuth {
   /**
-   * <p>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</p>
+   * <p>The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.</p>
    * @public
    */
   type: SourceAuthType | undefined;
@@ -1723,8 +1723,6 @@ export interface ProjectSource {
   /**
    * <p>Information about the authorization settings for CodeBuild to access the source code to be
    *             built.</p>
-   *          <p>This information is for the CodeBuild console's use only. Your code should not get or set
-   *             this information directly.</p>
    * @public
    */
   auth?: SourceAuth;
@@ -5875,7 +5873,7 @@ export interface ImportSourceCredentialsInput {
   /**
    * <p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
    *             this is either the access token or the app password. For the <code>authType</code> CODECONNECTIONS,
-   *             this is the <code>connectionArn</code>.</p>
+   *             this is the <code>connectionArn</code>. For the <code>authType</code> SECRETS_MANAGER, this is the <code>secretArn</code>.</p>
    * @public
    */
   token: string | undefined;
@@ -5889,8 +5887,7 @@ export interface ImportSourceCredentialsInput {
   /**
    * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
    *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
-   *             created using the CodeBuild console. Note that CODECONNECTIONS is only valid for
-   *             GitLab and GitLab Self Managed.</p>
+   *             created using the CodeBuild console.</p>
    * @public
    */
   authType: AuthType | undefined;
@@ -6954,13 +6951,13 @@ export interface SourceCredentialsInfo {
 
   /**
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
-   *             BASIC_AUTH, PERSONAL_ACCESS_TOKEN, or CODECONNECTIONS. </p>
+   *             BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. </p>
    * @public
    */
   authType?: AuthType;
 
   /**
-   * <p>The connection ARN if your serverType type is GITLAB or GITLAB_SELF_MANAGED and your authType is CODECONNECTIONS.</p>
+   * <p>The connection ARN if your authType is CODECONNECTIONS or SECRETS_MANAGER.</p>
    * @public
    */
   resource?: string;

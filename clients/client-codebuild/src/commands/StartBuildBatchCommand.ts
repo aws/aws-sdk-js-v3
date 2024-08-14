@@ -47,7 +47,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  *       },
  *       buildspec: "STRING_VALUE",
  *       auth: { // SourceAuth
- *         type: "OAUTH" || "CODECONNECTIONS", // required
+ *         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
@@ -102,7 +102,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  *   sourceTypeOverride: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE",
  *   sourceLocationOverride: "STRING_VALUE",
  *   sourceAuthOverride: {
- *     type: "OAUTH" || "CODECONNECTIONS", // required
+ *     type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *     resource: "STRING_VALUE",
  *   },
  *   gitCloneDepthOverride: Number("int"),
@@ -198,7 +198,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH" || "CODECONNECTIONS", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -219,7 +219,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH" || "CODECONNECTIONS", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,

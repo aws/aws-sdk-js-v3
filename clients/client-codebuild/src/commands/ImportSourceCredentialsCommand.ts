@@ -33,7 +33,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
 
 /**
  * <p> Imports the source repository credentials for an CodeBuild project that has its
- *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
+ *             source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *   username: "STRING_VALUE",
  *   token: "STRING_VALUE", // required
  *   serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "GITLAB" || "GITLAB_SELF_MANAGED", // required
- *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS", // required
+ *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *   shouldOverwrite: true || false,
  * };
  * const command = new ImportSourceCredentialsCommand(input);

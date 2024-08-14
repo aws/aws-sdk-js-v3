@@ -77,7 +77,7 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH" || "CODECONNECTIONS", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -98,7 +98,7 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH" || "CODECONNECTIONS", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
