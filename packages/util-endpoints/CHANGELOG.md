@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
+
+
+### Bug Fixes
+
+* **util-endpoints:** check for entire resource-path being empty ([#6380](https://github.com/aws/aws-sdk-js-v3/issues/6380)) ([08ad510](https://github.com/aws/aws-sdk-js-v3/commit/08ad51004178754e4d630c913ac7f2d89aa281cb))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 **Note:** Version bump only for package @aws-sdk/util-endpoints
