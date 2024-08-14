@@ -41,6 +41,9 @@
     "@smithy/types": "^3.3.0",
     "tslib": "^2.6.2"
   },
+  "peerDependencies": {
+    "@aws-sdk/client-sts": "*"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^16.18.96",
