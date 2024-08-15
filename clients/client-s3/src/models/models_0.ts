@@ -6027,6 +6027,12 @@ export interface GetBucketCorsRequest {
  *          with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in
  *          the <i>Amazon S3 API Reference</i>.</p>
+ *          <note>
+ *             <p>If you're specifying a customer managed KMS key, we recommend using a fully qualified
+ *          KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the
+ *          requester’s account. This behavior can result in data that's encrypted with a KMS key
+ *          that belongs to the requester, and not the bucket owner.</p>
+ *          </note>
  * @public
  */
 export interface ServerSideEncryptionByDefault {
@@ -6071,6 +6077,12 @@ export interface ServerSideEncryptionByDefault {
 
 /**
  * <p>Specifies the default server-side encryption configuration.</p>
+ *          <note>
+ *             <p>If you're specifying a customer managed KMS key, we recommend using a fully qualified
+ *          KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the
+ *          requester’s account. This behavior can result in data that's encrypted with a KMS key
+ *          that belongs to the requester, and not the bucket owner.</p>
+ *          </note>
  * @public
  */
 export interface ServerSideEncryptionRule {
@@ -7116,7 +7128,14 @@ export type PartitionDateSource = (typeof PartitionDateSource)[keyof typeof Part
  */
 export interface PartitionedPrefix {
   /**
-   * <p>Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.</p>
+   * <p>Specifies the partition date source for the partitioned prefix.
+   *          <code>PartitionDateSource</code> can be <code>EventTime</code> or
+   *          <code>DeliveryTime</code>.</p>
+   *          <p>For <code>DeliveryTime</code>, the time in the log file names corresponds to the
+   *          delivery time for the log files. </p>
+   *          <p> For <code>EventTime</code>, The logs delivered are for a specific day only. The year,
+   *          month, and day correspond to the day on which the event occurred, and the hour, minutes and
+   *          seconds are set to 00 in the key.</p>
    * @public
    */
   PartitionDateSource?: PartitionDateSource;
@@ -7895,6 +7914,12 @@ export interface DeleteMarkerReplication {
 /**
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
  *          replicated objects.</p>
+ *          <note>
+ *             <p>If you're specifying a customer managed KMS key, we recommend using a fully qualified
+ *          KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the
+ *          requester’s account. This behavior can result in data that's encrypted with a KMS key
+ *          that belongs to the requester, and not the bucket owner.</p>
+ *          </note>
  * @public
  */
 export interface EncryptionConfiguration {
@@ -10088,7 +10113,7 @@ export const ObjectLockRetentionMode = {
 export type ObjectLockRetentionMode = (typeof ObjectLockRetentionMode)[keyof typeof ObjectLockRetentionMode];
 
 /**
- * <p>The container element for specifying the default Object Lock retention settings for new
+ * <p>The container element for optionally specifying the default Object Lock retention settings for new
  *          objects placed in the specified bucket.</p>
  *          <note>
  *             <ul>
@@ -10451,7 +10476,7 @@ export interface PublicAccessBlockConfiguration {
 
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting
-   *          this element to <code>TRUE</code> restricts access to this bucket to only Amazon Web Service principals and authorized users within this account if the bucket has
+   *          this element to <code>TRUE</code> restricts access to this bucket to only Amazon Web Servicesservice principals and authorized users within this account if the bucket has
    *          a public policy.</p>
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
    *          public and cross-account access within any public bucket policy, including non-public
@@ -10518,9 +10543,6 @@ export interface HeadBucketOutput {
 
   /**
    * <p>The Region that the bucket is located.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
    * @public
    */
   BucketRegion?: string;
@@ -10528,7 +10550,7 @@ export interface HeadBucketOutput {
   /**
    * <p>Indicates whether the bucket name used in the request is an access point alias.</p>
    *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
+   *             <p>For directory buckets, the value of this field is <code>false</code>.</p>
    *          </note>
    * @public
    */
@@ -11497,6 +11519,36 @@ export interface ListBucketsOutput {
    * @public
    */
   Owner?: Owner;
+
+  /**
+   * <p>
+   *             <code>ContinuationToken</code> is included in the
+   *          response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
+   * @public
+   */
+  ContinuationToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBucketsRequest {
+  /**
+   * <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
+   * @public
+   */
+  MaxBuckets?: number;
+
+  /**
+   * <p>
+   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
+   *          this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real
+   *          key. You can use this <code>ContinuationToken</code> for pagination of the list results.  </p>
+   *          <p>Length Constraints: Minimum length of 0. Maximum length of 1024.</p>
+   *          <p>Required: No.</p>
+   * @public
+   */
+  ContinuationToken?: string;
 }
 
 /**
@@ -11523,9 +11575,8 @@ export interface ListDirectoryBucketsOutput {
 export interface ListDirectoryBucketsRequest {
   /**
    * <p>
-   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
-   *          this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real
-   *          key. You can use this <code>ContinuationToken</code> for pagination of the list results.  </p>
+   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real
+   *          bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.  </p>
    * @public
    */
   ContinuationToken?: string;
@@ -11818,11 +11869,19 @@ export interface ListMultipartUploadsRequest {
   Delimiter?: string;
 
   /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
-   *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
-   *          characters that are not supported in XML 1.0, you can add this parameter to request that
-   *          Amazon S3 encode the keys in the response.</p>
+   * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
+   *          Responses are encoded only in UTF-8. An object key can contain any Unicode character.
+   *          However, the XML 1.0 parser can't parse certain characters, such as characters with an
+   *          ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this
+   *          parameter to request that Amazon S3 encode the keys in the response. For more information about
+   *          characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming
+   *             guidelines</a>.</p>
+   *          <note>
+   *             <p>When using the URL encoding type, non-ASCII characters that are used in an object's
+   *             key name will be percent-encoded according to UTF-8 code values. For example, the object
+   *             <code>test_file(3).png</code> will appear as
+   *             <code>test_file%283%29.png</code>.</p>
+   *          </note>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12160,10 +12219,19 @@ export interface ListObjectsOutput {
   CommonPrefixes?: CommonPrefix[];
 
   /**
-   * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
-   *             <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
-   *          For example, the object <code>test_file(3).png</code> will appear as
+   * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
+   *          Responses are encoded only in UTF-8. An object key can contain any Unicode character.
+   *          However, the XML 1.0 parser can't parse certain characters, such as characters with an
+   *          ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this
+   *          parameter to request that Amazon S3 encode the keys in the response. For more information about
+   *          characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming
+   *             guidelines</a>.</p>
+   *          <note>
+   *             <p>When using the URL encoding type, non-ASCII characters that are used in an object's
+   *             key name will be percent-encoded according to UTF-8 code values. For example, the object
+   *                <code>test_file(3).png</code> will appear as
    *             <code>test_file%283%29.png</code>.</p>
+   *          </note>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12226,11 +12294,19 @@ export interface ListObjectsRequest {
   Delimiter?: string;
 
   /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
-   *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
-   *          characters that are not supported in XML 1.0, you can add this parameter to request that
-   *          Amazon S3 encode the keys in the response.</p>
+   * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
+   *          Responses are encoded only in UTF-8. An object key can contain any Unicode character.
+   *          However, the XML 1.0 parser can't parse certain characters, such as characters with an
+   *          ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this
+   *          parameter to request that Amazon S3 encode the keys in the response. For more information about
+   *          characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming
+   *             guidelines</a>.</p>
+   *          <note>
+   *             <p>When using the URL encoding type, non-ASCII characters that are used in an object's
+   *             key name will be percent-encoded according to UTF-8 code values. For example, the object
+   *             <code>test_file(3).png</code> will appear as
+   *             <code>test_file%283%29.png</code>.</p>
+   *          </note>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12472,10 +12548,19 @@ export interface ListObjectsV2Request {
   Delimiter?: string;
 
   /**
-   * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
-   *             <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
-   *          For example, the object <code>test_file(3).png</code> will appear as
+   * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
+   *          Responses are encoded only in UTF-8. An object key can contain any Unicode character.
+   *          However, the XML 1.0 parser can't parse certain characters, such as characters with an
+   *          ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this
+   *          parameter to request that Amazon S3 encode the keys in the response. For more information about
+   *          characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming
+   *             guidelines</a>.</p>
+   *          <note>
+   *             <p>When using the URL encoding type, non-ASCII characters that are used in an object's
+   *             key name will be percent-encoded according to UTF-8 code values. For example, the object
+   *             <code>test_file(3).png</code> will appear as
    *             <code>test_file%283%29.png</code>.</p>
+   *          </note>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12813,11 +12898,19 @@ export interface ListObjectVersionsRequest {
   Delimiter?: string;
 
   /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
-   *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
-   *          characters that are not supported in XML 1.0, you can add this parameter to request that
-   *          Amazon S3 encode the keys in the response.</p>
+   * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
+   *          Responses are encoded only in UTF-8. An object key can contain any Unicode character.
+   *          However, the XML 1.0 parser can't parse certain characters, such as characters with an
+   *          ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this
+   *          parameter to request that Amazon S3 encode the keys in the response. For more information about
+   *          characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming
+   *             guidelines</a>.</p>
+   *          <note>
+   *             <p>When using the URL encoding type, non-ASCII characters that are used in an object's
+   *             key name will be percent-encoded according to UTF-8 code values. For example, the object
+   *             <code>test_file(3).png</code> will appear as
+   *             <code>test_file%283%29.png</code>.</p>
+   *          </note>
    * @public
    */
   EncodingType?: EncodingType;
@@ -13727,99 +13820,6 @@ export interface PutBucketOwnershipControlsRequest {
    * @public
    */
   OwnershipControls: OwnershipControls | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketPolicyRequest {
-  /**
-   * <p>The name of the bucket.</p>
-   *          <p>
-   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
-   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
-   *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
-   *          </p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The MD5 hash of the request body.</p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
-   * @public
-   */
-  ContentMD5?: string;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i>
-   *             </code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
-   *          <p>For the <code>x-amz-checksum-<i>algorithm</i>
-   *             </code> header, replace <code>
-   *                <i>algorithm</i>
-   *             </code> with the supported algorithm from the following list: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CRC32</p>
-   *             </li>
-   *             <li>
-   *                <p>CRC32C</p>
-   *             </li>
-   *             <li>
-   *                <p>SHA1</p>
-   *             </li>
-   *             <li>
-   *                <p>SHA256</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i>
-   *             </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>,  Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter and uses the checksum algorithm that matches the provided value in <code>x-amz-checksum-<i>algorithm</i>
-   *             </code>.</p>
-   *          <note>
-   *             <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
-   *          </note>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
-
-  /**
-   * <p>Set this parameter to true to confirm that you want to remove your permissions to change
-   *          this bucket policy in the future.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
-   * @public
-   */
-  ConfirmRemoveSelfBucketAccess?: boolean;
-
-  /**
-   * <p>The bucket policy as a JSON document.</p>
-   *          <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
-   * @public
-   */
-  Policy: string | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   *          <note>
-   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
-   * <code>501 Not Implemented</code>.</p>
-   *          </note>
-   * @public
-   */
-  ExpectedBucketOwner?: string;
 }
 
 /**

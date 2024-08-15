@@ -37,10 +37,24 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
  *             programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
  *          <note>
- *             <p>
- *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code> doesn't return prefixes that are related only to in-progress multipart uploads.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -
+ *                For directory buckets, <code>ListObjectsV2</code> response includes the prefixes that are related only to in-progress multipart uploads.
+ *               </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>

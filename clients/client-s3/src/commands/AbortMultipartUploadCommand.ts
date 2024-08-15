@@ -39,10 +39,24 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure that
  *          the parts list is empty.</p>
  *          <note>
- *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -
+ *                   If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.
+ *                   To delete these in-progress multipart uploads, use the
+ *                <code>ListMultipartUploads</code> operation to list the in-progress multipart
+ *                uploads in the bucket and use the <code>AbortMultupartUpload</code> operation to
+ *                abort all the in-progress multipart uploads.
+ *                </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>

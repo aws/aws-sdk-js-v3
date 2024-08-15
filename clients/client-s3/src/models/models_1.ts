@@ -34,6 +34,99 @@ import { S3ServiceException as __BaseException } from "./S3ServiceException";
 /**
  * @public
  */
+export interface PutBucketPolicyRequest {
+  /**
+   * <p>The name of the bucket.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
+   *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The MD5 hash of the request body.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
+   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i>
+   *             </code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
+   *          <p>For the <code>x-amz-checksum-<i>algorithm</i>
+   *             </code> header, replace <code>
+   *                <i>algorithm</i>
+   *             </code> with the supported algorithm from the following list: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CRC32</p>
+   *             </li>
+   *             <li>
+   *                <p>CRC32C</p>
+   *             </li>
+   *             <li>
+   *                <p>SHA1</p>
+   *             </li>
+   *             <li>
+   *                <p>SHA256</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i>
+   *             </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>,  Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter and uses the checksum algorithm that matches the provided value in <code>x-amz-checksum-<i>algorithm</i>
+   *             </code>.</p>
+   *          <note>
+   *             <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+   *          </note>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm;
+
+  /**
+   * <p>Set this parameter to true to confirm that you want to remove your permissions to change
+   *          this bucket policy in the future.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ConfirmRemoveSelfBucketAccess?: boolean;
+
+  /**
+   * <p>The bucket policy as a JSON document.</p>
+   *          <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
+   * @public
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
+   * @public
+   */
+  ExpectedBucketOwner?: string;
+}
+
+/**
+ * @public
+ */
 export interface PutBucketReplicationRequest {
   /**
    * <p>The name of the bucket</p>
@@ -2231,7 +2324,12 @@ export interface ProgressEvent {
  */
 export interface RecordsEvent {
   /**
-   * <p>The byte array of partial, one or more result records.</p>
+   * <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that
+   *          a record will be self-contained in one record frame. To ensure continuous streaming of
+   *          data, S3 Select might split the same record across multiple record frames instead of
+   *          aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by
+   *          default. Other clients might not handle this behavior by default. In those cases, you must
+   *          aggregate the results on the client side and parse the response.</p>
    * @public
    */
   Payload?: Uint8Array;

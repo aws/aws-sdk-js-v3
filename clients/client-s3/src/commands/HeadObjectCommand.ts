@@ -37,20 +37,16 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
 /**
  * <p>The <code>HEAD</code> operation retrieves metadata from an object without returning the
  *          object itself. This operation is useful if you're interested only in an object's metadata.</p>
- *          <p>A <code>HEAD</code> request has the same options as a <code>GET</code> operation on an
+ *          <note>
+ *             <p>A <code>HEAD</code> request has the same options as a <code>GET</code> operation on an
  *          object. The response is identical to the <code>GET</code> response except that there is no
  *          response body. Because of this, if the <code>HEAD</code> request generates an error, it
  *          returns a generic code, such as <code>400 Bad Request</code>, <code>403 Forbidden</code>, <code>404 Not
  *             Found</code>, <code>405 Method Not Allowed</code>, <code>412 Precondition Failed</code>, or <code>304 Not Modified</code>.
  *          It's not possible to retrieve the exact exception of these error codes.</p>
+ *          </note>
  *          <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common
  *          Request Headers</a>.</p>
- *          <note>
- *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
- *     <i>Amazon S3 User Guide</i>.</p>
- *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
@@ -155,6 +151,11 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
  *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                <note>
+ *                   <p>For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *                </note>
  *             </dd>
  *          </dl>
  *          <p>The following actions are related to <code>HeadObject</code>:</p>

@@ -41,7 +41,11 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *          SSE-KMS, you can also configure <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket
  *             Keys</a>. If you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket encryption</a> to SSE-KMS, you should verify that your KMS key ID is correct. Amazon S3 does not validate the KMS key ID provided in PutBucketEncryption requests.</p>
  *          <important>
- *             <p>This action requires Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">
+ *             <p>If you're specifying a customer managed KMS key, we recommend using a fully qualified
+ *             KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the
+ *             requester’s account. This behavior can result in data that's encrypted with a KMS key
+ *             that belongs to the requester, and not the bucket owner.</p>
+ *             <p>Also, this action requires Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">
  *                Authenticating Requests (Amazon Web Services Signature Version 4)</a>. </p>
  *          </important>
  *          <p>To use this operation, you must have permission to perform the

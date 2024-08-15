@@ -1874,6 +1874,8 @@ export const se_ListBucketsCommand = async (
   b.bp("/");
   const query: any = map({
     [_xi]: [, "ListBuckets"],
+    [_mb]: [() => input.MaxBuckets !== void 0, () => input[_MB]!.toString()],
+    [_ct_]: [, input[_CTo]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4486,6 +4488,9 @@ export const de_ListBucketsCommand = async (
     contents[_Bu] = [];
   } else if (data[_Bu] != null && data[_Bu][_B] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
+  }
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
   if (data[_O] != null) {
     contents[_O] = de_Owner(data[_O], context);
@@ -9930,6 +9935,7 @@ const _LT = "LocationType";
 const _M = "Marker";
 const _MAO = "MetricsAndOperator";
 const _MAS = "MaxAgeSeconds";
+const _MB = "MaxBuckets";
 const _MC = "MetricsConfiguration";
 const _MCL = "MetricsConfigurationList";
 const _MD = "MetadataDirective";
@@ -10186,6 +10192,7 @@ const _log = "logging";
 const _lt = "list-type";
 const _m = "metrics";
 const _ma = "marker";
+const _mb = "max-buckets";
 const _mdb = "max-directory-buckets";
 const _me = "member";
 const _mk = "max-keys";
