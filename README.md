@@ -686,6 +686,48 @@ import "@aws-sdk/signature-v4-crt";
 Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`
 and becomes available for its use. You do not need to use any imported objects directly.
 
+Note that you can also use the native JavaScript implementation of SigV4a that does not depend on AWS CRT and can be used in browsers (unlike the CRT version). The instructions for using that package are below.
+
+### Using JavaScript (non-CRT) implementation of SigV4a
+
+AWS SDK for JavaScript v3 now supports a native JavaScript version of SigV4a that can be used in browsers and Node, and does not depend on [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html). This is an alternative to the AWS CRT version, so you don't need to have both packages together.
+
+If neither the CRT components nor the JavaScript SigV4a implementation are installed, you will receive an error like:
+
+```console
+Neither CRT nor JS SigV4a implementation is available.
+Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a.
+```
+
+indicating that at least one of the required dependencies is missing to use the associated functionality. To install the JavaScript SigV4a dependency, follow the provided instructions.
+
+#### Installing the JavaScript SigV4a Dependency
+
+You can install the JavaScript SigV4a dependency with different commands depending on the package management tool you are using.
+If you are using NPM:
+
+```console
+npm install @smithy/signature-v4a
+```
+
+If you are using Yarn:
+
+```console
+yarn add @smithy/signature-v4a
+```
+
+Additionally, load the signature-v4a package by importing it.
+
+```js
+require("@smithy/signature-v4a");
+// or ESM
+import "@smithy/signature-v4a";
+```
+
+Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`
+and becomes available for its use. You do not need to use any imported objects directly.
+Note that if both the CRT-based implementation and the JavaScript implementation are available, the SDK will prefer to use the CRT-based implementation for better performance. If you specifically want to use the JavaScript implementation, ensure that the CRT package is not installed or imported.
+
 #### Related issues
 
 1. [S3 Multi-Region Access Point(MRAP) is not available unless with additional dependency](https://github.com/aws/aws-sdk-js-v3/issues/2822)
