@@ -142,6 +142,10 @@ import {
 } from "../commands/DescribePendingMaintenanceActionsCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "../commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "../commands/FailoverGlobalClusterCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -310,6 +314,8 @@ import {
   EventSubscriptionsMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
+  FailoverGlobalClusterMessage,
+  FailoverGlobalClusterResult,
   Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
@@ -1002,6 +1008,23 @@ export const se_FailoverDBClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_FailoverDBClusterMessage(input, context),
     [_A]: _FDBC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryFailoverGlobalClusterCommand
+ */
+export const se_FailoverGlobalClusterCommand = async (
+  input: FailoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_FailoverGlobalClusterMessage(input, context),
+    [_A]: _FGC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2021,6 +2044,26 @@ export const de_FailoverDBClusterCommand = async (
   let contents: any = {};
   contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
   const response: FailoverDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverGlobalClusterCommand
+ */
+export const de_FailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4597,6 +4640,26 @@ const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: _
 };
 
 /**
+ * serializeAws_queryFailoverGlobalClusterMessage
+ */
+const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
+  }
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
+  }
+  if (input[_ADL] != null) {
+    entries[_ADL] = input[_ADL];
+  }
+  if (input[_Sw] != null) {
+    entries[_Sw] = input[_Sw];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryFilter
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
@@ -6900,6 +6963,17 @@ const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): Failo
 };
 
 /**
+ * deserializeAws_queryFailoverGlobalClusterResult
+ */
+const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): FailoverGlobalClusterResult => {
+  const contents: any = {};
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryGlobalCluster
  */
 const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
@@ -8041,6 +8115,7 @@ const _ = "2014-10-31";
 const _A = "Action";
 const _AA = "ApplyAction";
 const _AAAD = "AutoAppliedAfterDate";
+const _ADL = "AllowDataLoss";
 const _AI = "ApplyImmediately";
 const _AM = "ApplyMethod";
 const _AMVU = "AutoMinorVersionUpgrade";
@@ -8183,6 +8258,7 @@ const _FAD = "ForcedApplyDate";
 const _FDBC = "FailoverDBCluster";
 const _FDBSI = "FinalDBSnapshotIdentifier";
 const _FF = "ForceFailover";
+const _FGC = "FailoverGlobalCluster";
 const _GC = "GlobalCluster";
 const _GCA = "GlobalClusterArn";
 const _GCI = "GlobalClusterIdentifier";
@@ -8305,6 +8381,7 @@ const _STta = "StatusType";
 const _St = "Status";
 const _Su = "Subnets";
 const _Sub = "Subnet";
+const _Sw = "Switchover";
 const _T = "Tags";
 const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
 const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";

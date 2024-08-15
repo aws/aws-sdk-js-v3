@@ -5042,6 +5042,84 @@ export interface FailoverDBClusterResult {
 }
 
 /**
+ * @public
+ */
+export interface FailoverGlobalClusterMessage {
+  /**
+   * <p>The identifier of the Amazon DocumentDB global cluster to apply this operation.
+   *             The identifier is the unique key assigned by the user when the cluster is created.
+   *             In other words, it's the name of the global cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing global cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Minimum length of 1. Maximum length of 255.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code>
+   *          </p>
+   * @public
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the secondary Amazon DocumentDB cluster that you want to promote to the primary for the global cluster.
+   *             Use the Amazon Resource Name (ARN) for the identifier so that Amazon DocumentDB can locate the cluster in its Amazon Web Services region.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing secondary cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Minimum length of 1. Maximum length of 255.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code>
+   *          </p>
+   * @public
+   */
+  TargetDbClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to allow data loss for this global cluster operation. Allowing data loss triggers a global failover operation.</p>
+   *          <p>If you don't specify <code>AllowDataLoss</code>, the global cluster operation defaults to a switchover.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified together with the <code>Switchover</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AllowDataLoss?: boolean;
+
+  /**
+   * <p>Specifies whether to switch over this global database cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Switchover?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface FailoverGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   * @public
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+/**
  * <p>Represents the input to <a>ListTagsForResource</a>.</p>
  * @public
  */

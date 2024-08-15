@@ -183,6 +183,11 @@ import {
   FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommand,
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "./commands/FailoverGlobalClusterCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -311,6 +316,7 @@ const commands = {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribePendingMaintenanceActionsCommand,
   FailoverDBClusterCommand,
+  FailoverGlobalClusterCommand,
   ListTagsForResourceCommand,
   ModifyDBClusterCommand,
   ModifyDBClusterParameterGroupCommand,
@@ -946,6 +952,23 @@ export interface DocDB {
     args: FailoverDBClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: FailoverDBClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link FailoverGlobalClusterCommand}
+   */
+  failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverGlobalClusterCommandOutput>;
+  failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): void;
+  failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
   ): void;
 
   /**

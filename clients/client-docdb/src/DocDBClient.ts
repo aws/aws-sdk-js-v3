@@ -174,6 +174,10 @@ import {
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "./commands/FailoverGlobalClusterCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -281,6 +285,7 @@ export type ServiceInputTypes =
   | DescribeOrderableDBInstanceOptionsCommandInput
   | DescribePendingMaintenanceActionsCommandInput
   | FailoverDBClusterCommandInput
+  | FailoverGlobalClusterCommandInput
   | ListTagsForResourceCommandInput
   | ModifyDBClusterCommandInput
   | ModifyDBClusterParameterGroupCommandInput
@@ -340,6 +345,7 @@ export type ServiceOutputTypes =
   | DescribeOrderableDBInstanceOptionsCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
   | FailoverDBClusterCommandOutput
+  | FailoverGlobalClusterCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyDBClusterCommandOutput
   | ModifyDBClusterParameterGroupCommandOutput
