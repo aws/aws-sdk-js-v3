@@ -98,11 +98,13 @@ export const getDefaultRoleAssumer = (
         stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
+      const isCompatibleRequestHandler = !isH2(requestHandler);
+
       stsClient = new stsClientCtor({
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
         region: resolvedRegion,
-        requestHandler: requestHandler as any,
+        requestHandler: isCompatibleRequestHandler ? (requestHandler as any) : undefined,
         logger: logger as any,
       });
     }
@@ -154,9 +156,11 @@ export const getDefaultRoleAssumerWithWebIdentity = (
         stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
+      const isCompatibleRequestHandler = !isH2(requestHandler);
+
       stsClient = new stsClientCtor({
         region: resolvedRegion,
-        requestHandler: requestHandler as any,
+        requestHandler: isCompatibleRequestHandler ? (requestHandler as any) : undefined,
         logger: logger as any,
       });
     }
@@ -203,3 +207,7 @@ export const decorateDefaultCredentialProvider =
       ),
       ...input,
     });
+
+const isH2 = (requestHandler: any): boolean => {
+  return requestHandler?.metadata?.handlerProtocol === "h2";
+};

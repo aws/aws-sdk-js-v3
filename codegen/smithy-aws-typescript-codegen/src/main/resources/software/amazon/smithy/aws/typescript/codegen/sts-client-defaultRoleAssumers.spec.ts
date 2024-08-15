@@ -1,4 +1,4 @@
-import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
+import { NodeHttp2Handler, NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "stream";
 
@@ -93,7 +93,7 @@ describe("getDefaultRoleAssumer", () => {
       RoleArn: "arn:aws:foo",
       RoleSessionName: "session",
     };
-    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
     const assumedRole = await roleAssumer(sourceCred, params);
     expect(assumedRole.accountId).toEqual("123");
   });
@@ -116,7 +116,7 @@ describe("getDefaultRoleAssumer", () => {
       RoleArn: "arn:aws:foo",
       RoleSessionName: "session",
     };
-    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
     await roleAssumer(sourceCred, params);
     expect(mockConstructorInput).toHaveBeenCalledTimes(1);
     expect(mockConstructorInput.mock.calls[0][0]).toMatchObject({
@@ -141,12 +141,37 @@ describe("getDefaultRoleAssumer", () => {
       RoleArn: "arn:aws:foo",
       RoleSessionName: "session",
     };
-    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
     await roleAssumer(sourceCred, params);
     expect(mockConstructorInput).toHaveBeenCalledTimes(1);
     expect(mockConstructorInput.mock.calls[0][0]).toMatchObject({
       logger,
       requestHandler: handler,
+      region,
+    });
+  });
+
+  it("should not pass through an Http2 requestHandler", async () => {
+    const logger = console;
+    const region = "some-region";
+    const handler = new NodeHttp2Handler();
+    const roleAssumer = getDefaultRoleAssumer({
+      parentClientConfig: {
+        region,
+        logger,
+        requestHandler: handler,
+      },
+    });
+    const params: AssumeRoleCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+    };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
+    await roleAssumer(sourceCred, params);
+    expect(mockConstructorInput).toHaveBeenCalledTimes(1);
+    expect(mockConstructorInput.mock.calls[0][0]).toMatchObject({
+      logger,
+      requestHandler: undefined,
       region,
     });
   });
@@ -167,7 +192,7 @@ describe("getDefaultRoleAssumer", () => {
       RoleArn: "arn:aws:foo",
       RoleSessionName: "session",
     };
-    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secret" };
     await Promise.all([roleAssumer(sourceCred, params), roleAssumer(sourceCred, params)]);
     expect(customMiddlewareFunction).toHaveBeenCalledTimes(2); // make sure the middleware is not added to stack multiple times.
     expect(customMiddlewareFunction).toHaveBeenNthCalledWith(1, expect.objectContaining({ input: params }));
