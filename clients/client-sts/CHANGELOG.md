@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+
+### Bug Fixes
+
+* **credential-providers:** avoid sharing http2 requestHandler with inner STS ([#6389](https://github.com/aws/aws-sdk-js-v3/issues/6389)) ([d7b1610](https://github.com/aws/aws-sdk-js-v3/commit/d7b161064452a259ebb26502a14ef17159cb1f90))
+
+
+
+
+
 # [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-sts

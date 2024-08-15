@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+
+### Features
+
+* **client-docdb:** This release adds Global Cluster Failover capability which enables you to change your global cluster's primary AWS region, the region that serves writes, during a regional outage. Performing a failover action preserves your Global Cluster setup. ([62c6973](https://github.com/aws/aws-sdk-js-v3/commit/62c6973ca51b710f11b96e1a9e170ac9e489b58f))
+
+
+
+
+
 # [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-docdb

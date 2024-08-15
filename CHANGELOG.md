@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+
+### Bug Fixes
+
+* **credential-providers:** avoid sharing http2 requestHandler with inner STS ([#6389](https://github.com/aws/aws-sdk-js-v3/issues/6389)) ([d7b1610](https://github.com/aws/aws-sdk-js-v3/commit/d7b161064452a259ebb26502a14ef17159cb1f90))
+* **lib-dynamodb:** missing `@smithy/core` dependency in `@aws-sdk/lib-dynamodb` ([#6384](https://github.com/aws/aws-sdk-js-v3/issues/6384)) ([84fd78b](https://github.com/aws/aws-sdk-js-v3/commit/84fd78ba51b3362b48ea983c263dd368b88f4287))
+* **util-endpoints:** parseArn when resourcePath contains both delimiters ([#6387](https://github.com/aws/aws-sdk-js-v3/issues/6387)) ([63cb133](https://github.com/aws/aws-sdk-js-v3/commit/63cb133fcfedaf307e06c5f519aea1b58cdeb77b))
+
+
+### Features
+
+* **client-docdb:** This release adds Global Cluster Failover capability which enables you to change your global cluster's primary AWS region, the region that serves writes, during a regional outage. Performing a failover action preserves your Global Cluster setup. ([62c6973](https://github.com/aws/aws-sdk-js-v3/commit/62c6973ca51b710f11b96e1a9e170ac9e489b58f))
+* **client-ecs:** This release introduces a new ContainerDefinition configuration to support the customer-managed keys for ECS container restart feature. ([e56be69](https://github.com/aws/aws-sdk-js-v3/commit/e56be6989649b228db0faf2798e772baefca0ff3))
+* **client-iam:** Make the LastUsedDate field in the GetAccessKeyLastUsed response optional. This may break customers who only call the API for access keys with a valid LastUsedDate. This fixes a deserialization issue for access keys without a LastUsedDate, because the field was marked as required but could be null. ([2e20e95](https://github.com/aws/aws-sdk-js-v3/commit/2e20e9570ac51a8eb820f0124bada8e2b5d6bca7))
+* **client-s3:** Amazon Simple Storage Service / Features  : Adds support for pagination in the S3 ListBuckets API. ([f31c6ea](https://github.com/aws/aws-sdk-js-v3/commit/f31c6ea7efbf19998274e65d1cd87380ff21f191))
+* **clients:** update client endpoints as of 2024-08-15 ([05ff22b](https://github.com/aws/aws-sdk-js-v3/commit/05ff22bfc526d93628f7bf5bdf48126be2a15c65))
+
+
+
+
+
 # [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
 
 

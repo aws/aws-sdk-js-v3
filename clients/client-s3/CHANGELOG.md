@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+
+### Features
+
+* **client-s3:** Amazon Simple Storage Service / Features  : Adds support for pagination in the S3 ListBuckets API. ([f31c6ea](https://github.com/aws/aws-sdk-js-v3/commit/f31c6ea7efbf19998274e65d1cd87380ff21f191))
+
+
+
+
+
 # [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+
+### Bug Fixes
+
+* **util-endpoints:** parseArn when resourcePath contains both delimiters ([#6387](https://github.com/aws/aws-sdk-js-v3/issues/6387)) ([63cb133](https://github.com/aws/aws-sdk-js-v3/commit/63cb133fcfedaf307e06c5f519aea1b58cdeb77b))
+
+
+
+
+
 # [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
 
 
