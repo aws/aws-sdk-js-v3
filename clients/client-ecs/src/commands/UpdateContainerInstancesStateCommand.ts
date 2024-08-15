@@ -78,7 +78,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  *          <p>Any <code>PENDING</code> or <code>RUNNING</code> tasks that do not belong to a service
  * 			aren't affected. You must wait for them to finish or stop them manually.</p>
  *          <p>A container instance has completed draining when it has no more <code>RUNNING</code>
- * 			tasks. You can verify this using <a>ListTasks</a>.</p>
+ * 			tasks. You can verify this using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html">ListTasks</a>.</p>
  *          <p>When a container instance has been drained, you can set a container instance to
  * 				<code>ACTIVE</code> status and once it has reached that status the Amazon ECS scheduler
  * 			can begin scheduling tasks on the instance again.</p>
@@ -201,6 +201,16 @@ export interface UpdateContainerInstancesStateCommandOutput
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>

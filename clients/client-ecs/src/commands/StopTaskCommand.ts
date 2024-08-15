@@ -35,8 +35,8 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 				<code>SIGKILL</code> value is sent and the containers are forcibly stopped. If the
  * 			container handles the <code>SIGTERM</code> value gracefully and exits within 30 seconds
  * 			from receiving it, no <code>SIGKILL</code> value is sent.</p>
- *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by sending
- * 			a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
+ *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by
+ * 			sending a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
  * 				of (Windows) container #25982</a> on GitHub.</p>
  *          <note>
  *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
@@ -232,6 +232,16 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>

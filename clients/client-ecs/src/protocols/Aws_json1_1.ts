@@ -198,6 +198,7 @@ import {
   ContainerInstanceField,
   ContainerInstanceHealthStatus,
   ContainerOverride,
+  ContainerRestartPolicy,
   ContainerStateChange,
   CreateCapacityProviderRequest,
   CreateClusterRequest,
@@ -370,11 +371,11 @@ import {
   UpdateTaskProtectionRequest,
   UpdateTaskProtectionResponse,
   UpdateTaskSetRequest,
-  UpdateTaskSetResponse,
   VersionInfo,
   Volume,
   VolumeFrom,
 } from "../models/models_0";
+import { UpdateTaskSetResponse } from "../models/models_1";
 
 /**
  * serializeAws_json1_1CreateCapacityProviderCommand
@@ -2772,6 +2773,8 @@ const de_UpdateInProgressExceptionRes = async (
 
 // se_ContainerOverrides omitted.
 
+// se_ContainerRestartPolicy omitted.
+
 // se_ContainerStateChange omitted.
 
 // se_ContainerStateChanges omitted.
@@ -2902,6 +2905,8 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_InferenceAcceleratorOverrides omitted.
 
 // se_InferenceAccelerators omitted.
+
+// se_IntegerList omitted.
 
 // se_KernelCapabilities omitted.
 
@@ -3353,6 +3358,8 @@ const de_ContainerInstances = (output: any, context: __SerdeContext): ContainerI
 
 // de_ContainerOverrides omitted.
 
+// de_ContainerRestartPolicy omitted.
+
 /**
  * deserializeAws_json1_1Containers
  */
@@ -3651,6 +3658,8 @@ const de_InstanceHealthCheckResultList = (output: any, context: __SerdeContext):
     });
   return retVal;
 };
+
+// de_IntegerList omitted.
 
 // de_InvalidParameterException omitted.
 

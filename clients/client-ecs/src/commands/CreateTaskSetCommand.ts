@@ -35,7 +35,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
- *          <p>For information about the maximum number of task sets and otther quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ *          <p>For information about the maximum number of task sets and other quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
  * 			service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -183,6 +183,16 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>

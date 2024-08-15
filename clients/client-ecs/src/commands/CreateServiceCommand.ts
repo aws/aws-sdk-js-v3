@@ -108,8 +108,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *          <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
  * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>When the service scheduler launches new tasks, it determines task placement. For information
- * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
+ *          <p>When the service scheduler launches new tasks, it determines task placement. For
+ * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
  * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
  *          </p>
  *          <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
@@ -563,6 +563,16 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>

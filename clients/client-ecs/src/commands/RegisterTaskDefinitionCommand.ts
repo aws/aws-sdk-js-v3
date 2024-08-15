@@ -39,9 +39,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 			policy that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
  * 				Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>You can specify a Docker networking mode for the containers in your task definition
- * 			with the <code>networkMode</code> parameter. The available network modes correspond to
- * 			those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
- * 				settings</a> in the Docker run reference. If you specify the <code>awsvpc</code>
+ * 			with the <code>networkMode</code> parameter. If you specify the <code>awsvpc</code>
  * 			network mode, the task is allocated an elastic network interface, and you must specify a
  * 				<a>NetworkConfiguration</a> when you create a service or run a task with
  * 			the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
@@ -81,6 +79,13 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *         },
  *       ],
  *       essential: true || false,
+ *       restartPolicy: { // ContainerRestartPolicy
+ *         enabled: true || false, // required
+ *         ignoredExitCodes: [ // IntegerList
+ *           Number("int"),
+ *         ],
+ *         restartAttemptPeriod: Number("int"),
+ *       },
  *       entryPoint: [
  *         "STRING_VALUE",
  *       ],
@@ -333,6 +338,13 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //           },
  * //         ],
  * //         essential: true || false,
+ * //         restartPolicy: { // ContainerRestartPolicy
+ * //           enabled: true || false, // required
+ * //           ignoredExitCodes: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           restartAttemptPeriod: Number("int"),
+ * //         },
  * //         entryPoint: [
  * //           "STRING_VALUE",
  * //         ],
@@ -590,6 +602,16 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *          <p>The following list includes additional causes for the error:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

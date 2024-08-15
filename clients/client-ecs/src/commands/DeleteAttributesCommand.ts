@@ -76,8 +76,8 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  *
  * @throws {@link TargetNotFoundException} (client fault)
  *  <p>The specified target wasn't found. You can view your available container instances
- * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
- * 			cluster-specific and Region-specific.</p>
+ * 			with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>. Amazon ECS container instances are cluster-specific and
+ * 			Region-specific.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
