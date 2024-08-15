@@ -45,7 +45,7 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * // { // GetAccessKeyLastUsedResponse
  * //   UserName: "STRING_VALUE",
  * //   AccessKeyLastUsed: { // AccessKeyLastUsed
- * //     LastUsedDate: new Date("TIMESTAMP"), // required
+ * //     LastUsedDate: new Date("TIMESTAMP"),
  * //     ServiceName: "STRING_VALUE", // required
  * //     Region: "STRING_VALUE", // required
  * //   },

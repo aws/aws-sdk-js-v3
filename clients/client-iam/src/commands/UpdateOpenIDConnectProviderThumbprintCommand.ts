@@ -42,12 +42,11 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  *             the OIDC provider as a principal fails until the certificate thumbprint is
  *             updated.</p>
  *          <note>
- *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our library
- *           of trusted root certificate authorities (CAs) instead of using a certificate thumbprint to
- *           verify your IdP server certificate. In these cases, your legacy thumbprint remains in your
- *           configuration, but is no longer used for validation. These OIDC IdPs include Auth0, GitHub,
- *           GitLab, Google, and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS)
- *           endpoint.</p>
+ *             <p>Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of
+ *             trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
+ *             endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed
+ *             by one of these trusted CAs, only then we secure communication using the thumbprints set
+ *             in the IdP's configuration.</p>
  *          </note>
  *          <note>
  *             <p>Trust for the OIDC provider is derived from the provider certificate and is

@@ -163,7 +163,7 @@ export interface AccessKeyLastUsed {
    *          </ul>
    * @public
    */
-  LastUsedDate: Date | undefined;
+  LastUsedDate?: Date;
 
   /**
    * <p>The name of the Amazon Web Services service with which this access key was most recently used. The
@@ -1275,7 +1275,8 @@ export interface CreateOpenIDConnectProviderResponse {
 }
 
 /**
- * <p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>
+ * <p>The request failed because IAM cannot connect to the OpenID Connect identity provider
+ *       URL.</p>
  * @public
  */
 export class OpenIdIdpCommunicationErrorException extends __BaseException {
