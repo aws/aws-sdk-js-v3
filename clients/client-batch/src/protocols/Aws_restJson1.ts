@@ -207,6 +207,7 @@ export const se_CreateComputeEnvironmentCommand = async (
     take(input, {
       computeEnvironmentName: [],
       computeResources: (_) => _json(_),
+      context: [],
       eksConfiguration: (_) => _json(_),
       serviceRole: [],
       state: [],
@@ -722,6 +723,7 @@ export const se_UpdateComputeEnvironmentCommand = async (
     take(input, {
       computeEnvironment: [],
       computeResources: (_) => _json(_),
+      context: [],
       serviceRole: [],
       state: [],
       unmanagedvCpus: [],

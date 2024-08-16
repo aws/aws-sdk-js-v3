@@ -28,15 +28,7 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a job in an Batch job queue. Jobs that are in the
- *       <code>SUBMITTED</code>
- *       or
- *         <code>PENDING</code>
- *       are
- *       canceled. A job
- *         in<code>RUNNABLE</code> remains in <code>RUNNABLE</code> until it reaches the head of the
- *       job queue. Then the job status is updated to
- *       <code>FAILED</code>.</p>
+ * <p>Cancels a job in an Batch job queue. Jobs that are in a <code>SUBMITTED</code>, <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled and the job status is updated to <code>FAILED</code>.</p>
  *          <note>
  *             <p>A <code>PENDING</code> job is canceled after all dependency jobs are completed.
  *         Therefore, it may take longer than expected to cancel a job in <code>PENDING</code>

@@ -181,6 +181,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *     eksClusterArn: "STRING_VALUE", // required
  *     kubernetesNamespace: "STRING_VALUE", // required
  *   },
+ *   context: "STRING_VALUE",
  * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);

@@ -976,6 +976,12 @@ export interface CreateComputeEnvironmentRequest {
    * @public
    */
   eksConfiguration?: EksConfiguration;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  context?: string;
 }
 
 /**
@@ -1606,6 +1612,12 @@ export interface ComputeEnvironmentDetail {
    * @public
    */
   uuid?: string;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  context?: string;
 }
 
 /**
@@ -7299,6 +7311,12 @@ export interface UpdateComputeEnvironmentRequest {
    * @public
    */
   updatePolicy?: UpdatePolicy;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  context?: string;
 }
 
 /**

@@ -114,6 +114,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * //       },
  * //       containerOrchestrationType: "ECS" || "EKS",
  * //       uuid: "STRING_VALUE",
+ * //       context: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

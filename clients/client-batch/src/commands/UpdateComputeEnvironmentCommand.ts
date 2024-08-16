@@ -81,6 +81,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     terminateJobsOnUpdate: true || false,
  *     jobExecutionTimeoutMinutes: Number("long"),
  *   },
+ *   context: "STRING_VALUE",
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
