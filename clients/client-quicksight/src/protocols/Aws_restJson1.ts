@@ -1081,6 +1081,7 @@ import {
   ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
   CredentialPair,
+  CustomerManagedKeyUnavailableException,
   CustomSql,
   DashboardPublishOptions,
   DashboardSourceEntity,
@@ -9862,6 +9863,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedUserEditionException":
     case "com.amazonaws.quicksight#UnsupportedUserEditionException":
       throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    case "CustomerManagedKeyUnavailableException":
+    case "com.amazonaws.quicksight#CustomerManagedKeyUnavailableException":
+      throw await de_CustomerManagedKeyUnavailableExceptionRes(parsedOutput, context);
     case "ConcurrentUpdatingException":
     case "com.amazonaws.quicksight#ConcurrentUpdatingException":
       throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
@@ -9951,6 +9955,27 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1CustomerManagedKeyUnavailableExceptionRes
+ */
+const de_CustomerManagedKeyUnavailableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CustomerManagedKeyUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new CustomerManagedKeyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

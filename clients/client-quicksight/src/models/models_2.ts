@@ -8736,6 +8736,34 @@ export interface CreateDataSourceResponse {
 }
 
 /**
+ * <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ * @public
+ */
+export class CustomerManagedKeyUnavailableException extends __BaseException {
+  readonly name: "CustomerManagedKeyUnavailableException" = "CustomerManagedKeyUnavailableException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomerManagedKeyUnavailableException, __BaseException>) {
+    super({
+      name: "CustomerManagedKeyUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomerManagedKeyUnavailableException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -8762,62 +8790,6 @@ export const SharingModel = {
  * @public
  */
 export type SharingModel = (typeof SharingModel)[keyof typeof SharingModel];
-
-/**
- * @public
- */
-export interface CreateFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The name of the folder.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
-   * @public
-   */
-  FolderType?: FolderType;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
-   *          <p>
-   *             <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
-   * @public
-   */
-  ParentFolderArn?: string;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions of a folder.</p>
-   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>Tags for the folder.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>An optional parameter that determines the sharing scope of the folder. The default value for this parameter is <code>ACCOUNT</code>.</p>
-   * @public
-   */
-  SharingModel?: SharingModel;
-}
 
 /**
  * @internal

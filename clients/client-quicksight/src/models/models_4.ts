@@ -71,7 +71,6 @@ import {
   DataSourceSearchFilter,
   DataSourceSummary,
   EmbeddingIdentityType,
-  FailedKeyRegistrationEntry,
   Group,
   GroupMember,
   IdentityType,
@@ -98,6 +97,37 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>An entry that appears when a <code>KeyRegistration</code> update to Amazon QuickSight fails.</p>
+ * @public
+ */
+export interface FailedKeyRegistrationEntry {
+  /**
+   * <p>The ARN of the KMS key that failed to update.</p>
+   * @public
+   */
+  KeyArn?: string;
+
+  /**
+   * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>
+   * @public
+   */
+  StatusCode: number | undefined;
+
+  /**
+   * <p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>
+   *             <code>SenderFault</code> value, contact Amazon Web Services Support.</p>
+   * @public
+   */
+  SenderFault: boolean | undefined;
+}
 
 /**
  * @public

@@ -349,6 +349,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
+ * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
+ *  <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *

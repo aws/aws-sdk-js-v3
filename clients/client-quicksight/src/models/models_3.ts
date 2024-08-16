@@ -97,6 +97,62 @@ import { QuickSightServiceException as __BaseException } from "./QuickSightServi
 /**
  * @public
  */
+export interface CreateFolderRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The name of the folder.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
+   * @public
+   */
+  FolderType?: FolderType;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
+   *          <p>
+   *             <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
+   * @public
+   */
+  ParentFolderArn?: string;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions of a folder.</p>
+   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>Tags for the folder.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>An optional parameter that determines the sharing scope of the folder. The default value for this parameter is <code>ACCOUNT</code>.</p>
+   * @public
+   */
+  SharingModel?: SharingModel;
+}
+
+/**
+ * @public
+ */
 export interface CreateFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -9240,37 +9296,6 @@ export const EmbeddingIdentityType = {
  * @public
  */
 export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
-
-/**
- * <p>An entry that appears when a <code>KeyRegistration</code> update to Amazon QuickSight fails.</p>
- * @public
- */
-export interface FailedKeyRegistrationEntry {
-  /**
-   * <p>The ARN of the KMS key that failed to update.</p>
-   * @public
-   */
-  KeyArn?: string;
-
-  /**
-   * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>
-   * @public
-   */
-  StatusCode: number | undefined;
-
-  /**
-   * <p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>
-   *             <code>SenderFault</code> value, contact Amazon Web Services Support.</p>
-   * @public
-   */
-  SenderFault: boolean | undefined;
-}
 
 /**
  * @internal
