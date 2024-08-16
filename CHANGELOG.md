@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** skip stream inspection if non-stream-like body ([#6333](https://github.com/aws/aws-sdk-js-v3/issues/6333)) ([5f85b5f](https://github.com/aws/aws-sdk-js-v3/commit/5f85b5fdd487a92a6fd788b4363f1a946805f511))
+
+
+### Features
+
+* **client-batch:** Improvements of integration between AWS Batch and EC2. ([6612591](https://github.com/aws/aws-sdk-js-v3/commit/661259105ac5bf0516b33478947b3df8665bd0e0))
+* **client-inspector2:** Update the correct format of key and values for resource tags ([594c0fc](https://github.com/aws/aws-sdk-js-v3/commit/594c0fcb192a0d17c475b1b08210b80ef9bd03e7))
+* **client-quicksight:** Amazon QuickSight launches Customer Managed Key (CMK) encryption for Data Source metadata ([b4200b0](https://github.com/aws/aws-sdk-js-v3/commit/b4200b092059f0ab337b492087de742ff3a316d0))
+* **client-sagemaker:** Introduce Endpoint and EndpointConfig Arns in sagemaker:ListPipelineExecutionSteps API response ([cbc6a87](https://github.com/aws/aws-sdk-js-v3/commit/cbc6a8735822a0d9618b11bf913436daea301582))
+* **client-sesv2:** Marking use case description field of account details as deprecated. ([271136d](https://github.com/aws/aws-sdk-js-v3/commit/271136dd16817e13dc645686ee56e8e71559b4fd))
+* **clients:** update client endpoints as of 2024-08-16 ([d47413a](https://github.com/aws/aws-sdk-js-v3/commit/d47413aab469c51b0981cc2ed4866b7392916266))
+
+
+
+
+
 # [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
+
+
+### Features
+
+* **client-sagemaker:** Introduce Endpoint and EndpointConfig Arns in sagemaker:ListPipelineExecutionSteps API response ([cbc6a87](https://github.com/aws/aws-sdk-js-v3/commit/cbc6a8735822a0d9618b11bf913436daea301582))
+
+
+
+
+
 # [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

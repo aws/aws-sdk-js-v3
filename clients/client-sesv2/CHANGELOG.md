@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
+
+
+### Features
+
+* **client-sesv2:** Marking use case description field of account details as deprecated. ([271136d](https://github.com/aws/aws-sdk-js-v3/commit/271136dd16817e13dc645686ee56e8e71559b4fd))
+
+
+
+
+
 # [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

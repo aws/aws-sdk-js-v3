@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
+
+
+### Features
+
+* **client-quicksight:** Amazon QuickSight launches Customer Managed Key (CMK) encryption for Data Source metadata ([b4200b0](https://github.com/aws/aws-sdk-js-v3/commit/b4200b092059f0ab337b492087de742ff3a316d0))
+
+
+
+
+
 # [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

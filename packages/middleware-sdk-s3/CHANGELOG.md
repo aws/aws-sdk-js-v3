@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** skip stream inspection if non-stream-like body ([#6333](https://github.com/aws/aws-sdk-js-v3/issues/6333)) ([5f85b5f](https://github.com/aws/aws-sdk-js-v3/commit/5f85b5fdd487a92a6fd788b4363f1a946805f511))
+
+
+
+
+
 # [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
