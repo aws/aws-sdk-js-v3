@@ -48,6 +48,15 @@ export const throw200ExceptionsMiddleware =
       return result;
     }
 
+    const isSplittableStream =
+      typeof sourceBody?.stream === "function" ||
+      typeof sourceBody?.pipe === "function" ||
+      typeof sourceBody?.tee === "function";
+
+    if (!isSplittableStream) {
+      return result;
+    }
+
     let bodyCopy = sourceBody;
     let body = sourceBody;
 
