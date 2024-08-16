@@ -1716,7 +1716,9 @@ import {
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
   Endpoint,
+  EndpointConfigStepMetadata,
   EndpointConfigSummary,
+  EndpointStepMetadata,
   EndpointSummary,
   Experiment,
   ExperimentSummary,
@@ -1845,13 +1847,11 @@ import {
   ListModelCardsRequest,
   ListModelCardsResponse,
   ListModelCardVersionsRequest,
-  ListModelCardVersionsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
   ModelCardExportJobSummary,
   ModelCardSummary,
-  ModelCardVersionSummary,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   MonitoringExecutionSummary,
@@ -1887,6 +1887,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelCardVersionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
   ListModelMetadataRequest,
@@ -1955,6 +1956,7 @@ import {
   ListWorkteamsResponse,
   Model,
   ModelCard,
+  ModelCardVersionSummary,
   ModelDashboardEndpoint,
   ModelDashboardIndicatorAction,
   ModelDashboardModel,
@@ -21684,6 +21686,15 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
 };
 
 /**
+ * deserializeAws_json1_1EndpointConfigStepMetadata
+ */
+const de_EndpointConfigStepMetadata = (output: any, context: __SerdeContext): EndpointConfigStepMetadata => {
+  return take(output, {
+    Arn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1EndpointConfigSummary
  */
 const de_EndpointConfigSummary = (output: any, context: __SerdeContext): EndpointConfigSummary => {
@@ -21815,6 +21826,15 @@ const de_Endpoints = (output: any, context: __SerdeContext): EndpointInfo[] => {
       return de_EndpointInfo(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1EndpointStepMetadata
+ */
+const de_EndpointStepMetadata = (output: any, context: __SerdeContext): EndpointStepMetadata => {
+  return take(output, {
+    Arn: __expectString,
+  }) as any;
 };
 
 /**
@@ -26863,6 +26883,8 @@ const de_PipelineExecutionStepMetadata = (output: any, context: __SerdeContext):
     ClarifyCheck: (_: any) => de_ClarifyCheckStepMetadata(_, context),
     Condition: (_: any) => de_ConditionStepMetadata(_, context),
     EMR: (_: any) => de_EMRStepMetadata(_, context),
+    Endpoint: (_: any) => de_EndpointStepMetadata(_, context),
+    EndpointConfig: (_: any) => de_EndpointConfigStepMetadata(_, context),
     Fail: (_: any) => de_FailStepMetadata(_, context),
     Lambda: (_: any) => de_LambdaStepMetadata(_, context),
     Model: (_: any) => de_ModelStepMetadata(_, context),

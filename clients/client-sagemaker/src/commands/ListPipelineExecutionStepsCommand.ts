@@ -131,6 +131,12 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //         AutoMLJob: { // AutoMLJobStepMetadata
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         Endpoint: { // EndpointStepMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         EndpointConfig: { // EndpointConfigStepMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult

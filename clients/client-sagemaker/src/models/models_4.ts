@@ -133,6 +133,8 @@ import {
   Edge,
   EMRStepMetadata,
   Endpoint,
+  EndpointConfigStepMetadata,
+  EndpointStepMetadata,
   ExecutionStatus,
   Experiment,
   FailStepMetadata,
@@ -178,6 +180,85 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>A summary of a specific version of the model card.</p>
+ * @public
+ */
+export interface ModelCardVersionSummary {
+  /**
+   * <p>The name of the model card.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   * @public
+   */
+  ModelCardArn: string | undefined;
+
+  /**
+   * <p>The approval status of the model card version within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
+   *                card, but it can still be exported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelCardStatus: ModelCardStatus | undefined;
+
+  /**
+   * <p>A version of the model card.</p>
+   * @public
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The date and time that the model card version was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time date and time that the model card version was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardVersionsResponse {
+  /**
+   * <p>The summaries of the listed versions of the model card.</p>
+   * @public
+   */
+  ModelCardVersionSummaryList: ModelCardVersionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model
+   *          card versions, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -2477,6 +2558,18 @@ export interface PipelineExecutionStepMetadata {
    * @public
    */
   AutoMLJob?: AutoMLJobStepMetadata;
+
+  /**
+   * <p>The endpoint that was invoked during this step execution.</p>
+   * @public
+   */
+  Endpoint?: EndpointStepMetadata;
+
+  /**
+   * <p>The endpoint configuration used to create an endpoint during this step execution.</p>
+   * @public
+   */
+  EndpointConfig?: EndpointConfigStepMetadata;
 }
 
 /**
