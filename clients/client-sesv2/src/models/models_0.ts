@@ -127,6 +127,8 @@ export interface AccountDetails {
   ContactLanguage?: ContactLanguage;
 
   /**
+   * @deprecated
+   *
    * <p>A description of the types of email that you plan to send.</p>
    * @public
    */
@@ -6864,10 +6866,12 @@ export interface PutAccountDetailsRequest {
   ContactLanguage?: ContactLanguage;
 
   /**
+   * @deprecated
+   *
    * <p>A description of the types of email that you plan to send.</p>
    * @public
    */
-  UseCaseDescription: string | undefined;
+  UseCaseDescription?: string;
 
   /**
    * <p>Additional email addresses that you would like to be notified regarding Amazon SES

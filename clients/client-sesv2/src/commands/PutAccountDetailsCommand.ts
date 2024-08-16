@@ -43,7 +43,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  *   MailType: "MARKETING" || "TRANSACTIONAL", // required
  *   WebsiteURL: "STRING_VALUE", // required
  *   ContactLanguage: "EN" || "JA",
- *   UseCaseDescription: "STRING_VALUE", // required
+ *   UseCaseDescription: "STRING_VALUE",
  *   AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
  *     "STRING_VALUE",
  *   ],
