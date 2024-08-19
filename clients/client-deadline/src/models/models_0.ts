@@ -2150,6 +2150,9 @@ export interface BudgetActionToAdd {
 
   /**
    * <p>A description for the budget action to add.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2291,12 +2294,18 @@ export interface CreateBudgetRequest {
 
   /**
    * <p>The display name of the budget.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the budget.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2389,6 +2398,9 @@ export interface ResponseBudgetAction {
 
   /**
    * <p>The budget action description.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2455,12 +2467,18 @@ export interface GetBudgetResponse {
 
   /**
    * <p>The display name of the budget.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the budget.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2585,12 +2603,20 @@ export interface BudgetSummary {
 
   /**
    * <p>The display name of the budget summary to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>The description of the budget summary.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2673,12 +2699,18 @@ export interface UpdateBudgetRequest {
 
   /**
    * <p>The display name of the budget to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
 
   /**
    * <p>The description of the budget to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -2865,12 +2897,18 @@ export interface CreateFarmRequest {
 
   /**
    * <p>The display name of the farm.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the farm.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -3293,12 +3331,18 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The display name of the fleet.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the fleet.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -3396,7 +3440,8 @@ export interface CreateJobRequest {
   templateType: JobTemplateType | undefined;
 
   /**
-   * <p>The priority of the job on a scale of 1 to 100. The highest priority is 1.</p>
+   * <p>The priority of the job on a scale of 0 to 100. The highest priority (first scheduled)
+   *          is 100. When two jobs have the same priority, the oldest job is scheduled first.</p>
    * @public
    */
   priority: number | undefined;
@@ -3421,8 +3466,8 @@ export interface CreateJobRequest {
   storageProfileId?: string;
 
   /**
-   * <p>The initial status of the job's tasks when they are created. Tasks that are created with
-   *          a <code>SUSPENDED</code> status will not run until you update their status.</p>
+   * <p>The initial job status when it is created. Jobs that are created with a
+   *             <code>SUSPENDED</code> status will not run until manually requeued.</p>
    * @public
    */
   targetTaskRunStatus?: CreateJobTargetTaskRunStatus;
@@ -3434,7 +3479,7 @@ export interface CreateJobRequest {
   maxFailedTasksCount?: number;
 
   /**
-   * <p>The maximum number of retries for a job.</p>
+   * <p>The maximum number of retries for each task.</p>
    * @public
    */
   maxRetriesPerTask?: number;
@@ -3509,6 +3554,9 @@ export interface CreateMonitorRequest {
 
   /**
    * <p>The name that you give the monitor that is displayed in the Deadline Cloud console.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -3585,12 +3633,18 @@ export interface CreateQueueRequest {
 
   /**
    * <p>The display name of the queue.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the queue.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -3818,6 +3872,9 @@ export interface CreateStorageProfileRequest {
 
   /**
    * <p>The display name of the storage profile.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -4160,12 +4217,18 @@ export interface GetFleetResponse {
 
   /**
    * <p>The display name of the fleet.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the fleet.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -4357,6 +4420,9 @@ export interface ListFleetsRequest {
 
   /**
    * <p>The display names of a list of fleets.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
@@ -4399,6 +4465,9 @@ export interface FleetSummary {
 
   /**
    * <p>The display name of the fleet summary to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -4511,12 +4580,18 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The display name of the fleet to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
 
   /**
    * <p>The description of the fleet to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -5224,12 +5299,18 @@ export interface GetFarmResponse {
 
   /**
    * <p>The display name of the farm.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the farm.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -5294,6 +5375,9 @@ export interface GetStorageProfileResponse {
 
   /**
    * <p>The display name of the storage profile.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -5447,6 +5531,9 @@ export interface FarmSummary {
 
   /**
    * <p>The display name of the farm.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -5535,6 +5622,9 @@ export interface StorageProfileSummary {
 
   /**
    * <p>The display name of the storage profile summary to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -5699,12 +5789,18 @@ export interface GetQueueResponse {
 
   /**
    * <p>The display name of the queue.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
    * <p>The description of the queue.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -5920,6 +6016,9 @@ export interface GetStorageProfileForQueueResponse {
 
   /**
    * <p>The display name of the storage profile connected to a queue.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -6074,7 +6173,7 @@ export interface GetJobResponse {
   name: string | undefined;
 
   /**
-   * <p>The life cycle status for the job.</p>
+   * <p>The life cycle status for the job. </p>
    * @public
    */
   lifecycleStatus: JobLifecycleStatus | undefined;
@@ -6177,6 +6276,9 @@ export interface GetJobResponse {
 
   /**
    * <p>The description of the job.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -6876,6 +6978,9 @@ export interface GetStepResponse {
 
   /**
    * <p>The description of the step.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -8231,7 +8336,12 @@ export interface UpdateJobRequest {
   maxRetriesPerTask?: number;
 
   /**
-   * <p>The status of a job in its lifecycle.</p>
+   * <p>The status of a job in its lifecycle. When you change the status of the job to
+   *             <code>ARCHIVED</code>, the job can't be scheduled or archived.</p>
+   *          <important>
+   *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
+   *             recovered.</p>
+   *          </important>
    * @public
    */
   lifecycleStatus?: UpdateJobLifecycleStatus;
@@ -8555,8 +8665,7 @@ export interface ListQueuesRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The principal ID. This filter is only valid when using Nimble Studio credentials and
-   *          should match the user ID in the credentials of the caller.</p>
+   * <p>The principal IDs to include in the list of queues.</p>
    * @public
    */
   principalId?: string;
@@ -8614,6 +8723,9 @@ export interface QueueSummary {
 
   /**
    * <p>The display name of the queue summary to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;

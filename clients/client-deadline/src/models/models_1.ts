@@ -65,12 +65,18 @@ export interface UpdateQueueRequest {
 
   /**
    * <p>The display name of the queue to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
 
   /**
    * <p>The description of the queue to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -194,12 +200,18 @@ export interface UpdateFarmRequest {
 
   /**
    * <p>The display name of the farm to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
 
   /**
    * <p>The description of the farm to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   description?: string;
@@ -234,6 +246,9 @@ export interface UpdateStorageProfileRequest {
 
   /**
    * <p>The display name of the storage profile to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
@@ -544,7 +559,14 @@ export interface GetSessionsStatisticsAggregationResponse {
   nextToken?: string;
 
   /**
-   * <p>The status of the aggregated results.</p>
+   * <p>The status of the aggregated results. An aggregation may fail or time out if the results
+   *          are too large. If this happens, you can call the
+   *             <code>StartSessionsStatisticsAggregation</code> operation after you reduce the
+   *          aggregation time frame, reduce the number of queues or fleets in the aggregation, or
+   *          increase the period length.</p>
+   *          <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the
+   *          status is <code>IN_PROGRESS</code>, you will receive a
+   *          <code>ThrottlingException</code>.</p>
    * @public
    */
   status: SessionsStatisticsAggregationStatus | undefined;
@@ -1042,6 +1064,9 @@ export interface GetMonitorResponse {
 
   /**
    * <p>The name used to identify the monitor on the Deadline Cloud console.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -1134,6 +1159,9 @@ export interface MonitorSummary {
 
   /**
    * <p>The name of the monitor that displays on the Deadline Cloud console.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName: string | undefined;
@@ -1232,6 +1260,9 @@ export interface UpdateMonitorRequest {
 
   /**
    * <p>The new value to use for the monitor's display name.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
    * @public
    */
   displayName?: string;
@@ -1492,7 +1523,7 @@ export interface JobSearchSummary {
   lifecycleStatusMessage?: string;
 
   /**
-   * <p>task run status for the job.</p>
+   * <p>The task run status for the job.</p>
    *          <ul>
    *             <li>
    *                <p>

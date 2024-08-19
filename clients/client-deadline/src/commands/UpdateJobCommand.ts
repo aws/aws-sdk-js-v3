@@ -28,7 +28,13 @@ export interface UpdateJobCommandInput extends UpdateJobRequest {}
 export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a job.</p>
+ * <p>Updates a job. </p>
+ *          <p>When you change the status of the job to <code>ARCHIVED</code>, the job can't be
+ *          scheduled or archived.</p>
+ *          <important>
+ *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
+ *             recovered.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

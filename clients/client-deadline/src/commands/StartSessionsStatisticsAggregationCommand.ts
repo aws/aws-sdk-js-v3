@@ -37,9 +37,12 @@ export interface StartSessionsStatisticsAggregationCommandOutput
 
 /**
  * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms.
- *          Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation.
- *          Statistics are available for 1 hour after you call the
- *             <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ *          Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You
+ *          can only have one running aggregation for your Deadline Cloud farm. Call the
+ *             <code>GetSessionsStatisticsAggregation</code> operation and check the
+ *             <code>status</code> field to see if an aggregation is running. Statistics are available
+ *          for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code>
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

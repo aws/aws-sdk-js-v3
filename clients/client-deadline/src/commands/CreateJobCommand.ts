@@ -28,8 +28,9 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a job. A job is a render submission submitted by a user. It contains specific
- *          job properties outlined as steps and tasks.</p>
+ * <p>Creates a job. A job is a set of instructions that AWS Deadline Cloud uses to schedule
+ *          and run work on available workers. For more information, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html">Deadline Cloud
+ *             jobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

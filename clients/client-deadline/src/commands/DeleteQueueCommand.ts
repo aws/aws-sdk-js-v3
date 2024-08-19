@@ -29,6 +29,10 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
 
 /**
  * <p>Deletes a queue.</p>
+ *          <important>
+ *             <p>You can't recover the jobs in a queue if you delete the queue. Deleting the queue
+ *             also deletes the jobs in that queue.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
