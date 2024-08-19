@@ -48,6 +48,10 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "../commands/CreateModelCustomizationJobCommand";
 import {
+  CreateModelInvocationJobCommandInput,
+  CreateModelInvocationJobCommandOutput,
+} from "../commands/CreateModelInvocationJobCommand";
+import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "../commands/CreateProvisionedModelThroughputCommand";
@@ -71,6 +75,10 @@ import {
   GetModelCustomizationJobCommandOutput,
 } from "../commands/GetModelCustomizationJobCommand";
 import {
+  GetModelInvocationJobCommandInput,
+  GetModelInvocationJobCommandOutput,
+} from "../commands/GetModelInvocationJobCommand";
+import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/GetModelInvocationLoggingConfigurationCommand";
@@ -91,6 +99,10 @@ import {
   ListModelCustomizationJobsCommandOutput,
 } from "../commands/ListModelCustomizationJobsCommand";
 import {
+  ListModelInvocationJobsCommandInput,
+  ListModelInvocationJobsCommandOutput,
+} from "../commands/ListModelInvocationJobsCommand";
+import {
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
 } from "../commands/ListProvisionedModelThroughputsCommand";
@@ -107,6 +119,10 @@ import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "../commands/StopModelCustomizationJobCommand";
+import {
+  StopModelInvocationJobCommandInput,
+  StopModelInvocationJobCommandOutput,
+} from "../commands/StopModelInvocationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "../commands/UpdateGuardrailCommand";
@@ -152,6 +168,11 @@ import {
   LoggingConfig,
   ModelCopyJobSummary,
   ModelCustomizationJobSummary,
+  ModelInvocationJobInputDataConfig,
+  ModelInvocationJobOutputDataConfig,
+  ModelInvocationJobS3InputDataConfig,
+  ModelInvocationJobS3OutputDataConfig,
+  ModelInvocationJobSummary,
   OutputDataConfig,
   ProvisionedModelSummary,
   ResourceNotFoundException,
@@ -311,6 +332,35 @@ export const se_CreateModelCustomizationJobCommand = async (
       trainingDataConfig: (_) => _json(_),
       validationDataConfig: (_) => _json(_),
       vpcConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateModelInvocationJobCommand
+ */
+export const se_CreateModelInvocationJobCommand = async (
+  input: CreateModelInvocationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model-invocation-job");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      inputDataConfig: (_) => _json(_),
+      jobName: [],
+      modelId: [],
+      outputDataConfig: (_) => _json(_),
+      roleArn: [],
+      tags: (_) => _json(_),
+      timeoutDurationInHours: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -510,6 +560,22 @@ export const se_GetModelCustomizationJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetModelInvocationJobCommand
+ */
+export const se_GetModelInvocationJobCommand = async (
+  input: GetModelInvocationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-invocation-job/{jobIdentifier}");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetModelInvocationLoggingConfigurationCommand
  */
 export const se_GetModelInvocationLoggingConfigurationCommand = async (
@@ -686,6 +752,31 @@ export const se_ListModelCustomizationJobsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListModelInvocationJobsCommand
+ */
+export const se_ListModelInvocationJobsCommand = async (
+  input: ListModelInvocationJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-invocation-jobs");
+  const query: any = map({
+    [_sTA]: [() => input.submitTimeAfter !== void 0, () => __serializeDateTime(input[_sTA]!).toString()],
+    [_sTB]: [() => input.submitTimeBefore !== void 0, () => __serializeDateTime(input[_sTB]!).toString()],
+    [_sE]: [, input[_sE]!],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListProvisionedModelThroughputsCommand
  */
 export const se_ListProvisionedModelThroughputsCommand = async (
@@ -781,6 +872,22 @@ export const se_StopModelCustomizationJobCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/model-customization-jobs/{jobIdentifier}/stop");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopModelInvocationJobCommand
+ */
+export const se_StopModelInvocationJobCommand = async (
+  input: StopModelInvocationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-invocation-job/{jobIdentifier}/stop");
   b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
   let body: any;
   b.m("POST").h(headers).b(body);
@@ -985,6 +1092,27 @@ export const de_CreateModelCustomizationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCustomizationJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateModelInvocationJobCommand
+ */
+export const de_CreateModelInvocationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelInvocationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1286,6 +1414,40 @@ export const de_GetModelCustomizationJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetModelInvocationJobCommand
+ */
+export const de_GetModelInvocationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetModelInvocationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientRequestToken: __expectString,
+    endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    inputDataConfig: (_) => _json(__expectUnion(_)),
+    jobArn: __expectString,
+    jobExpirationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    jobName: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    message: __expectString,
+    modelId: __expectString,
+    outputDataConfig: (_) => _json(__expectUnion(_)),
+    roleArn: __expectString,
+    status: __expectString,
+    submitTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    timeoutDurationInHours: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetModelInvocationLoggingConfigurationCommand
  */
 export const de_GetModelInvocationLoggingConfigurationCommand = async (
@@ -1471,6 +1633,28 @@ export const de_ListModelCustomizationJobsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListModelInvocationJobsCommand
+ */
+export const de_ListModelInvocationJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelInvocationJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationJobSummaries: (_) => de_ModelInvocationJobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListProvisionedModelThroughputsCommand
  */
 export const de_ListProvisionedModelThroughputsCommand = async (
@@ -1554,6 +1738,23 @@ export const de_StopModelCustomizationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopModelCustomizationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopModelInvocationJobCommand
+ */
+export const de_StopModelInvocationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopModelInvocationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1947,6 +2148,14 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_ModelCustomizationHyperParameters omitted.
 
+// se_ModelInvocationJobInputDataConfig omitted.
+
+// se_ModelInvocationJobOutputDataConfig omitted.
+
+// se_ModelInvocationJobS3InputDataConfig omitted.
+
+// se_ModelInvocationJobS3OutputDataConfig omitted.
+
 // se_OutputDataConfig omitted.
 
 // se_S3Config omitted.
@@ -2248,6 +2457,48 @@ const de_ModelCustomizationJobSummary = (output: any, context: __SerdeContext): 
 
 // de_ModelCustomizationList omitted.
 
+// de_ModelInvocationJobInputDataConfig omitted.
+
+// de_ModelInvocationJobOutputDataConfig omitted.
+
+// de_ModelInvocationJobS3InputDataConfig omitted.
+
+// de_ModelInvocationJobS3OutputDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1ModelInvocationJobSummaries
+ */
+const de_ModelInvocationJobSummaries = (output: any, context: __SerdeContext): ModelInvocationJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ModelInvocationJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ModelInvocationJobSummary
+ */
+const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): ModelInvocationJobSummary => {
+  return take(output, {
+    clientRequestToken: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    inputDataConfig: (_: any) => _json(__expectUnion(_)),
+    jobArn: __expectString,
+    jobExpirationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    jobName: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    message: __expectString,
+    modelId: __expectString,
+    outputDataConfig: (_: any) => _json(__expectUnion(_)),
+    roleArn: __expectString,
+    status: __expectString,
+    submitTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    timeoutDurationInHours: __expectInt32,
+  }) as any;
+};
+
 // de_ModelModalityList omitted.
 
 // de_OutputDataConfig omitted.
@@ -2374,4 +2625,6 @@ const _sB = "sortBy";
 const _sE = "statusEquals";
 const _sMAE = "sourceModelArnEquals";
 const _sO = "sortOrder";
+const _sTA = "submitTimeAfter";
+const _sTB = "submitTimeBefore";
 const _tMNC = "targetModelNameContains";

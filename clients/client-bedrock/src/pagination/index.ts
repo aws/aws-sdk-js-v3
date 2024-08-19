@@ -5,4 +5,5 @@ export * from "./ListEvaluationJobsPaginator";
 export * from "./ListGuardrailsPaginator";
 export * from "./ListModelCopyJobsPaginator";
 export * from "./ListModelCustomizationJobsPaginator";
+export * from "./ListModelInvocationJobsPaginator";
 export * from "./ListProvisionedModelThroughputsPaginator";

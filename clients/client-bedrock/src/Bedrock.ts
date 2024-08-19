@@ -29,6 +29,11 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
 import {
+  CreateModelInvocationJobCommand,
+  CreateModelInvocationJobCommandInput,
+  CreateModelInvocationJobCommandOutput,
+} from "./commands/CreateModelInvocationJobCommand";
+import {
   CreateProvisionedModelThroughputCommand,
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
@@ -84,6 +89,11 @@ import {
   GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
 import {
+  GetModelInvocationJobCommand,
+  GetModelInvocationJobCommandInput,
+  GetModelInvocationJobCommandOutput,
+} from "./commands/GetModelInvocationJobCommand";
+import {
   GetModelInvocationLoggingConfigurationCommand,
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
@@ -124,6 +134,11 @@ import {
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
 import {
+  ListModelInvocationJobsCommand,
+  ListModelInvocationJobsCommandInput,
+  ListModelInvocationJobsCommandOutput,
+} from "./commands/ListModelInvocationJobsCommand";
+import {
   ListProvisionedModelThroughputsCommand,
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
@@ -148,6 +163,11 @@ import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
+import {
+  StopModelInvocationJobCommand,
+  StopModelInvocationJobCommandInput,
+  StopModelInvocationJobCommandOutput,
+} from "./commands/StopModelInvocationJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -171,6 +191,7 @@ const commands = {
   CreateGuardrailVersionCommand,
   CreateModelCopyJobCommand,
   CreateModelCustomizationJobCommand,
+  CreateModelInvocationJobCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
   DeleteGuardrailCommand,
@@ -182,6 +203,7 @@ const commands = {
   GetGuardrailCommand,
   GetModelCopyJobCommand,
   GetModelCustomizationJobCommand,
+  GetModelInvocationJobCommand,
   GetModelInvocationLoggingConfigurationCommand,
   GetProvisionedModelThroughputCommand,
   ListCustomModelsCommand,
@@ -190,11 +212,13 @@ const commands = {
   ListGuardrailsCommand,
   ListModelCopyJobsCommand,
   ListModelCustomizationJobsCommand,
+  ListModelInvocationJobsCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
   PutModelInvocationLoggingConfigurationCommand,
   StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
+  StopModelInvocationJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGuardrailCommand,
@@ -282,6 +306,23 @@ export interface Bedrock {
     args: CreateModelCustomizationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCustomizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateModelInvocationJobCommand}
+   */
+  createModelInvocationJob(
+    args: CreateModelInvocationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelInvocationJobCommandOutput>;
+  createModelInvocationJob(
+    args: CreateModelInvocationJobCommandInput,
+    cb: (err: any, data?: CreateModelInvocationJobCommandOutput) => void
+  ): void;
+  createModelInvocationJob(
+    args: CreateModelInvocationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelInvocationJobCommandOutput) => void
   ): void;
 
   /**
@@ -458,6 +499,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetModelInvocationJobCommand}
+   */
+  getModelInvocationJob(
+    args: GetModelInvocationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelInvocationJobCommandOutput>;
+  getModelInvocationJob(
+    args: GetModelInvocationJobCommandInput,
+    cb: (err: any, data?: GetModelInvocationJobCommandOutput) => void
+  ): void;
+  getModelInvocationJob(
+    args: GetModelInvocationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetModelInvocationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetModelInvocationLoggingConfigurationCommand}
    */
   getModelInvocationLoggingConfiguration(): Promise<GetModelInvocationLoggingConfigurationCommandOutput>;
@@ -598,6 +656,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link ListModelInvocationJobsCommand}
+   */
+  listModelInvocationJobs(): Promise<ListModelInvocationJobsCommandOutput>;
+  listModelInvocationJobs(
+    args: ListModelInvocationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelInvocationJobsCommandOutput>;
+  listModelInvocationJobs(
+    args: ListModelInvocationJobsCommandInput,
+    cb: (err: any, data?: ListModelInvocationJobsCommandOutput) => void
+  ): void;
+  listModelInvocationJobs(
+    args: ListModelInvocationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelInvocationJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProvisionedModelThroughputsCommand}
    */
   listProvisionedModelThroughputs(): Promise<ListProvisionedModelThroughputsCommandOutput>;
@@ -681,6 +757,23 @@ export interface Bedrock {
     args: StopModelCustomizationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopModelCustomizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopModelInvocationJobCommand}
+   */
+  stopModelInvocationJob(
+    args: StopModelInvocationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopModelInvocationJobCommandOutput>;
+  stopModelInvocationJob(
+    args: StopModelInvocationJobCommandInput,
+    cb: (err: any, data?: StopModelInvocationJobCommandOutput) => void
+  ): void;
+  stopModelInvocationJob(
+    args: StopModelInvocationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopModelInvocationJobCommandOutput) => void
   ): void;
 
   /**

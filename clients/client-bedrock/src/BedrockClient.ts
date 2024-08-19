@@ -68,6 +68,10 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
 import {
+  CreateModelInvocationJobCommandInput,
+  CreateModelInvocationJobCommandOutput,
+} from "./commands/CreateModelInvocationJobCommand";
+import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
@@ -91,6 +95,10 @@ import {
   GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
 import {
+  GetModelInvocationJobCommandInput,
+  GetModelInvocationJobCommandOutput,
+} from "./commands/GetModelInvocationJobCommand";
+import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
@@ -111,6 +119,10 @@ import {
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
 import {
+  ListModelInvocationJobsCommandInput,
+  ListModelInvocationJobsCommandOutput,
+} from "./commands/ListModelInvocationJobsCommand";
+import {
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
 } from "./commands/ListProvisionedModelThroughputsCommand";
@@ -127,6 +139,10 @@ import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
+import {
+  StopModelInvocationJobCommandInput,
+  StopModelInvocationJobCommandOutput,
+} from "./commands/StopModelInvocationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
@@ -154,6 +170,7 @@ export type ServiceInputTypes =
   | CreateGuardrailVersionCommandInput
   | CreateModelCopyJobCommandInput
   | CreateModelCustomizationJobCommandInput
+  | CreateModelInvocationJobCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
   | DeleteGuardrailCommandInput
@@ -165,6 +182,7 @@ export type ServiceInputTypes =
   | GetGuardrailCommandInput
   | GetModelCopyJobCommandInput
   | GetModelCustomizationJobCommandInput
+  | GetModelInvocationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetProvisionedModelThroughputCommandInput
   | ListCustomModelsCommandInput
@@ -173,11 +191,13 @@ export type ServiceInputTypes =
   | ListGuardrailsCommandInput
   | ListModelCopyJobsCommandInput
   | ListModelCustomizationJobsCommandInput
+  | ListModelInvocationJobsCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
   | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
+  | StopModelInvocationJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGuardrailCommandInput
@@ -192,6 +212,7 @@ export type ServiceOutputTypes =
   | CreateGuardrailVersionCommandOutput
   | CreateModelCopyJobCommandOutput
   | CreateModelCustomizationJobCommandOutput
+  | CreateModelInvocationJobCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
   | DeleteGuardrailCommandOutput
@@ -203,6 +224,7 @@ export type ServiceOutputTypes =
   | GetGuardrailCommandOutput
   | GetModelCopyJobCommandOutput
   | GetModelCustomizationJobCommandOutput
+  | GetModelInvocationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetProvisionedModelThroughputCommandOutput
   | ListCustomModelsCommandOutput
@@ -211,11 +233,13 @@ export type ServiceOutputTypes =
   | ListGuardrailsCommandOutput
   | ListModelCopyJobsCommandOutput
   | ListModelCustomizationJobsCommandOutput
+  | ListModelInvocationJobsCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
   | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput
+  | StopModelInvocationJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGuardrailCommandOutput

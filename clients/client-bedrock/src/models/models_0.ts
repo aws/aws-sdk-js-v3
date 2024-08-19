@@ -2832,6 +2832,504 @@ export interface ListModelCopyJobsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const S3InputFormat = {
+  JSONL: "JSONL",
+} as const;
+
+/**
+ * @public
+ */
+export type S3InputFormat = (typeof S3InputFormat)[keyof typeof S3InputFormat];
+
+/**
+ * <p>Contains the configuration of the S3 location of the output data.</p>
+ * @public
+ */
+export interface ModelInvocationJobS3InputDataConfig {
+  /**
+   * <p>The format of the input data.</p>
+   * @public
+   */
+  s3InputFormat?: S3InputFormat;
+
+  /**
+   * <p>The S3 location of the input data.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * <p>Details about the location of the input to the batch inference job.</p>
+ * @public
+ */
+export type ModelInvocationJobInputDataConfig =
+  | ModelInvocationJobInputDataConfig.S3InputDataConfigMember
+  | ModelInvocationJobInputDataConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ModelInvocationJobInputDataConfig {
+  /**
+   * <p>Contains the configuration of the S3 location of the input data.</p>
+   * @public
+   */
+  export interface S3InputDataConfigMember {
+    s3InputDataConfig: ModelInvocationJobS3InputDataConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3InputDataConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3InputDataConfig: (value: ModelInvocationJobS3InputDataConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ModelInvocationJobInputDataConfig, visitor: Visitor<T>): T => {
+    if (value.s3InputDataConfig !== undefined) return visitor.s3InputDataConfig(value.s3InputDataConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains the configuration of the S3 location of the output data.</p>
+ * @public
+ */
+export interface ModelInvocationJobS3OutputDataConfig {
+  /**
+   * <p>The S3 location of the output data.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * <p>The unique identifier of the key that encrypts the S3 location of the output data.</p>
+   * @public
+   */
+  s3EncryptionKeyId?: string;
+}
+
+/**
+ * <p>Contains the configuration of the S3 location of the output data.</p>
+ * @public
+ */
+export type ModelInvocationJobOutputDataConfig =
+  | ModelInvocationJobOutputDataConfig.S3OutputDataConfigMember
+  | ModelInvocationJobOutputDataConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ModelInvocationJobOutputDataConfig {
+  /**
+   * <p>Contains the configuration of the S3 location of the output data.</p>
+   * @public
+   */
+  export interface S3OutputDataConfigMember {
+    s3OutputDataConfig: ModelInvocationJobS3OutputDataConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3OutputDataConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3OutputDataConfig: (value: ModelInvocationJobS3OutputDataConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ModelInvocationJobOutputDataConfig, visitor: Visitor<T>): T => {
+    if (value.s3OutputDataConfig !== undefined) return visitor.s3OutputDataConfig(value.s3OutputDataConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateModelInvocationJobRequest {
+  /**
+   * <p>A name to give the batch inference job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role with permissions to carry out and manage batch inference. You can use the console to create a default service role or follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html">Create a service role for batch inference</a>.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The unique identifier of the foundation model to use for the batch inference job.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>Details about the location of the input to the batch inference job.</p>
+   * @public
+   */
+  inputDataConfig: ModelInvocationJobInputDataConfig | undefined;
+
+  /**
+   * <p>Details about the location of the output of the batch inference job.</p>
+   * @public
+   */
+  outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The number of hours after which to force the batch inference job to time out.</p>
+   * @public
+   */
+  timeoutDurationInHours?: number;
+
+  /**
+   * <p>Any tags to associate with the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging Amazon Bedrock resources</a>.</p>
+   * @public
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateModelInvocationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetModelInvocationJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   * @public
+   */
+  jobIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelInvocationJobStatus = {
+  COMPLETED: "Completed",
+  EXPIRED: "Expired",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PARTIALLY_COMPLETED: "PartiallyCompleted",
+  SCHEDULED: "Scheduled",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUBMITTED: "Submitted",
+  VALIDATING: "Validating",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelInvocationJobStatus = (typeof ModelInvocationJobStatus)[keyof typeof ModelInvocationJobStatus];
+
+/**
+ * @public
+ */
+export interface GetModelInvocationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The name of the batch inference job.</p>
+   * @public
+   */
+  jobName?: string;
+
+  /**
+   * <p>The unique identifier of the foundation model used for model inference.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role with permissions to carry out and manage batch inference. You can use the console to create a default service role or follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html">Create a service role for batch inference</a>.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The status of the batch inference job.</p>
+   * @public
+   */
+  status?: ModelInvocationJobStatus;
+
+  /**
+   * <p>If the batch inference job failed, this field contains a message describing why the job failed.</p>
+   * @public
+   */
+  message?: string;
+
+  /**
+   * <p>The time at which the batch inference job was submitted.</p>
+   * @public
+   */
+  submitTime: Date | undefined;
+
+  /**
+   * <p>The time at which the batch inference job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
+
+  /**
+   * <p>The time at which the batch inference job ended.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>Details about the location of the input to the batch inference job.</p>
+   * @public
+   */
+  inputDataConfig: ModelInvocationJobInputDataConfig | undefined;
+
+  /**
+   * <p>Details about the location of the output of the batch inference job.</p>
+   * @public
+   */
+  outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The number of hours after which batch inference job was set to time out.</p>
+   * @public
+   */
+  timeoutDurationInHours?: number;
+
+  /**
+   * <p>The time at which the batch inference job times or timed out.</p>
+   * @public
+   */
+  jobExpirationTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListModelInvocationJobsRequest {
+  /**
+   * <p>Specify a time to filter for batch inference jobs that were submitted after the time you specify.</p>
+   * @public
+   */
+  submitTimeAfter?: Date;
+
+  /**
+   * <p>Specify a time to filter for batch inference jobs that were submitted before the time you specify.</p>
+   * @public
+   */
+  submitTimeBefore?: Date;
+
+  /**
+   * <p>Specify a status to filter for batch inference jobs whose statuses match the string you specify.</p>
+   * @public
+   */
+  statusEquals?: ModelInvocationJobStatus;
+
+  /**
+   * <p>Specify a string to filter for batch inference jobs whose names contain the string.</p>
+   * @public
+   */
+  nameContains?: string;
+
+  /**
+   * <p>The maximum number of results to return. If there are more results than the number that you specify, a <code>nextToken</code> value is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If there were more results than the value you specified
+   *             in the <code>maxResults</code> field in a previous <code>ListModelInvocationJobs</code> request, the response would have returned a <code>nextToken</code>
+   *             value. To see the next batch of results, send the
+   *             <code>nextToken</code> value in another
+   *             request.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An attribute by which to sort the results.</p>
+   * @public
+   */
+  sortBy?: SortJobsBy;
+
+  /**
+   * <p>Specifies whether to sort the results by ascending or descending order.</p>
+   * @public
+   */
+  sortOrder?: SortOrder;
+}
+
+/**
+ * <p>A summary of a batch inference job.</p>
+ * @public
+ */
+export interface ModelInvocationJobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The name of the batch inference job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the foundation model used for model inference.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role with permissions to carry out and manage batch inference. You can use the console to create a default service role or follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html">Create a service role for batch inference</a>.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The status of the batch inference job.</p>
+   * @public
+   */
+  status?: ModelInvocationJobStatus;
+
+  /**
+   * <p>If the batch inference job failed, this field contains a message describing why the job failed.</p>
+   * @public
+   */
+  message?: string;
+
+  /**
+   * <p>The time at which the batch inference job was submitted.</p>
+   * @public
+   */
+  submitTime: Date | undefined;
+
+  /**
+   * <p>The time at which the batch inference job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
+
+  /**
+   * <p>The time at which the batch inference job ended.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>Details about the location of the input to the batch inference job.</p>
+   * @public
+   */
+  inputDataConfig: ModelInvocationJobInputDataConfig | undefined;
+
+  /**
+   * <p>Details about the location of the output of the batch inference job.</p>
+   * @public
+   */
+  outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The number of hours after which the batch inference job was set to time out.</p>
+   * @public
+   */
+  timeoutDurationInHours?: number;
+
+  /**
+   * <p>The time at which the batch inference job times or timed out.</p>
+   * @public
+   */
+  jobExpirationTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListModelInvocationJobsResponse {
+  /**
+   * <p>If there are more results than can fit in the response, a <code>nextToken</code> is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A list of items, each of which contains a summary about a batch inference job.</p>
+   * @public
+   */
+  invocationJobSummaries?: ModelInvocationJobSummary[];
+}
+
+/**
+ * @public
+ */
+export interface StopModelInvocationJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job to stop.</p>
+   * @public
+   */
+  jobIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopModelInvocationJobResponse {}
+
+/**
+ * @public
  */
 export interface DeleteCustomModelRequest {
   /**
@@ -4604,4 +5102,34 @@ export const UpdateGuardrailRequestFilterSensitiveLog = (obj: UpdateGuardrailReq
   }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetModelInvocationJobResponseFilterSensitiveLog = (obj: GetModelInvocationJobResponse): any => ({
+  ...obj,
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.inputDataConfig && { inputDataConfig: obj.inputDataConfig }),
+  ...(obj.outputDataConfig && { outputDataConfig: obj.outputDataConfig }),
+});
+
+/**
+ * @internal
+ */
+export const ModelInvocationJobSummaryFilterSensitiveLog = (obj: ModelInvocationJobSummary): any => ({
+  ...obj,
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.inputDataConfig && { inputDataConfig: obj.inputDataConfig }),
+  ...(obj.outputDataConfig && { outputDataConfig: obj.outputDataConfig }),
+});
+
+/**
+ * @internal
+ */
+export const ListModelInvocationJobsResponseFilterSensitiveLog = (obj: ListModelInvocationJobsResponse): any => ({
+  ...obj,
+  ...(obj.invocationJobSummaries && {
+    invocationJobSummaries: obj.invocationJobSummaries.map((item) => ModelInvocationJobSummaryFilterSensitiveLog(item)),
+  }),
 });
