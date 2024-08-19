@@ -828,6 +828,7 @@ export const EnvironmentType = {
   LINUX_CONTAINER: "LINUX_CONTAINER",
   LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
   LINUX_LAMBDA_CONTAINER: "LINUX_LAMBDA_CONTAINER",
+  MAC_ARM: "MAC_ARM",
   WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
   WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
 } as const;
@@ -2810,6 +2811,8 @@ export interface ScalingConfigurationOutput {
 export const FleetContextCode = {
   ACTION_REQUIRED: "ACTION_REQUIRED",
   CREATE_FAILED: "CREATE_FAILED",
+  INSUFFICIENT_CAPACITY: "INSUFFICIENT_CAPACITY",
+  PENDING_DELETION: "PENDING_DELETION",
   UPDATE_FAILED: "UPDATE_FAILED",
 } as const;
 
@@ -3112,6 +3115,12 @@ export interface Fleet {
    * @public
    */
   vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
+   * @public
+   */
+  imageId?: string;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
@@ -4719,6 +4728,12 @@ export interface CreateFleetInput {
    * @public
    */
   vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
+   * @public
+   */
+  imageId?: string;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
@@ -7910,6 +7925,12 @@ export interface UpdateFleetInput {
    * @public
    */
   vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
+   * @public
+   */
+  imageId?: string;
 
   /**
    * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">

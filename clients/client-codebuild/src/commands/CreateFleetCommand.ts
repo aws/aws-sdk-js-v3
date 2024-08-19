@@ -38,7 +38,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * const input = { // CreateFleetInput
  *   name: "STRING_VALUE", // required
  *   baseCapacity: Number("int"), // required
- *   environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
+ *   environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "MAC_ARM", // required
  *   computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
  *   scalingConfiguration: { // ScalingConfigurationInput
  *     scalingType: "TARGET_TRACKING_SCALING",
@@ -60,6 +60,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   imageId: "STRING_VALUE",
  *   fleetServiceRole: "STRING_VALUE",
  *   tags: [ // TagList
  *     { // Tag
@@ -79,11 +80,11 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //     lastModified: new Date("TIMESTAMP"),
  * //     status: { // FleetStatus
  * //       statusCode: "CREATING" || "UPDATING" || "ROTATING" || "PENDING_DELETION" || "DELETING" || "CREATE_FAILED" || "UPDATE_ROLLBACK_FAILED" || "ACTIVE",
- * //       context: "CREATE_FAILED" || "UPDATE_FAILED" || "ACTION_REQUIRED",
+ * //       context: "CREATE_FAILED" || "UPDATE_FAILED" || "ACTION_REQUIRED" || "PENDING_DELETION" || "INSUFFICIENT_CAPACITY",
  * //       message: "STRING_VALUE",
  * //     },
  * //     baseCapacity: Number("int"),
- * //     environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER",
+ * //     environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "MAC_ARM",
  * //     computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB",
  * //     scalingConfiguration: { // ScalingConfigurationOutput
  * //       scalingType: "TARGET_TRACKING_SCALING",
@@ -106,6 +107,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     imageId: "STRING_VALUE",
  * //     fleetServiceRole: "STRING_VALUE",
  * //     tags: [ // TagList
  * //       { // Tag
