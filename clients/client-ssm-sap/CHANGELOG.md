@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.634.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.633.0...v3.634.0) (2024-08-19)
+
+
+### Features
+
+* **client-ssm-sap:** Add new attributes to the outputs of GetApplication and GetDatabase APIs. ([20c4094](https://github.com/aws/aws-sdk-js-v3/commit/20c40942e8bcee2da603cb8a766d9eb025dc4bb3))
+
+
+
+
+
 # [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-sap

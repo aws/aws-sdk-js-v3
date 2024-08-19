@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.634.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.633.0...v3.634.0) (2024-08-19)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Batch Inference/ Model Invocation is a feature which allows customers to asynchronously run inference on a large set of records/files stored in S3. ([82332ab](https://github.com/aws/aws-sdk-js-v3/commit/82332ab6558ef63e1fde513bb502cbc71aab78a0))
+* **client-codebuild:** AWS CodeBuild now supports creating fleets with macOS platform for running builds. ([0394488](https://github.com/aws/aws-sdk-js-v3/commit/03944887ca54f298c2af18e61543c852828c01d2))
+* **client-deadline:** This release adds additional search fields and provides sorting by multiple fields. ([ce47549](https://github.com/aws/aws-sdk-js-v3/commit/ce47549214b79dae8012d64fb5442ad9dd40ed82))
+* **client-lambda:** Release Lambda FunctionRecursiveConfig, enabling customers to turn recursive loop detection on or off on individual functions. This release adds two new APIs, GetFunctionRecursionConfig and PutFunctionRecursionConfig. ([30b277c](https://github.com/aws/aws-sdk-js-v3/commit/30b277c4334b25da5624b2d5474260d30e01d7bd))
+* **client-ssm-sap:** Add new attributes to the outputs of GetApplication and GetDatabase APIs. ([20c4094](https://github.com/aws/aws-sdk-js-v3/commit/20c40942e8bcee2da603cb8a766d9eb025dc4bb3))
+* **clients:** update client endpoints as of 2024-08-19 ([fde4262](https://github.com/aws/aws-sdk-js-v3/commit/fde42620401690ab91996540043fa1bfe363b4af))
+
+
+
+
+
 # [3.633.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.632.0...v3.633.0) (2024-08-16)
 
 
