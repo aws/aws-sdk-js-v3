@@ -180,8 +180,17 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
@@ -1142,10 +1151,10 @@ export interface CreateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
+   *          <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
-   *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   *          <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    * @public
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -1879,8 +1888,14 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">
+   *           runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in
+   *           an error if you're deploying a function using a container image.</p>
+   *          <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing
+   *           functions shortly after each runtime is deprecated. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   Runtime?: Runtime;
@@ -2371,8 +2386,14 @@ export interface FunctionConfiguration {
   FunctionArn?: string;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">
+   *           runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in
+   *           an error if you're deploying a function using a container image.</p>
+   *          <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing
+   *           functions shortly after each runtime is deprecated. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   Runtime?: Runtime;
@@ -3545,6 +3566,47 @@ export interface GetFunctionEventInvokeConfigRequest {
 /**
  * @public
  */
+export interface GetFunctionRecursionConfigRequest {
+  /**
+   * <p></p>
+   * @public
+   */
+  FunctionName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecursiveLoop = {
+  Allow: "Allow",
+  Terminate: "Terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type RecursiveLoop = (typeof RecursiveLoop)[keyof typeof RecursiveLoop];
+
+/**
+ * @public
+ */
+export interface GetFunctionRecursionConfigResponse {
+  /**
+   * <p>If your function's recursive loop detection configuration is <code>Allow</code>, Lambda doesn't take any action when it
+   *     detects your function being invoked as part of a recursive loop.</p>
+   *          <p>If your function's recursive loop detection configuration is <code>Terminate</code>, Lambda stops your function being
+   *       invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p>
+   *          <p>By default, Lambda sets your function's configuration to <code>Terminate</code>. You can update this
+   *       configuration using the <a>PutFunctionRecursionConfig</a> action.</p>
+   * @public
+   */
+  RecursiveLoop?: RecursiveLoop;
+}
+
+/**
+ * @public
+ */
 export interface GetFunctionUrlConfigRequest {
   /**
    * <p>The name or ARN of the Lambda function.</p>
@@ -3736,7 +3798,10 @@ export interface GetLayerVersionResponse {
 
   /**
    * <p>The layer's compatible runtimes.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   CompatibleRuntimes?: Runtime[];
@@ -5573,8 +5638,11 @@ export interface ListFunctionUrlConfigsResponse {
  */
 export interface ListLayersRequest {
   /**
-   * <p>A runtime identifier. For example, <code>java21</code>.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * <p>A runtime identifier.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   CompatibleRuntime?: Runtime;
@@ -5631,7 +5699,10 @@ export interface LayerVersionsListItem {
 
   /**
    * <p>The layer's compatible runtimes.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   CompatibleRuntimes?: Runtime[];
@@ -5697,8 +5768,11 @@ export interface ListLayersResponse {
  */
 export interface ListLayerVersionsRequest {
   /**
-   * <p>A runtime identifier. For example, <code>java21</code>.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * <p>A runtime identifier.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   CompatibleRuntime?: Runtime;
@@ -6068,7 +6142,10 @@ export interface PublishLayerVersionResponse {
 
   /**
    * <p>The layer's compatible runtimes.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   CompatibleRuntimes?: Runtime[];
@@ -6319,6 +6396,69 @@ export interface PutFunctionEventInvokeConfigRequest {
    * @public
    */
   DestinationConfig?: DestinationConfig;
+}
+
+/**
+ * @public
+ */
+export interface PutFunctionRecursionConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>If you set your function's recursive loop detection configuration to <code>Allow</code>, Lambda doesn't take any action when it
+   *       detects your function being invoked as part of a recursive loop. We recommend that you only use this setting if your design intentionally uses a
+   *     Lambda function to write data back to the same Amazon Web Services resource that invokes it.</p>
+   *          <p>If you set your function's recursive loop detection configuration to <code>Terminate</code>, Lambda stops your function being
+   *       invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p>
+   *          <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p>
+   *          <important>
+   *             <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes
+   *         the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to
+   *         your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause
+   *           run-away Lambda functions</a> in Serverless Land.</p>
+   *          </important>
+   * @public
+   */
+  RecursiveLoop: RecursiveLoop | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFunctionRecursionConfigResponse {
+  /**
+   * <p>The status of your function's recursive loop detection configuration.</p>
+   *          <p>When this value is set to <code>Allow</code>and Lambda detects your function being invoked as part of a recursive
+   *       loop, it doesn't take any action.</p>
+   *          <p>When this value is set to <code>Terminate</code> and Lambda detects your function being invoked as part of a recursive
+   *       loop, it stops your function being invoked and notifies you.
+   *     </p>
+   * @public
+   */
+  RecursiveLoop?: RecursiveLoop;
 }
 
 /**
@@ -6807,10 +6947,10 @@ export interface UpdateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
+   *          <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
-   *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   *          <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    * @public
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -7046,8 +7186,14 @@ export interface UpdateFunctionConfigurationRequest {
   Environment?: Environment;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
-   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">
+   *           runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in
+   *           an error if you're deploying a function using a container image.</p>
+   *          <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing
+   *           functions shortly after each runtime is deprecated. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+   *          <p>For a list of all currently supported runtimes, see
+   *           <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
    * @public
    */
   Runtime?: Runtime;

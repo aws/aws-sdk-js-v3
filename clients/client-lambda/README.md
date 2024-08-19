@@ -478,6 +478,14 @@ GetFunctionEventInvokeConfig
 </details>
 <details>
 <summary>
+GetFunctionRecursionConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionRecursionConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/GetFunctionRecursionConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/GetFunctionRecursionConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFunctionUrlConfig
 </summary>
 
@@ -690,6 +698,14 @@ PutFunctionEventInvokeConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/PutFunctionEventInvokeConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionEventInvokeConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionEventInvokeConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutFunctionRecursionConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/PutFunctionRecursionConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionRecursionConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionRecursionConfigCommandOutput/)
 
 </details>
 <details>

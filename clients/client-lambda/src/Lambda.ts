@@ -117,6 +117,11 @@ import {
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
 import {
+  GetFunctionRecursionConfigCommand,
+  GetFunctionRecursionConfigCommandInput,
+  GetFunctionRecursionConfigCommandOutput,
+} from "./commands/GetFunctionRecursionConfigCommand";
+import {
   GetFunctionUrlConfigCommand,
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
@@ -228,6 +233,11 @@ import {
   PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand";
 import {
+  PutFunctionRecursionConfigCommand,
+  PutFunctionRecursionConfigCommandInput,
+  PutFunctionRecursionConfigCommandOutput,
+} from "./commands/PutFunctionRecursionConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommand,
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
@@ -313,6 +323,7 @@ const commands = {
   GetFunctionConcurrencyCommand,
   GetFunctionConfigurationCommand,
   GetFunctionEventInvokeConfigCommand,
+  GetFunctionRecursionConfigCommand,
   GetFunctionUrlConfigCommand,
   GetLayerVersionCommand,
   GetLayerVersionByArnCommand,
@@ -340,6 +351,7 @@ const commands = {
   PutFunctionCodeSigningConfigCommand,
   PutFunctionConcurrencyCommand,
   PutFunctionEventInvokeConfigCommand,
+  PutFunctionRecursionConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
@@ -764,6 +776,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link GetFunctionRecursionConfigCommand}
+   */
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionRecursionConfigCommandOutput>;
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
+  ): void;
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFunctionUrlConfigCommand}
    */
   getFunctionUrlConfig(
@@ -1176,6 +1205,23 @@ export interface Lambda {
     args: PutFunctionEventInvokeConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutFunctionEventInvokeConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutFunctionRecursionConfigCommand}
+   */
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFunctionRecursionConfigCommandOutput>;
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    cb: (err: any, data?: PutFunctionRecursionConfigCommandOutput) => void
+  ): void;
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFunctionRecursionConfigCommandOutput) => void
   ): void;
 
   /**

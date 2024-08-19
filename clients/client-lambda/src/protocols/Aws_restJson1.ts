@@ -107,6 +107,10 @@ import {
   GetFunctionEventInvokeConfigCommandOutput,
 } from "../commands/GetFunctionEventInvokeConfigCommand";
 import {
+  GetFunctionRecursionConfigCommandInput,
+  GetFunctionRecursionConfigCommandOutput,
+} from "../commands/GetFunctionRecursionConfigCommand";
+import {
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
 } from "../commands/GetFunctionUrlConfigCommand";
@@ -184,6 +188,10 @@ import {
   PutFunctionEventInvokeConfigCommandInput,
   PutFunctionEventInvokeConfigCommandOutput,
 } from "../commands/PutFunctionEventInvokeConfigCommand";
+import {
+  PutFunctionRecursionConfigCommandInput,
+  PutFunctionRecursionConfigCommandOutput,
+} from "../commands/PutFunctionRecursionConfigCommand";
 import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
@@ -858,6 +866,22 @@ export const se_GetFunctionEventInvokeConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetFunctionRecursionConfigCommand
+ */
+export const se_GetFunctionRecursionConfigCommand = async (
+  input: GetFunctionRecursionConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2024-08-31/functions/{FunctionName}/recursion-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetFunctionUrlConfigCommand
  */
 export const se_GetFunctionUrlConfigCommand = async (
@@ -1423,6 +1447,29 @@ export const se_PutFunctionEventInvokeConfigCommand = async (
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutFunctionRecursionConfigCommand
+ */
+export const se_PutFunctionRecursionConfigCommand = async (
+  input: PutFunctionRecursionConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2024-08-31/functions/{FunctionName}/recursion-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RecursiveLoop: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2466,6 +2513,27 @@ export const de_GetFunctionEventInvokeConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetFunctionRecursionConfigCommand
+ */
+export const de_GetFunctionRecursionConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFunctionRecursionConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RecursiveLoop: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetFunctionUrlConfigCommand
  */
 export const de_GetFunctionUrlConfigCommand = async (
@@ -3121,6 +3189,27 @@ export const de_PutFunctionEventInvokeConfigCommand = async (
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MaximumEventAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutFunctionRecursionConfigCommand
+ */
+export const de_PutFunctionRecursionConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFunctionRecursionConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RecursiveLoop: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

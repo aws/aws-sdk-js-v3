@@ -137,6 +137,10 @@ import {
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
 import {
+  GetFunctionRecursionConfigCommandInput,
+  GetFunctionRecursionConfigCommandOutput,
+} from "./commands/GetFunctionRecursionConfigCommand";
+import {
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
 } from "./commands/GetFunctionUrlConfigCommand";
@@ -215,6 +219,10 @@ import {
   PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand";
 import {
+  PutFunctionRecursionConfigCommandInput,
+  PutFunctionRecursionConfigCommandOutput,
+} from "./commands/PutFunctionRecursionConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
@@ -292,6 +300,7 @@ export type ServiceInputTypes =
   | GetFunctionConcurrencyCommandInput
   | GetFunctionConfigurationCommandInput
   | GetFunctionEventInvokeConfigCommandInput
+  | GetFunctionRecursionConfigCommandInput
   | GetFunctionUrlConfigCommandInput
   | GetLayerVersionByArnCommandInput
   | GetLayerVersionCommandInput
@@ -319,6 +328,7 @@ export type ServiceInputTypes =
   | PutFunctionCodeSigningConfigCommandInput
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
+  | PutFunctionRecursionConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
@@ -363,6 +373,7 @@ export type ServiceOutputTypes =
   | GetFunctionConcurrencyCommandOutput
   | GetFunctionConfigurationCommandOutput
   | GetFunctionEventInvokeConfigCommandOutput
+  | GetFunctionRecursionConfigCommandOutput
   | GetFunctionUrlConfigCommandOutput
   | GetLayerVersionByArnCommandOutput
   | GetLayerVersionCommandOutput
@@ -390,6 +401,7 @@ export type ServiceOutputTypes =
   | PutFunctionCodeSigningConfigCommandOutput
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
+  | PutFunctionRecursionConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
