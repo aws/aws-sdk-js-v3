@@ -81,6 +81,9 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * //     ],
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     StatusMessage: "STRING_VALUE",
+ * //     AssociatedApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   OperationId: "STRING_VALUE",
  * // };

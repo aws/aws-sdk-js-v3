@@ -56,6 +56,9 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * //     ],
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     StatusMessage: "STRING_VALUE",
+ * //     AssociatedApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

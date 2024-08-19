@@ -128,6 +128,13 @@ export interface Application {
    * @public
    */
   StatusMessage?: string;
+
+  /**
+   * <p>The Amazon Resource Names of the associated AWS Systems Manager for SAP
+   *          applications.</p>
+   * @public
+   */
+  AssociatedApplicationArns?: string[];
 }
 
 /**
@@ -849,6 +856,13 @@ export interface Database {
    * @public
    */
   LastUpdated?: Date;
+
+  /**
+   * <p>The Amazon Resource Names of the connected AWS Systems Manager for SAP
+   *          components.</p>
+   * @public
+   */
+  ConnectedComponentArns?: string[];
 }
 
 /**
@@ -1499,33 +1513,32 @@ export interface ListOperationEventsInput {
   MaxResults?: number;
 
   /**
-   * <p>The token to use to retrieve the next page of results.
-   *          This value is null when there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    * @public
    */
   NextToken?: string;
 
   /**
-   * <p>Optionally specify filters to narrow the returned operation
-   *       event items.</p>
-   *          <p>Valid filter names include <code>status</code>, <code>resourceID</code>,
-   *       and <code>resourceType</code>. The valid operator for all three filters
-   *       is <code>Equals</code>.</p>
+   * <p>Optionally specify filters to narrow the returned operation event items.</p>
+   *          <p>Valid filter names include <code>status</code>, <code>resourceID</code>, and
+   *             <code>resourceType</code>. The valid operator for all three filters is
+   *             <code>Equals</code>.</p>
    * @public
    */
   Filters?: Filter[];
 }
 
 /**
- * <p>The resource contains a <code>ResourceArn</code>
- *          and the <code>ResourceType</code>.</p>
+ * <p>The resource contains a <code>ResourceArn</code> and the
+ *          <code>ResourceType</code>.</p>
  * @public
  */
 export interface Resource {
   /**
    * <p>The Amazon Resource Name (ARN) of the source resource.</p>
    *          <p>Example of <code>ResourceArn</code>:
-   *          "<code>arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321</code>"</p>
+   *             "<code>arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321</code>"</p>
    * @public
    */
   ResourceArn?: string;
@@ -1555,9 +1568,8 @@ export const OperationEventStatus = {
 export type OperationEventStatus = (typeof OperationEventStatus)[keyof typeof OperationEventStatus];
 
 /**
- * <p>An operation event returns details for an operation, including
- *       key milestones which can be used to monitor and track operations
- *       in progress.</p>
+ * <p>An operation event returns details for an operation, including key milestones which can
+ *          be used to monitor and track operations in progress.</p>
  *          <p>Operation events contain:</p>
  *          <ul>
  *             <li>
@@ -1576,14 +1588,13 @@ export type OperationEventStatus = (typeof OperationEventStatus)[keyof typeof Op
  *                <p>TimeStamp</p>
  *             </li>
  *          </ul>
- *          <p>Operation event examples include StartApplication or
- *          StopApplication.</p>
+ *          <p>Operation event examples include StartApplication or StopApplication.</p>
  * @public
  */
 export interface OperationEvent {
   /**
-   * <p>A description of the operation event. For example,
-   *          "Stop the EC2 instance i-abcdefgh987654321".</p>
+   * <p>A description of the operation event. For example, "Stop the EC2 instance
+   *          i-abcdefgh987654321".</p>
    * @public
    */
   Description?: string;
@@ -1596,16 +1607,14 @@ export interface OperationEvent {
   Resource?: Resource;
 
   /**
-   * <p>The status of the operation event. The possible statuses
-   *          are: <code>IN_PROGRESS</code>,
-   *          <code>COMPLETED</code>, and <code>FAILED</code>.</p>
+   * <p>The status of the operation event. The possible statuses are: <code>IN_PROGRESS</code>,
+   *             <code>COMPLETED</code>, and <code>FAILED</code>.</p>
    * @public
    */
   Status?: OperationEventStatus;
 
   /**
-   * <p>The status message relating to a specific
-   *          operation event.</p>
+   * <p>The status message relating to a specific operation event.</p>
    * @public
    */
   StatusMessage?: string;
@@ -1622,8 +1631,7 @@ export interface OperationEvent {
  */
 export interface ListOperationEventsOutput {
   /**
-   * <p>A returned list of operation events that
-   *          meet the filter criteria.</p>
+   * <p>A returned list of operation events that meet the filter criteria.</p>
    * @public
    */
   OperationEvents?: OperationEvent[];
@@ -1866,18 +1874,16 @@ export interface StopApplicationInput {
   ApplicationId: string | undefined;
 
   /**
-   * <p>Specify the <code>ConnectedEntityType</code>. Accepted type
-   *       is <code>DBMS</code>.</p>
-   *          <p>If this parameter is included, the connected DBMS (Database
-   *       Management System) will be stopped.</p>
+   * <p>Specify the <code>ConnectedEntityType</code>. Accepted type is <code>DBMS</code>.</p>
+   *          <p>If this parameter is included, the connected DBMS (Database Management System) will be
+   *          stopped.</p>
    * @public
    */
   StopConnectedEntity?: ConnectedEntityType;
 
   /**
-   * <p>Boolean. If included and if set to <code>True</code>, the
-   *          StopApplication operation will shut down the associated Amazon EC2 instance in addition to
-   *          the application.</p>
+   * <p>Boolean. If included and if set to <code>True</code>, the StopApplication operation will
+   *          shut down the associated Amazon EC2 instance in addition to the application.</p>
    * @public
    */
   IncludeEc2InstanceShutdown?: boolean;

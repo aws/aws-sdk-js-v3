@@ -1173,6 +1173,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
   return take(output, {
     AppRegistryArn: __expectString,
     Arn: __expectString,
+    AssociatedApplicationArns: _json,
     Components: _json,
     DiscoveryStatus: __expectString,
     Id: __expectString,
@@ -1182,6 +1183,8 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     Type: __expectString,
   }) as any;
 };
+
+// de_ApplicationArnList omitted.
 
 // de_ApplicationCredential omitted.
 
@@ -1221,6 +1224,8 @@ const de_Component = (output: any, context: __SerdeContext): Component => {
   }) as any;
 };
 
+// de_ComponentArnList omitted.
+
 // de_ComponentIdList omitted.
 
 // de_ComponentSummary omitted.
@@ -1235,6 +1240,7 @@ const de_Database = (output: any, context: __SerdeContext): Database => {
     ApplicationId: __expectString,
     Arn: __expectString,
     ComponentId: __expectString,
+    ConnectedComponentArns: _json,
     Credentials: _json,
     DatabaseId: __expectString,
     DatabaseName: __expectString,

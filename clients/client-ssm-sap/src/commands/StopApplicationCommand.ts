@@ -29,9 +29,9 @@ export interface StopApplicationCommandOutput extends StopApplicationOutput, __M
 
 /**
  * <p>Request is an operation to stop an application.</p>
- *          <p>Parameter <code>ApplicationId</code> is required.
- *          Parameters <code>StopConnectedEntity</code> and
- *          <code>IncludeEc2InstanceShutdown</code> are optional.</p>
+ *          <p>Parameter <code>ApplicationId</code> is required. Parameters
+ *             <code>StopConnectedEntity</code> and <code>IncludeEc2InstanceShutdown</code> are
+ *          optional.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

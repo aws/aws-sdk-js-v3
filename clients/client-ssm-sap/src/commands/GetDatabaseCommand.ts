@@ -63,6 +63,9 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * //     PrimaryHost: "STRING_VALUE",
  * //     SQLPort: Number("int"),
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     ConnectedComponentArns: [ // ComponentArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
