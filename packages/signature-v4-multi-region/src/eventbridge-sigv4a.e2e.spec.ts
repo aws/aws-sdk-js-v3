@@ -1,30 +1,26 @@
 import "@smithy/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { CloudFrontClient, CreateKeyValueStoreCommand, DeleteKeyValueStoreCommand } from "@aws-sdk/client-cloudfront";
-import { CloudFrontKeyValueStoreClient, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront-keyvaluestore";
+import { EventBridgeClient, PutRuleCommand, DeleteRuleCommand, DescribeRuleCommand } from "@aws-sdk/client-eventbridge";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
 
 jest.setTimeout(300000);
 
-describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () => {
-  let cfClient: CloudFrontClient;
-  let kvsClient: CloudFrontKeyValueStoreClient;
-  let keyValueStoreName: string;
-  let keyValueStoreARN: string;
-  let keyValueStoreETag: string;
+describe("EventBridge with SignatureV4a (JS Implementation)", () => {
+  let ebClient: EventBridgeClient;
+  let ruleName: string;
   let signer: SignatureV4MultiRegion;
 
   beforeAll(async () => {
     const stsClient = new STSClient({});
     const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
     const timestamp = Date.now();
-    keyValueStoreName = `test-store-${Account}-${timestamp}`;
+    ruleName = `test-rule-${Account}-${timestamp}`;
 
     signer = new SignatureV4MultiRegion({
-      service: "cloudfront-keyvaluestore",
+      service: "eventbridge",
       region: "*",
       sha256: Sha256,
       credentials: {
@@ -34,34 +30,21 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
       },
     });
 
-    cfClient = new CloudFrontClient({
-      region: "us-east-1",
-    });
-
-    kvsClient = new CloudFrontKeyValueStoreClient({
+    ebClient = new EventBridgeClient({
       region: "*",
       signer,
     });
-
-    const createResponse = await cfClient.send(
-      new CreateKeyValueStoreCommand({
-        Name: keyValueStoreName,
-      })
-    );
-    keyValueStoreARN = createResponse.KeyValueStore!.ARN!;
-    keyValueStoreETag = createResponse.ETag!;
   });
 
   afterAll(async () => {
     try {
-      await cfClient.send(
-        new DeleteKeyValueStoreCommand({
-          Name: keyValueStoreName,
-          IfMatch: keyValueStoreETag,
+      await ebClient.send(
+        new DeleteRuleCommand({
+          Name: ruleName,
         })
       );
     } catch (error) {
-      console.error("Failed to delete key-value store:", error);
+      console.error("Failed to delete EventBridge rule:", error);
     }
   });
 
@@ -69,9 +52,9 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
     const mockRequest = new HttpRequest({
       method: "POST",
       protocol: "https:",
-      hostname: "cloudfront-keyvaluestore.amazonaws.com",
+      hostname: "events.amazonaws.com",
       headers: {
-        host: "cloudfront-keyvaluestore.amazonaws.com",
+        host: "events.amazonaws.com",
       },
       path: "/",
     });
@@ -92,9 +75,25 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
     signSpy.mockRestore();
   });
 
-  it("should describe the key-value store using SignatureV4a", async () => {
-    const response = await kvsClient.send(new DescribeKeyValueStoreCommand({ KvsARN: keyValueStoreARN }));
-    expect(response.KvsARN).toBe(keyValueStoreARN);
-    expect(response.Status).toBe("Deployed");
+  it("should create, describe, and delete an EventBridge rule using SignatureV4a", async () => {
+    const createResponse = await ebClient.send(
+      new PutRuleCommand({
+        Name: ruleName,
+        ScheduleExpression: "rate(5 minutes)",
+        State: "DISABLED",
+      })
+    );
+    expect(createResponse.RuleArn).toBeDefined();
+
+    const describeResponse = await ebClient.send(
+      new DescribeRuleCommand({
+        Name: ruleName,
+      })
+    );
+    expect(describeResponse.Name).toBe(ruleName);
+    expect(describeResponse.ScheduleExpression).toBe("rate(5 minutes)");
+    expect(describeResponse.State).toBe("DISABLED");
+
+    // delete is handled in afterAll
   });
 });
