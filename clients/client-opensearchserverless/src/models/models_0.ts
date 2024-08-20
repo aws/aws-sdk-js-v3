@@ -666,6 +666,18 @@ export interface CollectionDetail {
    * @public
    */
   dashboardEndpoint?: string;
+
+  /**
+   * <p>A failure code associated with the request.</p>
+   * @public
+   */
+  failureCode?: string;
+
+  /**
+   * <p>A message associated with the failure code.</p>
+   * @public
+   */
+  failureMessage?: string;
 }
 
 /**
@@ -1080,6 +1092,18 @@ export interface VpcEndpointDetail {
    * @public
    */
   createdDate?: number;
+
+  /**
+   * <p>A failure code associated with the request.</p>
+   * @public
+   */
+  failureCode?: string;
+
+  /**
+   * <p>A message associated with the failure code.</p>
+   * @public
+   */
+  failureMessage?: string;
 }
 
 /**

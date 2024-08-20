@@ -62,6 +62,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * //       ],
  * //       status: "STRING_VALUE",
  * //       createdDate: Number("long"),
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails

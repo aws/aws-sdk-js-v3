@@ -66,6 +66,8 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       lastModifiedDate: Number("long"),
  * //       collectionEndpoint: "STRING_VALUE",
  * //       dashboardEndpoint: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   collectionErrorDetails: [ // CollectionErrorDetails
