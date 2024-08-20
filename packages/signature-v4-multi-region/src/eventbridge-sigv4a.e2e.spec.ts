@@ -1,7 +1,7 @@
 import "@smithy/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { EventBridgeClient, PutRuleCommand, DeleteRuleCommand, DescribeRuleCommand } from "@aws-sdk/client-eventbridge";
+import { DeleteRuleCommand, DescribeRuleCommand, EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
@@ -20,7 +20,7 @@ describe("EventBridge with SignatureV4a (JS Implementation)", () => {
     ruleName = `test-rule-${Account}-${timestamp}`;
 
     signer = new SignatureV4MultiRegion({
-      service: "eventbridge",
+      service: "events",
       region: "*",
       sha256: Sha256,
       credentials: {
