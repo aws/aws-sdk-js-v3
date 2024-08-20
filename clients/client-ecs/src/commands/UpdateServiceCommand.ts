@@ -54,7 +54,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			count, task placement constraints and strategies, health check grace period, enable ECS
  * 			managed tags option, and propagate tags option, using this API. If the launch type, load
  * 			balancer, network configuration, platform version, or task definition need to be
- * 			updated, create a new task set For more information, see <a>CreateTaskSet</a>.</p>
+ * 			updated, create a new task set For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.</p>
  *          <p>You can add to or subtract from the number of instantiations of a task definition in a
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
@@ -95,7 +95,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 					(provided that the cluster resources required to do this are available).</p>
  *             </li>
  *          </ul>
- *          <p>When <a>UpdateService</a> stops a task during a deployment, the equivalent
+ *          <p>When <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a> stops a task during a deployment, the equivalent
  * 			of <code>docker stop</code> is issued to the containers running in the task. This
  * 			results in a <code>SIGTERM</code> and a 30-second timeout. After this,
  * 				<code>SIGKILL</code> is sent and the containers are forcibly stopped. If the
@@ -614,7 +614,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
@@ -635,10 +635,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @throws {@link ServiceNotActiveException} (client fault)
  *  <p>The specified service isn't active. You can't update a service that's inactive. If you
- * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ * 			have previously deleted a service, you can re-create it with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)

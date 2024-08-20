@@ -51,7 +51,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  *          <p>Service tasks on the container instance that are in the <code>RUNNING</code> state are
  * 			stopped and replaced according to the service's deployment configuration parameters,
  * 				<code>minimumHealthyPercent</code> and <code>maximumPercent</code>. You can change
- * 			the deployment configuration of your service using <a>UpdateService</a>.</p>
+ * 			the deployment configuration of your service using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
  *          <ul>
  *             <li>
  *                <p>If <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore
@@ -213,7 +213,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

@@ -30,7 +30,7 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
 /**
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
- * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
+ * 			To delete an attribute, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html">DeleteAttributes</a>. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,11 +72,11 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  *
  * @throws {@link AttributeLimitExceededException} (client fault)
  *  <p>You can apply up to 10 custom attributes for each resource. You can view the
- * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
- * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
+ * 			attributes of a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListAttributes.html">ListAttributes</a>. You can remove existing
+ * 			attributes on a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html">DeleteAttributes</a>.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

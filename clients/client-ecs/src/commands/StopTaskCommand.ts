@@ -29,7 +29,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
 
 /**
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
- *          <p>When <a>StopTask</a> is called on a task, the equivalent of <code>docker
+ *          <p>When you call <code>StopTask</code> on a task, the equivalent of <code>docker
  * 				stop</code> is issued to the containers running in the task. This results in a
  * 				<code>SIGTERM</code> value and a default 30-second timeout, after which the
  * 				<code>SIGKILL</code> value is sent and the containers are forcibly stopped. If the
@@ -244,7 +244,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

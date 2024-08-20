@@ -31,17 +31,17 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * <p>Deletes a specified service within a cluster. You can delete a service if you have no
  * 			running tasks in it and the desired task count is zero. If the service is actively
  * 			maintaining tasks, you can't delete it, and you must update the service to a desired
- * 			task count of zero. For more information, see <a>UpdateService</a>.</p>
+ * 			task count of zero. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
  *          <note>
  *             <p>When you delete a service, if there are still running tasks that require cleanup,
  * 				the service status moves from <code>ACTIVE</code> to <code>DRAINING</code>, and the
- * 				service is no longer visible in the console or in the <a>ListServices</a>
+ * 				service is no longer visible in the console or in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>
  * 				API operation. After all tasks have transitioned to either <code>STOPPING</code> or
  * 					<code>STOPPED</code> status, the service status moves from <code>DRAINING</code>
  * 				to <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
- * 					<code>INACTIVE</code> status can still be viewed with the <a>DescribeServices</a> API operation. However, in the future,
+ * 				<code>INACTIVE</code> status can still be viewed with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> API operation. However, in the future,
  * 					<code>INACTIVE</code> services may be cleaned up and purged from Amazon ECS record
- * 				keeping, and <a>DescribeServices</a> calls on those services return a
+ * 				keeping, and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a>  calls on those services return a
  * 					<code>ServiceNotFoundException</code> error.</p>
  *          </note>
  *          <important>
@@ -360,7 +360,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
@@ -370,7 +370,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
  * @throws {@link ECSServiceException}

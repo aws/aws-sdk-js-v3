@@ -33,7 +33,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * 			account for a period of time. However, this behavior is subject to change in the future.
  * 			We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p>
  *          <p>You must deregister all container instances from this cluster before you may delete
- * 			it. You can list the container instances in a cluster with <a>ListContainerInstances</a> and deregister them with <a>DeregisterContainerInstance</a>.</p>
+ * 			it. You can list the container instances in a cluster with  <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>  and deregister them with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html">DeregisterContainerInstance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,18 +145,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ClusterContainsContainerInstancesException} (client fault)
  *  <p>You can't delete a cluster that has registered container instances. First, deregister
  * 			the container instances before you can delete the cluster. For more information, see
- * 				<a>DeregisterContainerInstance</a>.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html">DeregisterContainerInstance</a>.</p>
  *
  * @throws {@link ClusterContainsServicesException} (client fault)
  *  <p>You can't delete a cluster that contains services. First, update the service to reduce
  * 			its desired task count to 0, and then delete the service. For more information, see
- * 				<a>UpdateService</a> and <a>DeleteService</a>.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html">DeleteService</a>.</p>
  *
  * @throws {@link ClusterContainsTasksException} (client fault)
  *  <p>You can't delete a cluster that has active tasks.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

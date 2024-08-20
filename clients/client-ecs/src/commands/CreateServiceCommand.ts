@@ -31,7 +31,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
- * 			service, see the <a>UpdateService</a> action.</p>
+ * 			service, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
@@ -69,7 +69,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *          </ul>
  *          <p>You can optionally specify a deployment configuration for your service. The deployment
  * 			is initiated by changing properties. For example, the deployment might be initiated by
- * 			the task definition or by your desired count of a service. This is done with an <a>UpdateService</a> operation. The default value for a replica service for
+ * 			the task definition or by your desired count of a service. You can use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>. The default value for a replica service for
  * 				<code>minimumHealthyPercent</code> is 100%. The default value for a daemon service
  * 			for <code>minimumHealthyPercent</code> is 0%.</p>
  *          <p>If a service uses the <code>ECS</code> deployment controller, the minimum healthy
@@ -107,7 +107,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			currently visible when describing your service.</p>
  *          <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
- * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			required parameter is the service name. You control your services using the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>When the service scheduler launches new tasks, it determines task placement. For
  * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
  * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
@@ -575,7 +575,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *          </ul>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API

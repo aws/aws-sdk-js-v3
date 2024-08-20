@@ -145,8 +145,7 @@ export interface ManagedScaling {
   minimumScalingStepSize?: number;
 
   /**
-   * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
-   * 			in process is not affected by this parameter. If this parameter is omitted, the default
+   * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default
    * 			value of <code>10000</code> is used.</p>
    * @public
    */
@@ -704,15 +703,15 @@ export interface ClusterConfiguration {
 
 /**
  * <p>The details of a capacity provider strategy. A capacity provider strategy can be set
- * 			when using the <a>RunTask</a> or <a>CreateCluster</a> APIs or as
- * 			the default capacity provider strategy for a cluster with the <a>CreateCluster</a> API.</p>
+ * 			when using the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html">CreateCluster</a> APIs or as
+ * 			the default capacity provider strategy for a cluster with the <code>CreateCluster</code> API.</p>
  *          <p>Only capacity providers that are already associated with a cluster and have an
  * 				<code>ACTIVE</code> or <code>UPDATING</code> status can be used in a capacity
- * 			provider strategy. The <a>PutClusterCapacityProviders</a> API is used to
+ * 			provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API is used to
  * 			associate a capacity provider with a cluster.</p>
  *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
  * 			provider must already be created. New Auto Scaling group capacity providers can be
- * 			created with the <a>CreateCapacityProvider</a> API operation.</p>
+ * 			created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a> API operation.</p>
  *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
  * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
  * 			available to all accounts and only need to be associated with a cluster to be used in a
@@ -894,8 +893,8 @@ export interface CreateClusterRequest {
   /**
    * <p>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
    * 			Container Insights for a cluster. If this value is specified, it overrides the
-   * 				<code>containerInsights</code> value set with <a>PutAccountSetting</a> or
-   * 				<a>PutAccountSettingDefault</a>.</p>
+   * 			<code>containerInsights</code> value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
    * @public
    */
   settings?: ClusterSetting[];
@@ -931,7 +930,7 @@ export interface CreateClusterRequest {
    * 			capacity provider strategy or launch type specified, the default capacity provider
    * 			strategy for the cluster is used.</p>
    *          <p>If a default capacity provider strategy isn't defined for a cluster when it was
-   * 			created, it can be defined later with the <a>PutClusterCapacityProviders</a>
+   * 			created, it can be defined later with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
    * 			API operation.</p>
    * @public
    */
@@ -1126,7 +1125,7 @@ export interface Cluster {
 
   /**
    * <p>The number of services that are running on the cluster in an <code>ACTIVE</code>
-   * 			state. You can view these services with <a>ListServices</a>.</p>
+   * 			state. You can view these services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">PListServices</a>.</p>
    * @public
    */
   activeServicesCount?: number;
@@ -1302,7 +1301,7 @@ export class NamespaceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ * <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  * @public
  */
 export class ClusterNotFoundException extends __BaseException {
@@ -1544,7 +1543,7 @@ export interface DeploymentController {
    * 						the current running version of the container with the latest version. The
    * 						number of containers Amazon ECS adds or removes from the service during a rolling
    * 						update is controlled by adjusting the minimum and maximum number of healthy
-   * 						tasks allowed during a service deployment, as specified in the <a>DeploymentConfiguration</a>.</p>
+   * 						tasks allowed during a service deployment, as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</p>
    *             </dd>
    *             <dt>CODE_DEPLOY</dt>
    *             <dd>
@@ -1664,7 +1663,7 @@ export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp
 export interface AwsVpcConfiguration {
   /**
    * <p>The IDs of the subnets associated with the task or service. There's a limit of 16
-   * 			subnets that can be specified per <code>AwsVpcConfiguration</code>.</p>
+   * 			subnets that can be specified per <code>awsvpcConfiguration</code>.</p>
    *          <note>
    *             <p>All specified subnets must be from the same VPC.</p>
    *          </note>
@@ -1676,7 +1675,7 @@ export interface AwsVpcConfiguration {
    * <p>The IDs of the security groups associated with the task or service. If you don't
    * 			specify a security group, the default security group for the VPC is used. There's a
    * 			limit of 5 security groups that can be specified per
-   * 			<code>AwsVpcConfiguration</code>.</p>
+   * 			<code>awsvpcConfiguration</code>.</p>
    *          <note>
    *             <p>All specified security groups must be from the same VPC.</p>
    *          </note>
@@ -1889,7 +1888,7 @@ export interface Secret {
 
 /**
  * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
- * 			in the docker create-container command and the
+ * 			in the docker conainer create command and the
  * 				<code>--log-driver</code> option to docker
  * 					run.</p>
  *          <p>By default, containers use the same logging driver that the Docker daemon uses.
@@ -2184,7 +2183,7 @@ export interface ServiceConnectConfiguration {
 
   /**
    * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
-   * 			in the docker create-container command and the
+   * 			in the docker conainer create command and the
    * 				<code>--log-driver</code> option to docker
    * 					run.</p>
    *          <p>By default, containers use the same logging driver that the Docker daemon uses.
@@ -3076,7 +3075,7 @@ export interface Deployment {
    * 			deployment transitions to a <code>COMPLETED</code> state. If the service fails to reach
    * 			a steady state and circuit breaker is turned on, the deployment transitions to a
    * 				<code>FAILED</code> state. A deployment in <code>FAILED</code> state doesn't launch
-   * 			any new tasks. For more information, see <a>DeploymentCircuitBreaker</a>.</p>
+   * 			any new tasks. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentCircuitBreaker.html">DeploymentCircuitBreaker</a>.</p>
    * @public
    */
   rolloutState?: DeploymentRolloutState;
@@ -3498,7 +3497,7 @@ export interface Service {
 
   /**
    * <p>The desired number of instantiations of the task definition to keep running on the
-   * 			service. This value is specified when the service is created with <a>CreateService</a>, and it can be modified with <a>UpdateService</a>.</p>
+   * 			service. This value is specified when the service is created with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a> , and it can be modified with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
    * @public
    */
   desiredCount?: number;
@@ -3550,8 +3549,8 @@ export interface Service {
 
   /**
    * <p>The task definition to use for tasks in the service. This value is specified when the
-   * 			service is created with <a>CreateService</a>, and it can be modified with
-   * 				<a>UpdateService</a>.</p>
+   * 			service is created with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>, and it can be modified with
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
    * @public
    */
   taskDefinition?: string;
@@ -3876,8 +3875,8 @@ export interface CreateTaskSetRequest {
    * <p>The capacity provider strategy to use for the task set.</p>
    *          <p>A capacity provider strategy consists of one or more capacity providers along with the
    * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
+   * 			must be associated with the cluster to be used in a capacity provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
+   * 				 API is used to associate a capacity
    * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
    * 				<code>UPDATING</code> status can be used.</p>
    *          <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
@@ -3885,12 +3884,12 @@ export interface CreateTaskSetRequest {
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
+   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProviderProvider.html">CreateCapacityProviderProvider</a>API operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
-   *          <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
+   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API operation is used to update the
    * 			list of available capacity providers for a cluster after the cluster is created.</p>
    * @public
    */
@@ -3974,7 +3973,7 @@ export interface CreateTaskSetResponse {
 
 /**
  * <p>The specified service isn't active. You can't update a service that's inactive. If you
- * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ * 			have previously deleted a service, you can re-create it with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>.</p>
  * @public
  */
 export class ServiceNotActiveException extends __BaseException {
@@ -3994,7 +3993,7 @@ export class ServiceNotActiveException extends __BaseException {
 }
 
 /**
- * <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ * <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  * @public
  */
@@ -4252,7 +4251,7 @@ export interface DeleteCapacityProviderResponse {
 /**
  * <p>You can't delete a cluster that has registered container instances. First, deregister
  * 			the container instances before you can delete the cluster. For more information, see
- * 				<a>DeregisterContainerInstance</a>.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html">DeregisterContainerInstance</a>.</p>
  * @public
  */
 export class ClusterContainsContainerInstancesException extends __BaseException {
@@ -4274,7 +4273,7 @@ export class ClusterContainsContainerInstancesException extends __BaseException 
 /**
  * <p>You can't delete a cluster that contains services. First, update the service to reduce
  * 			its desired task count to 0, and then delete the service. For more information, see
- * 				<a>UpdateService</a> and <a>DeleteService</a>.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html">DeleteService</a>.</p>
  * @public
  */
 export class ClusterContainsServicesException extends __BaseException {
@@ -4583,7 +4582,7 @@ export interface EnvironmentFile {
 
 /**
  * <p>Hostnames and IP address entries that are added to the <code>/etc/hosts</code> file of
- * 			a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. </p>
+ * 			a container via the <code>extraHosts</code> parameter of its  <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html">ContainerDefinition</a>. </p>
  * @public
  */
 export interface HostEntry {
@@ -4806,7 +4805,7 @@ export interface HealthCheck {
    *             <code> CMD-SHELL, curl -f http://localhost/ || exit 1</code>
    *          </p>
    *          <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
-   * 			more information, see <code>HealthCheck</code> in tthe docker create-container command</p>
+   * 			more information, see <code>HealthCheck</code> in tthe docker conainer create command</p>
    * @public
    */
   command: string[] | undefined;
@@ -4855,7 +4854,7 @@ export interface HealthCheck {
 export interface KernelCapabilities {
   /**
    * <p>The Linux capabilities for the container that have been added to the default
-   * 			configuration provided by Docker. This parameter maps to <code>CapAdd</code> in the docker create-container command and the
+   * 			configuration provided by Docker. This parameter maps to <code>CapAdd</code> in the docker conainer create command and the
    * 				<code>--cap-add</code> option to docker
    * 				run.</p>
    *          <note>
@@ -4877,7 +4876,7 @@ export interface KernelCapabilities {
 
   /**
    * <p>The Linux capabilities for the container that have been removed from the default
-   * 			configuration provided by Docker. This parameter maps to <code>CapDrop</code> in the docker create-container command and the
+   * 			configuration provided by Docker. This parameter maps to <code>CapDrop</code> in the docker conainer create command and the
    * 				<code>--cap-drop</code> option to docker
    * 				run.</p>
    *          <p>Valid values: <code>"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" |
@@ -4986,7 +4985,7 @@ export interface LinuxParameters {
 
   /**
    * <p>Any host devices to expose to the container. This parameter maps to
-   * 			<code>Devices</code> in tthe docker create-container command and the <code>--device</code> option to docker run.</p>
+   * 			<code>Devices</code> in tthe docker conainer create command and the <code>--device</code> option to docker run.</p>
    *          <note>
    *             <p>If you're using tasks that use the Fargate launch type, the
    * 					<code>devices</code> parameter isn't supported.</p>
@@ -4997,7 +4996,8 @@ export interface LinuxParameters {
 
   /**
    * <p>Run an <code>init</code> process inside the container that forwards signals and reaps
-   * 			processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
+   * 			processes. This parameter maps to the <code>--init</code> option to docker run.
+   * 			This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    * @public
    */
@@ -5028,7 +5028,7 @@ export interface LinuxParameters {
 
   /**
    * <p>The total amount of swap memory (in MiB) a container can use. This parameter will be
-   * 			translated to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a> where the value would be the sum of
+   * 			translated to the <code>--memory-swap</code> option to docker run where the value would be the sum of
    * 			the container memory plus the <code>maxSwap</code> value.</p>
    *          <p>If a <code>maxSwap</code> value of <code>0</code> is specified, the container will not
    * 			use swap. Accepted values are <code>0</code> or any positive integer. If the
@@ -5130,7 +5130,7 @@ export type TransportProtocol = (typeof TransportProtocol)[keyof typeof Transpor
  * 				<code>hostPort</code> can be left blank or it must be the same value as the
  * 				<code>containerPort</code>.</p>
  *          <p>Most fields of this parameter (<code>containerPort</code>, <code>hostPort</code>,
- * 			<code>protocol</code>) maps to <code>PortBindings</code> in the docker create-container command and the
+ * 			<code>protocol</code>) maps to <code>PortBindings</code> in the docker conainer create command and the
  * 				<code>--publish</code> option to <code>docker
  * 					run</code>. If the network mode of a task definition is set to
  * 				<code>host</code>, host ports must either be undefined or match the container port
@@ -5141,7 +5141,7 @@ export type TransportProtocol = (typeof TransportProtocol)[keyof typeof Transpor
  *          </note>
  *          <p>After a task reaches the <code>RUNNING</code> status, manual and automatic host and
  * 			container port assignments are visible in the <code>networkBindings</code> section of
- * 				<a>DescribeTasks</a> API responses.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a> API responses.</p>
  * @public
  */
 export interface PortMapping {
@@ -5404,7 +5404,7 @@ export interface ContainerRestartPolicy {
 
 /**
  * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
- * 			<code>Sysctls</code> in tthe docker create-container command and the <code>--sysctl</code> option to docker run. For example, you can configure
+ * 			<code>Sysctls</code> in tthe docker conainer create command and the <code>--sysctl</code> option to docker run. For example, you can configure
  * 				<code>net.ipv4.tcp_keepalive_time</code> setting to maintain longer lived
  * 			connections.</p>
  *          <p>We don't recommend that you specify network-related <code>systemControls</code>
@@ -5562,7 +5562,7 @@ export interface ContainerDefinition {
    * <p>The name of a container. If you're linking multiple containers together in a task
    * 			definition, the <code>name</code> of one container can be entered in the
    * 				<code>links</code> of another container to connect the containers.
-   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to <code>name</code> in tthe docker create-container command and the
+   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to <code>name</code> in tthe docker conainer create command and the
    * 				<code>--name</code> option to docker
    * 			run. </p>
    * @public
@@ -5576,7 +5576,7 @@ export interface ContainerDefinition {
    *                <i>repository-url</i>/<i>image</i>:<i>tag</i>
    *             </code> or <code>
    *                <i>repository-url</i>/<i>image</i>@<i>digest</i>
-   *             </code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the docker create-container command and the
+   *             </code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the docker conainer create command and the
    * 				<code>IMAGE</code> parameter of docker
    * 				run.</p>
    *          <ul>
@@ -5619,7 +5619,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The number of <code>cpu</code> units reserved for the container. This parameter maps
-   * 			to <code>CpuShares</code> in the docker create-container commandand the <code>--cpu-shares</code> option to docker run.</p>
+   * 			to <code>CpuShares</code> in the docker conainer create commandand the <code>--cpu-shares</code> option to docker run.</p>
    *          <p>This field is optional for tasks using the Fargate launch type, and the
    * 			only requirement is that the total amount of CPU reserved for all containers within a
    * 			task be lower than the task-level <code>cpu</code> value.</p>
@@ -5677,7 +5677,7 @@ export interface ContainerDefinition {
    * 			to exceed the memory specified here, the container is killed. The total amount of memory
    * 			reserved for all containers within a task must be lower than the task
    * 				<code>memory</code> value, if one is specified. This parameter maps to
-   * 			<code>Memory</code> in thethe docker create-container command and the <code>--memory</code> option to docker run.</p>
+   * 			<code>Memory</code> in thethe docker conainer create command and the <code>--memory</code> option to docker run.</p>
    *          <p>If using the Fargate launch type, this parameter is optional.</p>
    *          <p>If using the EC2 launch type, you must specify either a task-level
    * 			memory value or a container-level memory value. If you specify both a container-level
@@ -5700,7 +5700,7 @@ export interface ContainerDefinition {
    * 			However, your container can consume more memory when it needs to, up to either the hard
    * 			limit specified with the <code>memory</code> parameter (if applicable), or all of the
    * 			available memory on the container instance, whichever comes first. This parameter maps
-   * 			to <code>MemoryReservation</code> in the the docker create-container command and the <code>--memory-reservation</code> option to docker run.</p>
+   * 			to <code>MemoryReservation</code> in the the docker conainer create command and the <code>--memory-reservation</code> option to docker run.</p>
    *          <p>If a task-level memory value is not specified, you must specify a non-zero integer for
    * 			one or both of <code>memory</code> or <code>memoryReservation</code> in a container
    * 			definition. If you specify both, <code>memory</code> must be greater than
@@ -5727,7 +5727,7 @@ export interface ContainerDefinition {
    * 			without the need for port mappings. This parameter is only supported if the network mode
    * 			of a task definition is <code>bridge</code>. The <code>name:internalName</code>
    * 			construct is analogous to <code>name:alias</code> in Docker links.
-   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to <code>Links</code> in the docker create-container command and the
+   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to <code>Links</code> in the docker conainer create command and the
    * 				<code>--link</code> option to docker
    * 			run.</p>
    *          <note>
@@ -5753,7 +5753,7 @@ export interface ContainerDefinition {
    * 				<code>localhost</code>. There's no loopback for port mappings on Windows, so you
    * 			can't access a container's mapped port from the host itself. </p>
    *          <p>This parameter maps to <code>PortBindings</code> in the
-   * 			the docker create-container command and the
+   * 			the docker conainer create command and the
    * 				<code>--publish</code> option to docker
    * 				run. If the network mode of a task definition is set to <code>none</code>,
    * 			then you can't specify port mappings. If the network mode of a task definition is set to
@@ -5764,7 +5764,7 @@ export interface ContainerDefinition {
    * 				and container port assignments are visible in the <b>Network
    * 					Bindings</b> section of a container description for a selected task in
    * 				the Amazon ECS console. The assignments are also visible in the
-   * 					<code>networkBindings</code> section <a>DescribeTasks</a>
+   * 				<code>networkBindings</code> section <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a>
    * 				responses.</p>
    *          </note>
    * @public
@@ -5801,14 +5801,14 @@ export interface ContainerDefinition {
    * 				arguments as <code>command</code> array items instead.</p>
    *          </important>
    *          <p>The entry point that's passed to the container. This parameter maps to
-   * 			<code>Entrypoint</code> in tthe docker create-container command and the <code>--entrypoint</code> option to docker run.</p>
+   * 			<code>Entrypoint</code> in tthe docker conainer create command and the <code>--entrypoint</code> option to docker run.</p>
    * @public
    */
   entryPoint?: string[];
 
   /**
    * <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in
-   * 			the docker create-container command and the
+   * 			the docker conainer create command and the
    * 				<code>COMMAND</code> parameter to docker
    * 				run.  If there are multiple arguments, each
    * 			argument is a separated string in the array.</p>
@@ -5818,7 +5818,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to
-   * 			<code>Env</code> in the docker create-container command and the <code>--env</code> option to docker run.</p>
+   * 			<code>Env</code> in the docker conainer create command and the <code>--env</code> option to docker run.</p>
    *          <important>
    *             <p>We don't recommend that you use plaintext environment variables for sensitive
    * 				information, such as credential data.</p>
@@ -5846,7 +5846,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The mount points for data volumes in your container.</p>
-   *          <p>This parameter maps to <code>Volumes</code> in the the docker create-container command and the <code>--volume</code> option to docker run.</p>
+   *          <p>This parameter maps to <code>Volumes</code> in the the docker conainer create command and the <code>--volume</code> option to docker run.</p>
    *          <p>Windows containers can mount whole directories on the same drive as
    * 				<code>$env:ProgramData</code>. Windows containers can't mount directories on a
    * 			different drive, and mount point can't be across drives.</p>
@@ -5856,14 +5856,14 @@ export interface ContainerDefinition {
 
   /**
    * <p>Data volumes to mount from another container. This parameter maps to
-   * 			<code>VolumesFrom</code> in tthe docker create-container command and the <code>--volumes-from</code> option to docker run.</p>
+   * 			<code>VolumesFrom</code> in tthe docker conainer create command and the <code>--volumes-from</code> option to docker run.</p>
    * @public
    */
   volumesFrom?: VolumeFrom[];
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as Linux kernel
-   * 			capabilities. For more information see <a>KernelCapabilities</a>.</p>
+   * 			capabilities. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -5979,7 +5979,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The hostname to use for your container. This parameter maps to <code>Hostname</code>
-   * 			in thethe docker create-container command and the
+   * 			in thethe docker conainer create command and the
    * 				<code>--hostname</code> option to docker
    * 				run.</p>
    *          <note>
@@ -5991,7 +5991,7 @@ export interface ContainerDefinition {
   hostname?: string;
 
   /**
-   * <p>The user to use inside the container. This parameter maps to <code>User</code> in the docker create-container command and the
+   * <p>The user to use inside the container. This parameter maps to <code>User</code> in the docker conainer create command and the
    * 				<code>--user</code> option to docker
    * 			run.</p>
    *          <important>
@@ -6042,14 +6042,14 @@ export interface ContainerDefinition {
 
   /**
    * <p>The working directory to run commands inside the container in. This parameter maps to
-   * 			<code>WorkingDir</code> in the docker create-container command and the <code>--workdir</code> option to docker run.</p>
+   * 			<code>WorkingDir</code> in the docker conainer create command and the <code>--workdir</code> option to docker run.</p>
    * @public
    */
   workingDirectory?: string;
 
   /**
    * <p>When this parameter is true, networking is off within the container. This parameter
-   * 			maps to <code>NetworkDisabled</code> in the docker create-container command.</p>
+   * 			maps to <code>NetworkDisabled</code> in the docker conainer create command.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -6060,7 +6060,7 @@ export interface ContainerDefinition {
   /**
    * <p>When this parameter is true, the container is given elevated privileges on the host
    * 			container instance (similar to the <code>root</code> user). This parameter maps to
-   * 			<code>Privileged</code> in the the docker create-container command and the <code>--privileged</code> option to docker run</p>
+   * 			<code>Privileged</code> in the the docker conainer create command and the <code>--privileged</code> option to docker run</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *          </note>
@@ -6070,7 +6070,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
-   * 			system. This parameter maps to <code>ReadonlyRootfs</code> in the docker create-container command and the
+   * 			system. This parameter maps to <code>ReadonlyRootfs</code> in the docker conainer create command and the
    * 				<code>--read-only</code> option to docker
    * 				run.</p>
    *          <note>
@@ -6082,7 +6082,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>A list of DNS servers that are presented to the container. This parameter maps to
-   * 			<code>Dns</code> in the the docker create-container command and the <code>--dns</code> option to docker run.</p>
+   * 			<code>Dns</code> in the the docker conainer create command and the <code>--dns</code> option to docker run.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -6092,7 +6092,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>A list of DNS search domains that are presented to the container. This parameter maps
-   * 			to <code>DnsSearch</code> in the docker create-container command and the <code>--dns-search</code> option to docker run.</p>
+   * 			to <code>DnsSearch</code> in the docker conainer create command and the <code>--dns-search</code> option to docker run.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -6102,7 +6102,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>A list of hostnames and IP address mappings to append to the <code>/etc/hosts</code>
-   * 			file on the container. This parameter maps to <code>ExtraHosts</code> in the docker create-container command and the
+   * 			file on the container. This parameter maps to <code>ExtraHosts</code> in the docker conainer create command and the
    * 				<code>--add-host</code> option to docker
    * 				run.</p>
    *          <note>
@@ -6123,7 +6123,7 @@ export interface ContainerDefinition {
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
    * 				Containers</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html">Using gMSAs for Linux
    * 				Containers</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *          <p>This parameter maps to <code>SecurityOpt</code> in the docker create-container command and the
+   *          <p>This parameter maps to <code>SecurityOpt</code> in the docker conainer create command and the
    * 				<code>--security-opt</code> option to docker
    * 				run.</p>
    *          <note>
@@ -6142,21 +6142,21 @@ export interface ContainerDefinition {
   /**
    * <p>When this parameter is <code>true</code>, you can deploy containerized applications
    * 			that require <code>stdin</code> or a <code>tty</code> to be allocated. This parameter
-   * 			maps to <code>OpenStdin</code> in the docker create-container command and the <code>--interactive</code> option to docker run.</p>
+   * 			maps to <code>OpenStdin</code> in the docker conainer create command and the <code>--interactive</code> option to docker run.</p>
    * @public
    */
   interactive?: boolean;
 
   /**
    * <p>When this parameter is <code>true</code>, a TTY is allocated. This parameter maps to
-   * 			<code>Tty</code> in tthe docker create-container command and the <code>--tty</code> option to docker run.</p>
+   * 			<code>Tty</code> in tthe docker conainer create command and the <code>--tty</code> option to docker run.</p>
    * @public
    */
   pseudoTerminal?: boolean;
 
   /**
    * <p>A key/value map of labels to add to the container. This parameter maps to
-   * 			<code>Labels</code> in the docker create-container command and the <code>--label</code> option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
+   * 			<code>Labels</code> in the docker conainer create command and the <code>--label</code> option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    * @public
    */
@@ -6165,8 +6165,8 @@ export interface ContainerDefinition {
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value
    * 			is specified in a task definition, it overrides the default values set by Docker. This
-   * 			parameter maps to <code>Ulimits</code> in tthe docker create-container command and the <code>--ulimit</code> option to docker run. Valid naming values are displayed
-   * 			in the <a>Ulimit</a> data type.</p>
+   * 			parameter maps to <code>Ulimits</code> in tthe docker conainer create command and the <code>--ulimit</code> option to docker run. Valid naming values are displayed
+   * 			in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html">Ulimit</a> data type.</p>
    *          <p>Amazon ECS tasks hosted on Fargate use the default
    * 							resource limit values set by the operating system with the exception of
    * 							the <code>nofile</code> resource limit parameter which Fargate
@@ -6185,7 +6185,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The log configuration specification for the container.</p>
-   *          <p>This parameter maps to <code>LogConfig</code> in the docker create-container command and the
+   *          <p>This parameter maps to <code>LogConfig</code> in the docker conainer create command and the
    * 				<code>--log-driver</code> option to docker
    * 				run. By default, containers use the same logging driver that the Docker
    * 			daemon uses. However the container can use a different logging driver than the Docker
@@ -6195,7 +6195,7 @@ export interface ContainerDefinition {
    * 			options). </p>
    *          <note>
    *             <p>Amazon ECS currently supports a subset of the logging drivers available to the Docker
-   * 				daemon (shown in the <a>LogConfiguration</a> data type). Additional log
+   * 				daemon (shown in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a> data type). Additional log
    * 				drivers may be available in future releases of the Amazon ECS container agent.</p>
    *          </note>
    *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
@@ -6214,7 +6214,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The container health check command and associated configuration parameters for the
-   * 			container. This parameter maps to <code>HealthCheck</code> in the docker create-container command and the
+   * 			container. This parameter maps to <code>HealthCheck</code> in the docker conainer create command and the
    * 				<code>HEALTHCHECK</code> parameter of docker
    * 				run.</p>
    * @public
@@ -6223,7 +6223,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
-   * 			<code>Sysctls</code> in tthe docker create-container command and the <code>--sysctl</code> option to docker run. For example, you can configure
+   * 			<code>Sysctls</code> in tthe docker conainer create command and the <code>--sysctl</code> option to docker run. For example, you can configure
    * 				<code>net.ipv4.tcp_keepalive_time</code> setting to maintain longer lived
    * 			connections.</p>
    * @public
@@ -6624,7 +6624,7 @@ export interface DockerVolumeConfiguration {
    * 			by Docker because it is used for task placement. If the driver was installed using the
    * 			Docker plugin CLI, use <code>docker plugin ls</code> to retrieve the driver name from
    * 			your container instance. If the driver was installed using another method, use Docker
-   * 			plugin discovery to retrieve the driver name. This parameter maps to <code>Driver</code> in the docker create-container command and the
+   * 			plugin discovery to retrieve the driver name. This parameter maps to <code>Driver</code> in the docker conainer create command and the
    * 				<code>xxdriver</code> option to docker
    * 				volume create.</p>
    * @public
@@ -6641,7 +6641,7 @@ export interface DockerVolumeConfiguration {
 
   /**
    * <p>Custom metadata to add to your Docker volume. This parameter maps to
-   * 				<code>Labels</code> in the docker create-container command and the <code>xxlabel</code> option to docker
+   * 				<code>Labels</code> in the docker conainer create command and the <code>xxlabel</code> option to docker
    * 				volume create.</p>
    * @public
    */
@@ -7023,7 +7023,7 @@ export interface TaskDefinition {
    * <p>The container instance attributes required by your task. When an Amazon EC2 instance is
    * 			registered to your cluster, the Amazon ECS container agent assigns some standard attributes
    * 			to the instance. You can apply custom attributes. These are specified as key-value pairs
-   * 			using the Amazon ECS console or the <a>PutAttributes</a> API. These attributes are
+   * 			using the Amazon ECS console or the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAttributes.html">PutAttributes</a> API. These attributes are
    * 			used when determining task placement for tasks hosted on Amazon EC2 instances. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <note>
@@ -7316,7 +7316,7 @@ export interface DeleteTaskSetResponse {
 }
 
 /**
- * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ * <p>The specified task set wasn't found. You can view your available task sets with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html">DescribeTaskSets</a>. Task sets are specific to each cluster, service and
  * 			Region.</p>
  * @public
  */
@@ -7650,7 +7650,7 @@ export interface ContainerInstance {
 
   /**
    * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
-   * 			instance registration or manually with the <a>PutAttributes</a>
+   * 			instance registration or manually with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAttributes.html">PutAttributes</a>
    * 			operation.</p>
    * @public
    */
@@ -8221,7 +8221,7 @@ export interface ManagedAgent {
  * <p>Details on the network bindings between a container and its host container instance.
  * 			After a task reaches the <code>RUNNING</code> status, manual and automatic host and
  * 			container port assignments are visible in the <code>networkBindings</code> section of
- * 				<a>DescribeTasks</a> API responses.</p>
+ * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a> API responses.</p>
  * @public
  */
 export interface NetworkBinding {
@@ -9317,8 +9317,8 @@ export interface GetTaskProtectionRequest {
 
 /**
  * <p>An object representing the protection status details for a task. You can set the
- * 			protection status with the <a>UpdateTaskProtection</a> API and get the status
- * 			of tasks with the <a>GetTaskProtection</a> API.</p>
+ * 			protection status with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateTaskProtection.html">UpdateTaskProtection</a> API and get the status
+ * 			of tasks with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_GetTaskProtection.html">GetTaskProtection</a>  API.</p>
  * @public
  */
 export interface ProtectedTask {
@@ -9680,7 +9680,7 @@ export interface ListContainerInstancesRequest {
   /**
    * <p>Filters the container instances by status. For example, if you specify the
    * 				<code>DRAINING</code> status, the results include only container instances that have
-   * 			been set to <code>DRAINING</code> using <a>UpdateContainerInstancesState</a>.
+   * 			been set to <code>DRAINING</code> using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerInstancesState.html">UpdateContainerInstancesState</a>.
    * 			If you don't specify this parameter, the default is to include container instances set
    * 			to all states other than <code>INACTIVE</code>.</p>
    * @public
@@ -10494,8 +10494,8 @@ export interface PutAccountSettingDefaultResponse {
 
 /**
  * <p>You can apply up to 10 custom attributes for each resource. You can view the
- * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
- * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
+ * 			attributes of a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListAttributes.html">ListAttributes</a>. You can remove existing
+ * 			attributes on a resource with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html">DeleteAttributes</a>.</p>
  * @public
  */
 export class AttributeLimitExceededException extends __BaseException {
@@ -10558,7 +10558,7 @@ export interface PutClusterCapacityProvidersRequest {
   /**
    * <p>The name of one or more capacity providers to associate with the cluster.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
+   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a> API operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
@@ -10575,11 +10575,11 @@ export interface PutClusterCapacityProvidersRequest {
    *          <p>A capacity provider strategy consists of one or more capacity providers along with the
    * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
    * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>  API is used to associate a capacity
    * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
    * 				<code>UPDATING</code> status can be used.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
+   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a>  API operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
@@ -11529,7 +11529,7 @@ export interface RunTaskRequest {
   /**
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no
    * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
-   * 			during task creation. To add tags to a task after task creation, use the <a>TagResource</a> API action.</p>
+   * 			during task creation. To add tags to a task after task creation, use the<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
    *          <note>
    *             <p>An error will be received if you specify the <code>SERVICE</code> option when
    * 				running a task.</p>
@@ -11834,7 +11834,7 @@ export interface StopTaskRequest {
   /**
    * <p>An optional message specified when a task is stopped. For example, if you're using a
    * 			custom scheduler, you can use this parameter to specify the reason for stopping the task
-   * 			here, and the message appears in subsequent <a>DescribeTasks</a> API
+   * 			here, and the message appears in subsequent <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a>> API
    * 			operations on this task.</p>
    * @public
    */
@@ -12326,8 +12326,8 @@ export interface UpdateClusterSettingsRequest {
   /**
    * <p>The setting to use by default for a cluster. This parameter is used to turn on CloudWatch
    * 			Container Insights for a cluster. If this value is specified, it overrides the
-   * 				<code>containerInsights</code> value set with <a>PutAccountSetting</a> or
-   * 				<a>PutAccountSettingDefault</a>.</p>
+   * 			<code>containerInsights</code> value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
    *          <important>
    *             <p>Currently, if you delete an existing cluster that does not have Container Insights
    * 				turned on, and then create a new cluster with the same name with Container Insights
@@ -12516,16 +12516,16 @@ export interface UpdateServiceRequest {
    *          <p>A capacity provider strategy consists of one or more capacity providers along with the
    * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
    * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API is used to associate a capacity
    * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
    * 				<code>UPDATING</code> status can be used.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
+   * 			provider must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a> API operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
-   *          <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
+   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>API operation is used to update the
    * 			list of available capacity providers for a cluster after the cluster is created.</p>
    *          <p></p>
    * @public
