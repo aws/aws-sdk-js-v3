@@ -89,14 +89,47 @@ describe("SignatureV4MultiRegion", () => {
     expect(SignatureV4a).toHaveBeenCalledTimes(1);
   });
 
-  it("should throw if neither CrtSignerV4 nor SignatureV4a is available", async () => {
+  it("should throw an error for presignWithCredentials with star region", async () => {
+    const signer = new SignatureV4MultiRegion(params);
+    const testCredentials = {
+      accessKeyId: "test-access-key",
+      secretAccessKey: "test-secret-key",
+    };
+    await expect(
+      signer.presignWithCredentials(minimalRequest, testCredentials, { signingRegion: "*" })
+    ).rejects.toThrow("Method presignWithCredentials is not supported for [signingRegion=*].");
+  });
+
+  it("should throw an error if neither CrtSignerV4 nor JsSigV4aSigner is available in node runtime", async () => {
     signatureV4CrtContainer.CrtSignerV4 = null;
     signatureV4aContainer.SignatureV4a = null;
-    expect.assertions(1);
-    const signer = new SignatureV4MultiRegion({ ...params });
-    await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+    const signer = new SignatureV4MultiRegion(params);
+    await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
       "Neither CRT nor JS SigV4a implementation is available. " +
-        "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a."
+        "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a. " +
+        "For more information please go to " +
+        "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
     );
+  });
+
+  it("should throw an error if JsSigV4aSigner is not available in non-node runtime", async () => {
+    const nonNodeParams = { ...params, runtime: "browser" };
+    signatureV4aContainer.SignatureV4a = null;
+    const signer = new SignatureV4MultiRegion(nonNodeParams);
+    await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+      "JS SigV4a implementation is not available or not a valid constructor. " +
+        "Please check whether you have installed the @smithy/signature-v4a package explicitly. " +
+        "You must also register the package by calling [require('@smithy/signature-v4a');] " +
+        "or an ESM equivalent such as [import '@smithy/signature-v4a';]. " +
+        "For more information please go to " +
+        "https://github.com/aws/aws-sdk-js-v3#using-javascript-non-crt-implementation-of-sigv4a"
+    );
+  });
+
+  it("should use JsSigV4aSigner in non-node runtime", async () => {
+    const nonNodeParams = { ...params, runtime: "browser" };
+    const signer = new SignatureV4MultiRegion(nonNodeParams);
+    await signer.sign(minimalRequest, { signingRegion: "*" });
+    expect(SignatureV4a).toHaveBeenCalledTimes(1);
   });
 });
