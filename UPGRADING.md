@@ -131,7 +131,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   - **v3**: **Deprecated**. SDK _does not_ follow redirects to avoid unintentional cross-region requests.
 - [`maxRetries`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#maxRetries-property)
   - **v2**: The maximum amount of retries to perform for a service request.
-  - **v3**: Changed to `maxAttempts`. See more in [v3 reference for RetryInputConfig](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_retry.retryinputconfig-2.html#maxattempts).
+  - **v3**: Changed to `maxAttempts`. See more in [v3 reference for RetryInputConfig](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-middleware-retry/#maxattempts).
     Note that the `maxAttempt` should be `maxRetries + 1`.
 - [`paramValidation`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#paramValidation-property)
   - **v2**: Whether input parameters should be validated against the operation description before sending the request.
