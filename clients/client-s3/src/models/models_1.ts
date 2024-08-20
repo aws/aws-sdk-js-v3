@@ -825,6 +825,15 @@ export interface PutObjectRequest {
   Expires?: Date;
 
   /**
+   * <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
+   *          <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should retry the upload.</p>
+   *          <p>Expects the '*' (asterisk) character.</p>
+   *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  IfNoneMatch?: string;
+
+  /**
    * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
    *          <note>
    *             <ul>
@@ -2106,7 +2115,13 @@ export interface OutputSerialization {
 }
 
 /**
- * <p>Describes the parameters for Select job types.</p>
+ * <important>
+ *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </important>
+ *          <p>Describes the parameters for Select job types.</p>
+ *          <p>Learn <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">How to optimize querying your data in Amazon S3</a>  using
+ *          <a href="https://docs.aws.amazon.com/athena/latest/ug/what-is.html">Amazon Athena</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">S3 Object Lambda</a>, or client-side filtering.</p>
  * @public
  */
 export interface SelectParameters {
@@ -2123,7 +2138,11 @@ export interface SelectParameters {
   ExpressionType: ExpressionType | undefined;
 
   /**
-   * <p>The expression that is used to query the object.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>The expression that is used to query the object.</p>
    * @public
    */
   Expression: string | undefined;
@@ -2170,7 +2189,11 @@ export interface RestoreRequest {
   GlacierJobParameters?: GlacierJobParameters;
 
   /**
-   * <p>Type of restore request.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>Type of restore request.</p>
    * @public
    */
   Type?: RestoreRequestType;
@@ -2188,7 +2211,11 @@ export interface RestoreRequest {
   Description?: string;
 
   /**
-   * <p>Describes the parameters for Select job types.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>Describes the parameters for Select job types.</p>
    * @public
    */
   SelectParameters?: SelectParameters;
@@ -2539,7 +2566,11 @@ export interface ScanRange {
 }
 
 /**
- * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
+ * <note>
+ *             <p>Learn Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </note>
+ *          <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
  *          Language (SQL) statement. In the request, along with the SQL expression, you must specify a
  *          data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data
  *          into records. It returns only records that match the specified SQL expression. You must

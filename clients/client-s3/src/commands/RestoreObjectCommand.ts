@@ -33,6 +33,10 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
+ *          <important>
+ *             <p>The <code>SELECT</code> job type for the RestoreObject operation is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </important>
  *          <p>Restores an archived copy of an object back into Amazon S3</p>
  *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>This action performs the following types of requests: </p>

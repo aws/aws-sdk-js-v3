@@ -81,9 +81,10 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload API, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -93,6 +94,13 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p> If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum
+ *                            value</a> in your <code>MultipartUpload</code> requests and the
+ *                         object is encrypted with Key Management Service, you must have permission to use the
+ *                            <code>kms:Decrypt</code> action for the
+ *                            <code>CompleteMultipartUpload</code> request to succeed.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -218,6 +226,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *   ChecksumSHA256: "STRING_VALUE",
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfNoneMatch: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",
  *   SSECustomerKeyMD5: "STRING_VALUE",

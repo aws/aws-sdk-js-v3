@@ -715,6 +715,15 @@ export interface CompleteMultipartUploadRequest {
   ExpectedBucketOwner?: string;
 
   /**
+   * <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
+   *          <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response.  On a 409 failure you should re-initiate the multipart upload with <code>CreateMultipartUpload</code> and re-upload each part.</p>
+   *          <p>Expects the '*' (asterisk) character.</p>
+   *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  IfNoneMatch?: string;
+
+  /**
    * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is
    *          required only when the object was created using a checksum algorithm or if
    *          your bucket policy requires the use of SSE-C. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key">Protecting data
@@ -9513,6 +9522,10 @@ export interface GetObjectRequest {
 
   /**
    * <p>To retrieve the checksum, this mode must be enabled.</p>
+   *          <p>In addition, if you enable checksum mode and the object is uploaded with a
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a>
+   *          and encrypted with an Key Management Service (KMS) key, you must have permission to use the
+   *          <code>kms:Decrypt</code> action to retrieve the checksum.</p>
    * @public
    */
   ChecksumMode?: ChecksumMode;
@@ -11236,9 +11249,10 @@ export interface HeadObjectRequest {
 
   /**
    * <p>To retrieve the checksum, this parameter must be enabled.</p>
-   *          <p>In addition, if you enable <code>ChecksumMode</code> and the object is encrypted with
-   *          Amazon Web Services Key Management Service (Amazon Web Services KMS), you must have permission to use the
-   *             <code>kms:Decrypt</code> action for the request to succeed.</p>
+   *          <p>In addition, if you enable checksum mode and the object is uploaded with a
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a>
+   *          and encrypted with an Key Management Service (KMS) key, you must have permission to use the
+   *          <code>kms:Decrypt</code> action to retrieve the checksum.</p>
    * @public
    */
   ChecksumMode?: ChecksumMode;

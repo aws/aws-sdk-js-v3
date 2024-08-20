@@ -190,6 +190,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
  *   Expires: new Date("TIMESTAMP"),
+ *   IfNoneMatch: "STRING_VALUE",
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",
