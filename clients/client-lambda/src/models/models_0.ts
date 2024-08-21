@@ -397,7 +397,7 @@ export interface AddPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>The Amazon Web Service or Amazon Web Services account that invokes the function. If you specify a
+   * <p>The Amazon Web Servicesservice or Amazon Web Services account that invokes the function. If you specify a
    *       service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through
    *       that service.</p>
    * @public
@@ -405,7 +405,7 @@ export interface AddPermissionRequest {
   Principal: string | undefined;
 
   /**
-   * <p>For Amazon Web Services, the ARN of the Amazon Web Services resource that invokes the function. For
+   * <p>For Amazon Web Servicesservices, the ARN of the Amazon Web Services resource that invokes the function. For
    *       example, an Amazon S3 bucket or Amazon SNS topic.</p>
    *          <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
    * @public
@@ -413,7 +413,7 @@ export interface AddPermissionRequest {
   SourceArn?: string;
 
   /**
-   * <p>For Amazon Web Service, the ID of the Amazon Web Services account that owns the resource. Use this
+   * <p>For Amazon Web Servicesservice, the ID of the Amazon Web Services account that owns the resource. Use this
    *       together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an
    *         Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
    * @public
@@ -1263,6 +1263,35 @@ export interface CreateEventSourceMappingRequest {
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
+
+  /**
+   * <p>
+   *       The ARN of the Key Management Service (KMS) customer managed key that Lambda
+   *       uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.
+   *       By default, Lambda does not encrypt your filter criteria object. Specify this
+   *       property to encrypt data using your own customer managed key.
+   *     </p>
+   * @public
+   */
+  KMSKeyArn?: string;
+}
+
+/**
+ * <p>An object that contains details about an error related to filter criteria encryption.</p>
+ * @public
+ */
+export interface FilterCriteriaError {
+  /**
+   * <p>The KMS exception that resulted from filter criteria encryption or decryption.</p>
+   * @public
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string;
 }
 
 /**
@@ -1325,6 +1354,10 @@ export interface EventSourceMappingConfiguration {
   /**
    * <p>An object that defines the filter criteria that
    *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   *          <p>If filter criteria is encrypted, this field shows up as <code>null</code> in the response
+   *       of ListEventSourceMapping API calls. You can view this field in plaintext in the response of
+   *       GetEventSourceMapping and DeleteEventSourceMapping calls if you have
+   *       <code>kms:Decrypt</code> permissions for the correct KMS key.</p>
    * @public
    */
   FilterCriteria?: FilterCriteria;
@@ -1449,6 +1482,20 @@ export interface EventSourceMappingConfiguration {
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
+
+  /**
+   * <p>
+   *       The ARN of the Key Management Service (KMS) customer managed key that Lambda
+   *       uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
+   * @public
+   */
+  KMSKeyArn?: string;
+
+  /**
+   * <p>An object that contains details about an error related to filter criteria encryption.</p>
+   * @public
+   */
+  FilterCriteriaError?: FilterCriteriaError;
 }
 
 /**
@@ -7014,6 +7061,17 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
+
+  /**
+   * <p>
+   *       The ARN of the Key Management Service (KMS) customer managed key that Lambda
+   *       uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.
+   *       By default, Lambda does not encrypt your filter criteria object. Specify this
+   *       property to encrypt data using your own customer managed key.
+   *     </p>
+   * @public
+   */
+  KMSKeyArn?: string;
 }
 
 /**

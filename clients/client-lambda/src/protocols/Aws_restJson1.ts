@@ -446,6 +446,7 @@ export const se_CreateEventSourceMappingCommand = async (
       FilterCriteria: (_) => _json(_),
       FunctionName: [],
       FunctionResponseTypes: (_) => _json(_),
+      KMSKeyArn: [],
       MaximumBatchingWindowInSeconds: [],
       MaximumRecordAgeInSeconds: [],
       MaximumRetryAttempts: [],
@@ -1689,6 +1690,7 @@ export const se_UpdateEventSourceMappingCommand = async (
       FilterCriteria: (_) => _json(_),
       FunctionName: [],
       FunctionResponseTypes: (_) => _json(_),
+      KMSKeyArn: [],
       MaximumBatchingWindowInSeconds: [],
       MaximumRecordAgeInSeconds: [],
       MaximumRetryAttempts: [],
@@ -1941,8 +1943,10 @@ export const de_CreateEventSourceMappingCommand = async (
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
     FilterCriteria: _json,
+    FilterCriteriaError: _json,
     FunctionArn: __expectString,
     FunctionResponseTypes: _json,
+    KMSKeyArn: __expectString,
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastProcessingResult: __expectString,
     MaximumBatchingWindowInSeconds: __expectInt32,
@@ -2104,8 +2108,10 @@ export const de_DeleteEventSourceMappingCommand = async (
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
     FilterCriteria: _json,
+    FilterCriteriaError: _json,
     FunctionArn: __expectString,
     FunctionResponseTypes: _json,
+    KMSKeyArn: __expectString,
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastProcessingResult: __expectString,
     MaximumBatchingWindowInSeconds: __expectInt32,
@@ -2339,8 +2345,10 @@ export const de_GetEventSourceMappingCommand = async (
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
     FilterCriteria: _json,
+    FilterCriteriaError: _json,
     FunctionArn: __expectString,
     FunctionResponseTypes: _json,
+    KMSKeyArn: __expectString,
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastProcessingResult: __expectString,
     MaximumBatchingWindowInSeconds: __expectInt32,
@@ -3401,8 +3409,10 @@ export const de_UpdateEventSourceMappingCommand = async (
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
     FilterCriteria: _json,
+    FilterCriteriaError: _json,
     FunctionArn: __expectString,
     FunctionResponseTypes: _json,
+    KMSKeyArn: __expectString,
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastProcessingResult: __expectString,
     MaximumBatchingWindowInSeconds: __expectInt32,
@@ -4797,8 +4807,10 @@ const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
     FilterCriteria: _json,
+    FilterCriteriaError: _json,
     FunctionArn: __expectString,
     FunctionResponseTypes: _json,
+    KMSKeyArn: __expectString,
     LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastProcessingResult: __expectString,
     MaximumBatchingWindowInSeconds: __expectInt32,
@@ -4839,6 +4851,8 @@ const de_EventSourceMappingsList = (output: any, context: __SerdeContext): Event
 // de_Filter omitted.
 
 // de_FilterCriteria omitted.
+
+// de_FilterCriteriaError omitted.
 
 // de_FilterList omitted.
 

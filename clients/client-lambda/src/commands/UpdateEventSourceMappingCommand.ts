@@ -192,6 +192,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",
  *   },
+ *   KMSKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -262,6 +263,11 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
  * //   },
  * // };
  *

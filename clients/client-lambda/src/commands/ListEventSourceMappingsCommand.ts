@@ -115,6 +115,11 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //         CollectionName: "STRING_VALUE",
  * //         FullDocument: "UpdateLookup" || "Default",
  * //       },
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //       FilterCriteriaError: { // FilterCriteriaError
+ * //         ErrorCode: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

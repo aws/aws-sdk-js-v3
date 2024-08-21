@@ -111,6 +111,11 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
  * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

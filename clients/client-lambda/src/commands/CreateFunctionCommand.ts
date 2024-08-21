@@ -35,7 +35,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
 /**
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
  *       deployment package is a .zip file archive or container image that contains your function code. The execution role
- *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
+ *       grants the function permission to use Amazon Web Servicesservices, such as Amazon CloudWatch Logs for log
  *       streaming and X-Ray for request tracing.</p>
  *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
  *         image</a>, then you set the package type to <code>Image</code>. For a container image, the code property
@@ -66,9 +66,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *         <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from
  *       a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted
  *       publishers for this function.</p>
- *          <p>If another Amazon Web Services account or an Amazon Web Service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
+ *          <p>If another Amazon Web Services account or an Amazon Web Servicesservice invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
  *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
- *       in other Amazon Web Services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+ *       in other Amazon Web Servicesservices, create an event source mapping (<a>CreateEventSourceMapping</a>),
  *       or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Lambda
  *       functions</a>.</p>
  * @example
