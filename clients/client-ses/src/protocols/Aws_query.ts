@@ -5164,6 +5164,9 @@ const se_S3Action = (input: S3Action, context: __SerdeContext): any => {
   if (input[_KKA] != null) {
     entries[_KKA] = input[_KKA];
   }
+  if (input[_IRA] != null) {
+    entries[_IRA] = input[_IRA];
+  }
   return entries;
 };
 
@@ -7490,6 +7493,9 @@ const de_S3Action = (output: any, context: __SerdeContext): S3Action => {
   if (output[_KKA] != null) {
     contents[_KKA] = __expectString(output[_KKA]);
   }
+  if (output[_IRA] != null) {
+    contents[_IRA] = __expectString(output[_IRA]);
+  }
   return contents;
 };
 
@@ -8085,6 +8091,7 @@ const _HV = "HeaderValue";
 const _I = "Identity";
 const _IAMRARN = "IAMRoleARN";
 const _IF = "IpFilter";
+const _IRA = "IamRoleArn";
 const _IT = "InvocationType";
 const _ITd = "IdentityType";
 const _Id = "Identities";

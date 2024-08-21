@@ -94,7 +94,7 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *   ],
  *   Template: "STRING_VALUE", // required
  *   TemplateArn: "STRING_VALUE",
- *   DefaultTemplateData: "STRING_VALUE",
+ *   DefaultTemplateData: "STRING_VALUE", // required
  *   Destinations: [ // BulkEmailDestinationList // required
  *     { // BulkEmailDestination
  *       Destination: { // Destination

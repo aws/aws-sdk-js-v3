@@ -59,6 +59,7 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * //           BucketName: "STRING_VALUE", // required
  * //           ObjectKeyPrefix: "STRING_VALUE",
  * //           KmsKeyArn: "STRING_VALUE",
+ * //           IamRoleArn: "STRING_VALUE",
  * //         },
  * //         BounceAction: { // BounceAction
  * //           TopicArn: "STRING_VALUE",
