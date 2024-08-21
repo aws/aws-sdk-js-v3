@@ -3473,6 +3473,12 @@ export interface DescribeInstanceStatusRequest {
    *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
    *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attached-ebs-status.status</code> - The status of the attached EBS volume
+   *                     for the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                     <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -3517,6 +3523,94 @@ export interface DescribeInstanceStatusRequest {
    * @public
    */
   IncludeAllInstances?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusName = {
+  reachability: "reachability",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusName = (typeof StatusName)[keyof typeof StatusName];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  failed: "failed",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  passed: "passed",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+/**
+ * <p>Describes the attached EBS status check for an instance.</p>
+ * @public
+ */
+export interface EbsStatusDetails {
+  /**
+   * <p>The date and time when the attached EBS status check failed.</p>
+   * @public
+   */
+  ImpairedSince?: Date;
+
+  /**
+   * <p>The name of the attached EBS status check.</p>
+   * @public
+   */
+  Name?: StatusName;
+
+  /**
+   * <p>The result of the attached EBS status check.</p>
+   * @public
+   */
+  Status?: StatusType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SummaryStatus = {
+  impaired: "impaired",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  not_applicable: "not-applicable",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
+
+/**
+ * <p>Provides a summary of the attached EBS volume status for an instance.</p>
+ * @public
+ */
+export interface EbsStatusSummary {
+  /**
+   * <p>Details about the attached EBS status check for an instance.</p>
+   * @public
+   */
+  Details?: EbsStatusDetails[];
+
+  /**
+   * <p>The current status.</p>
+   * @public
+   */
+  Status?: SummaryStatus;
 }
 
 /**
@@ -3582,35 +3676,6 @@ export interface InstanceStatusEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const StatusName = {
-  reachability: "reachability",
-} as const;
-
-/**
- * @public
- */
-export type StatusName = (typeof StatusName)[keyof typeof StatusName];
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  failed: "failed",
-  initializing: "initializing",
-  insufficient_data: "insufficient-data",
-  passed: "passed",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-/**
  * <p>Describes the instance status.</p>
  * @public
  */
@@ -3634,23 +3699,6 @@ export interface InstanceStatusDetails {
    */
   Status?: StatusType;
 }
-
-/**
- * @public
- * @enum
- */
-export const SummaryStatus = {
-  impaired: "impaired",
-  initializing: "initializing",
-  insufficient_data: "insufficient-data",
-  not_applicable: "not-applicable",
-  ok: "ok",
-} as const;
-
-/**
- * @public
- */
-export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
 
 /**
  * <p>Describes the status of an instance.</p>
@@ -3719,6 +3767,13 @@ export interface InstanceStatus {
    * @public
    */
   SystemStatus?: InstanceStatusSummary;
+
+  /**
+   * <p>Reports impaired functionality that stems from an attached Amazon EBS volume that is
+   *             unreachable and unable to complete I/O operations.</p>
+   * @public
+   */
+  AttachedEbsStatus?: EbsStatusSummary;
 }
 
 /**
@@ -8538,8 +8593,8 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Services service
-   * 		               (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
+   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Services
+   * 		               service (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10147,8 +10202,8 @@ export interface DescribeRouteTablesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services service
-   *                     specified in a route in the table.</p>
+   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services
+   * 				      service specified in a route in the table.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -12334,39 +12389,6 @@ export interface TargetGroupsConfig {
    */
   TargetGroups?: TargetGroup[];
 }
-
-/**
- * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
- *             request.</p>
- * @public
- */
-export interface LoadBalancersConfig {
-  /**
-   * <p>The Classic Load Balancers.</p>
-   * @public
-   */
-  ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig;
-
-  /**
-   * <p>The target groups.</p>
-   * @public
-   */
-  TargetGroupsConfig?: TargetGroupsConfig;
-}
-
-/**
- * @public
- * @enum
- */
-export const OnDemandAllocationStrategy = {
-  LOWEST_PRICE: "lowestPrice",
-  PRIORITIZED: "prioritized",
-} as const;
-
-/**
- * @public
- */
-export type OnDemandAllocationStrategy = (typeof OnDemandAllocationStrategy)[keyof typeof OnDemandAllocationStrategy];
 
 /**
  * @internal

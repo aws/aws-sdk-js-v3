@@ -7935,8 +7935,8 @@ export interface CopyImageRequest {
    * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
    *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
    *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
-   *         <i>Amazon EBS User Guide</i>.</p>
+   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with
+   *         EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Encrypted?: boolean;

@@ -3274,6 +3274,8 @@ import {
   EbsInfo,
   EbsInstanceBlockDevice,
   EbsOptimizedInfo,
+  EbsStatusDetails,
+  EbsStatusSummary,
   EfaInfo,
   ElasticGpuAssociation,
   ElasticInferenceAcceleratorAssociation,
@@ -3322,7 +3324,6 @@ import {
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LicenseConfiguration,
-  LoadBalancersConfig,
   LocalGateway,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
@@ -3630,14 +3631,13 @@ import {
   GetHostReservationPurchasePreviewResult,
   GetImageBlockPublicAccessStateRequest,
   GetImageBlockPublicAccessStateResult,
-  GetInstanceMetadataDefaultsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
-  InstanceMetadataDefaultsResponse,
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
   LaunchSpecification,
+  LoadBalancersConfig,
   MetricPoint,
   PrivateDnsDetails,
   Purchase,
@@ -3682,6 +3682,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetInstanceMetadataDefaultsRequest,
   GetInstanceMetadataDefaultsResult,
   GetInstanceTpmEkPubRequest,
   GetInstanceTpmEkPubResult,
@@ -3769,6 +3770,7 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
+  InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
   IpamAddressHistoryRecord,
@@ -3910,10 +3912,8 @@ import {
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
   ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsResult,
   ModifyVpnConnectionRequest,
   ModifyVpnConnectionResult,
-  ModifyVpnTunnelCertificateRequest,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3967,6 +3967,8 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpnConnectionOptionsResult,
+  ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelOptionsRequest,
   ModifyVpnTunnelOptionsResult,
@@ -63531,6 +63533,50 @@ const de_EbsOptimizedInfo = (output: any, context: __SerdeContext): EbsOptimized
 };
 
 /**
+ * deserializeAws_ec2EbsStatusDetails
+ */
+const de_EbsStatusDetails = (output: any, context: __SerdeContext): EbsStatusDetails => {
+  const contents: any = {};
+  if (output[_iSmp] != null) {
+    contents[_ISmp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_iSmp]));
+  }
+  if (output[_n] != null) {
+    contents[_N] = __expectString(output[_n]);
+  }
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2EbsStatusDetailsList
+ */
+const de_EbsStatusDetailsList = (output: any, context: __SerdeContext): EbsStatusDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EbsStatusDetails(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2EbsStatusSummary
+ */
+const de_EbsStatusSummary = (output: any, context: __SerdeContext): EbsStatusSummary => {
+  const contents: any = {};
+  if (output.details === "") {
+    contents[_Det] = [];
+  } else if (output[_det] != null && output[_det][_i] != null) {
+    contents[_Det] = de_EbsStatusDetailsList(__getArrayIfSingleItem(output[_det][_i]), context);
+  }
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2Ec2InstanceConnectEndpoint
  */
 const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec2InstanceConnectEndpoint => {
@@ -68624,6 +68670,9 @@ const de_InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus
   }
   if (output[_sSy] != null) {
     contents[_SSy] = de_InstanceStatusSummary(output[_sSy], context);
+  }
+  if (output[_aES] != null) {
+    contents[_AES] = de_EbsStatusSummary(output[_aES], context);
   }
   return contents;
 };
@@ -82557,6 +82606,7 @@ const _AECIR = "AssociateEnclaveCertificateIamRole";
 const _AEFLCLTRV = "AllowEgressFromLocalClassicLinkToRemoteVpc";
 const _AEFLVTRCL = "AllowEgressFromLocalVpcToRemoteClassicLink";
 const _AEIO = "AutoEnableIO";
+const _AES = "AttachedEbsStatus";
 const _AET = "AnalysisEndTime";
 const _AEd = "AddEntries";
 const _AF = "AddressFamily";
@@ -85108,6 +85158,7 @@ const _aEC = "analyzedEniCount";
 const _aEFLCLTRV = "allowEgressFromLocalClassicLinkToRemoteVpc";
 const _aEFLVTRCL = "allowEgressFromLocalVpcToRemoteClassicLink";
 const _aEIO = "autoEnableIO";
+const _aES = "attachedEbsStatus";
 const _aF = "addressFamily";
 const _aFS = "analysisFindingSet";
 const _aI = "allocationId";

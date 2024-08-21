@@ -102,6 +102,43 @@ import { CapacityReservationSpecification } from "./models_6";
 /**
  * @public
  */
+export interface ModifyVpnConnectionOptionsResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelCertificateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
 export interface ModifyVpnTunnelCertificateResult {
   /**
    * <p>Information about the VPN connection.</p>
@@ -5557,6 +5594,14 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
 
 /**
  * @internal

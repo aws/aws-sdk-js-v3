@@ -127,6 +127,16 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //         ],
  * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
  * //       },
+ * //       AttachedEbsStatus: { // EbsStatusSummary
+ * //         Details: [ // EbsStatusDetailsList
+ * //           { // EbsStatusDetails
+ * //             ImpairedSince: new Date("TIMESTAMP"),
+ * //             Name: "reachability",
+ * //             Status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //           },
+ * //         ],
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

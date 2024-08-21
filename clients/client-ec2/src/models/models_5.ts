@@ -101,19 +101,49 @@ import {
 
 import {
   AttributeBooleanValue,
+  ClassicLoadBalancersConfig,
   ExcessCapacityTerminationPolicy,
-  HttpTokensState,
-  InstanceMetadataEndpointState,
-  InstanceMetadataTagsState,
   InstanceNetworkInterfaceSpecification,
   LaunchTemplateConfig,
-  LoadBalancersConfig,
-  OnDemandAllocationStrategy,
   RIProductDescription,
   SpotFleetLaunchSpecification,
   SpotFleetLaunchSpecificationFilterSensitiveLog,
   SpotPlacement,
+  TargetGroupsConfig,
 } from "./models_4";
+
+/**
+ * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
+ *             request.</p>
+ * @public
+ */
+export interface LoadBalancersConfig {
+  /**
+   * <p>The Classic Load Balancers.</p>
+   * @public
+   */
+  ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig;
+
+  /**
+   * <p>The target groups.</p>
+   * @public
+   */
+  TargetGroupsConfig?: TargetGroupsConfig;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowestPrice",
+  PRIORITIZED: "prioritized",
+} as const;
+
+/**
+ * @public
+ */
+export type OnDemandAllocationStrategy = (typeof OnDemandAllocationStrategy)[keyof typeof OnDemandAllocationStrategy];
 
 /**
  * @public
@@ -7874,13 +7904,6 @@ export interface EnableSnapshotBlockPublicAccessRequest {
    *           the Region. Users in the account will no longer be able to request new public
    *           sharing. Additionally, snapshots that are already publicly shared are treated as
    *           private and they are no longer publicly available.</p>
-   *                <note>
-   *                   <p>If you enable block public access for snapshots in <code>block-all-sharing</code>
-   *             mode, it does not change the permissions for snapshots that are already publicly shared.
-   *             Instead, it prevents these snapshots from be publicly visible and publicly accessible.
-   *             Therefore, the attributes for these snapshots still indicate that they are publicly
-   *             shared, even though they are not publicly available.</p>
-   *                </note>
    *             </li>
    *             <li>
    *                <p>
@@ -8531,13 +8554,15 @@ export interface DataQuery {
   Destination?: string;
 
   /**
-   * <p>The metric, <code>aggregation-latency</code>, indicating that network latency is aggregated for the query. This is the only supported metric.</p>
+   * <p>The metric used for the network performance request.</p>
    * @public
    */
   Metric?: MetricType;
 
   /**
-   * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code> and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
+   * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code>
+   *          and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all
+   *          the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
    * @public
    */
   Statistic?: StatisticType;
@@ -8644,7 +8669,7 @@ export interface DataResponse {
   Destination?: string;
 
   /**
-   * <p>The metric used for the network performance request. Only <code>aggregate-latency</code> is supported, which shows network latency during a specified period. </p>
+   * <p>The metric used for the network performance request.</p>
    * @public
    */
   Metric?: MetricType;
@@ -9444,66 +9469,6 @@ export interface GetImageBlockPublicAccessStateResult {
    * @public
    */
   ImageBlockPublicAccessState?: string;
-}
-
-/**
- * @public
- */
-export interface GetInstanceMetadataDefaultsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>The default instance metadata service (IMDS) settings that were set at the account
- *             level in the specified Amazon Web Services  Region.</p>
- * @public
- */
-export interface InstanceMetadataDefaultsResponse {
-  /**
-   * <p>Indicates whether IMDSv2 is required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
-   *                     use either IMDSv2 or IMDSv1.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
-   *                     disabled, and you must use IMDSv2.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  HttpTokens?: HttpTokensState;
-
-  /**
-   * <p>The maximum number of hops that the metadata token can travel.</p>
-   * @public
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>Indicates whether the IMDS endpoint for an instance is enabled or disabled. When disabled, the instance
-   *             metadata can't be accessed.</p>
-   * @public
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState;
-
-  /**
-   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
-   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
-   *                 instance tags using the instance metadata</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  InstanceMetadataTags?: InstanceMetadataTagsState;
 }
 
 /**

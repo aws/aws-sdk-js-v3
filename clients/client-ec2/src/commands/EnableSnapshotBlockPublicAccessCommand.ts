@@ -39,10 +39,15 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput
  *       for snapshots in that Region. Snapshots that are already publicly shared are either
  *       treated as private or they remain publicly shared, depending on the
  *       <b>State</b> that you specify.</p>
- *          <p>If block public access is enabled in <code>block-all-sharing</code> mode, and
- *       you change the mode to <code>block-new-sharing</code>, all snapshots that were
- *       previously publicly shared are no longer treated as private and they become publicly
- *       accessible again.</p>
+ *          <important>
+ *             <p>Enabling block public access for snapshots in <i>block all sharing</i>
+ *         mode does not change the permissions for snapshots that are already publicly shared.
+ *         Instead, it prevents these snapshots from be publicly visible and publicly accessible.
+ *         Therefore, the attributes for these snapshots still indicate that they are publicly
+ *         shared, even though they are not publicly available.</p>
+ *             <p>If you later disable block public access or change the mode to <i>block new
+ *         sharing</i>, these snapshots will become publicly available again.</p>
+ *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
  *       Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example

@@ -140,13 +140,72 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
-  InstanceMetadataDefaultsResponse,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetInstanceMetadataDefaultsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>The default instance metadata service (IMDS) settings that were set at the account
+ *             level in the specified Amazon Web Services  Region.</p>
+ * @public
+ */
+export interface InstanceMetadataDefaultsResponse {
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
+   *                     use either IMDSv2 or IMDSv1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: HttpTokensState;
+
+  /**
+   * <p>The maximum number of hops that the metadata token can travel.</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether the IMDS endpoint for an instance is enabled or disabled. When disabled, the instance
+   *             metadata can't be accessed.</p>
+   * @public
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState;
+
+  /**
+   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState;
+}
 
 /**
  * @public
@@ -7513,6 +7572,9 @@ export interface ModifySubnetAttributeRequest {
   /**
    * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   *          <note>
+   *             <p>You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
    * @public
    */
   EnableDns64?: AttributeBooleanValue;
@@ -7873,7 +7935,23 @@ export interface ModifyTransitGatewayOptions {
   /**
    * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
    *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
-   *          <p>The modify ASN operation is not allowed on a transit gateway with active BGP sessions. You must first delete all transit gateway attachments that have BGP configured prior to modifying the ASN on the transit gateway.</p>
+   *          <p>The modify ASN operation is not allowed on a transit gateway if it has the following attachments:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Dynamic VPN</p>
+   *             </li>
+   *             <li>
+   *                <p>Static VPN</p>
+   *             </li>
+   *             <li>
+   *                <p>Direct Connect Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>Connect</p>
+   *             </li>
+   *          </ul>
+   *          <p>You must first delete all transit gateway attachments configured prior to modifying the ASN on
+   *             the transit gateway.</p>
    * @public
    */
   AmazonSideAsn?: number;
@@ -9399,43 +9477,6 @@ export interface ModifyVpnConnectionOptionsRequest {
 }
 
 /**
- * @public
- */
-export interface ModifyVpnConnectionOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelCertificateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
  * @internal
  */
 export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
@@ -9627,14 +9668,6 @@ export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
  * @internal
  */
 export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
   ...obj,
   ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
 });

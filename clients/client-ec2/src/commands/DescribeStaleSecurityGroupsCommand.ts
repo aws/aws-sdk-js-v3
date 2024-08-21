@@ -29,7 +29,7 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
 
 /**
  * <p>Describes the stale security group rules for security groups in a specified VPC.
- *           Rules are stale when they reference a deleted security group in the same VPC or peered VPC. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has
+ *           Rules are stale when they reference a deleted security group in a peered VPC. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has
  *           been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
