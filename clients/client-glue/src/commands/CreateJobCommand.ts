@@ -39,6 +39,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * const input = { // CreateJobRequest
  *   Name: "STRING_VALUE", // required
  *   JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ *   JobRunQueuingEnabled: true || false,
  *   Description: "STRING_VALUE",
  *   LogUri: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required

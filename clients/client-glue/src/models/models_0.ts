@@ -8182,6 +8182,13 @@ export interface JobRun {
   JobMode?: JobMode;
 
   /**
+   * <p>Specifies whether job run queuing is enabled for the job run.</p>
+   *          <p>A value of true means job run queuing is enabled for the job run. If false or not populated, the job run will not be considered for queueing.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean;
+
+  /**
    * <p>The date and time at which this job run was started.</p>
    * @public
    */
@@ -8387,6 +8394,13 @@ export interface JobRun {
    * @public
    */
   ProfileName?: string;
+
+  /**
+   * <p>This field holds details that pertain to the state of a job run. The field is nullable.</p>
+   *          <p>For example, when a job run is in a WAITING state as a result of job run queuing, the field has the reason why the job run is in that state.</p>
+   * @public
+   */
+  StateDetail?: string;
 }
 
 /**

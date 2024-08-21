@@ -5882,6 +5882,13 @@ export interface StartJobRunRequest {
   JobName: string | undefined;
 
   /**
+   * <p>Specifies whether job run queuing is enabled for the job run.</p>
+   *          <p>A value of true means job run queuing is enabled for the job run. If false or not populated, the job run will not be considered for queueing.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean;
+
+  /**
    * <p>The ID of a previous <code>JobRun</code> to retry.</p>
    * @public
    */

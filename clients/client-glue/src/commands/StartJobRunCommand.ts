@@ -37,6 +37,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * const client = new GlueClient(config);
  * const input = { // StartJobRunRequest
  *   JobName: "STRING_VALUE", // required
+ *   JobRunQueuingEnabled: true || false,
  *   JobRunId: "STRING_VALUE",
  *   Arguments: { // GenericMap
  *     "<keys>": "STRING_VALUE",

@@ -50,6 +50,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     TriggerName: "STRING_VALUE",
  * //     JobName: "STRING_VALUE",
  * //     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //     JobRunQueuingEnabled: true || false,
  * //     StartedOn: new Date("TIMESTAMP"),
  * //     LastModifiedOn: new Date("TIMESTAMP"),
  * //     CompletedOn: new Date("TIMESTAMP"),
@@ -80,6 +81,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     ExecutionClass: "FLEX" || "STANDARD",
  * //     MaintenanceWindow: "STRING_VALUE",
  * //     ProfileName: "STRING_VALUE",
+ * //     StateDetail: "STRING_VALUE",
  * //   },
  * // };
  *

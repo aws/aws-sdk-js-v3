@@ -40,6 +40,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *   JobName: "STRING_VALUE", // required
  *   JobUpdate: { // JobUpdate
  *     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ *     JobRunQueuingEnabled: true || false,
  *     Description: "STRING_VALUE",
  *     LogUri: "STRING_VALUE",
  *     Role: "STRING_VALUE",

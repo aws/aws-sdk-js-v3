@@ -1058,6 +1058,14 @@ export interface CreateJobRequest {
   JobMode?: JobMode;
 
   /**
+   * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
+   *          <p>A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.</p>
+   *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean;
+
+  /**
    * <p>Description of the job being defined.</p>
    * @public
    */
@@ -1320,6 +1328,14 @@ export interface Job {
   JobMode?: JobMode;
 
   /**
+   * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
+   *          <p>A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.</p>
+   *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean;
+
+  /**
    * <p>A description of the job.</p>
    * @public
    */
@@ -1569,6 +1585,14 @@ export interface JobUpdate {
    * @public
    */
   JobMode?: JobMode;
+
+  /**
+   * <p>Specifies whether job run queuing is enabled for the job runs for this job.</p>
+   *          <p>A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.</p>
+   *          <p>If this field does not match the value set in the job run, then the value from the job run field will be used.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean;
 
   /**
    * <p>Description of the job being defined.</p>
