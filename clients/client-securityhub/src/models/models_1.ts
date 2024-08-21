@@ -10045,7 +10045,7 @@ export interface Compliance {
   /**
    * <p>
    *          The unique identifier of a control across standards. Values for this field typically consist of an
-   *          Amazon Web Service and a number, such as APIGateway.5.
+   *          Amazon Web Servicesservice and a number, such as APIGateway.5.
    *       </p>
    * @public
    */

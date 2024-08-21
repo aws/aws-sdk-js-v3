@@ -4045,7 +4045,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>
    *          The unique identifier of a control across standards. Values for this field typically consist of an
-   *          Amazon Web Service and a number, such as APIGateway.5.
+   *          Amazon Web Servicesservice and a number, such as APIGateway.5.
    *       </p>
    * @public
    */
@@ -4970,7 +4970,7 @@ export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 export interface SecurityControl {
   /**
    * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Servicesservice name and a
    *          number, such as APIGateway.3.
    *       </p>
    * @public
@@ -5029,8 +5029,8 @@ export interface SecurityControl {
   /**
    * <p>
    *             Identifies whether customizable properties of a security control are reflected in Security Hub findings. A status of
-   * <code>READY</code> indicates findings include the current parameter values. A status of <code>UPDATING</code> indicates that
-   * all findings may not include the current parameter values.
+   * <code>READY</code> indicates that Security Hub uses the current control parameter values when running security checks of the control.
+   * A status of <code>UPDATING</code> indicates that all security checks might not use the current parameter values.
    *         </p>
    * @public
    */
@@ -5182,7 +5182,7 @@ export interface StandardsControlAssociationDetail {
 
   /**
    * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Servicesservice
    *          name and a number, such as APIGateway.3.
    *       </p>
    * @public
@@ -6589,7 +6589,7 @@ export type Policy = Policy.SecurityHubMember | Policy.$UnknownMember;
 export namespace Policy {
   /**
    * <p>
-   *             The Amazon Web Service that the configuration policy applies to.
+   *             The Amazon Web Servicesservice that the configuration policy applies to.
    *         </p>
    * @public
    */
@@ -6737,18 +6737,23 @@ export interface CreateFindingAggregatorRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
    *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.
+   *           </p>
    *             </li>
    *          </ul>
    * @public
@@ -6759,6 +6764,8 @@ export interface CreateFindingAggregatorRequest {
    * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
    *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
    *       </p>
+   *          <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is
+   *            <code>NO_REGIONS</code>.</p>
    * @public
    */
   Regions?: string[];
@@ -7843,7 +7850,7 @@ export interface FindingHistoryUpdateSource {
    * <p>
    *          Describes the type of finding change event, such as a call to <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
    *                <code>BatchImportFindings</code>
-   *             </a> (by an integrated Amazon Web Service or third party partner integration) or <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
+   *             </a> (by an integrated Amazon Web Servicesservice or third party partner integration) or <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
    *                <code>BatchUpdateFindings</code>
    *             </a> (by a Security Hub customer).
    *       </p>
@@ -7917,7 +7924,7 @@ export interface FindingHistoryRecord {
 
   /**
    * <p> Identifies the source of the event that changed the finding. For example, an integrated
-   *                 Amazon Web Service or third-party partner integration may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
+   *                 Amazon Web Servicesservice or third-party partner integration may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
    *                <code>BatchImportFindings</code>
    *             </a>, or an Security Hub customer
    *             may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
@@ -8818,7 +8825,7 @@ export interface SecurityControlDefinition {
   /**
    * <p>
    *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
+   *          Amazon Web Servicesservice name and a number (for example, APIGateway.3). This parameter differs from
    *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
    *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
    *       </p>
@@ -9381,7 +9388,7 @@ export interface StandardsControlAssociationSummary {
   /**
    * <p>
    *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
-   *          Amazon Web Service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
+   *          Amazon Web Servicesservice and a number, such as APIGateway.5. This field doesn't reference a specific standard.
    *       </p>
    * @public
    */
@@ -9826,18 +9833,23 @@ export interface UpdateFindingAggregatorRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
    *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.
+   *           </p>
    *             </li>
    *          </ul>
    * @public
@@ -9847,6 +9859,8 @@ export interface UpdateFindingAggregatorRequest {
   /**
    * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
    *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.</p>
+   *          <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is
+   *         <code>NO_REGIONS</code>.</p>
    * @public
    */
   Regions?: string[];

@@ -1965,7 +1965,7 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The identifier for the given resource type. For Amazon Web Services resources that are identified by
    *          Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services resources that lack ARNs,
-   *          this is the identifier as defined by the Amazon Web Service that created the resource.
+   *          this is the identifier as defined by the Amazon Web Servicesservice that created the resource.
    *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
    *          resource.
    *       </p>
@@ -10662,7 +10662,7 @@ export interface RouteSetDetails {
 
   /**
    * <p>
-   *          The prefix of the destination Amazon Web Service.
+   *          The prefix of the destination Amazon Web Servicesservice.
    *       </p>
    * @public
    */
