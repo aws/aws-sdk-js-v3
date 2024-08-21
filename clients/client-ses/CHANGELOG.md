@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.636.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.635.0...v3.636.0) (2024-08-21)
+
+
+### Features
+
+* **client-ses:** Enable email receiving customers to provide SES with access to their S3 buckets via an IAM role for "Deliver to S3 Action" ([aafc6eb](https://github.com/aws/aws-sdk-js-v3/commit/aafc6ebdecf96c372c57990413f2883c67760a3e))
+
+
+
+
+
 # [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.636.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.635.0...v3.636.0) (2024-08-21)
+
+
+### Features
+
+* **client-ec2:** DescribeInstanceStatus now returns health information on EBS volumes attached to Nitro instances ([1baa7ea](https://github.com/aws/aws-sdk-js-v3/commit/1baa7ea8b6561e800c4d9895862bc3f6b4bf1f1b))
+* **client-entityresolution:** Increase the mapping attributes in Schema to 35. ([d038be3](https://github.com/aws/aws-sdk-js-v3/commit/d038be36acf34d54aad388b18f5a2356eda6b9fb))
+* **client-glue:** Add optional field JobRunQueuingEnabled to CreateJob and UpdateJob APIs. ([b3bbf57](https://github.com/aws/aws-sdk-js-v3/commit/b3bbf5793df82fbb32b88b640408db99f30dcb47))
+* **client-lambda:** Release FilterCriteria encryption for Lambda EventSourceMapping,  enabling customers to encrypt their filter criteria using a customer-owned KMS key. ([6fff363](https://github.com/aws/aws-sdk-js-v3/commit/6fff363962d2ffc0bcca059127203d5266b72b58))
+* **client-securityhub:** Security Hub documentation and definition updates ([17db5f7](https://github.com/aws/aws-sdk-js-v3/commit/17db5f7ed11b88153c63670b0c01ebec943cf874))
+* **client-ses:** Enable email receiving customers to provide SES with access to their S3 buckets via an IAM role for "Deliver to S3 Action" ([aafc6eb](https://github.com/aws/aws-sdk-js-v3/commit/aafc6ebdecf96c372c57990413f2883c67760a3e))
+* **clients:** update client endpoints as of 2024-08-21 ([f8aaf1d](https://github.com/aws/aws-sdk-js-v3/commit/f8aaf1dffa7d38692fb6e79997644db783409515))
+
+
+
+
+
 # [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
 
 
