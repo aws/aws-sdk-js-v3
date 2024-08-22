@@ -48,7 +48,7 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * const response = await client.send(command);
  * // { // GetEvaluationJobResponse
  * //   jobName: "STRING_VALUE", // required
- * //   status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //   status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //   jobArn: "STRING_VALUE", // required
  * //   jobDescription: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE", // required

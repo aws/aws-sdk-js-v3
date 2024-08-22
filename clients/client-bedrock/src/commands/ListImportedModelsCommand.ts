@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEvaluationJobsRequest, ListEvaluationJobsResponse } from "../models/models_0";
-import { de_ListEvaluationJobsCommand, se_ListEvaluationJobsCommand } from "../protocols/Aws_restJson1";
+import { ListImportedModelsRequest, ListImportedModelsResponse } from "../models/models_0";
+import { de_ListImportedModelsCommand, se_ListImportedModelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,61 +17,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListEvaluationJobsCommand}.
+ * The input for {@link ListImportedModelsCommand}.
  */
-export interface ListEvaluationJobsCommandInput extends ListEvaluationJobsRequest {}
+export interface ListImportedModelsCommandInput extends ListImportedModelsRequest {}
 /**
  * @public
  *
- * The output of {@link ListEvaluationJobsCommand}.
+ * The output of {@link ListImportedModelsCommand}.
  */
-export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsResponse, __MetadataBearer {}
+export interface ListImportedModelsCommandOutput extends ListImportedModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model evaluation jobs.</p>
+ * <p>Returns a list of models you've imported. You can filter the results to return based on one or more criteria.
+ *     For more information,
+ *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListEvaluationJobsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListEvaluationJobsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, ListImportedModelsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, ListImportedModelsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListEvaluationJobsRequest
- *   creationTimeAfter: new Date("TIMESTAMP"),
+ * const input = { // ListImportedModelsRequest
  *   creationTimeBefore: new Date("TIMESTAMP"),
- *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
+ *   creationTimeAfter: new Date("TIMESTAMP"),
  *   nameContains: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   sortBy: "CreationTime",
  *   sortOrder: "Ascending" || "Descending",
  * };
- * const command = new ListEvaluationJobsCommand(input);
+ * const command = new ListImportedModelsCommand(input);
  * const response = await client.send(command);
- * // { // ListEvaluationJobsResponse
+ * // { // ListImportedModelsResponse
  * //   nextToken: "STRING_VALUE",
- * //   jobSummaries: [ // EvaluationSummaries
- * //     { // EvaluationSummary
- * //       jobArn: "STRING_VALUE", // required
- * //       jobName: "STRING_VALUE", // required
- * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
+ * //   modelSummaries: [ // ImportedModelSummaryList
+ * //     { // ImportedModelSummary
+ * //       modelArn: "STRING_VALUE", // required
+ * //       modelName: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       jobType: "Human" || "Automated", // required
- * //       evaluationTaskTypes: [ // EvaluationTaskTypes // required
- * //         "Summarization" || "Classification" || "QuestionAndAnswer" || "Generation" || "Custom",
- * //       ],
- * //       modelIdentifiers: [ // EvaluationModelIdentifiers // required
- * //         "STRING_VALUE",
- * //       ],
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListEvaluationJobsCommandInput - {@link ListEvaluationJobsCommandInput}
- * @returns {@link ListEvaluationJobsCommandOutput}
- * @see {@link ListEvaluationJobsCommandInput} for command's `input` shape.
- * @see {@link ListEvaluationJobsCommandOutput} for command's `response` shape.
+ * @param ListImportedModelsCommandInput - {@link ListImportedModelsCommandInput}
+ * @returns {@link ListImportedModelsCommandOutput}
+ * @see {@link ListImportedModelsCommandInput} for command's `input` shape.
+ * @see {@link ListImportedModelsCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +84,10 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  *
  * @public
  */
-export class ListEvaluationJobsCommand extends $Command
+export class ListImportedModelsCommand extends $Command
   .classBuilder<
-    ListEvaluationJobsCommandInput,
-    ListEvaluationJobsCommandOutput,
+    ListImportedModelsCommandInput,
+    ListImportedModelsCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,9 +101,9 @@ export class ListEvaluationJobsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "ListEvaluationJobs", {})
-  .n("BedrockClient", "ListEvaluationJobsCommand")
+  .s("AmazonBedrockControlPlaneService", "ListImportedModels", {})
+  .n("BedrockClient", "ListImportedModelsCommand")
   .f(void 0, void 0)
-  .ser(se_ListEvaluationJobsCommand)
-  .de(de_ListEvaluationJobsCommand)
+  .ser(se_ListImportedModelsCommand)
+  .de(de_ListImportedModelsCommand)
   .build() {}

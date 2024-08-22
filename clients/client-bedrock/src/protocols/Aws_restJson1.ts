@@ -34,6 +34,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  BatchDeleteEvaluationJobCommandInput,
+  BatchDeleteEvaluationJobCommandOutput,
+} from "../commands/BatchDeleteEvaluationJobCommand";
+import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "../commands/CreateEvaluationJobCommand";
@@ -48,6 +52,10 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "../commands/CreateModelCustomizationJobCommand";
 import {
+  CreateModelImportJobCommandInput,
+  CreateModelImportJobCommandOutput,
+} from "../commands/CreateModelImportJobCommand";
+import {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "../commands/CreateModelInvocationJobCommand";
@@ -57,6 +65,10 @@ import {
 } from "../commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
 import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "../commands/DeleteGuardrailCommand";
+import {
+  DeleteImportedModelCommandInput,
+  DeleteImportedModelCommandOutput,
+} from "../commands/DeleteImportedModelCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -69,11 +81,13 @@ import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../comm
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "../commands/GetGuardrailCommand";
+import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "../commands/GetImportedModelCommand";
 import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "../commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
 } from "../commands/GetModelCustomizationJobCommand";
+import { GetModelImportJobCommandInput, GetModelImportJobCommandOutput } from "../commands/GetModelImportJobCommand";
 import {
   GetModelInvocationJobCommandInput,
   GetModelInvocationJobCommandOutput,
@@ -93,11 +107,16 @@ import {
   ListFoundationModelsCommandOutput,
 } from "../commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "../commands/ListGuardrailsCommand";
+import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "../commands/ListImportedModelsCommand";
 import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "../commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "../commands/ListModelCustomizationJobsCommand";
+import {
+  ListModelImportJobsCommandInput,
+  ListModelImportJobsCommandOutput,
+} from "../commands/ListModelImportJobsCommand";
 import {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
@@ -164,10 +183,13 @@ import {
   HumanEvaluationConfig,
   HumanEvaluationCustomMetric,
   HumanWorkflowConfig,
+  ImportedModelSummary,
   InternalServerException,
   LoggingConfig,
   ModelCopyJobSummary,
   ModelCustomizationJobSummary,
+  ModelDataSource,
+  ModelImportJobSummary,
   ModelInvocationJobInputDataConfig,
   ModelInvocationJobOutputDataConfig,
   ModelInvocationJobS3InputDataConfig,
@@ -177,6 +199,7 @@ import {
   ProvisionedModelSummary,
   ResourceNotFoundException,
   S3Config,
+  S3DataSource,
   ServiceQuotaExceededException,
   Tag,
   ThrottlingException,
@@ -189,6 +212,28 @@ import {
   ValidatorMetric,
   VpcConfig,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1BatchDeleteEvaluationJobCommand
+ */
+export const se_BatchDeleteEvaluationJobCommand = async (
+  input: BatchDeleteEvaluationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/evaluation-jobs/batch-delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateEvaluationJobCommand
@@ -339,6 +384,36 @@ export const se_CreateModelCustomizationJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateModelImportJobCommand
+ */
+export const se_CreateModelImportJobCommand = async (
+  input: CreateModelImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model-import-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      importedModelKmsKeyId: [],
+      importedModelName: [],
+      importedModelTags: (_) => _json(_),
+      jobName: [],
+      jobTags: (_) => _json(_),
+      modelDataSource: (_) => _json(_),
+      roleArn: [],
+      vpcConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateModelInvocationJobCommand
  */
 export const se_CreateModelInvocationJobCommand = async (
@@ -426,6 +501,22 @@ export const se_DeleteGuardrailCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteImportedModelCommand
+ */
+export const se_DeleteImportedModelCommand = async (
+  input: DeleteImportedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/imported-models/{modelIdentifier}");
+  b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -528,6 +619,22 @@ export const se_GetGuardrailCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetImportedModelCommand
+ */
+export const se_GetImportedModelCommand = async (
+  input: GetImportedModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/imported-models/{modelIdentifier}");
+  b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetModelCopyJobCommand
  */
 export const se_GetModelCopyJobCommand = async (
@@ -553,6 +660,22 @@ export const se_GetModelCustomizationJobCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/model-customization-jobs/{jobIdentifier}");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetModelImportJobCommand
+ */
+export const se_GetModelImportJobCommand = async (
+  input: GetModelImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-import-jobs/{jobIdentifier}");
   b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -700,6 +823,30 @@ export const se_ListGuardrailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListImportedModelsCommand
+ */
+export const se_ListImportedModelsCommand = async (
+  input: ListImportedModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/imported-models");
+  const query: any = map({
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListModelCopyJobsCommand
  */
 export const se_ListModelCopyJobsCommand = async (
@@ -736,6 +883,31 @@ export const se_ListModelCustomizationJobsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/model-customization-jobs");
+  const query: any = map({
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
+    [_sE]: [, input[_sE]!],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListModelImportJobsCommand
+ */
+export const se_ListModelImportJobsCommand = async (
+  input: ListModelImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-import-jobs");
   const query: any = map({
     [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
     [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
@@ -997,6 +1169,28 @@ export const se_UpdateProvisionedModelThroughputCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchDeleteEvaluationJobCommand
+ */
+export const de_BatchDeleteEvaluationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteEvaluationJobCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+    evaluationJobs: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEvaluationJobCommand
  */
 export const de_CreateEvaluationJobCommand = async (
@@ -1106,6 +1300,27 @@ export const de_CreateModelCustomizationJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateModelImportJobCommand
+ */
+export const de_CreateModelImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelImportJobCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateModelInvocationJobCommand
  */
 export const de_CreateModelInvocationJobCommand = async (
@@ -1172,6 +1387,23 @@ export const de_DeleteGuardrailCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGuardrailCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteImportedModelCommand
+ */
+export const de_DeleteImportedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImportedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1342,6 +1574,34 @@ export const de_GetGuardrailCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetImportedModelCommand
+ */
+export const de_GetImportedModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportedModelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    jobArn: __expectString,
+    jobName: __expectString,
+    modelArchitecture: __expectString,
+    modelArn: __expectString,
+    modelDataSource: (_) => _json(__expectUnion(_)),
+    modelKmsKeyArn: __expectString,
+    modelName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetModelCopyJobCommand
  */
 export const de_GetModelCopyJobCommand = async (
@@ -1407,6 +1667,39 @@ export const de_GetModelCustomizationJobCommand = async (
     trainingMetrics: (_) => de_TrainingMetrics(_, context),
     validationDataConfig: _json,
     validationMetrics: (_) => de_ValidationMetrics(_, context),
+    vpcConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetModelImportJobCommand
+ */
+export const de_GetModelImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetModelImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureMessage: __expectString,
+    importedModelArn: __expectString,
+    importedModelKmsKeyArn: __expectString,
+    importedModelName: __expectString,
+    jobArn: __expectString,
+    jobName: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelDataSource: (_) => _json(__expectUnion(_)),
+    roleArn: __expectString,
+    status: __expectString,
     vpcConfig: _json,
   });
   Object.assign(contents, doc);
@@ -1589,6 +1882,28 @@ export const de_ListGuardrailsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListImportedModelsCommand
+ */
+export const de_ListImportedModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportedModelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelSummaries: (_) => de_ImportedModelSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListModelCopyJobsCommand
  */
 export const de_ListModelCopyJobsCommand = async (
@@ -1626,6 +1941,28 @@ export const de_ListModelCustomizationJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelCustomizationJobSummaries: (_) => de_ModelCustomizationJobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListModelImportJobsCommand
+ */
+export const de_ListModelImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelImportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelImportJobSummaries: (_) => de_ModelImportJobSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1862,15 +2199,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.bedrock#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrock#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrock#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.bedrock#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.bedrock#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.bedrock#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
@@ -2055,6 +2392,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EvaluationInferenceConfig omitted.
 
+// se_EvaluationJobIdentifiers omitted.
+
 // se_EvaluationMetricNames omitted.
 
 // se_EvaluationModelConfig omitted.
@@ -2148,6 +2487,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_ModelCustomizationHyperParameters omitted.
 
+// se_ModelDataSource omitted.
+
 // se_ModelInvocationJobInputDataConfig omitted.
 
 // se_ModelInvocationJobOutputDataConfig omitted.
@@ -2159,6 +2500,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 // se_OutputDataConfig omitted.
 
 // se_S3Config omitted.
+
+// se_S3DataSource omitted.
 
 // se_SecurityGroupIds omitted.
 
@@ -2181,6 +2524,14 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 // se_VpcConfig omitted.
 
 // de_AutomatedEvaluationConfig omitted.
+
+// de_BatchDeleteEvaluationJobError omitted.
+
+// de_BatchDeleteEvaluationJobErrors omitted.
+
+// de_BatchDeleteEvaluationJobItem omitted.
+
+// de_BatchDeleteEvaluationJobItems omitted.
 
 // de_CloudWatchConfig omitted.
 
@@ -2388,6 +2739,29 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
 
 // de_HumanWorkflowConfig omitted.
 
+/**
+ * deserializeAws_restJson1ImportedModelSummary
+ */
+const de_ImportedModelSummary = (output: any, context: __SerdeContext): ImportedModelSummary => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    modelName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImportedModelSummaryList
+ */
+const de_ImportedModelSummaryList = (output: any, context: __SerdeContext): ImportedModelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImportedModelSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_InferenceTypeList omitted.
 
 // de_LoggingConfig omitted.
@@ -2456,6 +2830,36 @@ const de_ModelCustomizationJobSummary = (output: any, context: __SerdeContext): 
 };
 
 // de_ModelCustomizationList omitted.
+
+// de_ModelDataSource omitted.
+
+/**
+ * deserializeAws_restJson1ModelImportJobSummaries
+ */
+const de_ModelImportJobSummaries = (output: any, context: __SerdeContext): ModelImportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ModelImportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ModelImportJobSummary
+ */
+const de_ModelImportJobSummary = (output: any, context: __SerdeContext): ModelImportJobSummary => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    importedModelArn: __expectString,
+    importedModelName: __expectString,
+    jobArn: __expectString,
+    jobName: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+  }) as any;
+};
 
 // de_ModelInvocationJobInputDataConfig omitted.
 
@@ -2536,6 +2940,8 @@ const de_ProvisionedModelSummary = (output: any, context: __SerdeContext): Provi
 };
 
 // de_S3Config omitted.
+
+// de_S3DataSource omitted.
 
 // de_SecurityGroupIds omitted.
 

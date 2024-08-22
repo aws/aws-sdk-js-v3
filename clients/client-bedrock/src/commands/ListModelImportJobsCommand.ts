@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEvaluationJobsRequest, ListEvaluationJobsResponse } from "../models/models_0";
-import { de_ListEvaluationJobsCommand, se_ListEvaluationJobsCommand } from "../protocols/Aws_restJson1";
+import { ListModelImportJobsRequest, ListModelImportJobsResponse } from "../models/models_0";
+import { de_ListModelImportJobsCommand, se_ListModelImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,61 +17,60 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListEvaluationJobsCommand}.
+ * The input for {@link ListModelImportJobsCommand}.
  */
-export interface ListEvaluationJobsCommandInput extends ListEvaluationJobsRequest {}
+export interface ListModelImportJobsCommandInput extends ListModelImportJobsRequest {}
 /**
  * @public
  *
- * The output of {@link ListEvaluationJobsCommand}.
+ * The output of {@link ListModelImportJobsCommand}.
  */
-export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsResponse, __MetadataBearer {}
+export interface ListModelImportJobsCommandOutput extends ListModelImportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model evaluation jobs.</p>
+ * <p>Returns a list of import jobs you've submitted. You can filter the results to return based on one or more criteria.
+ *         For more information,
+ *         see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">Import a customized model</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListEvaluationJobsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListEvaluationJobsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, ListModelImportJobsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, ListModelImportJobsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListEvaluationJobsRequest
+ * const input = { // ListModelImportJobsRequest
  *   creationTimeAfter: new Date("TIMESTAMP"),
  *   creationTimeBefore: new Date("TIMESTAMP"),
- *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
+ *   statusEquals: "InProgress" || "Completed" || "Failed",
  *   nameContains: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   sortBy: "CreationTime",
  *   sortOrder: "Ascending" || "Descending",
  * };
- * const command = new ListEvaluationJobsCommand(input);
+ * const command = new ListModelImportJobsCommand(input);
  * const response = await client.send(command);
- * // { // ListEvaluationJobsResponse
+ * // { // ListModelImportJobsResponse
  * //   nextToken: "STRING_VALUE",
- * //   jobSummaries: [ // EvaluationSummaries
- * //     { // EvaluationSummary
+ * //   modelImportJobSummaries: [ // ModelImportJobSummaries
+ * //     { // ModelImportJobSummary
  * //       jobArn: "STRING_VALUE", // required
  * //       jobName: "STRING_VALUE", // required
- * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
+ * //       status: "InProgress" || "Completed" || "Failed", // required
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       jobType: "Human" || "Automated", // required
- * //       evaluationTaskTypes: [ // EvaluationTaskTypes // required
- * //         "Summarization" || "Classification" || "QuestionAndAnswer" || "Generation" || "Custom",
- * //       ],
- * //       modelIdentifiers: [ // EvaluationModelIdentifiers // required
- * //         "STRING_VALUE",
- * //       ],
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       importedModelArn: "STRING_VALUE",
+ * //       importedModelName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListEvaluationJobsCommandInput - {@link ListEvaluationJobsCommandInput}
- * @returns {@link ListEvaluationJobsCommandOutput}
- * @see {@link ListEvaluationJobsCommandInput} for command's `input` shape.
- * @see {@link ListEvaluationJobsCommandOutput} for command's `response` shape.
+ * @param ListModelImportJobsCommandInput - {@link ListModelImportJobsCommandInput}
+ * @returns {@link ListModelImportJobsCommandOutput}
+ * @see {@link ListModelImportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListModelImportJobsCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +90,10 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  *
  * @public
  */
-export class ListEvaluationJobsCommand extends $Command
+export class ListModelImportJobsCommand extends $Command
   .classBuilder<
-    ListEvaluationJobsCommandInput,
-    ListEvaluationJobsCommandOutput,
+    ListModelImportJobsCommandInput,
+    ListModelImportJobsCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,9 +107,9 @@ export class ListEvaluationJobsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "ListEvaluationJobs", {})
-  .n("BedrockClient", "ListEvaluationJobsCommand")
+  .s("AmazonBedrockControlPlaneService", "ListModelImportJobs", {})
+  .n("BedrockClient", "ListModelImportJobsCommand")
   .f(void 0, void 0)
-  .ser(se_ListEvaluationJobsCommand)
-  .de(de_ListEvaluationJobsCommand)
+  .ser(se_ListModelImportJobsCommand)
+  .de(de_ListModelImportJobsCommand)
   .build() {}

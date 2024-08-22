@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  BatchDeleteEvaluationJobCommandInput,
+  BatchDeleteEvaluationJobCommandOutput,
+} from "./commands/BatchDeleteEvaluationJobCommand";
+import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
@@ -68,6 +72,10 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
 import {
+  CreateModelImportJobCommandInput,
+  CreateModelImportJobCommandOutput,
+} from "./commands/CreateModelImportJobCommand";
+import {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
@@ -77,6 +85,10 @@ import {
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
 import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
+import {
+  DeleteImportedModelCommandInput,
+  DeleteImportedModelCommandOutput,
+} from "./commands/DeleteImportedModelCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -89,11 +101,13 @@ import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./comma
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
+import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
 import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
+import { GetModelImportJobCommandInput, GetModelImportJobCommandOutput } from "./commands/GetModelImportJobCommand";
 import {
   GetModelInvocationJobCommandInput,
   GetModelInvocationJobCommandOutput,
@@ -113,11 +127,16 @@ import {
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
+import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "./commands/ListImportedModelsCommand";
 import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "./commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
+import {
+  ListModelImportJobsCommandInput,
+  ListModelImportJobsCommandOutput,
+} from "./commands/ListModelImportJobsCommand";
 import {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
@@ -165,23 +184,28 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchDeleteEvaluationJobCommandInput
   | CreateEvaluationJobCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
   | CreateModelCopyJobCommandInput
   | CreateModelCustomizationJobCommandInput
+  | CreateModelImportJobCommandInput
   | CreateModelInvocationJobCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
   | DeleteGuardrailCommandInput
+  | DeleteImportedModelCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
   | DeleteProvisionedModelThroughputCommandInput
   | GetCustomModelCommandInput
   | GetEvaluationJobCommandInput
   | GetFoundationModelCommandInput
   | GetGuardrailCommandInput
+  | GetImportedModelCommandInput
   | GetModelCopyJobCommandInput
   | GetModelCustomizationJobCommandInput
+  | GetModelImportJobCommandInput
   | GetModelInvocationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetProvisionedModelThroughputCommandInput
@@ -189,8 +213,10 @@ export type ServiceInputTypes =
   | ListEvaluationJobsCommandInput
   | ListFoundationModelsCommandInput
   | ListGuardrailsCommandInput
+  | ListImportedModelsCommandInput
   | ListModelCopyJobsCommandInput
   | ListModelCustomizationJobsCommandInput
+  | ListModelImportJobsCommandInput
   | ListModelInvocationJobsCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
@@ -207,23 +233,28 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchDeleteEvaluationJobCommandOutput
   | CreateEvaluationJobCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput
   | CreateModelCopyJobCommandOutput
   | CreateModelCustomizationJobCommandOutput
+  | CreateModelImportJobCommandOutput
   | CreateModelInvocationJobCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
   | DeleteGuardrailCommandOutput
+  | DeleteImportedModelCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
   | GetCustomModelCommandOutput
   | GetEvaluationJobCommandOutput
   | GetFoundationModelCommandOutput
   | GetGuardrailCommandOutput
+  | GetImportedModelCommandOutput
   | GetModelCopyJobCommandOutput
   | GetModelCustomizationJobCommandOutput
+  | GetModelImportJobCommandOutput
   | GetModelInvocationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetProvisionedModelThroughputCommandOutput
@@ -231,8 +262,10 @@ export type ServiceOutputTypes =
   | ListEvaluationJobsCommandOutput
   | ListFoundationModelsCommandOutput
   | ListGuardrailsCommandOutput
+  | ListImportedModelsCommandOutput
   | ListModelCopyJobsCommandOutput
   | ListModelCustomizationJobsCommandOutput
+  | ListModelImportJobsCommandOutput
   | ListModelInvocationJobsCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
