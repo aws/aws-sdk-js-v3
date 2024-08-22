@@ -1922,9 +1922,9 @@ export interface CreateAutoScalingGroupType {
 
   /**
    * <p>A comma-separated value string of one or more health check types.</p>
-   *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
-   *                 <code>EC2</code> is the default health check and cannot be disabled. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
+   *          <p>The valid values are <code>EC2</code>, <code>EBS</code>, <code>ELB</code>, and
+   *                 <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
    *                 for instances in an Auto Scaling group</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Only specify <code>EC2</code> if you must clear a value that was previously
@@ -8078,9 +8078,9 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>A comma-separated value string of one or more health check types.</p>
-   *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
-   *                 <code>EC2</code> is the default health check and cannot be disabled. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
+   *          <p>The valid values are <code>EC2</code>, <code>EBS</code>, <code>ELB</code>, and
+   *                 <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
    *                 for instances in an Auto Scaling group</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Only specify <code>EC2</code> if you must clear a value that was previously

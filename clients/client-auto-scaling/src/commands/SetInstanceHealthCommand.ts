@@ -29,8 +29,8 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the health status of the specified instance.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
- *                 for instances in an Auto Scaling group</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html">Set up a custom
+ *                 health check for your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
