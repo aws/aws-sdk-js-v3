@@ -168,6 +168,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //           high: Number("long"),
  * //           critical: Number("long"),
  * //         },
+ * //         exploitAvailableCount: Number("long"),
+ * //         fixAvailableCount: Number("long"),
  * //       },
  * //       amiAggregation: { // AmiAggregationResponse
  * //         ami: "STRING_VALUE", // required
@@ -220,6 +222,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //           high: Number("long"),
  * //           critical: Number("long"),
  * //         },
+ * //         exploitAvailableCount: Number("long"),
+ * //         fixAvailableCount: Number("long"),
  * //       },
  * //       imageLayerAggregation: { // ImageLayerAggregationResponse
  * //         repository: "STRING_VALUE", // required

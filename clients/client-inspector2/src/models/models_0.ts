@@ -5,6 +5,9 @@ import { Inspector2ServiceException as __BaseException } from "./Inspector2Servi
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
+ *          <p>
+ *          For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
+ *       </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -232,6 +235,22 @@ export interface AccountAggregationResponse {
    * @public
    */
   severityCounts?: SeverityCounts;
+
+  /**
+   * <p>
+   *          The number of findings that have an exploit available.
+   *       </p>
+   * @public
+   */
+  exploitAvailableCount?: number;
+
+  /**
+   * <p>
+   *          Details about the number of fixes.
+   *       </p>
+   * @public
+   */
+  fixAvailableCount?: number;
 }
 
 /**
@@ -277,6 +296,8 @@ export const ErrorCode = {
   ALREADY_ENABLED: "ALREADY_ENABLED",
   DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
   DISASSOCIATE_ALL_MEMBERS: "DISASSOCIATE_ALL_MEMBERS",
+  EC2_SSM_ASSOCIATION_VERSION_LIMIT_EXCEEDED: "EC2_SSM_ASSOCIATION_VERSION_LIMIT_EXCEEDED",
+  EC2_SSM_RESOURCE_DATA_SYNC_LIMIT_EXCEEDED: "EC2_SSM_RESOURCE_DATA_SYNC_LIMIT_EXCEEDED",
   ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
   EVENTBRIDGE_THROTTLED: "EVENTBRIDGE_THROTTLED",
   EVENTBRIDGE_UNAVAILABLE: "EVENTBRIDGE_UNAVAILABLE",
@@ -1375,6 +1396,20 @@ export interface FindingTypeAggregationResponse {
    * @public
    */
   severityCounts?: SeverityCounts;
+
+  /**
+   * <p>The number of findings that have an exploit available.</p>
+   * @public
+   */
+  exploitAvailableCount?: number;
+
+  /**
+   * <p>
+   *          Details about the number of fixes.
+   *       </p>
+   * @public
+   */
+  fixAvailableCount?: number;
 }
 
 /**
@@ -4861,6 +4896,8 @@ export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
  */
 export const ScanStatusReason = {
   ACCESS_DENIED: "ACCESS_DENIED",
+  AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_COLLECTION_TIME_LIMIT_EXCEEDED",
+  AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED: "AGENTLESS_INSTANCE_STORAGE_LIMIT_EXCEEDED",
   DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED: "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED",
   DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED: "DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED",
   DEEP_INSPECTION_NO_INVENTORY: "DEEP_INSPECTION_NO_INVENTORY",

@@ -78,6 +78,9 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p>
+ *          For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
+ *       </p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>A conflict occurred.</p>
