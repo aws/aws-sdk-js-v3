@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Evaluation BatchDeleteEvaluationJob API allows customers to delete evaluation jobs under terminated evaluation job statuses - Stopped, Failed, or Completed. Customers can submit a batch of 25 evaluation jobs to be deleted at once. ([06501cb](https://github.com/aws/aws-sdk-js-v3/commit/06501cbbc289dbdaf0595896fe01df2ae03a9190))
+* **client-emr-containers:** Correct endpoint for FIPS is configured for US Gov Regions. ([0cd9bae](https://github.com/aws/aws-sdk-js-v3/commit/0cd9baec2139e057a39055b2f84f2c92ef4e8fe8))
+* **client-inspector2:** Add enums for Agentless scan statuses and EC2 enablement error states ([52856e7](https://github.com/aws/aws-sdk-js-v3/commit/52856e7f4e9bc457ca790e2dc5538b1e8c5bf226))
+* **client-quicksight:** Explicit query for authors and dashboard viewing sharing for embedded users ([18135bc](https://github.com/aws/aws-sdk-js-v3/commit/18135bcc021208ab7f5a13e60245aadb4e2262d8))
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Malaysia) Region (ap-southeast-5) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([b3d22de](https://github.com/aws/aws-sdk-js-v3/commit/b3d22dec87cad0a1fa8979c6bc07a1ba39644ab0))
+
+
+
+
+
 # [3.636.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.635.0...v3.636.0) (2024-08-21)
 
 

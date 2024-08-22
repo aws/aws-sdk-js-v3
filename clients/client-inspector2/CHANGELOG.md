@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+
+### Features
+
+* **client-inspector2:** Add enums for Agentless scan statuses and EC2 enablement error states ([52856e7](https://github.com/aws/aws-sdk-js-v3/commit/52856e7f4e9bc457ca790e2dc5538b1e8c5bf226))
+
+
+
+
+
 # [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
 
 

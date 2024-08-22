@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+
+### Features
+
+* **client-emr-containers:** Correct endpoint for FIPS is configured for US Gov Regions. ([0cd9bae](https://github.com/aws/aws-sdk-js-v3/commit/0cd9baec2139e057a39055b2f84f2c92ef4e8fe8))
+
+
+
+
+
 # [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
 
 
