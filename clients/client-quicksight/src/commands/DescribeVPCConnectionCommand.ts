@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVPCConnectionRequest, DescribeVPCConnectionResponse } from "../models/models_3";
+import { DescribeVPCConnectionRequest } from "../models/models_3";
+import { DescribeVPCConnectionResponse } from "../models/models_4";
 import { de_DescribeVPCConnectionCommand, se_DescribeVPCConnectionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

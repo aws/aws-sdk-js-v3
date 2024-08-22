@@ -609,7 +609,6 @@ import {
   DynamicDefaultValue,
   ExcludePeriodConfiguration,
   FieldLabelType,
-  FieldSort,
   Filter,
   FilterControl,
   FilterCrossSheetControl,
@@ -646,7 +645,6 @@ import {
   IntegerDefaultValues,
   IntegerParameterDeclaration,
   IntegerValueWhenUnsetConfiguration,
-  ItemsLimitConfiguration,
   LabelOptions,
   Layout,
   LayoutConfiguration,
@@ -688,6 +686,7 @@ import {
   PercentageDisplayFormatConfiguration,
   PercentileAggregation,
   PercentVisibleRange,
+  QueryExecutionOptions,
   RangeEndsLabelType,
   ReferenceLine,
   ReferenceLineCustomLabelConfiguration,
@@ -797,6 +796,7 @@ import {
   ExplicitHierarchy,
   FieldBasedTooltip,
   FieldSeriesItem,
+  FieldSort,
   FieldSortOptions,
   FieldTooltipItem,
   FilledMapAggregatedFieldWells,
@@ -852,6 +852,7 @@ import {
   HistogramVisual,
   InsightConfiguration,
   InsightVisual,
+  ItemsLimitConfiguration,
   KPIActualValueConditionalFormatting,
   KPIComparisonValueConditionalFormatting,
   KPIConditionalFormatting,
@@ -981,14 +982,12 @@ import {
   TreeMapConfiguration,
   TreeMapFieldWells,
   TreeMapSortConfiguration,
-  TreeMapVisual,
   TrendArrowOptions,
   UnaggregatedField,
   UniqueValuesComputation,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallChartGroupColorConfiguration,
   WhatIfPointScenario,
   WhatIfRangeScenario,
   YAxisOptions,
@@ -1002,6 +1001,9 @@ import {
   AnalysisSummary,
   Anchor,
   AnonymousUserDashboardEmbeddingConfiguration,
+  AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
+  AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
+  AnonymousUserDashboardFeatureConfigurations,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserGenerativeQnAEmbeddingConfiguration,
@@ -1081,7 +1083,6 @@ import {
   ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
   CredentialPair,
-  CustomerManagedKeyUnavailableException,
   CustomSql,
   DashboardPublishOptions,
   DashboardSourceEntity,
@@ -1157,6 +1158,7 @@ import {
   S3Parameters,
   S3Source,
   ServiceNowParameters,
+  SharedViewConfigurations,
   SheetControlsOption,
   SheetDefinition,
   SheetLayoutElementMaximizationOption,
@@ -1186,6 +1188,7 @@ import {
   TopicSortClause,
   TopicTemplate,
   TransformOperation,
+  TreeMapVisual,
   TrinoParameters,
   TwitterParameters,
   UnsupportedUserEditionException,
@@ -1200,6 +1203,7 @@ import {
   WaterfallChartColorConfiguration,
   WaterfallChartConfiguration,
   WaterfallChartFieldWells,
+  WaterfallChartGroupColorConfiguration,
   WaterfallChartOptions,
   WaterfallChartSortConfiguration,
   WaterfallVisual,
@@ -1211,6 +1215,7 @@ import {
   WordCloudVisual,
 } from "../models/models_2";
 import {
+  CustomerManagedKeyUnavailableException,
   Dashboard,
   DashboardSearchFilter,
   DashboardSummary,
@@ -1229,7 +1234,6 @@ import {
   DataSourceSearchFilter,
   DataSourceSummary,
   DefaultFormatting,
-  DomainNotWhitelistedException,
   Folder,
   Font,
   GutterStyle,
@@ -1279,10 +1283,10 @@ import {
   TopicSingularFilterConstant,
   Typography,
   UIColorPalette,
-  VPCConnection,
 } from "../models/models_3";
 import {
   CreateTopicReviewedAnswer,
+  DomainNotWhitelistedException,
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
@@ -1310,6 +1314,7 @@ import {
   TopicReviewedAnswer,
   TopicVisual,
   UnsupportedPricingPlanException,
+  VPCConnection,
   VPCConnectionSummary,
 } from "../models/models_4";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
@@ -10389,6 +10394,7 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
     FilterGroups: (_) => se_FilterGroupList(_, context),
     Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
+    QueryExecutionOptions: _json,
     Sheets: (_) => se_SheetDefinitionList(_, context),
   });
 };
@@ -10406,6 +10412,12 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnchorDateConfiguration omitted.
 
 // se_AnonymousUserDashboardEmbeddingConfiguration omitted.
+
+// se_AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures omitted.
+
+// se_AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures omitted.
+
+// se_AnonymousUserDashboardFeatureConfigurations omitted.
 
 // se_AnonymousUserDashboardVisualEmbeddingConfiguration omitted.
 
@@ -13899,6 +13911,8 @@ const se_PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeCont
 
 // se_ProjectOperation omitted.
 
+// se_QueryExecutionOptions omitted.
+
 /**
  * serializeAws_restJson1RadarChartAggregatedFieldWells
  */
@@ -14421,6 +14435,8 @@ const se_ShapeConditionalFormat = (input: ShapeConditionalFormat, context: __Ser
   });
 };
 
+// se_SharedViewConfigurations omitted.
+
 // se_SheetControlInfoIconLabelOptions omitted.
 
 // se_SheetControlLayout omitted.
@@ -14759,6 +14775,7 @@ const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context:
     FilterGroups: (_) => se_FilterGroupList(_, context),
     Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
+    QueryExecutionOptions: _json,
     Sheets: (_) => se_SheetDefinitionList(_, context),
   });
 };
@@ -15568,6 +15585,7 @@ const de_AnalysisDefinition = (output: any, context: __SerdeContext): AnalysisDe
     FilterGroups: (_: any) => de_FilterGroupList(_, context),
     Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
+    QueryExecutionOptions: _json,
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
   }) as any;
 };
@@ -19460,6 +19478,8 @@ const de_PredefinedHierarchy = (output: any, context: __SerdeContext): Predefine
 
 // de_ProjectOperation omitted.
 
+// de_QueryExecutionOptions omitted.
+
 // de_QueueInfo omitted.
 
 /**
@@ -20417,6 +20437,7 @@ const de_TemplateVersionDefinition = (output: any, context: __SerdeContext): Tem
     FilterGroups: (_: any) => de_FilterGroupList(_, context),
     Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
+    QueryExecutionOptions: _json,
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
   }) as any;
 };

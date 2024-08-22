@@ -9,7 +9,7 @@ import {
   CreateDataSourceRequest,
   CreateDataSourceRequestFilterSensitiveLog,
   CreateDataSourceResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_CreateDataSourceCommand, se_CreateDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

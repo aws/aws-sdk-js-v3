@@ -17,6 +17,7 @@ import {
   FilterGroup,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
+  QueryExecutionOptions,
   ResourceStatus,
   Sheet,
   TopicTimeGranularity,
@@ -65,14 +66,13 @@ import {
   DatasetParameter,
   DataSetReference,
   DataSetUsageConfiguration,
+  DataSourceCredentials,
   DataSourceParameters,
-  DataSourceType,
   DisplayFormat,
   DisplayFormatOptions,
   FieldFolder,
   FilterClass,
   FilterOperator,
-  FolderType,
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
@@ -82,7 +82,6 @@ import {
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   ServiceType,
-  SharingModel,
   SheetDefinition,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
@@ -93,6 +92,213 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceType = {
+  ADOBE_ANALYTICS: "ADOBE_ANALYTICS",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_OPENSEARCH: "AMAZON_OPENSEARCH",
+  ATHENA: "ATHENA",
+  AURORA: "AURORA",
+  AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
+  AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
+  BIGQUERY: "BIGQUERY",
+  DATABRICKS: "DATABRICKS",
+  EXASOL: "EXASOL",
+  GITHUB: "GITHUB",
+  JIRA: "JIRA",
+  MARIADB: "MARIADB",
+  MYSQL: "MYSQL",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  PRESTO: "PRESTO",
+  REDSHIFT: "REDSHIFT",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SNOWFLAKE: "SNOWFLAKE",
+  SPARK: "SPARK",
+  SQLSERVER: "SQLSERVER",
+  STARBURST: "STARBURST",
+  TERADATA: "TERADATA",
+  TIMESTREAM: "TIMESTREAM",
+  TRINO: "TRINO",
+  TWITTER: "TWITTER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+/**
+ * @public
+ */
+export interface CreateDataSourceRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
+   * @public
+   */
+  DataSourceId: string | undefined;
+
+  /**
+   * <p>A display name for the data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the data source. To return a
+   * 			list of all data sources, use <code>ListDataSources</code>.</p>
+   *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
+   * @public
+   */
+  Type: DataSourceType | undefined;
+
+  /**
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
+   * @public
+   */
+  DataSourceParameters?: DataSourceParameters;
+
+  /**
+   * <p>The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only
+   * 			credentials based on user name and password are supported.</p>
+   * @public
+   */
+  Credentials?: DataSourceCredentials;
+
+  /**
+   * <p>A list of resource permissions on the data source.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
+   * 			your underlying source.</p>
+   * @public
+   */
+  VpcConnectionProperties?: VpcConnectionProperties;
+
+  /**
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.</p>
+   * @public
+   */
+  SslProperties?: SslProperties;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>When you create the data source, Amazon QuickSight adds the data source to these folders.</p>
+   * @public
+   */
+  FolderArns?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The status of creating the data source.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ * @public
+ */
+export class CustomerManagedKeyUnavailableException extends __BaseException {
+  readonly name: "CustomerManagedKeyUnavailableException" = "CustomerManagedKeyUnavailableException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomerManagedKeyUnavailableException, __BaseException>) {
+    super({
+      name: "CustomerManagedKeyUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomerManagedKeyUnavailableException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FolderType = {
+  RESTRICTED: "RESTRICTED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderType = (typeof FolderType)[keyof typeof FolderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SharingModel = {
+  ACCOUNT: "ACCOUNT",
+  NAMESPACE: "NAMESPACE",
+} as const;
+
+/**
+ * @public
+ */
+export type SharingModel = (typeof SharingModel)[keyof typeof SharingModel];
 
 /**
  * @public
@@ -1135,6 +1341,12 @@ export interface TemplateVersionDefinition {
    * @public
    */
   Options?: AssetOptions;
+
+  /**
+   * <p>A structure that describes the query execution options.</p>
+   * @public
+   */
+  QueryExecutionOptions?: QueryExecutionOptions;
 }
 
 /**
@@ -9092,210 +9304,13 @@ export interface DescribeVPCConnectionRequest {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const NetworkInterfaceStatus = {
-  ATTACHMENT_FAILED_ROLLBACK_FAILED: "ATTACHMENT_FAILED_ROLLBACK_FAILED",
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  CREATION_FAILED: "CREATION_FAILED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  DELETION_FAILED: "DELETION_FAILED",
-  DELETION_SCHEDULED: "DELETION_SCHEDULED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
-
-/**
- * <p>The structure that contains information about a network interface.</p>
- * @public
- */
-export interface NetworkInterface {
-  /**
-   * <p>The subnet ID associated with the network interface.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The availability zone that the network interface resides in.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>An error message.</p>
-   * @public
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The status of the network interface.</p>
-   * @public
-   */
-  Status?: NetworkInterfaceStatus;
-
-  /**
-   * <p>The network interface ID.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string;
-}
-
-/**
- * <p>The structure of a VPC connection.</p>
- * @public
- */
-export interface VPCConnection {
-  /**
-   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   *                 Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
-   * @public
-   */
-  VPCId?: string;
-
-  /**
-   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   * @public
-   */
-  DnsResolvers?: string[];
-
-  /**
-   * <p>The status of the VPC connection.</p>
-   * @public
-   */
-  Status?: VPCConnectionResourceStatus;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
-
-  /**
-   * <p>A list of network interfaces.</p>
-   * @public
-   */
-  NetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>The ARN of the
-   *                 IAM role associated with the VPC
-   *             connection.</p>
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The time that the VPC connection was created.</p>
-   * @public
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The time that the VPC connection was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribeVPCConnectionResponse {
-  /**
-   * <p>A response object that provides information for the specified VPC connection.</p>
-   * @public
-   */
-  VPCConnection?: VPCConnection;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
- * 			added to the approved list by an Amazon QuickSight admin.</p>
- * @public
- */
-export class DomainNotWhitelistedException extends __BaseException {
-  readonly name: "DomainNotWhitelistedException" = "DomainNotWhitelistedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DomainNotWhitelistedException, __BaseException>) {
-    super({
-      name: "DomainNotWhitelistedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DomainNotWhitelistedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EmbeddingIdentityType = {
-  ANONYMOUS: "ANONYMOUS",
-  IAM: "IAM",
-  QUICKSIGHT: "QUICKSIGHT",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
+export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
+  ...obj,
+  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

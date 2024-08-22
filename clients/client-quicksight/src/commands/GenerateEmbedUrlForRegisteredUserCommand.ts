@@ -75,6 +75,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *         StatePersistence: { // StatePersistenceConfigurations
  *           Enabled: true || false, // required
  *         },
+ *         SharedView: { // SharedViewConfigurations
+ *           Enabled: true || false, // required
+ *         },
  *         Bookmarks: { // BookmarksConfigurations
  *           Enabled: true || false, // required
  *         },
@@ -84,6 +87,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *       InitialPath: "STRING_VALUE",
  *       FeatureConfigurations: { // RegisteredUserConsoleFeatureConfigurations
  *         StatePersistence: {
+ *           Enabled: true || false, // required
+ *         },
+ *         SharedView: {
  *           Enabled: true || false, // required
  *         },
  *       },

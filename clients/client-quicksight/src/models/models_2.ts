@@ -25,7 +25,6 @@ import {
   Edition,
   FilterControl,
   FilterGroup,
-  ItemsLimitConfiguration,
   Layout,
   LegendOptions,
   MeasureField,
@@ -34,6 +33,7 @@ import {
   ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
+  QueryExecutionOptions,
   ResourceStatus,
   SheetContentType,
   SheetControlLayout,
@@ -63,6 +63,7 @@ import {
   HistogramVisualFilterSensitiveLog,
   InsightVisual,
   InsightVisualFilterSensitiveLog,
+  ItemsLimitConfiguration,
   KPIVisual,
   KPIVisualFilterSensitiveLog,
   LineChartVisual,
@@ -73,15 +74,81 @@ import {
   ScatterPlotVisual,
   ScatterPlotVisualFilterSensitiveLog,
   TableVisual,
-  TreeMapVisual,
+  TreeMapConfiguration,
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallChartGroupColorConfiguration,
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A tree map.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ * @public
+ */
+export interface TreeMapVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: TreeMapConfiguration;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * <p>The color configuration for individual groups within a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartGroupColorConfiguration {
+  /**
+   * <p>Defines the color for the positive bars of a waterfall chart.</p>
+   * @public
+   */
+  PositiveBarColor?: string;
+
+  /**
+   * <p>Defines the color for the negative bars of a waterfall chart.</p>
+   * @public
+   */
+  NegativeBarColor?: string;
+
+  /**
+   * <p>Defines the color for the total bars of a waterfall chart.</p>
+   * @public
+   */
+  TotalBarColor?: string;
+}
 
 /**
  * <p>The color configuration of a waterfall visual.</p>
@@ -838,6 +905,12 @@ export interface AnalysisDefinition {
    * @public
    */
   Options?: AssetOptions;
+
+  /**
+   * <p>A structure that describes the query execution options.</p>
+   * @public
+   */
+  QueryExecutionOptions?: QueryExecutionOptions;
 }
 
 /**
@@ -1058,6 +1131,58 @@ export interface Anchor {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AnonymousUserDashboardEmbeddingConfigurationDisabledFeature = {
+  SHARED_VIEW: "SHARED_VIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeature =
+  (typeof AnonymousUserDashboardEmbeddingConfigurationDisabledFeature)[keyof typeof AnonymousUserDashboardEmbeddingConfigurationDisabledFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnonymousUserDashboardEmbeddingConfigurationEnabledFeature = {
+  SHARED_VIEW: "SHARED_VIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeature =
+  (typeof AnonymousUserDashboardEmbeddingConfigurationEnabledFeature)[keyof typeof AnonymousUserDashboardEmbeddingConfigurationEnabledFeature];
+
+/**
+ * <p>The shared view settings of an embedded dashboard.</p>
+ * @public
+ */
+export interface SharedViewConfigurations {
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The feature configuration for an embedded dashboard.</p>
+ * @public
+ */
+export interface AnonymousUserDashboardFeatureConfigurations {
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations;
+}
+
+/**
  * <p>Information about the dashboard that you want to embed.</p>
  * @public
  */
@@ -1068,6 +1193,24 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
    * @public
    */
   InitialDashboardId: string | undefined;
+
+  /**
+   * <p>A list of all enabled features of a specified anonymous dashboard.</p>
+   * @public
+   */
+  EnabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationEnabledFeature[];
+
+  /**
+   * <p>A list of all disabled features of a specified anonymous dashboard.</p>
+   * @public
+   */
+  DisabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationDisabledFeature[];
+
+  /**
+   * <p>The feature configuration for an embedded dashboard.</p>
+   * @public
+   */
+  FeatureConfigurations?: AnonymousUserDashboardFeatureConfigurations;
 }
 
 /**
@@ -8585,211 +8728,11 @@ export interface DataSourceCredentials {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const DataSourceType = {
-  ADOBE_ANALYTICS: "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH: "AMAZON_OPENSEARCH",
-  ATHENA: "ATHENA",
-  AURORA: "AURORA",
-  AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
-  BIGQUERY: "BIGQUERY",
-  DATABRICKS: "DATABRICKS",
-  EXASOL: "EXASOL",
-  GITHUB: "GITHUB",
-  JIRA: "JIRA",
-  MARIADB: "MARIADB",
-  MYSQL: "MYSQL",
-  ORACLE: "ORACLE",
-  POSTGRESQL: "POSTGRESQL",
-  PRESTO: "PRESTO",
-  REDSHIFT: "REDSHIFT",
-  S3: "S3",
-  SALESFORCE: "SALESFORCE",
-  SERVICENOW: "SERVICENOW",
-  SNOWFLAKE: "SNOWFLAKE",
-  SPARK: "SPARK",
-  SQLSERVER: "SQLSERVER",
-  STARBURST: "STARBURST",
-  TERADATA: "TERADATA",
-  TIMESTREAM: "TIMESTREAM",
-  TRINO: "TRINO",
-  TWITTER: "TWITTER",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
-/**
- * @public
- */
-export interface CreateDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
-   * @public
-   */
-  DataSourceId: string | undefined;
-
-  /**
-   * <p>A display name for the data source.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The type of the data source. To return a
-   * 			list of all data sources, use <code>ListDataSources</code>.</p>
-   *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
-   * @public
-   */
-  Type: DataSourceType | undefined;
-
-  /**
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
-   * @public
-   */
-  DataSourceParameters?: DataSourceParameters;
-
-  /**
-   * <p>The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only
-   * 			credentials based on user name and password are supported.</p>
-   * @public
-   */
-  Credentials?: DataSourceCredentials;
-
-  /**
-   * <p>A list of resource permissions on the data source.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
-   * 			your underlying source.</p>
-   * @public
-   */
-  VpcConnectionProperties?: VpcConnectionProperties;
-
-  /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.</p>
-   * @public
-   */
-  SslProperties?: SslProperties;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>When you create the data source, Amazon QuickSight adds the data source to these folders.</p>
-   * @public
-   */
-  FolderArns?: string[];
-}
-
-/**
- * @public
- */
-export interface CreateDataSourceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId?: string;
-
-  /**
-   * <p>The status of creating the data source.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
- * @public
- */
-export class CustomerManagedKeyUnavailableException extends __BaseException {
-  readonly name: "CustomerManagedKeyUnavailableException" = "CustomerManagedKeyUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomerManagedKeyUnavailableException, __BaseException>) {
-    super({
-      name: "CustomerManagedKeyUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomerManagedKeyUnavailableException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FolderType = {
-  RESTRICTED: "RESTRICTED",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type FolderType = (typeof FolderType)[keyof typeof FolderType];
-
-/**
- * @public
- * @enum
- */
-export const SharingModel = {
-  ACCOUNT: "ACCOUNT",
-  NAMESPACE: "NAMESPACE",
-} as const;
-
-/**
- * @public
- */
-export type SharingModel = (typeof SharingModel)[keyof typeof SharingModel];
+export const TreeMapVisualFilterSensitiveLog = (obj: TreeMapVisual): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9166,13 +9109,4 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
 export const DataSourceCredentialsFilterSensitiveLog = (obj: DataSourceCredentials): any => ({
   ...obj,
   ...(obj.CredentialPair && { CredentialPair: obj.CredentialPair }),
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-  ...obj,
-  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
 });

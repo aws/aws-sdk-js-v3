@@ -5016,6 +5016,9 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //       Timezone: "STRING_VALUE",
  * //       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
  * //     },
+ * //     QueryExecutionOptions: { // QueryExecutionOptions
+ * //       QueryExecutionMode: "AUTO" || "MANUAL",
+ * //     },
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",

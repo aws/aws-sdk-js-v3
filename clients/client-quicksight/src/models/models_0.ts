@@ -4005,6 +4005,32 @@ export interface ParameterDeclaration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const QueryExecutionMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryExecutionMode = (typeof QueryExecutionMode)[keyof typeof QueryExecutionMode];
+
+/**
+ * <p>A structure that describes the query execution options.</p>
+ * @public
+ */
+export interface QueryExecutionOptions {
+  /**
+   * <p>A structure that describes the query execution mode.</p>
+   * @public
+   */
+  QueryExecutionMode?: QueryExecutionMode;
+}
+
+/**
  * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
  * @public
  */
@@ -7461,68 +7487,6 @@ export const OtherCategories = {
  * @public
  */
 export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
-
-/**
- * <p>The limit configuration of the visual display for an axis.</p>
- * @public
- */
-export interface ItemsLimitConfiguration {
-  /**
-   * <p>The limit on how many items of a field are showed in the chart. For
-   *             example, the number of slices that are displayed in a pie chart.</p>
-   * @public
-   */
-  ItemsLimit?: number;
-
-  /**
-   * <p>The <code>Show
-   *                 other</code> of an axis in the chart. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INCLUDE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXCLUDE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  OtherCategories?: OtherCategories;
-}
-
-/**
- * <p>The sort configuration for a field in a
- *             field well.</p>
- * @public
- */
-export interface FieldSort {
-  /**
-   * <p>The sort configuration target field.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The sort direction. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ASC</code>: Ascending</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DESC</code>: Descending</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Direction: SortDirection | undefined;
-}
 
 /**
  * @internal

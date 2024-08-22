@@ -39,7 +39,6 @@ import {
   DataSourceParameters,
   FieldFolder,
   FilterOperator,
-  FolderType,
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
@@ -49,7 +48,7 @@ import {
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   ServiceType,
-  SharingModel,
+  SharedViewConfigurations,
   SslProperties,
   Tag,
   TopicIR,
@@ -70,16 +69,16 @@ import {
   DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
-  EmbeddingIdentityType,
+  FolderType,
   Group,
   GroupMember,
   IdentityType,
   Ingestion,
   NamespaceInfoV2,
-  NetworkInterface,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   Role,
+  SharingModel,
   SnapshotConfiguration,
   TemplateAlias,
   TemplateSourceEntity,
@@ -97,6 +96,212 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceStatus = {
+  ATTACHMENT_FAILED_ROLLBACK_FAILED: "ATTACHMENT_FAILED_ROLLBACK_FAILED",
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DELETION_FAILED: "DELETION_FAILED",
+  DELETION_SCHEDULED: "DELETION_SCHEDULED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
+
+/**
+ * <p>The structure that contains information about a network interface.</p>
+ * @public
+ */
+export interface NetworkInterface {
+  /**
+   * <p>The subnet ID associated with the network interface.</p>
+   * @public
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The availability zone that the network interface resides in.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The status of the network interface.</p>
+   * @public
+   */
+  Status?: NetworkInterfaceStatus;
+
+  /**
+   * <p>The network interface ID.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string;
+}
+
+/**
+ * <p>The structure of a VPC connection.</p>
+ * @public
+ */
+export interface VPCConnection {
+  /**
+   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   *                 Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The display name for the VPC connection.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+   * @public
+   */
+  VPCId?: string;
+
+  /**
+   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
+   * @public
+   */
+  DnsResolvers?: string[];
+
+  /**
+   * <p>The status of the VPC connection.</p>
+   * @public
+   */
+  Status?: VPCConnectionResourceStatus;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   * @public
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
+
+  /**
+   * <p>A list of network interfaces.</p>
+   * @public
+   */
+  NetworkInterfaces?: NetworkInterface[];
+
+  /**
+   * <p>The ARN of the
+   *                 IAM role associated with the VPC
+   *             connection.</p>
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The time that the VPC connection was created.</p>
+   * @public
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time that the VPC connection was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVPCConnectionResponse {
+  /**
+   * <p>A response object that provides information for the specified VPC connection.</p>
+   * @public
+   */
+  VPCConnection?: VPCConnection;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
+ * 			added to the approved list by an Amazon QuickSight admin.</p>
+ * @public
+ */
+export class DomainNotWhitelistedException extends __BaseException {
+  readonly name: "DomainNotWhitelistedException" = "DomainNotWhitelistedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DomainNotWhitelistedException, __BaseException>) {
+    super({
+      name: "DomainNotWhitelistedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainNotWhitelistedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddingIdentityType = {
+  ANONYMOUS: "ANONYMOUS",
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
 
 /**
  * <p>An entry that appears when a <code>KeyRegistration</code> update to Amazon QuickSight fails.</p>
@@ -467,6 +672,12 @@ export interface RegisteredUserDashboardFeatureConfigurations {
   StatePersistence?: StatePersistenceConfigurations;
 
   /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations;
+
+  /**
    * <p>The bookmarks configuration for an embedded dashboard in Amazon QuickSight.</p>
    * @public
    */
@@ -544,6 +755,12 @@ export interface RegisteredUserConsoleFeatureConfigurations {
    * @public
    */
   StatePersistence?: StatePersistenceConfigurations;
+
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations;
 }
 
 /**

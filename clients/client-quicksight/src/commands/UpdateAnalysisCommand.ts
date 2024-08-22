@@ -5016,6 +5016,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *       Timezone: "STRING_VALUE",
  *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
  *     },
+ *     QueryExecutionOptions: { // QueryExecutionOptions
+ *       QueryExecutionMode: "AUTO" || "MANUAL",
+ *     },
  *   },
  *   ValidationStrategy: { // ValidationStrategy
  *     Mode: "STRICT" || "LENIENT", // required
