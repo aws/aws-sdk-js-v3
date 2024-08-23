@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Releasing the support for Action User Confirmation. ([60d1a5a](https://github.com/aws/aws-sdk-js-v3/commit/60d1a5a4f4c14db1c474e78dbc2f0fc91810bfdf))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime
