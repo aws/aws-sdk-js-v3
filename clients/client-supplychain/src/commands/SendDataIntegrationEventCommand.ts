@@ -32,7 +32,8 @@ export interface SendDataIntegrationEventCommandInput extends SendDataIntegratio
 export interface SendDataIntegrationEventCommandOutput extends SendDataIntegrationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Send transactional data events with real-time data for analysis or monitoring.</p>
+ * <p>Send the transactional data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake.
+ *             New data events are synced with data lake at 5 PM GMT everyday. The updated transactional data is available in data lake after ingestion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

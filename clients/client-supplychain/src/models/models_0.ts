@@ -311,7 +311,8 @@ export interface SendDataIntegrationEventRequest {
   eventType: DataIntegrationEventType | undefined;
 
   /**
-   * <p>The data payload of the event.</p>
+   * <p>The data payload of the event. For more information on the data schema to use, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data entities supported in AWS Supply Chain
+   *         </a>.</p>
    * @public
    */
   data: string | undefined;
