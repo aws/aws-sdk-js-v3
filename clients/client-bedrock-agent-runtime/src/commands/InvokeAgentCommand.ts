@@ -90,6 +90,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *           actionGroup: "STRING_VALUE", // required
  *           httpMethod: "STRING_VALUE",
  *           apiPath: "STRING_VALUE",
+ *           confirmationState: "CONFIRM" || "DENY",
  *           responseBody: { // ResponseBody
  *             "<keys>": { // ContentBody
  *               body: "STRING_VALUE",
@@ -100,6 +101,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *         },
  *         functionResult: { // FunctionResult
  *           actionGroup: "STRING_VALUE", // required
+ *           confirmationState: "CONFIRM" || "DENY",
  *           function: "STRING_VALUE",
  *           responseBody: {
  *             "<keys>": {
@@ -578,6 +580,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 },
  * //               },
  * //             },
+ * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
  * //           },
  * //           functionInvocationInput: { // FunctionInvocationInput
  * //             actionGroup: "STRING_VALUE", // required
@@ -589,6 +592,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //               },
  * //             ],
  * //             function: "STRING_VALUE",
+ * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
  * //           },
  * //         },
  * //       ],

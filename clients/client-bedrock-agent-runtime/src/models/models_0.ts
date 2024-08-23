@@ -142,6 +142,21 @@ export interface ActionGroupInvocationOutput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ActionInvocationType = {
+  RESULT: "RESULT",
+  USER_CONFIRMATION: "USER_CONFIRMATION",
+  USER_CONFIRMATION_AND_RESULT: "USER_CONFIRMATION_AND_RESULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionInvocationType = (typeof ActionInvocationType)[keyof typeof ActionInvocationType];
+
+/**
  * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
  * @public
  */
@@ -996,6 +1011,20 @@ export const SearchType = {
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
 
 /**
+ * @public
+ * @enum
+ */
+export const ConfirmationState = {
+  CONFIRM: "CONFIRM",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
+
+/**
  * <p>Contains the body of the API response.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -1059,6 +1088,12 @@ export interface ApiResult {
   apiPath?: string;
 
   /**
+   * <p>Controls the API operations or functions to invoke based on the user confirmation.</p>
+   * @public
+   */
+  confirmationState?: ConfirmationState;
+
+  /**
    * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
@@ -1094,6 +1129,12 @@ export interface FunctionResult {
    * @public
    */
   actionGroup: string | undefined;
+
+  /**
+   * <p>Contains the user confirmation information about the function that was called.</p>
+   * @public
+   */
+  confirmationState?: ConfirmationState;
 
   /**
    * <p>The name of the function that was called.</p>
@@ -1670,6 +1711,12 @@ export interface ApiInvocationInput {
    * @public
    */
   requestBody?: ApiRequestBody;
+
+  /**
+   * <p>Contains information about the API operation to invoke.</p>
+   * @public
+   */
+  actionInvocationType?: ActionInvocationType;
 }
 
 /**
@@ -1732,6 +1779,12 @@ export interface FunctionInvocationInput {
    * @public
    */
   function?: string;
+
+  /**
+   * <p>Contains information about the function to invoke,</p>
+   * @public
+   */
+  actionInvocationType?: ActionInvocationType;
 }
 
 /**
