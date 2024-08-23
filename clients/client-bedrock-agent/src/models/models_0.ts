@@ -265,6 +265,20 @@ export interface ParameterDetail {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RequireConfirmation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequireConfirmation = (typeof RequireConfirmation)[keyof typeof RequireConfirmation];
+
+/**
  * <p>Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -314,6 +328,12 @@ export interface Function {
    * @public
    */
   parameters?: Record<string, ParameterDetail>;
+
+  /**
+   * <p>Contains information if user confirmation is required to invoke the function.</p>
+   * @public
+   */
+  requireConfirmation?: RequireConfirmation;
 }
 
 /**
@@ -2487,7 +2507,7 @@ export interface ConfluenceSourceConfiguration {
 
   /**
    * <p>The Amazon Resource Name of an Secrets Manager secret that
-   *             stores your authentication credentials for your SharePoint site/sites.
+   *             stores your authentication credentials for your Confluence instance URL.
    *             For more information on the key-value pairs that must be included in
    *             your secret, depending on your authentication type, see
    *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/confluence-data-source-connector.html#configuration-confluence-connector">Confluence connection configuration</a>.</p>
@@ -2588,7 +2608,7 @@ export interface SalesforceSourceConfiguration {
 
   /**
    * <p>The Amazon Resource Name of an Secrets Manager secret that
-   *             stores your authentication credentials for your SharePoint site/sites.
+   *             stores your authentication credentials for your Salesforce instance URL.
    *             For more information on the key-value pairs that must be included in
    *             your secret, depending on your authentication type, see
    *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/salesforce-data-source-connector.html#configuration-salesforce-connector">Salesforce connection configuration</a>.</p>
@@ -3342,14 +3362,16 @@ export interface CreateDataSourceRequest {
    *          <p>You can set the data deletion policy to:</p>
    *          <ul>
    *             <li>
-   *                <p>DELETE: Deletes all underlying data belonging to
-   *           the data source from the vector store upon deletion of a knowledge base or data
-   *           source resource. Note that the vector store itself is not deleted, only the
-   *           underlying data. This flag is ignored if an Amazon Web Services account is deleted.</p>
+   *                <p>DELETE: Deletes all data from your data source that’s converted
+   *           into vector embeddings upon deletion of a knowledge base or data source resource.
+   *           Note that the <b>vector store itself is not deleted</b>,
+   *           only the data. This flag is ignored if an Amazon Web Services account is deleted.</p>
    *             </li>
    *             <li>
-   *                <p>RETAIN: Retains all underlying data in your
-   *           vector store upon deletion of a knowledge base or data source resource.</p>
+   *                <p>RETAIN: Retains all data from your data source that’s converted
+   *           into vector embeddings upon deletion of a knowledge base or data source resource.
+   *           Note that the <b>vector store itself is not deleted</b>
+   *           if you delete a knowledge base or data source resource.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5108,7 +5130,7 @@ export interface GetFlowAliasRequest {
  */
 export interface GetFlowAliasResponse {
   /**
-   * <p>The name of the flow alias.</p>
+   * <p>The name of the alias.</p>
    * @public
    */
   name: string | undefined;
@@ -5150,7 +5172,7 @@ export interface GetFlowAliasResponse {
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the flow alias was last updated.</p>
+   * <p>The time at which the alias was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -5223,7 +5245,7 @@ export interface FlowAliasSummary {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow alias.</p>
+   * <p>The Amazon Resource Name (ARN) of the alias.</p>
    * @public
    */
   arn: string | undefined;
@@ -5246,7 +5268,7 @@ export interface FlowAliasSummary {
  */
 export interface ListFlowAliasesResponse {
   /**
-   * <p>A list, each member of which contains information about a flow alias.</p>
+   * <p>A list, each member of which contains information about an alias.</p>
    * @public
    */
   flowAliasSummaries: FlowAliasSummary[] | undefined;
@@ -5263,13 +5285,13 @@ export interface ListFlowAliasesResponse {
  */
 export interface UpdateFlowAliasRequest {
   /**
-   * <p>The name of the flow alias.</p>
+   * <p>The name of the alias.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the flow alias.</p>
+   * <p>A description for the alias.</p>
    * @public
    */
   description?: string;
@@ -5298,7 +5320,7 @@ export interface UpdateFlowAliasRequest {
  */
 export interface UpdateFlowAliasResponse {
   /**
-   * <p>The name of the flow alias.</p>
+   * <p>The name of the alias.</p>
    * @public
    */
   name: string | undefined;
@@ -5340,7 +5362,7 @@ export interface UpdateFlowAliasResponse {
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the flow alias was last updated.</p>
+   * <p>The time at which the alias was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -5375,13 +5397,13 @@ export interface CreateFlowVersionRequest {
  */
 export interface CreateFlowVersionResponse {
   /**
-   * <p>The name of the flow version.</p>
+   * <p>The name of the version.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the flow version.</p>
+   * <p>The description of the version.</p>
    * @public
    */
   description?: string;
@@ -5497,7 +5519,7 @@ export interface GetFlowVersionRequest {
  */
 export interface GetFlowVersionResponse {
   /**
-   * <p>The name of the flow version.</p>
+   * <p>The name of the version.</p>
    * @public
    */
   name: string | undefined;
@@ -5581,7 +5603,7 @@ export interface ListFlowVersionsRequest {
 }
 
 /**
- * <p>Contains information about the flow version.</p>
+ * <p>Contains information about a version of a flow.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -5612,7 +5634,7 @@ export interface FlowVersionSummary {
   status: FlowStatus | undefined;
 
   /**
-   * <p>The time at the flow version was created.</p>
+   * <p>The time at the version was created.</p>
    * @public
    */
   createdAt: Date | undefined;
@@ -7599,13 +7621,13 @@ export interface CreatePromptVersionRequest {
  */
 export interface CreatePromptVersionResponse {
   /**
-   * <p>The name of the prompt version.</p>
+   * <p>The name of the prompt.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the prompt version.</p>
+   * <p>A description for the version.</p>
    * @public
    */
   description?: string;
@@ -7670,7 +7692,7 @@ export interface DeletePromptRequest {
   promptIdentifier: string | undefined;
 
   /**
-   * <p>The version of the prompt to delete.</p>
+   * <p>The version of the prompt to delete. To delete the prompt, omit this field.</p>
    * @public
    */
   promptVersion?: string;
@@ -7704,7 +7726,7 @@ export interface GetPromptRequest {
   promptIdentifier: string | undefined;
 
   /**
-   * <p>The version of the prompt about which you want to retrieve information.</p>
+   * <p>The version of the prompt about which you want to retrieve information. Omit this field to return information about the working draft of the prompt.</p>
    * @public
    */
   promptVersion?: string;
@@ -7751,7 +7773,7 @@ export interface GetPromptResponse {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
    * @public
    */
   arn: string | undefined;
@@ -7780,7 +7802,7 @@ export interface GetPromptResponse {
  */
 export interface ListPromptsRequest {
   /**
-   * <p>The unique identifier of the prompt.</p>
+   * <p>The unique identifier of the prompt for whose versions you want to return information. Omit this field to list information about all prompts in an account.</p>
    * @public
    */
   promptIdentifier?: string;
@@ -7830,7 +7852,7 @@ export interface PromptSummary {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   * <p>The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).</p>
    * @public
    */
   arn: string | undefined;

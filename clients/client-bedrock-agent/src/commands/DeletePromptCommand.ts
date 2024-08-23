@@ -28,7 +28,7 @@ export interface DeletePromptCommandInput extends DeletePromptRequest {}
 export interface DeletePromptCommandOutput extends DeletePromptResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a prompt or a prompt version from the Prompt management tool. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html">Delete prompts from the Prompt management tool</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html">Delete a version of a prompt from the Prompt management tool</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Deletes a prompt or a version of it, depending on whether you include the <code>promptVersion</code> field or not. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html">Delete prompts from the Prompt management tool</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html">Delete a version of a prompt from the Prompt management tool</a> in the Amazon Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -80,6 +80,7 @@ export interface GetAgentActionGroupCommandOutput extends GetAgentActionGroupRes
  * //               required: true || false,
  * //             },
  * //           },
+ * //           requireConfirmation: "ENABLED" || "DISABLED",
  * //         },
  * //       ],
  * //     },
