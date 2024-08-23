@@ -146,6 +146,7 @@ import {
   AuthChallengeRequestEvent,
   AuthChallengeResponse,
   AuthChallengeResponseEvent,
+  AutoSubscriptionConfiguration,
   BasicAuthConfiguration,
   BlockedPhrasesConfigurationUpdate,
   ChatInputStream,
@@ -180,6 +181,7 @@ import {
   GroupMembers,
   GroupStatusDetail,
   HookConfiguration,
+  IdentityProviderConfiguration,
   Index,
   IndexCapacityConfiguration,
   InlineDocumentEnrichmentConfiguration,
@@ -195,6 +197,7 @@ import {
   NoAuthConfiguration,
   NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
+  OpenIDConnectProviderConfiguration,
   PersonalizationConfiguration,
   Plugin,
   PluginAuthConfiguration,
@@ -209,6 +212,7 @@ import {
   RuleConfiguration,
   S3,
   SamlConfiguration,
+  SamlProviderConfiguration,
   ServiceQuotaExceededException,
   SourceAttribution,
   StringAttributeBoostingConfiguration,
@@ -359,11 +363,14 @@ export const se_CreateApplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       attachmentsConfiguration: (_) => _json(_),
+      clientIdsForOIDC: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       displayName: [],
       encryptionConfiguration: (_) => _json(_),
+      iamIdentityProviderArn: [],
       identityCenterInstanceArn: [],
+      identityType: [],
       personalizationConfiguration: (_) => _json(_),
       qAppsConfiguration: (_) => _json(_),
       roleArn: [],
@@ -533,6 +540,7 @@ export const se_CreateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      identityProviderConfiguration: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -1287,6 +1295,7 @@ export const se_UpdateApplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       attachmentsConfiguration: (_) => _json(_),
+      autoSubscriptionConfiguration: (_) => _json(_),
       description: [],
       displayName: [],
       identityCenterInstanceArn: [],
@@ -1482,6 +1491,7 @@ export const se_UpdateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       authenticationConfiguration: (_) => _json(_),
+      identityProviderConfiguration: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -1919,12 +1929,16 @@ export const de_GetApplicationCommand = async (
     applicationArn: __expectString,
     applicationId: __expectString,
     attachmentsConfiguration: _json,
+    autoSubscriptionConfiguration: _json,
+    clientIdsForOIDC: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     displayName: __expectString,
     encryptionConfiguration: _json,
     error: _json,
+    iamIdentityProviderArn: __expectString,
     identityCenterApplicationArn: __expectString,
+    identityType: __expectString,
     personalizationConfiguration: _json,
     qAppsConfiguration: _json,
     roleArn: __expectString,
@@ -2154,6 +2168,7 @@ export const de_GetWebExperienceCommand = async (
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultEndpoint: __expectString,
     error: _json,
+    identityProviderConfiguration: (_) => _json(__expectUnion(_)),
     roleArn: __expectString,
     samplePromptsControlMode: __expectString,
     status: __expectString,
@@ -3166,6 +3181,8 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 
 // se_AuthorizationResponseMap omitted.
 
+// se_AutoSubscriptionConfiguration omitted.
+
 // se_BasicAuthConfiguration omitted.
 
 // se_BlockedPhrases omitted.
@@ -3173,6 +3190,8 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 // se_BlockedPhrasesConfigurationUpdate omitted.
 
 // se_ChatModeConfiguration omitted.
+
+// se_ClientIdsForOIDC omitted.
 
 /**
  * serializeAws_restJson1ConfigurationEvent
@@ -3346,6 +3365,8 @@ const se_HookConfiguration = (input: HookConfiguration, context: __SerdeContext)
   });
 };
 
+// se_IdentityProviderConfiguration omitted.
+
 // se_IndexCapacityConfiguration omitted.
 
 /**
@@ -3406,6 +3427,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_OAuth2ClientCredentialConfiguration omitted.
 
+// se_OpenIDConnectProviderConfiguration omitted.
+
 // se_PersonalizationConfiguration omitted.
 
 // se_PluginAuthConfiguration omitted.
@@ -3433,6 +3456,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 // se_S3 omitted.
 
 // se_SamlConfiguration omitted.
+
+// se_SamlProviderConfiguration omitted.
 
 // se_SecurityGroupIds omitted.
 
@@ -3606,6 +3631,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     applicationId: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
+    identityType: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -3635,11 +3661,15 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_AuthChallengeRequestEvent omitted.
 
+// de_AutoSubscriptionConfiguration omitted.
+
 // de_BasicAuthConfiguration omitted.
 
 // de_BlockedPhrases omitted.
 
 // de_BlockedPhrasesConfiguration omitted.
+
+// de_ClientIdsForOIDC omitted.
 
 // de_ContentBlockerRule omitted.
 
@@ -3882,6 +3912,8 @@ const de_HookConfiguration = (output: any, context: __SerdeContext): HookConfigu
   }) as any;
 };
 
+// de_IdentityProviderConfiguration omitted.
+
 /**
  * deserializeAws_restJson1Index
  */
@@ -3991,6 +4023,8 @@ const de_MetadataEvent = (output: any, context: __SerdeContext): MetadataEvent =
 
 // de_OAuth2ClientCredentialConfiguration omitted.
 
+// de_OpenIDConnectProviderConfiguration omitted.
+
 // de_PersonalizationConfiguration omitted.
 
 /**
@@ -4040,6 +4074,8 @@ const de_Plugins = (output: any, context: __SerdeContext): Plugin[] => {
 // de_S3 omitted.
 
 // de_SamlConfiguration omitted.
+
+// de_SamlProviderConfiguration omitted.
 
 // de_SecurityGroupIds omitted.
 

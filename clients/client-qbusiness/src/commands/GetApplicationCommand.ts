@@ -48,6 +48,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   displayName: "STRING_VALUE",
  * //   applicationId: "STRING_VALUE",
  * //   applicationArn: "STRING_VALUE",
+ * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC",
+ * //   iamIdentityProviderArn: "STRING_VALUE",
  * //   identityCenterApplicationArn: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
  * //   status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
@@ -70,6 +72,13 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   personalizationConfiguration: { // PersonalizationConfiguration
  * //     personalizationControlMode: "ENABLED" || "DISABLED", // required
  * //   },
+ * //   autoSubscriptionConfiguration: { // AutoSubscriptionConfiguration
+ * //     autoSubscribe: "ENABLED" || "DISABLED", // required
+ * //     defaultSubscriptionType: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * //   clientIdsForOIDC: [ // ClientIdsForOIDC
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

@@ -49,6 +49,15 @@ export interface CreateWebExperienceCommandOutput extends CreateWebExperienceRes
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   identityProviderConfiguration: { // IdentityProviderConfiguration Union: only one key present
+ *     samlConfiguration: { // SamlProviderConfiguration
+ *       authenticationUrl: "STRING_VALUE", // required
+ *     },
+ *     openIDConnectConfiguration: { // OpenIDConnectProviderConfiguration
+ *       secretsArn: "STRING_VALUE", // required
+ *       secretsRole: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateWebExperienceCommand(input);
  * const response = await client.send(command);

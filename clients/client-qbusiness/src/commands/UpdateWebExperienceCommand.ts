@@ -51,6 +51,15 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  *   subtitle: "STRING_VALUE",
  *   welcomeMessage: "STRING_VALUE",
  *   samplePromptsControlMode: "ENABLED" || "DISABLED",
+ *   identityProviderConfiguration: { // IdentityProviderConfiguration Union: only one key present
+ *     samlConfiguration: { // SamlProviderConfiguration
+ *       authenticationUrl: "STRING_VALUE", // required
+ *     },
+ *     openIDConnectConfiguration: { // OpenIDConnectProviderConfiguration
+ *       secretsArn: "STRING_VALUE", // required
+ *       secretsRole: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new UpdateWebExperienceCommand(input);
  * const response = await client.send(command);

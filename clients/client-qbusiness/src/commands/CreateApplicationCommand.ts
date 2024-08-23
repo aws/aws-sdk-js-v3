@@ -48,7 +48,12 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const input = { // CreateApplicationRequest
  *   displayName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
+ *   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC",
+ *   iamIdentityProviderArn: "STRING_VALUE",
  *   identityCenterInstanceArn: "STRING_VALUE",
+ *   clientIdsForOIDC: [ // ClientIdsForOIDC
+ *     "STRING_VALUE",
+ *   ],
  *   description: "STRING_VALUE",
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE",

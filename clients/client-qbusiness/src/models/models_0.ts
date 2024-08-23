@@ -569,6 +569,21 @@ export type APISchemaType = (typeof APISchemaType)[keyof typeof APISchemaType];
  * @public
  * @enum
  */
+export const IdentityType = {
+  AWS_IAM_IDC: "AWS_IAM_IDC",
+  AWS_IAM_IDP_OIDC: "AWS_IAM_IDP_OIDC",
+  AWS_IAM_IDP_SAML: "AWS_IAM_IDP_SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",
@@ -617,6 +632,12 @@ export interface Application {
    * @public
    */
   status?: ApplicationStatus;
+
+  /**
+   * <p>The authentication type being used by a Amazon Q Business application.</p>
+   * @public
+   */
+  identityType?: IdentityType;
 }
 
 /**
@@ -790,11 +811,29 @@ export interface CreateApplicationRequest {
   roleArn?: string;
 
   /**
+   * <p>The authentication type being used by a Amazon Q Business application.</p>
+   * @public
+   */
+  identityType?: IdentityType;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.</p>
+   * @public
+   */
+  iamIdentityProviderArn?: string;
+
+  /**
    * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
    *             creating for—or connecting to—your Amazon Q Business application.</p>
    * @public
    */
   identityCenterInstanceArn?: string;
+
+  /**
+   * <p>The OIDC client ID for a Amazon Q Business application.</p>
+   * @public
+   */
+  clientIdsForOIDC?: string[];
 
   /**
    * <p>A description for the Amazon Q Business application. </p>
@@ -1089,6 +1128,57 @@ export interface AppliedAttachmentsConfiguration {
  * @public
  * @enum
  */
+export const AutoSubscriptionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoSubscriptionStatus = (typeof AutoSubscriptionStatus)[keyof typeof AutoSubscriptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionType = {
+  Q_BUSINESS: "Q_BUSINESS",
+  Q_LITE: "Q_LITE",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
+
+/**
+ * <p>Subscription configuration information for an Amazon Q Business application
+ *             using IAM identity federation for user management. </p>
+ * @public
+ */
+export interface AutoSubscriptionConfiguration {
+  /**
+   * <p>Describes whether automatic subscriptions are enabled for an Amazon Q Business
+   *             application using IAM identity federation for user management.</p>
+   * @public
+   */
+  autoSubscribe: AutoSubscriptionStatus | undefined;
+
+  /**
+   * <p>Describes the default subscription type assigned to an Amazon Q Business
+   *             application using IAM identity federation for user management. If the
+   *             value for <code>autoSubscribe</code> is set to <code>ENABLED</code> you must select a
+   *             value for this field.</p>
+   * @public
+   */
+  defaultSubscriptionType?: SubscriptionType;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   INTERNAL_ERROR: "InternalError",
   INVALID_REQUEST: "InvalidRequest",
@@ -1140,6 +1230,18 @@ export interface GetApplicationResponse {
    * @public
    */
   applicationArn?: string;
+
+  /**
+   * <p>The authentication type being used by a Amazon Q Business application.</p>
+   * @public
+   */
+  identityType?: IdentityType;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.</p>
+   * @public
+   */
+  iamIdentityProviderArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to
@@ -1214,6 +1316,19 @@ export interface GetApplicationResponse {
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration;
+
+  /**
+   * <p>Settings for auto-subscription behavior for this application. This is only applicable
+   *             to SAML and OIDC applications.</p>
+   * @public
+   */
+  autoSubscriptionConfiguration?: AutoSubscriptionConfiguration;
+
+  /**
+   * <p>The OIDC client ID for a Amazon Q Business application.</p>
+   * @public
+   */
+  clientIdsForOIDC?: string[];
 }
 
 /**
@@ -1752,9 +1867,36 @@ export interface CreateDataSourceRequest {
   displayName: string | undefined;
 
   /**
-   * <p>Configuration information to connect to your data source repository. For configuration
-   *             templates for your specific data source, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
-   *                 connectors</a>.</p>
+   * <p>Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration
+   *             information specific to your data source connector.</p>
+   *          <p>Each data source has a JSON schema provided by Amazon Q Business that you must
+   *             use. For example, the Amazon S3 and Web Crawler connectors require the following
+   *             JSON schemas:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html">Amazon S3 JSON schema</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html">Web Crawler JSON schema</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can find configuration templates for your specific data source using the following
+   *             steps:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Navigate to the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
+   *                         connectors</a> page in the Amazon Q Business User Guide, and
+   *                     select the data source of your choice.</p>
+   *             </li>
+   *             <li>
+   *                <p>Then, from your specific data source connector page, select <b>Using the API</b>. You will find the JSON schema for your
+   *                     data source, including parameter descriptions, in this section.</p>
+   *             </li>
+   *          </ol>
    * @public
    */
   configuration: __DocumentType | undefined;
@@ -3834,12 +3976,113 @@ export interface UpdateApplicationRequest {
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration;
+
+  /**
+   * <p>An option to enable updating the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user
+   *             management.</p>
+   * @public
+   */
+  autoSubscriptionConfiguration?: AutoSubscriptionConfiguration;
 }
 
 /**
  * @public
  */
 export interface UpdateApplicationResponse {}
+
+/**
+ * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
+ *             users of an Amazon Q Business web experience.</p>
+ * @public
+ */
+export interface OpenIDConnectProviderConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Secrets Manager secret containing the OIDC
+   *             client secret.</p>
+   * @public
+   */
+  secretsArn: string | undefined;
+
+  /**
+   * <p>An IAM role with permissions to access KMS to decrypt
+   *             the Secrets Manager secret containing your OIDC client secret.</p>
+   * @public
+   */
+  secretsRole: string | undefined;
+}
+
+/**
+ * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate
+ *             end users of an Amazon Q Business web experience.</p>
+ * @public
+ */
+export interface SamlProviderConfiguration {
+  /**
+   * <p>The URL where Amazon Q Business end users will be redirected for authentication.
+   *         </p>
+   * @public
+   */
+  authenticationUrl: string | undefined;
+}
+
+/**
+ * <p>Provides information about the identity provider (IdP) used to authenticate end users
+ *             of an Amazon Q Business web experience.</p>
+ * @public
+ */
+export type IdentityProviderConfiguration =
+  | IdentityProviderConfiguration.OpenIDConnectConfigurationMember
+  | IdentityProviderConfiguration.SamlConfigurationMember
+  | IdentityProviderConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IdentityProviderConfiguration {
+  /**
+   * <p>Information about the SAML 2.0-compliant identity provider (IdP) used to authenticate
+   *             end users of an Amazon Q Business web experience.</p>
+   * @public
+   */
+  export interface SamlConfigurationMember {
+    samlConfiguration: SamlProviderConfiguration;
+    openIDConnectConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
+   *             users of an Amazon Q Business web experience.</p>
+   * @public
+   */
+  export interface OpenIDConnectConfigurationMember {
+    samlConfiguration?: never;
+    openIDConnectConfiguration: OpenIDConnectProviderConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    samlConfiguration?: never;
+    openIDConnectConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    samlConfiguration: (value: SamlProviderConfiguration) => T;
+    openIDConnectConfiguration: (value: OpenIDConnectProviderConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IdentityProviderConfiguration, visitor: Visitor<T>): T => {
+    if (value.samlConfiguration !== undefined) return visitor.samlConfiguration(value.samlConfiguration);
+    if (value.openIDConnectConfiguration !== undefined)
+      return visitor.openIDConnectConfiguration(value.openIDConnectConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * @public
@@ -3895,6 +4138,11 @@ export interface CreateWebExperienceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role attached to your web
    *             experience.</p>
+   *          <note>
+   *             <p>You must provide this value if you're using IAM Identity Center to manage end user
+   *                 access to your application. If you're using legacy identity management to manage
+   *                 user access, you don't need to provide this value.</p>
+   *          </note>
    * @public
    */
   roleArn?: string;
@@ -3914,6 +4162,13 @@ export interface CreateWebExperienceRequest {
    * @public
    */
   clientToken?: string;
+
+  /**
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an
+   *                 Amazon Q Business web experience.</p>
+   * @public
+   */
+  identityProviderConfiguration?: IdentityProviderConfiguration;
 }
 
 /**
@@ -4148,6 +4403,13 @@ export interface GetWebExperienceResponse {
   roleArn?: string;
 
   /**
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an
+   *                 Amazon Q Business web experience.</p>
+   * @public
+   */
+  identityProviderConfiguration?: IdentityProviderConfiguration;
+
+  /**
    * @deprecated
    *
    * <p>The authentication configuration information for your Amazon Q Business web
@@ -4302,6 +4564,13 @@ export interface UpdateWebExperienceRequest {
    * @public
    */
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode;
+
+  /**
+   * <p>Information about the identity provider (IdP) used to authenticate end users of an
+   *                 Amazon Q Business web experience.</p>
+   * @public
+   */
+  identityProviderConfiguration?: IdentityProviderConfiguration;
 }
 
 /**
@@ -6642,10 +6911,6 @@ export interface PutGroupRequest {
    * <p>The list that contains your users or sub groups that belong the same group. For
    *             example, the group "Company" includes the user "CEO" and the sub groups "Research",
    *             "Engineering", and "Sales and Marketing".</p>
-   *          <p>If you have more than 1000 users and/or sub groups for a single group, you need to
-   *             provide the path to the S3 file that lists your users and sub groups for a group. Your
-   *             sub groups can contain more than 1000 users, but the list of sub groups that belong to a
-   *             group (and/or users) must be no more than 1000.</p>
    * @public
    */
   groupName: string | undefined;
