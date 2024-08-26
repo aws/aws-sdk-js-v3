@@ -6,36 +6,57 @@ import { join } from "path";
 
 import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
-describe("client list", () => {
-  const root = join(__dirname, "..", "..");
-  const clientPackageNameList = readdirSync(join(root, "clients"));
+describe("endpoints", () => {
+  describe("client list", () => {
+    const root = join(__dirname, "..", "..");
+    const clientPackageNameList = readdirSync(join(root, "clients"));
 
-  it("should be at least 300 clients", () => {
-    expect(clientPackageNameList.length).toBeGreaterThan(300);
-  });
+    it("should be at least 300 clients", () => {
+      expect(clientPackageNameList.length).toBeGreaterThan(300);
+    });
 
-  describe.each(clientPackageNameList)(`%s endpoint test cases`, (clientPackageName) => {
-    const serviceName = clientPackageName.slice(7);
+    describe.each(clientPackageNameList)(`%s endpoint test cases`, (clientPackageName) => {
+      const serviceName = clientPackageName.slice(7);
 
-    // since client package name list is populated from clients folder, we know it exists.
-    const namespace = require(`@aws-sdk/${clientPackageName}`);
-    const modelPath = join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
+      // since client package name list is populated from clients folder, we know it exists.
+      const namespace = require(`@aws-sdk/${clientPackageName}`);
+      const modelPath = join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
-    if (existsSync(modelPath)) {
-      const model = require(modelPath);
-      for (const value of Object.values(model.shapes)) {
-        if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
-          const service = value as ServiceModel;
+      if (existsSync(modelPath)) {
+        const model = require(modelPath);
+        const service = getServiceShape(model);
+        if (service) {
           runTestCases(service, namespace);
-          break;
         }
       }
-    }
+    });
+  });
+
+  describe("test-cases", () => {
+    const testCasesPath = join(__dirname, "test-cases");
+    const testCases = readdirSync(testCasesPath);
+
+    describe.each(testCases)(`endpoint test case: %s`, (modelPath) => {
+      const model = require(join(testCasesPath, modelPath));
+      const service = getServiceShape(model);
+      if (service) {
+        // ToDo: populate namespace.getEndpointParameterInstructions from model.
+        runTestCases(service, {});
+      }
+    });
   });
 });
 
+function getServiceShape(model: any) {
+  for (const value of Object.values(model.shapes)) {
+    if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
+      return value as ServiceModel;
+    }
+  }
+}
+
 function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
-  const serviceId = service.traits["aws.api#service"].serviceId;
+  const serviceId = service.traits["aws.api#service"]?.serviceId ?? "";
   const testCases = service.traits["smithy.rules#endpointTests"]?.testCases;
 
   const ruleSet = service.traits["smithy.rules#endpointRuleSet"];

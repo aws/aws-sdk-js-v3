@@ -1,0 +1,146 @@
+{
+  "smithy": "2.0",
+  "shapes": {
+    "rulesengine.defaultvalues#FizzBuzz": {
+      "type": "service",
+      "version": "2022-01-01",
+      "operations": [
+        {
+          "target": "rulesengine.defaultvalues#GetThing"
+        }
+      ],
+      "traits": {
+        "smithy.api#suppress": ["UnstableTrait"],
+        "smithy.rules#clientContextParams": {
+          "bar": {
+            "type": "string",
+            "documentation": "a client string parameter"
+          },
+          "baz": {
+            "type": "string",
+            "documentation": "another client string parameter"
+          }
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "bar": {
+              "type": "string",
+              "documentation": "docs"
+            },
+            "baz": {
+              "type": "string",
+              "documentation": "docs",
+              "required": true,
+              "default": "baz"
+            },
+            "endpoint": {
+              "type": "string",
+              "builtIn": "SDK::Endpoint",
+              "required": true,
+              "default": "asdf",
+              "documentation": "docs"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "bar"
+                    }
+                  ]
+                }
+              ],
+              "endpoint": {
+                "url": "https://example.com/{baz}"
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "documentation": "error fallthrough",
+              "error": "endpoint error",
+              "type": "error"
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "version": "1.0",
+          "testCases": [
+            {
+              "documentation": "Default value is used when parameter is unset",
+              "params": {
+                "bar": "a b"
+              },
+              "operationInputs": [
+                {
+                  "operationName": "GetThing",
+                  "builtInParams": {
+                    "SDK::Endpoint": "https://custom.example.com"
+                  },
+                  "clientParams": {
+                    "bar": "a b"
+                  }
+                }
+              ],
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com/baz"
+                }
+              }
+            },
+            {
+              "documentation": "Default value is not used when the parameter is set",
+              "params": {
+                "bar": "a b",
+                "baz": "BIG"
+              },
+              "operationInputs": [
+                {
+                  "operationName": "GetThing",
+                  "builtInParams": {
+                    "SDK::Endpoint": "https://custom.example.com"
+                  },
+                  "clientParams": {
+                    "bar": "a b",
+                    "baz": "BIG"
+                  }
+                }
+              ],
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com/BIG"
+                }
+              }
+            },
+            {
+              "documentation": "a documentation string",
+              "expect": {
+                "error": "endpoint error"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "rulesengine.defaultvalues#GetThing": {
+      "type": "operation",
+      "input": {
+        "target": "rulesengine.defaultvalues#GetThingInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      }
+    },
+    "rulesengine.defaultvalues#GetThingInput": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    }
+  }
+}
