@@ -74,6 +74,16 @@ function getEndpointParameterInstructions(service: ServiceModel) {
     }
   }
 
+  const parameters = service.traits["smithy.rules#endpointRuleSet"].parameters;
+  for (const [paramName, parameter] of Object.entries(parameters)) {
+    if (parameter.builtIn) {
+      endpointParameterInstructions[paramName] = {
+        type: "builtInParams",
+        name: namesMap[paramName] ?? `${paramName[0].toLowerCase()}${paramName.slice(1)}`,
+      };
+    }
+  }
+
   return endpointParameterInstructions;
 }
 
