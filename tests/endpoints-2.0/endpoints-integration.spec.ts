@@ -84,6 +84,8 @@ function getEndpointParameterInstructions(service: ServiceModel) {
     }
   }
 
+  // ToDo: Populate contextParam and staticContextParam, if they're added in test-cases in future.
+
   return endpointParameterInstructions;
 }
 
