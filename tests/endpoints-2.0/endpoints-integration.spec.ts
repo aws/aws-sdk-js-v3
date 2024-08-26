@@ -1,4 +1,4 @@
-import { resolveParams } from "@smithy/middleware-endpoint";
+import { resolveParams, EndpointParameterInstructions } from "@smithy/middleware-endpoint";
 import { EndpointV2 } from "@smithy/types";
 import { resolveEndpoint, EndpointParams } from "@smithy/util-endpoints";
 import { existsSync, readdirSync } from "fs";
@@ -40,12 +40,42 @@ describe("endpoints", () => {
       const model = require(join(testCasesPath, modelPath));
       const service = getServiceShape(model);
       if (service) {
-        // ToDo: populate namespace.getEndpointParameterInstructions from model.
-        runTestCases(service, {});
+        runTestCases(service, {
+          getEndpointParameterInstructions: getEndpointParameterInstructions(service),
+        });
       }
     });
   });
 });
+
+function getEndpointParameterInstructions(service: ServiceModel) {
+  const endpointParameterInstructions: EndpointParameterInstructions = {};
+
+  const namesMap = Object.fromEntries([
+    ["Region", "region"],
+    ["UseFIPS", "useFipsEndpoint"],
+    ["UseDualStack", "useDualstackEndpoint"],
+    ["ForcePathStyle", "forcePathStyle"],
+    ["Accelerate", "useAccelerateEndpoint"],
+    ["DisableMRAP", "disableMultiregionAccessPoints"],
+    ["DisableMultiRegionAccessPoints", "disableMultiregionAccessPoints"],
+    ["UseArnRegion", "useArnRegion"],
+    ["Endpoint", "endpoint"],
+    ["UseGlobalEndpoint", "useGlobalEndpoint"],
+  ]);
+
+  const clientContextParams = service.traits["smithy.rules#clientContextParams"];
+  if (clientContextParams) {
+    for (const paramName of Object.keys(clientContextParams)) {
+      endpointParameterInstructions[paramName] = {
+        type: "clientContextParams",
+        name: namesMap[paramName] ?? `${paramName[0].toLowerCase()}${paramName.slice(1)}`,
+      };
+    }
+  }
+
+  return endpointParameterInstructions;
+}
 
 function getServiceShape(model: any) {
   for (const value of Object.values(model.shapes)) {

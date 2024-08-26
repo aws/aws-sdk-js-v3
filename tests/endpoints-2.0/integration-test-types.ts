@@ -32,6 +32,11 @@ export interface ServiceNamespace {
   [Command: string]: EndpointParameterInstructionsSupplier;
 }
 
+export interface ClientContextParam {
+  type: string;
+  documentation?: string;
+}
+
 export interface ServiceModel {
   type: "service";
   version: string;
@@ -39,6 +44,7 @@ export interface ServiceModel {
     "aws.api#service": {
       serviceId: string;
     };
+    "smithy.rules#clientContextParams"?: Record<string, ClientContextParam>;
     "smithy.rules#endpointRuleSet": RuleSetObject;
     "smithy.rules#endpointTests"?: {
       testCases: EndpointTestCase[];
