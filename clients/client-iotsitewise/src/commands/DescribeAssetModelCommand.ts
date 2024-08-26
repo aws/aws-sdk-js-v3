@@ -38,17 +38,21 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * const input = { // DescribeAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   excludeProperties: true || false,
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new DescribeAssetModelCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAssetModelResponse
  * //   assetModelId: "STRING_VALUE", // required
+ * //   assetModelExternalId: "STRING_VALUE",
  * //   assetModelArn: "STRING_VALUE", // required
  * //   assetModelName: "STRING_VALUE", // required
+ * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
  * //   assetModelDescription: "STRING_VALUE", // required
  * //   assetModelProperties: [ // AssetModelProperties // required
  * //     { // AssetModelProperty
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //       dataTypeSpec: "STRING_VALUE",
@@ -122,15 +126,14 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelHierarchies: [ // AssetModelHierarchies // required
  * //     { // AssetModelHierarchy
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       childAssetModelId: "STRING_VALUE", // required
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -141,6 +144,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       properties: [
  * //         {
  * //           id: "STRING_VALUE",
+ * //           externalId: "STRING_VALUE",
  * //           name: "STRING_VALUE", // required
  * //           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //           dataTypeSpec: "STRING_VALUE",
@@ -199,11 +203,25 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //             },
  * //           },
  * //           path: "<AssetModelPropertyPath>",
- * //           externalId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       id: "STRING_VALUE",
  * //       externalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries
+ * //     { // AssetModelCompositeModelSummary
+ * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       path: [ // AssetModelCompositeModelPath
+ * //         { // AssetModelCompositeModelPathSegment
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   assetModelCreationDate: new Date("TIMESTAMP"), // required
@@ -221,23 +239,8 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       ],
  * //     },
  * //   },
- * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
- * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries
- * //     { // AssetModelCompositeModelSummary
- * //       id: "STRING_VALUE", // required
- * //       externalId: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       path: [ // AssetModelCompositeModelPath
- * //         { // AssetModelCompositeModelPathSegment
- * //           id: "STRING_VALUE",
- * //           name: "STRING_VALUE",
- * //         },
- * //       ],
- * //     },
- * //   ],
- * //   assetModelExternalId: "STRING_VALUE",
+ * //   assetModelVersion: "STRING_VALUE",
+ * //   eTag: "STRING_VALUE",
  * // };
  *
  * ```

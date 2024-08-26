@@ -45,6 +45,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * const input = { // DescribeAssetModelCompositeModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   assetModelCompositeModelId: "STRING_VALUE", // required
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new DescribeAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -64,6 +65,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * //   assetModelCompositeModelProperties: [ // AssetModelProperties // required
  * //     { // AssetModelProperty
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //       dataTypeSpec: "STRING_VALUE",
@@ -137,7 +139,6 @@ export interface DescribeAssetModelCompositeModelCommandOutput
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   compositionDetails: { // CompositionDetails

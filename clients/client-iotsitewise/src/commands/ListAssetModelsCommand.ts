@@ -36,11 +36,12 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * // const { IoTSiteWiseClient, ListAssetModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetModelsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
  *   assetModelTypes: [ // ListAssetModelsTypeFilter
  *     "ASSET_MODEL" || "COMPONENT_MODEL",
  *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new ListAssetModelsCommand(input);
  * const response = await client.send(command);
@@ -48,8 +49,10 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * //   assetModelSummaries: [ // AssetModelSummaries // required
  * //     { // AssetModelSummary
  * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
  * //       description: "STRING_VALUE", // required
  * //       creationDate: new Date("TIMESTAMP"), // required
  * //       lastUpdateDate: new Date("TIMESTAMP"), // required
@@ -66,8 +69,7 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * //           ],
  * //         },
  * //       },
- * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
- * //       externalId: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

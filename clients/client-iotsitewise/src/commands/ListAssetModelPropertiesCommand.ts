@@ -42,6 +42,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   filter: "ALL" || "BASE",
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
@@ -49,6 +50,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
  * //     { // AssetModelPropertySummary
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  * //       dataTypeSpec: "STRING_VALUE",
@@ -123,7 +125,6 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

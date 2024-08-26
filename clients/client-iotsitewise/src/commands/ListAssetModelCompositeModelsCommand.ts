@@ -44,6 +44,7 @@ export interface ListAssetModelCompositeModelsCommandOutput
  *   assetModelId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   assetModelVersion: "STRING_VALUE",
  * };
  * const command = new ListAssetModelCompositeModelsCommand(input);
  * const response = await client.send(command);

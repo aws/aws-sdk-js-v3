@@ -10,6 +10,7 @@ import {
   AssetModelHierarchy,
   AssetModelProperty,
   AssetModelStatus,
+  AssetModelVersionType,
   AssetStatus,
   CapabilitySyncStatus,
   ColumnInfo,
@@ -18,18 +19,136 @@ import {
   EncryptionType,
   Identity,
   ImageFile,
+  ListTimeSeriesType,
   LoggingOptions,
   MultiLayerStorage,
   Permission,
   PortalStatus,
+  PropertyDataType,
   PropertyNotificationState,
   Resource,
   RetentionPeriod,
   StorageType,
-  TimeSeriesSummary,
   WarmTierRetentionPeriod,
   WarmTierState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetId?: string;
+
+  /**
+   * <p>The alias prefix of the time series.</p>
+   * @public
+   */
+  aliasPrefix?: string;
+
+  /**
+   * <p>The type of the time series. The time series type can be one of the following
+   *       values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATED</code> – The time series is associated with an asset
+   *           property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATED</code> – The time series isn't associated with any asset
+   *           property.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  timeSeriesType?: ListTimeSeriesType;
+}
+
+/**
+ * <p>Contains a summary of a time series (data stream).</p>
+ * @public
+ */
+export interface TimeSeriesSummary {
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property, in UUID format.</p>
+   * @public
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the time series.</p>
+   * @public
+   */
+  alias?: string;
+
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The data type of the time series.</p>
+   *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
+   * @public
+   */
+  dataType: PropertyDataType | undefined;
+
+  /**
+   * <p>The data type of the structure for this time series. This parameter is required for time series
+   *       that have the <code>STRUCT</code> data type.</p>
+   *          <p>The options for this parameter depend on the type of the composite model
+   *       in which you created the asset property that is associated with your time series.
+   *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
+   * @public
+   */
+  dataTypeSpec?: string;
+
+  /**
+   * <p>The date that the time series was created, in Unix epoch time.</p>
+   * @public
+   */
+  timeSeriesCreationDate: Date | undefined;
+
+  /**
+   * <p>The date that the time series was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  timeSeriesLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
+   *          <p>
+   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:time-series/$\{TimeSeriesId\}</code>
+   *          </p>
+   * @public
+   */
+  timeSeriesArn: string | undefined;
+}
 
 /**
  * @public
@@ -431,6 +550,13 @@ export interface UpdateAssetModelRequest {
   assetModelId: string | undefined;
 
   /**
+   * <p>An external ID to assign to the asset model. The asset model must not already have an
+   *       external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelExternalId?: string;
+
+  /**
    * <p>A unique name for the asset model.</p>
    * @public
    */
@@ -482,11 +608,27 @@ export interface UpdateAssetModelRequest {
   clientToken?: string;
 
   /**
-   * <p>An external ID to assign to the asset model. The asset model must not already have an
-   *       external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>).
+   *     The update request is rejected if the tag does not match the latest or active version's current entity tag.
+   *     See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html">Optimistic locking for asset model writes</a>
+   *     in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetModelExternalId?: string;
+  ifMatch?: string;
+
+  /**
+   * <p>Accepts <b>*</b> to reject the update request if an active version
+   *     (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
+   * @public
+   */
+  ifNoneMatch?: string;
+
+  /**
+   * <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in
+   *   conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
+   * @public
+   */
+  matchForVersionType?: AssetModelVersionType;
 }
 
 /**
@@ -551,6 +693,29 @@ export interface UpdateAssetModelCompositeModelRequest {
    * @public
    */
   assetModelCompositeModelProperties?: AssetModelProperty[];
+
+  /**
+   * <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>).
+   *     The update request is rejected if the tag does not match the latest or active version's current entity tag.
+   *     See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html">Optimistic locking for asset model writes</a>
+   *     in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  ifMatch?: string;
+
+  /**
+   * <p>Accepts <b>*</b> to reject the update request if an active version
+   *     (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
+   * @public
+   */
+  ifNoneMatch?: string;
+
+  /**
+   * <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in
+   *   conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
+   * @public
+   */
+  matchForVersionType?: AssetModelVersionType;
 }
 
 /**

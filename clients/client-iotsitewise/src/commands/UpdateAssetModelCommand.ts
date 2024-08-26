@@ -57,11 +57,13 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
+ *   assetModelExternalId: "STRING_VALUE",
  *   assetModelName: "STRING_VALUE", // required
  *   assetModelDescription: "STRING_VALUE",
  *   assetModelProperties: [ // AssetModelProperties
  *     { // AssetModelProperty
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -135,15 +137,14 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *           name: "STRING_VALUE",
  *         },
  *       ],
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchies
  *     { // AssetModelHierarchy
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       childAssetModelId: "STRING_VALUE", // required
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -154,6 +155,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       properties: [
  *         {
  *           id: "STRING_VALUE",
+ *           externalId: "STRING_VALUE",
  *           name: "STRING_VALUE", // required
  *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *           dataTypeSpec: "STRING_VALUE",
@@ -212,7 +214,6 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *             },
  *           },
  *           path: "<AssetModelPropertyPath>",
- *           externalId: "STRING_VALUE",
  *         },
  *       ],
  *       id: "STRING_VALUE",
@@ -220,7 +221,9 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
- *   assetModelExternalId: "STRING_VALUE",
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);
@@ -264,6 +267,9 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>

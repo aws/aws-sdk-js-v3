@@ -57,9 +57,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAssetModelRequest
  *   assetModelName: "STRING_VALUE", // required
+ *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ *   assetModelId: "STRING_VALUE",
+ *   assetModelExternalId: "STRING_VALUE",
  *   assetModelDescription: "STRING_VALUE",
  *   assetModelProperties: [ // AssetModelPropertyDefinitions
  *     { // AssetModelPropertyDefinition
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -127,25 +132,27 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *           },
  *         },
  *       },
- *       id: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchyDefinitions
  *     { // AssetModelHierarchyDefinition
- *       name: "STRING_VALUE", // required
- *       childAssetModelId: "STRING_VALUE", // required
  *       id: "STRING_VALUE",
  *       externalId: "STRING_VALUE",
+ *       name: "STRING_VALUE", // required
+ *       childAssetModelId: "STRING_VALUE", // required
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModelDefinitions
  *     { // AssetModelCompositeModelDefinition
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
  *       type: "STRING_VALUE", // required
  *       properties: [
  *         {
+ *           id: "STRING_VALUE",
+ *           externalId: "STRING_VALUE",
  *           name: "STRING_VALUE", // required
  *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *           dataTypeSpec: "STRING_VALUE",
@@ -213,21 +220,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *               },
  *             },
  *           },
- *           id: "STRING_VALUE",
- *           externalId: "STRING_VALUE",
  *         },
  *       ],
- *       id: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   assetModelId: "STRING_VALUE",
- *   assetModelExternalId: "STRING_VALUE",
- *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
  * };
  * const command = new CreateAssetModelCommand(input);
  * const response = await client.send(command);

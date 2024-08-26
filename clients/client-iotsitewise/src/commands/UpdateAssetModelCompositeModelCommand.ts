@@ -70,6 +70,7 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *   assetModelCompositeModelProperties: [ // AssetModelProperties
  *     { // AssetModelProperty
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -143,9 +144,11 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *           name: "STRING_VALUE",
  *         },
  *       ],
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new UpdateAssetModelCompositeModelCommand(input);
  * const response = await client.send(command);
@@ -195,6 +198,9 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>

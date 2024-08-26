@@ -32,10 +32,12 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
  *             <li>
- *                <p>List child assets associated to a parent asset by a hierarchy that you specify.</p>
+ *                <p>
+ *                   <code>CHILD</code> - List all child assets associated to the asset.</p>
  *             </li>
  *             <li>
- *                <p>List an asset's parent asset.</p>
+ *                <p>
+ *                   <code>PARENT</code> - List the asset's parent asset.</p>
  *             </li>
  *          </ul>
  * @example
