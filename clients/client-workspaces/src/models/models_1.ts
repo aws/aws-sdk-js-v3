@@ -10,6 +10,44 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface RestoreWorkspaceRequest {
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreWorkspaceResult {}
+
+/**
+ * @public
+ */
+export interface RevokeIpRulesRequest {
+  /**
+   * <p>The identifier of the group.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The rules to remove from the group.</p>
+   * @public
+   */
+  UserRules: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeIpRulesResult {}
+
+/**
  * <p>Information used to start a WorkSpace.</p>
  * @public
  */

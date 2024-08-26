@@ -4374,6 +4374,39 @@ export interface DescribeWorkspaceBundlesResult {
 
 /**
  * @public
+ * @enum
+ */
+export const DescribeWorkspaceDirectoriesFilterName = {
+  USER_IDENTITY_TYPE: "USER_IDENTITY_TYPE",
+  WORKSPACE_TYPE: "WORKSPACE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeWorkspaceDirectoriesFilterName =
+  (typeof DescribeWorkspaceDirectoriesFilterName)[keyof typeof DescribeWorkspaceDirectoriesFilterName];
+
+/**
+ * <p>Describes the filter conditions for the WorkSpaces to return.</p>
+ * @public
+ */
+export interface DescribeWorkspaceDirectoriesFilter {
+  /**
+   * <p>The name of the WorkSpaces to filter.</p>
+   * @public
+   */
+  Name: DescribeWorkspaceDirectoriesFilterName | undefined;
+
+  /**
+   * <p>The values for filtering WorkSpaces</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeWorkspaceDirectoriesRequest {
   /**
@@ -4401,6 +4434,12 @@ export interface DescribeWorkspaceDirectoriesRequest {
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>The filter condition for the WorkSpaces.</p>
+   * @public
+   */
+  Filters?: DescribeWorkspaceDirectoriesFilter[];
 }
 
 /**
@@ -4409,6 +4448,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
  */
 export const WorkspaceDirectoryType = {
   AD_CONNECTOR: "AD_CONNECTOR",
+  AWS_IAM_IDENTITY_CENTER: "AWS_IAM_IDENTITY_CENTER",
   CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
   SIMPLE_AD: "SIMPLE_AD",
 } as const;
@@ -4417,6 +4457,42 @@ export const WorkspaceDirectoryType = {
  * @public
  */
 export type WorkspaceDirectoryType = (typeof WorkspaceDirectoryType)[keyof typeof WorkspaceDirectoryType];
+
+/**
+ * <p>Specifies the configurations of the identity center.</p>
+ * @public
+ */
+export interface IDCConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity center instance.</p>
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * <p>Specifies the configurations of the Microsoft Entra.</p>
+ * @public
+ */
+export interface MicrosoftEntraConfig {
+  /**
+   * <p>The identifier of the tenant.</p>
+   * @public
+   */
+  TenantId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application config.</p>
+   * @public
+   */
+  ApplicationConfigSecretArn?: string;
+}
 
 /**
  * @public
@@ -4692,6 +4768,7 @@ export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
  */
 export const UserIdentityType = {
   AWS_DIRECTORY_SERVICE: "AWS_DIRECTORY_SERVICE",
+  AWS_IAM_IDENTITY_CENTER: "AWS_IAM_IDENTITY_CENTER",
   CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
 } as const;
 
@@ -4896,6 +4973,12 @@ export interface WorkspaceDirectory {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 
   /**
+   * <p>Specifies details about Microsoft Entra configurations.</p>
+   * @public
+   */
+  MicrosoftEntraConfig?: MicrosoftEntraConfig;
+
+  /**
    * <p>The name fo the WorkSpace directory.</p>
    * @public
    */
@@ -4918,6 +5001,12 @@ export interface WorkspaceDirectory {
    * @public
    */
   WorkspaceType?: WorkspaceType;
+
+  /**
+   * <p>Specifies details about identity center configurations.</p>
+   * @public
+   */
+  IDCConfig?: IDCConfig;
 
   /**
    * <p>Information about the Active Directory config.</p>
@@ -6734,6 +6823,18 @@ export interface RegisterWorkspaceDirectoryRequest {
   UserIdentityType?: UserIdentityType;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the identity center instance.</p>
+   * @public
+   */
+  IdcInstanceArn?: string;
+
+  /**
+   * <p>The details about Microsoft Entra config.</p>
+   * @public
+   */
+  MicrosoftEntraConfig?: MicrosoftEntraConfig;
+
+  /**
    * <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
    * @public
    */
@@ -6834,41 +6935,3 @@ export interface RejectAccountLinkInvitationResult {
    */
   AccountLink?: AccountLink;
 }
-
-/**
- * @public
- */
-export interface RestoreWorkspaceRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreWorkspaceResult {}
-
-/**
- * @public
- */
-export interface RevokeIpRulesRequest {
-  /**
-   * <p>The identifier of the group.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>The rules to remove from the group.</p>
-   * @public
-   */
-  UserRules: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeIpRulesResult {}

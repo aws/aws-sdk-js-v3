@@ -55,7 +55,12 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *   ],
  *   WorkspaceDirectoryName: "STRING_VALUE",
  *   WorkspaceDirectoryDescription: "STRING_VALUE",
- *   UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE",
+ *   UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE" || "AWS_IAM_IDENTITY_CENTER",
+ *   IdcInstanceArn: "STRING_VALUE",
+ *   MicrosoftEntraConfig: { // MicrosoftEntraConfig
+ *     TenantId: "STRING_VALUE",
+ *     ApplicationConfigSecretArn: "STRING_VALUE",
+ *   },
  *   WorkspaceType: "PERSONAL" || "POOLS",
  *   ActiveDirectoryConfig: { // ActiveDirectoryConfig
  *     DomainName: "STRING_VALUE", // required

@@ -383,6 +383,7 @@ import {
   DescribeWorkspaceAssociationsResult,
   DescribeWorkspaceBundlesRequest,
   DescribeWorkspaceBundlesResult,
+  DescribeWorkspaceDirectoriesFilter,
   DescribeWorkspaceDirectoriesRequest,
   DescribeWorkspaceImagePermissionsRequest,
   DescribeWorkspaceImagesRequest,
@@ -415,6 +416,7 @@ import {
   IpRuleItem,
   ListAccountLinksRequest,
   ListAvailableManagementCidrRangesRequest,
+  MicrosoftEntraConfig,
   MigrateWorkspaceRequest,
   ModifyAccountRequest,
   ModifyCertificateBasedAuthPropertiesRequest,
@@ -444,8 +446,6 @@ import {
   ResourceLimitExceededException,
   ResourceNotFoundException,
   ResourceUnavailableException,
-  RestoreWorkspaceRequest,
-  RevokeIpRulesRequest,
   RootStorage,
   SamlProperties,
   SelfservicePermissions,
@@ -478,6 +478,8 @@ import {
   WorkspacesPoolSession,
 } from "../models/models_0";
 import {
+  RestoreWorkspaceRequest,
+  RevokeIpRulesRequest,
   StartRequest,
   StartWorkspacesPoolRequest,
   StartWorkspacesRequest,
@@ -3966,6 +3968,12 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DescribeWorkspaceBundlesRequest omitted.
 
+// se_DescribeWorkspaceDirectoriesFilter omitted.
+
+// se_DescribeWorkspaceDirectoriesFilterList omitted.
+
+// se_DescribeWorkspaceDirectoriesFilterValues omitted.
+
 // se_DescribeWorkspaceDirectoriesRequest omitted.
 
 // se_DescribeWorkspaceImagePermissionsRequest omitted.
@@ -4050,6 +4058,8 @@ const se_IosImportClientBrandingAttributes = (
 // se_ListAvailableManagementCidrRangesRequest omitted.
 
 // se_LoginMessage omitted.
+
+// se_MicrosoftEntraConfig omitted.
 
 // se_MigrateWorkspaceRequest omitted.
 
@@ -4674,6 +4684,8 @@ const de_DisassociateWorkspaceApplicationResult = (
 
 // de_GetAccountLinkResult omitted.
 
+// de_IDCConfig omitted.
+
 // de_ImagePermission omitted.
 
 // de_ImagePermissions omitted.
@@ -4730,6 +4742,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_ListAvailableManagementCidrRangesResult omitted.
 
 // de_LoginMessage omitted.
+
+// de_MicrosoftEntraConfig omitted.
 
 // de_MigrateWorkspaceResult omitted.
 
