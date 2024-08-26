@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.639.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.638.0...v3.639.0) (2024-08-26)
+
+
+### Features
+
+* **client-iotsitewise:** AWS IoT SiteWise now supports versioning for asset models. It enables users to retrieve active version of their asset model and perform asset model writes with optimistic lock. ([ebc9981](https://github.com/aws/aws-sdk-js-v3/commit/ebc9981fc23253adbd350039f8e0d5012fa73732))
+* **client-workspaces:** This release adds support for creating and managing directories that use AWS IAM Identity Center as user identity source. Such directories can be used to create non-Active Directory domain joined WorkSpaces Personal.Updated RegisterWorkspaceDirectory and DescribeWorkspaceDirectories APIs. ([206a25b](https://github.com/aws/aws-sdk-js-v3/commit/206a25b7f8d801a1bd7b81ae237f76d9e6a0ba5b))
+
+
+
+
+
 # [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
 
 

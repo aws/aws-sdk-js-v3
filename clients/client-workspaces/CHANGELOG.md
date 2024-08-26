@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.639.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.638.0...v3.639.0) (2024-08-26)
+
+
+### Features
+
+* **client-workspaces:** This release adds support for creating and managing directories that use AWS IAM Identity Center as user identity source. Such directories can be used to create non-Active Directory domain joined WorkSpaces Personal.Updated RegisterWorkspaceDirectory and DescribeWorkspaceDirectories APIs. ([206a25b](https://github.com/aws/aws-sdk-js-v3/commit/206a25b7f8d801a1bd7b81ae237f76d9e6a0ba5b))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

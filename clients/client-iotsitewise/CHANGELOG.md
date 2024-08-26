@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.639.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.638.0...v3.639.0) (2024-08-26)
+
+
+### Features
+
+* **client-iotsitewise:** AWS IoT SiteWise now supports versioning for asset models. It enables users to retrieve active version of their asset model and perform asset model writes with optimistic lock. ([ebc9981](https://github.com/aws/aws-sdk-js-v3/commit/ebc9981fc23253adbd350039f8e0d5012fa73732))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsitewise
