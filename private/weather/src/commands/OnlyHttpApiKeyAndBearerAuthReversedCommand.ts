@@ -1,5 +1,9 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import {
+  de_OnlyHttpApiKeyAndBearerAuthReversedCommand,
+  se_OnlyHttpApiKeyAndBearerAuthReversedCommand,
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -62,10 +66,6 @@ export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command
   .s("Weather", "OnlyHttpApiKeyAndBearerAuthReversed", {})
   .n("WeatherClient", "OnlyHttpApiKeyAndBearerAuthReversedCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
+  .ser(se_OnlyHttpApiKeyAndBearerAuthReversedCommand)
+  .de(de_OnlyHttpApiKeyAndBearerAuthReversedCommand)
   .build() {}

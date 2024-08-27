@@ -130,6 +130,7 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
                              */
                             signingProperties: {
                               context,
+                              sha256: (config as any).sha256,
                             },
                           };
                         },"""))

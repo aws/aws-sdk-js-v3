@@ -3,16 +3,13 @@ $version: "2.0"
 namespace example.weather
 
 use aws.auth#sigv4
+use aws.protocols#restJson1
 
 @authDefinition
 @trait
 structure customAuth {}
 
-@trait
-@protocolDefinition
-structure fakeProtocol {}
-
-@fakeProtocol
+@restJson1
 @httpApiKeyAuth(name: "X-Api-Key", in: "header")
 @httpBearerAuth
 @sigv4(name: "weather")

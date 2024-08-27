@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 import { SameAsServiceOutput } from "../models/models_0";
+import { de_SameAsServiceCommand, se_SameAsServiceCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -65,10 +66,6 @@ export class SameAsServiceCommand extends $Command
   .s("Weather", "SameAsService", {})
   .n("WeatherClient", "SameAsServiceCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
+  .ser(se_SameAsServiceCommand)
+  .de(de_SameAsServiceCommand)
   .build() {}
