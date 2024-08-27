@@ -2478,6 +2478,208 @@ export interface UpdateGuardrailResponse {
 /**
  * @public
  */
+export interface GetInferenceProfileRequest {
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains information about a model.</p>
+ * @public
+ */
+export interface InferenceProfileModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * @public
+   */
+  modelArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceProfileStatus = {
+  ACTIVE: "ACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceProfileStatus = (typeof InferenceProfileStatus)[keyof typeof InferenceProfileStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceProfileType = {
+  SYSTEM_DEFINED: "SYSTEM_DEFINED",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceProfileType = (typeof InferenceProfileType)[keyof typeof InferenceProfileType];
+
+/**
+ * @public
+ */
+export interface GetInferenceProfileResponse {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is available to use.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. <code>SYSTEM_DEFINED</code> means that the inference profile is defined by Amazon Bedrock.</p>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Contains information about an inference profile.</p>
+ * @public
+ */
+export interface InferenceProfileSummary {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is available to use.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. <code>SYSTEM_DEFINED</code> means that the inference profile is defined by Amazon Bedrock.</p>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesResponse {
+  /**
+   * <p>A list of information about each inference profile that you can use.</p>
+   * @public
+   */
+  inferenceProfileSummaries?: InferenceProfileSummary[];
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteModelInvocationLoggingConfigurationRequest {}
 
 /**
@@ -2625,7 +2827,7 @@ export interface CreateModelCopyJobRequest {
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string;
@@ -3604,7 +3806,7 @@ export interface CreateModelInvocationJobRequest {
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string;
@@ -3708,7 +3910,7 @@ export interface GetModelInvocationJobResponse {
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string;
@@ -3856,7 +4058,7 @@ export interface ModelInvocationJobSummary {
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string;

@@ -82,6 +82,10 @@ import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "../commands/GetGuardrailCommand";
 import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "../commands/GetImportedModelCommand";
+import {
+  GetInferenceProfileCommandInput,
+  GetInferenceProfileCommandOutput,
+} from "../commands/GetInferenceProfileCommand";
 import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "../commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
@@ -108,6 +112,10 @@ import {
 } from "../commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "../commands/ListGuardrailsCommand";
 import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "../commands/ListImportedModelsCommand";
+import {
+  ListInferenceProfilesCommandInput,
+  ListInferenceProfilesCommandOutput,
+} from "../commands/ListInferenceProfilesCommand";
 import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "../commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
@@ -184,6 +192,7 @@ import {
   HumanEvaluationCustomMetric,
   HumanWorkflowConfig,
   ImportedModelSummary,
+  InferenceProfileSummary,
   InternalServerException,
   LoggingConfig,
   ModelCopyJobSummary,
@@ -635,6 +644,22 @@ export const se_GetImportedModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetInferenceProfileCommand
+ */
+export const se_GetInferenceProfileCommand = async (
+  input: GetInferenceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/inference-profiles/{inferenceProfileIdentifier}");
+  b.p("inferenceProfileIdentifier", () => input.inferenceProfileIdentifier!, "{inferenceProfileIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetModelCopyJobCommand
  */
 export const se_GetModelCopyJobCommand = async (
@@ -840,6 +865,25 @@ export const se_ListImportedModelsCommand = async (
     [_nT]: [, input[_nT]!],
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInferenceProfilesCommand
+ */
+export const se_ListInferenceProfilesCommand = async (
+  input: ListInferenceProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/inference-profiles");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1602,6 +1646,35 @@ export const de_GetImportedModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInferenceProfileCommand
+ */
+export const de_GetInferenceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInferenceProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    inferenceProfileArn: __expectString,
+    inferenceProfileId: __expectString,
+    inferenceProfileName: __expectString,
+    models: _json,
+    status: __expectString,
+    type: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetModelCopyJobCommand
  */
 export const de_GetModelCopyJobCommand = async (
@@ -1897,6 +1970,28 @@ export const de_ListImportedModelsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelSummaries: (_) => de_ImportedModelSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInferenceProfilesCommand
+ */
+export const de_ListInferenceProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    inferenceProfileSummaries: (_) => de_InferenceProfileSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2760,6 +2855,39 @@ const de_ImportedModelSummaryList = (output: any, context: __SerdeContext): Impo
       return de_ImportedModelSummary(entry, context);
     });
   return retVal;
+};
+
+// de_InferenceProfileModel omitted.
+
+// de_InferenceProfileModels omitted.
+
+/**
+ * deserializeAws_restJson1InferenceProfileSummaries
+ */
+const de_InferenceProfileSummaries = (output: any, context: __SerdeContext): InferenceProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InferenceProfileSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InferenceProfileSummary
+ */
+const de_InferenceProfileSummary = (output: any, context: __SerdeContext): InferenceProfileSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    inferenceProfileArn: __expectString,
+    inferenceProfileId: __expectString,
+    inferenceProfileName: __expectString,
+    models: _json,
+    status: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 // de_InferenceTypeList omitted.

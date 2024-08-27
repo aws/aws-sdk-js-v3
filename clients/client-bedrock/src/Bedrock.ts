@@ -99,6 +99,11 @@ import {
   GetImportedModelCommandOutput,
 } from "./commands/GetImportedModelCommand";
 import {
+  GetInferenceProfileCommand,
+  GetInferenceProfileCommandInput,
+  GetInferenceProfileCommandOutput,
+} from "./commands/GetInferenceProfileCommand";
+import {
   GetModelCopyJobCommand,
   GetModelCopyJobCommandInput,
   GetModelCopyJobCommandOutput,
@@ -153,6 +158,11 @@ import {
   ListImportedModelsCommandInput,
   ListImportedModelsCommandOutput,
 } from "./commands/ListImportedModelsCommand";
+import {
+  ListInferenceProfilesCommand,
+  ListInferenceProfilesCommandInput,
+  ListInferenceProfilesCommandOutput,
+} from "./commands/ListInferenceProfilesCommand";
 import {
   ListModelCopyJobsCommand,
   ListModelCopyJobsCommandInput,
@@ -240,6 +250,7 @@ const commands = {
   GetFoundationModelCommand,
   GetGuardrailCommand,
   GetImportedModelCommand,
+  GetInferenceProfileCommand,
   GetModelCopyJobCommand,
   GetModelCustomizationJobCommand,
   GetModelImportJobCommand,
@@ -251,6 +262,7 @@ const commands = {
   ListFoundationModelsCommand,
   ListGuardrailsCommand,
   ListImportedModelsCommand,
+  ListInferenceProfilesCommand,
   ListModelCopyJobsCommand,
   ListModelCustomizationJobsCommand,
   ListModelImportJobsCommand,
@@ -578,6 +590,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetInferenceProfileCommand}
+   */
+  getInferenceProfile(
+    args: GetInferenceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInferenceProfileCommandOutput>;
+  getInferenceProfile(
+    args: GetInferenceProfileCommandInput,
+    cb: (err: any, data?: GetInferenceProfileCommandOutput) => void
+  ): void;
+  getInferenceProfile(
+    args: GetInferenceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInferenceProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetModelCopyJobCommand}
    */
   getModelCopyJob(
@@ -762,6 +791,24 @@ export interface Bedrock {
     args: ListImportedModelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImportedModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInferenceProfilesCommand}
+   */
+  listInferenceProfiles(): Promise<ListInferenceProfilesCommandOutput>;
+  listInferenceProfiles(
+    args: ListInferenceProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceProfilesCommandOutput>;
+  listInferenceProfiles(
+    args: ListInferenceProfilesCommandInput,
+    cb: (err: any, data?: ListInferenceProfilesCommandOutput) => void
+  ): void;
+  listInferenceProfiles(
+    args: ListInferenceProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceProfilesCommandOutput) => void
   ): void;
 
   /**

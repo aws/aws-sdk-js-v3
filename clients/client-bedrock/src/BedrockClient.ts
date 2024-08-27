@@ -102,6 +102,10 @@ import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./c
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
 import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
+import {
+  GetInferenceProfileCommandInput,
+  GetInferenceProfileCommandOutput,
+} from "./commands/GetInferenceProfileCommand";
 import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
@@ -128,6 +132,10 @@ import {
 } from "./commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
 import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "./commands/ListImportedModelsCommand";
+import {
+  ListInferenceProfilesCommandInput,
+  ListInferenceProfilesCommandOutput,
+} from "./commands/ListInferenceProfilesCommand";
 import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "./commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
@@ -203,6 +211,7 @@ export type ServiceInputTypes =
   | GetFoundationModelCommandInput
   | GetGuardrailCommandInput
   | GetImportedModelCommandInput
+  | GetInferenceProfileCommandInput
   | GetModelCopyJobCommandInput
   | GetModelCustomizationJobCommandInput
   | GetModelImportJobCommandInput
@@ -214,6 +223,7 @@ export type ServiceInputTypes =
   | ListFoundationModelsCommandInput
   | ListGuardrailsCommandInput
   | ListImportedModelsCommandInput
+  | ListInferenceProfilesCommandInput
   | ListModelCopyJobsCommandInput
   | ListModelCustomizationJobsCommandInput
   | ListModelImportJobsCommandInput
@@ -252,6 +262,7 @@ export type ServiceOutputTypes =
   | GetFoundationModelCommandOutput
   | GetGuardrailCommandOutput
   | GetImportedModelCommandOutput
+  | GetInferenceProfileCommandOutput
   | GetModelCopyJobCommandOutput
   | GetModelCustomizationJobCommandOutput
   | GetModelImportJobCommandOutput
@@ -263,6 +274,7 @@ export type ServiceOutputTypes =
   | ListFoundationModelsCommandOutput
   | ListGuardrailsCommandOutput
   | ListImportedModelsCommandOutput
+  | ListInferenceProfilesCommandOutput
   | ListModelCopyJobsCommandOutput
   | ListModelCustomizationJobsCommandOutput
   | ListModelImportJobsCommandOutput
