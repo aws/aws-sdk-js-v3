@@ -28,7 +28,7 @@ export interface GetAccountPreferencesCommandInput extends GetAccountPreferences
 export interface GetAccountPreferencesCommandOutput extends GetAccountPreferencesResult, __MetadataBearer {}
 
 /**
- * Get Chatbot account level preferences
+ * <p>Returns AWS Chatbot account preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,10 +54,10 @@ export interface GetAccountPreferencesCommandOutput extends GetAccountPreference
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link GetAccountPreferencesException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>

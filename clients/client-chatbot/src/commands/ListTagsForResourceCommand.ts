@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * Retrieves the list of tags applied to a configuration.
+ * <p>Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify. The resource can be a user, server, or role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +58,13 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  Customer/consumer-facing internal service exception.
- *         https://w.amazon.com/index.php/AWS/API_Standards/Exceptions#InternalServiceError
+ *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  We were not able to find the resource for your request.
+ *  <p>We were unable to find the resource for your request</p>
  *
  * @throws {@link ServiceUnavailableException} (client fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>

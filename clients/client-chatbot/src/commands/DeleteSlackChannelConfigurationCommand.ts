@@ -33,7 +33,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * Deletes Slack Channel Configuration
+ * <p>Deletes a Slack channel configuration for AWS Chatbot</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +56,16 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DeleteSlackChannelConfigurationException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  We were not able to find the resource for your request.
+ *  <p>We were unable to find the resource for your request</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
