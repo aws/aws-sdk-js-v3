@@ -2733,19 +2733,21 @@ export interface CreateRunGroupRequest {
   name?: string;
 
   /**
-   * <p>The maximum number of CPUs to use in the group.</p>
+   * <p>The maximum number of CPUs that can run
+   *       concurrently across all active runs in the run group.</p>
    * @public
    */
   maxCpus?: number;
 
   /**
-   * <p>The maximum number of concurrent runs for the group.</p>
+   * <p>The maximum number of runs that can be running at the same time.</p>
    * @public
    */
   maxRuns?: number;
 
   /**
-   * <p>A maximum run time for the group in minutes.</p>
+   * <p>The maximum time for each run (in minutes). If a run exceeds
+   *       the maximum run time, the run fails automatically.</p>
    * @public
    */
   maxDuration?: number;
@@ -2763,7 +2765,8 @@ export interface CreateRunGroupRequest {
   requestId?: string;
 
   /**
-   * <p>The maximum GPUs that can be used by a run group.</p>
+   * <p>The maximum number of GPUs that can run concurrently across all active
+   *       runs in the run group.</p>
    * @public
    */
   maxGpus?: number;
@@ -3103,7 +3106,7 @@ export interface CreateWorkflowRequest {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>The storage capacity for the workflow in gibibytes.</p>
+   * <p>The default storage capacity for the workflow runs, in gibibytes.</p>
    * @public
    */
   storageCapacity?: number;
@@ -3929,6 +3932,12 @@ export interface ImportReadSetSourceItem {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The source's read set ID.</p>
+   * @public
+   */
+  readSetId?: string;
 }
 
 /**
@@ -4194,6 +4203,12 @@ export interface GetReadSetMetadataResponse {
    * @public
    */
   etag?: ETag;
+
+  /**
+   * <p>The read set's creation job ID.</p>
+   * @public
+   */
+  creationJobId?: string;
 }
 
 /**
@@ -4330,6 +4345,12 @@ export interface ImportReferenceSourceItem {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The source's reference ID.</p>
+   * @public
+   */
+  referenceId?: string;
 }
 
 /**
@@ -4420,6 +4441,19 @@ export interface GetReferenceMetadataRequest {
    */
   referenceStoreId: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceCreationType = {
+  IMPORT: "IMPORT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceCreationType = (typeof ReferenceCreationType)[keyof typeof ReferenceCreationType];
 
 /**
  * <p>A set of genome reference files.</p>
@@ -4517,6 +4551,18 @@ export interface GetReferenceMetadataResponse {
    * @public
    */
   files?: ReferenceFiles;
+
+  /**
+   * <p>The reference's creation type.</p>
+   * @public
+   */
+  creationType?: ReferenceCreationType;
+
+  /**
+   * <p>The reference's creation job ID.</p>
+   * @public
+   */
+  creationJobId?: string;
 }
 
 /**
@@ -5562,7 +5608,7 @@ export interface GetWorkflowResponse {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>The workflow's storage capacity in gibibytes.</p>
+   * <p>The workflow's default run storage capacity in gibibytes.</p>
    * @public
    */
   storageCapacity?: number;

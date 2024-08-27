@@ -92,6 +92,7 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * //     source1: "STRING_VALUE",
  * //     source2: "STRING_VALUE",
  * //   },
+ * //   creationJobId: "STRING_VALUE",
  * // };
  *
  * ```

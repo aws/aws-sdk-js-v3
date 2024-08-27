@@ -28,7 +28,7 @@ export interface CreateRunGroupCommandInput extends CreateRunGroupRequest {}
 export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a run group.</p>
+ * <p>You can optionally create a run group to limit the compute resources for the runs that you add to the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -59,6 +59,7 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       referenceId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

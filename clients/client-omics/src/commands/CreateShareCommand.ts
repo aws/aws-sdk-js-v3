@@ -33,10 +33,10 @@ export interface CreateShareCommandOutput extends CreateShareResponse, __Metadat
  *          <p>The following resources support cross-account sharing:</p>
  *          <ul>
  *             <li>
- *                <p>Healthomics variant stores</p>
+ *                <p>HealthOmics variant stores</p>
  *             </li>
  *             <li>
- *                <p>Healthomics annotation stores</p>
+ *                <p>HealthOmics annotation stores</p>
  *             </li>
  *             <li>
  *                <p>Private workflows</p>

@@ -3551,6 +3551,7 @@ export const de_GetReadSetMetadataCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    creationJobId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
@@ -3634,7 +3635,9 @@ export const de_GetReferenceMetadataCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    creationJobId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationType: __expectString,
     description: __expectString,
     files: _json,
     id: __expectString,

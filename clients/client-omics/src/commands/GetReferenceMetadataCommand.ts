@@ -69,6 +69,8 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * //       },
  * //     },
  * //   },
+ * //   creationType: "STRING_VALUE",
+ * //   creationJobId: "STRING_VALUE",
  * // };
  *
  * ```

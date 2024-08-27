@@ -67,6 +67,7 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       readSetId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
