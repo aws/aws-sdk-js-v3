@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.640.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.639.0...v3.640.0) (2024-08-27)
+
+
+### Features
+
+* **client-bedrock-runtime:** Amazon Bedrock SDK updates for Inference Profile. ([fbc89ce](https://github.com/aws/aws-sdk-js-v3/commit/fbc89ce65683b6e10787a9074ae59b03253ee089))
+* **client-bedrock:** Amazon Bedrock SDK updates for Inference Profile. ([d49f2f3](https://github.com/aws/aws-sdk-js-v3/commit/d49f2f3cc35ee2a77e04ba5c1fed3cdad046be26))
+* **client-chatbot:** Update documentation to be consistent with the API docs ([a4046ab](https://github.com/aws/aws-sdk-js-v3/commit/a4046ab5fe821efff28020425a972c6a23ee142d))
+* **client-omics:** Adds data provenance to import jobs from read sets and references ([b752120](https://github.com/aws/aws-sdk-js-v3/commit/b752120b379dcba7cdf574cd5615b23baad6efb6))
+* **client-polly:** Amazon Polly adds 2 new voices: Jitka (cs-CZ) and Sabrina (de-CH). ([eb0b2ee](https://github.com/aws/aws-sdk-js-v3/commit/eb0b2ee146e940d52d9c59f11f727a26c72b9f92))
+
+
+
+
+
 # [3.639.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.638.0...v3.639.0) (2024-08-26)
 
 
