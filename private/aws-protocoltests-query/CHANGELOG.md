@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.641.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.640.0...v3.641.0) (2024-08-28)
+
+
+### Bug Fixes
+
+* **codegen:** pass through sha256 in non-AWS sigv4 generated client ([#6415](https://github.com/aws/aws-sdk-js-v3/issues/6415)) ([0a561ee](https://github.com/aws/aws-sdk-js-v3/commit/0a561eef2019412028f1c41654784b97c92b342c))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-query

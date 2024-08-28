@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.641.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.640.0...v3.641.0) (2024-08-28)
+
+
+### Bug Fixes
+
+* **codegen:** pass through sha256 in non-AWS sigv4 generated client ([#6415](https://github.com/aws/aws-sdk-js-v3/issues/6415)) ([0a561ee](https://github.com/aws/aws-sdk-js-v3/commit/0a561eef2019412028f1c41654784b97c92b342c))
+
+
+### Features
+
+* **client-appconfig:** This release adds support for deletion protection, which is a safety guardrail to prevent the unintentional deletion of a recently used AWS AppConfig Configuration Profile or Environment. This also includes a change to increase the maximum length of the Name parameter in UpdateConfigurationProfile. ([950682d](https://github.com/aws/aws-sdk-js-v3/commit/950682d34cf17f946a8f1aa9625a720827d04864))
+* **client-datazone:** Update regex to include dot character to be consistent with IAM role creation in the authorized principal field for create and update subscription target. ([535c1a3](https://github.com/aws/aws-sdk-js-v3/commit/535c1a32e18ec8f9c9e7a3c3f42dc0efd678e4fa))
+* **client-device-farm:** This release removed support for Calabash, UI Automation, Built-in Explorer, remote access record, remote access replay, and web performance profile framework in ScheduleRun API. ([5a8ca89](https://github.com/aws/aws-sdk-js-v3/commit/5a8ca89d4a67380865331db0ff5f3c28556f0316))
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now allows customers to provision IPv4 CIDR blocks and allocate Elastic IP Addresses directly from IPAM pools with public IPv4 space ([4f1d59b](https://github.com/aws/aws-sdk-js-v3/commit/4f1d59bf3763bc9b84108cc4e5b2910a9b3ddc33))
+* **client-internetmonitor:** Adds new querying types to show overall traffic suggestion information for monitors ([8603f16](https://github.com/aws/aws-sdk-js-v3/commit/8603f16d8086dd3a0a70dbcde8d9774f8377e694))
+* **client-pcs:** Introducing AWS Parallel Computing Service (AWS PCS), a new service makes it easy to setup and manage high performance computing (HPC) clusters, and build scientific and engineering models at virtually any scale on AWS. ([2dc87af](https://github.com/aws/aws-sdk-js-v3/commit/2dc87af02a3ee3d8270f89b29cab7fd0c0a893d0))
+* **clients:** update client endpoints as of 2024-08-28 ([6f849c1](https://github.com/aws/aws-sdk-js-v3/commit/6f849c1dc1578593b8269a165ee8b34dfa70f817))
+
+
+
+
+
 # [3.640.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.639.0...v3.640.0) (2024-08-27)
 
 

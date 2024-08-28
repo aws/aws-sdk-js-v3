@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.641.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.640.0...v3.641.0) (2024-08-28)
+
+
+### Features
+
+* **client-datazone:** Update regex to include dot character to be consistent with IAM role creation in the authorized principal field for create and update subscription target. ([535c1a3](https://github.com/aws/aws-sdk-js-v3/commit/535c1a32e18ec8f9c9e7a3c3f42dc0efd678e4fa))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone
