@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 import { getHttpApiKeyAuthPlugin } from "../middleware/HttpApiKeyAuth";
+import { de_OnlyHttpApiKeyAuthCommand, se_OnlyHttpApiKeyAuthCommand } from "../protocols/Aws_restJson1";
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -71,10 +72,6 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
   .s("Weather", "OnlyHttpApiKeyAuth", {})
   .n("WeatherClient", "OnlyHttpApiKeyAuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
+  .ser(se_OnlyHttpApiKeyAuthCommand)
+  .de(de_OnlyHttpApiKeyAuthCommand)
   .build() {}

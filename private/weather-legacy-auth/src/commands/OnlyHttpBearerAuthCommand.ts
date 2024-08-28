@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { de_OnlyHttpBearerAuthCommand, se_OnlyHttpBearerAuthCommand } from "../protocols/Aws_restJson1";
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -63,10 +64,6 @@ export class OnlyHttpBearerAuthCommand extends $Command
   .s("Weather", "OnlyHttpBearerAuth", {})
   .n("WeatherClient", "OnlyHttpBearerAuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
+  .ser(se_OnlyHttpBearerAuthCommand)
+  .de(de_OnlyHttpBearerAuthCommand)
   .build() {}

@@ -69,6 +69,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WeatherHttpAuthSchemeP
          */
         signingProperties: {
           context,
+          sha256: (config as any).sha256,
         },
       };
     },

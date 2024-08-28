@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { de_OnlyCustomAuthCommand, se_OnlyCustomAuthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -62,10 +63,6 @@ export class OnlyCustomAuthCommand extends $Command
   .s("Weather", "OnlyCustomAuth", {})
   .n("WeatherClient", "OnlyCustomAuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
+  .ser(se_OnlyCustomAuthCommand)
+  .de(de_OnlyCustomAuthCommand)
   .build() {}
