@@ -91,6 +91,7 @@ import {
   DeleteHostedConfigurationVersionCommandInput,
   DeleteHostedConfigurationVersionCommandOutput,
 } from "./commands/DeleteHostedConfigurationVersionCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
@@ -140,6 +141,10 @@ import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./com
 import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateConfigurationProfileCommandInput,
@@ -188,6 +193,7 @@ export type ServiceInputTypes =
   | DeleteExtensionAssociationCommandInput
   | DeleteExtensionCommandInput
   | DeleteHostedConfigurationVersionCommandInput
+  | GetAccountSettingsCommandInput
   | GetApplicationCommandInput
   | GetConfigurationCommandInput
   | GetConfigurationProfileCommandInput
@@ -210,6 +216,7 @@ export type ServiceInputTypes =
   | StopDeploymentCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountSettingsCommandInput
   | UpdateApplicationCommandInput
   | UpdateConfigurationProfileCommandInput
   | UpdateDeploymentStrategyCommandInput
@@ -236,6 +243,7 @@ export type ServiceOutputTypes =
   | DeleteExtensionAssociationCommandOutput
   | DeleteExtensionCommandOutput
   | DeleteHostedConfigurationVersionCommandOutput
+  | GetAccountSettingsCommandOutput
   | GetApplicationCommandOutput
   | GetConfigurationCommandOutput
   | GetConfigurationProfileCommandOutput
@@ -258,6 +266,7 @@ export type ServiceOutputTypes =
   | StopDeploymentCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountSettingsCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateConfigurationProfileCommandOutput
   | UpdateDeploymentStrategyCommandOutput

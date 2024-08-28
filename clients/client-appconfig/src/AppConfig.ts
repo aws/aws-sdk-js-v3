@@ -74,6 +74,11 @@ import {
   DeleteHostedConfigurationVersionCommandOutput,
 } from "./commands/DeleteHostedConfigurationVersionCommand";
 import {
+  GetAccountSettingsCommand,
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
+import {
   GetApplicationCommand,
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
@@ -180,6 +185,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommand,
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
+import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -230,6 +240,7 @@ const commands = {
   DeleteExtensionCommand,
   DeleteExtensionAssociationCommand,
   DeleteHostedConfigurationVersionCommand,
+  GetAccountSettingsCommand,
   GetApplicationCommand,
   GetConfigurationCommand,
   GetConfigurationProfileCommand,
@@ -252,6 +263,7 @@ const commands = {
   StopDeploymentCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccountSettingsCommand,
   UpdateApplicationCommand,
   UpdateConfigurationProfileCommand,
   UpdateDeploymentStrategyCommand,
@@ -492,6 +504,24 @@ export interface AppConfig {
     args: DeleteHostedConfigurationVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHostedConfigurationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountSettingsCommand}
+   */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -828,6 +858,24 @@ export interface AppConfig {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountSettingsCommand}
+   */
+  updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
 
   /**

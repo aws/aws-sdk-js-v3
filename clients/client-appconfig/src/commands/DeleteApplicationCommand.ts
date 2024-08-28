@@ -28,8 +28,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an application. Deleting an application does not delete a configuration from a
- *          host.</p>
+ * <p>Deletes an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

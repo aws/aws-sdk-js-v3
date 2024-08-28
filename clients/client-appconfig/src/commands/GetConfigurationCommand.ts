@@ -46,7 +46,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  *                </li>
  *                <li>
  *                   <p>
- *                      <code>GetConfiguration</code> is a priced call. For more information, see
+ *                      <a>GetConfiguration</a> is a priced call. For more information, see
  *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
  *                </li>
  *             </ul>

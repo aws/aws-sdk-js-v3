@@ -57,8 +57,10 @@ export interface CreateHostedConfigurationVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new configuration in the AppConfig hosted configuration
- *          store.</p>
+ * <p>Creates a new configuration in the AppConfig hosted configuration store. If
+ *          you're creating a feature flag, we recommend you familiarize yourself with the JSON schema
+ *          for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags">Type reference for AWS.AppConfig.FeatureFlags</a> in the
+ *             <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

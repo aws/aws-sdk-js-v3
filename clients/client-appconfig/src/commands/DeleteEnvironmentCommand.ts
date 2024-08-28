@@ -28,8 +28,9 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
- *          host.</p>
+ * <p>Deletes an environment.</p>
+ *          <p>To prevent users from unintentionally deleting actively-used environments, enable <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html">deletion
+ *             protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,8 +38,9 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * // const { AppConfigClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteEnvironmentRequest
- *   ApplicationId: "STRING_VALUE", // required
  *   EnvironmentId: "STRING_VALUE", // required
+ *   ApplicationId: "STRING_VALUE", // required
+ *   DeletionProtectionCheck: "ACCOUNT_DEFAULT" || "APPLY" || "BYPASS",
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);

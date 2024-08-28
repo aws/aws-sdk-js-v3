@@ -69,6 +69,7 @@ import {
   DeleteHostedConfigurationVersionCommandInput,
   DeleteHostedConfigurationVersionCommandOutput,
 } from "../commands/DeleteHostedConfigurationVersionCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
@@ -118,6 +119,10 @@ import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "../co
 import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "../commands/StopDeploymentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "../commands/UpdateAccountSettingsCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   UpdateConfigurationProfileCommandInput,
@@ -143,6 +148,7 @@ import {
   ActionPoint,
   BadRequestException,
   ConflictException,
+  DeletionProtectionSettings,
   DeploymentEvent,
   DeploymentStrategy,
   DeploymentSummary,
@@ -366,7 +372,9 @@ export const se_DeleteConfigurationProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xadpc]: input[_DPC]!,
+  });
   b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}");
   b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
@@ -399,10 +407,12 @@ export const se_DeleteEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xadpc]: input[_DPC]!,
+  });
   b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}");
-  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -460,6 +470,21 @@ export const se_DeleteHostedConfigurationVersionCommand = async (
   b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAccountSettingsCommand
+ */
+export const se_GetAccountSettingsCommand = async (
+  input: GetAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/settings");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -894,6 +919,28 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAccountSettingsCommand
+ */
+export const se_UpdateAccountSettingsCommand = async (
+  input: UpdateAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/settings");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DeletionProtection: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1372,6 +1419,27 @@ export const de_DeleteHostedConfigurationVersionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAccountSettingsCommand
+ */
+export const de_GetAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeletionProtection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1938,6 +2006,27 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAccountSettingsCommand
+ */
+export const de_UpdateAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeletionProtection: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -2279,6 +2368,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 
 // se_ActionsMap omitted.
 
+// se_DeletionProtectionSettings omitted.
+
 // se_DynamicParameterMap omitted.
 
 // se_Monitor omitted.
@@ -2320,6 +2411,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 // de_ConfigurationProfileSummary omitted.
 
 // de_ConfigurationProfileSummaryList omitted.
+
+// de_DeletionProtectionSettings omitted.
 
 /**
  * deserializeAws_restJson1DeploymentEvent
@@ -2470,6 +2563,7 @@ const _CPI = "ConfigurationProfileId";
 const _CT = "ContentType";
 const _CV = "ConfigurationVersion";
 const _D = "Description";
+const _DPC = "DeletionProtectionCheck";
 const _EI = "ExtensionIdentifier";
 const _EVN = "ExtensionVersionNumber";
 const _KKA = "KmsKeyArn";
@@ -2505,3 +2599,4 @@ const _ve = "version";
 const _vl = "version_label";
 const _vn = "version_number";
 const _vn_ = "version-number";
+const _xadpc = "x-amzn-deletion-protection-check";

@@ -28,8 +28,10 @@ export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurat
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
- *          configuration from a host.</p>
+ * <p>Deletes a configuration profile.</p>
+ *          <p>To prevent users from unintentionally deleting actively-used configuration profiles,
+ *          enable <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html">deletion
+ *          protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +41,7 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * const input = { // DeleteConfigurationProfileRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   DeletionProtectionCheck: "ACCOUNT_DEFAULT" || "APPLY" || "BYPASS",
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);

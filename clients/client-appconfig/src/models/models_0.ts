@@ -4,6 +4,63 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
 /**
+ * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
+ *          user from deleting a configuration profile or an environment if AppConfig has
+ *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+ *          configuration profile or from the environment during the specified interval.</p>
+ *          <p>This setting uses the following default values:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Deletion protection is disabled by default. </p>
+ *             </li>
+ *             <li>
+ *                <p>The default interval specified by <code>ProtectionPeriodInMinutes</code> is
+ *                60.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeletionProtectionCheck</code> skips configuration profiles and environments
+ *                that were created in the past hour.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface DeletionProtectionSettings {
+  /**
+   * <p>A parameter that indicates if deletion protection is enabled or not.</p>
+   * @public
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The time interval during which AppConfig monitors for calls to <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for a
+   *          configuration profile or from an environment. AppConfig returns an error if a
+   *          user calls  or  for the designated configuration profile or
+   *          environment. To bypass the error and delete a configuration profile or an environment,
+   *          specify <code>BYPASS</code> for the <code>DeletionProtectionCheck</code> parameter for
+   *          either  or .</p>
+   * @public
+   */
+  ProtectionPeriodInMinutes?: number;
+}
+
+/**
+ * @public
+ */
+export interface AccountSettings {
+  /**
+   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
+   *          user from deleting a configuration profile or an environment if AppConfig has
+   *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   *          configuration profile or from the environment during the specified interval. Deletion
+   *          protection is disabled by default. The default interval for
+   *             <code>ProtectionPeriodInMinutes</code> is 60.</p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtectionSettings;
+}
+
+/**
  * <p>An action defines the tasks that the extension performs during the AppConfig
  *          workflow. Each action includes an action point such as
  *             <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or
@@ -387,8 +444,8 @@ export type ValidatorType = (typeof ValidatorType)[keyof typeof ValidatorType];
  * <p>A validator provides a syntactic or semantic check to ensure the configuration that you
  *          want to deploy functions as intended. To validate your application configuration data, you
  *          provide a schema or an Amazon Web Services Lambda function that runs against the configuration. The
- *          configuration deployment or update can only proceed when the configuration data is
- *          valid.</p>
+ *          configuration deployment or update can only proceed when the configuration data is valid.
+ *          For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html#appconfig-creating-configuration-and-profile-validators">About validators</a> in the <i>AppConfig User Guide</i>.</p>
  * @public
  */
 export interface Validator {
@@ -1166,7 +1223,11 @@ export interface CreateHostedConfigurationVersionRequest {
   Description?: string;
 
   /**
-   * <p>The content of the configuration or the configuration data.</p>
+   * <p>The configuration data, as bytes.</p>
+   *          <note>
+   *             <p>AppConfig accepts any type of data, including text formats like JSON or
+   *             TOML, or binary formats like protocol buffers or compressed data.</p>
+   *          </note>
    * @public
    */
   Content: Uint8Array | undefined;
@@ -1306,6 +1367,21 @@ export interface DeleteApplicationRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const DeletionProtectionCheck = {
+  ACCOUNT_DEFAULT: "ACCOUNT_DEFAULT",
+  APPLY: "APPLY",
+  BYPASS: "BYPASS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionProtectionCheck = (typeof DeletionProtectionCheck)[keyof typeof DeletionProtectionCheck];
+
+/**
+ * @public
  */
 export interface DeleteConfigurationProfileRequest {
   /**
@@ -1319,6 +1395,35 @@ export interface DeleteConfigurationProfileRequest {
    * @public
    */
   ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
+   *          user from deleting a configuration profile if your application has called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   *          configuration profile during the specified interval. </p>
+   *          <p>This parameter supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BYPASS</code>: Instructs AppConfig to bypass the deletion
+   *                protection check and delete a configuration profile even if deletion protection would
+   *                have otherwise prevented it. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLY</code>: Instructs the deletion protection check to run, even if
+   *                deletion protection is disabled at the account level. <code>APPLY</code> also forces
+   *                the deletion protection check to run against resources created in the past hour,
+   *                which are normally excluded from deletion protection checks. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the
+   *                   <code>UpdateAccountSettings</code> API.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeletionProtectionCheck?: DeletionProtectionCheck;
 }
 
 /**
@@ -1337,16 +1442,45 @@ export interface DeleteDeploymentStrategyRequest {
  */
 export interface DeleteEnvironmentRequest {
   /**
+   * <p>The ID of the environment that you want to delete.</p>
+   * @public
+   */
+  EnvironmentId: string | undefined;
+
+  /**
    * <p>The application ID that includes the environment that you want to delete.</p>
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The ID of the environment that you want to delete.</p>
+   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
+   *          user from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  in the
+   *          environment during the specified interval. </p>
+   *          <p>This parameter supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BYPASS</code>: Instructs AppConfig to bypass the deletion
+   *                protection check and delete a configuration profile even if deletion protection would
+   *                have otherwise prevented it. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLY</code>: Instructs the deletion protection check to run, even if
+   *                deletion protection is disabled at the account level. <code>APPLY</code> also forces
+   *                the deletion protection check to run against resources created in the past hour,
+   *                which are normally excluded from deletion protection checks. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the
+   *                   <code>UpdateAccountSettings</code> API.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  EnvironmentId: string | undefined;
+  DeletionProtectionCheck?: DeletionProtectionCheck;
 }
 
 /**
@@ -1477,22 +1611,20 @@ export interface GetConfigurationRequest {
   ClientId: string | undefined;
 
   /**
-   * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
+   * <p>The configuration version returned in the most recent <a>GetConfiguration</a>
    *          response.</p>
    *          <important>
    *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>
    *             parameter to identify the configuration version on your clients. If you don’t send
-   *                <code>ClientConfigurationVersion</code> with each call to
-   *                <code>GetConfiguration</code>, your clients receive the current configuration. You
-   *             are charged each time your clients receive a configuration.</p>
+   *                <code>ClientConfigurationVersion</code> with each call to <a>GetConfiguration</a>, your clients receive the current configuration. You are
+   *             charged each time your clients receive a configuration.</p>
    *             <p>To avoid excess charges, we recommend you use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html">GetLatestConfiguration</a> APIs, which track the client configuration version on
-   *             your behalf. If you choose to continue using <code>GetConfiguration</code>, we recommend
-   *             that you include the <code>ClientConfigurationVersion</code> value with every call to
-   *                <code>GetConfiguration</code>. The value to use for
+   *             your behalf. If you choose to continue using <a>GetConfiguration</a>, we
+   *             recommend that you include the <code>ClientConfigurationVersion</code> value with every
+   *             call to <a>GetConfiguration</a>. The value to use for
    *                <code>ClientConfigurationVersion</code> comes from the
-   *                <code>ConfigurationVersion</code> attribute returned by <code>GetConfiguration</code>
-   *             when there is new or updated data, and should be saved for subsequent calls to
-   *                <code>GetConfiguration</code>.</p>
+   *                <code>ConfigurationVersion</code> attribute returned by <a>GetConfiguration</a> when there is new or updated data, and should be saved
+   *             for subsequent calls to <a>GetConfiguration</a>.</p>
    *          </important>
    *          <p>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the
    *             Configuration</a> in the <i>AppConfig User Guide</i>.</p>
@@ -2668,6 +2800,22 @@ export interface UntagResourceRequest {
    * @public
    */
   TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsRequest {
+  /**
+   * <p>A parameter to configure deletion protection. If enabled, deletion protection prevents a
+   *          user from deleting a configuration profile or an environment if AppConfig has
+   *          called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> or  for the
+   *          configuration profile or from the environment during the specified interval. Deletion
+   *          protection is disabled by default. The default interval for
+   *             <code>ProtectionPeriodInMinutes</code> is 60.</p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtectionSettings;
 }
 
 /**
