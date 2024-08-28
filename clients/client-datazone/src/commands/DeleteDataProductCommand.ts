@@ -28,7 +28,7 @@ export interface DeleteDataProductCommandInput extends DeleteDataProductInput {}
 export interface DeleteDataProductCommandOutput extends DeleteDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an data product in Amazon DataZone.</p>
+ * <p>Deletes a data product in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
