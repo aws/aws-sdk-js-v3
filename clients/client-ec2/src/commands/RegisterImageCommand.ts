@@ -30,16 +30,17 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
 /**
  * <p>Registers an AMI. When you're creating an instance-store backed AMI, registering the AMI
  *       is the final step in the creation process. For more information about creating AMIs, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
- *         own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html">Create an instance-store
+ *         backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
  *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
  *         in a single request, so you don't have to register the AMI yourself. We recommend that you
  *         always use <a>CreateImage</a> unless you have a specific reason to use
  *         RegisterImage.</p>
  *          </note>
- *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
- *        If you make changes to an image, deregister the previous image and register the new image.</p>
+ *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI
+ *       backed by an instance store volume invalidates its registration. If you make changes to an
+ *       image, deregister the previous image and register the new image.</p>
  *          <p>
  *             <b>Register a snapshot of a root device volume</b>
  *          </p>
@@ -48,29 +49,23 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *        You can't set the encryption state of the volume using the block device mapping. If the
  *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
  *        launched from the AMI is encrypted.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a>
- *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed
+ *         AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>
  *             <b>Amazon Web Services Marketplace product codes</b>
  *          </p>
  *          <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new
  *       AMI.</p>
- *          <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE
- *       Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to
- *       verify the subscription status for package updates. To create a new AMI for operating systems
- *       that require a billing product code, instead of registering the AMI, do the following to
- *       preserve the billing product code association:</p>
- *          <ol>
- *             <li>
- *                <p>Launch an instance from an existing AMI with that billing product code.</p>
- *             </li>
- *             <li>
- *                <p>Customize the instance.</p>
- *             </li>
- *             <li>
- *                <p>Create an AMI from the instance using <a>CreateImage</a>.</p>
- *             </li>
- *          </ol>
+ *          <p>In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing
+ *       information to be present on the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing
+ *         information</a> in the <i>Amazon EC2 User Guide</i>. When creating an AMI from
+ *       a snapshot, the <code>RegisterImage</code> operation derives the correct billing information
+ *       from the snapshot's metadata, but this requires the appropriate metadata to be present. To
+ *       verify if the correct billing information was applied, check the <code>PlatformDetails</code>
+ *       field on the new AMI. If the field is empty or doesn't match the expected operating system
+ *       code (for example, Windows, RedHat, SUSE, or SQL), the AMI creation was unsuccessful, and you
+ *       should discard the AMI and instead create the AMI from an instance using <a>CreateImage</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">Create an AMI
+ *         from an instance </a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched
  *       from an AMI with a billing product code, make sure that the Reserved Instance has the matching
  *       billing product code. If you purchase a Reserved Instance without the matching billing product

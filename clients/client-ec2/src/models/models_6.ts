@@ -817,6 +817,7 @@ export interface GetIpamDiscoveredPublicAddressesRequest {
  * @enum
  */
 export const IpamPublicAddressType = {
+  AMAZON_OWNED_CONTIG: "amazon-owned-contig",
   AMAZON_OWNED_EIP: "amazon-owned-eip",
   BYOIP: "byoip",
   EC2_PUBLIC_IP: "ec2-public-ip",

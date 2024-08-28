@@ -64,6 +64,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *       ],
  *     },
  *   ],
+ *   IpamPoolId: "STRING_VALUE",
  * };
  * const command = new AllocateAddressCommand(input);
  * const response = await client.send(command);

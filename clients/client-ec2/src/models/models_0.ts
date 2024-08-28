@@ -3239,6 +3239,12 @@ export interface AllocateAddressRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The ID of an IPAM pool.</p>
+   * @public
+   */
+  IpamPoolId?: string;
 }
 
 /**
@@ -3553,6 +3559,7 @@ export interface AllocateIpamPoolCidrRequest {
 export const IpamPoolAllocationResourceType = {
   custom: "custom",
   ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
+  eip: "eip",
   ipam_pool: "ipam-pool",
   subnet: "subnet",
   vpc: "vpc",

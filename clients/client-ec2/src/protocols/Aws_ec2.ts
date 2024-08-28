@@ -27609,6 +27609,9 @@ const se_AllocateAddressRequest = (input: AllocateAddressRequest, context: __Ser
       entries[loc] = value;
     });
   }
+  if (input[_IPI] != null) {
+    entries[_IPI] = input[_IPI];
+  }
   return entries;
 };
 

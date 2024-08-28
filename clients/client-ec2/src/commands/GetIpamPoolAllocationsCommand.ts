@@ -62,7 +62,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * //       IpamPoolAllocationId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet",
+ * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet" || "eip",
  * //       ResourceRegion: "STRING_VALUE",
  * //       ResourceOwner: "STRING_VALUE",
  * //     },
