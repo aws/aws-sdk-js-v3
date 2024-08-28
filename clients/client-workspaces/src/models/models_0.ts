@@ -2369,6 +2369,13 @@ export interface WorkspaceRequest {
 
   /**
    * <p>The name of the user-decoupled WorkSpace.</p>
+   *          <note>
+   *             <p>
+   *                <code>WorkspaceName</code> is required if <code>UserName</code> is
+   *             <code>[UNDEFINED]</code> for user-decoupled WorkSpaces.
+   *             <code>WorkspaceName</code> is not applicable if <code>UserName</code> is specified
+   *             for user-assigned WorkSpaces.</p>
+   *          </note>
    * @public
    */
   WorkspaceName?: string;

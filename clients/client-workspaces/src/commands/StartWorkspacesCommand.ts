@@ -29,8 +29,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
 
 /**
  * <p>Starts the specified WorkSpaces.</p>
- *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
- *          state of <code>STOPPED</code>.</p>
+ *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or
+ *          <code>Manual</code> and a state of <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
