@@ -67,6 +67,8 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * const input = { // ValidateStateMachineDefinitionInput
  *   definition: "STRING_VALUE", // required
  *   type: "STANDARD" || "EXPRESS",
+ *   severity: "ERROR" || "WARNING",
+ *   maxResults: Number("int"),
  * };
  * const command = new ValidateStateMachineDefinitionCommand(input);
  * const response = await client.send(command);
@@ -74,12 +76,13 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * //   result: "OK" || "FAIL", // required
  * //   diagnostics: [ // ValidateStateMachineDefinitionDiagnosticList // required
  * //     { // ValidateStateMachineDefinitionDiagnostic
- * //       severity: "ERROR", // required
+ * //       severity: "ERROR" || "WARNING", // required
  * //       code: "STRING_VALUE", // required
  * //       message: "STRING_VALUE", // required
  * //       location: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   truncated: true || false,
  * // };
  *
  * ```

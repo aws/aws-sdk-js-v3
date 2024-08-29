@@ -4798,6 +4798,21 @@ export interface UpdateStateMachineAliasOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ValidateStateMachineDefinitionSeverity = {
+  ERROR: "ERROR",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidateStateMachineDefinitionSeverity =
+  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
+
+/**
+ * @public
  */
 export interface ValidateStateMachineDefinitionInput {
   /**
@@ -4812,21 +4827,20 @@ export interface ValidateStateMachineDefinitionInput {
    * @public
    */
   type?: StateMachineType;
+
+  /**
+   * <p>Minimum level of diagnostics to return. <code>ERROR</code> returns only <code>ERROR</code> diagnostics, whereas <code>WARNING</code> returns both <code>WARNING</code> and <code>ERROR</code> diagnostics. The default is <code>ERROR</code>. </p>
+   * @public
+   */
+  severity?: ValidateStateMachineDefinitionSeverity;
+
+  /**
+   * <p>The maximum number of diagnostics that are returned per call. The default and maximum value is 100. Setting the value to 0 will also use the default of 100.</p>
+   *          <p>If the number of diagnostics returned in the response exceeds <code>maxResults</code>, the value of the <code>truncated</code> field in the response will be set to <code>true</code>.</p>
+   * @public
+   */
+  maxResults?: number;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidateStateMachineDefinitionSeverity = {
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ValidateStateMachineDefinitionSeverity =
-  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
 
 /**
  * <p>Describes an error found during validation. Validation errors found in the definition
@@ -4894,6 +4908,12 @@ export interface ValidateStateMachineDefinitionOutput {
    * @public
    */
   diagnostics: ValidateStateMachineDefinitionDiagnostic[] | undefined;
+
+  /**
+   * <p>The result value will be <code>true</code> if the number of diagnostics found in the workflow definition exceeds <code>maxResults</code>. When all diagnostics results are returned, the value will be <code>false</code>.</p>
+   * @public
+   */
+  truncated?: boolean;
 }
 
 /**
