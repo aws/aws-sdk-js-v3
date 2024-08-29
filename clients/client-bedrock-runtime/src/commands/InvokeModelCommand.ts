@@ -93,7 +93,10 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *  <p>The request failed due to an error while processing the model.</p>
  *
  * @throws {@link ModelNotReadyException} (client fault)
- *  <p>The model specified in the request is not ready to serve inference requests.</p>
+ *  <p>The model specified in the request is not ready to serve inference requests. The AWS SDK
+ *            will automatically retry the operation up to 5 times. For information about configuring
+ *            automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+ *            reference guide.</p>
  *
  * @throws {@link ModelTimeoutException} (client fault)
  *  <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
