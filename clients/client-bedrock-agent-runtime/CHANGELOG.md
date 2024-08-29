@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.642.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.641.0...v3.642.0) (2024-08-29)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Lifting the maximum length on Bedrock KnowledgeBase RetrievalFilter array ([aec4d2b](https://github.com/aws/aws-sdk-js-v3/commit/aec4d2b7c063036932a383dec72d51764cd6105a))
+
+
+
+
+
 # [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
 
 

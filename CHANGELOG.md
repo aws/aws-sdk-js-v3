@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.642.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.641.0...v3.642.0) (2024-08-29)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Lifting the maximum length on Bedrock KnowledgeBase RetrievalFilter array ([aec4d2b](https://github.com/aws/aws-sdk-js-v3/commit/aec4d2b7c063036932a383dec72d51764cd6105a))
+* **client-bedrock-runtime:** Add support for imported-model in invokeModel and InvokeModelWithResponseStream. ([54243d5](https://github.com/aws/aws-sdk-js-v3/commit/54243d570a7f34853f3555be3920409b2af7183d))
+* **client-personalize:** This releases ability to update automatic training scheduler for customer solutions ([238987e](https://github.com/aws/aws-sdk-js-v3/commit/238987ef7dffc42f0cd148c9fee2e8b7caa6ebb3))
+* **client-quicksight:** Increased Character Limit for Dataset Calculation Field expressions ([d336f9a](https://github.com/aws/aws-sdk-js-v3/commit/d336f9ad35aceafdcaa64f2823d2a0e2316ebf9f))
+* **client-sfn:** This release adds support for static analysis to ValidateStateMachineDefinition API, which can now return optional WARNING diagnostics for semantic errors on the definition of an Amazon States Language (ASL) state machine. ([3a7b177](https://github.com/aws/aws-sdk-js-v3/commit/3a7b1777323c1f9924f3a3b5aedb69946630a455))
+* **client-wafv2:** The minimum request rate for a rate-based rule is now 10. Before this, it was 100. ([7c99350](https://github.com/aws/aws-sdk-js-v3/commit/7c99350cfbddd43be8f4f17c1cfaa98f8265e26a))
+
+
+
+
+
 # [3.641.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.640.0...v3.641.0) (2024-08-28)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.642.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.641.0...v3.642.0) (2024-08-29)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add support for imported-model in invokeModel and InvokeModelWithResponseStream. ([54243d5](https://github.com/aws/aws-sdk-js-v3/commit/54243d570a7f34853f3555be3920409b2af7183d))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

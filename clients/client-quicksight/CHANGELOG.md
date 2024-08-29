@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.642.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.641.0...v3.642.0) (2024-08-29)
+
+
+### Features
+
+* **client-quicksight:** Increased Character Limit for Dataset Calculation Field expressions ([d336f9a](https://github.com/aws/aws-sdk-js-v3/commit/d336f9ad35aceafdcaa64f2823d2a0e2316ebf9f))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 
