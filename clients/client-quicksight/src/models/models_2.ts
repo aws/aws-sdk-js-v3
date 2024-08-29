@@ -8939,6 +8939,22 @@ export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any =
 /**
  * @internal
  */
+export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
+  ...obj,
+  ...(obj.ColumnDescription && { ColumnDescription: ColumnDescriptionFilterSensitiveLog(obj.ColumnDescription) }),
+});
+
+/**
+ * @internal
+ */
 export const DateTimeParameterFilterSensitiveLog = (obj: DateTimeParameter): any => ({
   ...obj,
   ...(obj.Values && { Values: SENSITIVE_STRING }),
@@ -9038,6 +9054,14 @@ export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => 
 /**
  * @internal
  */
+export const TagColumnOperationFilterSensitiveLog = (obj: TagColumnOperation): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => ColumnTagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): any => {
   if (obj.ProjectOperation !== undefined) return { ProjectOperation: obj.ProjectOperation };
   if (obj.FilterOperation !== undefined)
@@ -9046,7 +9070,8 @@ export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): a
     return { CreateColumnsOperation: CreateColumnsOperationFilterSensitiveLog(obj.CreateColumnsOperation) };
   if (obj.RenameColumnOperation !== undefined) return { RenameColumnOperation: obj.RenameColumnOperation };
   if (obj.CastColumnTypeOperation !== undefined) return { CastColumnTypeOperation: obj.CastColumnTypeOperation };
-  if (obj.TagColumnOperation !== undefined) return { TagColumnOperation: obj.TagColumnOperation };
+  if (obj.TagColumnOperation !== undefined)
+    return { TagColumnOperation: TagColumnOperationFilterSensitiveLog(obj.TagColumnOperation) };
   if (obj.UntagColumnOperation !== undefined) return { UntagColumnOperation: obj.UntagColumnOperation };
   if (obj.OverrideDatasetParameterOperation !== undefined)
     return { OverrideDatasetParameterOperation: obj.OverrideDatasetParameterOperation };

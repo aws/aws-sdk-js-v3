@@ -9471,6 +9471,14 @@ export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): a
 /**
  * @internal
  */
+export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
   ...obj,
   ...(obj.PhysicalTableMap && {
@@ -9485,6 +9493,7 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
       {}
     ),
   }),
+  ...(obj.OutputColumns && { OutputColumns: obj.OutputColumns.map((item) => OutputColumnFilterSensitiveLog(item)) }),
   ...(obj.RowLevelPermissionTagConfiguration && {
     RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
       obj.RowLevelPermissionTagConfiguration
