@@ -130,6 +130,18 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
  * //       failureReason: "STRING_VALUE",
  * //     },
+ * //     latestSolutionUpdate: { // SolutionUpdateSummary
+ * //       solutionUpdateConfig: { // SolutionUpdateConfig
+ * //         autoTrainingConfig: {
+ * //           schedulingExpression: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       performAutoTraining: true || false,
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

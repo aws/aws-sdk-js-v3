@@ -213,6 +213,7 @@ import {
   UpdateMetricAttributionCommandOutput,
 } from "./commands/UpdateMetricAttributionCommand";
 import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
+import { UpdateSolutionCommandInput, UpdateSolutionCommandOutput } from "./commands/UpdateSolutionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -297,7 +298,8 @@ export type ServiceInputTypes =
   | UpdateCampaignCommandInput
   | UpdateDatasetCommandInput
   | UpdateMetricAttributionCommandInput
-  | UpdateRecommenderCommandInput;
+  | UpdateRecommenderCommandInput
+  | UpdateSolutionCommandInput;
 
 /**
  * @public
@@ -372,7 +374,8 @@ export type ServiceOutputTypes =
   | UpdateCampaignCommandOutput
   | UpdateDatasetCommandOutput
   | UpdateMetricAttributionCommandOutput
-  | UpdateRecommenderCommandOutput;
+  | UpdateRecommenderCommandOutput
+  | UpdateSolutionCommandOutput;
 
 /**
  * @public

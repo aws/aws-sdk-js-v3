@@ -1766,7 +1766,7 @@ export interface CreateSolutionRequest {
    *       configuration. For more information about automatic training,
    *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.</p>
    *          <p>
-   *       Automatic solution version creation starts one hour after the solution is ACTIVE. If you manually create a solution version within
+   *       Automatic solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within
    *       the hour, the solution skips the first automatic training.
    *     </p>
    *          <p>
@@ -1804,7 +1804,7 @@ export interface CreateSolutionRequest {
   eventType?: string;
 
   /**
-   * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
+   * <p>The configuration properties for the solution. When <code>performAutoML</code> is set to
    *       true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section
    *       of the solution configuration.</p>
    *          <note>
@@ -3512,19 +3512,8 @@ export interface RecommenderUpdateSummary {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The status of the recommender update.</p>
-   *          <p>A recommender can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the recommender update. A recommender update can be in one of the following states:</p>
+   *          <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    * @public
    */
   status?: string;
@@ -3727,6 +3716,62 @@ export interface AutoMLResult {
 }
 
 /**
+ * <p>The configuration details of the solution update.</p>
+ * @public
+ */
+export interface SolutionUpdateConfig {
+  /**
+   * <p>The automatic training configuration to use when <code>performAutoTraining</code> is true.</p>
+   * @public
+   */
+  autoTrainingConfig?: AutoTrainingConfig;
+}
+
+/**
+ * <p>Provides a summary of the properties of a solution update. For a complete listing, call the
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API.</p>
+ * @public
+ */
+export interface SolutionUpdateSummary {
+  /**
+   * <p>The configuration details of the solution.</p>
+   * @public
+   */
+  solutionUpdateConfig?: SolutionUpdateConfig;
+
+  /**
+   * <p>The status of the solution update. A solution update can be in one of the following states:</p>
+   *          <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   * @public
+   */
+  status?: string;
+
+  /**
+   * <p>Whether the solution automatically creates solution versions.</p>
+   * @public
+   */
+  performAutoTraining?: boolean;
+
+  /**
+   * <p>The date and time (in Unix format) that the solution update was created.</p>
+   * @public
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the solution update was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a solution update fails, the reason behind the failure.</p>
+   * @public
+   */
+  failureReason?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3802,8 +3847,10 @@ export interface SolutionVersionSummary {
 
 /**
  * <important>
- *             <p>After you create a solution, you can’t change its configuration. By default, all new solutions use automatic training. With automatic training, you incur training costs while
- *            your solution is active. You can't stop automatic training for a solution. To avoid unnecessary costs, make sure to delete the solution when you are finished. For information about training
+ *             <p>By default, all new solutions use automatic training. With automatic training, you incur training costs while
+ *            your solution is active. To avoid unnecessary costs, when you are finished you can
+ *            <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">update the solution</a> to turn off automatic training.
+ *            For information about training
  *   costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
  *          </important>
  *          <p>An object that provides information about a solution. A solution includes the custom recipe, customized parameters, and
@@ -3918,6 +3965,12 @@ export interface Solution {
    * @public
    */
   latestSolutionVersion?: SolutionVersionSummary;
+
+  /**
+   * <p>Provides a summary of the latest updates to the solution.</p>
+   * @public
+   */
+  latestSolutionUpdate?: SolutionUpdateSummary;
 }
 
 /**
@@ -5977,6 +6030,53 @@ export interface UpdateRecommenderResponse {
    * @public
    */
   recommenderArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSolutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution to update.</p>
+   * @public
+   */
+  solutionArn: string | undefined;
+
+  /**
+   * <p>Whether the solution uses automatic training to create new solution versions (trained models). You can change the training
+   *       frequency by specifying a <code>schedulingExpression</code> in the <code>AutoTrainingConfig</code> as part of solution
+   *       configuration. </p>
+   *          <p>
+   *       If you turn on automatic training, the first automatic training starts within one hour after the solution update
+   *       completes. If you manually create a solution version within the hour, the solution skips the first automatic training.
+   *       For more information about automatic training,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.
+   *     </p>
+   *          <p>
+   *       After training starts, you can
+   *       get the solution version's Amazon Resource Name (ARN) with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a> API operation.
+   *       To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
+   *     </p>
+   * @public
+   */
+  performAutoTraining?: boolean;
+
+  /**
+   * <p>The new configuration details of the solution.</p>
+   * @public
+   */
+  solutionUpdateConfig?: SolutionUpdateConfig;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSolutionResponse {
+  /**
+   * <p>The same solution Amazon Resource Name (ARN) as given in the request.</p>
+   * @public
+   */
+  solutionArn?: string;
 }
 
 /**

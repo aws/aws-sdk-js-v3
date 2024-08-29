@@ -69,3 +69,4 @@ export * from "./UpdateCampaignCommand";
 export * from "./UpdateDatasetCommand";
 export * from "./UpdateMetricAttributionCommand";
 export * from "./UpdateRecommenderCommand";
+export * from "./UpdateSolutionCommand";
