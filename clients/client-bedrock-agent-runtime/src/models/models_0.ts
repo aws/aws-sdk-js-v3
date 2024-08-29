@@ -876,7 +876,7 @@ export interface ByteContentFile {
   mediaType: string | undefined;
 
   /**
-   * <p>The byte value of the file to attach, encoded as Base-64 string. The maximum size of all files that is attached is 10MB. You can attach a maximum of 5 files. </p>
+   * <p>The raw bytes of the file to attach. The maximum size of all files that is attached is 10MB. You can attach a maximum of 5 files. </p>
    * @public
    */
   data: Uint8Array | undefined;
