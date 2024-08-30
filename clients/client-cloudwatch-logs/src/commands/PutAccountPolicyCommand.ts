@@ -85,7 +85,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *         delivery. Kinesis Data Streams and Firehose are supported as logical destinations.</p>
  *             </li>
  *          </ul>
- *          <p>Each account can have one account-level subscription filter policy.
+ *          <p>Each account can have one account-level subscription filter policy per Region.
  *       If you are updating an existing filter, you must specify the correct name in <code>PolicyName</code>.
  *       To perform a <code>PutAccountPolicy</code> subscription filter operation for any destination except a Lambda
  *       function, you must also have the <code>iam:PassRole</code> permission.</p>

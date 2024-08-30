@@ -238,6 +238,7 @@ import {
   DescribeResourcePoliciesRequest,
   DescribeSubscriptionFiltersRequest,
   DisassociateKmsKeyRequest,
+  Entity,
   FilterLogEventsRequest,
   GetDataProtectionPolicyRequest,
   GetDeliveryDestinationPolicyRequest,
@@ -3173,6 +3174,12 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_DisassociateKmsKeyRequest omitted.
 
+// se_Entity omitted.
+
+// se_EntityAttributes omitted.
+
+// se_EntityKeyAttributes omitted.
+
 // se_FilterLogEventsRequest omitted.
 
 // se_GetDataProtectionPolicyRequest omitted.
@@ -3612,6 +3619,8 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
     recordsScanned: __limitedParseDouble,
   }) as any;
 };
+
+// de_RejectedEntityInfo omitted.
 
 // de_RejectedLogEventsInfo omitted.
 

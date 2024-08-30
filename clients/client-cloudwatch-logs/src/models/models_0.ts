@@ -119,7 +119,7 @@ export interface LogEvent {
 }
 
 /**
- * <p>A tructures that contains information about one pattern token related to
+ * <p>A structure that contains information about one pattern token related to
  *        an anomaly.</p>
  *          <p>For more information about patterns and tokens, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html">CreateLogAnomalyDetector</a>.
  *      </p>
@@ -2845,6 +2845,43 @@ export interface DisassociateKmsKeyRequest {
 }
 
 /**
+ * <p>Reserved for future use.</p>
+ * @public
+ */
+export interface Entity {
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  keyAttributes?: Record<string, string>;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  attributes?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityRejectionErrorType = {
+  ENTITY_SIZE_TOO_LARGE: "EntitySizeTooLarge",
+  INVALID_ATTRIBUTES: "InvalidAttributes",
+  INVALID_ENTITY: "InvalidEntity",
+  INVALID_KEY_ATTRIBUTE: "InvalidKeyAttributes",
+  INVALID_TYPE_VALUE: "InvalidTypeValue",
+  MISSING_REQUIRED_FIELDS: "MissingRequiredFields",
+  UNSUPPORTED_LOG_GROUP_TYPE: "UnsupportedLogGroupType",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityRejectionErrorType = (typeof EntityRejectionErrorType)[keyof typeof EntityRejectionErrorType];
+
+/**
  * <p>Represents a matched event.</p>
  * @public
  */
@@ -2913,7 +2950,7 @@ export interface FilterLogEventsRequest {
 
   /**
    * <p>Filters the results to only logs from the log streams in this list.</p>
-   *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action
+   *          <p>If you specify a value for both <code>logStreamNames</code> and <code>logStreamNamePrefix</code>, the action
    *       returns an <code>InvalidParameterException</code> error.</p>
    * @public
    */
@@ -2921,9 +2958,8 @@ export interface FilterLogEventsRequest {
 
   /**
    * <p>Filters the results to include only events from log streams that have names starting with this prefix.</p>
-   *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for
-   *       <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action
-   *     returns an <code>InvalidParameterException</code> error.</p>
+   *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action
+   *       returns an <code>InvalidParameterException</code> error.</p>
    * @public
    */
   logStreamNamePrefix?: string;
@@ -4008,7 +4044,7 @@ export interface PutAccountPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Distribution</b>The method used to distribute log data to the destination.
+   *                   <b>Distribution</b> The method used to distribute log data to the destination.
    *         By default, log data is
    *         grouped by log stream, but the grouping can be set to <code>Random</code> for a more even distribution.
    *         This property is only applicable when the destination is an Kinesis Data Streams data stream.</p>
@@ -4222,11 +4258,15 @@ export interface PutDeliverySourceRequest {
    * <p>Defines the type of log that the source is sending.</p>
    *          <ul>
    *             <li>
+   *                <p>For Amazon Bedrock, the valid value is
+   *          <code>APPLICATION_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Amazon CodeWhisperer, the valid value is
    *         <code>EVENT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For IAM Identity Centerr, the valid value is
+   *                <p>For IAM Identity Center, the valid value is
    *          <code>ERROR_LOGS</code>.</p>
    *             </li>
    *             <li>
@@ -4371,6 +4411,24 @@ export interface PutLogEventsRequest {
    * @public
    */
   sequenceToken?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  entity?: Entity;
+}
+
+/**
+ * <p>Reserved for future use.</p>
+ * @public
+ */
+export interface RejectedEntityInfo {
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  errorType: EntityRejectionErrorType | undefined;
 }
 
 /**
@@ -4421,6 +4479,12 @@ export interface PutLogEventsResponse {
    * @public
    */
   rejectedLogEventsInfo?: RejectedLogEventsInfo;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  rejectedEntityInfo?: RejectedEntityInfo;
 }
 
 /**

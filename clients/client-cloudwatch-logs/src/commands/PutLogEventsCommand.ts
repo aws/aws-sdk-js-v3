@@ -93,6 +93,14 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *     },
  *   ],
  *   sequenceToken: "STRING_VALUE",
+ *   entity: { // Entity
+ *     keyAttributes: { // EntityKeyAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     attributes: { // EntityAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
@@ -102,6 +110,9 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * //     tooNewLogEventStartIndex: Number("int"),
  * //     tooOldLogEventEndIndex: Number("int"),
  * //     expiredLogEventEndIndex: Number("int"),
+ * //   },
+ * //   rejectedEntityInfo: { // RejectedEntityInfo
+ * //     errorType: "InvalidEntity" || "InvalidTypeValue" || "InvalidKeyAttributes" || "InvalidAttributes" || "EntitySizeTooLarge" || "UnsupportedLogGroupType" || "MissingRequiredFields", // required
  * //   },
  * // };
  *

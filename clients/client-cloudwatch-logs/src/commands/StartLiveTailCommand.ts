@@ -58,11 +58,11 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  *           which it starts dropping the oldest events.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionStreamingException.html">SessionStreamingException</a>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionStreamingException">SessionStreamingException</a>
  *         object is returned if an unknown error occurs on the server side.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionTimeoutException.html">SessionTimeoutException</a>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException">SessionTimeoutException</a>
  *         object is returned when the session times out, after it has been kept open for three hours.</p>
  *             </li>
  *          </ul>

@@ -33,6 +33,12 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
+ *          <p>Using regular expressions to create metric filters is supported. For these filters,
+ *       there is a quotas of quota of two regular expression patterns within a single filter pattern. There
+ *       is also a quota of five regular expression patterns per log group.
+ *     For more information about using regular expressions in metric filters,
+ *     see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
+ *       Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
  *          <p>When you create a metric filter, you can also optionally assign a unit and dimensions
  *     to the metric that is created.</p>
  *          <important>
