@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
+
+
+### Features
+
+* **client-cloudwatch-logs:** This release introduces a new optional parameter: Entity, in PutLogEvents request ([4723f34](https://github.com/aws/aws-sdk-js-v3/commit/4723f34a90ec4c0d6729b45c9cd50cdc9c458c2e))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

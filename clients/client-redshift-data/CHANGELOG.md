@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
+
+
+### Features
+
+* **client-redshift-data:** The release include the new Redshift DataAPI feature for session use, customer execute query with --session-keep-alive-seconds parameter and can submit follow-up queries to same sessions with returned`session-id` ([fd2bbc5](https://github.com/aws/aws-sdk-js-v3/commit/fd2bbc5a6e174ee912aaf94cfb0ab7a767b27f75))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-data

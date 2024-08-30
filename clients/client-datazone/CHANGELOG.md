@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
+
+
+### Features
+
+* **client-datazone:** Amazon DataZone now adds new governance capabilities of Domain Units for organization within your Data Domains, and Authorization Policies for tighter controls. ([a30b03e](https://github.com/aws/aws-sdk-js-v3/commit/a30b03e9a0d658839ab82b451b21c5c73dce62ff))
+
+
+
+
+
 # [3.641.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.640.0...v3.641.0) (2024-08-28)
 
 

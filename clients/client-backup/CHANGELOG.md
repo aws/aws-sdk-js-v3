@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
+
+
+### Features
+
+* **client-backup:** The latest update introduces two new attributes, VaultType and VaultState, to the DescribeBackupVault and ListBackupVaults APIs. The VaultState attribute reflects the current status of the vault, while the VaultType attribute indicates the specific category of the vault. ([abd2514](https://github.com/aws/aws-sdk-js-v3/commit/abd2514fc74bce33a88ae476dd5f570a0d1ad22d))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

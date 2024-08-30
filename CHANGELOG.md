@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
+
+
+### Features
+
+* **client-backup:** The latest update introduces two new attributes, VaultType and VaultState, to the DescribeBackupVault and ListBackupVaults APIs. The VaultState attribute reflects the current status of the vault, while the VaultType attribute indicates the specific category of the vault. ([abd2514](https://github.com/aws/aws-sdk-js-v3/commit/abd2514fc74bce33a88ae476dd5f570a0d1ad22d))
+* **client-cloudwatch-logs:** This release introduces a new optional parameter: Entity, in PutLogEvents request ([4723f34](https://github.com/aws/aws-sdk-js-v3/commit/4723f34a90ec4c0d6729b45c9cd50cdc9c458c2e))
+* **client-datazone:** Amazon DataZone now adds new governance capabilities of Domain Units for organization within your Data Domains, and Authorization Policies for tighter controls. ([a30b03e](https://github.com/aws/aws-sdk-js-v3/commit/a30b03e9a0d658839ab82b451b21c5c73dce62ff))
+* **client-redshift-data:** The release include the new Redshift DataAPI feature for session use, customer execute query with --session-keep-alive-seconds parameter and can submit follow-up queries to same sessions with returned`session-id` ([fd2bbc5](https://github.com/aws/aws-sdk-js-v3/commit/fd2bbc5a6e174ee912aaf94cfb0ab7a767b27f75))
+* **clients:** update client endpoints as of 2024-08-30 ([7926037](https://github.com/aws/aws-sdk-js-v3/commit/79260371deea778aef77a604701b895633d3818e))
+
+
+
+
+
 # [3.642.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.641.0...v3.642.0) (2024-08-29)
 
 
