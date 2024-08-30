@@ -30,6 +30,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
  *          identified by an Amazon Resource Name (ARN).</p>
+ *          <p>This API is supported for recovery points for resource types
+ *          including Aurora, Amazon DocumentDB. Amazon EBS,
+ *          Amazon FSx, Neptune, and Amazon RDS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

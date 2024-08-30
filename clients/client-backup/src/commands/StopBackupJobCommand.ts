@@ -30,8 +30,8 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
  *          <p>This action is not supported for the following services:
- *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp ONTAP
- *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
+ *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp ONTAP,
+ *          Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
  *          and Amazon Neptune.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

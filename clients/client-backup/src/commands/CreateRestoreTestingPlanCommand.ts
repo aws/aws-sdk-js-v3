@@ -32,11 +32,10 @@ export interface CreateRestoreTestingPlanCommandInput extends CreateRestoreTesti
 export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * <p>This is the first of two steps to create a restore testing
- *          plan; once this request is successful, finish the procedure with
- *          request CreateRestoreTestingSelection.</p>
- *          <p>You must include the parameter RestoreTestingPlan. You may
- *          optionally include CreatorRequestId and Tags.</p>
+ * <p>Creates a restore testing plan.</p>
+ *          <p>The first of two steps to create a restore testing
+ *          plan. After this request is successful, finish the procedure using
+ *          CreateRestoreTestingSelection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

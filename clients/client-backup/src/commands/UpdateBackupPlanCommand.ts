@@ -32,9 +32,7 @@ export interface UpdateBackupPlanCommandInput extends UpdateBackupPlanInput {}
 export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
- *          input document in JSON format. The new version is uniquely identified by a
- *             <code>VersionId</code>.</p>
+ * <p>Updates the specified backup plan. The new version is uniquely identified by its ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

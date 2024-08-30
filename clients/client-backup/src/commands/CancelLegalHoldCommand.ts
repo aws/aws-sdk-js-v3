@@ -28,8 +28,8 @@ export interface CancelLegalHoldCommandInput extends CancelLegalHoldInput {}
 export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>This action removes the specified legal hold on a recovery point.
- *          This action can only be performed by a user with sufficient permissions.</p>
+ * <p>Removes the specified legal hold on a recovery point. This action can only be performed
+ *          by a user with sufficient permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

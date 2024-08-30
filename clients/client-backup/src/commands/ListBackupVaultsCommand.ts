@@ -49,6 +49,8 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * //     { // BackupVaultListMember
  * //       BackupVaultName: "STRING_VALUE",
  * //       BackupVaultArn: "STRING_VALUE",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //       VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       EncryptionKeyArn: "STRING_VALUE",
  * //       CreatorRequestId: "STRING_VALUE",

@@ -45,6 +45,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * //   BackupVaultName: "STRING_VALUE",
  * //   BackupVaultArn: "STRING_VALUE",
  * //   VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //   VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * //   EncryptionKeyArn: "STRING_VALUE",
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   CreatorRequestId: "STRING_VALUE",

@@ -28,8 +28,7 @@ export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTempl
 export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
- *          and the creation and deletion dates.</p>
+ * <p>Lists the backup plan templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

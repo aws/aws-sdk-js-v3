@@ -37,14 +37,10 @@ export interface UpdateRestoreTestingSelectionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Most elements except the <code>RestoreTestingSelectionName</code>
+ * <p>Updates the specified restore testing selection.</p>
+ *          <p>Most elements except the <code>RestoreTestingSelectionName</code>
  *          can be updated with this request.</p>
- *          <p>
- *             <code>RestoreTestingSelection</code> can use either protected
- *          resource ARNs or conditions, but not both. That is, if your selection
- *          has <code>ProtectedResourceArns</code>, requesting an update with the
- *          parameter <code>ProtectedResourceConditions</code> will be
- *          unsuccessful.</p>
+ *          <p>You can use either protected resource ARNs or conditions, but not both.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

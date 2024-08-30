@@ -33,7 +33,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about all the recovery points of the type specified by a
+ * <p>The information about the recovery points of the type specified by a
  *          resource Amazon Resource Name (ARN).</p>
  *          <note>
  *             <p>For Amazon EFS and Amazon EC2, this action only lists recovery points

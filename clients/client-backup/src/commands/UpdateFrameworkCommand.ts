@@ -28,8 +28,7 @@ export interface UpdateFrameworkCommandInput extends UpdateFrameworkInput {}
 export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
- *          input document in JSON format.</p>
+ * <p>Updates the specified framework.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

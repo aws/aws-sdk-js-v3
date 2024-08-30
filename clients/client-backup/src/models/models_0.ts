@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BackupServiceException as __BaseException } from "./BackupServiceException";
 
 /**
- * <p>A list of backup options for each resource type.</p>
+ * <p>The backup options for each resource type.</p>
  * @public
  */
 export interface AdvancedBackupSetting {
@@ -176,15 +176,14 @@ export interface BackupJob {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -330,14 +329,14 @@ export interface BackupJob {
   IsParent?: boolean;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the date on which the backup
+   * <p>The date on which the backup
    *          job was initiated.</p>
    * @public
    */
@@ -460,36 +459,36 @@ export interface BackupJobSummary {
 }
 
 /**
- * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
- *          a recovery point transitions to cold storage or is deleted.</p>
+ * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+ *          or is deleted.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
- *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
- *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
+ *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+ *          transition to cold after days setting. The transition to cold after days setting can't
  *          be changed after a backup has been transitioned to cold.</p>
- *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
- *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
- *             Feature availability by resource</a> table. Backup ignores this expression for
+ *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+ *          availability by resource</a> table. Backup ignores this expression for
  *          other resource types.</p>
+ *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+ *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
  * @public
  */
 export interface Lifecycle {
   /**
-   * <p>Specifies the number of days after creation that a recovery point is moved to cold
+   * <p>The number of days after creation that a recovery point is moved to cold
    *          storage.</p>
    * @public
    */
   MoveToColdStorageAfterDays?: number;
 
   /**
-   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be
-   *          greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</p>
+   * <p>The number of days after creation that a recovery point is deleted. This value must be
+   *          at least 90 days after the number of days specified in <code>MoveToColdStorageAfterDays</code>.</p>
    * @public
    */
   DeleteAfterDays?: number;
 
   /**
-   * <p>Optional Boolean. If this is true, this setting will
-   *          instruct your backup plan to transition supported resources to
+   * <p>If the value is true, your backup plan transitions supported resources to
    *          archive (cold) storage tier in accordance with your lifecycle settings.</p>
    * @public
    */
@@ -502,16 +501,17 @@ export interface Lifecycle {
  */
 export interface CopyAction {
   /**
-   * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
-   *          a recovery point transitions to cold storage or is deleted.</p>
+   * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+   *          or is deleted.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
-   *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
-   *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
+   *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+   *          transition to cold after days setting. The transition to cold after days setting can't
    *          be changed after a backup has been transitioned to cold.</p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
+   *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+   *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
    * @public
    */
   Lifecycle?: Lifecycle;
@@ -519,7 +519,7 @@ export interface CopyAction {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for
    *          the copied backup. For example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   DestinationBackupVaultArn: string | undefined;
@@ -540,8 +540,7 @@ export interface BackupRule {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   TargetBackupVaultName: string | undefined;
@@ -587,16 +586,14 @@ export interface BackupRule {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
-   *          other resource types.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability
+   *          by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>An array of key-value pair strings that are assigned to resources that are associated
+   * <p>The tags that are assigned to resources that are associated
    *          with this rule when restored from backup.</p>
    * @public
    */
@@ -624,7 +621,7 @@ export interface BackupRule {
   EnableContinuousBackup?: boolean;
 
   /**
-   * <p>This is the timezone in which the schedule expression is set. By default,
+   * <p>The timezone in which the schedule expression is set. By default,
    *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
    * @public
    */
@@ -640,8 +637,10 @@ export interface BackupRule {
  */
 export interface BackupPlan {
   /**
-   * <p>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.'
-   *          characters.</p>
+   * <p>The display name of a backup plan. Must contain only alphanumeric or '-_.'
+   *          special characters.</p>
+   *          <p>If this is set in the console, it can contain 1 to 50 characters; if this
+   *       is set through CLI or API, it can contain 1 to 200 characters.</p>
    * @public
    */
   BackupPlanName: string | undefined;
@@ -675,8 +674,7 @@ export interface BackupRuleInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   TargetBackupVaultName: string | undefined;
@@ -718,19 +716,16 @@ export interface BackupRuleInput {
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
-   *          after a backup has been transitioned to cold.</p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
-   *          other resource types.</p>
+   *          after a backup has been transitioned to cold storage.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability
+   *          by resource</a> table. Backup ignores this expression for other resource types.</p>
    *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    * @public
    */
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources that
-   *          you create. Each tag is a key-value pair.</p>
+   * <p>The tags to assign to the resources.</p>
    * @public
    */
   RecoveryPointTags?: Record<string, string>;
@@ -750,7 +745,7 @@ export interface BackupRuleInput {
   EnableContinuousBackup?: boolean;
 
   /**
-   * <p>This is the timezone in which the schedule expression is set. By default,
+   * <p>The timezone in which the schedule expression is set. By default,
    *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
    * @public
    */
@@ -844,7 +839,7 @@ export interface BackupPlansListMember {
   CreatorRequestId?: string;
 
   /**
-   * <p>The last time a job to back up resources was run with this rule. A date and time, in
+   * <p>The last time this backup plan was run. A date and time, in
    *          Unix format and Coordinated Universal Time (UTC). The value of
    *             <code>LastExecutionDate</code> is accurate to milliseconds. For example, the value
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
@@ -880,6 +875,8 @@ export interface BackupPlanTemplatesListMember {
 /**
  * <p>Includes information about tags you define to assign tagged resources to a backup
  *          plan.</p>
+ *          <p>Include the prefix <code>aws:ResourceTag</code> in your tags.
+ *          For example, <code>"aws:ResourceTag/TagKey1": "Value1"</code>.</p>
  * @public
  */
 export interface ConditionParameter {
@@ -982,9 +979,10 @@ export interface Condition {
 
 /**
  * <p>Used to specify a set of resources to a backup plan.</p>
- *          <p>Specifying your desired <code>Conditions</code>, <code>ListOfTags</code>, <code>NotResources</code>,
- *          and/or <code>Resources</code> is recommended. If none of these are specified, Backup will attempt to
- *        select all supported and opted-in storage resources, which could have unintended cost implications.</p>
+ *          <p>We recommend that you specify conditions, tags, or resources to include or exclude.
+ *          Otherwise, Backup attempts to select all supported and opted-in storage resources, which
+ *          could have unintended cost implications.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>.</p>
  * @public
  */
 export interface BackupSelection {
@@ -1003,43 +1001,28 @@ export interface BackupSelection {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) to assign to a backup plan. The maximum number of
+   * <p>The Amazon Resource Names (ARNs) of the resources to assign to a backup plan. The maximum number of
    *          ARNs is 500 without wildcards, or 30 ARNs with wildcards.</p>
    *          <p>If you need to assign many resources to a backup plan, consider a different resource
    *          selection strategy, such as assigning all resources of a resource type or refining your
    *          resource selection using tags.</p>
+   *          <p>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</p>
    * @public
    */
   Resources?: string[];
 
   /**
-   * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals":  \{
-   *             "Key": "aws:ResourceTag/CreatedByCryo",
-   *             "Value": "true"
-   *             \},</code>. Condition
-   *          operators are case sensitive.</p>
+   * <p>The conditions that you define to assign resources to your backup plans using tags. For example,
+   *          <code>"StringEquals":  \{ "ConditionKey": "backup", "ConditionValue": "daily"\}</code>.</p>
    *          <p>
-   *             <code>ListOfTags</code> differs from <code>Conditions</code> as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify more than one condition, you assign all resources that match AT
-   *                LEAST ONE condition (using OR logic).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ListOfTags</code> only supports <code>StringEquals</code>.
-   *                   <code>Conditions</code> supports <code>StringEquals</code>,
-   *                   <code>StringLike</code>, <code>StringNotEquals</code>, and
-   *                   <code>StringNotLike</code>. </p>
-   *             </li>
-   *          </ul>
+   *             <code>ListOfTags</code> supports only <code>StringEquals</code>. Condition operators are case sensitive.</p>
+   *          <p>If you specify multiple conditions, the resources much match any of the conditions (OR logic).</p>
    * @public
    */
   ListOfTags?: Condition[];
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number
+   * <p>The Amazon Resource Names (ARNs) of the resources to exclude from a backup plan. The maximum number
    *          of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</p>
    *          <p>If you need to exclude many resources from a backup plan, consider a different resource
    *          selection strategy, such as assigning only one or a few resource types or refining your
@@ -1049,27 +1032,13 @@ export interface BackupSelection {
   NotResources?: string[];
 
   /**
-   * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals":  \{
-   *             "Key": "aws:ResourceTag/CreatedByCryo",
-   *             "Value": "true"
-   *             \},</code>. Condition
-   *          operators are case sensitive.</p>
+   * <p>The conditions that you define to assign resources to your backup plans using tags. For example,
+   *          <code>"StringEquals": \{ "ConditionKey": "aws:ResourceTag/backup", "ConditionValue": "daily" \}</code>.</p>
    *          <p>
-   *             <code>Conditions</code> differs from <code>ListOfTags</code> as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify more than one condition, you only assign the resources that match
-   *                ALL conditions (using AND logic).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Conditions</code> supports <code>StringEquals</code>,
-   *                   <code>StringLike</code>, <code>StringNotEquals</code>, and
-   *                   <code>StringNotLike</code>. <code>ListOfTags</code> only supports
-   *                   <code>StringEquals</code>.</p>
-   *             </li>
-   *          </ul>
+   *             <code>Conditions</code> supports <code>StringEquals</code>,
+   *          <code>StringLike</code>, <code>StringNotEquals</code>, and
+   *          <code>StringNotLike</code>. Condition operators are case sensitive.</p>
+   *          <p>If you specify multiple conditions, the resources much match all conditions (AND logic).</p>
    * @public
    */
   Conditions?: Conditions;
@@ -1153,6 +1122,35 @@ export const BackupVaultEvent = {
 export type BackupVaultEvent = (typeof BackupVaultEvent)[keyof typeof BackupVaultEvent];
 
 /**
+ * @public
+ * @enum
+ */
+export const VaultState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type VaultState = (typeof VaultState)[keyof typeof VaultState];
+
+/**
+ * @public
+ * @enum
+ */
+export const VaultType = {
+  BACKUP_VAULT: "BACKUP_VAULT",
+  LOGICALLY_AIR_GAPPED_BACKUP_VAULT: "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type VaultType = (typeof VaultType)[keyof typeof VaultType];
+
+/**
  * <p>Contains metadata about a backup vault.</p>
  * @public
  */
@@ -1160,18 +1158,29 @@ export interface BackupVaultListMember {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
+
+  /**
+   * <p>The type of vault in which the described recovery point is stored.</p>
+   * @public
+   */
+  VaultType?: VaultType;
+
+  /**
+   * <p>The current state of the vault.</p>
+   * @public
+   */
+  VaultState?: VaultState;
 
   /**
    * <p>The date and time a resource backup is created, in Unix format and Coordinated Universal
@@ -1271,10 +1280,8 @@ export interface BackupVaultListMember {
  *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
  *          cold after days” setting. The “transition to cold after days” setting cannot be changed
  *          after a backup has been transitioned to cold.</p>
- *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
- *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
- *             Feature availability by resource</a> table. Backup ignores this expression for
- *          other resource types.</p>
+ *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability
+ *          by resource</a> table. Backup ignores this expression for other resource types.</p>
  * @public
  */
 export interface CalculatedLifecycle {
@@ -1296,20 +1303,19 @@ export interface CalculatedLifecycle {
  */
 export interface CancelLegalHoldInput {
   /**
-   * <p>Legal hold ID required to remove the specified legal hold on a recovery point.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId: string | undefined;
 
   /**
-   * <p>String describing the reason for removing the legal hold.</p>
+   * <p>A string the describes the reason for removing the legal hold.</p>
    * @public
    */
   CancelDescription: string | undefined;
 
   /**
-   * <p>The integer amount in days specifying amount of days after this
-   *          API operation to remove legal hold.</p>
+   * <p>The integer amount, in days, after which to remove legal hold.</p>
    * @public
    */
   RetainRecordInDays?: number;
@@ -1546,7 +1552,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A list of parameters for a control. A control can have zero, one, or more than one
+ * <p>The parameters for a control. A control can have zero, one, or more than one
  *          parameter. An example of a control with two parameters is: "backup plan frequency is at
  *          least <code>daily</code> and the retention period is at least <code>1 year</code>". The
  *          first parameter is <code>daily</code>. The second parameter is <code>1 year</code>.</p>
@@ -1597,7 +1603,10 @@ export interface ControlScope {
   /**
    * <p>The tag key-value pair applied to those Amazon Web Services resources that you want to
    *          trigger an evaluation for a rule. A maximum of one key-value pair can be provided. The tag
-   *          value is optional, but it cannot be an empty string. The structure to assign a tag is:
+   *          value is optional, but it cannot be an empty string if you are creating or editing a
+   *          framework from the console (though the value can be an empty string when included
+   *          in a CloudFormation template).</p>
+   *          <p>The structure to assign a tag is:
    *             <code>[\{"Key":"string","Value":"string"\}]</code>.</p>
    * @public
    */
@@ -1640,7 +1649,7 @@ export interface CopyJob {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source copy vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>. </p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>. </p>
    * @public
    */
   SourceBackupVaultArn?: string;
@@ -1654,7 +1663,7 @@ export interface CopyJob {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination copy vault; for
-   *          example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   DestinationBackupVaultArn?: string;
@@ -1744,7 +1753,7 @@ export interface CopyJob {
   IsParent?: boolean;
 
   /**
-   * <p>This is the identifier of a resource within a composite group, such as
+   * <p>The identifier of a resource within a composite group, such as
    *          nested (child) recovery point belonging to a composite (parent) stack. The
    *          ID is transferred from
    *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
@@ -1754,7 +1763,7 @@ export interface CopyJob {
   CompositeMemberIdentifier?: string;
 
   /**
-   * <p>This is the number of child (nested) copy jobs.</p>
+   * <p>The number of child (nested) copy jobs.</p>
    * @public
    */
   NumberOfChildJobs?: number;
@@ -1767,7 +1776,7 @@ export interface CopyJob {
   ChildJobsInState?: Partial<Record<CopyJobState, number>>;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
@@ -1823,7 +1832,7 @@ export type CopyJobStatus = (typeof CopyJobStatus)[keyof typeof CopyJobStatus];
  */
 export interface CopyJobSummary {
   /**
-   * <p>This is the Amazon Web Services Regions within the job summary.</p>
+   * <p>The Amazon Web Services Regions within the job summary.</p>
    * @public
    */
   Region?: string;
@@ -1894,16 +1903,14 @@ export interface CopyJobSummary {
  */
 export interface CreateBackupPlanInput {
   /**
-   * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
+   * <p>The body of a backup plan. Includes a <code>BackupPlanName</code> and one or
    *          more sets of <code>Rules</code>.</p>
    * @public
    */
   BackupPlan: BackupPlanInput | undefined;
 
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources that
-   *          you create. Each tag is a key-value pair. The specified tags are assigned to all backups
-   *          created with this plan.</p>
+   * <p>The tags to assign to the backup plan.</p>
    * @public
    */
   BackupPlanTags?: Record<string, string>;
@@ -1923,7 +1930,7 @@ export interface CreateBackupPlanInput {
  */
 export interface CreateBackupPlanOutput {
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>The ID of the backup plan.</p>
    * @public
    */
   BackupPlanId?: string;
@@ -1952,7 +1959,7 @@ export interface CreateBackupPlanOutput {
   VersionId?: string;
 
   /**
-   * <p>A list of <code>BackupOptions</code> settings for a resource type. This option is only
+   * <p>The settings for a resource type. This option is only
    *          available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    * @public
    */
@@ -2002,14 +2009,13 @@ export class LimitExceededException extends __BaseException {
  */
 export interface CreateBackupSelectionInput {
   /**
-   * <p>Uniquely identifies the backup plan to be associated with the selection of
-   *          resources.</p>
+   * <p>The ID of the backup plan.</p>
    * @public
    */
   BackupPlanId: string | undefined;
 
   /**
-   * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
+   * <p>The body of a request to assign a set of resources to a backup plan.</p>
    * @public
    */
   BackupSelection: BackupSelection | undefined;
@@ -2035,7 +2041,7 @@ export interface CreateBackupSelectionOutput {
   SelectionId?: string;
 
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>The ID of the backup plan.</p>
    * @public
    */
   BackupPlanId?: string;
@@ -2063,8 +2069,7 @@ export interface CreateBackupVaultInput {
   BackupVaultName: string | undefined;
 
   /**
-   * <p>Metadata that you can assign to help organize the resources that you create. Each tag is
-   *          a key-value pair.</p>
+   * <p>The tags to assign to the backup vault.</p>
    * @public
    */
   BackupVaultTags?: Record<string, string>;
@@ -2099,7 +2104,7 @@ export interface CreateBackupVaultOutput {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *             <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -2127,7 +2132,7 @@ export interface FrameworkControl {
   ControlName: string | undefined;
 
   /**
-   * <p>A list of <code>ParameterName</code> and <code>ParameterValue</code> pairs.</p>
+   * <p>The name/value pairs.</p>
    * @public
    */
   ControlInputParameters?: ControlInputParameter[];
@@ -2163,7 +2168,7 @@ export interface CreateFrameworkInput {
   FrameworkDescription?: string;
 
   /**
-   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   * <p>The controls that make up the framework. Each control in the list has a name,
    *          input parameters, and scope.</p>
    * @public
    */
@@ -2178,8 +2183,7 @@ export interface CreateFrameworkInput {
   IdempotencyToken?: string;
 
   /**
-   * <p>Metadata that you can assign to help organize the frameworks that you create. Each tag
-   *          is a key-value pair.</p>
+   * <p>The tags to assign to the framework.</p>
    * @public
    */
   FrameworkTags?: Record<string, string>;
@@ -2275,13 +2279,13 @@ export interface RecoveryPointSelection {
  */
 export interface CreateLegalHoldInput {
   /**
-   * <p>This is the string title of the legal hold.</p>
+   * <p>The title of the legal hold.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>This is the string description of the legal hold.</p>
+   * <p>The description of the legal hold.</p>
    * @public
    */
   Description: string | undefined;
@@ -2295,8 +2299,7 @@ export interface CreateLegalHoldInput {
   IdempotencyToken?: string;
 
   /**
-   * <p>This specifies criteria to assign
-   *          a set of resources, such as resource types or backup vaults.</p>
+   * <p>The criteria to assign a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
   RecoveryPointSelection?: RecoveryPointSelection;
@@ -2331,46 +2334,43 @@ export type LegalHoldStatus = (typeof LegalHoldStatus)[keyof typeof LegalHoldSta
  */
 export interface CreateLegalHoldOutput {
   /**
-   * <p>This is the string title of the legal hold returned after creating the legal hold.</p>
+   * <p>The title of the legal hold.</p>
    * @public
    */
   Title?: string;
 
   /**
-   * <p>This displays the status of the legal hold returned after creating the legal hold.
-   *          Statuses can be <code>ACTIVE</code>, <code>PENDING</code>, <code>CANCELED</code>,
-   *          <code>CANCELING</code>, or <code>FAILED</code>.</p>
+   * <p>The status of the legal hold.</p>
    * @public
    */
   Status?: LegalHoldStatus;
 
   /**
-   * <p>This is the returned string description of the legal hold.</p>
+   * <p>The description of the legal hold.</p>
    * @public
    */
   Description?: string;
 
   /**
-   * <p>Legal hold ID returned for the specified legal hold on a recovery point.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Number) of the created legal hold.</p>
+   * <p>The Amazon Resource Name (ARN) of the legal hold.</p>
    * @public
    */
   LegalHoldArn?: string;
 
   /**
-   * <p>Time in number format when legal hold was created.</p>
+   * <p>The time when the legal hold was created.</p>
    * @public
    */
   CreationDate?: Date;
 
   /**
-   * <p>This specifies criteria to assign
-   *          a set of resources, such as resource types or backup vaults.</p>
+   * <p>The criteria to assign to a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
   RecoveryPointSelection?: RecoveryPointSelection;
@@ -2381,19 +2381,21 @@ export interface CreateLegalHoldOutput {
  */
 export interface CreateLogicallyAirGappedBackupVaultInput {
   /**
-   * <p>This is the name of the vault that is being created.</p>
+   * <p>The name of a logical container where backups are stored. Logically air-gapped
+   *          backup vaults are identified by names that are unique to the account used to create
+   *          them and the Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
 
   /**
-   * <p>These are the tags that will be included in the newly-created vault.</p>
+   * <p>The tags to assign to the vault.</p>
    * @public
    */
   BackupVaultTags?: Record<string, string>;
 
   /**
-   * <p>This is the ID of the creation request.</p>
+   * <p>The ID of the creation request.</p>
    *          <p>This parameter is optional. If used, this parameter must contain
    *          1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
@@ -2402,46 +2404,18 @@ export interface CreateLogicallyAirGappedBackupVaultInput {
 
   /**
    * <p>This setting specifies the minimum retention period
-   *          that the vault retains its recovery points. If this parameter is not specified,
-   *          no minimum retention period is enforced.</p>
-   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
-   *          retention period equal to or longer than the minimum retention period. If a job
-   *          retention period is shorter than that minimum retention period, then the vault fails the
-   *          backup or copy job, and you should either modify your lifecycle settings or use a different
-   *          vault.</p>
+   *          that the vault retains its recovery points.</p>
+   *          <p>The minimum value accepted is 7 days.</p>
    * @public
    */
   MinRetentionDays: number | undefined;
 
   /**
-   * <p>This is the setting that specifies the maximum retention period
-   *          that the vault retains its recovery points. If this parameter is not specified, Backup
-   *          does not enforce a maximum retention period on the recovery points in the vault (allowing
-   *          indefinite storage).</p>
-   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
-   *          retention period equal to or shorter than the maximum retention period. If the job
-   *          retention period is longer than that maximum retention period, then the vault fails the
-   *          backup or copy job, and you should either modify your lifecycle settings or use a different
-   *          vault.</p>
+   * <p>The maximum retention period that the vault retains its recovery points.</p>
    * @public
    */
   MaxRetentionDays: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VaultState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type VaultState = (typeof VaultState)[keyof typeof VaultState];
 
 /**
  * @public
@@ -2450,14 +2424,13 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
   /**
    * <p>The name of a logical container where backups are stored. Logically air-gapped
    *          backup vaults are identified by names that are unique to the account used to create
-   *          them and the Region where they are created. They consist of lowercase letters, numbers,
-   *          and hyphens.</p>
+   *          them and the Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Name) of the vault being created.</p>
+   * <p>The ARN (Amazon Resource Name) of the vault.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -2472,7 +2445,7 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
   CreationDate?: Date;
 
   /**
-   * <p>This is the current state of the vault.</p>
+   * <p>The current state of the vault.</p>
    * @public
    */
   VaultState?: VaultState;
@@ -2538,7 +2511,7 @@ export interface ReportDeliveryChannel {
   S3KeyPrefix?: string;
 
   /**
-   * <p>A list of the format of your reports: <code>CSV</code>, <code>JSON</code>, or both. If
+   * <p>The format of your reports: <code>CSV</code>, <code>JSON</code>, or both. If
    *          not specified, the default format is <code>CSV</code>.</p>
    * @public
    */
@@ -2575,6 +2548,7 @@ export interface ReportSetting {
 
   /**
    * <p>These are the accounts to be included in the report.</p>
+   *          <p>Use string value of <code>ROOT</code> to include all organizational units.</p>
    * @public
    */
   Accounts?: string[];
@@ -2587,6 +2561,7 @@ export interface ReportSetting {
 
   /**
    * <p>These are the Regions to be included in the report.</p>
+   *          <p>Use the wildcard as the string value to include all Regions.</p>
    * @public
    */
   Regions?: string[];
@@ -2633,8 +2608,7 @@ export interface CreateReportPlanInput {
   ReportSetting: ReportSetting | undefined;
 
   /**
-   * <p>Metadata that you can assign to help organize the report plans that you create. Each tag
-   *          is a key-value pair.</p>
+   * <p>The tags to assign to the report plan.</p>
    * @public
    */
   ReportPlanTags?: Record<string, string>;
@@ -2706,10 +2680,35 @@ export type RestoreTestingRecoveryPointType =
   (typeof RestoreTestingRecoveryPointType)[keyof typeof RestoreTestingRecoveryPointType];
 
 /**
- * <p>Required: Algorithm; Required: Recovery point types;
- *          IncludeVaults(one or more). Optional: SelectionWindowDays
- *          ('30' if not specified);ExcludeVaults (list of selectors),
- *          defaults to empty list if not listed.</p>
+ * <p>
+ *             <code>RecoveryPointSelection</code> has five parameters (three required and two
+ *          optional). The values you specify determine which recovery point is included in the restore
+ *          test. You must indicate with <code>Algorithm</code> if you want the latest recovery point
+ *          within your <code>SelectionWindowDays</code> or if you want a random recovery point, and
+ *          you must indicate through <code>IncludeVaults</code> from which vaults the recovery points
+ *          can be chosen.</p>
+ *          <p>
+ *             <code>Algorithm</code> (<i>required</i>) Valid values:
+ *          "<code>LATEST_WITHIN_WINDOW</code>" or "<code>RANDOM_WITHIN_WINDOW</code>".</p>
+ *          <p>
+ *             <code>Recovery point types</code> (<i>required</i>) Valid values:
+ *          "<code>SNAPSHOT</code>" and/or "<code>CONTINUOUS</code>". Include <code>SNAPSHOT</code>
+ *          to restore only snapshot recovery points; include <code>CONTINUOUS</code> to restore
+ *          continuous recovery points (point in time restore / PITR); use both to restore either a
+ *          snapshot or a continuous recovery point. The recovery point will be determined by the value
+ *          for <code>Algorithm</code>.</p>
+ *          <p>
+ *             <code>IncludeVaults</code> (<i>required</i>). You must include one or more
+ *          backup vaults. Use the wildcard ["*"] or specific ARNs.</p>
+ *          <p>
+ *             <code>SelectionWindowDays</code> (<i>optional</i>) Value must be an
+ *          integer (in days) from 1 to 365. If not included, the value defaults to
+ *          <code>30</code>.</p>
+ *          <p>
+ *             <code>ExcludeVaults</code> (<i>optional</i>). You can choose to input one
+ *          or more specific backup vault ARNs to exclude those vaults' contents from restore
+ *          eligibility. Or, you can include a list of selectors. If this parameter and its value are
+ *          not included, it defaults to empty list.</p>
  * @public
  */
 export interface RestoreTestingRecoveryPointSelection {
@@ -2738,6 +2737,11 @@ export interface RestoreTestingRecoveryPointSelection {
 
   /**
    * <p>These are the types of recovery points.</p>
+   *          <p>Include <code>SNAPSHOT</code>
+   *          to restore only snapshot recovery points; include <code>CONTINUOUS</code> to restore
+   *          continuous recovery points (point in time restore / PITR); use both to restore either a
+   *          snapshot or a continuous recovery point. The recovery point will be determined by the value
+   *          for <code>Algorithm</code>.</p>
    * @public
    */
   RecoveryPointTypes?: RestoreTestingRecoveryPointType[];
@@ -2755,9 +2759,35 @@ export interface RestoreTestingRecoveryPointSelection {
  */
 export interface RestoreTestingPlanForCreate {
   /**
-   * <p>Required: Algorithm; Required: Recovery point types; IncludeVaults
-   *          (one or more). Optional: SelectionWindowDays ('30' if not specified);
-   *          ExcludeVaults (list of selectors), defaults to empty list if not listed.</p>
+   * <p>
+   *             <code>RecoveryPointSelection</code> has five parameters (three required and two
+   *          optional). The values you specify determine which recovery point is included in the restore
+   *          test. You must indicate with <code>Algorithm</code> if you want the latest recovery point
+   *          within your <code>SelectionWindowDays</code> or if you want a random recovery point, and
+   *          you must indicate through <code>IncludeVaults</code> from which vaults the recovery points
+   *          can be chosen.</p>
+   *          <p>
+   *             <code>Algorithm</code> (<i>required</i>) Valid values:
+   *             "<code>LATEST_WITHIN_WINDOW</code>" or "<code>RANDOM_WITHIN_WINDOW</code>".</p>
+   *          <p>
+   *             <code>Recovery point types</code> (<i>required</i>) Valid values:
+   *             "<code>SNAPSHOT</code>" and/or "<code>CONTINUOUS</code>". Include <code>SNAPSHOT</code>
+   *          to restore only snapshot recovery points; include <code>CONTINUOUS</code> to restore
+   *          continuous recovery points (point in time restore / PITR); use both to restore either a
+   *          snapshot or a continuous recovery point. The recovery point will be determined by the value
+   *          for <code>Algorithm</code>.</p>
+   *          <p>
+   *             <code>IncludeVaults</code> (<i>required</i>). You must include one or more
+   *          backup vaults. Use the wildcard ["*"] or specific ARNs.</p>
+   *          <p>
+   *             <code>SelectionWindowDays</code> (<i>optional</i>) Value must be an
+   *          integer (in days) from 1 to 365. If not included, the value defaults to
+   *          <code>30</code>.</p>
+   *          <p>
+   *             <code>ExcludeVaults</code> (<i>optional</i>). You can choose to input one
+   *          or more specific backup vault ARNs to exclude those vaults' contents from restore
+   *          eligibility. Or, you can include a list of selectors. If this parameter and its value are
+   *          not included, it defaults to empty list.</p>
    * @public
    */
   RecoveryPointSelection: RestoreTestingRecoveryPointSelection | undefined;
@@ -2823,10 +2853,7 @@ export interface CreateRestoreTestingPlanInput {
   RestoreTestingPlan: RestoreTestingPlanForCreate | undefined;
 
   /**
-   * <p>Optional tags to include. A tag is a key-value pair you can use to
-   *          manage, filter, and search for your resources. Allowed characters include
-   *          UTF-8 letters,numbers, spaces, and the following characters:
-   *          + - = . _ : /.</p>
+   * <p>The tags to assign to the restore testing plan.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -2892,11 +2919,8 @@ export interface KeyValue {
 }
 
 /**
- * <p>A list of conditions that you define for resources in
- *          your restore testing plan using  tags.</p>
- *          <p>For example,
- *          <code>"StringEquals": \{  "Key": "aws:ResourceTag/CreatedByCryo",  "Value": "true"  \},</code>.
- *          Condition operators are case sensitive.</p>
+ * <p>The conditions that you define for resources in
+ *          your restore testing plan using tags.</p>
  * @public
  */
 export interface ProtectedResourceConditions {
@@ -2975,8 +2999,7 @@ export interface RestoreTestingSelectionForCreate {
 
   /**
    * <p>The type of Amazon Web Services resource included in a restore
-   *          testing selection; for
-   *          example, an Amazon EBS volume or
+   *          testing selection; for example, an Amazon EBS volume or
    *          an Amazon RDS database.</p>
    *          <p>Supported resource types accepted include:</p>
    *          <ul>
@@ -3036,7 +3059,7 @@ export interface RestoreTestingSelectionForCreate {
   RestoreMetadataOverrides?: Record<string, string>;
 
   /**
-   * <p>This is the unique name of the restore testing selection
+   * <p>The unique name of the restore testing selection
    *          that belongs to the related restore testing plan.</p>
    * @public
    */
@@ -3101,20 +3124,20 @@ export interface CreateRestoreTestingSelectionInput {
  */
 export interface CreateRestoreTestingSelectionOutput {
   /**
-   * <p>This is the time the resource testing selection was created successfully.</p>
+   * <p>The time that the resource testing selection was created.</p>
    * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * <p>This is the ARN of the restore testing plan with which the restore
+   * <p>The ARN of the restore testing plan with which the restore
    *       testing selection is associated.</p>
    * @public
    */
   RestoreTestingPlanArn: string | undefined;
 
   /**
-   * <p>Unique string that is the name of the restore testing plan.</p>
+   * <p>The name of the restore testing plan.</p>
    *          <p>The name cannot be changed after creation. The name consists of only
    *          alphanumeric characters and underscores. Maximum length is 50.</p>
    * @public
@@ -3122,8 +3145,7 @@ export interface CreateRestoreTestingSelectionOutput {
   RestoreTestingPlanName: string | undefined;
 
   /**
-   * <p>This is the unique name of the restore testing selection that belongs to
-   *          the related restore testing plan.</p>
+   * <p>The name of the restore testing selection for the related restore testing plan.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;
@@ -3199,8 +3221,7 @@ export interface DeleteBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -3238,7 +3259,7 @@ export interface DeleteBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -3262,8 +3283,7 @@ export interface DeleteRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -3385,15 +3405,14 @@ export interface DescribeBackupJobOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -3543,20 +3562,20 @@ export interface DescribeBackupJobOutput {
   ChildJobsInState?: Partial<Record<BackupJobState, number>>;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the date a backup job was initiated.</p>
+   * <p>The date a backup job was initiated.</p>
    * @public
    */
   InitiationDate?: Date;
 
   /**
-   * <p>This is the job count for the specified
+   * <p>The job count for the specified
    *          message category.</p>
    *          <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>,
    *             <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>. View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
@@ -3573,32 +3592,17 @@ export interface DescribeBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
 
   /**
-   * <p>This is the account ID of the specified backup vault.</p>
+   * <p>The account ID of the specified backup vault.</p>
    * @public
    */
   BackupVaultAccountId?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const VaultType = {
-  BACKUP_VAULT: "BACKUP_VAULT",
-  LOGICALLY_AIR_GAPPED_BACKUP_VAULT: "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
-} as const;
-
-/**
- * @public
- */
-export type VaultType = (typeof VaultType)[keyof typeof VaultType];
 
 /**
  * @public
@@ -3607,23 +3611,29 @@ export interface DescribeBackupVaultOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
 
   /**
-   * <p>This is the type of vault described.</p>
+   * <p>The type of vault described.</p>
    * @public
    */
   VaultType?: VaultType;
+
+  /**
+   * <p>The current state of the vault.-></p>
+   * @public
+   */
+  VaultState?: VaultState;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
@@ -3665,8 +3675,8 @@ export interface DescribeBackupVaultOutput {
 
   /**
    * <p>The Backup Vault Lock setting that specifies the minimum retention period
-   *          that the vault retains its recovery points. If this parameter is not specified, Vault Lock
-   *          does not enforce a minimum retention period.</p>
+   *          that the vault retains its recovery points. If this
+   *          parameter is not specified, Vault Lock will not enforce a minimum retention period.</p>
    *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
    *          retention period equal to or longer than the minimum retention period. If the job's
    *          retention period is shorter than that minimum retention period, then the vault fails the
@@ -3763,7 +3773,7 @@ export interface DescribeFrameworkOutput {
   FrameworkDescription?: string;
 
   /**
-   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   * <p>The controls that make up the framework. Each control in the list has a name,
    *          input parameters, and scope.</p>
    * @public
    */
@@ -3891,41 +3901,39 @@ export interface DescribeProtectedResourceOutput {
   LastBackupTime?: Date;
 
   /**
-   * <p>This is the non-unique name of the resource that
-   *          belongs to the specified backup.</p>
+   * <p>The name of the resource that belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Name) of the backup vault
+   * <p>The ARN (Amazon Resource Name) of the backup vault
    *          that contains the most recent backup recovery point.</p>
    * @public
    */
   LastBackupVaultArn?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Name) of the most recent
+   * <p>The ARN (Amazon Resource Name) of the most recent
    *          recovery point.</p>
    * @public
    */
   LastRecoveryPointArn?: string;
 
   /**
-   * <p>This is the time in minutes the most recent restore
-   *          job took to complete.</p>
+   * <p>The time, in minutes, that the most recent restore job took to complete.</p>
    * @public
    */
   LatestRestoreExecutionTimeMinutes?: number;
 
   /**
-   * <p>This is the creation date of the most recent restore job.</p>
+   * <p>The creation date of the most recent restore job.</p>
    * @public
    */
   LatestRestoreJobCreationDate?: Date;
 
   /**
-   * <p>This is the date the most recent recovery point was created.</p>
+   * <p>The date the most recent recovery point was created.</p>
    * @public
    */
   LatestRestoreRecoveryPointCreationDate?: Date;
@@ -3938,8 +3946,7 @@ export interface DescribeRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -3952,7 +3959,7 @@ export interface DescribeRecoveryPointInput {
   RecoveryPointArn: string | undefined;
 
   /**
-   * <p>This is the account ID of the specified backup vault.</p>
+   * <p>The account ID of the specified backup vault.</p>
    * @public
    */
   BackupVaultAccountId?: string;
@@ -4003,14 +4010,14 @@ export interface DescribeRecoveryPointOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -4018,7 +4025,7 @@ export interface DescribeRecoveryPointOutput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the
    *          resource was originally backed up in; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:BackupVault</code>. If the recovery is
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>. If the recovery is
    *          restored to the same Amazon Web Services account or Region, this value will be
    *             <code>null</code>.</p>
    * @public
@@ -4071,7 +4078,9 @@ export interface DescribeRecoveryPointOutput {
    *             <code>STOPPED</code> status occurs on a continuous backup where a user has taken some
    *          action that causes the continuous backup to be disabled. This can be caused by the removal
    *          of permissions, turning off versioning, turning off events being sent to EventBridge,
-   *          or disabling the EventBridge rules that are put in place by Backup.</p>
+   *          or disabling the EventBridge rules that are put in place by Backup. For
+   *          recovery points of Amazon S3, Amazon RDS, and Amazon Aurora resources, this status
+   *          occurs when the retention period of a continuous backup rule is changed.</p>
    *          <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in place and
    *          that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance
    *          of a backup rule running will result in a new continuous recovery point being created.
@@ -4128,10 +4137,8 @@ export interface DescribeRecoveryPointOutput {
    *          minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
-   *          other resource types.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
   Lifecycle?: Lifecycle;
@@ -4174,10 +4181,9 @@ export interface DescribeRecoveryPointOutput {
   ParentRecoveryPointArn?: string;
 
   /**
-   * <p>This is the identifier of a resource within a composite group, such as
+   * <p>The identifier of a resource within a composite group, such as
    *          nested (child) recovery point belonging to a composite (parent) stack. The
-   *          ID is transferred from
-   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
+   *          ID is transferred from the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
    *             logical ID</a> within a stack.</p>
    * @public
    */
@@ -4190,14 +4196,13 @@ export interface DescribeRecoveryPointOutput {
   IsParent?: boolean;
 
   /**
-   * <p>This is the non-unique name of the resource that
-   *          belongs to the specified backup.</p>
+   * <p>The name of the resource that belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   * <p>The type of vault in which the described recovery point is stored.</p>
    * @public
    */
   VaultType?: VaultType;
@@ -4213,17 +4218,17 @@ export interface DescribeRegionSettingsInput {}
  */
 export interface DescribeRegionSettingsOutput {
   /**
-   * <p>Returns a list of all services along with the opt-in preferences in the Region.</p>
+   * <p>The services along with the opt-in preferences in the Region.</p>
    * @public
    */
   ResourceTypeOptInPreference?: Record<string, boolean>;
 
   /**
    * <p>Returns whether Backup fully manages the backups for a resource type.</p>
-   *          <p>For the benefits of full Backup management, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management"> Full Backup management</a>.</p>
-   *          <p>For a list of resource types and whether each supports full Backup
-   *          management, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table.</p>
+   *          <p>For the benefits of full Backup management, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management">Full Backup
+   *          management</a>.</p>
+   *          <p>For a list of resource types and whether each supports full Backup management,
+   *          see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table.</p>
    *          <p>If <code>"DynamoDB":false</code>, you can enable full Backup management for
    *          DynamoDB backup by enabling <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli">
    *             Backup's advanced DynamoDB backup features</a>.</p>
@@ -4343,7 +4348,7 @@ export interface ReportJob {
  */
 export interface DescribeReportJobOutput {
   /**
-   * <p>A list of information about a report job, including its completion and creation times,
+   * <p>The information about a report job, including its completion and creation times,
    *          report destination, unique report job ID, Amazon Resource Name (ARN), report template,
    *          status, and status message.</p>
    * @public
@@ -4616,8 +4621,9 @@ export interface DescribeRestoreJobOutput {
   ExpectedCompletionTimeMinutes?: number;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource whose recovery point
-   *          is being restored. The format of the ARN depends on the resource type of the backed-up
+   * <p>The Amazon Resource Name (ARN) of the resource that
+   *       was created by the restore job.</p>
+   *          <p>The format of the ARN depends on the resource type of the backed-up
    *          resource.</p>
    * @public
    */
@@ -4630,7 +4636,7 @@ export interface DescribeRestoreJobOutput {
   ResourceType?: string;
 
   /**
-   * <p>This is the creation date of the recovery point made by the specifed restore job.</p>
+   * <p>The creation date of the recovery point made by the specifed restore job.</p>
    * @public
    */
   RecoveryPointCreationDate?: Date;
@@ -4642,23 +4648,20 @@ export interface DescribeRestoreJobOutput {
   CreatedBy?: RestoreJobCreator;
 
   /**
-   * <p>This is the status of validation run on the indicated
+   * <p>The status of validation run on the indicated
    *          restore job.</p>
    * @public
    */
   ValidationStatus?: RestoreValidationStatus;
 
   /**
-   * <p>This describes the status of validation run on the
-   *          indicated restore job.</p>
+   * <p>The status message.</p>
    * @public
    */
   ValidationStatusMessage?: string;
 
   /**
-   * <p>This notes the status of the data generated by the restore test.
-   *          The status may be <code>Deleting</code>, <code>Failed</code>,
-   *          or <code>Successful</code>.</p>
+   * <p>The status of the data generated by the restore test.</p>
    * @public
    */
   DeletionStatus?: RestoreDeletionStatus;
@@ -4693,16 +4696,15 @@ export interface DisassociateRecoveryPointInput {
  */
 export interface DisassociateRecoveryPointFromParentInput {
   /**
-   * <p>This is the name of a logical container where the child (nested) recovery point
+   * <p>The name of a logical container where the child (nested) recovery point
    *          is stored. Backup vaults are identified by names that are unique to the account used
-   *          to create them and the Amazon Web Services Region where they are created. They consist of lowercase
-   *          letters, numbers, and hyphens.</p>
+   *          to create them and the Amazon Web Services Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
 
   /**
-   * <p>This is the Amazon Resource Name (ARN) that uniquely identifies the child
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the child
    *          (nested) recovery point; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</code>
    *          </p>
@@ -4813,7 +4815,7 @@ export interface GetBackupPlanOutput {
   DeletionDate?: Date;
 
   /**
-   * <p>The last time a job to back up resources was run with this backup plan. A date and time,
+   * <p>The last time this backup plan was run. A date and time,
    *          in Unix format and Coordinated Universal Time (UTC). The value of
    *             <code>LastExecutionDate</code> is accurate to milliseconds. For example, the value
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
@@ -4940,8 +4942,7 @@ export interface GetBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -4954,14 +4955,14 @@ export interface GetBackupVaultAccessPolicyOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -4980,8 +4981,7 @@ export interface GetBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -4994,14 +4994,14 @@ export interface GetBackupVaultNotificationsOutput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -5026,8 +5026,7 @@ export interface GetBackupVaultNotificationsOutput {
  */
 export interface GetLegalHoldInput {
   /**
-   * <p>This is the ID required to use <code>GetLegalHold</code>. This unique ID
-   *          is associated with a specific legal hold.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId: string | undefined;
@@ -5038,67 +5037,62 @@ export interface GetLegalHoldInput {
  */
 export interface GetLegalHoldOutput {
   /**
-   * <p>This is the string title of the legal hold.</p>
+   * <p>The title of the legal hold.</p>
    * @public
    */
   Title?: string;
 
   /**
-   * <p>This is the status of the legal hold. Statuses can be
-   *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
-   *          <code>CANCELING</code>.</p>
+   * <p>The status of the legal hold.</p>
    * @public
    */
   Status?: LegalHoldStatus;
 
   /**
-   * <p>This is the returned string description of the legal hold.</p>
+   * <p>The description of the legal hold.</p>
    * @public
    */
   Description?: string;
 
   /**
-   * <p>String describing the reason for removing the legal hold.</p>
+   * <p>The reason for removing the legal hold.</p>
    * @public
    */
   CancelDescription?: string;
 
   /**
-   * <p>This is the returned ID associated with a specified legal hold.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId?: string;
 
   /**
-   * <p>This is the returned framework ARN for the specified legal hold.
-   *          An Amazon Resource Name (ARN) uniquely identifies a resource. The format
+   * <p>The framework ARN for the specified legal hold. The format
    *          of the ARN depends on the resource type.</p>
    * @public
    */
   LegalHoldArn?: string;
 
   /**
-   * <p>Time in number format when legal hold was created.</p>
+   * <p>The time when the legal hold was created.</p>
    * @public
    */
   CreationDate?: Date;
 
   /**
-   * <p>Time in number when legal hold was cancelled.</p>
+   * <p>The time when the legal hold was cancelled.</p>
    * @public
    */
   CancellationDate?: Date;
 
   /**
-   * <p>This is the date and time until which the legal hold record will
-   *          be retained.</p>
+   * <p>The date and time until which the legal hold record is retained.</p>
    * @public
    */
   RetainRecordUntil?: Date;
 
   /**
-   * <p>This specifies criteria to assign
-   *          a set of resources, such as resource types or backup vaults.</p>
+   * <p>The criteria to assign a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
   RecoveryPointSelection?: RecoveryPointSelection;
@@ -5111,8 +5105,7 @@ export interface GetRecoveryPointRestoreMetadataInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -5125,7 +5118,7 @@ export interface GetRecoveryPointRestoreMetadataInput {
   RecoveryPointArn: string | undefined;
 
   /**
-   * <p>This is the account ID of the specified backup vault.</p>
+   * <p>The account ID of the specified backup vault.</p>
    * @public
    */
   BackupVaultAccountId?: string;
@@ -5137,7 +5130,7 @@ export interface GetRecoveryPointRestoreMetadataInput {
 export interface GetRecoveryPointRestoreMetadataOutput {
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -5158,7 +5151,7 @@ export interface GetRecoveryPointRestoreMetadataOutput {
   RestoreMetadata?: Record<string, string>;
 
   /**
-   * <p>This is the resource type associated with the recovery point.</p>
+   * <p>The resource type of the recovery point.</p>
    * @public
    */
   ResourceType?: string;
@@ -5197,7 +5190,7 @@ export interface GetRestoreJobMetadataOutput {
  */
 export interface GetRestoreTestingInferredMetadataInput {
   /**
-   * <p>This is the account ID of the specified backup vault.</p>
+   * <p>The account ID of the specified backup vault.</p>
    * @public
    */
   BackupVaultAccountId?: string;
@@ -5306,7 +5299,7 @@ export interface RestoreTestingPlanForGet {
   RestoreTestingPlanArn: string | undefined;
 
   /**
-   * <p>This is the restore testing plan name.</p>
+   * <p>The restore testing plan name.</p>
    * @public
    */
   RestoreTestingPlanName: string | undefined;
@@ -5446,7 +5439,7 @@ export interface RestoreTestingSelectionForGet {
   RestoreTestingPlanName: string | undefined;
 
   /**
-   * <p>This is the unique name of the restore testing selection that
+   * <p>The unique name of the restore testing selection that
    *          belongs to the related restore testing plan.</p>
    * @public
    */
@@ -5485,6 +5478,14 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
    *             </li>
    *             <li>
@@ -5501,7 +5502,11 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FSX</code> for Amazon FSx</p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5509,15 +5514,28 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases
+   *             on Amazon Elastic Compute Cloud instances</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DocDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *                   <code>VirtualMachine</code> for VMware virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -5570,8 +5588,7 @@ export interface ListBackupJobsInput {
   /**
    * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
    *          vaults are identified by names that are unique to the account used to create them and the
-   *             Amazon Web Services Region where they are created. They consist of lowercase letters,
-   *          numbers, and hyphens.</p>
+   *             Amazon Web Services Region where they are created.</p>
    * @public
    */
   ByBackupVaultName?: string;
@@ -5629,15 +5646,20 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Redshift</code> for Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases
+   *             on Amazon Elastic Compute Cloud instances</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5645,15 +5667,11 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> for Amazon S3</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *                   <code>VirtualMachine</code> for VMware virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -5798,24 +5816,19 @@ export interface ListBackupJobSummariesInput {
   MessageCategory?: string;
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
-   *          <p>Acceptable values include</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5823,8 +5836,7 @@ export interface ListBackupJobSummariesInput {
   AggregationPeriod?: AggregationPeriod;
 
   /**
-   * <p>This parameter sets the maximum number of items
-   *          to be returned.</p>
+   * <p>The maximum number of items to be returned.</p>
    *          <p>The value is an integer. Range of accepted values is from
    *          1 to 500.</p>
    * @public
@@ -5846,31 +5858,25 @@ export interface ListBackupJobSummariesInput {
  */
 export interface ListBackupJobSummariesOutput {
   /**
-   * <p>This request returns a summary that contains
-   *          Region, Account, State, ResourceType, MessageCategory,
-   *          StartTime, EndTime, and Count of included jobs.</p>
+   * <p>The summary information.</p>
    * @public
    */
   BackupJobSummaries?: BackupJobSummary[];
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5928,8 +5934,7 @@ export interface ListBackupPlansOutput {
   NextToken?: string;
 
   /**
-   * <p>An array of backup plan list items containing metadata about your saved backup
-   *          plans.</p>
+   * <p>Information about the backup plans.</p>
    * @public
    */
   BackupPlansList?: BackupPlansListMember[];
@@ -5949,7 +5954,7 @@ export interface ListBackupPlanTemplatesInput {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of items to be returned.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number;
@@ -6206,15 +6211,20 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Redshift</code> for Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases
+   *             on Amazon Elastic Compute Cloud instances</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6222,15 +6232,11 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> for Amazon S3</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *                   <code>VirtualMachine</code> for VMware virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -6239,7 +6245,7 @@ export interface ListCopyJobsInput {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source backup vault to copy
-   *          from; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.
+   *          from; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.
    *       </p>
    * @public
    */
@@ -6371,23 +6377,19 @@ export interface ListCopyJobSummariesInput {
   MessageCategory?: string;
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6426,23 +6428,19 @@ export interface ListCopyJobSummariesOutput {
   CopyJobSummaries?: CopyJobSummary[];
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6536,7 +6534,7 @@ export interface Framework {
  */
 export interface ListFrameworksOutput {
   /**
-   * <p>A list of frameworks with details for each framework, including the framework name,
+   * <p>The frameworks with details for each framework, including the framework name,
    *          Amazon Resource Name (ARN), description, number of controls, creation time, and deployment
    *          status.</p>
    * @public
@@ -6584,46 +6582,44 @@ export interface ListLegalHoldsInput {
  */
 export interface LegalHold {
   /**
-   * <p>This is the title of a legal hold.</p>
+   * <p>The title of a legal hold.</p>
    * @public
    */
   Title?: string;
 
   /**
-   * <p>This is the status of the legal hold. Statuses can be
-   *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
-   *          <code>CANCELING</code>.</p>
+   * <p>The status of the legal hold.</p>
    * @public
    */
   Status?: LegalHoldStatus;
 
   /**
-   * <p>This is the description of a legal hold.</p>
+   * <p>The description of a legal hold.</p>
    * @public
    */
   Description?: string;
 
   /**
-   * <p>ID of specific legal hold on one or more recovery points.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId?: string;
 
   /**
-   * <p>This is an Amazon Resource Number (ARN) that uniquely identifies the legal hold; for example,
+   * <p>The Amazon Resource Name (ARN) of the legal hold; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
   LegalHoldArn?: string;
 
   /**
-   * <p>This is the time in number format when legal hold was created.</p>
+   * <p>The time when the legal hold was created.</p>
    * @public
    */
   CreationDate?: Date;
 
   /**
-   * <p>This is the time in number format when legal hold was cancelled.</p>
+   * <p>The time when the legal hold was cancelled.</p>
    * @public
    */
   CancellationDate?: Date;
@@ -6699,21 +6695,21 @@ export interface ProtectedResource {
   LastBackupTime?: Date;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Name) of the backup vault
+   * <p>The ARN (Amazon Resource Name) of the backup vault
    *          that contains the most recent backup recovery point.</p>
    * @public
    */
   LastBackupVaultArn?: string;
 
   /**
-   * <p>This is the ARN (Amazon Resource Name) of the most
+   * <p>The ARN (Amazon Resource Name) of the most
    *          recent recovery point.</p>
    * @public
    */
@@ -6747,13 +6743,13 @@ export interface ListProtectedResourcesOutput {
  */
 export interface ListProtectedResourcesByBackupVaultInput {
   /**
-   * <p>This is the list of protected resources by backup vault within the vault(s) you specify by name.</p>
+   * <p>The list of protected resources by backup vault within the vault(s) you specify by name.</p>
    * @public
    */
   BackupVaultName: string | undefined;
 
   /**
-   * <p>This is the list of protected resources by backup vault within the vault(s) you specify by account ID.</p>
+   * <p>The list of protected resources by backup vault within the vault(s) you specify by account ID.</p>
    * @public
    */
   BackupVaultAccountId?: string;
@@ -6801,8 +6797,7 @@ export interface ListRecoveryPointsByBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    *          <note>
    *             <p>Backup vault name might not be available when a supported service creates the
    *             backup.</p>
@@ -6880,15 +6875,20 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Redshift</code> for Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases
+   *             on Amazon Elastic Compute Cloud instances</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6896,15 +6896,11 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> for Amazon S3</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *                   <code>VirtualMachine</code> for VMware virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -6952,15 +6948,14 @@ export interface RecoveryPointByBackupVault {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -7009,7 +7004,7 @@ export interface RecoveryPointByBackupVault {
   Status?: RecoveryPointStatus;
 
   /**
-   * <p>A message explaining the reason of the recovery point deletion failure.</p>
+   * <p>A message explaining the current status of the recovery point.</p>
    * @public
    */
   StatusMessage?: string;
@@ -7053,9 +7048,8 @@ export interface RecoveryPointByBackupVault {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    * @public
    */
@@ -7085,14 +7079,14 @@ export interface RecoveryPointByBackupVault {
   LastRestoreTime?: Date;
 
   /**
-   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   * <p>The Amazon Resource Name (ARN) of the parent (composite)
    *          recovery point.</p>
    * @public
    */
   ParentRecoveryPointArn?: string;
 
   /**
-   * <p>This is the identifier of a resource within a composite group, such as
+   * <p>The identifier of a resource within a composite group, such as
    *          nested (child) recovery point belonging to a composite (parent) stack. The
    *          ID is transferred from
    *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-syntax">
@@ -7109,14 +7103,14 @@ export interface RecoveryPointByBackupVault {
   IsParent?: boolean;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   * <p>The type of vault in which the described recovery point is stored.</p>
    * @public
    */
   VaultType?: VaultType;
@@ -7148,13 +7142,13 @@ export interface ListRecoveryPointsByBackupVaultOutput {
  */
 export interface ListRecoveryPointsByLegalHoldInput {
   /**
-   * <p>This is the ID of the legal hold.</p>
+   * <p>The ID of the legal hold.</p>
    * @public
    */
   LegalHoldId: string | undefined;
 
   /**
-   * <p>This is the next item following a partial list of returned resources. For example, if a request
+   * <p>The next item following a partial list of returned resources. For example, if a request
    *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
    *          allows you to return more items in your list starting at the location pointed to by the
    *          next token.</p>
@@ -7163,7 +7157,7 @@ export interface ListRecoveryPointsByLegalHoldInput {
   NextToken?: string;
 
   /**
-   * <p>This is the maximum number of resource list items to be returned.</p>
+   * <p>The maximum number of resource list items to be returned.</p>
    * @public
    */
   MaxResults?: number;
@@ -7178,28 +7172,28 @@ export interface ListRecoveryPointsByLegalHoldInput {
  */
 export interface RecoveryPointMember {
   /**
-   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   * <p>The Amazon Resource Name (ARN) of the parent (composite)
    *          recovery point.</p>
    * @public
    */
   RecoveryPointArn?: string;
 
   /**
-   * <p>This is the Amazon Resource Name (ARN) that uniquely identifies
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies
    *          a saved resource.</p>
    * @public
    */
   ResourceArn?: string;
 
   /**
-   * <p>This is the Amazon Web Services resource type that is saved as
+   * <p>The Amazon Web Services resource type that is saved as
    *       a recovery point.</p>
    * @public
    */
   ResourceType?: string;
 
   /**
-   * <p>This is the name of the backup vault
+   * <p>The name of the backup vault
    *          (the logical container in which backups are stored).</p>
    * @public
    */
@@ -7211,14 +7205,13 @@ export interface RecoveryPointMember {
  */
 export interface ListRecoveryPointsByLegalHoldOutput {
   /**
-   * <p>This is a list of the recovery points returned by
-   *          <code>ListRecoveryPointsByLegalHold</code>.</p>
+   * <p>The recovery points.</p>
    * @public
    */
   RecoveryPoints?: RecoveryPointMember[];
 
   /**
-   * <p>This return is the next item following a partial list of returned resources.</p>
+   * <p>The next item following a partial list of returned resources.</p>
    * @public
    */
   NextToken?: string;
@@ -7294,7 +7287,7 @@ export interface RecoveryPointByResource {
   Status?: RecoveryPointStatus;
 
   /**
-   * <p>A message explaining the reason of the recovery point deletion failure.</p>
+   * <p>A message explaining the current status of the recovery point.</p>
    * @public
    */
   StatusMessage?: string;
@@ -7315,8 +7308,7 @@ export interface RecoveryPointByResource {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName?: string;
@@ -7329,21 +7321,21 @@ export interface RecoveryPointByResource {
   IsParent?: boolean;
 
   /**
-   * <p>This is the Amazon Resource Name (ARN) of the parent (composite)
+   * <p>The Amazon Resource Name (ARN) of the parent (composite)
    *          recovery point.</p>
    * @public
    */
   ParentRecoveryPointArn?: string;
 
   /**
-   * <p>This is the non-unique name of the resource that
+   * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
   ResourceName?: string;
 
   /**
-   * <p>This is the type of vault in which the described recovery point is
+   * <p>The type of vault in which the described recovery point is
    *          stored.</p>
    * @public
    */
@@ -7467,7 +7459,7 @@ export interface ListReportPlansInput {
  */
 export interface ListReportPlansOutput {
   /**
-   * <p>A list of your report plans with detailed information for each plan. This information
+   * <p>The report plans with detailed information for each plan. This information
    *          includes the Amazon Resource Name (ARN), report plan name, description, settings, delivery
    *          channel, deployment status, creation time, and last times the report plan attempted to and
    *          successfully ran.</p>
@@ -7510,8 +7502,7 @@ export interface ListRestoreJobsInput {
   ByAccountId?: string;
 
   /**
-   * <p>Include this parameter to return only restore jobs for the
-   *             specified resources:</p>
+   * <p>Include this parameter to return only restore jobs for the specified resources:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7551,15 +7542,20 @@ export interface ListRestoreJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Redshift</code> for Amazon Redshift</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases
+   *             on Amazon Elastic Compute Cloud instances</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7567,15 +7563,11 @@ export interface ListRestoreJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> for Amazon S3</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *                   <code>VirtualMachine</code> for VMware virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -7691,7 +7683,7 @@ export interface RestoreJobsListMember {
   BackupSizeInBytes?: number;
 
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   * <p>The IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
@@ -7734,7 +7726,7 @@ export interface RestoreJobsListMember {
   CreatedBy?: RestoreJobCreator;
 
   /**
-   * <p>This is the status of validation run on the indicated
+   * <p>The status of validation run on the indicated
    *          restore job.</p>
    * @public
    */
@@ -7914,24 +7906,19 @@ export interface ListRestoreJobSummariesInput {
   ResourceType?: string;
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
-   *          <p>Acceptable values include</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8031,23 +8018,19 @@ export interface ListRestoreJobSummariesOutput {
   RestoreJobSummaries?: RestoreJobSummary[];
 
   /**
-   * <p>This is the period that sets the boundaries for returned
-   *          results.</p>
+   * <p>The period for the returned results.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ONE_DAY</code> for daily job count
-   *                for the prior 14 days.</p>
+   *                   <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEVEN_DAYS</code> for the aggregated
-   *                job count for the prior 7 days.</p>
+   *                   <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FOURTEEN_DAYS</code> for aggregated
-   *                job count for prior 14 days.</p>
+   *                   <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8128,7 +8111,7 @@ export interface RestoreTestingPlanForList {
   RestoreTestingPlanArn: string | undefined;
 
   /**
-   * <p>This is the restore testing plan name.</p>
+   * <p>The restore testing plan name.</p>
    * @public
    */
   RestoreTestingPlanName: string | undefined;
@@ -8212,7 +8195,7 @@ export interface ListRestoreTestingSelectionsInput {
  */
 export interface RestoreTestingSelectionForList {
   /**
-   * <p>This is the date and time that a restore testing selection
+   * <p>The date and time that a restore testing selection
    *          was created, in Unix format and Coordinated Universal Time (UTC).
    *          The value of <code>CreationTime</code> is accurate to milliseconds.
    *          For example, the value 1516925490.087 represents Friday,
@@ -8326,8 +8309,7 @@ export interface ListTagsOutput {
   NextToken?: string;
 
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources you
-   *          create. Each tag is a key-value pair.</p>
+   * <p>Information about the tags.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -8340,8 +8322,7 @@ export interface PutBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -8369,8 +8350,9 @@ export interface PutBackupVaultLockConfigurationInput {
    *          period that the vault retains its recovery points. This setting can be useful if, for
    *          example, your organization's policies require you to retain certain data for at least seven
    *          years (2555 days).</p>
-   *          <p>If this parameter is not specified, Vault Lock will not enforce a minimum retention
-   *          period.</p>
+   *          <p>This parameter is required when a vault lock is created through CloudFormation;
+   *          otherwise, this parameter is optional. If this parameter is not specified, Vault Lock will
+   *          not enforce a minimum retention period.</p>
    *          <p>If this parameter is specified, any backup or copy job to the vault must have a
    *          lifecycle policy with a retention period equal to or longer than the minimum retention
    *          period. If the job's retention period is shorter than that minimum retention period, then
@@ -8428,8 +8410,7 @@ export interface PutBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -8472,9 +8453,9 @@ export interface PutBackupVaultNotificationsInput {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The list below shows items that are deprecated events (for reference) and are no longer
-   *             in use. They are no longer supported and will not return statuses or notifications.
-   *             Refer to the list above for current supported events.</p>
+   *             <p>The list below includes both supported events and deprecated events that are no longer
+   *             in use (for reference). Deprecated events do not return statuses or notifications.
+   *             Refer to the list above for the supported events.</p>
    *          </note>
    * @public
    */
@@ -8492,7 +8473,7 @@ export interface PutRestoreValidationResultInput {
   RestoreJobId: string | undefined;
 
   /**
-   * <p>This is the status of your restore validation.</p>
+   * <p>The status of your restore validation.</p>
    * @public
    */
   ValidationStatus: RestoreValidationStatus | undefined;
@@ -8512,8 +8493,7 @@ export interface StartBackupJobInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -8575,9 +8555,8 @@ export interface StartBackupJobInput {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    * @public
@@ -8585,14 +8564,13 @@ export interface StartBackupJobInput {
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources that
-   *          you create. Each tag is a key-value pair.</p>
+   * <p>The tags to assign to the resources.</p>
    * @public
    */
   RecoveryPointTags?: Record<string, string>;
 
   /**
-   * <p>Specifies the backup option for a selected resource. This option is only available for
+   * <p>The backup option for a selected resource. This option is only available for
    *          Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    *          <p>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the
    *          <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to
@@ -8655,8 +8633,7 @@ export interface StartCopyJobInput {
 
   /**
    * <p>The name of a logical source container where backups are stored. Backup vaults are
-   *          identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created. They consist of lowercase letters, numbers,
-   *          and hyphens.</p>
+   *          identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
    * @public
    */
   SourceBackupVaultName: string | undefined;
@@ -8664,7 +8641,7 @@ export interface StartCopyJobInput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault to
    *          copy to; for example,
-   *          <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   DestinationBackupVaultArn: string | undefined;
@@ -8685,16 +8662,17 @@ export interface StartCopyJobInput {
   IdempotencyToken?: string;
 
   /**
-   * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
-   *          a recovery point transitions to cold storage or is deleted.</p>
+   * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+   *          or is deleted.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
-   *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
-   *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
+   *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+   *          transition to cold after days setting. The transition to cold after days setting can't
    *          be changed after a backup has been transitioned to cold.</p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
+   *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+   *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
    * @public
    */
   Lifecycle?: Lifecycle;
@@ -8770,53 +8748,89 @@ export interface StartRestoreJobInput {
   RecoveryPointArn: string | undefined;
 
   /**
-   * <p>A set of metadata key-value pairs. Contains information, such as a resource name,
-   *          required to restore a recovery point.</p>
-   *          <p> You can get configuration metadata about a resource at the time it was backed up by
+   * <p>A set of metadata key-value pairs.</p>
+   *          <p>You can get configuration metadata about a resource at the time it was backed up by
    *          calling <code>GetRecoveryPointRestoreMetadata</code>. However, values in addition to those
    *          provided by <code>GetRecoveryPointRestoreMetadata</code> might be required to restore a
    *          resource. For example, you might need to provide a new resource name if the original
    *          already exists.</p>
-   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon EFS) instance:</p>
+   *          <p>For more information about the metadata for each resource, see the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>file-system-id</code>: The ID of the Amazon EFS file system that is
-   *                backed up by Backup. Returned in
-   *                   <code>GetRecoveryPointRestoreMetadata</code>.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-aur.html#aur-restore-cli">Metadata for Amazon Aurora</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Encrypted</code>: A Boolean value that, if true, specifies that the file
-   *                system is encrypted. If <code>KmsKeyId</code> is specified, <code>Encrypted</code>
-   *                must be set to <code>true</code>.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-docdb.html#docdb-restore-cli">Metadata for Amazon DocumentDB</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code>: Specifies the Amazon Web Services KMS key that is used to
-   *                encrypt the restored file system. You can specify a key from another Amazon Web Services account provided that key it is properly shared with your account via Amazon Web Services KMS.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-application-stacks.html#restoring-cfn-cli">Metadata for CloudFormation</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PerformanceMode</code>: Specifies the throughput mode of the file
-   *                system.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-dynamodb.html#ddb-restore-cli">Metadata for Amazon DynamoDB</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CreationToken</code>: A user-supplied value that ensures the uniqueness
-   *                (idempotency) of the request.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-ebs.html#ebs-restore-cli">
+   *                Metadata for Amazon EBS</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>newFileSystem</code>: A Boolean value that, if true, specifies that the
-   *                recovery point is restored to a new Amazon EFS file system.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-ec2.html#restoring-ec2-cli">Metadata for Amazon EC2</a>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ItemsToRestore</code>: An array of one to five strings where each string is
-   *                a file path. Use <code>ItemsToRestore</code> to restore specific files or directories
-   *                rather than the entire file system. This parameter is optional. For example,
-   *                   <code>"itemsToRestore":"[\"/my.test\"]"</code>.</p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-efs.html#efs-restore-cli">Metadata for Amazon EFS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-fsx.html#fsx-restore-cli">Metadata for Amazon FSx</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-nep.html#nep-restore-cli">Metadata for Amazon Neptune</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-rds.html#rds-restore-cli">Metadata for Amazon RDS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/redshift-restores.html#redshift-restore-api">Metadata for Amazon Redshift</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-storage-gateway.html#restoring-sgw-cli">Metadata for Storage Gateway</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-s3.html#s3-restore-cli">Metadata for Amazon S3</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/timestream-restore.html#timestream-restore-api">Metadata for Amazon Timestream</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-vm.html#vm-restore-cli">Metadata for virtual machines</a>
+   *                </p>
    *             </li>
    *          </ul>
    * @public
@@ -8844,63 +8858,63 @@ export interface StartRestoreJobInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *                   <code>Aurora</code> - Amazon Aurora</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *                   <code>DocumentDB</code> - Amazon DocumentDB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *                   <code>CloudFormation</code> - CloudFormation</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *                   <code>DynamoDB</code> - Amazon DynamoDB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *                   <code>EBS</code> - Amazon Elastic Block Store</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *                   <code>EC2</code> - Amazon Elastic Compute Cloud</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *                   <code>EFS</code> - Amazon Elastic File System</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FSx</code> for Amazon FSx</p>
+   *                   <code>FSx</code> - Amazon FSx</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *                   <code>Neptune</code> - Amazon Neptune</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *                   <code>RDS</code> - Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *                   <code>Redshift</code> - Amazon Redshift</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Storage Gateway</code> for Storage Gateway</p>
+   *                   <code>Storage Gateway</code> - Storage Gateway</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> for Amazon S3</p>
+   *                   <code>S3</code> - Amazon Simple Storage Service</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *                   <code>Timestream</code> - Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *                   <code>VirtualMachine</code> - Virtual machines</p>
    *             </li>
    *          </ul>
    * @public
@@ -8945,6 +8959,11 @@ export interface TagResourceInput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
    *          the tagged resource.</p>
+   *          <p>ARNs that do not include <code>backup</code> are incompatible with tagging.
+   *       <code>TagResource</code> and <code>UntagResource</code> with invalid ARNs will
+   *       result in an error. Acceptable ARN content can include
+   *          <code>arn:aws:backup:us-east</code>. Invalid ARN content may look like
+   *       <code>arn:aws:ec2:us-east</code>.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -8965,12 +8984,17 @@ export interface UntagResourceInput {
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
    *          the tagged resource.</p>
+   *          <p>ARNs that do not include <code>backup</code> are incompatible with tagging.
+   *          <code>TagResource</code> and <code>UntagResource</code> with invalid ARNs will
+   *          result in an error. Acceptable ARN content can include
+   *          <code>arn:aws:backup:us-east</code>. Invalid ARN content may look like
+   *          <code>arn:aws:ec2:us-east</code>.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of keys to identify which key-value tags to remove from a resource.</p>
+   * <p>The keys to identify which key-value tags to remove from a resource.</p>
    * @public
    */
   TagKeyList: string[] | undefined;
@@ -8981,13 +9005,13 @@ export interface UntagResourceInput {
  */
 export interface UpdateBackupPlanInput {
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>The ID of the backup plan.</p>
    * @public
    */
   BackupPlanId: string | undefined;
 
   /**
-   * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
+   * <p>The body of a backup plan. Includes a <code>BackupPlanName</code> and one or
    *          more sets of <code>Rules</code>.</p>
    * @public
    */
@@ -9052,7 +9076,7 @@ export interface UpdateFrameworkInput {
   FrameworkDescription?: string;
 
   /**
-   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   * <p>The controls that make up the framework. Each control in the list has a name,
    *          input parameters, and scope.</p>
    * @public
    */
@@ -9114,8 +9138,7 @@ export interface UpdateRecoveryPointLifecycleInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Amazon Web Services
-   *          Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *          Region where they are created.</p>
    * @public
    */
   BackupVaultName: string | undefined;
@@ -9146,7 +9169,7 @@ export interface UpdateRecoveryPointLifecycleInput {
 export interface UpdateRecoveryPointLifecycleOutput {
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
   BackupVaultArn?: string;
@@ -9166,10 +9189,8 @@ export interface UpdateRecoveryPointLifecycleOutput {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold.</p>
-   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
-   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-   *             Feature availability by resource</a> table. Backup ignores this expression for
-   *          other resource types.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability
+   *          by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
   Lifecycle?: Lifecycle;
@@ -9228,14 +9249,14 @@ export interface UpdateReportPlanInput {
   ReportPlanDescription?: string;
 
   /**
-   * <p>A structure that contains information about where to deliver your reports, specifically
+   * <p>The information about where to deliver your reports, specifically
    *          your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
    * @public
    */
   ReportDeliveryChannel?: ReportDeliveryChannel;
 
   /**
-   * <p>Identifies the report template for the report. Reports are built using a report
+   * <p>The report template for the report. Reports are built using a report
    *          template. The report templates are:</p>
    *          <p>
    *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
@@ -9336,7 +9357,7 @@ export interface UpdateRestoreTestingPlanInput {
   RestoreTestingPlan: RestoreTestingPlanForUpdate | undefined;
 
   /**
-   * <p>This is the restore testing plan name you wish to update.</p>
+   * <p>The name of the restore testing plan name.</p>
    * @public
    */
   RestoreTestingPlanName: string | undefined;
@@ -9347,7 +9368,7 @@ export interface UpdateRestoreTestingPlanInput {
  */
 export interface UpdateRestoreTestingPlanOutput {
   /**
-   * <p>This is the time the resource testing plan was
+   * <p>The time the resource testing plan was
    *          created.</p>
    * @public
    */
@@ -9367,7 +9388,7 @@ export interface UpdateRestoreTestingPlanOutput {
   RestoreTestingPlanName: string | undefined;
 
   /**
-   * <p>This is the time the update completed for the restore
+   * <p>The time the update completed for the restore
    *          testing plan.</p>
    * @public
    */
@@ -9397,11 +9418,8 @@ export interface RestoreTestingSelectionForUpdate {
   ProtectedResourceArns?: string[];
 
   /**
-   * <p>A list of conditions that you define for resources in
-   *          your restore testing plan using  tags.</p>
-   *          <p>For example,
-   *          <code>"StringEquals": \{  "Key": "aws:ResourceTag/CreatedByCryo",  "Value": "true"  \},</code>.
-   *          Condition operators are case sensitive.</p>
+   * <p>The conditions that you define for resources in
+   *          your restore testing plan using tags.</p>
    * @public
    */
   ProtectedResourceConditions?: ProtectedResourceConditions;
@@ -9448,7 +9466,7 @@ export interface UpdateRestoreTestingSelectionInput {
   RestoreTestingSelection: RestoreTestingSelectionForUpdate | undefined;
 
   /**
-   * <p>This is the required restore testing selection name of the restore
+   * <p>The required restore testing selection name of the restore
    *          testing selection you wish to update.</p>
    * @public
    */
@@ -9460,7 +9478,7 @@ export interface UpdateRestoreTestingSelectionInput {
  */
 export interface UpdateRestoreTestingSelectionOutput {
   /**
-   * <p>This is the time the resource testing selection was
+   * <p>The time the resource testing selection was
    *          updated successfully.</p>
    * @public
    */
@@ -9473,20 +9491,20 @@ export interface UpdateRestoreTestingSelectionOutput {
   RestoreTestingPlanArn: string | undefined;
 
   /**
-   * <p>This is the restore testing plan with which the updated restore
+   * <p>The restore testing plan with which the updated restore
    *          testing selection is associated.</p>
    * @public
    */
   RestoreTestingPlanName: string | undefined;
 
   /**
-   * <p>This is the returned restore testing selection name.</p>
+   * <p>The returned restore testing selection name.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;
 
   /**
-   * <p>This is the time the update completed for the restore
+   * <p>The time the update completed for the restore
    *          testing selection.</p>
    * @public
    */

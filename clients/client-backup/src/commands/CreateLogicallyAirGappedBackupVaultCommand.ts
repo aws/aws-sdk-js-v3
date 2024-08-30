@@ -37,7 +37,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This request creates a logical container to where backups may be copied.</p>
+ * <p>Creates a logical container to where backups may be copied.</p>
  *          <p>This request includes a name, the Region, the maximum number of retention days, the
  *       minimum number of retention days, and optionally can include tags and a creator request
  *       ID.</p>

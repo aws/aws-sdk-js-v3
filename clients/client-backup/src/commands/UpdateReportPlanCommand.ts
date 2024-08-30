@@ -28,8 +28,7 @@ export interface UpdateReportPlanCommandInput extends UpdateReportPlanInput {}
 export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
- *          input document in JSON format.</p>
+ * <p>Updates the specified report plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

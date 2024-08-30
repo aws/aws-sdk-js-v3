@@ -2703,6 +2703,7 @@ export const de_DescribeBackupVaultCommand = async (
     MaxRetentionDays: __expectLong,
     MinRetentionDays: __expectLong,
     NumberOfRecoveryPoints: __expectLong,
+    VaultState: __expectString,
     VaultType: __expectString,
   });
   Object.assign(contents, doc);
@@ -4815,6 +4816,8 @@ const de_BackupVaultListMember = (output: any, context: __SerdeContext): BackupV
     MaxRetentionDays: __expectLong,
     MinRetentionDays: __expectLong,
     NumberOfRecoveryPoints: __expectLong,
+    VaultState: __expectString,
+    VaultType: __expectString,
   }) as any;
 };
 

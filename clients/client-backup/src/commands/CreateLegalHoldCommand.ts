@@ -32,10 +32,10 @@ export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>This action creates a legal hold on a recovery point (backup). A legal hold
- *          is a restraint on altering or deleting a backup until an authorized user cancels the
- *          legal hold. Any actions to delete or disassociate a recovery point will fail with
- *          an error if one or more active legal holds are on the recovery point.</p>
+ * <p>Creates a legal hold on a recovery point (backup). A legal hold is a restraint on
+ *          altering or deleting a backup until an authorized user cancels the legal hold. Any actions
+ *          to delete or disassociate a recovery point will fail with an error if one or more active
+ *          legal holds are on the recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

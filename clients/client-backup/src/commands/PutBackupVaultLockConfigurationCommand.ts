@@ -40,10 +40,11 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  *             <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments
  *             that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
  *             how Backup Vault Lock relates to these regulations, see the
- *             <a href="samples/cohassetreport.zip">Cohasset Associates
+ *             <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip">Cohasset Associates
  *                Compliance Assessment.</a>
  *             </p>
  *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html">Backup Vault Lock</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
