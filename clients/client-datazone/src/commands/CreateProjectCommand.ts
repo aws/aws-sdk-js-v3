@@ -47,6 +47,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   domainUnitId: "STRING_VALUE",
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   domainUnitId: "STRING_VALUE",
  * // };
  *
  * ```

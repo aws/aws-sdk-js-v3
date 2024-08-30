@@ -7,11 +7,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  GetEnvironmentProfileInput,
-  GetEnvironmentProfileOutput,
-  GetEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetEnvironmentProfileCommand, se_GetEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
+  UpdateDomainUnitInput,
+  UpdateDomainUnitInputFilterSensitiveLog,
+  UpdateDomainUnitOutput,
+  UpdateDomainUnitOutputFilterSensitiveLog,
+} from "../models/models_0";
+import { de_UpdateDomainUnitCommand, se_UpdateDomainUnitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,64 +22,67 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetEnvironmentProfileCommand}.
+ * The input for {@link UpdateDomainUnitCommand}.
  */
-export interface GetEnvironmentProfileCommandInput extends GetEnvironmentProfileInput {}
+export interface UpdateDomainUnitCommandInput extends UpdateDomainUnitInput {}
 /**
  * @public
  *
- * The output of {@link GetEnvironmentProfileCommand}.
+ * The output of {@link UpdateDomainUnitCommand}.
  */
-export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfileOutput, __MetadataBearer {}
+export interface UpdateDomainUnitCommandOutput extends UpdateDomainUnitOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an evinronment profile in Amazon DataZone.</p>
+ * <p>Updates the domain unit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, UpdateDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, UpdateDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetEnvironmentProfileInput
+ * const input = { // UpdateDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   name: "STRING_VALUE",
  * };
- * const command = new GetEnvironmentProfileCommand(input);
+ * const command = new UpdateDomainUnitCommand(input);
  * const response = await client.send(command);
- * // { // GetEnvironmentProfileOutput
+ * // { // UpdateDomainUnitOutput
  * //   id: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
- * //   awsAccountId: "STRING_VALUE",
- * //   awsAccountRegion: "STRING_VALUE",
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   updatedAt: new Date("TIMESTAMP"),
  * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   environmentBlueprintId: "STRING_VALUE", // required
- * //   projectId: "STRING_VALUE",
- * //   userParameters: [ // CustomParameterList
- * //     { // CustomParameter
- * //       keyName: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       fieldType: "STRING_VALUE", // required
- * //       defaultValue: "STRING_VALUE",
- * //       isEditable: true || false,
- * //       isOptional: true || false,
+ * //   owners: [ // DomainUnitOwners // required
+ * //     { // DomainUnitOwnerProperties Union: only one key present
+ * //       user: { // DomainUnitUserProperties
+ * //         userId: "STRING_VALUE",
+ * //       },
+ * //       group: { // DomainUnitGroupProperties
+ * //         groupId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
+ * //   description: "STRING_VALUE",
+ * //   parentDomainUnitId: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
+ * //   lastUpdatedBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetEnvironmentProfileCommandInput - {@link GetEnvironmentProfileCommandInput}
- * @returns {@link GetEnvironmentProfileCommandOutput}
- * @see {@link GetEnvironmentProfileCommandInput} for command's `input` shape.
- * @see {@link GetEnvironmentProfileCommandOutput} for command's `response` shape.
+ * @param UpdateDomainUnitCommandInput - {@link UpdateDomainUnitCommandInput}
+ * @returns {@link UpdateDomainUnitCommandOutput}
+ * @see {@link UpdateDomainUnitCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainUnitCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -100,10 +104,10 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  *
  * @public
  */
-export class GetEnvironmentProfileCommand extends $Command
+export class UpdateDomainUnitCommand extends $Command
   .classBuilder<
-    GetEnvironmentProfileCommandInput,
-    GetEnvironmentProfileCommandOutput,
+    UpdateDomainUnitCommandInput,
+    UpdateDomainUnitCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,9 +121,9 @@ export class GetEnvironmentProfileCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetEnvironmentProfile", {})
-  .n("DataZoneClient", "GetEnvironmentProfileCommand")
-  .f(void 0, GetEnvironmentProfileOutputFilterSensitiveLog)
-  .ser(se_GetEnvironmentProfileCommand)
-  .de(de_GetEnvironmentProfileCommand)
+  .s("DataZone", "UpdateDomainUnit", {})
+  .n("DataZoneClient", "UpdateDomainUnitCommand")
+  .f(UpdateDomainUnitInputFilterSensitiveLog, UpdateDomainUnitOutputFilterSensitiveLog)
+  .ser(se_UpdateDomainUnitCommand)
+  .de(de_UpdateDomainUnitCommand)
   .build() {}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_0";
+import { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_1";
 import { de_GetSubscriptionGrantCommand, se_GetSubscriptionGrantCommand } from "../protocols/Aws_restJson1";
 
 /**

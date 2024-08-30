@@ -69,6 +69,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   domainUnitId: "STRING_VALUE",
  * // };
  *
  * ```

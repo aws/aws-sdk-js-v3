@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProjectInput, GetProjectOutput, GetProjectOutputFilterSensitiveLog } from "../models/models_1";
-import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_restJson1";
+import { ListDomainUnitsForParentInput, ListDomainUnitsForParentOutput } from "../models/models_0";
+import { de_ListDomainUnitsForParentCommand, se_ListDomainUnitsForParentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,57 +17,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetProjectCommand}.
+ * The input for {@link ListDomainUnitsForParentCommand}.
  */
-export interface GetProjectCommandInput extends GetProjectInput {}
+export interface ListDomainUnitsForParentCommandInput extends ListDomainUnitsForParentInput {}
 /**
  * @public
  *
- * The output of {@link GetProjectCommand}.
+ * The output of {@link ListDomainUnitsForParentCommand}.
  */
-export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBearer {}
+export interface ListDomainUnitsForParentCommandOutput extends ListDomainUnitsForParentOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a project in Amazon DataZone.</p>
+ * <p>Lists child domain units for the specified parent domain unit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetProjectCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetProjectCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListDomainUnitsForParentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListDomainUnitsForParentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetProjectInput
+ * const input = { // ListDomainUnitsForParentInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
+ *   parentDomainUnitIdentifier: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new GetProjectCommand(input);
+ * const command = new ListDomainUnitsForParentCommand(input);
  * const response = await client.send(command);
- * // { // GetProjectOutput
- * //   domainId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * //   failureReasons: [ // FailureReasons
- * //     { // ProjectDeletionError
- * //       code: "STRING_VALUE",
- * //       message: "STRING_VALUE",
+ * // { // ListDomainUnitsForParentOutput
+ * //   items: [ // DomainUnitSummaries // required
+ * //     { // DomainUnitSummary
+ * //       name: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
  * //     },
  * //   ],
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   glossaryTerms: [ // GlossaryTerms
- * //     "STRING_VALUE",
- * //   ],
- * //   domainUnitId: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetProjectCommandInput - {@link GetProjectCommandInput}
- * @returns {@link GetProjectCommandOutput}
- * @see {@link GetProjectCommandInput} for command's `input` shape.
- * @see {@link GetProjectCommandOutput} for command's `response` shape.
+ * @param ListDomainUnitsForParentCommandInput - {@link ListDomainUnitsForParentCommandInput}
+ * @returns {@link ListDomainUnitsForParentCommandOutput}
+ * @see {@link ListDomainUnitsForParentCommandInput} for command's `input` shape.
+ * @see {@link ListDomainUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,9 +66,6 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -93,10 +81,10 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  *
  * @public
  */
-export class GetProjectCommand extends $Command
+export class ListDomainUnitsForParentCommand extends $Command
   .classBuilder<
-    GetProjectCommandInput,
-    GetProjectCommandOutput,
+    ListDomainUnitsForParentCommandInput,
+    ListDomainUnitsForParentCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +98,9 @@ export class GetProjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetProject", {})
-  .n("DataZoneClient", "GetProjectCommand")
-  .f(void 0, GetProjectOutputFilterSensitiveLog)
-  .ser(se_GetProjectCommand)
-  .de(de_GetProjectCommand)
+  .s("DataZone", "ListDomainUnitsForParent", {})
+  .n("DataZoneClient", "ListDomainUnitsForParentCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDomainUnitsForParentCommand)
+  .de(de_ListDomainUnitsForParentCommand)
   .build() {}

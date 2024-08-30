@@ -39,6 +39,8 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "../commands/AcceptSubscriptionRequestCommand";
+import { AddEntityOwnerCommandInput, AddEntityOwnerCommandOutput } from "../commands/AddEntityOwnerCommand";
+import { AddPolicyGrantCommandInput, AddPolicyGrantCommandOutput } from "../commands/AddPolicyGrantCommand";
 import {
   AssociateEnvironmentRoleCommandInput,
   AssociateEnvironmentRoleCommandOutput,
@@ -62,6 +64,7 @@ import {
 } from "../commands/CreateDataProductRevisionCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreateDomainUnitCommandInput, CreateDomainUnitCommandOutput } from "../commands/CreateDomainUnitCommand";
 import {
   CreateEnvironmentActionCommandInput,
   CreateEnvironmentActionCommandOutput,
@@ -103,6 +106,7 @@ import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../co
 import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "../commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import { DeleteDomainUnitCommandInput, DeleteDomainUnitCommandOutput } from "../commands/DeleteDomainUnitCommand";
 import {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
@@ -152,6 +156,7 @@ import { GetDataProductCommandInput, GetDataProductCommandOutput } from "../comm
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "../commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
+import { GetDomainUnitCommandInput, GetDomainUnitCommandOutput } from "../commands/GetDomainUnitCommand";
 import {
   GetEnvironmentActionCommandInput,
   GetEnvironmentActionCommandOutput,
@@ -220,6 +225,11 @@ import { ListDataSourceRunsCommandInput, ListDataSourceRunsCommandOutput } from 
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import {
+  ListDomainUnitsForParentCommandInput,
+  ListDomainUnitsForParentCommandOutput,
+} from "../commands/ListDomainUnitsForParentCommand";
+import { ListEntityOwnersCommandInput, ListEntityOwnersCommandOutput } from "../commands/ListEntityOwnersCommand";
+import {
   ListEnvironmentActionsCommandInput,
   ListEnvironmentActionsCommandOutput,
 } from "../commands/ListEnvironmentActionsCommand";
@@ -245,6 +255,7 @@ import {
   ListMetadataGenerationRunsCommandOutput,
 } from "../commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "../commands/ListNotificationsCommand";
+import { ListPolicyGrantsCommandInput, ListPolicyGrantsCommandOutput } from "../commands/ListPolicyGrantsCommand";
 import {
   ListProjectMembershipsCommandInput,
   ListProjectMembershipsCommandOutput,
@@ -285,6 +296,8 @@ import {
   RejectSubscriptionRequestCommandInput,
   RejectSubscriptionRequestCommandOutput,
 } from "../commands/RejectSubscriptionRequestCommand";
+import { RemoveEntityOwnerCommandInput, RemoveEntityOwnerCommandOutput } from "../commands/RemoveEntityOwnerCommand";
+import { RemovePolicyGrantCommandInput, RemovePolicyGrantCommandOutput } from "../commands/RemovePolicyGrantCommand";
 import { RevokeSubscriptionCommandInput, RevokeSubscriptionCommandOutput } from "../commands/RevokeSubscriptionCommand";
 import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import {
@@ -304,6 +317,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "../commands/UpdateAssetFilterCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "../commands/UpdateDomainUnitCommand";
 import {
   UpdateEnvironmentActionCommandInput,
   UpdateEnvironmentActionCommandOutput,
@@ -336,6 +350,9 @@ import {
   AcceptRule,
   AccessDeniedException,
   ActionParameters,
+  AddToProjectMemberPoolPolicyGrantDetail,
+  AllDomainUnitsGrantFilter,
+  AllUsersGrantFilter,
   AssetFilterSummary,
   AssetItem,
   AssetItemAdditionalAttributes,
@@ -349,6 +366,12 @@ import {
   BusinessNameGenerationConfiguration,
   ColumnFilterConfiguration,
   ConflictException,
+  CreateAssetTypePolicyGrantDetail,
+  CreateDomainUnitPolicyGrantDetail,
+  CreateEnvironmentProfilePolicyGrantDetail,
+  CreateFormTypePolicyGrantDetail,
+  CreateGlossaryPolicyGrantDetail,
+  CreateProjectPolicyGrantDetail,
   DataProductItem,
   DataProductListing,
   DataProductListingItem,
@@ -359,7 +382,9 @@ import {
   DataSourceRunSummary,
   DataSourceSummary,
   DomainSummary,
-  EnvironmentBlueprintConfigurationItem,
+  DomainUnitFilterForProject,
+  DomainUnitGrantFilter,
+  DomainUnitPolicyGrantPrincipal,
   EnvironmentParameter,
   EqualToExpression,
   FailureCause,
@@ -370,23 +395,30 @@ import {
   GrantedEntityInput,
   GreaterThanExpression,
   GreaterThanOrEqualToExpression,
+  GroupPolicyGrantPrincipal,
   InExpression,
   InternalServerException,
   IsNotNullExpression,
   IsNullExpression,
-  LakeFormationConfiguration,
   LessThanExpression,
   LessThanOrEqualToExpression,
   LikeExpression,
-  LineageNodeReference,
   ListingRevisionInput,
   Member,
   Model,
   NotEqualToExpression,
   NotInExpression,
   NotLikeExpression,
+  OverrideDomainUnitOwnersPolicyGrantDetail,
+  OverrideProjectOwnersPolicyGrantDetail,
+  OwnerGroupProperties,
+  OwnerProperties,
+  OwnerUserProperties,
+  PolicyGrantDetail,
+  PolicyGrantPrincipal,
   PredictionConfiguration,
-  ProvisioningConfiguration,
+  ProjectGrantFilter,
+  ProjectPolicyGrantPrincipal,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -406,13 +438,15 @@ import {
   SubscriptionTargetForm,
   TermRelations,
   ThrottlingException,
-  TimeSeriesDataPointFormOutput,
   TimeSeriesDataPointSummaryFormOutput,
   UnauthorizedException,
+  Unit,
+  UserPolicyGrantPrincipal,
   ValidationException,
 } from "../models/models_0";
 import {
   AssetFilterConfiguration,
+  EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
@@ -421,13 +455,17 @@ import {
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
+  LakeFormationConfiguration,
+  LineageNodeReference,
   LineageNodeSummary,
   LineageNodeTypeItem,
   ListingItem,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
   NotificationOutput,
+  PolicyGrantMember,
   ProjectSummary,
+  ProvisioningConfiguration,
   RejectChoice,
   RejectRule,
   RowFilter,
@@ -443,6 +481,7 @@ import {
   SubscriptionSummary,
   SubscriptionTargetSummary,
   TimeSeriesDataPointFormInput,
+  TimeSeriesDataPointFormOutput,
 } from "../models/models_1";
 
 /**
@@ -495,6 +534,60 @@ export const se_AcceptSubscriptionRequestCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AddEntityOwnerCommand
+ */
+export const se_AddEntityOwnerCommand = async (
+  input: AddEntityOwnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/addOwner");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      owner: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AddPolicyGrantCommand
+ */
+export const se_AddPolicyGrantCommand = async (
+  input: AddPolicyGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/addGrant");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      detail: (_) => _json(_),
+      policyType: [],
+      principal: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -786,6 +879,32 @@ export const se_CreateDomainCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateDomainUnitCommand
+ */
+export const se_CreateDomainUnitCommand = async (
+  input: CreateDomainUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/domain-units");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      name: [],
+      parentDomainUnitIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateEnvironmentCommand
  */
 export const se_CreateEnvironmentCommand = async (
@@ -1022,6 +1141,7 @@ export const se_CreateProjectCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      domainUnitId: [],
       glossaryTerms: (_) => _json(_),
       name: [],
     })
@@ -1271,6 +1391,23 @@ export const se_DeleteDomainCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDomainUnitCommand
+ */
+export const se_DeleteDomainUnitCommand = async (
+  input: DeleteDomainUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/domain-units/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -1674,6 +1811,23 @@ export const se_GetDomainCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v2/domains/{identifier}");
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDomainUnitCommand
+ */
+export const se_GetDomainUnitCommand = async (
+  input: GetDomainUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/domain-units/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -2214,6 +2368,49 @@ export const se_ListDomainsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDomainUnitsForParentCommand
+ */
+export const se_ListDomainUnitsForParentCommand = async (
+  input: ListDomainUnitsForParentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/domain-units");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_pDUI]: [, __expectNonNull(input[_pDUI]!, `parentDomainUnitIdentifier`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListEntityOwnersCommand
+ */
+export const se_ListEntityOwnersCommand = async (
+  input: ListEntityOwnersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/owners");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListEnvironmentActionsCommand
  */
 export const se_ListEnvironmentActionsCommand = async (
@@ -2393,6 +2590,29 @@ export const se_ListNotificationsCommand = async (
     [_bT]: [() => input.beforeTimestamp !== void 0, () => __serializeDateTime(input[_bT]!).toString()],
     [_su]: [() => input.subjects !== void 0, () => (input[_su]! || []).map((_entry) => _entry as any)],
     [_tS]: [, input[_tS]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPolicyGrantsCommand
+ */
+export const se_ListPolicyGrantsCommand = async (
+  input: ListPolicyGrantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/grants");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  const query: any = map({
+    [_pT]: [, __expectNonNull(input[_pT]!, `policyType`)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -2724,6 +2944,59 @@ export const se_RejectSubscriptionRequestCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RemoveEntityOwnerCommand
+ */
+export const se_RemoveEntityOwnerCommand = async (
+  input: RemoveEntityOwnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/removeOwner");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      owner: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RemovePolicyGrantCommand
+ */
+export const se_RemovePolicyGrantCommand = async (
+  input: RemovePolicyGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/removeGrant");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      policyType: [],
+      principal: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -3070,6 +3343,31 @@ export const se_UpdateDomainCommand = async (
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDomainUnitCommand
+ */
+export const se_UpdateDomainUnitCommand = async (
+  input: UpdateDomainUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/domain-units/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -3422,6 +3720,40 @@ export const de_AcceptSubscriptionRequestCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AddEntityOwnerCommand
+ */
+export const de_AddEntityOwnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddEntityOwnerCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AddPolicyGrantCommand
+ */
+export const de_AddPolicyGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddPolicyGrantCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1AssociateEnvironmentRoleCommand
  */
 export const de_AssociateEnvironmentRoleCommand = async (
@@ -3757,9 +4089,39 @@ export const de_CreateDomainCommand = async (
     kmsKeyIdentifier: __expectString,
     name: __expectString,
     portalUrl: __expectString,
+    rootDomainUnitId: __expectString,
     singleSignOn: _json,
     status: __expectString,
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDomainUnitCommand
+ */
+export const de_CreateDomainUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDomainUnitCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ancestorDomainUnitIds: _json,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    name: __expectString,
+    owners: _json,
+    parentDomainUnitId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4011,6 +4373,7 @@ export const de_CreateProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    domainUnitId: __expectString,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
@@ -4289,6 +4652,23 @@ export const de_DeleteDomainCommand = async (
     status: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDomainUnitCommand
+ */
+export const de_DeleteDomainUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDomainUnitCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -4795,9 +5175,40 @@ export const de_GetDomainCommand = async (
     lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     portalUrl: __expectString,
+    rootDomainUnitId: __expectString,
     singleSignOn: _json,
     status: __expectString,
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDomainUnitCommand
+ */
+export const de_GetDomainUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainUnitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    owners: _json,
+    parentDomainUnitId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5238,6 +5649,7 @@ export const de_GetProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    domainUnitId: __expectString,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
@@ -5583,6 +5995,50 @@ export const de_ListDomainsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListDomainUnitsForParentCommand
+ */
+export const de_ListDomainUnitsForParentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainUnitsForParentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEntityOwnersCommand
+ */
+export const de_ListEntityOwnersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntityOwnersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    owners: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListEnvironmentActionsCommand
  */
 export const de_ListEnvironmentActionsCommand = async (
@@ -5753,6 +6209,28 @@ export const de_ListNotificationsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     notifications: (_) => de_NotificationsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPolicyGrantsCommand
+ */
+export const de_ListPolicyGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPolicyGrantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    grantList: (_) => de_PolicyGrantList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6055,6 +6533,40 @@ export const de_RejectSubscriptionRequestCommand = async (
     updatedBy: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RemoveEntityOwnerCommand
+ */
+export const de_RemoveEntityOwnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEntityOwnerCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RemovePolicyGrantCommand
+ */
+export const de_RemovePolicyGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemovePolicyGrantCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -6389,7 +6901,38 @@ export const de_UpdateDomainCommand = async (
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    rootDomainUnitId: __expectString,
     singleSignOn: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDomainUnitCommand
+ */
+export const de_UpdateDomainUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDomainUnitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    owners: _json,
+    parentDomainUnitId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6591,6 +7134,7 @@ export const de_UpdateProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    domainUnitId: __expectString,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
@@ -6937,6 +7481,12 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 
 // se_ActionParameters omitted.
 
+// se_AddToProjectMemberPoolPolicyGrantDetail omitted.
+
+// se_AllDomainUnitsGrantFilter omitted.
+
+// se_AllUsersGrantFilter omitted.
+
 // se_ApplicableAssetTypes omitted.
 
 /**
@@ -6964,11 +7514,29 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_ColumnNameList omitted.
 
+// se_CreateAssetTypePolicyGrantDetail omitted.
+
+// se_CreateDomainUnitPolicyGrantDetail omitted.
+
+// se_CreateEnvironmentProfilePolicyGrantDetail omitted.
+
+// se_CreateFormTypePolicyGrantDetail omitted.
+
+// se_CreateGlossaryPolicyGrantDetail omitted.
+
+// se_CreateProjectPolicyGrantDetail omitted.
+
 // se_DataProductItem omitted.
 
 // se_DataProductItems omitted.
 
 // se_DataSourceConfigurationInput omitted.
+
+// se_DomainUnitFilterForProject omitted.
+
+// se_DomainUnitGrantFilter omitted.
+
+// se_DomainUnitPolicyGrantPrincipal omitted.
 
 // se_EnabledRegionList omitted.
 
@@ -7027,6 +7595,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_GreaterThanOrEqualToExpression omitted.
 
+// se_GroupPolicyGrantPrincipal omitted.
+
 // se_InExpression omitted.
 
 // se_IsNotNullExpression omitted.
@@ -7057,9 +7627,27 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_NotLikeExpression omitted.
 
+// se_OverrideDomainUnitOwnersPolicyGrantDetail omitted.
+
+// se_OverrideProjectOwnersPolicyGrantDetail omitted.
+
+// se_OwnerGroupProperties omitted.
+
+// se_OwnerProperties omitted.
+
+// se_OwnerUserProperties omitted.
+
+// se_PolicyGrantDetail omitted.
+
+// se_PolicyGrantPrincipal omitted.
+
 // se_PredictionChoices omitted.
 
 // se_PredictionConfiguration omitted.
+
+// se_ProjectGrantFilter omitted.
+
+// se_ProjectPolicyGrantPrincipal omitted.
 
 // se_ProvisioningConfiguration omitted.
 
@@ -7192,7 +7780,17 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
     });
 };
 
+// se_Unit omitted.
+
+// se_UserPolicyGrantPrincipal omitted.
+
 // de_ActionParameters omitted.
+
+// de_AddToProjectMemberPoolPolicyGrantDetail omitted.
+
+// de_AllDomainUnitsGrantFilter omitted.
+
+// de_AllUsersGrantFilter omitted.
 
 // de_ApplicableAssetTypes omitted.
 
@@ -7394,6 +7992,18 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 // de_ConfigurableActionParameterList omitted.
 
 // de_ConfigurableEnvironmentAction omitted.
+
+// de_CreateAssetTypePolicyGrantDetail omitted.
+
+// de_CreateDomainUnitPolicyGrantDetail omitted.
+
+// de_CreateEnvironmentProfilePolicyGrantDetail omitted.
+
+// de_CreateFormTypePolicyGrantDetail omitted.
+
+// de_CreateGlossaryPolicyGrantDetail omitted.
+
+// de_CreateProjectPolicyGrantDetail omitted.
 
 // de_CustomParameter omitted.
 
@@ -7622,7 +8232,29 @@ const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary =
   }) as any;
 };
 
+// de_DomainUnitFilterForProject omitted.
+
+// de_DomainUnitGrantFilter omitted.
+
+// de_DomainUnitGroupProperties omitted.
+
+// de_DomainUnitIds omitted.
+
+// de_DomainUnitOwnerProperties omitted.
+
+// de_DomainUnitOwners omitted.
+
+// de_DomainUnitPolicyGrantPrincipal omitted.
+
+// de_DomainUnitSummaries omitted.
+
+// de_DomainUnitSummary omitted.
+
+// de_DomainUnitUserProperties omitted.
+
 // de_EnabledRegionList omitted.
+
+// de_EntityOwners omitted.
 
 // de_EnvironmentActionList omitted.
 
@@ -7846,6 +8478,8 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_GroupDetails omitted.
 
+// de_GroupPolicyGrantPrincipal omitted.
+
 // de_GroupProfileSummaries omitted.
 
 // de_GroupProfileSummary omitted.
@@ -8047,13 +8681,55 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
 
 // de_NotLikeExpression omitted.
 
+// de_OverrideDomainUnitOwnersPolicyGrantDetail omitted.
+
+// de_OverrideProjectOwnersPolicyGrantDetail omitted.
+
+// de_OwnerGroupPropertiesOutput omitted.
+
+// de_OwnerPropertiesOutput omitted.
+
+// de_OwnerUserPropertiesOutput omitted.
+
+// de_PolicyGrantDetail omitted.
+
+/**
+ * deserializeAws_restJson1PolicyGrantList
+ */
+const de_PolicyGrantList = (output: any, context: __SerdeContext): PolicyGrantMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PolicyGrantMember(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PolicyGrantMember
+ */
+const de_PolicyGrantMember = (output: any, context: __SerdeContext): PolicyGrantMember => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    detail: (_: any) => _json(__expectUnion(_)),
+    principal: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+// de_PolicyGrantPrincipal omitted.
+
 // de_PredictionConfiguration omitted.
 
 // de_ProjectDeletionError omitted.
 
+// de_ProjectGrantFilter omitted.
+
 // de_ProjectMember omitted.
 
 // de_ProjectMembers omitted.
+
+// de_ProjectPolicyGrantPrincipal omitted.
 
 /**
  * deserializeAws_restJson1ProjectSummaries
@@ -8076,6 +8752,7 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    domainUnitId: __expectString,
     failureReasons: _json,
     id: __expectString,
     name: __expectString,
@@ -8525,7 +9202,11 @@ const de_TimeSeriesDataPointSummaryFormOutputList = (
 
 // de_Topic omitted.
 
+// de_Unit omitted.
+
 // de_UserDetails omitted.
+
+// de_UserPolicyGrantPrincipal omitted.
 
 // de_UserProfileDetails omitted.
 
@@ -8576,7 +9257,9 @@ const _n = "name";
 const _nT = "nextToken";
 const _oPI = "owningProjectId";
 const _p = "provider";
+const _pDUI = "parentDomainUnitIdentifier";
 const _pI = "projectIdentifier";
+const _pT = "policyType";
 const _r = "revision";
 const _rPORF = "retainPermissionsOnRevokeFailure";
 const _s = "status";

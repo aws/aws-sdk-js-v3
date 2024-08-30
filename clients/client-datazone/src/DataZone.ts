@@ -13,6 +13,16 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
 import {
+  AddEntityOwnerCommand,
+  AddEntityOwnerCommandInput,
+  AddEntityOwnerCommandOutput,
+} from "./commands/AddEntityOwnerCommand";
+import {
+  AddPolicyGrantCommand,
+  AddPolicyGrantCommandInput,
+  AddPolicyGrantCommandOutput,
+} from "./commands/AddPolicyGrantCommand";
+import {
   AssociateEnvironmentRoleCommand,
   AssociateEnvironmentRoleCommandInput,
   AssociateEnvironmentRoleCommandOutput,
@@ -63,6 +73,11 @@ import {
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
+import {
+  CreateDomainUnitCommand,
+  CreateDomainUnitCommandInput,
+  CreateDomainUnitCommandOutput,
+} from "./commands/CreateDomainUnitCommand";
 import {
   CreateEnvironmentActionCommand,
   CreateEnvironmentActionCommandInput,
@@ -159,6 +174,11 @@ import {
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
+import {
+  DeleteDomainUnitCommand,
+  DeleteDomainUnitCommandInput,
+  DeleteDomainUnitCommandOutput,
+} from "./commands/DeleteDomainUnitCommand";
 import {
   DeleteEnvironmentActionCommand,
   DeleteEnvironmentActionCommandInput,
@@ -261,6 +281,11 @@ import {
   GetDataSourceRunCommandOutput,
 } from "./commands/GetDataSourceRunCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetDomainUnitCommand,
+  GetDomainUnitCommandInput,
+  GetDomainUnitCommandOutput,
+} from "./commands/GetDomainUnitCommand";
 import {
   GetEnvironmentActionCommand,
   GetEnvironmentActionCommandInput,
@@ -382,6 +407,16 @@ import {
 } from "./commands/ListDataSourcesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  ListDomainUnitsForParentCommand,
+  ListDomainUnitsForParentCommandInput,
+  ListDomainUnitsForParentCommandOutput,
+} from "./commands/ListDomainUnitsForParentCommand";
+import {
+  ListEntityOwnersCommand,
+  ListEntityOwnersCommandInput,
+  ListEntityOwnersCommandOutput,
+} from "./commands/ListEntityOwnersCommand";
+import {
   ListEnvironmentActionsCommand,
   ListEnvironmentActionsCommandInput,
   ListEnvironmentActionsCommandOutput,
@@ -421,6 +456,11 @@ import {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
 } from "./commands/ListNotificationsCommand";
+import {
+  ListPolicyGrantsCommand,
+  ListPolicyGrantsCommandInput,
+  ListPolicyGrantsCommandOutput,
+} from "./commands/ListPolicyGrantsCommand";
 import {
   ListProjectMembershipsCommand,
   ListProjectMembershipsCommandInput,
@@ -487,6 +527,16 @@ import {
   RejectSubscriptionRequestCommandOutput,
 } from "./commands/RejectSubscriptionRequestCommand";
 import {
+  RemoveEntityOwnerCommand,
+  RemoveEntityOwnerCommandInput,
+  RemoveEntityOwnerCommandOutput,
+} from "./commands/RemoveEntityOwnerCommand";
+import {
+  RemovePolicyGrantCommand,
+  RemovePolicyGrantCommandInput,
+  RemovePolicyGrantCommandOutput,
+} from "./commands/RemovePolicyGrantCommand";
+import {
   RevokeSubscriptionCommand,
   RevokeSubscriptionCommandInput,
   RevokeSubscriptionCommandOutput,
@@ -539,6 +589,11 @@ import {
   UpdateDomainCommandInput,
   UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
+import {
+  UpdateDomainUnitCommand,
+  UpdateDomainUnitCommandInput,
+  UpdateDomainUnitCommandOutput,
+} from "./commands/UpdateDomainUnitCommand";
 import {
   UpdateEnvironmentActionCommand,
   UpdateEnvironmentActionCommandInput,
@@ -599,6 +654,8 @@ import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
 const commands = {
   AcceptPredictionsCommand,
   AcceptSubscriptionRequestCommand,
+  AddEntityOwnerCommand,
+  AddPolicyGrantCommand,
   AssociateEnvironmentRoleCommand,
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
@@ -610,6 +667,7 @@ const commands = {
   CreateDataProductRevisionCommand,
   CreateDataSourceCommand,
   CreateDomainCommand,
+  CreateDomainUnitCommand,
   CreateEnvironmentCommand,
   CreateEnvironmentActionCommand,
   CreateEnvironmentProfileCommand,
@@ -630,6 +688,7 @@ const commands = {
   DeleteDataProductCommand,
   DeleteDataSourceCommand,
   DeleteDomainCommand,
+  DeleteDomainUnitCommand,
   DeleteEnvironmentCommand,
   DeleteEnvironmentActionCommand,
   DeleteEnvironmentBlueprintConfigurationCommand,
@@ -652,6 +711,7 @@ const commands = {
   GetDataSourceCommand,
   GetDataSourceRunCommand,
   GetDomainCommand,
+  GetDomainUnitCommand,
   GetEnvironmentCommand,
   GetEnvironmentActionCommand,
   GetEnvironmentBlueprintCommand,
@@ -680,6 +740,8 @@ const commands = {
   ListDataSourceRunsCommand,
   ListDataSourcesCommand,
   ListDomainsCommand,
+  ListDomainUnitsForParentCommand,
+  ListEntityOwnersCommand,
   ListEnvironmentActionsCommand,
   ListEnvironmentBlueprintConfigurationsCommand,
   ListEnvironmentBlueprintsCommand,
@@ -688,6 +750,7 @@ const commands = {
   ListLineageNodeHistoryCommand,
   ListMetadataGenerationRunsCommand,
   ListNotificationsCommand,
+  ListPolicyGrantsCommand,
   ListProjectMembershipsCommand,
   ListProjectsCommand,
   ListSubscriptionGrantsCommand,
@@ -701,6 +764,8 @@ const commands = {
   PutEnvironmentBlueprintConfigurationCommand,
   RejectPredictionsCommand,
   RejectSubscriptionRequestCommand,
+  RemoveEntityOwnerCommand,
+  RemovePolicyGrantCommand,
   RevokeSubscriptionCommand,
   SearchCommand,
   SearchGroupProfilesCommand,
@@ -714,6 +779,7 @@ const commands = {
   UpdateAssetFilterCommand,
   UpdateDataSourceCommand,
   UpdateDomainCommand,
+  UpdateDomainUnitCommand,
   UpdateEnvironmentCommand,
   UpdateEnvironmentActionCommand,
   UpdateEnvironmentProfileCommand,
@@ -760,6 +826,34 @@ export interface DataZone {
     args: AcceptSubscriptionRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptSubscriptionRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddEntityOwnerCommand}
+   */
+  addEntityOwner(
+    args: AddEntityOwnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddEntityOwnerCommandOutput>;
+  addEntityOwner(args: AddEntityOwnerCommandInput, cb: (err: any, data?: AddEntityOwnerCommandOutput) => void): void;
+  addEntityOwner(
+    args: AddEntityOwnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddEntityOwnerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddPolicyGrantCommand}
+   */
+  addPolicyGrant(
+    args: AddPolicyGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPolicyGrantCommandOutput>;
+  addPolicyGrant(args: AddPolicyGrantCommandInput, cb: (err: any, data?: AddPolicyGrantCommandOutput) => void): void;
+  addPolicyGrant(
+    args: AddPolicyGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddPolicyGrantCommandOutput) => void
   ): void;
 
   /**
@@ -932,6 +1026,23 @@ export interface DataZone {
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDomainUnitCommand}
+   */
+  createDomainUnit(
+    args: CreateDomainUnitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainUnitCommandOutput>;
+  createDomainUnit(
+    args: CreateDomainUnitCommandInput,
+    cb: (err: any, data?: CreateDomainUnitCommandOutput) => void
+  ): void;
+  createDomainUnit(
+    args: CreateDomainUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDomainUnitCommandOutput) => void
   ): void;
 
   /**
@@ -1245,6 +1356,23 @@ export interface DataZone {
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainUnitCommand}
+   */
+  deleteDomainUnit(
+    args: DeleteDomainUnitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainUnitCommandOutput>;
+  deleteDomainUnit(
+    args: DeleteDomainUnitCommandInput,
+    cb: (err: any, data?: DeleteDomainUnitCommandOutput) => void
+  ): void;
+  deleteDomainUnit(
+    args: DeleteDomainUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainUnitCommandOutput) => void
   ): void;
 
   /**
@@ -1571,6 +1699,17 @@ export interface DataZone {
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDomainUnitCommand}
+   */
+  getDomainUnit(args: GetDomainUnitCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainUnitCommandOutput>;
+  getDomainUnit(args: GetDomainUnitCommandInput, cb: (err: any, data?: GetDomainUnitCommandOutput) => void): void;
+  getDomainUnit(
+    args: GetDomainUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainUnitCommandOutput) => void
   ): void;
 
   /**
@@ -2000,6 +2139,40 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link ListDomainUnitsForParentCommand}
+   */
+  listDomainUnitsForParent(
+    args: ListDomainUnitsForParentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainUnitsForParentCommandOutput>;
+  listDomainUnitsForParent(
+    args: ListDomainUnitsForParentCommandInput,
+    cb: (err: any, data?: ListDomainUnitsForParentCommandOutput) => void
+  ): void;
+  listDomainUnitsForParent(
+    args: ListDomainUnitsForParentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainUnitsForParentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEntityOwnersCommand}
+   */
+  listEntityOwners(
+    args: ListEntityOwnersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntityOwnersCommandOutput>;
+  listEntityOwners(
+    args: ListEntityOwnersCommandInput,
+    cb: (err: any, data?: ListEntityOwnersCommandOutput) => void
+  ): void;
+  listEntityOwners(
+    args: ListEntityOwnersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntityOwnersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnvironmentActionsCommand}
    */
   listEnvironmentActions(
@@ -2133,6 +2306,23 @@ export interface DataZone {
     args: ListNotificationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNotificationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyGrantsCommand}
+   */
+  listPolicyGrants(
+    args: ListPolicyGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyGrantsCommandOutput>;
+  listPolicyGrants(
+    args: ListPolicyGrantsCommandInput,
+    cb: (err: any, data?: ListPolicyGrantsCommandOutput) => void
+  ): void;
+  listPolicyGrants(
+    args: ListPolicyGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyGrantsCommandOutput) => void
   ): void;
 
   /**
@@ -2351,6 +2541,40 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link RemoveEntityOwnerCommand}
+   */
+  removeEntityOwner(
+    args: RemoveEntityOwnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveEntityOwnerCommandOutput>;
+  removeEntityOwner(
+    args: RemoveEntityOwnerCommandInput,
+    cb: (err: any, data?: RemoveEntityOwnerCommandOutput) => void
+  ): void;
+  removeEntityOwner(
+    args: RemoveEntityOwnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveEntityOwnerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemovePolicyGrantCommand}
+   */
+  removePolicyGrant(
+    args: RemovePolicyGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemovePolicyGrantCommandOutput>;
+  removePolicyGrant(
+    args: RemovePolicyGrantCommandInput,
+    cb: (err: any, data?: RemovePolicyGrantCommandOutput) => void
+  ): void;
+  removePolicyGrant(
+    args: RemovePolicyGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemovePolicyGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RevokeSubscriptionCommand}
    */
   revokeSubscription(
@@ -2536,6 +2760,23 @@ export interface DataZone {
     args: UpdateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDomainUnitCommand}
+   */
+  updateDomainUnit(
+    args: UpdateDomainUnitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainUnitCommandOutput>;
+  updateDomainUnit(
+    args: UpdateDomainUnitCommandInput,
+    cb: (err: any, data?: UpdateDomainUnitCommandOutput) => void
+  ): void;
+  updateDomainUnit(
+    args: UpdateDomainUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainUnitCommandOutput) => void
   ): void;
 
   /**

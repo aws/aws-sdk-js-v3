@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProjectInput, GetProjectOutput, GetProjectOutputFilterSensitiveLog } from "../models/models_1";
-import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_restJson1";
+import { DeleteDomainUnitInput, DeleteDomainUnitOutput } from "../models/models_0";
+import { de_DeleteDomainUnitCommand, se_DeleteDomainUnitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,61 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetProjectCommand}.
+ * The input for {@link DeleteDomainUnitCommand}.
  */
-export interface GetProjectCommandInput extends GetProjectInput {}
+export interface DeleteDomainUnitCommandInput extends DeleteDomainUnitInput {}
 /**
  * @public
  *
- * The output of {@link GetProjectCommand}.
+ * The output of {@link DeleteDomainUnitCommand}.
  */
-export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBearer {}
+export interface DeleteDomainUnitCommandOutput extends DeleteDomainUnitOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a project in Amazon DataZone.</p>
+ * <p>Deletes a domain unit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetProjectCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetProjectCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetProjectInput
+ * const input = { // DeleteDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new GetProjectCommand(input);
+ * const command = new DeleteDomainUnitCommand(input);
  * const response = await client.send(command);
- * // { // GetProjectOutput
- * //   domainId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * //   failureReasons: [ // FailureReasons
- * //     { // ProjectDeletionError
- * //       code: "STRING_VALUE",
- * //       message: "STRING_VALUE",
- * //     },
- * //   ],
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   glossaryTerms: [ // GlossaryTerms
- * //     "STRING_VALUE",
- * //   ],
- * //   domainUnitId: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetProjectCommandInput - {@link GetProjectCommandInput}
- * @returns {@link GetProjectCommandOutput}
- * @see {@link GetProjectCommandInput} for command's `input` shape.
- * @see {@link GetProjectCommandOutput} for command's `response` shape.
+ * @param DeleteDomainUnitCommandInput - {@link DeleteDomainUnitCommandInput}
+ * @returns {@link DeleteDomainUnitCommandOutput}
+ * @see {@link DeleteDomainUnitCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainUnitCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -93,10 +77,10 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  *
  * @public
  */
-export class GetProjectCommand extends $Command
+export class DeleteDomainUnitCommand extends $Command
   .classBuilder<
-    GetProjectCommandInput,
-    GetProjectCommandOutput,
+    DeleteDomainUnitCommandInput,
+    DeleteDomainUnitCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +94,9 @@ export class GetProjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetProject", {})
-  .n("DataZoneClient", "GetProjectCommand")
-  .f(void 0, GetProjectOutputFilterSensitiveLog)
-  .ser(se_GetProjectCommand)
-  .de(de_GetProjectCommand)
+  .s("DataZone", "DeleteDomainUnit", {})
+  .n("DataZoneClient", "DeleteDomainUnitCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteDomainUnitCommand)
+  .de(de_DeleteDomainUnitCommand)
   .build() {}

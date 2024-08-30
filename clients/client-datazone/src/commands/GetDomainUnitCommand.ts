@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetEnvironmentProfileInput,
-  GetEnvironmentProfileOutput,
-  GetEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetEnvironmentProfileCommand, se_GetEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
+import { GetDomainUnitInput, GetDomainUnitOutput, GetDomainUnitOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetDomainUnitCommand, se_GetDomainUnitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,60 +17,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetEnvironmentProfileCommand}.
+ * The input for {@link GetDomainUnitCommand}.
  */
-export interface GetEnvironmentProfileCommandInput extends GetEnvironmentProfileInput {}
+export interface GetDomainUnitCommandInput extends GetDomainUnitInput {}
 /**
  * @public
  *
- * The output of {@link GetEnvironmentProfileCommand}.
+ * The output of {@link GetDomainUnitCommand}.
  */
-export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfileOutput, __MetadataBearer {}
+export interface GetDomainUnitCommandOutput extends GetDomainUnitOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an evinronment profile in Amazon DataZone.</p>
+ * <p>Gets the details of the specified domain unit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetEnvironmentProfileInput
+ * const input = { // GetDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new GetEnvironmentProfileCommand(input);
+ * const command = new GetDomainUnitCommand(input);
  * const response = await client.send(command);
- * // { // GetEnvironmentProfileOutput
+ * // { // GetDomainUnitOutput
  * //   id: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
- * //   awsAccountId: "STRING_VALUE",
- * //   awsAccountRegion: "STRING_VALUE",
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   updatedAt: new Date("TIMESTAMP"),
  * //   name: "STRING_VALUE", // required
+ * //   parentDomainUnitId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
- * //   environmentBlueprintId: "STRING_VALUE", // required
- * //   projectId: "STRING_VALUE",
- * //   userParameters: [ // CustomParameterList
- * //     { // CustomParameter
- * //       keyName: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       fieldType: "STRING_VALUE", // required
- * //       defaultValue: "STRING_VALUE",
- * //       isEditable: true || false,
- * //       isOptional: true || false,
+ * //   owners: [ // DomainUnitOwners // required
+ * //     { // DomainUnitOwnerProperties Union: only one key present
+ * //       user: { // DomainUnitUserProperties
+ * //         userId: "STRING_VALUE",
+ * //       },
+ * //       group: { // DomainUnitGroupProperties
+ * //         groupId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
+ * //   lastUpdatedBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetEnvironmentProfileCommandInput - {@link GetEnvironmentProfileCommandInput}
- * @returns {@link GetEnvironmentProfileCommandOutput}
- * @see {@link GetEnvironmentProfileCommandInput} for command's `input` shape.
- * @see {@link GetEnvironmentProfileCommandOutput} for command's `response` shape.
+ * @param GetDomainUnitCommandInput - {@link GetDomainUnitCommandInput}
+ * @returns {@link GetDomainUnitCommandOutput}
+ * @see {@link GetDomainUnitCommandInput} for command's `input` shape.
+ * @see {@link GetDomainUnitCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +94,10 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  *
  * @public
  */
-export class GetEnvironmentProfileCommand extends $Command
+export class GetDomainUnitCommand extends $Command
   .classBuilder<
-    GetEnvironmentProfileCommandInput,
-    GetEnvironmentProfileCommandOutput,
+    GetDomainUnitCommandInput,
+    GetDomainUnitCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,9 +111,9 @@ export class GetEnvironmentProfileCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetEnvironmentProfile", {})
-  .n("DataZoneClient", "GetEnvironmentProfileCommand")
-  .f(void 0, GetEnvironmentProfileOutputFilterSensitiveLog)
-  .ser(se_GetEnvironmentProfileCommand)
-  .de(de_GetEnvironmentProfileCommand)
+  .s("DataZone", "GetDomainUnit", {})
+  .n("DataZoneClient", "GetDomainUnitCommand")
+  .f(void 0, GetDomainUnitOutputFilterSensitiveLog)
+  .ser(se_GetDomainUnitCommand)
+  .de(de_GetDomainUnitCommand)
   .build() {}

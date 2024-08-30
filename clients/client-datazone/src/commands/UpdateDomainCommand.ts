@@ -50,6 +50,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * const response = await client.send(command);
  * // { // UpdateDomainOutput
  * //   id: "STRING_VALUE", // required
+ * //   rootDomainUnitId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",

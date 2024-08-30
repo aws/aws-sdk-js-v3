@@ -10,7 +10,7 @@ import {
   GetEnvironmentBlueprintInput,
   GetEnvironmentBlueprintOutput,
   GetEnvironmentBlueprintOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetEnvironmentBlueprintCommand, se_GetEnvironmentBlueprintCommand } from "../protocols/Aws_restJson1";
 
 /**

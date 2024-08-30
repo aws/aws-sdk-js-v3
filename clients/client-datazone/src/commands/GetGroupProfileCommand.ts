@@ -10,7 +10,7 @@ import {
   GetGroupProfileInput,
   GetGroupProfileOutput,
   GetGroupProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetGroupProfileCommand, se_GetGroupProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

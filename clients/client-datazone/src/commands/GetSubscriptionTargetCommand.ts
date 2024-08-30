@@ -10,7 +10,7 @@ import {
   GetSubscriptionTargetInput,
   GetSubscriptionTargetOutput,
   GetSubscriptionTargetOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetSubscriptionTargetCommand, se_GetSubscriptionTargetCommand } from "../protocols/Aws_restJson1";
 
 /**

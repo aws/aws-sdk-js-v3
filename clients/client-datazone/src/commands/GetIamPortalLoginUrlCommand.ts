@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIamPortalLoginUrlInput, GetIamPortalLoginUrlOutput } from "../models/models_0";
+import { GetIamPortalLoginUrlInput, GetIamPortalLoginUrlOutput } from "../models/models_1";
 import { de_GetIamPortalLoginUrlCommand, se_GetIamPortalLoginUrlCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -58,6 +58,8 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
+import { AddEntityOwnerCommandInput, AddEntityOwnerCommandOutput } from "./commands/AddEntityOwnerCommand";
+import { AddPolicyGrantCommandInput, AddPolicyGrantCommandOutput } from "./commands/AddPolicyGrantCommand";
 import {
   AssociateEnvironmentRoleCommandInput,
   AssociateEnvironmentRoleCommandOutput,
@@ -81,6 +83,7 @@ import {
 } from "./commands/CreateDataProductRevisionCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateDomainUnitCommandInput, CreateDomainUnitCommandOutput } from "./commands/CreateDomainUnitCommand";
 import {
   CreateEnvironmentActionCommandInput,
   CreateEnvironmentActionCommandOutput,
@@ -122,6 +125,7 @@ import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./com
 import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "./commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteDomainUnitCommandInput, DeleteDomainUnitCommandOutput } from "./commands/DeleteDomainUnitCommand";
 import {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
@@ -171,6 +175,7 @@ import { GetDataProductCommandInput, GetDataProductCommandOutput } from "./comma
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetDomainUnitCommandInput, GetDomainUnitCommandOutput } from "./commands/GetDomainUnitCommand";
 import {
   GetEnvironmentActionCommandInput,
   GetEnvironmentActionCommandOutput,
@@ -239,6 +244,11 @@ import { ListDataSourceRunsCommandInput, ListDataSourceRunsCommandOutput } from 
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  ListDomainUnitsForParentCommandInput,
+  ListDomainUnitsForParentCommandOutput,
+} from "./commands/ListDomainUnitsForParentCommand";
+import { ListEntityOwnersCommandInput, ListEntityOwnersCommandOutput } from "./commands/ListEntityOwnersCommand";
+import {
   ListEnvironmentActionsCommandInput,
   ListEnvironmentActionsCommandOutput,
 } from "./commands/ListEnvironmentActionsCommand";
@@ -264,6 +274,7 @@ import {
   ListMetadataGenerationRunsCommandOutput,
 } from "./commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
+import { ListPolicyGrantsCommandInput, ListPolicyGrantsCommandOutput } from "./commands/ListPolicyGrantsCommand";
 import {
   ListProjectMembershipsCommandInput,
   ListProjectMembershipsCommandOutput,
@@ -304,6 +315,8 @@ import {
   RejectSubscriptionRequestCommandInput,
   RejectSubscriptionRequestCommandOutput,
 } from "./commands/RejectSubscriptionRequestCommand";
+import { RemoveEntityOwnerCommandInput, RemoveEntityOwnerCommandOutput } from "./commands/RemoveEntityOwnerCommand";
+import { RemovePolicyGrantCommandInput, RemovePolicyGrantCommandOutput } from "./commands/RemovePolicyGrantCommand";
 import { RevokeSubscriptionCommandInput, RevokeSubscriptionCommandOutput } from "./commands/RevokeSubscriptionCommand";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
@@ -323,6 +336,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./command
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "./commands/UpdateAssetFilterCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "./commands/UpdateDomainUnitCommand";
 import {
   UpdateEnvironmentActionCommandInput,
   UpdateEnvironmentActionCommandOutput,
@@ -366,6 +380,8 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptPredictionsCommandInput
   | AcceptSubscriptionRequestCommandInput
+  | AddEntityOwnerCommandInput
+  | AddPolicyGrantCommandInput
   | AssociateEnvironmentRoleCommandInput
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
@@ -377,6 +393,7 @@ export type ServiceInputTypes =
   | CreateDataProductRevisionCommandInput
   | CreateDataSourceCommandInput
   | CreateDomainCommandInput
+  | CreateDomainUnitCommandInput
   | CreateEnvironmentActionCommandInput
   | CreateEnvironmentCommandInput
   | CreateEnvironmentProfileCommandInput
@@ -397,6 +414,7 @@ export type ServiceInputTypes =
   | DeleteDataProductCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
+  | DeleteDomainUnitCommandInput
   | DeleteEnvironmentActionCommandInput
   | DeleteEnvironmentBlueprintConfigurationCommandInput
   | DeleteEnvironmentCommandInput
@@ -419,6 +437,7 @@ export type ServiceInputTypes =
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
   | GetDomainCommandInput
+  | GetDomainUnitCommandInput
   | GetEnvironmentActionCommandInput
   | GetEnvironmentBlueprintCommandInput
   | GetEnvironmentBlueprintConfigurationCommandInput
@@ -446,7 +465,9 @@ export type ServiceInputTypes =
   | ListDataSourceRunActivitiesCommandInput
   | ListDataSourceRunsCommandInput
   | ListDataSourcesCommandInput
+  | ListDomainUnitsForParentCommandInput
   | ListDomainsCommandInput
+  | ListEntityOwnersCommandInput
   | ListEnvironmentActionsCommandInput
   | ListEnvironmentBlueprintConfigurationsCommandInput
   | ListEnvironmentBlueprintsCommandInput
@@ -455,6 +476,7 @@ export type ServiceInputTypes =
   | ListLineageNodeHistoryCommandInput
   | ListMetadataGenerationRunsCommandInput
   | ListNotificationsCommandInput
+  | ListPolicyGrantsCommandInput
   | ListProjectMembershipsCommandInput
   | ListProjectsCommandInput
   | ListSubscriptionGrantsCommandInput
@@ -468,6 +490,8 @@ export type ServiceInputTypes =
   | PutEnvironmentBlueprintConfigurationCommandInput
   | RejectPredictionsCommandInput
   | RejectSubscriptionRequestCommandInput
+  | RemoveEntityOwnerCommandInput
+  | RemovePolicyGrantCommandInput
   | RevokeSubscriptionCommandInput
   | SearchCommandInput
   | SearchGroupProfilesCommandInput
@@ -481,6 +505,7 @@ export type ServiceInputTypes =
   | UpdateAssetFilterCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainCommandInput
+  | UpdateDomainUnitCommandInput
   | UpdateEnvironmentActionCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentProfileCommandInput
@@ -499,6 +524,8 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptPredictionsCommandOutput
   | AcceptSubscriptionRequestCommandOutput
+  | AddEntityOwnerCommandOutput
+  | AddPolicyGrantCommandOutput
   | AssociateEnvironmentRoleCommandOutput
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
@@ -510,6 +537,7 @@ export type ServiceOutputTypes =
   | CreateDataProductRevisionCommandOutput
   | CreateDataSourceCommandOutput
   | CreateDomainCommandOutput
+  | CreateDomainUnitCommandOutput
   | CreateEnvironmentActionCommandOutput
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentProfileCommandOutput
@@ -530,6 +558,7 @@ export type ServiceOutputTypes =
   | DeleteDataProductCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteDomainUnitCommandOutput
   | DeleteEnvironmentActionCommandOutput
   | DeleteEnvironmentBlueprintConfigurationCommandOutput
   | DeleteEnvironmentCommandOutput
@@ -552,6 +581,7 @@ export type ServiceOutputTypes =
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
   | GetDomainCommandOutput
+  | GetDomainUnitCommandOutput
   | GetEnvironmentActionCommandOutput
   | GetEnvironmentBlueprintCommandOutput
   | GetEnvironmentBlueprintConfigurationCommandOutput
@@ -579,7 +609,9 @@ export type ServiceOutputTypes =
   | ListDataSourceRunActivitiesCommandOutput
   | ListDataSourceRunsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListDomainUnitsForParentCommandOutput
   | ListDomainsCommandOutput
+  | ListEntityOwnersCommandOutput
   | ListEnvironmentActionsCommandOutput
   | ListEnvironmentBlueprintConfigurationsCommandOutput
   | ListEnvironmentBlueprintsCommandOutput
@@ -588,6 +620,7 @@ export type ServiceOutputTypes =
   | ListLineageNodeHistoryCommandOutput
   | ListMetadataGenerationRunsCommandOutput
   | ListNotificationsCommandOutput
+  | ListPolicyGrantsCommandOutput
   | ListProjectMembershipsCommandOutput
   | ListProjectsCommandOutput
   | ListSubscriptionGrantsCommandOutput
@@ -601,6 +634,8 @@ export type ServiceOutputTypes =
   | PutEnvironmentBlueprintConfigurationCommandOutput
   | RejectPredictionsCommandOutput
   | RejectSubscriptionRequestCommandOutput
+  | RemoveEntityOwnerCommandOutput
+  | RemovePolicyGrantCommandOutput
   | RevokeSubscriptionCommandOutput
   | SearchCommandOutput
   | SearchGroupProfilesCommandOutput
@@ -614,6 +649,7 @@ export type ServiceOutputTypes =
   | UpdateAssetFilterCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainCommandOutput
+  | UpdateDomainUnitCommandOutput
   | UpdateEnvironmentActionCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentProfileCommandOutput

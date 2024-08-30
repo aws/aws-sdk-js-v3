@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProjectInput, GetProjectOutput, GetProjectOutputFilterSensitiveLog } from "../models/models_1";
-import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_restJson1";
+import { AddEntityOwnerInput, AddEntityOwnerOutput } from "../models/models_0";
+import { de_AddEntityOwnerCommand, se_AddEntityOwnerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,67 +17,64 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetProjectCommand}.
+ * The input for {@link AddEntityOwnerCommand}.
  */
-export interface GetProjectCommandInput extends GetProjectInput {}
+export interface AddEntityOwnerCommandInput extends AddEntityOwnerInput {}
 /**
  * @public
  *
- * The output of {@link GetProjectCommand}.
+ * The output of {@link AddEntityOwnerCommand}.
  */
-export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBearer {}
+export interface AddEntityOwnerCommandOutput extends AddEntityOwnerOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a project in Amazon DataZone.</p>
+ * <p>Adds the owner of an entity (a domain unit).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetProjectCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetProjectCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, AddEntityOwnerCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, AddEntityOwnerCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetProjectInput
+ * const input = { // AddEntityOwnerInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
+ *   entityType: "DOMAIN_UNIT", // required
+ *   entityIdentifier: "STRING_VALUE", // required
+ *   owner: { // OwnerProperties Union: only one key present
+ *     user: { // OwnerUserProperties
+ *       userIdentifier: "STRING_VALUE", // required
+ *     },
+ *     group: { // OwnerGroupProperties
+ *       groupIdentifier: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new GetProjectCommand(input);
+ * const command = new AddEntityOwnerCommand(input);
  * const response = await client.send(command);
- * // { // GetProjectOutput
- * //   domainId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * //   failureReasons: [ // FailureReasons
- * //     { // ProjectDeletionError
- * //       code: "STRING_VALUE",
- * //       message: "STRING_VALUE",
- * //     },
- * //   ],
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   glossaryTerms: [ // GlossaryTerms
- * //     "STRING_VALUE",
- * //   ],
- * //   domainUnitId: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetProjectCommandInput - {@link GetProjectCommandInput}
- * @returns {@link GetProjectCommandOutput}
- * @see {@link GetProjectCommandInput} for command's `input` shape.
- * @see {@link GetProjectCommandOutput} for command's `response` shape.
+ * @param AddEntityOwnerCommandInput - {@link AddEntityOwnerCommandInput}
+ * @returns {@link AddEntityOwnerCommandOutput}
+ * @see {@link AddEntityOwnerCommandInput} for command's `input` shape.
+ * @see {@link AddEntityOwnerCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -93,10 +90,10 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  *
  * @public
  */
-export class GetProjectCommand extends $Command
+export class AddEntityOwnerCommand extends $Command
   .classBuilder<
-    GetProjectCommandInput,
-    GetProjectCommandOutput,
+    AddEntityOwnerCommandInput,
+    AddEntityOwnerCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +107,9 @@ export class GetProjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetProject", {})
-  .n("DataZoneClient", "GetProjectCommand")
-  .f(void 0, GetProjectOutputFilterSensitiveLog)
-  .ser(se_GetProjectCommand)
-  .de(de_GetProjectCommand)
+  .s("DataZone", "AddEntityOwner", {})
+  .n("DataZoneClient", "AddEntityOwnerCommand")
+  .f(void 0, void 0)
+  .ser(se_AddEntityOwnerCommand)
+  .de(de_AddEntityOwnerCommand)
   .build() {}

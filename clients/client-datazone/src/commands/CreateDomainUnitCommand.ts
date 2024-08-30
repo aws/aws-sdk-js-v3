@@ -6,8 +6,13 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDomainInput, CreateDomainOutput } from "../models/models_0";
-import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
+import {
+  CreateDomainUnitInput,
+  CreateDomainUnitInputFilterSensitiveLog,
+  CreateDomainUnitOutput,
+  CreateDomainUnitOutputFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CreateDomainUnitCommand, se_CreateDomainUnitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,65 +22,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateDomainCommand}.
+ * The input for {@link CreateDomainUnitCommand}.
  */
-export interface CreateDomainCommandInput extends CreateDomainInput {}
+export interface CreateDomainUnitCommandInput extends CreateDomainUnitInput {}
 /**
  * @public
  *
- * The output of {@link CreateDomainCommand}.
+ * The output of {@link CreateDomainUnitCommand}.
  */
-export interface CreateDomainCommandOutput extends CreateDomainOutput, __MetadataBearer {}
+export interface CreateDomainUnitCommandOutput extends CreateDomainUnitOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon DataZone domain.</p>
+ * <p>Creates a domain unit in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, CreateDomainCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, CreateDomainCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, CreateDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, CreateDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // CreateDomainInput
+ * const input = { // CreateDomainUnitInput
+ *   domainIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
+ *   parentDomainUnitIdentifier: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   singleSignOn: { // SingleSignOn
- *     type: "IAM_IDC" || "DISABLED",
- *     userAssignment: "AUTOMATIC" || "MANUAL",
- *   },
- *   domainExecutionRole: "STRING_VALUE", // required
- *   kmsKeyIdentifier: "STRING_VALUE",
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new CreateDomainCommand(input);
+ * const command = new CreateDomainUnitCommand(input);
  * const response = await client.send(command);
- * // { // CreateDomainOutput
+ * // { // CreateDomainUnitOutput
  * //   id: "STRING_VALUE", // required
- * //   rootDomainUnitId: "STRING_VALUE",
- * //   name: "STRING_VALUE",
+ * //   domainId: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   parentDomainUnitId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
- * //   singleSignOn: { // SingleSignOn
- * //     type: "IAM_IDC" || "DISABLED",
- * //     userAssignment: "AUTOMATIC" || "MANUAL",
- * //   },
- * //   domainExecutionRole: "STRING_VALUE",
- * //   arn: "STRING_VALUE",
- * //   kmsKeyIdentifier: "STRING_VALUE",
- * //   status: "CREATING" || "AVAILABLE" || "CREATION_FAILED" || "DELETING" || "DELETED" || "DELETION_FAILED",
- * //   portalUrl: "STRING_VALUE",
- * //   tags: { // Tags
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * //   owners: [ // DomainUnitOwners // required
+ * //     { // DomainUnitOwnerProperties Union: only one key present
+ * //       user: { // DomainUnitUserProperties
+ * //         userId: "STRING_VALUE",
+ * //       },
+ * //       group: { // DomainUnitGroupProperties
+ * //         groupId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ancestorDomainUnitIds: [ // DomainUnitIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
- * @returns {@link CreateDomainCommandOutput}
- * @see {@link CreateDomainCommandInput} for command's `input` shape.
- * @see {@link CreateDomainCommandOutput} for command's `response` shape.
+ * @param CreateDomainUnitCommandInput - {@link CreateDomainUnitCommandInput}
+ * @returns {@link CreateDomainUnitCommandOutput}
+ * @see {@link CreateDomainUnitCommandInput} for command's `input` shape.
+ * @see {@link CreateDomainUnitCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,9 +88,6 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request has exceeded the specified service quota.</p>
@@ -107,10 +106,10 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *
  * @public
  */
-export class CreateDomainCommand extends $Command
+export class CreateDomainUnitCommand extends $Command
   .classBuilder<
-    CreateDomainCommandInput,
-    CreateDomainCommandOutput,
+    CreateDomainUnitCommandInput,
+    CreateDomainUnitCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -124,9 +123,9 @@ export class CreateDomainCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "CreateDomain", {})
-  .n("DataZoneClient", "CreateDomainCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDomainCommand)
-  .de(de_CreateDomainCommand)
+  .s("DataZone", "CreateDomainUnit", {})
+  .n("DataZoneClient", "CreateDomainUnitCommand")
+  .f(CreateDomainUnitInputFilterSensitiveLog, CreateDomainUnitOutputFilterSensitiveLog)
+  .ser(se_CreateDomainUnitCommand)
+  .de(de_CreateDomainUnitCommand)
   .build() {}

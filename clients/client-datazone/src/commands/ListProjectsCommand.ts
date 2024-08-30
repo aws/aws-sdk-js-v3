@@ -67,6 +67,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * //       createdBy: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       domainUnitId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -42,6 +42,7 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * const response = await client.send(command);
  * // { // GetDomainOutput
  * //   id: "STRING_VALUE", // required
+ * //   rootDomainUnitId: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   singleSignOn: { // SingleSignOn

@@ -10,7 +10,7 @@ import {
   GetEnvironmentCredentialsInput,
   GetEnvironmentCredentialsOutput,
   GetEnvironmentCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetEnvironmentCredentialsCommand, se_GetEnvironmentCredentialsCommand } from "../protocols/Aws_restJson1";
 
 /**

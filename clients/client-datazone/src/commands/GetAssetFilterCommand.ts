@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAssetFilterInput } from "../models/models_0";
-import { GetAssetFilterOutput, GetAssetFilterOutputFilterSensitiveLog } from "../models/models_1";
+import { GetAssetFilterInput, GetAssetFilterOutput, GetAssetFilterOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetAssetFilterCommand, se_GetAssetFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
