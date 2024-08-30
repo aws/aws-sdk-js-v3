@@ -4,6 +4,28 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { RedshiftDataServiceException as __BaseException } from "./RedshiftDataServiceException";
 
 /**
+ * <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ * @public
+ */
+export class ActiveSessionsExceededException extends __BaseException {
+  readonly name: "ActiveSessionsExceededException" = "ActiveSessionsExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveSessionsExceededException, __BaseException>) {
+    super({
+      name: "ActiveSessionsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveSessionsExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The number of active statements exceeds the limit.</p>
  * @public
  */
@@ -89,7 +111,7 @@ export interface BatchExecuteStatementInput {
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  Database: string | undefined;
+  Database?: string;
 
   /**
    * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statements run. </p>
@@ -114,6 +136,18 @@ export interface BatchExecuteStatementInput {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * @public
+   */
+  SessionKeepAliveSeconds?: number;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**
@@ -146,6 +180,12 @@ export interface BatchExecuteStatementOutput {
   DbUser?: string;
 
   /**
+   * <p>A list of colon (:) separated names of database groups.</p>
+   * @public
+   */
+  DbGroups?: string[];
+
+  /**
    * <p>The name of the database.</p>
    * @public
    */
@@ -162,6 +202,38 @@ export interface BatchExecuteStatementOutput {
    * @public
    */
   WorkgroupName?: string;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
+}
+
+/**
+ * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -231,32 +303,6 @@ export class DatabaseConnectionException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DatabaseConnectionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The exception message.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -673,6 +719,12 @@ export interface DescribeStatementResponse {
    * @public
    */
   WorkgroupName?: string;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**
@@ -767,6 +819,28 @@ export interface DescribeTableResponse {
 }
 
 /**
+ * <p>The Amazon Redshift Data API operation failed due to timeout.</p>
+ * @public
+ */
+export class QueryTimeoutException extends __BaseException {
+  readonly name: "QueryTimeoutException" = "QueryTimeoutException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryTimeoutException, __BaseException>) {
+    super({
+      name: "QueryTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryTimeoutException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The SQL statement encountered an environmental error while running.</p>
  * @public
  */
@@ -831,7 +905,7 @@ export interface ExecuteStatementInput {
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
    * @public
    */
-  Database: string | undefined;
+  Database?: string;
 
   /**
    * <p>A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs. </p>
@@ -862,6 +936,18 @@ export interface ExecuteStatementInput {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>The number of seconds to keep the session alive after the query finishes. The maximum time a session can keep alive is 24 hours. After 24 hours, the session is forced closed and the query is terminated.</p>
+   * @public
+   */
+  SessionKeepAliveSeconds?: number;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**
@@ -893,6 +979,12 @@ export interface ExecuteStatementOutput {
   DbUser?: string;
 
   /**
+   * <p>A list of colon (:) separated names of database groups.</p>
+   * @public
+   */
+  DbGroups?: string[];
+
+  /**
    * <p>The name of the database.</p>
    * @public
    */
@@ -909,6 +1001,12 @@ export interface ExecuteStatementOutput {
    * @public
    */
   WorkgroupName?: string;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**
@@ -1370,6 +1468,12 @@ export interface StatementData {
    * @public
    */
   IsBatchStatement?: boolean;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**

@@ -105,6 +105,9 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link InternalServerException} (server fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link QueryTimeoutException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to timeout.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *

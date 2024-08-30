@@ -42,6 +42,7 @@ import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/L
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
+  ActiveSessionsExceededException,
   ActiveStatementsExceededException,
   BatchExecuteStatementException,
   BatchExecuteStatementInput,
@@ -63,6 +64,7 @@ import {
   ListStatementsRequest,
   ListStatementsResponse,
   ListTablesRequest,
+  QueryTimeoutException,
   ResourceNotFoundException,
   SqlParameter,
   StatementData,
@@ -411,24 +413,30 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ActiveSessionsExceededException":
+    case "com.amazonaws.redshiftdata#ActiveSessionsExceededException":
+      throw await de_ActiveSessionsExceededExceptionRes(parsedOutput, context);
     case "ActiveStatementsExceededException":
     case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
       throw await de_ActiveStatementsExceededExceptionRes(parsedOutput, context);
     case "BatchExecuteStatementException":
     case "com.amazonaws.redshiftdata#BatchExecuteStatementException":
       throw await de_BatchExecuteStatementExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftdata#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
       throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "QueryTimeoutException":
+    case "com.amazonaws.redshiftdata#QueryTimeoutException":
+      throw await de_QueryTimeoutExceptionRes(parsedOutput, context);
     case "ExecuteStatementException":
     case "com.amazonaws.redshiftdata#ExecuteStatementException":
       throw await de_ExecuteStatementExceptionRes(parsedOutput, context);
@@ -440,6 +448,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1ActiveSessionsExceededExceptionRes
+ */
+const de_ActiveSessionsExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActiveSessionsExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ActiveSessionsExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -523,6 +547,22 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1QueryTimeoutExceptionRes
+ */
+const de_QueryTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<QueryTimeoutException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new QueryTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -561,6 +601,8 @@ const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, contex
     Database: [],
     DbUser: [],
     SecretArn: [],
+    SessionId: [],
+    SessionKeepAliveSeconds: [],
     Sqls: _json,
     StatementName: [],
     WithEvent: [],
@@ -585,6 +627,8 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
     DbUser: [],
     Parameters: _json,
     SecretArn: [],
+    SessionId: [],
+    SessionKeepAliveSeconds: [],
     Sql: [],
     StatementName: [],
     WithEvent: [],
@@ -608,6 +652,8 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
 
 // se_SqlParametersList omitted.
 
+// de_ActiveSessionsExceededException omitted.
+
 // de_ActiveStatementsExceededException omitted.
 
 // de_BatchExecuteStatementException omitted.
@@ -620,9 +666,11 @@ const de_BatchExecuteStatementOutput = (output: any, context: __SerdeContext): B
     ClusterIdentifier: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Database: __expectString,
+    DbGroups: _json,
     DbUser: __expectString,
     Id: __expectString,
     SecretArn: __expectString,
+    SessionId: __expectString,
     WorkgroupName: __expectString,
   }) as any;
 };
@@ -638,6 +686,8 @@ const de_BatchExecuteStatementOutput = (output: any, context: __SerdeContext): B
 // de_DatabaseConnectionException omitted.
 
 // de_DatabaseList omitted.
+
+// de_DbGroupList omitted.
 
 /**
  * deserializeAws_json1_1DescribeStatementResponse
@@ -659,6 +709,7 @@ const de_DescribeStatementResponse = (output: any, context: __SerdeContext): Des
     ResultRows: __expectLong,
     ResultSize: __expectLong,
     SecretArn: __expectString,
+    SessionId: __expectString,
     Status: __expectString,
     SubStatements: (_: any) => de_SubStatementList(_, context),
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -678,9 +729,11 @@ const de_ExecuteStatementOutput = (output: any, context: __SerdeContext): Execut
     ClusterIdentifier: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Database: __expectString,
+    DbGroups: _json,
     DbUser: __expectString,
     Id: __expectString,
     SecretArn: __expectString,
+    SessionId: __expectString,
     WorkgroupName: __expectString,
   }) as any;
 };
@@ -754,6 +807,8 @@ const de_ListStatementsResponse = (output: any, context: __SerdeContext): ListSt
 
 // de_ListTablesResponse omitted.
 
+// de_QueryTimeoutException omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_SchemaList omitted.
@@ -786,6 +841,7 @@ const de_StatementData = (output: any, context: __SerdeContext): StatementData =
     QueryString: __expectString,
     QueryStrings: _json,
     SecretArn: __expectString,
+    SessionId: __expectString,
     StatementName: __expectString,
     Status: __expectString,
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

@@ -78,11 +78,13 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *   ClusterIdentifier: "STRING_VALUE",
  *   SecretArn: "STRING_VALUE",
  *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
+ *   Database: "STRING_VALUE",
  *   WithEvent: true || false,
  *   StatementName: "STRING_VALUE",
  *   WorkgroupName: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
+ *   SessionKeepAliveSeconds: Number("int"),
+ *   SessionId: "STRING_VALUE",
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
@@ -91,9 +93,13 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   ClusterIdentifier: "STRING_VALUE",
  * //   DbUser: "STRING_VALUE",
+ * //   DbGroups: [ // DbGroupList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   Database: "STRING_VALUE",
  * //   SecretArn: "STRING_VALUE",
  * //   WorkgroupName: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -104,11 +110,17 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
+ * @throws {@link ActiveSessionsExceededException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed because the maximum number of active sessions exceeded.</p>
+ *
  * @throws {@link ActiveStatementsExceededException} (client fault)
  *  <p>The number of active statements exceeds the limit.</p>
  *
  * @throws {@link BatchExecuteStatementException} (server fault)
  *  <p>An SQL statement encountered an environmental error while running.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
