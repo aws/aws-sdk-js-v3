@@ -255,6 +255,8 @@ export const Status = {
   FAILED: "FAILED",
   MODIFYING: "MODIFYING",
   UPDATING: "UPDATING",
+  UPDATING_DEPLOYMENT_TYPE: "UPDATING_DEPLOYMENT_TYPE",
+  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
 } as const;
 
 /**
@@ -865,6 +867,18 @@ export interface UpdateDbInstanceInput {
    * @public
    */
   dbParameterGroupIdentifier?: string;
+
+  /**
+   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType;
+
+  /**
+   * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * @public
+   */
+  deploymentType?: DeploymentType;
 }
 
 /**

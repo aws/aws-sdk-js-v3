@@ -48,6 +48,8 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  *     },
  *   },
  *   dbParameterGroupIdentifier: "STRING_VALUE",
+ *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ *   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
  * };
  * const command = new UpdateDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -55,7 +57,7 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //   endpoint: "STRING_VALUE",
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
