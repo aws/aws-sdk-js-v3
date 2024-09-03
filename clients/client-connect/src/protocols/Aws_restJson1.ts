@@ -932,7 +932,6 @@ import {
   SegmentAttributeValue,
   SignInConfig,
   SignInDistribution,
-  TaskTemplateMetadata,
   TelephonyConfig,
   Threshold,
   ThresholdV2,
@@ -1010,6 +1009,7 @@ import {
   Sort,
   Step,
   TagSearchCondition,
+  TaskTemplateMetadata,
   Transcript,
   TranscriptCriteria,
   UpdateParticipantRoleConfigChannelInfo,
@@ -8375,6 +8375,7 @@ export const de_DescribeInstanceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Instance: (_) => de_Instance(_, context),
+    ReplicationConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -15264,6 +15265,12 @@ const de_RealTimeContactAnalysisTimeData = (output: any, context: __SerdeContext
 // de_ReferenceSummary omitted.
 
 // de_ReferenceSummaryList omitted.
+
+// de_ReplicationConfiguration omitted.
+
+// de_ReplicationStatusSummary omitted.
+
+// de_ReplicationStatusSummaryList omitted.
 
 // de_RequiredFieldInfo omitted.
 

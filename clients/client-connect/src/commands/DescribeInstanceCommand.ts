@@ -68,6 +68,17 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
+ * //   ReplicationConfiguration: { // ReplicationConfiguration
+ * //     ReplicationStatusSummaryList: [ // ReplicationStatusSummaryList
+ * //       { // ReplicationStatusSummary
+ * //         Region: "STRING_VALUE",
+ * //         ReplicationStatus: "INSTANCE_REPLICATION_COMPLETE" || "INSTANCE_REPLICATION_IN_PROGRESS" || "INSTANCE_REPLICATION_FAILED" || "INSTANCE_REPLICA_DELETING" || "INSTANCE_REPLICATION_DELETION_FAILED" || "RESOURCE_REPLICATION_NOT_STARTED",
+ * //         ReplicationStatusReason: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SourceRegion: "STRING_VALUE",
+ * //     GlobalSignInEndpoint: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

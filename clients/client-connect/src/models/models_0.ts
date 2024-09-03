@@ -1739,7 +1739,7 @@ export interface AssociateSecurityKeyRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>A valid security key in PEM format.</p>
+   * <p>A valid security key in PEM format as a String.</p>
    * @public
    */
   Key: string | undefined;

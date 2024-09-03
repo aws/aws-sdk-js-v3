@@ -101,6 +101,121 @@ import {
 /**
  * @public
  */
+export interface ListTaskTemplatesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>It is not expected that you set this because the value returned in the previous response is
+   *     always null.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   *          <important>
+   *             <p>It is not expected that you set this.</p>
+   *          </important>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * <p>Contains summary information about the task template.</p>
+ * @public
+ */
+export interface TaskTemplateMetadata {
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task template.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   * @public
+   */
+  CreatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListTaskTemplatesResponse {
+  /**
+   * <p>Provides details about a list of task templates belonging to an instance.</p>
+   * @public
+   */
+  TaskTemplates?: TaskTemplateMetadata[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <important>
+   *             <p>This is always returned as a null in the response.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTrafficDistributionGroupsRequest {
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -4757,14 +4872,14 @@ export interface UpdateContactFlowNameRequest {
 export interface UpdateContactFlowNameResponse {}
 
 /**
- * <p>Specify whether this routing criteria step should apply for only a limited amount of time,  or if it should
- *    never expire.</p>
+ * <p>Specify whether this routing criteria step should apply for only a limited amount of time,
+ *    or if it should never expire.</p>
  * @public
  */
 export interface RoutingCriteriaInputStepExpiry {
   /**
-   * <p>The number of seconds that the contact will be routed only to agents matching this routing  step, if expiry
-   *    was configured for this routing step.</p>
+   * <p>The number of seconds that the contact will be routed only to agents matching this routing
+   *    step, if expiry was configured for this routing step.</p>
    * @public
    */
   DurationInSeconds?: number;
@@ -6966,8 +7081,8 @@ export interface DescribeEvaluationFormResponse {
 }
 
 /**
- * <p>Step defines the list of agents to be routed or route based on the agent requirements such as ProficiencyLevel,
- *    Name, or Value.</p>
+ * <p>Step defines the list of agents to be routed or route based on the agent requirements such
+ *    as ProficiencyLevel, Name, or Value.</p>
  * @public
  */
 export interface RoutingCriteriaInputStep {
@@ -7512,10 +7627,10 @@ export interface RoutingCriteria {
  */
 export interface RoutingCriteriaInput {
   /**
-   * <p>When Amazon Connect does not find an available agent meeting the requirements in a step for
-   *    a given step duration, the routing criteria will move on to the next step sequentially until a
-   *    join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent
-   *    in the queue.</p>
+   * <p>When Amazon Connect does not find an available agent meeting the requirements in a step
+   *    for  a given step duration, the routing criteria will move on to the next step sequentially until
+   *    a  join is completed with an agent. When all steps are exhausted, the contact will be offered to
+   *    any agent in the queue.</p>
    * @public
    */
   Steps?: RoutingCriteriaInputStep[];
