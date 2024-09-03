@@ -3926,6 +3926,13 @@ export interface H264Settings {
    * @public
    */
   TimecodeBurninSettings?: TimecodeBurninSettings;
+
+  /**
+   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
+   * apply an appropriate value.
+   * @public
+   */
+  MinQp?: number;
 }
 
 /**
@@ -4494,6 +4501,13 @@ export interface H265Settings {
    * @public
    */
   TreeblockSize?: H265TreeblockSize;
+
+  /**
+   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
+   * apply an appropriate value.
+   * @public
+   */
+  MinQp?: number;
 }
 
 /**

@@ -815,6 +815,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //               Prefix: "STRING_VALUE",
  * //             },
+ * //             MinQp: Number("int"),
  * //           },
  * //           H265Settings: { // H265Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -871,6 +872,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //             TilePadding: "NONE" || "PADDED",
  * //             TileWidth: Number("int"),
  * //             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
+ * //             MinQp: Number("int"),
  * //           },
  * //           Mpeg2Settings: { // Mpeg2Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
