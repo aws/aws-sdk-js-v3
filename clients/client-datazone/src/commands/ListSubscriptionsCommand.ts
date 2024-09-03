@@ -86,6 +86,14 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * //                 shortDescription: "STRING_VALUE",
  * //               },
  * //             ],
+ * //             assetScope: { // AssetScope
+ * //               assetId: "STRING_VALUE", // required
+ * //               filterIds: [ // FilterIds // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               status: "STRING_VALUE", // required
+ * //               errorMessage: "STRING_VALUE",
+ * //             },
  * //           },
  * //           productListing: { // SubscribedProductListing
  * //             entityId: "STRING_VALUE",

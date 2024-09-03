@@ -77,6 +77,14 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * //           },
  * //           grantedTimestamp: new Date("TIMESTAMP"),
  * //           failureTimestamp: new Date("TIMESTAMP"),
+ * //           assetScope: { // AssetScope
+ * //             assetId: "STRING_VALUE", // required
+ * //             filterIds: [ // FilterIds // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             status: "STRING_VALUE", // required
+ * //             errorMessage: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       subscriptionId: "STRING_VALUE",

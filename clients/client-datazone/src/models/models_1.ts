@@ -77,6 +77,28 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface DeleteEnvironmentBlueprintConfigurationOutput {}
+
+/**
+ * @public
+ */
+export interface GetEnvironmentBlueprintConfigurationInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain where this blueprint exists.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>He ID of the blueprint.</p>
+   * @public
+   */
+  environmentBlueprintIdentifier: string | undefined;
+}
+
+/**
  * <p>The Lake Formation configuration of the Data Lake blueprint.</p>
  * @public
  */

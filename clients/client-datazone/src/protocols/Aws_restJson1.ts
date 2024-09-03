@@ -347,6 +347,7 @@ import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from ".
 import { DataZoneServiceException as __BaseException } from "../models/DataZoneServiceException";
 import {
   AcceptChoice,
+  AcceptedAssetScope,
   AcceptRule,
   AccessDeniedException,
   ActionParameters,
@@ -530,6 +531,7 @@ export const se_AcceptSubscriptionRequestCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      assetScopes: (_) => _json(_),
       decisionComment: [],
     })
   );
@@ -7469,6 +7471,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AcceptChoices omitted.
 
+// se_AcceptedAssetScope omitted.
+
+// se_AcceptedAssetScopes omitted.
+
 /**
  * serializeAws_restJson1AcceptRule
  */
@@ -7565,6 +7571,8 @@ const se_FilterClause = (input: FilterClause, context: __SerdeContext): any => {
 // se_FilterExpression omitted.
 
 // se_FilterExpressions omitted.
+
+// se_FilterIds omitted.
 
 /**
  * serializeAws_restJson1FilterList
@@ -7954,6 +7962,8 @@ const de_AssetRevisions = (output: any, context: __SerdeContext): AssetRevision[
     });
   return retVal;
 };
+
+// de_AssetScope omitted.
 
 /**
  * deserializeAws_restJson1AssetTypeItem
@@ -8397,6 +8407,8 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
 // de_FilterExpression omitted.
 
 // de_FilterExpressions omitted.
+
+// de_FilterIds omitted.
 
 // de_FormEntryOutput omitted.
 
@@ -8966,6 +8978,7 @@ const de_SubscribedAsset = (output: any, context: __SerdeContext): SubscribedAss
   return take(output, {
     assetId: __expectString,
     assetRevision: __expectString,
+    assetScope: _json,
     failureCause: _json,
     failureTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     grantedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

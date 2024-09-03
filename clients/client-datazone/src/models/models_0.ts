@@ -31,6 +31,24 @@ export interface AcceptChoice {
 }
 
 /**
+ * <p>The accepted asset scope.</p>
+ * @public
+ */
+export interface AcceptedAssetScope {
+  /**
+   * <p>The asset ID of the accepted asset scope.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The filter IDs of the accepted asset scope.</p>
+   * @public
+   */
+  filterIds: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -293,6 +311,12 @@ export interface AcceptSubscriptionRequestInput {
    * @public
    */
   decisionComment?: string;
+
+  /**
+   * <p>The asset scopes of the accept subscription request.</p>
+   * @public
+   */
+  assetScopes?: AcceptedAssetScope[];
 }
 
 /**
@@ -309,6 +333,36 @@ export const SubscriptionRequestStatus = {
  * @public
  */
 export type SubscriptionRequestStatus = (typeof SubscriptionRequestStatus)[keyof typeof SubscriptionRequestStatus];
+
+/**
+ * <p>The asset scope.</p>
+ * @public
+ */
+export interface AssetScope {
+  /**
+   * <p>The asset ID of the asset scope.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The filter IDs of the asset scope.</p>
+   * @public
+   */
+  filterIds: string[] | undefined;
+
+  /**
+   * <p>The status of the asset scope.</p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>The error message of the asset scope.</p>
+   * @public
+   */
+  errorMessage?: string;
+}
 
 /**
  * <p>Details of a glossary term attached to the inventory asset.</p>
@@ -365,6 +419,12 @@ export interface SubscribedAssetListing {
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[];
+
+  /**
+   * <p>The asset scope of the subscribed asset listing.</p>
+   * @public
+   */
+  assetScope?: AssetScope;
 }
 
 /**
@@ -1330,8 +1390,8 @@ export type DomainUnitDesignation = (typeof DomainUnitDesignation)[keyof typeof 
 export interface AllDomainUnitsGrantFilter {}
 
 /**
- * <p>The grant filter for the domain unit. In the current release of Amazon DataZone, the only
- * supported filter is the <code>allDomainUnitsGrantFilter</code>.</p>
+ * <p>The grant filter for the domain unit. In the current release of Amazon DataZone, the
+ *          only supported filter is the <code>allDomainUnitsGrantFilter</code>.</p>
  * @public
  */
 export type DomainUnitGrantFilter =
@@ -6735,8 +6795,8 @@ export interface CreateProjectInput {
   glossaryTerms?: string[];
 
   /**
-   * <p>The ID of the domain unit. This parameter is not required and if it is not specified, then
-   *          the project is created at the root domain unit level.</p>
+   * <p>The ID of the domain unit. This parameter is not required and if it is not specified,
+   *          then the project is created at the root domain unit level.</p>
    * @public
    */
   domainUnitId?: string;
@@ -7129,6 +7189,12 @@ export interface SubscribedAsset {
    * @public
    */
   failureTimestamp?: Date;
+
+  /**
+   * <p>The asset scope of the subscribed asset.</p>
+   * @public
+   */
+  assetScope?: AssetScope;
 }
 
 /**
@@ -10575,28 +10641,6 @@ export interface DeleteEnvironmentBlueprintConfigurationInput {
 
   /**
    * <p>The ID of the blueprint the configuration of which is deleted.</p>
-   * @public
-   */
-  environmentBlueprintIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEnvironmentBlueprintConfigurationOutput {}
-
-/**
- * @public
- */
-export interface GetEnvironmentBlueprintConfigurationInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain where this blueprint exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>He ID of the blueprint.</p>
    * @public
    */
   environmentBlueprintIdentifier: string | undefined;
