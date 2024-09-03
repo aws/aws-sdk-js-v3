@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.644.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.643.0...v3.644.0) (2024-09-03)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds support for configuring TCP idle timeout on NLB and GWLB listeners. ([594c589](https://github.com/aws/aws-sdk-js-v3/commit/594c589036f0d702e92dfb3daec680971534290a))
+
+
+
+
+
 # [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

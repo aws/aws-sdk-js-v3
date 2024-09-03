@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.644.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.643.0...v3.644.0) (2024-09-03)
+
+
+### Features
+
+* **client-connect:** Release ReplicaConfiguration as part of DescribeInstance ([3ac8b18](https://github.com/aws/aws-sdk-js-v3/commit/3ac8b18d1cd4f18a27198337e254e64b2bd85887))
+* **client-datazone:** Add support to let data publisher specify a subset of the data asset that a subscriber will have access to based on the asset filters provided, when accepting a subscription request. ([da060f0](https://github.com/aws/aws-sdk-js-v3/commit/da060f0ddddaa26febb9f1e0b8b7cb56a7af1d9a))
+* **client-elastic-load-balancing-v2:** This release adds support for configuring TCP idle timeout on NLB and GWLB listeners. ([594c589](https://github.com/aws/aws-sdk-js-v3/commit/594c589036f0d702e92dfb3daec680971534290a))
+* **client-mediaconnect:** AWS Elemental MediaConnect introduces thumbnails for Flow source monitoring. Thumbnails provide still image previews of the live content feeding your MediaConnect Flow allowing you to easily verify that your source is operating as expected. ([7f6b5df](https://github.com/aws/aws-sdk-js-v3/commit/7f6b5df43d5f73273c25af090125f6329fa3728f))
+* **client-medialive:** Added MinQP as a Rate Control option for H264 and H265 encodes. ([c4db70b](https://github.com/aws/aws-sdk-js-v3/commit/c4db70bf921d7cfa1793293059a35b87955ea427))
+* **client-sagemaker:** Amazon SageMaker now supports automatic mounting of a user's home folder in the Amazon Elastic File System (EFS) associated with the SageMaker Studio domain to their Studio Spaces to enable users to share data between their own private spaces. ([202fdf2](https://github.com/aws/aws-sdk-js-v3/commit/202fdf2de5d5f187e33e10824c33a6f7e808f9f7))
+* **client-timestream-influxdb:** Timestream for InfluxDB now supports compute scaling and deployment type conversion. This release adds the DbInstanceType and DeploymentType parameters to the UpdateDbInstance API. ([4e6cb80](https://github.com/aws/aws-sdk-js-v3/commit/4e6cb80fdff0f0e071870f103098bae1f8b107b6))
+
+
+
+
+
 # [3.643.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.642.0...v3.643.0) (2024-08-30)
 
 
