@@ -26,6 +26,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
+    credentials: config?.credentials ?? (() => () => Promise.reject(new Error("Credentials are missing"))),
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ?? defaultUserAgent({ clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
