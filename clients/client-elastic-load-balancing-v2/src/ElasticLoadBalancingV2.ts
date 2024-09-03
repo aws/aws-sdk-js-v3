@@ -71,6 +71,11 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  DescribeListenerAttributesCommand,
+  DescribeListenerAttributesCommandInput,
+  DescribeListenerAttributesCommandOutput,
+} from "./commands/DescribeListenerAttributesCommand";
+import {
   DescribeListenerCertificatesCommand,
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput,
@@ -151,6 +156,11 @@ import {
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
 import {
+  ModifyListenerAttributesCommand,
+  ModifyListenerAttributesCommandInput,
+  ModifyListenerAttributesCommandOutput,
+} from "./commands/ModifyListenerAttributesCommand";
+import {
   ModifyListenerCommand,
   ModifyListenerCommandInput,
   ModifyListenerCommandOutput,
@@ -227,6 +237,7 @@ const commands = {
   DeleteTrustStoreCommand,
   DeregisterTargetsCommand,
   DescribeAccountLimitsCommand,
+  DescribeListenerAttributesCommand,
   DescribeListenerCertificatesCommand,
   DescribeListenersCommand,
   DescribeLoadBalancerAttributesCommand,
@@ -244,6 +255,7 @@ const commands = {
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
   ModifyListenerCommand,
+  ModifyListenerAttributesCommand,
   ModifyLoadBalancerAttributesCommand,
   ModifyRuleCommand,
   ModifyTargetGroupCommand,
@@ -507,6 +519,23 @@ export interface ElasticLoadBalancingV2 {
     args: DescribeAccountLimitsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeListenerAttributesCommand}
+   */
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeListenerAttributesCommandOutput>;
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    cb: (err: any, data?: DescribeListenerAttributesCommandOutput) => void
+  ): void;
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeListenerAttributesCommandOutput) => void
   ): void;
 
   /**
@@ -787,6 +816,23 @@ export interface ElasticLoadBalancingV2 {
     args: ModifyListenerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyListenerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyListenerAttributesCommand}
+   */
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyListenerAttributesCommandOutput>;
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    cb: (err: any, data?: ModifyListenerAttributesCommandOutput) => void
+  ): void;
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyListenerAttributesCommandOutput) => void
   ): void;
 
   /**

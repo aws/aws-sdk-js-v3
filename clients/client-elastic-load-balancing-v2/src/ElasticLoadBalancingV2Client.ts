@@ -82,6 +82,10 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  DescribeListenerAttributesCommandInput,
+  DescribeListenerAttributesCommandOutput,
+} from "./commands/DescribeListenerAttributesCommand";
+import {
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput,
 } from "./commands/DescribeListenerCertificatesCommand";
@@ -133,6 +137,10 @@ import {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
+import {
+  ModifyListenerAttributesCommandInput,
+  ModifyListenerAttributesCommandOutput,
+} from "./commands/ModifyListenerAttributesCommand";
 import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "./commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
@@ -190,6 +198,7 @@ export type ServiceInputTypes =
   | DeleteTrustStoreCommandInput
   | DeregisterTargetsCommandInput
   | DescribeAccountLimitsCommandInput
+  | DescribeListenerAttributesCommandInput
   | DescribeListenerCertificatesCommandInput
   | DescribeListenersCommandInput
   | DescribeLoadBalancerAttributesCommandInput
@@ -206,6 +215,7 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | GetTrustStoreCaCertificatesBundleCommandInput
   | GetTrustStoreRevocationContentCommandInput
+  | ModifyListenerAttributesCommandInput
   | ModifyListenerCommandInput
   | ModifyLoadBalancerAttributesCommandInput
   | ModifyRuleCommandInput
@@ -241,6 +251,7 @@ export type ServiceOutputTypes =
   | DeleteTrustStoreCommandOutput
   | DeregisterTargetsCommandOutput
   | DescribeAccountLimitsCommandOutput
+  | DescribeListenerAttributesCommandOutput
   | DescribeListenerCertificatesCommandOutput
   | DescribeListenersCommandOutput
   | DescribeLoadBalancerAttributesCommandOutput
@@ -257,6 +268,7 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | GetTrustStoreCaCertificatesBundleCommandOutput
   | GetTrustStoreRevocationContentCommandOutput
+  | ModifyListenerAttributesCommandOutput
   | ModifyListenerCommandOutput
   | ModifyLoadBalancerAttributesCommandOutput
   | ModifyRuleCommandOutput

@@ -50,6 +50,10 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
 import {
+  DescribeListenerAttributesCommandInput,
+  DescribeListenerAttributesCommandOutput,
+} from "../commands/DescribeListenerAttributesCommand";
+import {
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput,
 } from "../commands/DescribeListenerCertificatesCommand";
@@ -101,6 +105,10 @@ import {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "../commands/GetTrustStoreRevocationContentCommand";
+import {
+  ModifyListenerAttributesCommandInput,
+  ModifyListenerAttributesCommandOutput,
+} from "../commands/ModifyListenerAttributesCommand";
 import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "../commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
@@ -174,6 +182,8 @@ import {
   DeregisterTargetsOutput,
   DescribeAccountLimitsInput,
   DescribeAccountLimitsOutput,
+  DescribeListenerAttributesInput,
+  DescribeListenerAttributesOutput,
   DescribeListenerCertificatesInput,
   DescribeListenerCertificatesOutput,
   DescribeListenersInput,
@@ -230,6 +240,7 @@ import {
   InvalidTargetException,
   Limit,
   Listener,
+  ListenerAttribute,
   ListenerNotFoundException,
   LoadBalancer,
   LoadBalancerAddress,
@@ -237,6 +248,8 @@ import {
   LoadBalancerNotFoundException,
   LoadBalancerState,
   Matcher,
+  ModifyListenerAttributesInput,
+  ModifyListenerAttributesOutput,
   ModifyListenerInput,
   ModifyListenerOutput,
   ModifyLoadBalancerAttributesInput,
@@ -592,6 +605,23 @@ export const se_DescribeAccountLimitsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeListenerAttributesCommand
+ */
+export const se_DescribeListenerAttributesCommand = async (
+  input: DescribeListenerAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeListenerAttributesInput(input, context),
+    [_A]: _DLA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeListenerCertificatesCommand
  */
 export const se_DescribeListenerCertificatesCommand = async (
@@ -875,6 +905,23 @@ export const se_ModifyListenerCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyListenerInput(input, context),
     [_A]: _ML,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyListenerAttributesCommand
+ */
+export const se_ModifyListenerAttributesCommand = async (
+  input: ModifyListenerAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyListenerAttributesInput(input, context),
+    [_A]: _MLA,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1422,6 +1469,26 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
+ * deserializeAws_queryDescribeListenerAttributesCommand
+ */
+export const de_DescribeListenerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeListenerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeListenerAttributesOutput(data.DescribeListenerAttributesResult, context);
+  const response: DescribeListenerAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryDescribeListenerCertificatesCommand
  */
 export const de_DescribeListenerCertificatesCommand = async (
@@ -1755,6 +1822,26 @@ export const de_ModifyListenerCommand = async (
   let contents: any = {};
   contents = de_ModifyListenerOutput(data.ModifyListenerResult, context);
   const response: ModifyListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyListenerAttributesCommand
+ */
+export const de_ModifyListenerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyListenerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyListenerAttributesOutput(data.ModifyListenerAttributesResult, context);
+  const response: ModifyListenerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3704,6 +3791,17 @@ const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, contex
 };
 
 /**
+ * serializeAws_queryDescribeListenerAttributesInput
+ */
+const se_DescribeListenerAttributesInput = (input: DescribeListenerAttributesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeListenerCertificatesInput
  */
 const se_DescribeListenerCertificatesInput = (
@@ -4194,6 +4292,39 @@ const se_ListenerArns = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryListenerAttribute
+ */
+const se_ListenerAttribute = (input: ListenerAttribute, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
+  }
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListenerAttributes
+ */
+const se_ListenerAttributes = (input: ListenerAttribute[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ListenerAttribute(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryListOfDescribeTargetHealthIncludeOptions
  */
 const se_ListOfDescribeTargetHealthIncludeOptions = (
@@ -4303,6 +4434,27 @@ const se_Matcher = (input: Matcher, context: __SerdeContext): any => {
   }
   if (input[_GC] != null) {
     entries[_GC] = input[_GC];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyListenerAttributesInput
+ */
+const se_ModifyListenerAttributesInput = (input: ModifyListenerAttributesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
+  }
+  if (input[_At] != null) {
+    const memberEntries = se_ListenerAttributes(input[_At], context);
+    if (input[_At]?.length === 0) {
+      entries.Attributes = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Attributes.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -5853,6 +6005,22 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_queryDescribeListenerAttributesOutput
+ */
+const de_DescribeListenerAttributesOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeListenerAttributesOutput => {
+  const contents: any = {};
+  if (output.Attributes === "") {
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDescribeListenerCertificatesOutput
  */
 const de_DescribeListenerCertificatesOutput = (
@@ -6467,6 +6635,31 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
 };
 
 /**
+ * deserializeAws_queryListenerAttribute
+ */
+const de_ListenerAttribute = (output: any, context: __SerdeContext): ListenerAttribute => {
+  const contents: any = {};
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
+  }
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListenerAttributes
+ */
+const de_ListenerAttributes = (output: any, context: __SerdeContext): ListenerAttribute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ListenerAttribute(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryListenerNotFoundException
  */
 const de_ListenerNotFoundException = (output: any, context: __SerdeContext): ListenerNotFoundException => {
@@ -6666,6 +6859,19 @@ const de_Matcher = (output: any, context: __SerdeContext): Matcher => {
   }
   if (output[_GC] != null) {
     contents[_GC] = __expectString(output[_GC]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyListenerAttributesOutput
+ */
+const de_ModifyListenerAttributesOutput = (output: any, context: __SerdeContext): ModifyListenerAttributesOutput => {
+  const contents: any = {};
+  if (output.Attributes === "") {
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -7849,6 +8055,7 @@ const _D = "Description";
 const _DA = "DefaultActions";
 const _DAL = "DescribeAccountLimits";
 const _DL = "DeleteListener";
+const _DLA = "DescribeListenerAttributes";
 const _DLB = "DeleteLoadBalancer";
 const _DLBA = "DescribeLoadBalancerAttributes";
 const _DLBe = "DescribeLoadBalancers";
@@ -7917,6 +8124,7 @@ const _MA = "MutualAuthentication";
 const _MB = "MessageBody";
 const _MIE = "MitigationInEffect";
 const _ML = "ModifyListener";
+const _MLA = "ModifyListenerAttributes";
 const _MLBA = "ModifyLoadBalancerAttributes";
 const _MR = "ModifyRule";
 const _MTG = "ModifyTargetGroup";

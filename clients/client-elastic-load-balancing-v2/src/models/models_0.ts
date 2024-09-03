@@ -3569,6 +3569,54 @@ export interface DescribeAccountLimitsOutput {
 /**
  * @public
  */
+export interface DescribeListenerAttributesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * @public
+   */
+  ListenerArn: string | undefined;
+}
+
+/**
+ * <p>Information about a listener attribute.</p>
+ * @public
+ */
+export interface ListenerAttribute {
+  /**
+   * <p>The name of the attribute.</p>
+   *          <p>The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tcp.idle_timeout.seconds</code> - The tcp idle timeout value, in seconds. The
+   *           valid range is 60-6000 seconds. The default is 350 seconds.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the attribute.</p>
+   * @public
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeListenerAttributesOutput {
+  /**
+   * <p>Information about the listener attributes.</p>
+   * @public
+   */
+  Attributes?: ListenerAttribute[];
+}
+
+/**
+ * @public
+ */
 export interface DescribeListenerCertificatesInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the listener.</p>
@@ -5026,6 +5074,34 @@ export interface ModifyListenerOutput {
 /**
  * @public
  */
+export interface ModifyListenerAttributesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * @public
+   */
+  ListenerArn: string | undefined;
+
+  /**
+   * <p>The listener attributes.</p>
+   * @public
+   */
+  Attributes: ListenerAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyListenerAttributesOutput {
+  /**
+   * <p>Information about the listener attributes.</p>
+   * @public
+   */
+  Attributes?: ListenerAttribute[];
+}
+
+/**
+ * @public
+ */
 export interface ModifyLoadBalancerAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -5186,7 +5262,7 @@ export interface ModifyTargetGroupAttributesInput {
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The attributes.</p>
+   * <p>The target group attributes.</p>
    * @public
    */
   Attributes: TargetGroupAttribute[] | undefined;
@@ -5197,7 +5273,7 @@ export interface ModifyTargetGroupAttributesInput {
  */
 export interface ModifyTargetGroupAttributesOutput {
   /**
-   * <p>Information about the attributes.</p>
+   * <p>Information about the target group attributes.</p>
    * @public
    */
   Attributes?: TargetGroupAttribute[];
