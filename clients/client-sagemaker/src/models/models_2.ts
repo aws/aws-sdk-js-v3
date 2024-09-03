@@ -144,7 +144,6 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RedshiftResultCompressionType,
-  RedshiftResultFormat,
   RetryStrategy,
   ShadowModeConfig,
   ThroughputMode,
@@ -152,6 +151,20 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftResultFormat = (typeof RedshiftResultFormat)[keyof typeof RedshiftResultFormat];
 
 /**
  * <p>Configuration for Redshift Dataset Definition input.</p>
@@ -1756,7 +1769,8 @@ export interface CreateTransformJobRequest {
   BatchStrategy?: BatchStrategy;
 
   /**
-   * <p>The environment variables to set in the Docker container. We support up to 16 key and
+   * <p>The environment variables to set in the Docker container. Don't include any
+   *             sensitive data in your environment variables. We support up to 16 key and
    *             values entries in the map.</p>
    * @public
    */
@@ -9440,24 +9454,6 @@ export interface DescribeModelCardRequest {
    */
   ModelCardVersion?: number;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelCardProcessingStatus = {
-  CONTENT_DELETED: "ContentDeleted",
-  DELETE_COMPLETED: "DeleteCompleted",
-  DELETE_FAILED: "DeleteFailed",
-  DELETE_INPROGRESS: "DeleteInProgress",
-  DELETE_PENDING: "DeletePending",
-  EXPORTJOBS_DELETED: "ExportJobsDeleted",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
 
 /**
  * @internal

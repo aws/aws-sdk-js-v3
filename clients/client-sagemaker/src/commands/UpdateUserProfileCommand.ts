@@ -220,6 +220,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  *       ],
  *     },
+ *     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  *   },
  * };
  * const command = new UpdateUserProfileCommand(input);

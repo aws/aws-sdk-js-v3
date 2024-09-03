@@ -235,6 +235,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  * //       ],
  * //     },
+ * //     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  * //   },
  * //   DomainSettings: { // DomainSettings
  * //     SecurityGroupIds: [ // DomainSecurityGroupIds

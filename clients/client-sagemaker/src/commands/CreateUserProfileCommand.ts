@@ -234,6 +234,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  *       ],
  *     },
+ *     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  *   },
  * };
  * const command = new CreateUserProfileCommand(input);

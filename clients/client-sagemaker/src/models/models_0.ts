@@ -7409,6 +7409,21 @@ export const AutoMLSortOrder = {
 export type AutoMLSortOrder = (typeof AutoMLSortOrder)[keyof typeof AutoMLSortOrder];
 
 /**
+ * @public
+ * @enum
+ */
+export const AutoMountHomeEFS = {
+  DEFAULT_AS_DOMAIN: "DefaultAsDomain",
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMountHomeEFS = (typeof AutoMountHomeEFS)[keyof typeof AutoMountHomeEFS];
+
+/**
  * <p>The name and an example value of the hyperparameter that you want to use in Autotune.
  *             If Automatic model tuning (AMT) determines that your hyperparameter is eligible for
  *             Autotune, an optimal hyperparameter range is selected for you.</p>
@@ -10336,7 +10351,8 @@ export interface ContainerDefinition {
   AdditionalModelDataSources?: AdditionalModelDataSource[];
 
   /**
-   * <p>The environment variables to set in the Docker container.</p>
+   * <p>The environment variables to set in the Docker container. Don't include any
+   *         sensitive data in your environment variables.</p>
    *          <p>The maximum length of each key and value in the <code>Environment</code> map is
    *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
    *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum
@@ -11275,15 +11291,4 @@ export interface CreateAutoMLJobRequest {
    * @public
    */
   ModelDeployConfig?: ModelDeployConfig;
-}
-
-/**
- * @public
- */
-export interface CreateAutoMLJobResponse {
-  /**
-   * <p>The unique ARN assigned to the AutoML job when it is created.</p>
-   * @public
-   */
-  AutoMLJobArn: string | undefined;
 }

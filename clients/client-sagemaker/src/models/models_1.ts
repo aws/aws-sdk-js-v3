@@ -17,6 +17,7 @@ import {
   AutoMLOutputDataConfig,
   AutoMLProblemTypeConfig,
   AutoMLSecurityConfig,
+  AutoMountHomeEFS,
   AutoParameter,
   AutoRollbackConfig,
   Autotune,
@@ -73,6 +74,17 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobResponse {
+  /**
+   * <p>The unique ARN assigned to the AutoML job when it is created.</p>
+   * @public
+   */
+  AutoMLJobArn: string | undefined;
+}
 
 /**
  * @public
@@ -2512,6 +2524,12 @@ export interface UserSettings {
    * @public
    */
   StudioWebPortalSettings?: StudioWebPortalSettings;
+
+  /**
+   * <p>Indicates whether auto-mounting of an EFS volume is supported for the user profile. The <code>DefaultAsDomain</code> value is only supported for user profiles. Do not use the <code>DefaultAsDomain</code> value when setting this parameter for a domain.</p>
+   * @public
+   */
+  AutoMountHomeEFS?: AutoMountHomeEFS;
 }
 
 /**
@@ -12815,20 +12833,6 @@ export const RedshiftResultCompressionType = {
  */
 export type RedshiftResultCompressionType =
   (typeof RedshiftResultCompressionType)[keyof typeof RedshiftResultCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const RedshiftResultFormat = {
-  CSV: "CSV",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type RedshiftResultFormat = (typeof RedshiftResultFormat)[keyof typeof RedshiftResultFormat];
 
 /**
  * @internal

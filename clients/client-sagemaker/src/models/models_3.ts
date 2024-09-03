@@ -149,7 +149,6 @@ import {
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
-  ModelCardProcessingStatus,
   ModelClientConfig,
   ModelConfiguration,
   NotificationConfiguration,
@@ -182,6 +181,24 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardProcessingStatus = {
+  CONTENT_DELETED: "ContentDeleted",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_INPROGRESS: "DeleteInProgress",
+  DELETE_PENDING: "DeletePending",
+  EXPORTJOBS_DELETED: "ExportJobsDeleted",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
 
 /**
  * @public
@@ -11529,61 +11546,6 @@ export const ModelCardVersionSortBy = {
  * @public
  */
 export type ModelCardVersionSortBy = (typeof ModelCardVersionSortBy)[keyof typeof ModelCardVersionSortBy];
-
-/**
- * @public
- */
-export interface ListModelCardVersionsRequest {
-  /**
-   * <p>Only list model card versions that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Only list model card versions that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of model card versions to list.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>List model card versions for the model card with the specified name or Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>Only list model card versions with the specified approval status.</p>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of model card
-   *          versions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Sort listed model card versions by version. Sorts by version by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardVersionSortBy;
-
-  /**
-   * <p>Sort model card versions by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardSortOrder;
-}
 
 /**
  * @internal

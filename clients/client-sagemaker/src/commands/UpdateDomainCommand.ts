@@ -219,6 +219,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  *       ],
  *     },
+ *     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate
  *     RStudioServerProDomainSettingsForUpdate: { // RStudioServerProDomainSettingsForUpdate

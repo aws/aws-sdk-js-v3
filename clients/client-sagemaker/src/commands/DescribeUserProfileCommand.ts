@@ -234,6 +234,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * //         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  * //       ],
  * //     },
+ * //     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  * //   },
  * // };
  *

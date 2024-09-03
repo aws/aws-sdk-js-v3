@@ -263,6 +263,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  *       ],
  *     },
+ *     AutoMountHomeEFS: "Enabled" || "Disabled" || "DefaultAsDomain",
  *   },
  *   DomainSettings: { // DomainSettings
  *     SecurityGroupIds: [ // DomainSecurityGroupIds

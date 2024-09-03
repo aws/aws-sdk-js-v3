@@ -1041,7 +1041,6 @@ import {
   CreateArtifactRequest,
   CreateArtifactResponse,
   CreateAutoMLJobRequest,
-  CreateAutoMLJobResponse,
   CustomImage,
   DataSource,
   DirectDeploySettings,
@@ -1127,6 +1126,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateAutoMLJobResponse,
   CreateAutoMLJobV2Request,
   CreateAutoMLJobV2Response,
   CreateClusterRequest,
@@ -1846,7 +1846,6 @@ import {
   ListModelCardExportJobsResponse,
   ListModelCardsRequest,
   ListModelCardsResponse,
-  ListModelCardVersionsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1887,6 +1886,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelCardVersionsRequest,
   ListModelCardVersionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
@@ -29975,6 +29975,7 @@ const de_UserProfileList = (output: any, context: __SerdeContext): UserProfileDe
  */
 const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return take(output, {
+    AutoMountHomeEFS: __expectString,
     CanvasAppSettings: (_: any) => de_CanvasAppSettings(_, context),
     CodeEditorAppSettings: (_: any) => de_CodeEditorAppSettings(_, context),
     CustomFileSystemConfigs: (_: any) => de_CustomFileSystemConfigs(_, context),
