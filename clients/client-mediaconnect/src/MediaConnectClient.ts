@@ -81,6 +81,10 @@ import {
   DescribeFlowSourceMetadataCommandInput,
   DescribeFlowSourceMetadataCommandOutput,
 } from "./commands/DescribeFlowSourceMetadataCommand";
+import {
+  DescribeFlowSourceThumbnailCommandInput,
+  DescribeFlowSourceThumbnailCommandOutput,
+} from "./commands/DescribeFlowSourceThumbnailCommand";
 import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "./commands/DescribeGatewayCommand";
 import {
   DescribeGatewayInstanceCommandInput,
@@ -180,6 +184,7 @@ export type ServiceInputTypes =
   | DescribeBridgeCommandInput
   | DescribeFlowCommandInput
   | DescribeFlowSourceMetadataCommandInput
+  | DescribeFlowSourceThumbnailCommandInput
   | DescribeGatewayCommandInput
   | DescribeGatewayInstanceCommandInput
   | DescribeOfferingCommandInput
@@ -236,6 +241,7 @@ export type ServiceOutputTypes =
   | DescribeBridgeCommandOutput
   | DescribeFlowCommandOutput
   | DescribeFlowSourceMetadataCommandOutput
+  | DescribeFlowSourceThumbnailCommandOutput
   | DescribeGatewayCommandOutput
   | DescribeGatewayInstanceCommandOutput
   | DescribeOfferingCommandOutput

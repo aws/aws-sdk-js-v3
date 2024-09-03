@@ -333,6 +333,14 @@ DescribeFlowSourceMetadata
 </details>
 <details>
 <summary>
+DescribeFlowSourceThumbnail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconnect/command/DescribeFlowSourceThumbnailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceThumbnailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceThumbnailCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeGateway
 </summary>
 

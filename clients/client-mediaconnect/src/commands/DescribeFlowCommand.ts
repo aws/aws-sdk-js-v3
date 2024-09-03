@@ -315,6 +315,9 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //       MaintenanceScheduledDate: "STRING_VALUE",
  * //       MaintenanceStartHour: "STRING_VALUE",
  * //     },
+ * //     SourceMonitoringConfig: { // MonitoringConfig
+ * //       ThumbnailState: "ENABLED" || "DISABLED",
+ * //     },
  * //   },
  * //   Messages: { // Messages
  * //     Errors: "<__listOf__string>", // required

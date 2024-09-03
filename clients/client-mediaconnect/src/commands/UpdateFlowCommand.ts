@@ -50,6 +50,9 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *     MaintenanceScheduledDate: "STRING_VALUE",
  *     MaintenanceStartHour: "STRING_VALUE",
  *   },
+ *   SourceMonitoringConfig: { // MonitoringConfig
+ *     ThumbnailState: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);
@@ -327,6 +330,9 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //       MaintenanceDeadline: "STRING_VALUE",
  * //       MaintenanceScheduledDate: "STRING_VALUE",
  * //       MaintenanceStartHour: "STRING_VALUE",
+ * //     },
+ * //     SourceMonitoringConfig: { // MonitoringConfig
+ * //       ThumbnailState: "ENABLED" || "DISABLED",
  * //     },
  * //   },
  * // };

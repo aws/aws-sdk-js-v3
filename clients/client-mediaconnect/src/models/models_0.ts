@@ -3201,6 +3201,32 @@ export class CreateFlow420Exception extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ThumbnailState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
+
+/**
+ * The settings for source monitoring.
+ * @public
+ */
+export interface MonitoringConfig {
+  /**
+   * The state of thumbnail monitoring.
+   * @public
+   */
+  ThumbnailState?: ThumbnailState;
+}
+
+/**
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  * @public
  */
@@ -3259,6 +3285,12 @@ export interface CreateFlowRequest {
    * @public
    */
   Maintenance?: AddMaintenance;
+
+  /**
+   * The settings for source monitoring.
+   * @public
+   */
+  SourceMonitoringConfig?: MonitoringConfig;
 }
 
 /**
@@ -3344,6 +3376,12 @@ export interface Flow {
    * @public
    */
   Maintenance?: Maintenance;
+
+  /**
+   * The settings for source monitoring.
+   * @public
+   */
+  SourceMonitoringConfig?: MonitoringConfig;
 }
 
 /**
@@ -3673,6 +3711,64 @@ export interface DescribeFlowSourceMetadataResponse {
    * @public
    */
   TransportMediaInfo?: TransportMediaInfo;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceThumbnailRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the flow.
+   * @public
+   */
+  FlowArn: string | undefined;
+}
+
+/**
+ * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+ * @public
+ */
+export interface ThumbnailDetails {
+  /**
+   * The ARN of the flow that DescribeFlowSourceThumbnail was performed on.
+   * @public
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * Thumbnail Base64 string.
+   * @public
+   */
+  Thumbnail?: string;
+
+  /**
+   * Status code and messages about the flow source thumbnail.
+   * @public
+   */
+  ThumbnailMessages: MessageDetail[] | undefined;
+
+  /**
+   * Timecode of thumbnail.
+   * @public
+   */
+  Timecode?: string;
+
+  /**
+   * The timestamp of when thumbnail was generated.
+   * @public
+   */
+  Timestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceThumbnailResponse {
+  /**
+   * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+   * @public
+   */
+  ThumbnailDetails?: ThumbnailDetails;
 }
 
 /**
@@ -4846,6 +4942,12 @@ export interface UpdateFlowRequest {
    * @public
    */
   Maintenance?: UpdateMaintenance;
+
+  /**
+   * The settings for source monitoring.
+   * @public
+   */
+  SourceMonitoringConfig?: MonitoringConfig;
 }
 
 /**

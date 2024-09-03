@@ -75,6 +75,11 @@ import {
   DescribeFlowSourceMetadataCommandOutput,
 } from "./commands/DescribeFlowSourceMetadataCommand";
 import {
+  DescribeFlowSourceThumbnailCommand,
+  DescribeFlowSourceThumbnailCommandInput,
+  DescribeFlowSourceThumbnailCommandOutput,
+} from "./commands/DescribeFlowSourceThumbnailCommand";
+import {
   DescribeGatewayCommand,
   DescribeGatewayCommandInput,
   DescribeGatewayCommandOutput,
@@ -244,6 +249,7 @@ const commands = {
   DescribeBridgeCommand,
   DescribeFlowCommand,
   DescribeFlowSourceMetadataCommand,
+  DescribeFlowSourceThumbnailCommand,
   DescribeGatewayCommand,
   DescribeGatewayInstanceCommand,
   DescribeOfferingCommand,
@@ -501,6 +507,23 @@ export interface MediaConnect {
     args: DescribeFlowSourceMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFlowSourceMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFlowSourceThumbnailCommand}
+   */
+  describeFlowSourceThumbnail(
+    args: DescribeFlowSourceThumbnailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowSourceThumbnailCommandOutput>;
+  describeFlowSourceThumbnail(
+    args: DescribeFlowSourceThumbnailCommandInput,
+    cb: (err: any, data?: DescribeFlowSourceThumbnailCommandOutput) => void
+  ): void;
+  describeFlowSourceThumbnail(
+    args: DescribeFlowSourceThumbnailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowSourceThumbnailCommandOutput) => void
   ): void;
 
   /**

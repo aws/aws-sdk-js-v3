@@ -53,6 +53,10 @@ import {
   DescribeFlowSourceMetadataCommandInput,
   DescribeFlowSourceMetadataCommandOutput,
 } from "../commands/DescribeFlowSourceMetadataCommand";
+import {
+  DescribeFlowSourceThumbnailCommandInput,
+  DescribeFlowSourceThumbnailCommandOutput,
+} from "../commands/DescribeFlowSourceThumbnailCommand";
 import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "../commands/DescribeGatewayCommand";
 import {
   DescribeGatewayInstanceCommandInput,
@@ -186,6 +190,7 @@ import {
   MediaStreamSourceConfigurationRequest,
   MessageDetail,
   Messages,
+  MonitoringConfig,
   NotFoundException,
   Offering,
   Output,
@@ -196,6 +201,7 @@ import {
   SetSourceRequest,
   Source,
   SourcePriority,
+  ThumbnailDetails,
   TooManyRequestsException,
   Transport,
   TransportMediaInfo,
@@ -404,6 +410,7 @@ export const se_CreateFlowCommand = async (
       outputs: [, (_) => se___listOfAddOutputRequest(_, context), `Outputs`],
       source: [, (_) => se_SetSourceRequest(_, context), `Source`],
       sourceFailoverConfig: [, (_) => se_FailoverConfig(_, context), `SourceFailoverConfig`],
+      sourceMonitoringConfig: [, (_) => se_MonitoringConfig(_, context), `SourceMonitoringConfig`],
       sources: [, (_) => se___listOfSetSourceRequest(_, context), `Sources`],
       vpcInterfaces: [, (_) => se___listOfVpcInterfaceRequest(_, context), `VpcInterfaces`],
     })
@@ -545,6 +552,22 @@ export const se_DescribeFlowSourceMetadataCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v1/flows/{FlowArn}/source-metadata");
+  b.p("FlowArn", () => input.FlowArn!, "{FlowArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeFlowSourceThumbnailCommand
+ */
+export const se_DescribeFlowSourceThumbnailCommand = async (
+  input: DescribeFlowSourceThumbnailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/flows/{FlowArn}/source-thumbnail");
   b.p("FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -1124,6 +1147,7 @@ export const se_UpdateFlowCommand = async (
     take(input, {
       maintenance: [, (_) => se_UpdateMaintenance(_, context), `Maintenance`],
       sourceFailoverConfig: [, (_) => se_UpdateFailoverConfig(_, context), `SourceFailoverConfig`],
+      sourceMonitoringConfig: [, (_) => se_MonitoringConfig(_, context), `SourceMonitoringConfig`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1639,6 +1663,27 @@ export const de_DescribeFlowSourceMetadataCommand = async (
     Messages: [, (_) => de___listOfMessageDetail(_, context), `messages`],
     Timestamp: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `timestamp`],
     TransportMediaInfo: [, (_) => de_TransportMediaInfo(_, context), `transportMediaInfo`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeFlowSourceThumbnailCommand
+ */
+export const de_DescribeFlowSourceThumbnailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlowSourceThumbnailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ThumbnailDetails: [, (_) => de_ThumbnailDetails(_, context), `thumbnailDetails`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3108,6 +3153,15 @@ const se_MediaStreamSourceConfigurationRequest = (
 };
 
 /**
+ * serializeAws_restJson1MonitoringConfig
+ */
+const se_MonitoringConfig = (input: MonitoringConfig, context: __SerdeContext): any => {
+  return take(input, {
+    thumbnailState: [, , `ThumbnailState`],
+  });
+};
+
+/**
  * serializeAws_restJson1SetGatewayBridgeSourceRequest
  */
 const se_SetGatewayBridgeSourceRequest = (input: SetGatewayBridgeSourceRequest, context: __SerdeContext): any => {
@@ -3742,6 +3796,7 @@ const de_Flow = (output: any, context: __SerdeContext): Flow => {
     Outputs: [, (_: any) => de___listOfOutput(_, context), `outputs`],
     Source: [, (_: any) => de_Source(_, context), `source`],
     SourceFailoverConfig: [, (_: any) => de_FailoverConfig(_, context), `sourceFailoverConfig`],
+    SourceMonitoringConfig: [, (_: any) => de_MonitoringConfig(_, context), `sourceMonitoringConfig`],
     Sources: [, (_: any) => de___listOfSource(_, context), `sources`],
     Status: [, __expectString, `status`],
     VpcInterfaces: [, (_: any) => de___listOfVpcInterface(_, context), `vpcInterfaces`],
@@ -4002,6 +4057,15 @@ const de_Messages = (output: any, context: __SerdeContext): Messages => {
 };
 
 /**
+ * deserializeAws_restJson1MonitoringConfig
+ */
+const de_MonitoringConfig = (output: any, context: __SerdeContext): MonitoringConfig => {
+  return take(output, {
+    ThumbnailState: [, __expectString, `thumbnailState`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Offering
  */
 const de_Offering = (output: any, context: __SerdeContext): Offering => {
@@ -4109,6 +4173,19 @@ const de_Source = (output: any, context: __SerdeContext): Source => {
 const de_SourcePriority = (output: any, context: __SerdeContext): SourcePriority => {
   return take(output, {
     PrimarySource: [, __expectString, `primarySource`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ThumbnailDetails
+ */
+const de_ThumbnailDetails = (output: any, context: __SerdeContext): ThumbnailDetails => {
+  return take(output, {
+    FlowArn: [, __expectString, `flowArn`],
+    Thumbnail: [, __expectString, `thumbnail`],
+    ThumbnailMessages: [, (_: any) => de___listOfMessageDetail(_, context), `thumbnailMessages`],
+    Timecode: [, __expectString, `timecode`],
+    Timestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `timestamp`],
   }) as any;
 };
 

@@ -257,6 +257,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *     MaintenanceStartHour: "STRING_VALUE", // required
  *   },
+ *   SourceMonitoringConfig: { // MonitoringConfig
+ *     ThumbnailState: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);
@@ -534,6 +537,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //       MaintenanceDeadline: "STRING_VALUE",
  * //       MaintenanceScheduledDate: "STRING_VALUE",
  * //       MaintenanceStartHour: "STRING_VALUE",
+ * //     },
+ * //     SourceMonitoringConfig: { // MonitoringConfig
+ * //       ThumbnailState: "ENABLED" || "DISABLED",
  * //     },
  * //   },
  * // };
