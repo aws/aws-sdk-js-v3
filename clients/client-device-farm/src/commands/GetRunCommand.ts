@@ -176,7 +176,6 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * {
  *   "run": {
  *     "name": "My Test Run",
- *     "type": "BUILTIN_EXPLORER",
  *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/0fcac17b-6122-44d7-ae5a-12345EXAMPLE",
  *     "billingMethod": "METERED",
  *     "completedJobs": 0,
