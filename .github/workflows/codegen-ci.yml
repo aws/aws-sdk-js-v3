@@ -3,8 +3,12 @@ name: codegen-ci
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'codegen/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'codegen/**'
 
 jobs:
   build:
