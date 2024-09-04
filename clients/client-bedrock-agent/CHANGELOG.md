@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for user metadata inside PromptVariant. ([bf60228](https://github.com/aws/aws-sdk-js-v3/commit/bf60228f97c615cef5e6c235c6d4334eb62d68ba))
+
+
+
+
+
 # [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
 
 

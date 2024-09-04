@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+
+### Features
+
+* **client-appsync:** Adds new logging levels (INFO and DEBUG) for additional log output control ([3d2c2fa](https://github.com/aws/aws-sdk-js-v3/commit/3d2c2fa67704c2f5bc8ec885b359256f8ba781b0))
+* **client-bedrock-agent:** Add support for user metadata inside PromptVariant. ([bf60228](https://github.com/aws/aws-sdk-js-v3/commit/bf60228f97c615cef5e6c235c6d4334eb62d68ba))
+* **client-cloudwatch-logs:** Update to support new APIs for delivery of logs from AWS services. ([107033b](https://github.com/aws/aws-sdk-js-v3/commit/107033b0e928fe5e2ab240afe174b0ee4614b046))
+* **client-fis:** This release adds safety levers, a new mechanism to stop all running experiments and prevent new experiments from starting. ([f71b730](https://github.com/aws/aws-sdk-js-v3/commit/f71b7307f23325cebd2779af15891cd00bec8aa4))
+* **client-s3-control:** Amazon Simple Storage Service /S3 Access Grants / Features : This release launches new Access Grants API - ListCallerAccessGrants. ([157b80b](https://github.com/aws/aws-sdk-js-v3/commit/157b80b62fa1cc6c286f9c76e7ceabb06946b904))
+
+
+
+
+
 # [3.644.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.643.0...v3.644.0) (2024-09-03)
 
 
