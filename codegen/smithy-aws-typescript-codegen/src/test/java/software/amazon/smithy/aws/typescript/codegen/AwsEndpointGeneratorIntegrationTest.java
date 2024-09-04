@@ -9,7 +9,7 @@ import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptServerCodegenPlugin;
 
 public class AwsEndpointGeneratorIntegrationTest {
@@ -31,7 +31,7 @@ public class AwsEndpointGeneratorIntegrationTest {
                                   .withMember("packageVersion", Node.from("1.0.0"))
                                   .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertTrue(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/endpoints.ts").isPresent());
     }
@@ -54,7 +54,7 @@ public class AwsEndpointGeneratorIntegrationTest {
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertFalse(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/endpoints.ts").isPresent());
     }

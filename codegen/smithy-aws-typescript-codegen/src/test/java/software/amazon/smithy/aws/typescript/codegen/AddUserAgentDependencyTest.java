@@ -10,7 +10,7 @@ import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 
 public class AddUserAgentDependencyTest {
     @Test
@@ -31,7 +31,7 @@ public class AddUserAgentDependencyTest {
                                   .withMember("packageVersion", Node.from("1.0.0"))
                                   .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
@@ -72,7 +72,7 @@ public class AddUserAgentDependencyTest {
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
