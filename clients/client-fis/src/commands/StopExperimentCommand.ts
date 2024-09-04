@@ -47,7 +47,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * //     experimentTemplateId: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE",
  * //     state: { // ExperimentState
- * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed" || "cancelled",
  * //       reason: "STRING_VALUE",
  * //       error: { // ExperimentError
  * //         accountId: "STRING_VALUE",

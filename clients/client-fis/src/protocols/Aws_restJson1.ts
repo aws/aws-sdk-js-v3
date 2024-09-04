@@ -51,6 +51,7 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "../commands/GetExperimentTemplateCommand";
+import { GetSafetyLeverCommandInput, GetSafetyLeverCommandOutput } from "../commands/GetSafetyLeverCommand";
 import {
   GetTargetAccountConfigurationCommandInput,
   GetTargetAccountConfigurationCommandOutput,
@@ -94,6 +95,10 @@ import {
   UpdateExperimentTemplateCommandOutput,
 } from "../commands/UpdateExperimentTemplateCommand";
 import {
+  UpdateSafetyLeverStateCommandInput,
+  UpdateSafetyLeverStateCommandOutput,
+} from "../commands/UpdateSafetyLeverStateCommand";
+import {
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
 } from "../commands/UpdateTargetAccountConfigurationCommand";
@@ -121,6 +126,7 @@ import {
   UpdateExperimentTemplateLogConfigurationInput,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
+  UpdateSafetyLeverStateInput,
   ValidationException,
 } from "../models/models_0";
 
@@ -272,6 +278,22 @@ export const se_GetExperimentTemplateCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/experimentTemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSafetyLeverCommand
+ */
+export const se_GetSafetyLeverCommand = async (
+  input: GetSafetyLeverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/safetyLevers/{id}");
   b.p("id", () => input.id!, "{id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -577,6 +599,29 @@ export const se_UpdateExperimentTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateSafetyLeverStateCommand
+ */
+export const se_UpdateSafetyLeverStateCommand = async (
+  input: UpdateSafetyLeverStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/safetyLevers/{id}/state");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      state: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateTargetAccountConfigurationCommand
  */
 export const se_UpdateTargetAccountConfigurationCommand = async (
@@ -764,6 +809,27 @@ export const de_GetExperimentTemplateCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     experimentTemplate: (_) => de_ExperimentTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSafetyLeverCommand
+ */
+export const de_GetSafetyLeverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSafetyLeverCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    safetyLever: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1084,6 +1150,27 @@ export const de_UpdateExperimentTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSafetyLeverStateCommand
+ */
+export const de_UpdateSafetyLeverStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSafetyLeverStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    safetyLever: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateTargetAccountConfigurationCommand
  */
 export const de_UpdateTargetAccountConfigurationCommand = async (
@@ -1266,6 +1353,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_UpdateExperimentTemplateTargetInput omitted.
 
 // se_UpdateExperimentTemplateTargetInputMap omitted.
+
+// se_UpdateSafetyLeverStateInput omitted.
 
 // de_Action omitted.
 
@@ -1488,6 +1577,10 @@ const de_ExperimentTemplateSummaryList = (output: any, context: __SerdeContext):
 // de_ResolvedTargetList omitted.
 
 // de_ResourceArnList omitted.
+
+// de_SafetyLever omitted.
+
+// de_SafetyLeverState omitted.
 
 // de_TagMap omitted.
 

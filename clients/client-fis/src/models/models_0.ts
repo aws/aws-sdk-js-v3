@@ -1103,6 +1103,7 @@ export interface ExperimentError {
  * @enum
  */
 export const ExperimentStatus = {
+  cancelled: "cancelled",
   completed: "completed",
   failed: "failed",
   initiating: "initiating",
@@ -1545,6 +1546,103 @@ export interface GetExperimentTemplateResponse {
    * @public
    */
   experimentTemplate?: ExperimentTemplate;
+}
+
+/**
+ * @public
+ */
+export interface GetSafetyLeverRequest {
+  /**
+   * <p>
+   *         The ID of the safety lever.
+   *       </p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SafetyLeverStatus = {
+  DISENGAGED: "disengaged",
+  ENGAGED: "engaged",
+  ENGAGING: "engaging",
+} as const;
+
+/**
+ * @public
+ */
+export type SafetyLeverStatus = (typeof SafetyLeverStatus)[keyof typeof SafetyLeverStatus];
+
+/**
+ * <p>
+ *         Describes the state of the safety lever.
+ *       </p>
+ * @public
+ */
+export interface SafetyLeverState {
+  /**
+   * <p>
+   *          The state of the safety lever.
+   *       </p>
+   * @public
+   */
+  status?: SafetyLeverStatus;
+
+  /**
+   * <p>
+   *        The reason for the state of the safety lever.
+   *       </p>
+   * @public
+   */
+  reason?: string;
+}
+
+/**
+ * <p>
+ *         Describes a safety lever.
+ *       </p>
+ * @public
+ */
+export interface SafetyLever {
+  /**
+   * <p>
+   *       The ID of the safety lever.
+   *       </p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>
+   *      The Amazon Resource Name (ARN) of the safety lever.
+   *       </p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *         The state of the safety lever.
+   *       </p>
+   * @public
+   */
+  state?: SafetyLeverState;
+}
+
+/**
+ * @public
+ */
+export interface GetSafetyLeverResponse {
+  /**
+   * <p>
+   *       Information about the safety lever.
+   *       </p>
+   * @public
+   */
+  safetyLever?: SafetyLever;
 }
 
 /**
@@ -2309,6 +2407,78 @@ export interface UpdateExperimentTemplateResponse {
    * @public
    */
   experimentTemplate?: ExperimentTemplate;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SafetyLeverStatusInput = {
+  DISENGAGED: "disengaged",
+  ENGAGED: "engaged",
+} as const;
+
+/**
+ * @public
+ */
+export type SafetyLeverStatusInput = (typeof SafetyLeverStatusInput)[keyof typeof SafetyLeverStatusInput];
+
+/**
+ * <p>
+ *         Specifies a state for a safety lever.
+ *       </p>
+ * @public
+ */
+export interface UpdateSafetyLeverStateInput {
+  /**
+   * <p>
+   *        The updated state of the safety lever.
+   *       </p>
+   * @public
+   */
+  status: SafetyLeverStatusInput | undefined;
+
+  /**
+   * <p>
+   *        The reason for updating the state of the safety lever.
+   *       </p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSafetyLeverStateRequest {
+  /**
+   * <p>
+   *          The ID of the safety lever.
+   *       </p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>
+   *        The state of the safety lever.
+   *       </p>
+   * @public
+   */
+  state: UpdateSafetyLeverStateInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSafetyLeverStateResponse {
+  /**
+   * <p>
+   *          Information about the safety lever.
+   *       </p>
+   * @public
+   */
+  safetyLever?: SafetyLever;
 }
 
 /**

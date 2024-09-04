@@ -79,6 +79,7 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
+import { GetSafetyLeverCommandInput, GetSafetyLeverCommandOutput } from "./commands/GetSafetyLeverCommand";
 import {
   GetTargetAccountConfigurationCommandInput,
   GetTargetAccountConfigurationCommandOutput,
@@ -122,6 +123,10 @@ import {
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
 import {
+  UpdateSafetyLeverStateCommandInput,
+  UpdateSafetyLeverStateCommandOutput,
+} from "./commands/UpdateSafetyLeverStateCommand";
+import {
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
 } from "./commands/UpdateTargetAccountConfigurationCommand";
@@ -148,6 +153,7 @@ export type ServiceInputTypes =
   | GetExperimentCommandInput
   | GetExperimentTargetAccountConfigurationCommandInput
   | GetExperimentTemplateCommandInput
+  | GetSafetyLeverCommandInput
   | GetTargetAccountConfigurationCommandInput
   | GetTargetResourceTypeCommandInput
   | ListActionsCommandInput
@@ -163,6 +169,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateExperimentTemplateCommandInput
+  | UpdateSafetyLeverStateCommandInput
   | UpdateTargetAccountConfigurationCommandInput;
 
 /**
@@ -177,6 +184,7 @@ export type ServiceOutputTypes =
   | GetExperimentCommandOutput
   | GetExperimentTargetAccountConfigurationCommandOutput
   | GetExperimentTemplateCommandOutput
+  | GetSafetyLeverCommandOutput
   | GetTargetAccountConfigurationCommandOutput
   | GetTargetResourceTypeCommandOutput
   | ListActionsCommandOutput
@@ -192,6 +200,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateExperimentTemplateCommandOutput
+  | UpdateSafetyLeverStateCommandOutput
   | UpdateTargetAccountConfigurationCommandOutput;
 
 /**

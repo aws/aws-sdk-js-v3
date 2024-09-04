@@ -270,6 +270,14 @@ GetExperimentTemplate
 </details>
 <details>
 <summary>
+GetSafetyLever
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetSafetyLeverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetSafetyLeverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetSafetyLeverCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTargetAccountConfiguration
 </summary>
 
@@ -386,6 +394,14 @@ UpdateExperimentTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSafetyLeverState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateSafetyLeverStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateSafetyLeverStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateSafetyLeverStateCommandOutput/)
 
 </details>
 <details>
