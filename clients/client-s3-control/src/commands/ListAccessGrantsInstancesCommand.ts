@@ -58,6 +58,8 @@ export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrants
  * //       AccessGrantsInstanceArn: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       IdentityCenterArn: "STRING_VALUE",
+ * //       IdentityCenterInstanceArn: "STRING_VALUE",
+ * //       IdentityCenterApplicationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -37,6 +37,10 @@ export interface GetAccessGrantsInstanceCommandOutput extends GetAccessGrantsIns
  *                <p>You must have the <code>s3:GetAccessGrantsInstance</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
+ *          <note>
+ *             <p>
+ *                <code>GetAccessGrantsInstance</code> is not supported for cross-account access. You can only call the API from the account that owns the S3 Access Grants instance.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +56,8 @@ export interface GetAccessGrantsInstanceCommandOutput extends GetAccessGrantsIns
  * //   AccessGrantsInstanceArn: "STRING_VALUE",
  * //   AccessGrantsInstanceId: "STRING_VALUE",
  * //   IdentityCenterArn: "STRING_VALUE",
+ * //   IdentityCenterInstanceArn: "STRING_VALUE",
+ * //   IdentityCenterApplicationArn: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * // };
  *

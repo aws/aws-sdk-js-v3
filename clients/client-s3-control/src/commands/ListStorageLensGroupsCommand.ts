@@ -6,8 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStorageLensGroupsRequest } from "../models/models_0";
-import { ListStorageLensGroupsResult } from "../models/models_1";
+import { ListStorageLensGroupsRequest, ListStorageLensGroupsResult } from "../models/models_1";
 import { de_ListStorageLensGroupsCommand, se_ListStorageLensGroupsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 

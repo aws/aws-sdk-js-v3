@@ -64,6 +64,8 @@ export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGra
  * //   AccessGrantsInstanceId: "STRING_VALUE",
  * //   AccessGrantsInstanceArn: "STRING_VALUE",
  * //   IdentityCenterArn: "STRING_VALUE",
+ * //   IdentityCenterInstanceArn: "STRING_VALUE",
+ * //   IdentityCenterApplicationArn: "STRING_VALUE",
  * // };
  *
  * ```

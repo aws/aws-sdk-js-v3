@@ -68,10 +68,24 @@ export interface ListAccessGrantsInstanceEntry {
   CreatedAt?: Date;
 
   /**
+   * @deprecated
+   *
    * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
    * @public
    */
   IdentityCenterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string;
+
+  /**
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   * @public
+   */
+  IdentityCenterApplicationArn?: string;
 }
 
 /**
@@ -312,7 +326,7 @@ export interface AccessPoint {
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
    *          <note>
    *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
-   *                Amazon Web Services.</p>
+   *                Amazon Web Servicesservices.</p>
    *          </note>
    * @public
    */
@@ -586,7 +600,7 @@ export interface AccountLevel {
  */
 export interface AssociateAccessGrantsIdentityCenterRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -698,7 +712,7 @@ export interface PublicAccessBlockConfiguration {
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this
    *          account. Setting this element to <code>TRUE</code> restricts access to buckets with public
-   *          policies to only Amazon Web Service principals and authorized users within this
+   *          policies to only Amazon Web Servicesservice principals and authorized users within this
    *          account.</p>
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
    *          public and cross-account access within any public bucket policy, including non-public
@@ -964,7 +978,7 @@ export interface Tag {
  */
 export interface CreateAccessGrantRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -1105,7 +1119,7 @@ export interface CreateAccessGrantResult {
  */
 export interface CreateAccessGrantsInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -1140,16 +1154,30 @@ export interface CreateAccessGrantsInstanceResult {
   AccessGrantsInstanceId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Access Grants instance. </p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
    * @public
    */
   AccessGrantsInstanceArn?: string;
 
   /**
-   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance passed in the request. S3 Access Grants creates this Identity Center application for this specific S3 Access Grants instance.  </p>
+   * @deprecated
+   *
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
    * @public
    */
   IdentityCenterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string;
+
+  /**
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   * @public
+   */
+  IdentityCenterApplicationArn?: string;
 }
 
 /**
@@ -1157,7 +1185,7 @@ export interface CreateAccessGrantsInstanceResult {
  */
 export interface CreateAccessGrantsLocationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -1834,21 +1862,21 @@ export interface JobManifest {
 export interface KeyNameConstraint {
   /**
    * <p>If provided, the generated manifest includes objects where the specified string appears
-   *          at the start of the object key string.</p>
+   *          at the start of the object key string. Each KeyNameConstraint filter accepts an array of strings with a length of 1 string.</p>
    * @public
    */
   MatchAnyPrefix?: string[];
 
   /**
    * <p>If provided, the generated manifest includes objects where the specified string appears
-   *          at the end of the object key string.</p>
+   *          at the end of the object key string. Each KeyNameConstraint filter accepts an array of strings with a length of 1 string.</p>
    * @public
    */
   MatchAnySuffix?: string[];
 
   /**
    * <p>If provided, the generated manifest includes objects where the specified string appears
-   *          anywhere within the object key string.</p>
+   *          anywhere within the object key string. Each KeyNameConstraint filter accepts an array of strings with a length of 1 string.</p>
    * @public
    */
   MatchAnySubstring?: string[];
@@ -2059,7 +2087,7 @@ export interface S3JobManifestGenerator {
   ExpectedBucketOwner?: string;
 
   /**
-   * <p>The source bucket used by the ManifestGenerator.</p>
+   * <p>The ARN of the source bucket used by the ManifestGenerator.</p>
    *          <note>
    *             <p>
    *                <b>Directory buckets</b> - Directory buckets aren't supported
@@ -3535,7 +3563,7 @@ export interface CreateStorageLensGroupRequest {
  */
 export interface DeleteAccessGrantRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -3552,7 +3580,7 @@ export interface DeleteAccessGrantRequest {
  */
 export interface DeleteAccessGrantsInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -3563,7 +3591,7 @@ export interface DeleteAccessGrantsInstanceRequest {
  */
 export interface DeleteAccessGrantsInstanceResourcePolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -3574,7 +3602,7 @@ export interface DeleteAccessGrantsInstanceResourcePolicyRequest {
  */
 export interface DeleteAccessGrantsLocationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4211,7 +4239,7 @@ export interface DescribeMultiRegionAccessPointOperationResult {
  */
 export interface DissociateAccessGrantsIdentityCenterRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4222,7 +4250,7 @@ export interface DissociateAccessGrantsIdentityCenterRequest {
  */
 export interface GetAccessGrantRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4312,7 +4340,7 @@ export interface GetAccessGrantResult {
  */
 export interface GetAccessGrantsInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4335,10 +4363,24 @@ export interface GetAccessGrantsInstanceResult {
   AccessGrantsInstanceId?: string;
 
   /**
-   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   * @deprecated
+   *
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
    * @public
    */
   IdentityCenterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
+   * @public
+   */
+  IdentityCenterInstanceArn?: string;
+
+  /**
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   * @public
+   */
+  IdentityCenterApplicationArn?: string;
 
   /**
    * <p>The date and time when you created the S3 Access Grants instance. </p>
@@ -4386,7 +4428,7 @@ export interface GetAccessGrantsInstanceForPrefixResult {
  */
 export interface GetAccessGrantsInstanceResourcePolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4420,7 +4462,7 @@ export interface GetAccessGrantsInstanceResourcePolicyResult {
  */
 export interface GetAccessGrantsLocationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -4518,7 +4560,7 @@ export interface GetAccessPointResult {
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
    *          <note>
    *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
-   *                Amazon Web Services.</p>
+   *                Amazon Web Servicesservices.</p>
    *          </note>
    * @public
    */
@@ -5199,7 +5241,10 @@ export interface DeleteMarkerReplication {
 
 /**
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
- *          replicated objects.</p>
+ *          replicated objects. If you're specifying a customer managed KMS key, we recommend using a fully qualified
+ *          KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the
+ *          requester’s account. This behavior can result in data that's encrypted with a KMS key
+ *          that belongs to the requester, and not the bucket owner.</p>
  *          <note>
  *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
  *          </note>
@@ -5878,7 +5923,7 @@ export type Privilege = (typeof Privilege)[keyof typeof Privilege];
  */
 export interface GetDataAccessRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -6761,7 +6806,7 @@ export interface GetStorageLensGroupResult {
  */
 export interface ListAccessGrantsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -6859,7 +6904,7 @@ export interface ListAccessGrantsResult {
  */
 export interface ListAccessGrantsInstancesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -6899,7 +6944,7 @@ export interface ListAccessGrantsInstancesResult {
  */
 export interface ListAccessGrantsLocationsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -7066,6 +7111,97 @@ export interface ListAccessPointsForObjectLambdaResult {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCallerAccessGrantsRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The S3 path of the data that you would like to access. Must start with <code>s3://</code>. You can optionally pass only the beginning characters of a path, and S3 Access Grants will search for all applicable grants for the path fragment. </p>
+   * @public
+   */
+  GrantScope?: string;
+
+  /**
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Caller Access Grants</code> request in order to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of access grants that you would like returned in the <code>List Caller Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If this optional parameter is passed in the request, a filter is applied to the results. The results will include only the access grants for the caller's Identity Center application or for any other applications (<code>ALL</code>).</p>
+   * @public
+   */
+  AllowedByApplication?: boolean;
+}
+
+/**
+ * <p>Part of <code>ListCallerAccessGrantsResult</code>. Each entry includes the
+ *          permission level (READ, WRITE, or READWRITE) and the grant scope of the access grant. If the grant also includes an application ARN, the grantee can only access the S3 data through this application.</p>
+ * @public
+ */
+export interface ListCallerAccessGrantsEntry {
+  /**
+   * <p>The type of permission granted, which can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> - Grants read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> - Grants write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> - Grants both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Permission?: Permission;
+
+  /**
+   * <p>The S3 path of the data to which you have been granted access. </p>
+   * @public
+   */
+  GrantScope?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. </p>
+   * @public
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCallerAccessGrantsResult {
+  /**
+   * <p>A pagination token that you can use to request the next page of results. Pass this value into a subsequent <code>List Caller Access Grants</code> request in order to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the caller's access grants that were created using S3 Access Grants and that grant the caller access to the S3 data of the Amazon Web Services account ID that was specified in the request. </p>
+   * @public
+   */
+  CallerAccessGrantsList?: ListCallerAccessGrantsEntry[];
 }
 
 /**
@@ -7389,79 +7525,6 @@ export interface ListStorageLensConfigurationsRequest {
 
   /**
    * <p>A pagination token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Part of <code>ListStorageLensConfigurationResult</code>. Each entry includes the
- *          description of the S3 Storage Lens configuration, its home Region, whether it is enabled, its
- *          Amazon Resource Name (ARN), and config ID.</p>
- * @public
- */
-export interface ListStorageLensConfigurationEntry {
-  /**
-   * <p>A container for the S3 Storage Lens configuration ID.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN of the S3 Storage Lens configuration. This property is read-only.</p>
-   * @public
-   */
-  StorageLensArn: string | undefined;
-
-  /**
-   * <p>A container for the S3 Storage Lens home Region. Your metrics data is stored and retained in
-   *          your designated S3 Storage Lens home Region.</p>
-   * @public
-   */
-  HomeRegion: string | undefined;
-
-  /**
-   * <p>A container for whether the S3 Storage Lens configuration is enabled. This property is
-   *          required.</p>
-   * @public
-   */
-  IsEnabled?: boolean;
-}
-
-/**
- * @public
- */
-export interface ListStorageLensConfigurationsResult {
-  /**
-   * <p>If the request produced more than the maximum number of S3 Storage Lens configuration results,
-   *          you can pass this value into a subsequent request to retrieve the next page of
-   *          results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of S3 Storage Lens configurations.</p>
-   * @public
-   */
-  StorageLensConfigurationList?: ListStorageLensConfigurationEntry[];
-}
-
-/**
- * @public
- */
-export interface ListStorageLensGroupsRequest {
-  /**
-   * <p>
-   *    The Amazon Web Services account ID that owns the Storage Lens groups.
-   * </p>
-   * @public
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> if there are no more results.
-   *    </p>
    * @public
    */
   NextToken?: string;

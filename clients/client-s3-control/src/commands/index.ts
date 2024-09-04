@@ -64,6 +64,7 @@ export * from "./ListAccessGrantsInstancesCommand";
 export * from "./ListAccessGrantsLocationsCommand";
 export * from "./ListAccessPointsCommand";
 export * from "./ListAccessPointsForObjectLambdaCommand";
+export * from "./ListCallerAccessGrantsCommand";
 export * from "./ListJobsCommand";
 export * from "./ListMultiRegionAccessPointsCommand";
 export * from "./ListRegionalBucketsCommand";

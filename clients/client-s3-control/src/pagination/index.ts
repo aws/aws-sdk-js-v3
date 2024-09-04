@@ -5,6 +5,7 @@ export * from "./ListAccessGrantsLocationsPaginator";
 export * from "./ListAccessGrantsPaginator";
 export * from "./ListAccessPointsForObjectLambdaPaginator";
 export * from "./ListAccessPointsPaginator";
+export * from "./ListCallerAccessGrantsPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListMultiRegionAccessPointsPaginator";
 export * from "./ListRegionalBucketsPaginator";

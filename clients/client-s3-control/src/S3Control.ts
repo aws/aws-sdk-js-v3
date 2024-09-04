@@ -315,6 +315,11 @@ import {
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
+import {
+  ListCallerAccessGrantsCommand,
+  ListCallerAccessGrantsCommandInput,
+  ListCallerAccessGrantsCommandOutput,
+} from "./commands/ListCallerAccessGrantsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultiRegionAccessPointsCommand,
@@ -510,6 +515,7 @@ const commands = {
   ListAccessGrantsLocationsCommand,
   ListAccessPointsCommand,
   ListAccessPointsForObjectLambdaCommand,
+  ListCallerAccessGrantsCommand,
   ListJobsCommand,
   ListMultiRegionAccessPointsCommand,
   ListRegionalBucketsCommand,
@@ -1605,6 +1611,24 @@ export interface S3Control {
     args: ListAccessPointsForObjectLambdaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCallerAccessGrantsCommand}
+   */
+  listCallerAccessGrants(): Promise<ListCallerAccessGrantsCommandOutput>;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCallerAccessGrantsCommandOutput>;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    cb: (err: any, data?: ListCallerAccessGrantsCommandOutput) => void
+  ): void;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCallerAccessGrantsCommandOutput) => void
   ): void;
 
   /**

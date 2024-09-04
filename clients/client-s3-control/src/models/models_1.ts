@@ -20,6 +20,79 @@ import {
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
 /**
+ * <p>Part of <code>ListStorageLensConfigurationResult</code>. Each entry includes the
+ *          description of the S3 Storage Lens configuration, its home Region, whether it is enabled, its
+ *          Amazon Resource Name (ARN), and config ID.</p>
+ * @public
+ */
+export interface ListStorageLensConfigurationEntry {
+  /**
+   * <p>A container for the S3 Storage Lens configuration ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN of the S3 Storage Lens configuration. This property is read-only.</p>
+   * @public
+   */
+  StorageLensArn: string | undefined;
+
+  /**
+   * <p>A container for the S3 Storage Lens home Region. Your metrics data is stored and retained in
+   *          your designated S3 Storage Lens home Region.</p>
+   * @public
+   */
+  HomeRegion: string | undefined;
+
+  /**
+   * <p>A container for whether the S3 Storage Lens configuration is enabled. This property is
+   *          required.</p>
+   * @public
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensConfigurationsResult {
+  /**
+   * <p>If the request produced more than the maximum number of S3 Storage Lens configuration results,
+   *          you can pass this value into a subsequent request to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of S3 Storage Lens configurations.</p>
+   * @public
+   */
+  StorageLensConfigurationList?: ListStorageLensConfigurationEntry[];
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensGroupsRequest {
+  /**
+   * <p>
+   *    The Amazon Web Services account ID that owns the Storage Lens groups.
+   * </p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.
+   *    </p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
  * <p>
  * Each entry contains a Storage Lens group that exists in the specified home Region.
  * </p>
@@ -114,7 +187,7 @@ export interface ListTagsForResourceResult {
  */
 export interface PutAccessGrantsInstanceResourcePolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;
@@ -692,7 +765,7 @@ export interface UntagResourceResult {}
  */
 export interface UpdateAccessGrantsLocationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
   AccountId?: string;

@@ -265,6 +265,10 @@ import {
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
+import {
+  ListCallerAccessGrantsCommandInput,
+  ListCallerAccessGrantsCommandOutput,
+} from "./commands/ListCallerAccessGrantsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultiRegionAccessPointsCommandInput,
@@ -429,6 +433,7 @@ export type ServiceInputTypes =
   | ListAccessGrantsLocationsCommandInput
   | ListAccessPointsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
+  | ListCallerAccessGrantsCommandInput
   | ListJobsCommandInput
   | ListMultiRegionAccessPointsCommandInput
   | ListRegionalBucketsCommandInput
@@ -526,6 +531,7 @@ export type ServiceOutputTypes =
   | ListAccessGrantsLocationsCommandOutput
   | ListAccessPointsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
+  | ListCallerAccessGrantsCommandOutput
   | ListJobsCommandOutput
   | ListMultiRegionAccessPointsCommandOutput
   | ListRegionalBucketsCommandOutput
