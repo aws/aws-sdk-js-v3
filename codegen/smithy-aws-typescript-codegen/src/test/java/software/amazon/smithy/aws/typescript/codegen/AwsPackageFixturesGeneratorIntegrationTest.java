@@ -11,7 +11,7 @@ import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptServerCodegenPlugin;
 
 public class AwsPackageFixturesGeneratorIntegrationTest {
@@ -33,7 +33,7 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
                         .build())
                 .build();
 
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertTrue(manifest.hasFile("LICENSE"));
         assertTrue(manifest.hasFile("README.md"));
@@ -64,7 +64,7 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
                         .build())
                 .build();
 
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertTrue(manifest.hasFile("LICENSE"));
         assertTrue(manifest.hasFile(".gitignore"));

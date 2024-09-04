@@ -10,7 +10,7 @@ import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 
 public class AddAwsAuthPluginTest {
     @Test
@@ -32,7 +32,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
@@ -70,7 +70,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
@@ -108,7 +108,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
