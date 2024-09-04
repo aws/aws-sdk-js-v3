@@ -73,6 +73,14 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * const input = { // CreateDeliveryRequest
  *   deliverySourceName: "STRING_VALUE", // required
  *   deliveryDestinationArn: "STRING_VALUE", // required
+ *   recordFields: [ // RecordFields
+ *     "STRING_VALUE",
+ *   ],
+ *   fieldDelimiter: "STRING_VALUE",
+ *   s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ *     suffixPath: "STRING_VALUE",
+ *     enableHiveCompatiblePath: true || false,
+ *   },
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -86,6 +94,14 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * //     deliverySourceName: "STRING_VALUE",
  * //     deliveryDestinationArn: "STRING_VALUE",
  * //     deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //     recordFields: [ // RecordFields
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     fieldDelimiter: "STRING_VALUE",
+ * //     s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ * //       suffixPath: "STRING_VALUE",
+ * //       enableHiveCompatiblePath: true || false,
+ * //     },
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },

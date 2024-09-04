@@ -100,6 +100,28 @@ export interface AccountPolicy {
 }
 
 /**
+ * <p>A structure that represents a valid record field header and whether it is mandatory.</p>
+ * @public
+ */
+export interface RecordField {
+  /**
+   * <p>The name to use when specifying this record field in a
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation. </p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>If this is <code>true</code>, the record field must be present in the <code>recordFields</code> parameter provided to a
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation.</p>
+   * @public
+   */
+  mandatory?: boolean;
+}
+
+/**
  * <p>This structure contains the information for one sample log event that is associated
  *     with an anomaly found by a log anomaly detector.</p>
  * @public
@@ -579,6 +601,160 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  JSON: "json",
+  PARQUET: "parquet",
+  PLAIN: "plain",
+  RAW: "raw",
+  W3C: "w3c",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
+ * @public
+ */
+export interface S3DeliveryConfiguration {
+  /**
+   * <p>This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables
+   *       to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for
+   *       more info on what values are supported in the suffix path for each log source.</p>
+   * @public
+   */
+  suffixPath?: string;
+
+  /**
+   * <p>This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.</p>
+   * @public
+   */
+  enableHiveCompatiblePath?: boolean;
+}
+
+/**
+ * <p>This structure contains the default values that are used for each configuration parameter when you use
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> to create a deliver under the current service type, resource type, and log type.</p>
+ * @public
+ */
+export interface ConfigurationTemplateDeliveryConfigValues {
+  /**
+   * <p>The default record fields that will be delivered when a list of record fields is not provided in
+   *       a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation.</p>
+   * @public
+   */
+  recordFields?: string[];
+
+  /**
+   * <p>The default field delimiter that is used in a  <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation when
+   *       the field delimiter is not specified in that operation. The field delimiter is used only when
+   *       the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string;
+
+  /**
+   * <p>The delivery parameters that are used when you create a delivery to a delivery destination that is an S3 Bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryDestinationType = {
+  CWL: "CWL",
+  FH: "FH",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typeof DeliveryDestinationType];
+
+/**
+ * <p>A structure containing information about the deafult settings and available settings that you can use to configure a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> or a
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeliveryDestination.html">delivery destination</a>.</p>
+ * @public
+ */
+export interface ConfigurationTemplate {
+  /**
+   * <p>A string specifying which service this configuration template applies to. For more information about supported services see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from Amazon Web Services
+   *         services.</a>.</p>
+   * @public
+   */
+  service?: string;
+
+  /**
+   * <p>A string specifying which log type this configuration template applies to.</p>
+   * @public
+   */
+  logType?: string;
+
+  /**
+   * <p>A string specifying which resource type this configuration template applies to.</p>
+   * @public
+   */
+  resourceType?: string;
+
+  /**
+   * <p>A string specifying which destination type this configuration template applies to.</p>
+   * @public
+   */
+  deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * <p>A mapping that displays the default value of each property within a delivery’s configuration,
+   *       if it is not specified in the request.</p>
+   * @public
+   */
+  defaultDeliveryConfigValues?: ConfigurationTemplateDeliveryConfigValues;
+
+  /**
+   * <p>The allowed fields that a caller can use in the <code>recordFields</code> parameter of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a> operation.</p>
+   * @public
+   */
+  allowedFields?: RecordField[];
+
+  /**
+   * <p>The list of delivery destination output formats that are supported by this log source.</p>
+   * @public
+   */
+  allowedOutputFormats?: OutputFormat[];
+
+  /**
+   * <p>The action permissions that a caller needs to have to be able to successfully create a delivery source on the
+   *       desired resource type when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+   * @public
+   */
+  allowedActionForAllowVendedLogsDeliveryForResource?: string;
+
+  /**
+   * <p>The valid values that a caller can use as field delimiters when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>  or
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>
+   *       on a delivery that delivers in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  allowedFieldDelimiters?: string[];
+
+  /**
+   * <p>The list of variable fields that can be used in the suffix path of a delivery that delivers to an S3 bucket.</p>
+   * @public
+   */
+  allowedSuffixPathFields?: string[];
+}
+
+/**
  * <p>This operation attempted to create a resource that already exists.</p>
  * @public
  */
@@ -615,6 +791,26 @@ export interface CreateDeliveryRequest {
   deliveryDestinationArn: string | undefined;
 
   /**
+   * <p>The list of record fields to be delivered to the destination, in order.
+   *       If the delivery’s log source has mandatory fields, they must be included in this list.</p>
+   * @public
+   */
+  recordFields?: string[];
+
+  /**
+   * <p>The field delimiter to use between record fields when the final output format of a delivery
+   *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string;
+
+  /**
+   * <p>This structure contains parameters that are valid only when the delivery’s delivery destination is an S3 bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+
+  /**
    * <p>An optional list of key-value pairs to associate with the resource.</p>
    *          <p>For more information about tagging, see
    *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
@@ -623,21 +819,6 @@ export interface CreateDeliveryRequest {
    */
   tags?: Record<string, string>;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeliveryDestinationType = {
-  CWL: "CWL",
-  FH: "FH",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typeof DeliveryDestinationType];
 
 /**
  * <p>This structure contains information about one <i>delivery</i> in your account. </p>
@@ -677,6 +858,25 @@ export interface Delivery {
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * <p>The record fields used in this delivery.</p>
+   * @public
+   */
+  recordFields?: string[];
+
+  /**
+   * <p>The field delimiter that is used between record fields when the final output format of a delivery
+   *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string;
+
+  /**
+   * <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration;
 
   /**
    * <p>The tags that have been assigned to this delivery.</p>
@@ -1288,23 +1488,6 @@ export interface DeliveryDestinationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OutputFormat = {
-  JSON: "json",
-  PARQUET: "parquet",
-  PLAIN: "plain",
-  RAW: "raw",
-  W3C: "w3c",
-} as const;
-
-/**
- * @public
- */
-export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
-
-/**
  * <p>This structure contains information about one <i>delivery destination</i> in your account.
  *      A delivery destination is an Amazon Web Services resource that represents an
  *      Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Firehose delivery destinations.</p>
@@ -1489,6 +1672,70 @@ export interface DescribeAccountPoliciesResponse {
    * @public
    */
   accountPolicies?: AccountPolicy[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeConfigurationTemplatesRequest {
+  /**
+   * <p>Use this parameter to filter the response to include only the
+   *       configuration templates that apply to the Amazon Web Services service that you specify here.</p>
+   * @public
+   */
+  service?: string;
+
+  /**
+   * <p>Use this parameter to filter the response to include only the
+   *       configuration templates that apply to the log types that you specify here.</p>
+   * @public
+   */
+  logTypes?: string[];
+
+  /**
+   * <p>Use this parameter to filter the response to include only the
+   *       configuration templates that apply to the resource types that you specify here.</p>
+   * @public
+   */
+  resourceTypes?: string[];
+
+  /**
+   * <p>Use this parameter to filter the response to include only the
+   *       configuration templates that apply to the delivery destination types that you specify here.</p>
+   * @public
+   */
+  deliveryDestinationTypes?: DeliveryDestinationType[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Use this parameter to limit the number of configuration templates that are returned
+   *     in the response.</p>
+   * @public
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConfigurationTemplatesResponse {
+  /**
+   * <p>An array of objects, where each object describes one configuration template that matches
+   *     the filters that you specified in the request.</p>
+   * @public
+   */
+  configurationTemplates?: ConfigurationTemplate[];
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   * @public
+   */
+  nextToken?: string;
 }
 
 /**
@@ -2845,18 +3092,18 @@ export interface DisassociateKmsKeyRequest {
 }
 
 /**
- * <p>Reserved for future use.</p>
+ * <p>Reserved for internal use.</p>
  * @public
  */
 export interface Entity {
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Reserved for internal use.</p>
    * @public
    */
   keyAttributes?: Record<string, string>;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Reserved for internal use.</p>
    * @public
    */
   attributes?: Record<string, string>;
@@ -4413,19 +4660,19 @@ export interface PutLogEventsRequest {
   sequenceToken?: string;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Reserved for internal use.</p>
    * @public
    */
   entity?: Entity;
 }
 
 /**
- * <p>Reserved for future use.</p>
+ * <p>Reserved for internal use.</p>
  * @public
  */
 export interface RejectedEntityInfo {
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Reserved for internal use.</p>
    * @public
    */
   errorType: EntityRejectionErrorType | undefined;
@@ -4481,7 +4728,7 @@ export interface PutLogEventsResponse {
   rejectedLogEventsInfo?: RejectedLogEventsInfo;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Reserved for internal use.</p>
    * @public
    */
   rejectedEntityInfo?: RejectedEntityInfo;
@@ -5374,6 +5621,42 @@ export interface UpdateAnomalyRequest {
    */
   suppressionPeriod?: SuppressionPeriod;
 }
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationRequest {
+  /**
+   * <p>The ID of the delivery to be updated by this request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The list of record fields to be delivered to the destination, in order.
+   *       If the delivery’s log source has mandatory fields, they must be included in this list.</p>
+   * @public
+   */
+  recordFields?: string[];
+
+  /**
+   * <p>The field delimiter to use between record fields when the final output format of a delivery
+   *       is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string;
+
+  /**
+   * <p>This structure contains parameters that are valid only when the delivery’s delivery destination is an S3 bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationResponse {}
 
 /**
  * @public

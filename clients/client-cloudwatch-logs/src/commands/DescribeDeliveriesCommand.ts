@@ -62,6 +62,14 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
  * //       deliverySourceName: "STRING_VALUE",
  * //       deliveryDestinationArn: "STRING_VALUE",
  * //       deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //       recordFields: [ // RecordFields
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       fieldDelimiter: "STRING_VALUE",
+ * //       s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ * //         suffixPath: "STRING_VALUE",
+ * //         enableHiveCompatiblePath: true || false,
+ * //       },
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },

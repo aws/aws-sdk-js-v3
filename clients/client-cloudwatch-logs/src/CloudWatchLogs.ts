@@ -119,6 +119,11 @@ import {
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
 import {
+  DescribeConfigurationTemplatesCommand,
+  DescribeConfigurationTemplatesCommandInput,
+  DescribeConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeConfigurationTemplatesCommand";
+import {
   DescribeDeliveriesCommand,
   DescribeDeliveriesCommandInput,
   DescribeDeliveriesCommandOutput,
@@ -349,6 +354,11 @@ import {
   UpdateAnomalyCommandOutput,
 } from "./commands/UpdateAnomalyCommand";
 import {
+  UpdateDeliveryConfigurationCommand,
+  UpdateDeliveryConfigurationCommandInput,
+  UpdateDeliveryConfigurationCommandOutput,
+} from "./commands/UpdateDeliveryConfigurationCommand";
+import {
   UpdateLogAnomalyDetectorCommand,
   UpdateLogAnomalyDetectorCommandInput,
   UpdateLogAnomalyDetectorCommandOutput,
@@ -378,6 +388,7 @@ const commands = {
   DeleteRetentionPolicyCommand,
   DeleteSubscriptionFilterCommand,
   DescribeAccountPoliciesCommand,
+  DescribeConfigurationTemplatesCommand,
   DescribeDeliveriesCommand,
   DescribeDeliveryDestinationsCommand,
   DescribeDeliverySourcesCommand,
@@ -428,6 +439,7 @@ const commands = {
   UntagLogGroupCommand,
   UntagResourceCommand,
   UpdateAnomalyCommand,
+  UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
 };
 
@@ -801,6 +813,24 @@ export interface CloudWatchLogs {
     args: DescribeAccountPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeConfigurationTemplatesCommand}
+   */
+  describeConfigurationTemplates(): Promise<DescribeConfigurationTemplatesCommandOutput>;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConfigurationTemplatesCommandOutput>;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeConfigurationTemplatesCommandOutput) => void
+  ): void;
+  describeConfigurationTemplates(
+    args: DescribeConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConfigurationTemplatesCommandOutput) => void
   ): void;
 
   /**
@@ -1575,6 +1605,23 @@ export interface CloudWatchLogs {
     args: UpdateAnomalyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnomalyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDeliveryConfigurationCommand}
+   */
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeliveryConfigurationCommandOutput>;
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDeliveryConfigurationCommandOutput) => void
+  ): void;
+  updateDeliveryConfiguration(
+    args: UpdateDeliveryConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeliveryConfigurationCommandOutput) => void
   ): void;
 
   /**

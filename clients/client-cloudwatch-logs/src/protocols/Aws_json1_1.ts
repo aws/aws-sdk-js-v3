@@ -84,6 +84,10 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "../commands/DescribeAccountPoliciesCommand";
+import {
+  DescribeConfigurationTemplatesCommandInput,
+  DescribeConfigurationTemplatesCommandOutput,
+} from "../commands/DescribeConfigurationTemplatesCommand";
 import { DescribeDeliveriesCommandInput, DescribeDeliveriesCommandOutput } from "../commands/DescribeDeliveriesCommand";
 import {
   DescribeDeliveryDestinationsCommandInput,
@@ -192,6 +196,10 @@ import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../comman
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "../commands/UpdateAnomalyCommand";
 import {
+  UpdateDeliveryConfigurationCommandInput,
+  UpdateDeliveryConfigurationCommandOutput,
+} from "../commands/UpdateDeliveryConfigurationCommand";
+import {
   UpdateLogAnomalyDetectorCommandInput,
   UpdateLogAnomalyDetectorCommandOutput,
 } from "../commands/UpdateLogAnomalyDetectorCommand";
@@ -223,7 +231,9 @@ import {
   DeleteRetentionPolicyRequest,
   DeleteSubscriptionFilterRequest,
   DeliveryDestinationConfiguration,
+  DeliveryDestinationType,
   DescribeAccountPoliciesRequest,
+  DescribeConfigurationTemplatesRequest,
   DescribeDeliveriesRequest,
   DescribeDeliveryDestinationsRequest,
   DescribeDeliverySourcesRequest,
@@ -282,6 +292,7 @@ import {
   QueryStatistics,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  S3DeliveryConfiguration,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   SessionStreamingException,
@@ -300,6 +311,7 @@ import {
   UntagLogGroupRequest,
   UntagResourceRequest,
   UpdateAnomalyRequest,
+  UpdateDeliveryConfigurationRequest,
   UpdateLogAnomalyDetectorRequest,
   ValidationException,
 } from "../models/models_0";
@@ -598,6 +610,19 @@ export const se_DescribeAccountPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountPolicies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeConfigurationTemplatesCommand
+ */
+export const se_DescribeConfigurationTemplatesCommand = async (
+  input: DescribeConfigurationTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationTemplates");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1261,6 +1286,19 @@ export const se_UpdateAnomalyCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateDeliveryConfigurationCommand
+ */
+export const se_UpdateDeliveryConfigurationCommand = async (
+  input: UpdateDeliveryConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDeliveryConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateLogAnomalyDetectorCommand
  */
 export const se_UpdateLogAnomalyDetectorCommand = async (
@@ -1673,6 +1711,26 @@ export const de_DescribeAccountPoliciesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DescribeAccountPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeConfigurationTemplatesCommand
+ */
+export const de_DescribeConfigurationTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationTemplatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeConfigurationTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2648,6 +2706,26 @@ export const de_UpdateAnomalyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateDeliveryConfigurationCommand
+ */
+export const de_UpdateDeliveryConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDeliveryConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDeliveryConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateLogAnomalyDetectorCommand
  */
 export const de_UpdateLogAnomalyDetectorCommand = async (
@@ -3144,7 +3222,11 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_DeliveryDestinationConfiguration omitted.
 
+// se_DeliveryDestinationTypes omitted.
+
 // se_DescribeAccountPoliciesRequest omitted.
+
+// se_DescribeConfigurationTemplatesRequest omitted.
 
 // se_DescribeDeliveriesRequest omitted.
 
@@ -3222,6 +3304,8 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_LogGroupNames omitted.
 
+// se_LogTypes omitted.
+
 /**
  * serializeAws_json1_1MetricTransformation
  */
@@ -3294,6 +3378,12 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_PutSubscriptionFilterRequest omitted.
 
+// se_RecordFields omitted.
+
+// se_ResourceTypes omitted.
+
+// se_S3DeliveryConfiguration omitted.
+
 // se_StartLiveTailLogGroupIdentifiers omitted.
 
 // se_StartLiveTailRequest omitted.
@@ -3324,6 +3414,8 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_UpdateAnomalyRequest omitted.
 
+// se_UpdateDeliveryConfigurationRequest omitted.
+
 // se_UpdateLogAnomalyDetectorRequest omitted.
 
 // de_AccessDeniedException omitted.
@@ -3332,6 +3424,10 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // de_AccountPolicy omitted.
 
+// de_AllowedFieldDelimiters omitted.
+
+// de_AllowedFields omitted.
+
 // de_Anomalies omitted.
 
 // de_Anomaly omitted.
@@ -3339,6 +3435,12 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 // de_AnomalyDetector omitted.
 
 // de_AnomalyDetectors omitted.
+
+// de_ConfigurationTemplate omitted.
+
+// de_ConfigurationTemplateDeliveryConfigValues omitted.
+
+// de_ConfigurationTemplates omitted.
 
 // de_ConflictException omitted.
 
@@ -3367,6 +3469,8 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 // de_DeliverySources omitted.
 
 // de_DescribeAccountPoliciesResponse omitted.
+
+// de_DescribeConfigurationTemplatesResponse omitted.
 
 // de_DescribeDeliveriesResponse omitted.
 
@@ -3567,6 +3671,8 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 
 // de_OperationAbortedException omitted.
 
+// de_OutputFormats omitted.
+
 // de_OutputLogEvent omitted.
 
 // de_OutputLogEvents omitted.
@@ -3620,6 +3726,10 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
   }) as any;
 };
 
+// de_RecordField omitted.
+
+// de_RecordFields omitted.
+
 // de_RejectedEntityInfo omitted.
 
 // de_RejectedLogEventsInfo omitted.
@@ -3637,6 +3747,8 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 // de_ResultField omitted.
 
 // de_ResultRows omitted.
+
+// de_S3DeliveryConfiguration omitted.
 
 // de_SearchedLogStream omitted.
 
@@ -3669,6 +3781,8 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 // de_TooManyTagsException omitted.
 
 // de_UnrecognizedClientException omitted.
+
+// de_UpdateDeliveryConfigurationResponse omitted.
 
 // de_ValidationException omitted.
 

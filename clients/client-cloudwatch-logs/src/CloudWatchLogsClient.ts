@@ -118,6 +118,10 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
+import {
+  DescribeConfigurationTemplatesCommandInput,
+  DescribeConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeConfigurationTemplatesCommand";
 import { DescribeDeliveriesCommandInput, DescribeDeliveriesCommandOutput } from "./commands/DescribeDeliveriesCommand";
 import {
   DescribeDeliveryDestinationsCommandInput,
@@ -226,6 +230,10 @@ import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./command
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "./commands/UpdateAnomalyCommand";
 import {
+  UpdateDeliveryConfigurationCommandInput,
+  UpdateDeliveryConfigurationCommandOutput,
+} from "./commands/UpdateDeliveryConfigurationCommand";
+import {
   UpdateLogAnomalyDetectorCommandInput,
   UpdateLogAnomalyDetectorCommandOutput,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
@@ -267,6 +275,7 @@ export type ServiceInputTypes =
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
   | DescribeAccountPoliciesCommandInput
+  | DescribeConfigurationTemplatesCommandInput
   | DescribeDeliveriesCommandInput
   | DescribeDeliveryDestinationsCommandInput
   | DescribeDeliverySourcesCommandInput
@@ -317,6 +326,7 @@ export type ServiceInputTypes =
   | UntagLogGroupCommandInput
   | UntagResourceCommandInput
   | UpdateAnomalyCommandInput
+  | UpdateDeliveryConfigurationCommandInput
   | UpdateLogAnomalyDetectorCommandInput;
 
 /**
@@ -346,6 +356,7 @@ export type ServiceOutputTypes =
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
   | DescribeAccountPoliciesCommandOutput
+  | DescribeConfigurationTemplatesCommandOutput
   | DescribeDeliveriesCommandOutput
   | DescribeDeliveryDestinationsCommandOutput
   | DescribeDeliverySourcesCommandOutput
@@ -396,6 +407,7 @@ export type ServiceOutputTypes =
   | UntagLogGroupCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnomalyCommandOutput
+  | UpdateDeliveryConfigurationCommandOutput
   | UpdateLogAnomalyDetectorCommandOutput;
 
 /**
