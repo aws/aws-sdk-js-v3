@@ -59,7 +59,10 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *           For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
  *             </li>
  *             <li>
- *                <p>If you agent fails to be created, the response returns a list of <code>failureReasons</code> alongside a list of <code>recommendedActions</code> for you to troubleshoot.</p>
+ *                <p>If your agent fails to be created, the response returns a list of <code>failureReasons</code> alongside a list of <code>recommendedActions</code> for you to troubleshoot.</p>
+ *             </li>
+ *             <li>
+ *                <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p>
  *             </li>
  *          </ul>
  * @example

@@ -80,6 +80,12 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * //           ],
  * //         },
  * //       },
+ * //       metadata: [ // PromptMetadataList
+ * //         { // PromptMetadataEntry
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

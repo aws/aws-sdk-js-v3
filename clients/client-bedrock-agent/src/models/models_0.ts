@@ -3280,7 +3280,7 @@ export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrat
  *                </p>
  *             </li>
  *          </ul>
- *          <p>You can get the ARN of a model with the  action. Standard model usage
+ *          <p>You can get the ARN of a model with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html">ListFoundationModels</a> action. Standard model usage
  *     charges apply for the foundation model parsing strategy.</p>
  * @public
  */
@@ -7438,6 +7438,24 @@ export interface UpdateKnowledgeBaseResponse {
 }
 
 /**
+ * <p>Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+ * @public
+ */
+export interface PromptMetadataEntry {
+  /**
+   * <p>The key of a metadata tag for a prompt variant.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of a metadata tag for a prompt variant.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * <p>Contains details about a variant of the prompt.</p>
  * @public
  */
@@ -7471,6 +7489,12 @@ export interface PromptVariant {
    * @public
    */
   inferenceConfiguration?: PromptInferenceConfiguration;
+
+  /**
+   * <p>An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
+   * @public
+   */
+  metadata?: PromptMetadataEntry[];
 }
 
 /**
@@ -8675,12 +8699,22 @@ export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): a
 /**
  * @internal
  */
+export const PromptMetadataEntryFilterSensitiveLog = (obj: PromptMetadataEntry): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+  ...(obj.value && { value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const PromptVariantFilterSensitiveLog = (obj: PromptVariant): any => ({
   ...obj,
   ...(obj.templateConfiguration && {
     templateConfiguration: PromptTemplateConfigurationFilterSensitiveLog(obj.templateConfiguration),
   }),
   ...(obj.inferenceConfiguration && { inferenceConfiguration: obj.inferenceConfiguration }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**

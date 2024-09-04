@@ -71,6 +71,12 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *           ],
  *         },
  *       },
+ *       metadata: [ // PromptMetadataList
+ *         { // PromptMetadataEntry
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
@@ -111,6 +117,12 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //           ],
  * //         },
  * //       },
+ * //       metadata: [ // PromptMetadataList
+ * //         { // PromptMetadataEntry
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

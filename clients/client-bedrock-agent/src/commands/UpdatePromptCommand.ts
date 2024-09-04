@@ -71,6 +71,12 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  *           ],
  *         },
  *       },
+ *       metadata: [ // PromptMetadataList
+ *         { // PromptMetadataEntry
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   ],
  *   promptIdentifier: "STRING_VALUE", // required
@@ -108,6 +114,12 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * //           ],
  * //         },
  * //       },
+ * //       metadata: [ // PromptMetadataList
+ * //         { // PromptMetadataEntry
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required

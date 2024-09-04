@@ -226,6 +226,7 @@ import {
   PromptFlowNodeSourceConfiguration,
   PromptInferenceConfiguration,
   PromptInputVariable,
+  PromptMetadataEntry,
   PromptModelInferenceConfiguration,
   PromptOverrideConfiguration,
   PromptSummary,
@@ -3480,6 +3481,10 @@ const se_PromptInferenceConfiguration = (input: PromptInferenceConfiguration, co
 
 // se_PromptInputVariablesList omitted.
 
+// se_PromptMetadataEntry omitted.
+
+// se_PromptMetadataList omitted.
+
 /**
  * serializeAws_restJson1PromptModelInferenceConfiguration
  */
@@ -3514,6 +3519,7 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
 const se_PromptVariant = (input: PromptVariant, context: __SerdeContext): any => {
   return take(input, {
     inferenceConfiguration: (_) => se_PromptInferenceConfiguration(_, context),
+    metadata: _json,
     modelId: [],
     name: [],
     templateConfiguration: _json,
@@ -4426,6 +4432,10 @@ const de_PromptInferenceConfiguration = (output: any, context: __SerdeContext): 
 
 // de_PromptInputVariablesList omitted.
 
+// de_PromptMetadataEntry omitted.
+
+// de_PromptMetadataList omitted.
+
 /**
  * deserializeAws_restJson1PromptModelInferenceConfiguration
  */
@@ -4487,6 +4497,7 @@ const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary =
 const de_PromptVariant = (output: any, context: __SerdeContext): PromptVariant => {
   return take(output, {
     inferenceConfiguration: (_: any) => de_PromptInferenceConfiguration(__expectUnion(_), context),
+    metadata: _json,
     modelId: __expectString,
     name: __expectString,
     templateConfiguration: (_: any) => _json(__expectUnion(_)),

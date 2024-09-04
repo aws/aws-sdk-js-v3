@@ -72,6 +72,12 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //           ],
  * //         },
  * //       },
+ * //       metadata: [ // PromptMetadataList
+ * //         { // PromptMetadataEntry
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   id: "STRING_VALUE", // required
