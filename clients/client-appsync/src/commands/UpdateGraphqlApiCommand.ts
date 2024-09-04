@@ -39,7 +39,7 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   logConfig: { // LogConfig
- *     fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ *     fieldLogLevel: "NONE" || "ERROR" || "ALL" || "INFO" || "DEBUG", // required
  *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
  *     excludeVerboseContent: true || false,
  *   },
@@ -102,7 +102,7 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * //     apiId: "STRING_VALUE",
  * //     authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
  * //     logConfig: { // LogConfig
- * //       fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ * //       fieldLogLevel: "NONE" || "ERROR" || "ALL" || "INFO" || "DEBUG", // required
  * //       cloudWatchLogsRoleArn: "STRING_VALUE", // required
  * //       excludeVerboseContent: true || false,
  * //     },

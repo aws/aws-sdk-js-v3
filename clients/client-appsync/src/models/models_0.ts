@@ -2465,7 +2465,9 @@ export type GraphQLApiIntrospectionConfig =
  */
 export const FieldLogLevel = {
   ALL: "ALL",
+  DEBUG: "DEBUG",
   ERROR: "ERROR",
+  INFO: "INFO",
   NONE: "NONE",
 } as const;
 
@@ -2480,7 +2482,7 @@ export type FieldLogLevel = (typeof FieldLogLevel)[keyof typeof FieldLogLevel];
  */
 export interface LogConfig {
   /**
-   * <p>The field logging level. Values can be NONE, ERROR, or ALL.</p>
+   * <p>The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2488,8 +2490,9 @@ export interface LogConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ERROR</b>: Logs the following information only for the fields that are
-   *                in error:</p>
+   *                   <b>ERROR</b>: Logs the following information
+   *                   <b>only</b> for the fields that are in the error
+   *                category:</p>
    *                <ul>
    *                   <li>
    *                      <p>The error section in the server response.</p>
@@ -2504,6 +2507,42 @@ export interface LogConfig {
    *             </li>
    *             <li>
    *                <p>
+   *                   <b>INFO</b>: Logs the following information <b>only</b> for the fields that are in the info and error
+   *                categories:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Info-level messages.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The user messages sent through <code>$util.log.info</code> and
+   *                         <code>console.log</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Field-level tracing and mapping logs are not shown.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DEBUG</b>: Logs the following information
+   *                   <b>only</b> for the fields that are in the debug, info,
+   *                and error categories:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Debug-level messages.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The user messages sent through <code>$util.log.info</code>,
+   *                         <code>$util.log.debug</code>, <code>console.log</code>, and
+   *                         <code>console.debug</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Field-level tracing and mapping logs are not shown.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>ALL</b>: The following information is logged for all fields in the
    *                query:</p>
    *                <ul>
@@ -2511,7 +2550,8 @@ export interface LogConfig {
    *                      <p>Field-level tracing information.</p>
    *                   </li>
    *                   <li>
-   *                      <p>The generated request/response functions that got resolved for each field.</p>
+   *                      <p>The generated request/response functions that were resolved for each
+   *                      field.</p>
    *                   </li>
    *                </ul>
    *             </li>
