@@ -37,6 +37,8 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
 /**
  * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values
  *          of those parameters are retained. </p>
+ *          <p>You cannot change from a period-based SLO to a request-based SLO,
+ *          or change from a request-based SLO to a period-based SLO.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,15 +86,103 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *     MetricThreshold: Number("double"), // required
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
  *   },
+ *   RequestBasedSliConfig: { // RequestBasedServiceLevelIndicatorConfig
+ *     RequestBasedSliMetricConfig: { // RequestBasedServiceLevelIndicatorMetricConfig
+ *       KeyAttributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       OperationName: "STRING_VALUE",
+ *       MetricType: "LATENCY" || "AVAILABILITY",
+ *       TotalRequestCountMetric: [
+ *         {
+ *           Id: "STRING_VALUE", // required
+ *           MetricStat: {
+ *             Metric: {
+ *               Namespace: "STRING_VALUE",
+ *               MetricName: "STRING_VALUE",
+ *               Dimensions: [
+ *                 {
+ *                   Name: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *             Period: Number("int"), // required
+ *             Stat: "STRING_VALUE", // required
+ *             Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *           },
+ *           Expression: "STRING_VALUE",
+ *           Label: "STRING_VALUE",
+ *           ReturnData: true || false,
+ *           Period: Number("int"),
+ *           AccountId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       MonitoredRequestCountMetric: { // MonitoredRequestCountMetricDataQueries Union: only one key present
+ *         GoodCountMetric: [
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             MetricStat: {
+ *               Metric: {
+ *                 Namespace: "STRING_VALUE",
+ *                 MetricName: "STRING_VALUE",
+ *                 Dimensions: [
+ *                   {
+ *                     Name: "STRING_VALUE", // required
+ *                     Value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *               Period: Number("int"), // required
+ *               Stat: "STRING_VALUE", // required
+ *               Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *             },
+ *             Expression: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             ReturnData: true || false,
+ *             Period: Number("int"),
+ *             AccountId: "STRING_VALUE",
+ *           },
+ *         ],
+ *         BadCountMetric: [
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             MetricStat: {
+ *               Metric: {
+ *                 Namespace: "STRING_VALUE",
+ *                 MetricName: "STRING_VALUE",
+ *                 Dimensions: [
+ *                   {
+ *                     Name: "STRING_VALUE", // required
+ *                     Value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *               Period: Number("int"), // required
+ *               Stat: "STRING_VALUE", // required
+ *               Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *             },
+ *             Expression: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             ReturnData: true || false,
+ *             Period: Number("int"),
+ *             AccountId: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     MetricThreshold: Number("double"),
+ *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
+ *   },
  *   Goal: { // Goal
  *     Interval: { // Interval Union: only one key present
  *       RollingInterval: { // RollingInterval
- *         DurationUnit: "DAY" || "MONTH", // required
+ *         DurationUnit: "MINUTE" || "HOUR" || "DAY" || "MONTH", // required
  *         Duration: Number("int"), // required
  *       },
  *       CalendarInterval: { // CalendarInterval
  *         StartTime: new Date("TIMESTAMP"), // required
- *         DurationUnit: "DAY" || "MONTH", // required
+ *         DurationUnit: "MINUTE" || "HOUR" || "DAY" || "MONTH", // required
  *         Duration: Number("int"), // required
  *       },
  *     },
@@ -145,15 +235,104 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
  * //     },
+ * //     RequestBasedSli: { // RequestBasedServiceLevelIndicator
+ * //       RequestBasedSliMetric: { // RequestBasedServiceLevelIndicatorMetric
+ * //         KeyAttributes: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         OperationName: "STRING_VALUE",
+ * //         MetricType: "LATENCY" || "AVAILABILITY",
+ * //         TotalRequestCountMetric: [ // required
+ * //           {
+ * //             Id: "STRING_VALUE", // required
+ * //             MetricStat: {
+ * //               Metric: {
+ * //                 Namespace: "STRING_VALUE",
+ * //                 MetricName: "STRING_VALUE",
+ * //                 Dimensions: [
+ * //                   {
+ * //                     Name: "STRING_VALUE", // required
+ * //                     Value: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               Period: Number("int"), // required
+ * //               Stat: "STRING_VALUE", // required
+ * //               Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //             },
+ * //             Expression: "STRING_VALUE",
+ * //             Label: "STRING_VALUE",
+ * //             ReturnData: true || false,
+ * //             Period: Number("int"),
+ * //             AccountId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         MonitoredRequestCountMetric: { // MonitoredRequestCountMetricDataQueries Union: only one key present
+ * //           GoodCountMetric: [
+ * //             {
+ * //               Id: "STRING_VALUE", // required
+ * //               MetricStat: {
+ * //                 Metric: {
+ * //                   Namespace: "STRING_VALUE",
+ * //                   MetricName: "STRING_VALUE",
+ * //                   Dimensions: [
+ * //                     {
+ * //                       Name: "STRING_VALUE", // required
+ * //                       Value: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 Period: Number("int"), // required
+ * //                 Stat: "STRING_VALUE", // required
+ * //                 Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //               },
+ * //               Expression: "STRING_VALUE",
+ * //               Label: "STRING_VALUE",
+ * //               ReturnData: true || false,
+ * //               Period: Number("int"),
+ * //               AccountId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           BadCountMetric: [
+ * //             {
+ * //               Id: "STRING_VALUE", // required
+ * //               MetricStat: {
+ * //                 Metric: {
+ * //                   Namespace: "STRING_VALUE",
+ * //                   MetricName: "STRING_VALUE",
+ * //                   Dimensions: [
+ * //                     {
+ * //                       Name: "STRING_VALUE", // required
+ * //                       Value: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 Period: Number("int"), // required
+ * //                 Stat: "STRING_VALUE", // required
+ * //                 Unit: "Microseconds" || "Milliseconds" || "Seconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //               },
+ * //               Expression: "STRING_VALUE",
+ * //               Label: "STRING_VALUE",
+ * //               ReturnData: true || false,
+ * //               Period: Number("int"),
+ * //               AccountId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       MetricThreshold: Number("double"),
+ * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
+ * //     },
+ * //     EvaluationType: "PeriodBased" || "RequestBased",
  * //     Goal: { // Goal
  * //       Interval: { // Interval Union: only one key present
  * //         RollingInterval: { // RollingInterval
- * //           DurationUnit: "DAY" || "MONTH", // required
+ * //           DurationUnit: "MINUTE" || "HOUR" || "DAY" || "MONTH", // required
  * //           Duration: Number("int"), // required
  * //         },
  * //         CalendarInterval: { // CalendarInterval
  * //           StartTime: new Date("TIMESTAMP"), // required
- * //           DurationUnit: "DAY" || "MONTH", // required
+ * //           DurationUnit: "MINUTE" || "HOUR" || "DAY" || "MONTH", // required
  * //           Duration: Number("int"), // required
  * //         },
  * //       },

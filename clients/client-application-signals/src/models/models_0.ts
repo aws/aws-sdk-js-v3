@@ -95,8 +95,24 @@ export type ServiceLevelObjectiveBudgetStatus =
  * @public
  * @enum
  */
+export const EvaluationType = {
+  PERIOD_BASED: "PeriodBased",
+  REQUEST_BASED: "RequestBased",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DurationUnit = {
   DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
   MONTH: "MONTH",
 } as const;
 
@@ -221,10 +237,13 @@ export interface Goal {
   Interval?: Interval;
 
   /**
-   * <p>The threshold that determines if the goal is being met. An <i>attainment goal</i> is the
-   *          ratio of good periods that meet the threshold requirements to the total periods within the interval.
+   * <p>The threshold that determines if the goal is being met.</p>
+   *          <p>If this is a period-based SLO, the attainment goal is the
+   *          percentage of good periods that meet the threshold requirements to the total periods within the interval.
    *          For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the
    *          periods to be in healthy state.</p>
+   *          <p>If this is a request-based SLO, the attainment goal is the percentage of requests that must be
+   *       successful to meet the attainment goal.</p>
    *          <p>If you omit this parameter, 99 is used
    *          to represent 99% as the attainment goal.</p>
    * @public
@@ -255,6 +274,21 @@ export const ServiceLevelIndicatorComparisonOperator = {
  */
 export type ServiceLevelIndicatorComparisonOperator =
   (typeof ServiceLevelIndicatorComparisonOperator)[keyof typeof ServiceLevelIndicatorComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceLevelIndicatorMetricType = {
+  AVAILABILITY: "AVAILABILITY",
+  LATENCY: "LATENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceLevelIndicatorMetricType =
+  (typeof ServiceLevelIndicatorMetricType)[keyof typeof ServiceLevelIndicatorMetricType];
 
 /**
  * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
@@ -475,7 +509,7 @@ export interface MetricDataQuery {
   Period?: number;
 
   /**
-   * <p>The ID of the account where this metric is located.  If you are performing this operatiion in a monitoring account,
+   * <p>The ID of the account where this metric is located.  If you are performing this operation in a monitoring account,
    *          use this to specify which source account to retrieve this metric from.</p>
    * @public
    */
@@ -483,22 +517,167 @@ export interface MetricDataQuery {
 }
 
 /**
+ * <p>This structure defines the metric that is used as the "good request" or "bad request"
+ *          value for a request-based SLO.
+ *          This value observed for the metric defined in
+ *          <code>TotalRequestCountMetric</code> is divided by the number found for
+ *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+ *          this SLO tracks.</p>
  * @public
- * @enum
  */
-export const ServiceLevelIndicatorMetricType = {
-  AVAILABILITY: "AVAILABILITY",
-  LATENCY: "LATENCY",
-} as const;
+export type MonitoredRequestCountMetricDataQueries =
+  | MonitoredRequestCountMetricDataQueries.BadCountMetricMember
+  | MonitoredRequestCountMetricDataQueries.GoodCountMetricMember
+  | MonitoredRequestCountMetricDataQueries.$UnknownMember;
 
 /**
  * @public
  */
-export type ServiceLevelIndicatorMetricType =
-  (typeof ServiceLevelIndicatorMetricType)[keyof typeof ServiceLevelIndicatorMetricType];
+export namespace MonitoredRequestCountMetricDataQueries {
+  /**
+   * <p>If you want to count "good requests" to determine the percentage of successful requests for this
+   *       request-based SLO, specify the metric to use as "good requests" in this structure.</p>
+   * @public
+   */
+  export interface GoodCountMetricMember {
+    GoodCountMetric: MetricDataQuery[];
+    BadCountMetric?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>If you want to count "bad requests" to determine the percentage of successful requests for this
+   *          request-based SLO, specify the metric to use as "bad requests" in this structure.</p>
+   * @public
+   */
+  export interface BadCountMetricMember {
+    GoodCountMetric?: never;
+    BadCountMetric: MetricDataQuery[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    GoodCountMetric?: never;
+    BadCountMetric?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    GoodCountMetric: (value: MetricDataQuery[]) => T;
+    BadCountMetric: (value: MetricDataQuery[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MonitoredRequestCountMetricDataQueries, visitor: Visitor<T>): T => {
+    if (value.GoodCountMetric !== undefined) return visitor.GoodCountMetric(value.GoodCountMetric);
+    if (value.BadCountMetric !== undefined) return visitor.BadCountMetric(value.BadCountMetric);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
- * <p>This structure contains the information about the metric that is used for the SLO.</p>
+ * <p>This structure contains the information about the metric that is used for a request-based SLO.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorMetric {
+  /**
+   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can
+   *          include the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code> designates the type of object that this SLO is related to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
+   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
+   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Identifier</code> identifies the resource objects of this resource.
+   *             This is used only if the value of the <code>Type</code> field
+   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyAttributes?: Record<string, string>;
+
+  /**
+   * <p>If the SLO monitors a specific operation of the service, this field displays that operation name.</p>
+   * @public
+   */
+  OperationName?: string;
+
+  /**
+   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
+   *          collects, this field displays which of those metrics is used.</p>
+   * @public
+   */
+  MetricType?: ServiceLevelIndicatorMetricType;
+
+  /**
+   * <p>This structure defines the metric that is used as the "total requests" number for a request-based SLO.
+   *          The number observed for this metric is divided by the number of "good requests" or "bad requests" that is
+   *          observed for the metric defined in
+   *          <code>MonitoredRequestCountMetric</code>.</p>
+   * @public
+   */
+  TotalRequestCountMetric: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>This structure defines the metric that is used as the "good request" or "bad request"
+   *          value for a request-based SLO.
+   *          This value observed for the metric defined in
+   *          <code>TotalRequestCountMetric</code> is divided by the number found for
+   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+   *          this SLO tracks.</p>
+   * @public
+   */
+  MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries | undefined;
+}
+
+/**
+ * <p>This structure contains information about the performance metric that a request-based SLO monitors.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicator {
+  /**
+   * <p>A structure that contains information about the metric that the SLO monitors. </p>
+   * @public
+   */
+  RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric | undefined;
+
+  /**
+   * <p>This value is the threshold that
+   *          the observed metric values of the SLI metric are compared to.</p>
+   * @public
+   */
+  MetricThreshold?: number;
+
+  /**
+   * <p>The arithmetic operation used when comparing the specified metric to the
+   *          threshold.</p>
+   * @public
+   */
+  ComparisonOperator?: ServiceLevelIndicatorComparisonOperator;
+}
+
+/**
+ * <p>This structure contains the information about the metric that is used for a period-based SLO.</p>
  * @public
  */
 export interface ServiceLevelIndicatorMetric {
@@ -557,7 +736,7 @@ export interface ServiceLevelIndicatorMetric {
 }
 
 /**
- * <p>This structure contains information about the performance metric that an SLO monitors.</p>
+ * <p>This structure contains information about the performance metric that a period-based SLO monitors.</p>
  * @public
  */
 export interface ServiceLevelIndicator {
@@ -599,6 +778,12 @@ export interface ServiceLevelObjectiveBudgetReport {
   Name: string | undefined;
 
   /**
+   * <p>Displays whether this budget report is for a period-based SLO or a request-based SLO.</p>
+   * @public
+   */
+  EvaluationType?: EvaluationType;
+
+  /**
    * <p>The status of this SLO, as it relates to the error budget for the entire time interval.</p>
    *          <ul>
    *             <li>
@@ -618,7 +803,7 @@ export interface ServiceLevelObjectiveBudgetReport {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INSUFFICIENT_DATA</code> means that the specifed start and end times were before the
+   *                   <code>INSUFFICIENT_DATA</code> means that the specified start and end times were before the
    *             SLO was created, or that attainment data is missing.</p>
    *             </li>
    *          </ul>
@@ -627,14 +812,19 @@ export interface ServiceLevelObjectiveBudgetReport {
   BudgetStatus: ServiceLevelObjectiveBudgetStatus | undefined;
 
   /**
-   * <p>A number between 0 and 100 that represents the percentage of time periods that the service has
+   * <p>A number between 0 and 100 that represents the success percentage of your application compared
+   *          to the goal set by the SLO.</p>
+   *          <p>If this is a period-based SLO, the number is the percentage of time periods that the service has
    *          attained the SLO's attainment goal, as of the time of the request.</p>
+   *          <p>If this is a request-based SLO, the number is the number of successful requests divided
+   *          by the number of total requests, multiplied by 100, during the time range that you specified in your request.</p>
    * @public
    */
   Attainment?: number;
 
   /**
-   * <p>The total number of seconds in the error budget for the interval.</p>
+   * <p>The total number of seconds in the error budget for the interval. This field is included only
+   *       if the SLO is a period-based SLO.</p>
    * @public
    */
   TotalBudgetSeconds?: number;
@@ -644,15 +834,42 @@ export interface ServiceLevelObjectiveBudgetReport {
    *          the
    *          <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code>
    *          status.</p>
+   *          <p> This field is included only
+   *          if the SLO is a period-based SLO.</p>
    * @public
    */
   BudgetSecondsRemaining?: number;
+
+  /**
+   * <p>This field is displayed only for request-based SLOs. It displays the total number of failed requests that can be tolerated during the time range between the start of the
+   *          interval and the time stamp supplied in the budget report request. It is based on the total number of requests that occurred,
+   *       and the percentage specified in the attainment goal. If the number of failed requests matches this number or is higher, then
+   *       this SLO is currently breaching.</p>
+   *          <p>This number can go up and down between reports with different time stamps, based on both how many total requests occur.</p>
+   * @public
+   */
+  TotalBudgetRequests?: number;
+
+  /**
+   * <p>This field is displayed only for request-based SLOs. It displays the number of failed requests that can be tolerated before any more successful requests occur,
+   *          and still have the application meet its SLO goal.</p>
+   *          <p>This number can go up and down between different reports, based on both how many successful requests and how many failed
+   *          requests occur in that time.</p>
+   * @public
+   */
+  BudgetRequestsRemaining?: number;
 
   /**
    * <p>A structure that contains information about the performance metric that this SLO monitors.</p>
    * @public
    */
   Sli?: ServiceLevelIndicator;
+
+  /**
+   * <p>This structure contains information about the performance metric that a request-based SLO monitors.</p>
+   * @public
+   */
+  RequestBasedSli?: RequestBasedServiceLevelIndicator;
 
   /**
    * <p>This structure contains the attributes that determine the goal of an SLO. This includes
@@ -904,7 +1121,7 @@ export interface Service {
    *                   <code>Host</code> is the name of the host, for all platform types.</p>
    *             </li>
    *          </ul>
-   *          <p>Applciation attributes contain information about the application.</p>
+   *          <p>Application attributes contain information about the application.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1534,7 +1751,7 @@ export interface ListServicesInput {
 
 /**
  * <p>This structure contains information about one of your services that
- *       was discoverd by Application Signals</p>
+ *       was discovered by Application Signals</p>
  * @public
  */
 export interface ServiceSummary {
@@ -1616,7 +1833,7 @@ export interface ServiceSummary {
    *                   <code>Host</code> is the name of the host, for all platform types.</p>
    *             </li>
    *          </ul>
-   *          <p>Applciation attributes contain information about the application.</p>
+   *          <p>Application attributes contain information about the application.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1800,7 +2017,106 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Use this structure to specify the information for the metric that the SLO will monitor.</p>
+ * <p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorMetricConfig {
+  /**
+   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service
+   *          the SLO metric is related to. To do so, you must specify at least the <code>Type</code>,
+   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
+   *          <p>This is a string-to-string map. It can
+   *          include the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code> designates the type of object this is.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
+   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
+   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Identifier</code> identifies the resource objects of this resource.
+   *             This is used only if the value of the <code>Type</code> field
+   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyAttributes?: Record<string, string>;
+
+  /**
+   * <p>If the SLO is to monitor a specific operation of the service, use this field to specify the name of that operation.</p>
+   * @public
+   */
+  OperationName?: string;
+
+  /**
+   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
+   *          collects, use this field to specify which of those metrics is used.</p>
+   * @public
+   */
+  MetricType?: ServiceLevelIndicatorMetricType;
+
+  /**
+   * <p>Use this structure to define the metric that you want to use as the "total requests" number for a request-based SLO.
+   *       This result will be divided by the "good request" or "bad request" value defined in
+   *       <code>MonitoredRequestCountMetric</code>.</p>
+   * @public
+   */
+  TotalRequestCountMetric?: MetricDataQuery[];
+
+  /**
+   * <p>Use this structure to define the metric that you want to use as the "good request" or "bad request"
+   *          value for a request-based SLO.
+   *          This value observed for the metric defined in
+   *          <code>TotalRequestCountMetric</code> will be divided by the number found for
+   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
+   *          this SLO tracks.</p>
+   * @public
+   */
+  MonitoredRequestCountMetric?: MonitoredRequestCountMetricDataQueries;
+}
+
+/**
+ * <p>This structure specifies the information about the service and the performance metric that a request-based SLO is to monitor.</p>
+ * @public
+ */
+export interface RequestBasedServiceLevelIndicatorConfig {
+  /**
+   * <p>Use this structure to specify the metric to be used for the SLO.</p>
+   * @public
+   */
+  RequestBasedSliMetricConfig: RequestBasedServiceLevelIndicatorMetricConfig | undefined;
+
+  /**
+   * <p>The value that the SLI metric is compared to. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
+   * @public
+   */
+  MetricThreshold?: number;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified metric to the
+   *          threshold. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
+   * @public
+   */
+  ComparisonOperator?: ServiceLevelIndicatorComparisonOperator;
+}
+
+/**
+ * <p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>
  * @public
  */
 export interface ServiceLevelIndicatorMetricConfig {
@@ -1876,7 +2192,7 @@ export interface ServiceLevelIndicatorMetricConfig {
 }
 
 /**
- * <p>This structure specifies the information about the service and the performance metric that an SLO is to monitor.</p>
+ * <p>This structure specifies the information about the service and the performance metric that a period-based SLO is to monitor.</p>
  * @public
  */
 export interface ServiceLevelIndicatorConfig {
@@ -1887,7 +2203,8 @@ export interface ServiceLevelIndicatorConfig {
   SliMetricConfig: ServiceLevelIndicatorMetricConfig | undefined;
 
   /**
-   * <p>The value that the SLI metric is compared to.</p>
+   * <p>This parameter is used only when a request-based SLO tracks the <code>Latency</code> metric. Specify the threshold value that the
+   *          observed <code>Latency</code> metric values are to be compared to.</p>
    * @public
    */
   MetricThreshold: number | undefined;
@@ -1917,14 +2234,21 @@ export interface CreateServiceLevelObjectiveInput {
   Description?: string;
 
   /**
-   * <p>A structure that contains information about what service and what performance metric that this SLO will monitor.</p>
+   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
    * @public
    */
-  SliConfig: ServiceLevelIndicatorConfig | undefined;
+  SliConfig?: ServiceLevelIndicatorConfig;
 
   /**
-   * <p>A structure that contains the attributes that determine the goal of the SLO. This includes
-   *       the time period for evaluation and the attainment threshold.</p>
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
+   * @public
+   */
+  RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig;
+
+  /**
+   * <p>This structure contains the attributes that determine the goal of the SLO.</p>
    * @public
    */
   Goal?: Goal;
@@ -1986,10 +2310,22 @@ export interface ServiceLevelObjective {
   LastUpdatedTime: Date | undefined;
 
   /**
-   * <p>A structure containing information about the performance metric that this SLO monitors.</p>
+   * <p>A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.</p>
    * @public
    */
-  Sli: ServiceLevelIndicator | undefined;
+  Sli?: ServiceLevelIndicator;
+
+  /**
+   * <p>A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.</p>
+   * @public
+   */
+  RequestBasedSli?: RequestBasedServiceLevelIndicator;
+
+  /**
+   * <p>Displays whether this is a period-based SLO or a request-based SLO.</p>
+   * @public
+   */
+  EvaluationType?: EvaluationType;
 
   /**
    * <p>This structure contains the attributes that determine the goal of an SLO. This includes
@@ -2229,10 +2565,17 @@ export interface UpdateServiceLevelObjectiveInput {
   Description?: string;
 
   /**
-   * <p>A structure that contains information about what performance metric this SLO will monitor.</p>
+   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
    * @public
    */
   SliConfig?: ServiceLevelIndicatorConfig;
+
+  /**
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
+   *          <p>You can't specify both <code>SliConfig</code> and <code>RequestBasedSliConfig</code> in the same operation.</p>
+   * @public
+   */
+  RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig;
 
   /**
    * <p>A structure that contains the attributes that determine the goal of the SLO. This includes
