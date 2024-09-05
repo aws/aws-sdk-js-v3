@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.646.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.645.0...v3.646.0) (2024-09-05)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Custom Vocabulary now supports Catalan (Spain), Danish (Denmark), Dutch (Netherlands), Finnish (Finland), Indonesian (Indonesia), Malay (Malaysia), Norwegian Bokmal (Norway), Polish (Poland), Swedish (Sweden), and Tagalog/Filipino (Philippines). ([656877d](https://github.com/aws/aws-sdk-js-v3/commit/656877d4e942f361a845d2f86053ed42afd0a7b4))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

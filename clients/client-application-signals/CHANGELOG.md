@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.646.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.645.0...v3.646.0) (2024-09-05)
+
+
+### Features
+
+* **client-application-signals:** Amazon CloudWatch Application Signals now supports creating Service Level Objectives using a new calculation type. Users can now create SLOs which are configured with request-based SLIs to help meet their specific business requirements. ([b72eaa9](https://github.com/aws/aws-sdk-js-v3/commit/b72eaa93def1d392303f564164294af5d0b04c01))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-application-signals

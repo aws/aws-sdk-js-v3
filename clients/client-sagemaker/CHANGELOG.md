@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.646.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.645.0...v3.646.0) (2024-09-05)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker now supports idle shutdown of JupyterLab and CodeEditor applications on SageMaker Studio. ([a618313](https://github.com/aws/aws-sdk-js-v3/commit/a618313791cc38e8301e35844ffd066f73f3bd5f))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
