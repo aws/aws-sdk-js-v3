@@ -1791,20 +1791,8 @@ export type RuleOwner = (typeof RuleOwner)[keyof typeof RuleOwner];
  */
 export interface RuleTypeId {
   /**
-   * <p>A category defines what kind of rule can be run in the stage, and constrains
-   *             the provider type for the rule. Valid categories are limited to one of the following
-   *             values. </p>
-   *          <ul>
-   *             <li>
-   *                <p>INVOKE</p>
-   *             </li>
-   *             <li>
-   *                <p>Approval</p>
-   *             </li>
-   *             <li>
-   *                <p>Rule</p>
-   *             </li>
-   *          </ul>
+   * <p>A category defines what kind of rule can be run in the stage, and constrains the provider
+   *             type for the rule. The valid category is <code>Rule</code>. </p>
    * @public
    */
   category: RuleCategory | undefined;
@@ -1817,10 +1805,7 @@ export interface RuleTypeId {
   owner?: RuleOwner;
 
   /**
-   * <p>The provider of the service being called by the rule. Valid providers are
-   *             determined by the rulecategory. For example, a managed rule in the Rule category type
-   *             has an owner of AWS, which would be specified as
-   *             <code>AWS</code>.</p>
+   * <p>The rule provider, such as the <code>DeploymentWindow</code> rule.</p>
    * @public
    */
   provider: string | undefined;
@@ -5118,6 +5103,18 @@ export interface WebhookAuthConfiguration {
   /**
    * <p>The property used to configure GitHub authentication. For GITHUB_HMAC, only the
    *                 <code>SecretToken</code> property must be set.</p>
+   *          <important>
+   *             <p>When creating CodePipeline webhooks, do not use your own credentials or
+   *                 reuse the same secret token across multiple webhooks. For optimal security, generate
+   *                 a unique secret token for each webhook you create. The secret token is an arbitrary
+   *                 string that you provide, which GitHub uses to compute and sign the webhook payloads
+   *                 sent to CodePipeline, for protecting the integrity and authenticity of the
+   *                 webhook payloads. Using your own credentials or reusing the same token across
+   *                 multiple webhooks can lead to security vulnerabilities.</p>
+   *          </important>
+   *          <note>
+   *             <p>If a secret token was provided, it will be redacted in the response.</p>
+   *          </note>
    * @public
    */
   SecretToken?: string;
@@ -5187,6 +5184,18 @@ export interface WebhookDefinition {
 
   /**
    * <p>Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.</p>
+   *          <important>
+   *             <p>When creating CodePipeline webhooks, do not use your own credentials or
+   *                 reuse the same secret token across multiple webhooks. For optimal security, generate
+   *                 a unique secret token for each webhook you create. The secret token is an arbitrary
+   *                 string that you provide, which GitHub uses to compute and sign the webhook payloads
+   *                 sent to CodePipeline, for protecting the integrity and authenticity of the
+   *                 webhook payloads. Using your own credentials or reusing the same token across
+   *                 multiple webhooks can lead to security vulnerabilities.</p>
+   *          </important>
+   *          <note>
+   *             <p>If a secret token was provided, it will be redacted in the response.</p>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>For information about the authentication scheme implemented by GITHUB_HMAC,
