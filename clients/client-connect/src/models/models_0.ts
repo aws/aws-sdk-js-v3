@@ -1220,6 +1220,8 @@ export class LimitExceededException extends __BaseException {
  */
 export const VocabularyLanguageCode = {
   AR_AE: "ar-AE",
+  CA_ES: "ca-ES",
+  DA_DK: "da-DK",
   DE_CH: "de-CH",
   DE_DE: "de-DE",
   EN_AB: "en-AB",
@@ -1233,14 +1235,22 @@ export const VocabularyLanguageCode = {
   EN_ZA: "en-ZA",
   ES_ES: "es-ES",
   ES_US: "es-US",
+  FI_FI: "fi-FI",
   FR_CA: "fr-CA",
   FR_FR: "fr-FR",
   HI_IN: "hi-IN",
+  ID_ID: "id-ID",
   IT_IT: "it-IT",
   JA_JP: "ja-JP",
   KO_KR: "ko-KR",
+  MS_MY: "ms-MY",
+  NL_NL: "nl-NL",
+  NO_NO: "no-NO",
+  PL_PL: "pl-PL",
   PT_BR: "pt-BR",
   PT_PT: "pt-PT",
+  SV_SE: "sv-SE",
+  TL_PH: "tl-PH",
   ZH_CN: "zh-CN",
 } as const;
 
