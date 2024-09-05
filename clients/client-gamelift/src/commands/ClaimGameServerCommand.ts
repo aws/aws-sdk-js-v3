@@ -128,7 +128,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link OutOfCapacityException} (client fault)
  *  <p>The specified game server group has no available game servers to fulfill a

@@ -59,6 +59,9 @@ export interface DescribeFleetLocationAttributesCommandOutput
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
  *                 up Amazon GameLift fleets</a>
  *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
+ *                 Amazon GameLift service locations</a> for managed hosting</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,7 +113,7 @@ export interface DescribeFleetLocationAttributesCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

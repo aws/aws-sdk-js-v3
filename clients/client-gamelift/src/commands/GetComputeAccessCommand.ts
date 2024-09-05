@@ -69,12 +69,6 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  *                 issues</a>
  *                </p>
  *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html">
- *                     Remotely connect to a container fleet</a>
- *                </p>
- *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,7 +112,7 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
