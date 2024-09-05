@@ -164,6 +164,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       LifecycleConfigArns: [
  *         "STRING_VALUE",
  *       ],
+ *       AppLifecycleManagement: { // AppLifecycleManagement
+ *         IdleSettings: { // IdleSettings
+ *           LifecycleManagement: "ENABLED" || "DISABLED",
+ *           IdleTimeoutInMinutes: Number("int"),
+ *           MinIdleTimeoutInMinutes: Number("int"),
+ *           MaxIdleTimeoutInMinutes: Number("int"),
+ *         },
+ *       },
  *     },
  *     JupyterLabAppSettings: { // JupyterLabAppSettings
  *       DefaultResourceSpec: "<ResourceSpec>",
@@ -182,6 +190,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       AppLifecycleManagement: {
+ *         IdleSettings: {
+ *           LifecycleManagement: "ENABLED" || "DISABLED",
+ *           IdleTimeoutInMinutes: Number("int"),
+ *           MinIdleTimeoutInMinutes: Number("int"),
+ *           MaxIdleTimeoutInMinutes: Number("int"),
+ *         },
+ *       },
  *       EmrSettings: { // EmrSettings
  *         AssumableRoleArns: [ // AssumableRoleArns
  *           "STRING_VALUE",
@@ -280,6 +296,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       AppLifecycleManagement: {
+ *         IdleSettings: {
+ *           LifecycleManagement: "ENABLED" || "DISABLED",
+ *           IdleTimeoutInMinutes: Number("int"),
+ *           MinIdleTimeoutInMinutes: Number("int"),
+ *           MaxIdleTimeoutInMinutes: Number("int"),
+ *         },
+ *       },
  *       EmrSettings: {
  *         AssumableRoleArns: [
  *           "STRING_VALUE",

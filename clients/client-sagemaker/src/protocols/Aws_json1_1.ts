@@ -927,6 +927,7 @@ import {
   AnnotationConsolidationConfig,
   AppDetails,
   AppImageConfigDetails,
+  AppLifecycleManagement,
   AppSpecification,
   AppType,
   ArtifactSource,
@@ -1039,8 +1040,6 @@ import {
   CreateAppRequest,
   CreateAppResponse,
   CreateArtifactRequest,
-  CreateArtifactResponse,
-  CreateAutoMLJobRequest,
   CustomImage,
   DataSource,
   DirectDeploySettings,
@@ -1057,6 +1056,7 @@ import {
   HyperParameterTuningJobObjective,
   IamIdentity,
   IdentityProviderOAuthSetting,
+  IdleSettings,
   ImageClassificationJobConfig,
   ImageConfig,
   InferenceHubAccessConfig,
@@ -1073,7 +1073,6 @@ import {
   MetricsSource,
   ModelAccessConfig,
   ModelDataSource,
-  ModelDeployConfig,
   ModelInput,
   ModelPackageContainerDefinition,
   ModelRegisterSettings,
@@ -1126,6 +1125,8 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateArtifactResponse,
+  CreateAutoMLJobRequest,
   CreateAutoMLJobResponse,
   CreateAutoMLJobV2Request,
   CreateAutoMLJobV2Response,
@@ -1290,6 +1291,7 @@ import {
   ModelCardSecurityConfig,
   ModelCompilationConfig,
   ModelDataQuality,
+  ModelDeployConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -1559,11 +1561,6 @@ import {
   DescribeLineageGroupResponse,
   DescribeMlflowTrackingServerRequest,
   DescribeMlflowTrackingServerResponse,
-  DescribeModelBiasJobDefinitionRequest,
-  DescribeModelBiasJobDefinitionResponse,
-  DescribeModelCardRequest,
-  DescribeModelInput,
-  DescribeModelOutput,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1629,7 +1626,9 @@ import {
   ServiceCatalogProvisioningDetails,
   SessionChainingConfig,
   SourceIpConfig,
+  SpaceAppLifecycleManagement,
   SpaceCodeEditorAppSettings,
+  SpaceIdleSettings,
   SpaceJupyterLabAppSettings,
   SpaceSettings,
   SpaceSharingSettings,
@@ -1645,11 +1644,16 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeModelBiasJobDefinitionRequest,
+  DescribeModelBiasJobDefinitionResponse,
   DescribeModelCardExportJobRequest,
   DescribeModelCardExportJobResponse,
+  DescribeModelCardRequest,
   DescribeModelCardResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
+  DescribeModelInput,
+  DescribeModelOutput,
   DescribeModelPackageGroupInput,
   DescribeModelPackageGroupOutput,
   DescribeModelPackageInput,
@@ -1844,13 +1848,10 @@ import {
   ListModelBiasJobDefinitionsResponse,
   ListModelCardExportJobsRequest,
   ListModelCardExportJobsResponse,
-  ListModelCardsRequest,
-  ListModelCardsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
   ModelCardExportJobSummary,
-  ModelCardSummary,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   MonitoringExecutionSummary,
@@ -1886,6 +1887,8 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelCardsRequest,
+  ListModelCardsResponse,
   ListModelCardVersionsRequest,
   ListModelCardVersionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
@@ -1956,6 +1959,7 @@ import {
   ListWorkteamsResponse,
   Model,
   ModelCard,
+  ModelCardSummary,
   ModelCardVersionSummary,
   ModelDashboardEndpoint,
   ModelDashboardIndicatorAction,
@@ -13150,6 +13154,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AnnotationConsolidationConfig omitted.
 
+// se_AppLifecycleManagement omitted.
+
 // se_AppSpecification omitted.
 
 // se_ArtifactProperties omitted.
@@ -14341,6 +14347,8 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
 // se_IdentityProviderOAuthSetting omitted.
 
 // se_IdentityProviderOAuthSettings omitted.
+
+// se_IdleSettings omitted.
 
 // se_ImageClassificationJobConfig omitted.
 
@@ -16157,7 +16165,11 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 
 // se_SourceIpConfig omitted.
 
+// se_SpaceAppLifecycleManagement omitted.
+
 // se_SpaceCodeEditorAppSettings omitted.
+
+// se_SpaceIdleSettings omitted.
 
 // se_SpaceJupyterLabAppSettings omitted.
 
@@ -16892,6 +16904,15 @@ const de_AppImageConfigList = (output: any, context: __SerdeContext): AppImageCo
       return de_AppImageConfigDetails(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AppLifecycleManagement
+ */
+const de_AppLifecycleManagement = (output: any, context: __SerdeContext): AppLifecycleManagement => {
+  return take(output, {
+    IdleSettings: (_: any) => de_IdleSettings(_, context),
+  }) as any;
 };
 
 /**
@@ -18228,6 +18249,7 @@ const de_CodeEditorAppImageConfig = (output: any, context: __SerdeContext): Code
  */
 const de_CodeEditorAppSettings = (output: any, context: __SerdeContext): CodeEditorAppSettings => {
   return take(output, {
+    AppLifecycleManagement: (_: any) => de_AppLifecycleManagement(_, context),
     CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
     LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
@@ -23078,6 +23100,18 @@ const de_IdentityProviderOAuthSettings = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_json1_1IdleSettings
+ */
+const de_IdleSettings = (output: any, context: __SerdeContext): IdleSettings => {
+  return take(output, {
+    IdleTimeoutInMinutes: __expectInt32,
+    LifecycleManagement: __expectString,
+    MaxIdleTimeoutInMinutes: __expectInt32,
+    MinIdleTimeoutInMinutes: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Image
  */
 const de_Image = (output: any, context: __SerdeContext): Image => {
@@ -23596,6 +23630,7 @@ const de_JupyterLabAppImageConfig = (output: any, context: __SerdeContext): Jupy
  */
 const de_JupyterLabAppSettings = (output: any, context: __SerdeContext): JupyterLabAppSettings => {
   return take(output, {
+    AppLifecycleManagement: (_: any) => de_AppLifecycleManagement(_, context),
     CodeRepositories: (_: any) => de_CodeRepositories(_, context),
     CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
@@ -28403,10 +28438,20 @@ const de_SourceIpConfig = (output: any, context: __SerdeContext): SourceIpConfig
 };
 
 /**
+ * deserializeAws_json1_1SpaceAppLifecycleManagement
+ */
+const de_SpaceAppLifecycleManagement = (output: any, context: __SerdeContext): SpaceAppLifecycleManagement => {
+  return take(output, {
+    IdleSettings: (_: any) => de_SpaceIdleSettings(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1SpaceCodeEditorAppSettings
  */
 const de_SpaceCodeEditorAppSettings = (output: any, context: __SerdeContext): SpaceCodeEditorAppSettings => {
   return take(output, {
+    AppLifecycleManagement: (_: any) => de_SpaceAppLifecycleManagement(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
   }) as any;
 };
@@ -28429,10 +28474,20 @@ const de_SpaceDetails = (output: any, context: __SerdeContext): SpaceDetails => 
 };
 
 /**
+ * deserializeAws_json1_1SpaceIdleSettings
+ */
+const de_SpaceIdleSettings = (output: any, context: __SerdeContext): SpaceIdleSettings => {
+  return take(output, {
+    IdleTimeoutInMinutes: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1SpaceJupyterLabAppSettings
  */
 const de_SpaceJupyterLabAppSettings = (output: any, context: __SerdeContext): SpaceJupyterLabAppSettings => {
   return take(output, {
+    AppLifecycleManagement: (_: any) => de_SpaceAppLifecycleManagement(_, context),
     CodeRepositories: (_: any) => de_CodeRepositories(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
   }) as any;

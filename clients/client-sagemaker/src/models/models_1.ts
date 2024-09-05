@@ -5,14 +5,17 @@ import {
   AdditionalInferenceSpecificationDefinition,
   AmazonQSettings,
   AnnotationConsolidationConfig,
+  AppLifecycleManagement,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppType,
   AsyncInferenceConfig,
   AuthMode,
+  AutoMLChannel,
   AutoMLComputeConfig,
   AutoMLDataSplitConfig,
   AutoMLJobChannel,
+  AutoMLJobConfig,
   AutoMLJobObjective,
   AutoMLOutputDataConfig,
   AutoMLProblemTypeConfig,
@@ -56,8 +59,8 @@ import {
   MetricsSource,
   ModelApprovalStatus,
   ModelDataSource,
-  ModelDeployConfig,
   OutputDataConfig,
+  ProblemType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProductionVariantInstanceType,
@@ -74,6 +77,126 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   * @public
+   */
+  ArtifactArn?: string;
+}
+
+/**
+ * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+ *          deployment.</p>
+ * @public
+ */
+export interface ModelDeployConfig {
+  /**
+   * <p>Set to <code>True</code> to automatically generate an endpoint name for a one-click
+   *          Autopilot model deployment; set to <code>False</code> otherwise. The default value is
+   *             <code>False</code>.</p>
+   *          <note>
+   *             <p>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
+   *             the <code>EndpointName</code>; otherwise a 400 error is thrown.</p>
+   *          </note>
+   * @public
+   */
+  AutoGenerateEndpointName?: boolean;
+
+  /**
+   * <p>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
+   *          endpoint name is not generated automatically.</p>
+   *          <note>
+   *             <p>Specify the <code>EndpointName</code> if and only if you set
+   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error is
+   *             thrown.</p>
+   *          </note>
+   * @public
+   */
+  EndpointName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobRequest {
+  /**
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>An array of channel objects that describes the input data and its location. Each channel
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV, Parquet. A
+   *          minimum of 500 rows is required for the training dataset. There is not a minimum number of
+   *          rows required for the validation dataset.</p>
+   * @public
+   */
+  InputDataConfig: AutoMLChannel[] | undefined;
+
+  /**
+   * <p>Provides information about encryption and the Amazon S3 output path needed to
+   *          store artifacts from an AutoML job. Format(s) supported: CSV.</p>
+   * @public
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>Defines the type of supervised learning problem available for the candidates. For more
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+   *             SageMaker Autopilot problem types</a>.</p>
+   * @public
+   */
+  ProblemType?: ProblemType;
+
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
+   *          the default objective metric depends on the problem type. See <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a> for the default values.</p>
+   * @public
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>A collection of settings used to configure an AutoML job.</p>
+   * @public
+   */
+  AutoMLJobConfig?: AutoMLJobConfig;
+
+  /**
+   * <p>The ARN of the role that is used to access the data.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Generates possible candidates without training the models. A candidate is a combination
+   *          of data preprocessors, algorithms, and algorithm parameter settings.</p>
+   * @public
+   */
+  GenerateCandidateDefinitionsOnly?: boolean;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, for example, by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
+   *          resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+   *          deployment.</p>
+   * @public
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+}
 
 /**
  * @public
@@ -2033,6 +2156,12 @@ export interface JupyterLabAppSettings {
    * @public
    */
   CodeRepositories?: CodeRepository[];
+
+  /**
+   * <p>Indicates whether idle shutdown is activated for JupyterLab applications.</p>
+   * @public
+   */
+  AppLifecycleManagement?: AppLifecycleManagement;
 
   /**
    * <p>The configuration parameters that specify the IAM roles assumed by the execution role of
@@ -12787,52 +12916,6 @@ export interface ExperimentConfig {
    */
   RunName?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataDistributionType = {
-  FULLYREPLICATED: "FullyReplicated",
-  SHARDEDBYS3KEY: "ShardedByS3Key",
-} as const;
-
-/**
- * @public
- */
-export type DataDistributionType = (typeof DataDistributionType)[keyof typeof DataDistributionType];
-
-/**
- * @public
- * @enum
- */
-export const InputMode = {
-  FILE: "File",
-  PIPE: "Pipe",
-} as const;
-
-/**
- * @public
- */
-export type InputMode = (typeof InputMode)[keyof typeof InputMode];
-
-/**
- * @public
- * @enum
- */
-export const RedshiftResultCompressionType = {
-  BZIP2: "BZIP2",
-  GZIP: "GZIP",
-  NONE: "None",
-  SNAPPY: "SNAPPY",
-  ZSTD: "ZSTD",
-} as const;
-
-/**
- * @public
- */
-export type RedshiftResultCompressionType =
-  (typeof RedshiftResultCompressionType)[keyof typeof RedshiftResultCompressionType];
 
 /**
  * @internal

@@ -37,6 +37,7 @@ import {
   CognitoConfig,
   CompilationJobStatus,
   CompilationJobSummary,
+  ContainerDefinition,
   ContextSummary,
   InferenceSpecification,
   MetadataProperties,
@@ -69,10 +70,14 @@ import {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobStrategyType,
   HyperParameterTuningJobWarmStartConfig,
+  InferenceExecutionConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InstanceMetadataServiceConfiguration,
   LabelingJobInputConfig,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
+  ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
@@ -120,6 +125,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DeploymentRecommendation,
   DomainStatus,
   EdgePackagingJobStatus,
   EndpointOutputConfiguration,
@@ -181,6 +187,190 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeModelInput {
+  /**
+   * <p>The name of the model.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelOutput {
+  /**
+   * <p>Name of the SageMaker model.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The location of the primary inference code, associated artifacts, and custom
+   *             environment map that the inference code uses when it is deployed in production.
+   *         </p>
+   * @public
+   */
+  PrimaryContainer?: ContainerDefinition;
+
+  /**
+   * <p>The containers in the inference pipeline.</p>
+   * @public
+   */
+  Containers?: ContainerDefinition[];
+
+  /**
+   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
+   * @public
+   */
+  InferenceExecutionConfig?: InferenceExecutionConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
+   *             model.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this model has access to. For
+   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
+   *                 Private Cloud</a>
+   *          </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A timestamp that shows when the model was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * @public
+   */
+  ModelArn: string | undefined;
+
+  /**
+   * <p>If <code>True</code>, no inbound or outbound network calls can be made to or from the
+   *             model container.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>A set of recommended deployment configurations for the model.</p>
+   * @public
+   */
+  DeploymentRecommendation?: DeploymentRecommendation;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelBiasJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services
+   *    Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The time at which the model bias job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The baseline configuration for a model bias job.</p>
+   * @public
+   */
+  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
+
+  /**
+   * <p>Configures the model bias job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model bias job.</p>
+   * @public
+   */
+  ModelBiasJobInput: ModelBiasJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model bias job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
+   *    input data location and write permission to the output data location in Amazon S3.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelCardRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model card to describe.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card to describe. If a version is not provided, then the latest version of the model card is described.</p>
+   * @public
+   */
+  ModelCardVersion?: number;
+}
 
 /**
  * @public
@@ -11391,161 +11581,6 @@ export const ModelCardSortBy = {
  * @public
  */
 export type ModelCardSortBy = (typeof ModelCardSortBy)[keyof typeof ModelCardSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ModelCardSortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardSortOrder = (typeof ModelCardSortOrder)[keyof typeof ModelCardSortOrder];
-
-/**
- * @public
- */
-export interface ListModelCardsRequest {
-  /**
-   * <p>Only list model cards that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Only list model cards that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of model cards to list.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Only list model cards with names that contain the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>Only list model cards with the specified approval status.</p>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the
-   *          response includes a <code>NextToken</code>. To retrieve the next set of model cards, use
-   *          the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardSortBy;
-
-  /**
-   * <p>Sort model cards by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardSortOrder;
-}
-
-/**
- * <p>A summary of the model card.</p>
- * @public
- */
-export interface ModelCardSummary {
-  /**
-   * <p>The name of the model card.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card.</p>
-   * @public
-   */
-  ModelCardArn: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Draft</code>: The model card is a work in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PendingReview</code>: The model card is pending review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Approved</code>: The model card is approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
-   *                card, but it can still be exported.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ModelCardStatus: ModelCardStatus | undefined;
-
-  /**
-   * <p>The date and time that the model card was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the model card was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface ListModelCardsResponse {
-  /**
-   * <p>The summaries of the listed model cards.</p>
-   * @public
-   */
-  ModelCardSummaries: ModelCardSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model
-   *          cards, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelCardVersionSortBy = {
-  VERSION: "Version",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardVersionSortBy = (typeof ModelCardVersionSortBy)[keyof typeof ModelCardVersionSortBy];
 
 /**
  * @internal

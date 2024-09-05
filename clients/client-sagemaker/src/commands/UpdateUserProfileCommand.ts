@@ -165,6 +165,14 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *       LifecycleConfigArns: [
  *         "STRING_VALUE",
  *       ],
+ *       AppLifecycleManagement: { // AppLifecycleManagement
+ *         IdleSettings: { // IdleSettings
+ *           LifecycleManagement: "ENABLED" || "DISABLED",
+ *           IdleTimeoutInMinutes: Number("int"),
+ *           MinIdleTimeoutInMinutes: Number("int"),
+ *           MaxIdleTimeoutInMinutes: Number("int"),
+ *         },
+ *       },
  *     },
  *     JupyterLabAppSettings: { // JupyterLabAppSettings
  *       DefaultResourceSpec: "<ResourceSpec>",
@@ -183,6 +191,14 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       AppLifecycleManagement: {
+ *         IdleSettings: {
+ *           LifecycleManagement: "ENABLED" || "DISABLED",
+ *           IdleTimeoutInMinutes: Number("int"),
+ *           MinIdleTimeoutInMinutes: Number("int"),
+ *           MaxIdleTimeoutInMinutes: Number("int"),
+ *         },
+ *       },
  *       EmrSettings: { // EmrSettings
  *         AssumableRoleArns: [ // AssumableRoleArns
  *           "STRING_VALUE",

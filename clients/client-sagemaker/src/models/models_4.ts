@@ -147,8 +147,7 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  ModelCardSortOrder,
-  ModelCardVersionSortBy,
+  ModelCardSortBy,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
@@ -182,6 +181,161 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardSortOrder = (typeof ModelCardSortOrder)[keyof typeof ModelCardSortOrder];
+
+/**
+ * @public
+ */
+export interface ListModelCardsRequest {
+  /**
+   * <p>Only list model cards that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>Only list model cards that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of model cards to list.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Only list model cards with names that contain the specified string.</p>
+   * @public
+   */
+  NameContains?: string;
+
+  /**
+   * <p>Only list model cards with the specified approval status.</p>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus;
+
+  /**
+   * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the
+   *          response includes a <code>NextToken</code>. To retrieve the next set of model cards, use
+   *          the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
+   * @public
+   */
+  SortBy?: ModelCardSortBy;
+
+  /**
+   * <p>Sort model cards by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: ModelCardSortOrder;
+}
+
+/**
+ * <p>A summary of the model card.</p>
+ * @public
+ */
+export interface ModelCardSummary {
+  /**
+   * <p>The name of the model card.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   * @public
+   */
+  ModelCardArn: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates should be made to the model
+   *                card, but it can still be exported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelCardStatus: ModelCardStatus | undefined;
+
+  /**
+   * <p>The date and time that the model card was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the model card was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardsResponse {
+  /**
+   * <p>The summaries of the listed model cards.</p>
+   * @public
+   */
+  ModelCardSummaries: ModelCardSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model
+   *          cards, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardVersionSortBy = {
+  VERSION: "Version",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardVersionSortBy = (typeof ModelCardVersionSortBy)[keyof typeof ModelCardVersionSortBy];
 
 /**
  * @public

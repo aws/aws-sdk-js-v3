@@ -49,7 +49,6 @@ import {
   CognitoMemberDefinition,
   CollectionConfiguration,
   CompilationJobStatus,
-  ContainerDefinition,
   ContextSource,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
@@ -57,7 +56,6 @@ import {
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
-  ModelDeployConfig,
   ObjectiveStatus,
   OutputDataConfig,
   ProblemType,
@@ -78,7 +76,6 @@ import {
 
 import {
   DataCaptureConfig,
-  DataDistributionType,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -106,12 +103,10 @@ import {
   HyperParameterTuningJobWarmStartConfig,
   InferenceComponentComputeResourceRequirements,
   InferenceComponentStartupParameters,
-  InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InputConfig,
-  InputMode,
   JobType,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -119,9 +114,7 @@ import {
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
-  ModelBiasJobInput,
+  ModelDeployConfig,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -143,7 +136,6 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
-  RedshiftResultCompressionType,
   RetryStrategy,
   ShadowModeConfig,
   ThroughputMode,
@@ -151,6 +143,52 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const DataDistributionType = {
+  FULLYREPLICATED: "FullyReplicated",
+  SHARDEDBYS3KEY: "ShardedByS3Key",
+} as const;
+
+/**
+ * @public
+ */
+export type DataDistributionType = (typeof DataDistributionType)[keyof typeof DataDistributionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputMode = {
+  FILE: "File",
+  PIPE: "Pipe",
+} as const;
+
+/**
+ * @public
+ */
+export type InputMode = (typeof InputMode)[keyof typeof InputMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftResultCompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "None",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftResultCompressionType =
+  (typeof RedshiftResultCompressionType)[keyof typeof RedshiftResultCompressionType];
 
 /**
  * @public
@@ -791,6 +829,30 @@ export interface OwnershipSettings {
 }
 
 /**
+ * <p>Settings related to idle shutdown of Studio applications in a space.</p>
+ * @public
+ */
+export interface SpaceIdleSettings {
+  /**
+   * <p>The time that SageMaker waits after the application becomes idle before shutting it down.</p>
+   * @public
+   */
+  IdleTimeoutInMinutes?: number;
+}
+
+/**
+ * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio applications in a space.</p>
+ * @public
+ */
+export interface SpaceAppLifecycleManagement {
+  /**
+   * <p>Settings related to idle shutdown of Studio applications.</p>
+   * @public
+   */
+  IdleSettings?: SpaceIdleSettings;
+}
+
+/**
  * <p>The application settings for a Code Editor space.</p>
  * @public
  */
@@ -801,6 +863,12 @@ export interface SpaceCodeEditorAppSettings {
    * @public
    */
   DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.</p>
+   * @public
+   */
+  AppLifecycleManagement?: SpaceAppLifecycleManagement;
 }
 
 /**
@@ -873,6 +941,12 @@ export interface SpaceJupyterLabAppSettings {
    * @public
    */
   CodeRepositories?: CodeRepository[];
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.</p>
+   * @public
+   */
+  AppLifecycleManagement?: SpaceAppLifecycleManagement;
 }
 
 /**
@@ -9269,190 +9343,6 @@ export interface DescribeMlflowTrackingServerResponse {
    * @public
    */
   LastModifiedBy?: UserContext;
-}
-
-/**
- * @public
- */
-export interface DescribeModelInput {
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeModelOutput {
-  /**
-   * <p>Name of the SageMaker model.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The location of the primary inference code, associated artifacts, and custom
-   *             environment map that the inference code uses when it is deployed in production.
-   *         </p>
-   * @public
-   */
-  PrimaryContainer?: ContainerDefinition;
-
-  /**
-   * <p>The containers in the inference pipeline.</p>
-   * @public
-   */
-  Containers?: ContainerDefinition[];
-
-  /**
-   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
-   * @public
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
-   *             model.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this model has access to. For
-   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
-   *                 Private Cloud</a>
-   *          </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>A timestamp that shows when the model was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   * @public
-   */
-  ModelArn: string | undefined;
-
-  /**
-   * <p>If <code>True</code>, no inbound or outbound network calls can be made to or from the
-   *             model container.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean;
-
-  /**
-   * <p>A set of recommended deployment configurations for the model.</p>
-   * @public
-   */
-  DeploymentRecommendation?: DeploymentRecommendation;
-}
-
-/**
- * @public
- */
-export interface DescribeModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeModelBiasJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services
-   *    Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model bias job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model bias job.</p>
-   * @public
-   */
-  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
-
-  /**
-   * <p>Configures the model bias job to run a specified Docker container image.</p>
-   * @public
-   */
-  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model bias job.</p>
-   * @public
-   */
-  ModelBiasJobInput: ModelBiasJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model bias job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
-   *    input data location and write permission to the output data location in Amazon S3.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-/**
- * @public
- */
-export interface DescribeModelCardRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model card to describe.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The version of the model card to describe. If a version is not provided, then the latest version of the model card is described.</p>
-   * @public
-   */
-  ModelCardVersion?: number;
 }
 
 /**
