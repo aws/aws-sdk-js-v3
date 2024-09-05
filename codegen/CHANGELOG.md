@@ -1,6 +1,6 @@
 # Smithy AWS Typescript Codegen Changelog
 
-## 0.22.0 (2024-07-06)
+## 0.22.0 (2024-08-06)
 
 ### Features
 * Added support for `AccountIdEndpointMode` when configuring client endpoint parameters ([#6036](https://github.com/aws/aws-sdk-js-v3/pull/6036))
