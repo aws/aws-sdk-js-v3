@@ -28,7 +28,7 @@ export interface UpdateLibraryItemCommandInput extends UpdateLibraryItemInput {}
 export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the metadata and status of a library item for an Amazon Q App.</p>
+ * <p>Updates the library item for an Amazon Q App.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +63,7 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  * //   ratingCount: Number("int"), // required
  * //   isRatedByUser: true || false,
  * //   userCount: Number("int"),
+ * //   isVerified: true || false,
  * // };
  *
  * ```
@@ -75,6 +76,10 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation could not be completed due to a
+ *       conflict with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>

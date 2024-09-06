@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateLibraryItemReviewInput } from "../models/models_0";
-import { de_AssociateLibraryItemReviewCommand, se_AssociateLibraryItemReviewCommand } from "../protocols/Aws_restJson1";
+import { UpdateLibraryItemMetadataInput } from "../models/models_0";
+import { de_UpdateLibraryItemMetadataCommand, se_UpdateLibraryItemMetadataCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 
 /**
@@ -17,39 +17,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link AssociateLibraryItemReviewCommand}.
+ * The input for {@link UpdateLibraryItemMetadataCommand}.
  */
-export interface AssociateLibraryItemReviewCommandInput extends AssociateLibraryItemReviewInput {}
+export interface UpdateLibraryItemMetadataCommandInput extends UpdateLibraryItemMetadataInput {}
 /**
  * @public
  *
- * The output of {@link AssociateLibraryItemReviewCommand}.
+ * The output of {@link UpdateLibraryItemMetadataCommand}.
  */
-export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBearer {}
+export interface UpdateLibraryItemMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a rating or review for a library item with the user submitting
- *       the request. This increments the rating count for the specified library item.</p>
+ * <p>Updates the verification status of a library item for an Amazon Q App.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QAppsClient, AssociateLibraryItemReviewCommand } from "@aws-sdk/client-qapps"; // ES Modules import
- * // const { QAppsClient, AssociateLibraryItemReviewCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * import { QAppsClient, UpdateLibraryItemMetadataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
+ * // const { QAppsClient, UpdateLibraryItemMetadataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
  * const client = new QAppsClient(config);
- * const input = { // AssociateLibraryItemReviewInput
+ * const input = { // UpdateLibraryItemMetadataInput
  *   instanceId: "STRING_VALUE", // required
  *   libraryItemId: "STRING_VALUE", // required
+ *   isVerified: true || false,
  * };
- * const command = new AssociateLibraryItemReviewCommand(input);
+ * const command = new UpdateLibraryItemMetadataCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param AssociateLibraryItemReviewCommandInput - {@link AssociateLibraryItemReviewCommandInput}
- * @returns {@link AssociateLibraryItemReviewCommandOutput}
- * @see {@link AssociateLibraryItemReviewCommandInput} for command's `input` shape.
- * @see {@link AssociateLibraryItemReviewCommandOutput} for command's `response` shape.
+ * @param UpdateLibraryItemMetadataCommandInput - {@link UpdateLibraryItemMetadataCommandInput}
+ * @returns {@link UpdateLibraryItemMetadataCommandOutput}
+ * @see {@link UpdateLibraryItemMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateLibraryItemMetadataCommandOutput} for command's `response` shape.
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -65,10 +65,6 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The requested operation could not be completed because too many
  *       requests were sent at once. Wait a bit and try again later.</p>
@@ -83,23 +79,11 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
- * @example Increase the rating counter by 1 for the related app for this user
- * ```javascript
- * //
- * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316"
- * };
- * const command = new AssociateLibraryItemReviewCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
-export class AssociateLibraryItemReviewCommand extends $Command
+export class UpdateLibraryItemMetadataCommand extends $Command
   .classBuilder<
-    AssociateLibraryItemReviewCommandInput,
-    AssociateLibraryItemReviewCommandOutput,
+    UpdateLibraryItemMetadataCommandInput,
+    UpdateLibraryItemMetadataCommandOutput,
     QAppsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,9 +97,9 @@ export class AssociateLibraryItemReviewCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QAppsService", "AssociateLibraryItemReview", {})
-  .n("QAppsClient", "AssociateLibraryItemReviewCommand")
+  .s("QAppsService", "UpdateLibraryItemMetadata", {})
+  .n("QAppsClient", "UpdateLibraryItemMetadataCommand")
   .f(void 0, void 0)
-  .ser(se_AssociateLibraryItemReviewCommand)
-  .de(de_AssociateLibraryItemReviewCommand)
+  .ser(se_UpdateLibraryItemMetadataCommand)
+  .de(de_UpdateLibraryItemMetadataCommand)
   .build() {}

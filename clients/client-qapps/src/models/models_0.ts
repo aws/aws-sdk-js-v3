@@ -487,6 +487,41 @@ export interface AssociateLibraryItemReviewInput {
 }
 
 /**
+ * <p>The requested operation could not be completed due to a
+ *       conflict with the current state of the resource.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The unique identifier of the resource</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
  * <p>An internal service error occurred while processing the request.</p>
  * @public
  */
@@ -769,41 +804,6 @@ export interface Category {
 }
 
 /**
- * <p>The requested operation could not be completed due to a
- *       conflict with the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier of the resource</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p>The requested operation could not be completed because
  *       the content exceeds the maximum allowed size.</p>
  * @public
@@ -944,6 +944,12 @@ export interface CreateLibraryItemOutput {
    * @public
    */
   ratingCount: number | undefined;
+
+  /**
+   * <p>Indicates whether the library item has been verified.</p>
+   * @public
+   */
+  isVerified?: boolean;
 }
 
 /**
@@ -1203,6 +1209,12 @@ export interface GetLibraryItemOutput {
    * @public
    */
   userCount?: number;
+
+  /**
+   * <p>Indicates whether the library item has been verified.</p>
+   * @public
+   */
+  isVerified?: boolean;
 }
 
 /**
@@ -1404,6 +1416,12 @@ export interface LibraryItemMember {
    * @public
    */
   userCount?: number;
+
+  /**
+   * <p>Indicates whether the library item has been verified.</p>
+   * @public
+   */
+  isVerified?: boolean;
 }
 
 /**
@@ -1535,6 +1553,12 @@ export interface UserAppItem {
    * @public
    */
   status?: string;
+
+  /**
+   * <p>Indicates whether the Q App has been verified.</p>
+   * @public
+   */
+  isVerified?: boolean;
 }
 
 /**
@@ -1865,6 +1889,35 @@ export interface UpdateLibraryItemOutput {
    * @public
    */
   userCount?: number;
+
+  /**
+   * <p>Indicates whether the library item has been verified.</p>
+   * @public
+   */
+  isVerified?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLibraryItemMetadataInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated library item.</p>
+   * @public
+   */
+  libraryItemId: string | undefined;
+
+  /**
+   * <p>The verification status of the library item</p>
+   * @public
+   */
+  isVerified?: boolean;
 }
 
 /**

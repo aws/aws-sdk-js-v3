@@ -63,6 +63,7 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  * //       ratingCount: Number("int"), // required
  * //       isRatedByUser: true || false,
  * //       userCount: Number("int"),
+ * //       isVerified: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -20,5 +20,6 @@ export * from "./StopQAppSessionCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateLibraryItemCommand";
+export * from "./UpdateLibraryItemMetadataCommand";
 export * from "./UpdateQAppCommand";
 export * from "./UpdateQAppSessionCommand";

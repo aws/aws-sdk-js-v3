@@ -54,6 +54,7 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
  * //   ratingCount: Number("int"), // required
+ * //   isVerified: true || false,
  * // };
  *
  * ```

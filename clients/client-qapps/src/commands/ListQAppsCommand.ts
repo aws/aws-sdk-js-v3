@@ -54,6 +54,7 @@ export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBeare
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       canEdit: true || false,
  * //       status: "STRING_VALUE",
+ * //       isVerified: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

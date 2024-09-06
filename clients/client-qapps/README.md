@@ -8,13 +8,18 @@ AWS SDK for JavaScript QApps Client for Node.js, Browser and React Native.
 
 <p>The Amazon Q Apps feature capability within Amazon Q Business allows web experience
 users to create lightweight, purpose-built AI apps to fulfill specific tasks from
-within their web experience. For example, users can create an Q Appthat exclusively
+within their web experience. For example, users can create a Q App that exclusively
 generates marketing-related content to improve your marketing team's productivity or a
-Q App for marketing content-generation like writing customer emails and creating
-promotional content using a certain style of voice, tone, and branding.
-For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html">Amazon Q App</a> in the
-<i>Amazon Q Business User Guide</i>.
+Q App for writing customer emails and creating promotional content using a certain
+style of voice, tone, and branding. For more information on the capabilities, see
+<a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html#q-apps-actions">Amazon Q Apps capabilities</a> in the <i>Amazon Q Business User Guide</i>.
 </p>
+<p>For an overview of the Amazon Q App APIs, see <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Operations_QApps.html">Overview of
+Amazon Q Apps API operations</a>.</p>
+<p>For information about the IAM access control permissions you need to
+use the Amazon Q Apps API, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html">
+IAM role for the Amazon Q Business web experience including Amazon Q Apps</a> in the
+<i>Amazon Q Business User Guide</i>.</p>
 
 ## Installing
 
@@ -377,6 +382,14 @@ UpdateLibraryItem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/UpdateLibraryItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateLibraryItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateLibraryItemCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLibraryItemMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/UpdateLibraryItemMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateLibraryItemMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateLibraryItemMetadataCommandOutput/)
 
 </details>
 <details>

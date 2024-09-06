@@ -61,6 +61,7 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * //   ratingCount: Number("int"), // required
  * //   isRatedByUser: true || false,
  * //   userCount: Number("int"),
+ * //   isVerified: true || false,
  * // };
  *
  * ```
