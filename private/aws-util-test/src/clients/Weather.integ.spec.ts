@@ -20,4 +20,12 @@ describe(Weather.name, () => {
 
     expect.hasAssertions();
   });
+
+  it("should be assigned a default credentials object for sigv4 auth", async () => {
+    const client = new Weather({
+      endpoint: "https://localhost",
+    });
+
+    expect(client.config.credentials).toBeDefined();
+  });
 });

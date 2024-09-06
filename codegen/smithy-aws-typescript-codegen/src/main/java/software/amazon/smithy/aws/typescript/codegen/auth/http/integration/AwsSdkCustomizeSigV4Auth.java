@@ -102,6 +102,11 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         "credentialDefaultProvider", w ->
                             w.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))")
                     );
+                } else {
+                    return MapUtils.of(
+                        "credentials", w ->
+                            w.write("(() => () => Promise.reject(new Error(\"Credentials are missing\")))")
+                    );
                 }
             case NODE:
                 if (isAwsService(service)) {
@@ -133,6 +138,18 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         );
                     }
                     return map;
+                } else {
+                    // isSigV4Service and !isAwsService are implied here.
+                    return MapUtils.of(
+                        "credentials", writer -> {
+                            writer
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .write("credentialDefaultProvider()");
+                            AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
+                        }
+                    );
                 }
             default:
                 return Collections.emptyMap();
