@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.647.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.646.0...v3.647.0) (2024-09-06)
+
+
+### Features
+
+* **client-qapps:** Adds UpdateLibraryItemMetadata api to change status of app for admin verification feature and returns isVerified field in any api returning the app or library item. ([058537c](https://github.com/aws/aws-sdk-js-v3/commit/058537cb9ec390e71038fe2cade685ec1c28ad40))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-qapps
