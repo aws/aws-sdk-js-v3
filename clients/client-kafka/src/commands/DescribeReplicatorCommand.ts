@@ -82,6 +82,9 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //         StartingPosition: { // ReplicationStartingPosition
  * //           Type: "LATEST" || "EARLIEST",
  * //         },
+ * //         TopicNameConfiguration: { // ReplicationTopicNameConfiguration
+ * //           Type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS" || "IDENTICAL",
+ * //         },
  * //         TopicsToExclude: [ // __listOf__stringMax249
  * //           "STRING_VALUE",
  * //         ],

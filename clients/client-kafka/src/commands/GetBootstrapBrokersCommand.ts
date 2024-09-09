@@ -28,7 +28,7 @@ export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequ
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
- * <p>A list of brokers that a client application can use to bootstrap.</p>
+ * <p>A list of brokers that a client application can use to bootstrap. This list doesn't necessarily include all of the brokers in the cluster. The following Python 3.6 example shows how you can use the Amazon Resource Name (ARN) of a cluster to get its bootstrap brokers. If you don't know the ARN of your cluster, you can use the <code>ListClusters</code> operation to get the ARNs of all the clusters in this account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

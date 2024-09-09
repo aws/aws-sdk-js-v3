@@ -1859,6 +1859,33 @@ export interface ReplicationStartingPosition {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ReplicationTopicNameConfigurationType = {
+  IDENTICAL: "IDENTICAL",
+  PREFIXED_WITH_SOURCE_CLUSTER_ALIAS: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationTopicNameConfigurationType =
+  (typeof ReplicationTopicNameConfigurationType)[keyof typeof ReplicationTopicNameConfigurationType];
+
+/**
+ * <p>Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.</p>
+ * @public
+ */
+export interface ReplicationTopicNameConfiguration {
+  /**
+   * <p>The type of replicated topic name.</p>
+   * @public
+   */
+  Type?: ReplicationTopicNameConfigurationType;
+}
+
+/**
  * <p>Details about topic replication.</p>
  * @public
  */
@@ -1886,6 +1913,12 @@ export interface TopicReplication {
    * @public
    */
   StartingPosition?: ReplicationStartingPosition;
+
+  /**
+   * <p>Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.</p>
+   * @public
+   */
+  TopicNameConfiguration?: ReplicationTopicNameConfiguration;
 
   /**
    * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>

@@ -219,6 +219,7 @@ import {
   ReplicationInfoSummary,
   ReplicationStartingPosition,
   ReplicationStateInfo,
+  ReplicationTopicNameConfiguration,
   ReplicatorSummary,
   S3,
   Sasl,
@@ -3053,6 +3054,18 @@ const se_ReplicationStartingPosition = (input: ReplicationStartingPosition, cont
 };
 
 /**
+ * serializeAws_restJson1ReplicationTopicNameConfiguration
+ */
+const se_ReplicationTopicNameConfiguration = (
+  input: ReplicationTopicNameConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    type: [, , `Type`],
+  });
+};
+
+/**
  * serializeAws_restJson1S3
  */
 const se_S3 = (input: S3, context: __SerdeContext): any => {
@@ -3138,6 +3151,7 @@ const se_TopicReplication = (input: TopicReplication, context: __SerdeContext): 
     copyTopicConfigurations: [, , `CopyTopicConfigurations`],
     detectAndCopyNewTopics: [, , `DetectAndCopyNewTopics`],
     startingPosition: [, (_) => se_ReplicationStartingPosition(_, context), `StartingPosition`],
+    topicNameConfiguration: [, (_) => se_ReplicationTopicNameConfiguration(_, context), `TopicNameConfiguration`],
     topicsToExclude: [, _json, `TopicsToExclude`],
     topicsToReplicate: [, _json, `TopicsToReplicate`],
   });
@@ -4136,6 +4150,18 @@ const de_ReplicationStateInfo = (output: any, context: __SerdeContext): Replicat
 };
 
 /**
+ * deserializeAws_restJson1ReplicationTopicNameConfiguration
+ */
+const de_ReplicationTopicNameConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReplicationTopicNameConfiguration => {
+  return take(output, {
+    Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ReplicatorSummary
  */
 const de_ReplicatorSummary = (output: any, context: __SerdeContext): ReplicatorSummary => {
@@ -4252,6 +4278,7 @@ const de_TopicReplication = (output: any, context: __SerdeContext): TopicReplica
     CopyTopicConfigurations: [, __expectBoolean, `copyTopicConfigurations`],
     DetectAndCopyNewTopics: [, __expectBoolean, `detectAndCopyNewTopics`],
     StartingPosition: [, (_: any) => de_ReplicationStartingPosition(_, context), `startingPosition`],
+    TopicNameConfiguration: [, (_: any) => de_ReplicationTopicNameConfiguration(_, context), `topicNameConfiguration`],
     TopicsToExclude: [, _json, `topicsToExclude`],
     TopicsToReplicate: [, _json, `topicsToReplicate`],
   }) as any;
