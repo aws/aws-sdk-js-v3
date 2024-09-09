@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
+
+
+### Features
+
+* **client-sagemaker-runtime:** AWS SageMaker Runtime feature: Add sticky routing to support stateful inference models. ([5f38d6b](https://github.com/aws/aws-sdk-js-v3/commit/5f38d6b43c6de6171a4d0fab2d389f5115b9e1bd))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-runtime

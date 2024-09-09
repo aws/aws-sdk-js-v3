@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
+
+
+### Bug Fixes
+
+* **codegen:** use AWS SDK default credentials as sigv4 default credentials ([#6431](https://github.com/aws/aws-sdk-js-v3/issues/6431)) ([39532e4](https://github.com/aws/aws-sdk-js-v3/commit/39532e4f960bf964f059f0f1d633829675e7f92b))
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Add paginators for the ELBv2 DescribeListenerCertificates and DescribeRules APIs. Fix broken waiter for the ELBv2 DescribeLoadBalancers API. ([292ce40](https://github.com/aws/aws-sdk-js-v3/commit/292ce40b4408a53f9d583c80e64d0f2749d71cfb))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to broadcast to Stages using RTMP(S). ([55553d6](https://github.com/aws/aws-sdk-js-v3/commit/55553d6e9644624e3b688fe6743e7d8943e40118))
+* **client-kafka:** Amazon MSK Replicator can now replicate data to identically named topics between MSK clusters within the same AWS Region or across different AWS Regions. ([f8773ce](https://github.com/aws/aws-sdk-js-v3/commit/f8773ce9f1eb6a030d4820d95ef38d54e782b262))
+* **client-sagemaker-runtime:** AWS SageMaker Runtime feature: Add sticky routing to support stateful inference models. ([5f38d6b](https://github.com/aws/aws-sdk-js-v3/commit/5f38d6b43c6de6171a4d0fab2d389f5115b9e1bd))
+* **client-sagemaker:** Amazon Sagemaker supports orchestrating SageMaker HyperPod clusters with Amazon EKS ([833a3c3](https://github.com/aws/aws-sdk-js-v3/commit/833a3c388e7b2785ea5961a7cac3870b468b0cb8))
+* **clients:** update client endpoints as of 2024-09-09 ([ebbd168](https://github.com/aws/aws-sdk-js-v3/commit/ebbd168956a6d823522a14437111bf74b1138546))
+
+
+
+
+
 # [3.647.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.646.0...v3.647.0) (2024-09-06)
 
 

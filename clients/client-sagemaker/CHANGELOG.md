@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
+
+
+### Features
+
+* **client-sagemaker:** Amazon Sagemaker supports orchestrating SageMaker HyperPod clusters with Amazon EKS ([833a3c3](https://github.com/aws/aws-sdk-js-v3/commit/833a3c388e7b2785ea5961a7cac3870b468b0cb8))
+
+
+
+
+
 # [3.646.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.645.0...v3.646.0) (2024-09-05)
 
 

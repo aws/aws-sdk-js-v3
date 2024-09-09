@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
+
+
+### Features
+
+* **client-kafka:** Amazon MSK Replicator can now replicate data to identically named topics between MSK clusters within the same AWS Region or across different AWS Regions. ([f8773ce](https://github.com/aws/aws-sdk-js-v3/commit/f8773ce9f1eb6a030d4820d95ef38d54e782b262))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

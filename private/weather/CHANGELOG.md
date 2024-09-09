@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
+
+
+### Bug Fixes
+
+* **codegen:** use AWS SDK default credentials as sigv4 default credentials ([#6431](https://github.com/aws/aws-sdk-js-v3/issues/6431)) ([39532e4](https://github.com/aws/aws-sdk-js-v3/commit/39532e4f960bf964f059f0f1d633829675e7f92b))
+
+
+
+
+
 # [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
 
 **Note:** Version bump only for package @aws-sdk/weather
