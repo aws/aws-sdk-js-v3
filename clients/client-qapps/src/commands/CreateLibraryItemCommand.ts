@@ -109,6 +109,7 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  * {
  *   "createdAt": "2024-05-21T23:17:27.350Z",
  *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   "isVerified": false,
  *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316",
  *   "ratingCount": 0,
  *   "status": "PUBLISHED",
