@@ -63,7 +63,6 @@ import {
   DriftCheckBaselines,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
-  ExperimentConfig,
   FeatureDefinition,
   FeatureType,
   HyperParameterTrainingJobDefinition,
@@ -115,6 +114,7 @@ import {
   RootAccess,
   SkipModelValidation,
   SourceAlgorithmSpecification,
+  TrackingServerSize,
   UserSettings,
 } from "./models_1";
 
@@ -130,6 +130,7 @@ import {
   EdgePackagingJobStatus,
   EndpointOutputConfiguration,
   EndpointStatus,
+  ExperimentConfig,
   ExperimentSource,
   FeatureGroupStatus,
   FeatureParameter,
@@ -148,7 +149,6 @@ import {
   InferenceExperimentStatus,
   InferenceMetrics,
   InfraCheckConfig,
-  IsTrackingServerActive,
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
@@ -179,7 +179,6 @@ import {
   SpaceSharingSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
-  TrackingServerStatus,
   TrainingJobStatus,
   TrainingJobStatusCounters,
   TrialComponentArtifact,
@@ -187,6 +186,159 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the MLflow Tracking Server to describe.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IsTrackingServerActive = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type IsTrackingServerActive = (typeof IsTrackingServerActive)[keyof typeof IsTrackingServerActive];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrackingServerStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  MAINTENANCE_COMPLETE: "MaintenanceComplete",
+  MAINTENANCE_FAILED: "MaintenanceFailed",
+  MAINTENANCE_IN_PROGRESS: "MaintenanceInProgress",
+  STARTED: "Started",
+  STARTING: "Starting",
+  START_FAILED: "StartFailed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  STOP_FAILED: "StopFailed",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackingServerStatus = (typeof TrackingServerStatus)[keyof typeof TrackingServerStatus];
+
+/**
+ * @public
+ */
+export interface DescribeMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+
+  /**
+   * <p>The name of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerName?: string;
+
+  /**
+   * <p>The S3 URI of the general purpose bucket used as the MLflow Tracking Server
+   *       artifact store.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string;
+
+  /**
+   * <p>The size of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize;
+
+  /**
+   * <p>The MLflow version used for the described tracking server.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the described MLflow Tracking Server
+   *       uses to access the artifact store in Amazon S3.</p>
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The current creation status of the described MLflow Tracking Server.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>Whether the described MLflow Tracking Server is currently active.</p>
+   * @public
+   */
+  IsActive?: IsTrackingServerActive;
+
+  /**
+   * <p>The URL to connect to the MLflow user interface for the described tracking server.</p>
+   * @public
+   */
+  TrackingServerUrl?: string;
+
+  /**
+   * <p>The day and time of the week when weekly maintenance occurs on the described tracking server.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string;
+
+  /**
+   * <p>Whether automatic registration of new MLflow models to the SageMaker Model Registry is enabled.</p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean;
+
+  /**
+   * <p>The timestamp of when the described MLflow Tracking Server was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The timestamp of when the described MLflow Tracking Server was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+}
 
 /**
  * @public
@@ -11434,153 +11586,6 @@ export const ModelCardExportJobSortOrder = {
  */
 export type ModelCardExportJobSortOrder =
   (typeof ModelCardExportJobSortOrder)[keyof typeof ModelCardExportJobSortOrder];
-
-/**
- * @public
- */
-export interface ListModelCardExportJobsRequest {
-  /**
-   * <p>List export jobs for the model card with the specified name.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>List export jobs for the model card with the specified version.</p>
-   * @public
-   */
-  ModelCardVersion?: number;
-
-  /**
-   * <p>Only list model card export jobs that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Only list model card export jobs that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Only list model card export jobs with names that contain the specified string.</p>
-   * @public
-   */
-  ModelCardExportJobNameContains?: string;
-
-  /**
-   * <p>Only list model card export jobs with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: ModelCardExportJobStatus;
-
-  /**
-   * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardExportJobSortBy;
-
-  /**
-   * <p>Sort model card export jobs by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardExportJobSortOrder;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCardExportJobs</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          model card export jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of model card export jobs to list.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>The summary of the Amazon SageMaker Model Card export job.</p>
- * @public
- */
-export interface ModelCardExportJobSummary {
-  /**
-   * <p>The name of the model card export job.</p>
-   * @public
-   */
-  ModelCardExportJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
-   * @public
-   */
-  ModelCardExportJobArn: string | undefined;
-
-  /**
-   * <p>The completion status of the model card export job.</p>
-   * @public
-   */
-  Status: ModelCardExportJobStatus | undefined;
-
-  /**
-   * <p>The name of the model card that the export job exports.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The version of the model card that the export job exports.</p>
-   * @public
-   */
-  ModelCardVersion: number | undefined;
-
-  /**
-   * <p>The date and time that the model card export job was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The date and time that the model card export job was last modified..</p>
-   * @public
-   */
-  LastModifiedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardExportJobsResponse {
-  /**
-   * <p>The summaries of the listed model card export jobs.</p>
-   * @public
-   */
-  ModelCardExportJobSummaries: ModelCardExportJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model
-   *          card export jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelCardSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardSortBy = (typeof ModelCardSortBy)[keyof typeof ModelCardSortBy];
 
 /**
  * @internal

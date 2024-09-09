@@ -5,10 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreatePresignedMlflowTrackingServerUrlRequest,
-  CreatePresignedMlflowTrackingServerUrlResponse,
-} from "../models/models_1";
+import { CreatePresignedMlflowTrackingServerUrlRequest } from "../models/models_1";
+import { CreatePresignedMlflowTrackingServerUrlResponse } from "../models/models_2";
 import {
   de_CreatePresignedMlflowTrackingServerUrlCommand,
   se_CreatePresignedMlflowTrackingServerUrlCommand,

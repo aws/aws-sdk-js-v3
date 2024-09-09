@@ -9281,6 +9281,20 @@ export interface ClusterLifeCycleConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DeepHealthCheckType = {
+  INSTANCE_CONNECTIVITY: "InstanceConnectivity",
+  INSTANCE_STRESS: "InstanceStress",
+} as const;
+
+/**
+ * @public
+ */
+export type DeepHealthCheckType = (typeof DeepHealthCheckType)[keyof typeof DeepHealthCheckType];
+
+/**
  * <p>Details of an instance group in a SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -9340,6 +9354,12 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[];
 }
 
 /**
@@ -9396,6 +9416,12 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[];
 }
 
 /**
@@ -9423,6 +9449,7 @@ export interface ClusterInstancePlacement {
  * @enum
  */
 export const ClusterInstanceStatus = {
+  DEEP_HEALTH_CHECK_IN_PROGRESS: "DeepHealthCheckInProgress",
   FAILURE: "Failure",
   PENDING: "Pending",
   RUNNING: "Running",
@@ -9529,6 +9556,20 @@ export interface ClusterNodeDetails {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterNodeRecovery = {
+  AUTOMATIC: "Automatic",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
+
+/**
  * <p>Lists a summary of the properties of an instance (also called a
  *             <i>node</i> interchangeably) of a SageMaker HyperPod cluster.</p>
  * @public
@@ -9563,6 +9604,30 @@ export interface ClusterNodeSummary {
    * @public
    */
   InstanceStatus: ClusterInstanceStatusDetails | undefined;
+}
+
+/**
+ * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestratorEksConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestrator {
+  /**
+   * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Eks: ClusterOrchestratorEksConfig | undefined;
 }
 
 /**
@@ -9682,7 +9747,6 @@ export interface CodeEditorAppSettings {
 
   /**
    * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
-   *          <p></p>
    * @public
    */
   AppLifecycleManagement?: AppLifecycleManagement;
@@ -11121,117 +11185,4 @@ export interface CreateAppResponse {
    * @public
    */
   AppArn?: string;
-}
-
-/**
- * <p>Resource being accessed is in use.</p>
- * @public
- */
-export class ResourceInUse extends __BaseException {
-  readonly name: "ResourceInUse" = "ResourceInUse";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
-    super({
-      name: "ResourceInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUse.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig. Must be unique to your account.</p>
-   * @public
-   */
-  AppImageConfigName: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the AppImageConfig.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The KernelGatewayImageConfig. You can only specify one image kernel in the
-   *          AppImageConfig API. This kernel will be shown to users before the
-   *          image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
-   * @public
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
-
-  /**
-   * <p>The <code>JupyterLabAppImageConfig</code>. You can only specify one image kernel in the <code>AppImageConfig</code> API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab.</p>
-   * @public
-   */
-  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
-
-  /**
-   * <p>The <code>CodeEditorAppImageConfig</code>. You can only specify one image kernel
-   *       in the AppImageConfig API. This kernel is shown to users before the image starts.
-   *       After the image runs, all kernels are visible in Code Editor.</p>
-   * @public
-   */
-  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
-}
-
-/**
- * @public
- */
-export interface CreateAppImageConfigResponse {
-  /**
-   * <p>The ARN of the AppImageConfig.</p>
-   * @public
-   */
-  AppImageConfigArn?: string;
-}
-
-/**
- * @public
- */
-export interface CreateArtifactRequest {
-  /**
-   * <p>The name of the artifact. Must be unique to your account in an Amazon Web Services Region.</p>
-   * @public
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The ID, ID type, and URI of the source.</p>
-   * @public
-   */
-  Source: ArtifactSource | undefined;
-
-  /**
-   * <p>The artifact type.</p>
-   * @public
-   */
-  ArtifactType: string | undefined;
-
-  /**
-   * <p>A list of properties to add to the artifact.</p>
-   * @public
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A list of tags to apply to the artifact.</p>
-   * @public
-   */
-  Tags?: Tag[];
 }

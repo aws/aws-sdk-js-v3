@@ -1,5 +1,9 @@
 // smithy-typescript generated code
-import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@smithy/smithy-client";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+  SENSITIVE_STRING,
+} from "@smithy/smithy-client";
 
 import {
   AdditionalInferenceSpecificationDefinition,
@@ -9,6 +13,7 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppType,
+  ArtifactSource,
   AsyncInferenceConfig,
   AuthMode,
   AutoMLChannel,
@@ -39,6 +44,9 @@ import {
   CheckpointConfig,
   ClarifyExplainerConfig,
   ClusterInstanceGroupSpecification,
+  ClusterNodeRecovery,
+  ClusterOrchestrator,
+  CodeEditorAppImageConfig,
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
@@ -54,6 +62,8 @@ import {
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
+  JupyterLabAppImageConfig,
+  KernelGatewayImageConfig,
   MetadataProperties,
   MetricDefinition,
   MetricsSource,
@@ -77,6 +87,121 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Resource being accessed is in use.</p>
+ * @public
+ */
+export class ResourceInUse extends __BaseException {
+  readonly name: "ResourceInUse" = "ResourceInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
+    super({
+      name: "ResourceInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig. Must be unique to your account.</p>
+   * @public
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the AppImageConfig.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The KernelGatewayImageConfig. You can only specify one image kernel in the
+   *          AppImageConfig API. This kernel will be shown to users before the
+   *          image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
+   * @public
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+
+  /**
+   * <p>The <code>JupyterLabAppImageConfig</code>. You can only specify one image kernel in the <code>AppImageConfig</code> API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab.</p>
+   * @public
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+
+  /**
+   * <p>The <code>CodeEditorAppImageConfig</code>. You can only specify one image kernel
+   *       in the AppImageConfig API. This kernel is shown to users before the image starts.
+   *       After the image runs, all kernels are visible in Code Editor.</p>
+   * @public
+   */
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppImageConfigResponse {
+  /**
+   * <p>The ARN of the AppImageConfig.</p>
+   * @public
+   */
+  AppImageConfigArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateArtifactRequest {
+  /**
+   * <p>The name of the artifact. Must be unique to your account in an Amazon Web Services Region.</p>
+   * @public
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The ID, ID type, and URI of the source.</p>
+   * @public
+   */
+  Source: ArtifactSource | undefined;
+
+  /**
+   * <p>The artifact type.</p>
+   * @public
+   */
+  ArtifactType: string | undefined;
+
+  /**
+   * <p>A list of properties to add to the artifact.</p>
+   * @public
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>A list of tags to apply to the artifact.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -382,6 +507,23 @@ export interface CreateClusterRequest {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The type of orchestrator to use for the SageMaker HyperPod cluster. Currently, the only supported
+   *          value is <code>"eks"</code>, which is to use an Amazon Elastic Kubernetes Service (EKS)
+   *          cluster as the orchestrator.</p>
+   * @public
+   */
+  Orchestrator?: ClusterOrchestrator;
+
+  /**
+   * <p>The node recovery mode for the SageMaker HyperPod cluster. When set to <code>Automatic</code>,
+   *          SageMaker HyperPod will automatically reboot or replace faulty nodes when issues are detected. When set
+   *          to <code>None</code>, cluster administrators will need to manually manage any faulty
+   *          cluster instances.</p>
+   * @public
+   */
+  NodeRecovery?: ClusterNodeRecovery;
 }
 
 /**
@@ -12826,95 +12968,6 @@ export interface CreatePresignedMlflowTrackingServerUrlRequest {
    * @public
    */
   SessionExpirationDurationInSeconds?: number;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedMlflowTrackingServerUrlResponse {
-  /**
-   * <p>A presigned URL with an authorization token.</p>
-   * @public
-   */
-  AuthorizedUrl?: string;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedNotebookInstanceUrlInput {
-  /**
-   * <p>The name of the notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The duration of the session, in seconds. The default is 12 hours.</p>
-   * @public
-   */
-  SessionExpirationDurationInSeconds?: number;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedNotebookInstanceUrlOutput {
-  /**
-   * <p>A JSON object that contains the URL string. </p>
-   * @public
-   */
-  AuthorizedUrl?: string;
-}
-
-/**
- * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
- *       you call the following APIs:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
- *                </p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface ExperimentConfig {
-  /**
-   * <p>The name of an existing experiment to associate with the trial component.</p>
-   * @public
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The name of an existing trial to associate the trial component with. If not specified, a
-   *       new trial is created.</p>
-   * @public
-   */
-  TrialName?: string;
-
-  /**
-   * <p>The display name for the trial component. If this key isn't specified, the display name is
-   *       the trial component name.</p>
-   * @public
-   */
-  TrialComponentDisplayName?: string;
-
-  /**
-   * <p>The name of the experiment run to associate with the trial component.</p>
-   * @public
-   */
-  RunName?: string;
 }
 
 /**

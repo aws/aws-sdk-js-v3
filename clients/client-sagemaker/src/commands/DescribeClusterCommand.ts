@@ -65,6 +65,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //           },
  * //         },
  * //       ],
+ * //       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
+ * //         "InstanceStress" || "InstanceConnectivity",
+ * //       ],
  * //     },
  * //   ],
  * //   VpcConfig: { // VpcConfig
@@ -75,6 +78,12 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   Orchestrator: { // ClusterOrchestrator
+ * //     Eks: { // ClusterOrchestratorEksConfig
+ * //       ClusterArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   NodeRecovery: "Automatic" || "None",
  * // };
  *
  * ```

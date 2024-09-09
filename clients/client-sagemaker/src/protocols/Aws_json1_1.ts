@@ -1010,6 +1010,8 @@ import {
   ClusterLifeCycleConfig,
   ClusterNodeDetails,
   ClusterNodeSummary,
+  ClusterOrchestrator,
+  ClusterOrchestratorEksConfig,
   ClusterSummary,
   CodeEditorAppImageConfig,
   CodeEditorAppSettings,
@@ -1035,13 +1037,11 @@ import {
   CreateActionResponse,
   CreateAlgorithmInput,
   CreateAlgorithmOutput,
-  CreateAppImageConfigRequest,
-  CreateAppImageConfigResponse,
   CreateAppRequest,
   CreateAppResponse,
-  CreateArtifactRequest,
   CustomImage,
   DataSource,
+  DeepHealthCheckType,
   DirectDeploySettings,
   EmrServerlessComputeConfig,
   EmrServerlessSettings,
@@ -1087,7 +1087,6 @@ import {
   ProductionVariantInstanceType,
   RepositoryAuthConfig,
   ResourceConfig,
-  ResourceInUse,
   ResourceLimitExceeded,
   ResourceNotFound,
   ResourceSpec,
@@ -1125,6 +1124,9 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateAppImageConfigRequest,
+  CreateAppImageConfigResponse,
+  CreateArtifactRequest,
   CreateArtifactResponse,
   CreateAutoMLJobRequest,
   CreateAutoMLJobResponse,
@@ -1208,9 +1210,6 @@ import {
   CreatePresignedDomainUrlRequest,
   CreatePresignedDomainUrlResponse,
   CreatePresignedMlflowTrackingServerUrlRequest,
-  CreatePresignedMlflowTrackingServerUrlResponse,
-  CreatePresignedNotebookInstanceUrlInput,
-  CreatePresignedNotebookInstanceUrlOutput,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1240,7 +1239,6 @@ import {
   EndpointInput,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
-  ExperimentConfig,
   Explainability,
   ExplainerConfig,
   FeatureDefinition,
@@ -1357,6 +1355,7 @@ import {
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
   RecommendationJobVpcConfig,
+  ResourceInUse,
   ResourceLimits,
   RetryStrategy,
   RollingUpdatePolicy,
@@ -1384,6 +1383,9 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreatePresignedMlflowTrackingServerUrlResponse,
+  CreatePresignedNotebookInstanceUrlInput,
+  CreatePresignedNotebookInstanceUrlOutput,
   CreateProcessingJobRequest,
   CreateProcessingJobResponse,
   CreateProjectInput,
@@ -1559,8 +1561,6 @@ import {
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
-  DescribeMlflowTrackingServerRequest,
-  DescribeMlflowTrackingServerResponse,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1570,6 +1570,7 @@ import {
   EndpointOutputConfiguration,
   EndpointPerformance,
   EnvironmentParameter,
+  ExperimentConfig,
   ExperimentSource,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
@@ -1644,6 +1645,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeMlflowTrackingServerRequest,
+  DescribeMlflowTrackingServerResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
   DescribeModelCardExportJobRequest,
@@ -1846,12 +1849,9 @@ import {
   ListMlflowTrackingServersResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
-  ListModelCardExportJobsRequest,
-  ListModelCardExportJobsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
-  ModelCardExportJobSummary,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   MonitoringExecutionSummary,
@@ -1887,6 +1887,8 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelCardExportJobsRequest,
+  ListModelCardExportJobsResponse,
   ListModelCardsRequest,
   ListModelCardsResponse,
   ListModelCardVersionsRequest,
@@ -1959,6 +1961,7 @@ import {
   ListWorkteamsResponse,
   Model,
   ModelCard,
+  ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
   ModelDashboardEndpoint,
@@ -13340,6 +13343,10 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClusterLifeCycleConfig omitted.
 
+// se_ClusterOrchestrator omitted.
+
+// se_ClusterOrchestratorEksConfig omitted.
+
 // se_CodeEditorAppImageConfig omitted.
 
 // se_CodeEditorAppSettings omitted.
@@ -15793,6 +15800,8 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 
 // se_OnlineStoreSecurityConfig omitted.
 
+// se_OnStartDeepHealthChecks omitted.
+
 // se_OptimizationConfig omitted.
 
 // se_OptimizationConfigs omitted.
@@ -18095,6 +18104,7 @@ const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): C
     InstanceStorageConfigs: (_: any) => de_ClusterInstanceStorageConfigs(_, context),
     InstanceType: __expectString,
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
+    OnStartDeepHealthChecks: (_: any) => de_OnStartDeepHealthChecks(_, context),
     TargetCount: __expectInt32,
     ThreadsPerCore: __expectInt32,
   }) as any;
@@ -18207,6 +18217,24 @@ const de_ClusterNodeSummary = (output: any, context: __SerdeContext): ClusterNod
     InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
     InstanceType: __expectString,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterOrchestrator
+ */
+const de_ClusterOrchestrator = (output: any, context: __SerdeContext): ClusterOrchestrator => {
+  return take(output, {
+    Eks: (_: any) => de_ClusterOrchestratorEksConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterOrchestratorEksConfig
+ */
+const de_ClusterOrchestratorEksConfig = (output: any, context: __SerdeContext): ClusterOrchestratorEksConfig => {
+  return take(output, {
+    ClusterArn: __expectString,
   }) as any;
 };
 
@@ -19939,6 +19967,8 @@ const de_DescribeClusterResponse = (output: any, context: __SerdeContext): Descr
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FailureMessage: __expectString,
     InstanceGroups: (_: any) => de_ClusterInstanceGroupDetailsList(_, context),
+    NodeRecovery: __expectString,
+    Orchestrator: (_: any) => de_ClusterOrchestrator(_, context),
     VpcConfig: (_: any) => de_VpcConfig(_, context),
   }) as any;
 };
@@ -26424,6 +26454,18 @@ const de_OnlineStoreSecurityConfig = (output: any, context: __SerdeContext): Onl
   return take(output, {
     KmsKeyId: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1OnStartDeepHealthChecks
+ */
+const de_OnStartDeepHealthChecks = (output: any, context: __SerdeContext): DeepHealthCheckType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**

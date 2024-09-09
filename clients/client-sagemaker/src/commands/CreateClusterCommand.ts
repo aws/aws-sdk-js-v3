@@ -58,6 +58,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *           },
  *         },
  *       ],
+ *       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
+ *         "InstanceStress" || "InstanceConnectivity",
+ *       ],
  *     },
  *   ],
  *   VpcConfig: { // VpcConfig
@@ -74,6 +77,12 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Orchestrator: { // ClusterOrchestrator
+ *     Eks: { // ClusterOrchestratorEksConfig
+ *       ClusterArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   NodeRecovery: "Automatic" || "None",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

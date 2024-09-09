@@ -42,6 +42,8 @@ import {
   CheckpointConfig,
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
+  ClusterNodeRecovery,
+  ClusterOrchestrator,
   ClusterStatus,
   CodeEditorAppImageConfig,
   CodeRepository,
@@ -88,7 +90,6 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInfo,
-  ExperimentConfig,
   ExplainerConfig,
   FeatureDefinition,
   FeatureType,
@@ -139,10 +140,98 @@ import {
   RetryStrategy,
   ShadowModeConfig,
   ThroughputMode,
-  TrackingServerSize,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreatePresignedMlflowTrackingServerUrlResponse {
+  /**
+   * <p>A presigned URL with an authorization token.</p>
+   * @public
+   */
+  AuthorizedUrl?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedNotebookInstanceUrlInput {
+  /**
+   * <p>The name of the notebook instance.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+
+  /**
+   * <p>The duration of the session, in seconds. The default is 12 hours.</p>
+   * @public
+   */
+  SessionExpirationDurationInSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedNotebookInstanceUrlOutput {
+  /**
+   * <p>A JSON object that contains the URL string. </p>
+   * @public
+   */
+  AuthorizedUrl?: string;
+}
+
+/**
+ * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+ *       you call the following APIs:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ExperimentConfig {
+  /**
+   * <p>The name of an existing experiment to associate with the trial component.</p>
+   * @public
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The name of an existing trial to associate the trial component with. If not specified, a
+   *       new trial is created.</p>
+   * @public
+   */
+  TrialName?: string;
+
+  /**
+   * <p>The display name for the trial component. If this key isn't specified, the display name is
+   *       the trial component name.</p>
+   * @public
+   */
+  TrialComponentDisplayName?: string;
+
+  /**
+   * <p>The name of the experiment run to associate with the trial component.</p>
+   * @public
+   */
+  RunName?: string;
+}
 
 /**
  * @public
@@ -4744,6 +4833,18 @@ export interface DescribeClusterResponse {
    * @public
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The type of orchestrator used for the SageMaker HyperPod cluster. </p>
+   * @public
+   */
+  Orchestrator?: ClusterOrchestrator;
+
+  /**
+   * <p>The node recovery mode configured for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  NodeRecovery?: ClusterNodeRecovery;
 }
 
 /**
@@ -9180,159 +9281,6 @@ export interface DescribeLineageGroupResponse {
 
   /**
    * <p>The last modified time of the lineage group.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-}
-
-/**
- * @public
- */
-export interface DescribeMlflowTrackingServerRequest {
-  /**
-   * <p>The name of the MLflow Tracking Server to describe.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IsTrackingServerActive = {
-  ACTIVE: "Active",
-  INACTIVE: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type IsTrackingServerActive = (typeof IsTrackingServerActive)[keyof typeof IsTrackingServerActive];
-
-/**
- * @public
- * @enum
- */
-export const TrackingServerStatus = {
-  CREATED: "Created",
-  CREATE_FAILED: "CreateFailed",
-  CREATING: "Creating",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-  MAINTENANCE_COMPLETE: "MaintenanceComplete",
-  MAINTENANCE_FAILED: "MaintenanceFailed",
-  MAINTENANCE_IN_PROGRESS: "MaintenanceInProgress",
-  STARTED: "Started",
-  STARTING: "Starting",
-  START_FAILED: "StartFailed",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-  STOP_FAILED: "StopFailed",
-  UPDATED: "Updated",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type TrackingServerStatus = (typeof TrackingServerStatus)[keyof typeof TrackingServerStatus];
-
-/**
- * @public
- */
-export interface DescribeMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the described tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string;
-
-  /**
-   * <p>The name of the described tracking server.</p>
-   * @public
-   */
-  TrackingServerName?: string;
-
-  /**
-   * <p>The S3 URI of the general purpose bucket used as the MLflow Tracking Server
-   *       artifact store.</p>
-   * @public
-   */
-  ArtifactStoreUri?: string;
-
-  /**
-   * <p>The size of the described tracking server.</p>
-   * @public
-   */
-  TrackingServerSize?: TrackingServerSize;
-
-  /**
-   * <p>The MLflow version used for the described tracking server.</p>
-   * @public
-   */
-  MlflowVersion?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the described MLflow Tracking Server
-   *       uses to access the artifact store in Amazon S3.</p>
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The current creation status of the described MLflow Tracking Server.</p>
-   * @public
-   */
-  TrackingServerStatus?: TrackingServerStatus;
-
-  /**
-   * <p>Whether the described MLflow Tracking Server is currently active.</p>
-   * @public
-   */
-  IsActive?: IsTrackingServerActive;
-
-  /**
-   * <p>The URL to connect to the MLflow user interface for the described tracking server.</p>
-   * @public
-   */
-  TrackingServerUrl?: string;
-
-  /**
-   * <p>The day and time of the week when weekly maintenance occurs on the described tracking server.</p>
-   * @public
-   */
-  WeeklyMaintenanceWindowStart?: string;
-
-  /**
-   * <p>Whether automatic registration of new MLflow models to the SageMaker Model Registry is enabled.</p>
-   * @public
-   */
-  AutomaticModelRegistration?: boolean;
-
-  /**
-   * <p>The timestamp of when the described MLflow Tracking Server was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>The timestamp of when the described MLflow Tracking Server was last modified.</p>
    * @public
    */
   LastModifiedTime?: Date;

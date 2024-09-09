@@ -55,8 +55,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *           },
  *         },
  *       ],
+ *       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
+ *         "InstanceStress" || "InstanceConnectivity",
+ *       ],
  *     },
  *   ],
+ *   NodeRecovery: "Automatic" || "None",
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
