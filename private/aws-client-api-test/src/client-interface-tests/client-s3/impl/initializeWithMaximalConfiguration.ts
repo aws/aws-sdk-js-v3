@@ -40,6 +40,7 @@ export const initializeWithMaximalConfiguration = () => {
     region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     credentials: defaultProvider({}),
     endpoint: "endpoint",
+    cacheMiddleware: true,
     requestHandler: new NodeHttpHandler({
       httpsAgent: new https.Agent({
         maxSockets: 200,
@@ -106,6 +107,7 @@ export const initializeWithMaximalConfiguration = () => {
     utf8Encoder: toUtf8,
     httpAuthSchemes: [],
     httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
+    serviceConfiguredEndpoint: null as never,
     // END internal options
 
     // S3 specific options below

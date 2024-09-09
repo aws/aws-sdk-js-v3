@@ -125,6 +125,7 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  *   "createdAt": "2024-05-08T16:09:56.080Z",
  *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
  *   "isRatedByUser": false,
+ *   "isVerified": false,
  *   "libraryItemId": "18cbebaa-196a-4aa5-a840-88d548e07f8f",
  *   "ratingCount": 0,
  *   "status": "PUBLISHED",

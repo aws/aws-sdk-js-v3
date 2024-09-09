@@ -28,7 +28,10 @@ export function bucketEndpointMiddleware(options: PreviouslyResolved): Serialize
           if (typeof bucket === "string") {
             try {
               const bucketEndpointUrl = new URL(bucket);
-              endpoint.url = bucketEndpointUrl;
+              context.endpointV2 = {
+                ...endpoint,
+                url: bucketEndpointUrl,
+              };
             } catch (e) {
               const warning = `@aws-sdk/middleware-sdk-s3: bucketEndpoint=true was set but Bucket=${bucket} could not be parsed as URL.`;
               if (context.logger?.constructor?.name === "NoOpLogger") {

@@ -66,7 +66,10 @@ export function queueUrlMiddleware({ useQueueUrlAsEndpoint, endpoint }: QueueUrl
               } differs from SQSClient resolved endpoint=${resolvedEndpoint.url.toString()}, using QueueUrl host as endpoint.
 Set [endpoint=string] or [useQueueUrlAsEndpoint=false] on the SQSClient.`
             );
-            resolvedEndpoint.url = queueUrlOrigin;
+            context.endpointV2 = {
+              ...resolvedEndpoint,
+              url: queueUrlOrigin,
+            };
           }
         } catch (e: unknown) {
           logger.warn(e);
