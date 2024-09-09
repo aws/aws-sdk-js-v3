@@ -28,6 +28,18 @@ import {
 jest.setTimeout(180000);
 
 describe(DynamoDBDocument.name, () => {
+  it("should deny initialization with cacheMiddleware: true", () => {
+    const dynamodb = new DynamoDB({
+      credentials: {} as any,
+      cacheMiddleware: true,
+    });
+    expect(() => {
+      DynamoDBDocument.from(dynamodb);
+    }).toThrow();
+  });
+});
+
+describe(DynamoDBDocument.name, () => {
   type NestedList = (string | NumberValue | boolean | Set<string> | Set<NumberValue> | null | NestedList | NestedMap)[];
   type NestedMap = {
     [key: string]: string | NumberValue | boolean | Set<string> | Set<NumberValue> | null | NestedList | NestedMap;
