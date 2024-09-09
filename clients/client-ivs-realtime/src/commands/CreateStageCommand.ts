@@ -78,6 +78,8 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
  * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * //   participantTokens: [ // ParticipantTokenList

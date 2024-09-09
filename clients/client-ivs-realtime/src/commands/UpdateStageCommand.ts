@@ -64,6 +64,8 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
  * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -30,7 +30,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
 /**
  * <p>Starts a Composition from a stage based on the configuration provided in the
  *          request.</p>
- *          <p>A Composition is an ephemeral resource that exists after this endpoint returns
+ *          <p>A Composition is an ephemeral resource that exists after this operation returns
  *          successfully. Composition stops and the resource is deleted:</p>
  *          <ul>
  *             <li>

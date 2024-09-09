@@ -28,8 +28,9 @@ export interface DisconnectParticipantCommandInput extends DisconnectParticipant
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects a specified participant and revokes the participant permanently from a
- *          specified stage.</p>
+ * <p>Disconnects a specified participant from a specified stage. If the participant is publishing using
+ *             an <a>IngestConfiguration</a>, DisconnectParticipant also updates the <code>stageArn</code>
+ * 	    in the IngestConfiguration to be an empty string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

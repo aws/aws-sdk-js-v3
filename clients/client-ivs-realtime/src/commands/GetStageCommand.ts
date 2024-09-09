@@ -57,6 +57,8 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
  * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * // };

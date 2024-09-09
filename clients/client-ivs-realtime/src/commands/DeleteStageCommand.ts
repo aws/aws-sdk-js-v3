@@ -28,7 +28,9 @@ export interface DeleteStageCommandInput extends DeleteStageRequest {}
 export interface DeleteStageCommandOutput extends DeleteStageResponse, __MetadataBearer {}
 
 /**
- * <p>Shuts down and deletes the specified stage (disconnecting all participants).</p>
+ * <p>Shuts down and deletes the specified stage (disconnecting all participants). This operation also
+ *             removes the <code>stageArn</code> from the associated <a>IngestConfiguration</a>, if there are participants
+ * 	    using the IngestConfiguration to publish to the stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
