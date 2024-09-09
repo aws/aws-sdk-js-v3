@@ -146,6 +146,28 @@ export interface InvokeEndpointInput {
    * @public
    */
   InferenceComponentName?: string;
+
+  /**
+   * <p>Creates a stateful session or identifies an existing one. You can do one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Create a stateful session by specifying the value
+   *                     <code>NEW_SESSION</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Send your request to an existing stateful session by specifying the ID of that
+   *                     session.</p>
+   *             </li>
+   *          </ul>
+   *          <p>With a stateful session, you can send multiple requests to a stateful model. When you
+   *             create a session with a stateful model, the model must create the session ID and set the
+   *             expiration time. The model must also provide that information in the response to your
+   *             request. You can get the ID and timestamp from the <code>NewSessionId</code> response
+   *             parameter. For any subsequent request where you specify that session ID, SageMaker routes the request to the same instance that supports the session.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**
@@ -195,6 +217,19 @@ export interface InvokeEndpointOutput {
    * @public
    */
   CustomAttributes?: string;
+
+  /**
+   * <p>If you created a stateful session with your request, the ID and expiration time that
+   *             the model assigns to that session.</p>
+   * @public
+   */
+  NewSessionId?: string;
+
+  /**
+   * <p>If you closed a stateful session with your request, the ID of that session.</p>
+   * @public
+   */
+  ClosedSessionId?: string;
 }
 
 /**
@@ -508,6 +543,20 @@ export interface InvokeEndpointWithResponseStreamInput {
    * @public
    */
   InferenceComponentName?: string;
+
+  /**
+   * <p>The ID of a stateful session to handle your request.</p>
+   *          <p>You can't create a stateful session by using the
+   *                 <code>InvokeEndpointWithResponseStream</code> action. Instead, you can create one by
+   *             using the <code>
+   *                <a>InvokeEndpoint</a>
+   *             </code> action. In your request, you
+   *             specify <code>NEW_SESSION</code> for the <code>SessionId</code> request parameter. The
+   *             response to that request provides the session ID for the <code>NewSessionId</code>
+   *             response parameter.</p>
+   * @public
+   */
+  SessionId?: string;
 }
 
 /**

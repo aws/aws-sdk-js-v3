@@ -85,6 +85,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  *   InferenceId: "STRING_VALUE",
  *   EnableExplanations: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
+ *   SessionId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
@@ -93,6 +94,8 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * //   ContentType: "STRING_VALUE",
  * //   InvokedProductionVariant: "STRING_VALUE",
  * //   CustomAttributes: "STRING_VALUE",
+ * //   NewSessionId: "STRING_VALUE",
+ * //   ClosedSessionId: "STRING_VALUE",
  * // };
  *
  * ```

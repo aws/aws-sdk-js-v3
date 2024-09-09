@@ -86,6 +86,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *   TargetContainerHostname: "STRING_VALUE",
  *   InferenceId: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
+ *   SessionId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointWithResponseStreamCommand(input);
  * const response = await client.send(command);
