@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **client-cognito-identity:** This release adds sensitive trait to some required shapes. ([28a1dee](https://github.com/aws/aws-sdk-js-v3/commit/28a1deec6cfb137b6c7ee8b86a60583c2134bbc4))
+* **client-pipes:** This release adds support for customer managed KMS keys in Amazon EventBridge Pipe ([a0eda25](https://github.com/aws/aws-sdk-js-v3/commit/a0eda2510c845ecd95297a2a2cf26ad54239b2af))
+* **clients:** update client endpoints as of 2024-09-10 ([467fa98](https://github.com/aws/aws-sdk-js-v3/commit/467fa98bd08317fbd58d8c5d6aba9af5b8ab3a00))
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
 # [3.648.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.647.0...v3.648.0) (2024-09-09)
 
 
