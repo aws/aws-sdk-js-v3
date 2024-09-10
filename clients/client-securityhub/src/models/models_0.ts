@@ -370,7 +370,7 @@ export interface AwsApiCallAction {
   CallerType?: string;
 
   /**
-   * <p>Provided if <code>CallerType</code> is <code>remoteIp</code>. Provides information about
+   * <p>Provided if <code>CallerType</code> is <code>remoteip</code>. Provides information about
    *          the remote IP address that the API call originated from.</p>
    * @public
    */
