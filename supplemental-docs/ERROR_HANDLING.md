@@ -41,7 +41,7 @@ import { S3 } from "@aws-sdk/client-s3";
 const s3 = new S3();
 
 await s3.getObject({
-  Bucket: "georgfu-us-west-2",
+  Bucket: "my-bucket",
   Key: 5 as any, // since this should be a string, the resulting error is thrown even prior to the request being sent.
                  // TypeError: labelValue.split is not a function
 });
