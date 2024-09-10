@@ -398,6 +398,7 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * // };
  *
  * ```

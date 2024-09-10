@@ -9985,14 +9985,15 @@ export interface StatusReason {
 }
 
 /**
- * <p>Contains finding details that are specific to control-based findings. Only returned for
- *          findings generated from controls.</p>
+ * <p>This object typically provides details about a control finding, such as applicable standards and the status of
+ *             control checks. While finding providers can add custom content in <code>Compliance</code> object fields, they are
+ *             typically used to review details of Security Hub control findings.</p>
  * @public
  */
 export interface Compliance {
   /**
-   * <p>The result of a standards check.</p>
-   *          <p>The valid values for <code>Status</code> are as follows.</p>
+   * <p>Typically summarizes the result of a control check.</p>
+   *          <p>For Security Hub controls, valid values for <code>Status</code> are as follows.</p>
    *          <ul>
    *             <li>
    *                <ul>
@@ -10027,7 +10028,7 @@ export interface Compliance {
   Status?: ComplianceStatus;
 
   /**
-   * <p>For a control, the industry or regulatory framework requirements that are related to the
+   * <p>Typically provides the industry or regulatory framework requirements that are related to a
    *          control. The check for that control is aligned with these requirements.</p>
    *          <p>Array Members: Maximum number of 32 items.</p>
    * @public
@@ -10035,24 +10036,22 @@ export interface Compliance {
   RelatedRequirements?: string[];
 
   /**
-   * <p>For findings generated from controls, a list of reasons behind the value of
-   *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>Security Hub User Guide</i>. </p>
+   * <p>Typically used to provide a list of reasons for the value of <code>Status</code>.</p>
    * @public
    */
   StatusReasons?: StatusReason[];
 
   /**
    * <p>
-   *          The unique identifier of a control across standards. Values for this field typically consist of an
-   *          Amazon Web Servicesservice and a number, such as APIGateway.5.
+   *          Typically provides the unique identifier of a control across standards. For Security Hub controls, this field consists of an
+   *           Amazon Web Servicesservice and a unique number, such as <code>APIGateway.5</code>.
    *       </p>
    * @public
    */
   SecurityControlId?: string;
 
   /**
-   * <p>The enabled security standards in which a security control is currently enabled.
+   * <p>Typically provides an array of enabled security standards in which a security control is currently enabled.
    *       </p>
    * @public
    */
@@ -10060,7 +10059,7 @@ export interface Compliance {
 
   /**
    * <p>
-   *             An object that includes security control parameter names and values.
+   *             Typically an object that includes security control parameter names and values.
    *         </p>
    * @public
    */

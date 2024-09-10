@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UnlinkIdentityInput } from "../models/models_0";
+import { UnlinkIdentityInput, UnlinkIdentityInputFilterSensitiveLog } from "../models/models_0";
 import { de_UnlinkIdentityCommand, se_UnlinkIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -107,7 +107,7 @@ export class UnlinkIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "UnlinkIdentity", {})
   .n("CognitoIdentityClient", "UnlinkIdentityCommand")
-  .f(void 0, void 0)
+  .f(UnlinkIdentityInputFilterSensitiveLog, void 0)
   .ser(se_UnlinkIdentityCommand)
   .de(de_UnlinkIdentityCommand)
   .build() {}

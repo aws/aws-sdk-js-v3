@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIdInput, GetIdResponse } from "../models/models_0";
+import { GetIdInput, GetIdInputFilterSensitiveLog, GetIdResponse } from "../models/models_0";
 import { de_GetIdCommand, se_GetIdCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -109,7 +109,7 @@ export class GetIdCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetId", {})
   .n("CognitoIdentityClient", "GetIdCommand")
-  .f(void 0, void 0)
+  .f(GetIdInputFilterSensitiveLog, void 0)
   .ser(se_GetIdCommand)
   .de(de_GetIdCommand)
   .build() {}

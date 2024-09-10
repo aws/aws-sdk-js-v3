@@ -2901,7 +2901,7 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
  */
 export interface MediaInsightsConfiguration {
   /**
-   * <p>Denotes the configration as enabled or disabled.</p>
+   * <p>Denotes the configuration as enabled or disabled.</p>
    * @public
    */
   Disabled?: boolean;
@@ -3136,7 +3136,7 @@ export interface GetVoiceToneAnalysisTaskRequest {
   VoiceConnectorId: string | undefined;
 
   /**
-   * <p>The ID of the voice tone anlysis task.</p>
+   * <p>The ID of the voice tone analysis task.</p>
    * @public
    */
   VoiceToneAnalysisTaskId: string | undefined;
@@ -4680,7 +4680,9 @@ export interface ValidateE911AddressRequest {
   State: string | undefined;
 
   /**
-   * <p>The country in the address being validated.</p>
+   * <p>The country in the address being validated as two-letter country code in ISO 3166-1
+   *          alpha-2 format, such as <code>US</code>. For more information, see <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> in
+   *          Wikipedia.</p>
    * @public
    */
   Country: string | undefined;
@@ -4697,10 +4699,25 @@ export interface ValidateE911AddressRequest {
  */
 export interface ValidateE911AddressResponse {
   /**
-   * <p>Number indicating the result of address validation. <code>0</code> means the
-   *          address was perfect as-is and successfully validated. <code>1</code> means the
-   *          address was corrected. <code>2</code> means the address sent was not close
-   *          enough and was not validated.</p>
+   * <p>Number indicating the result of address validation.</p>
+   *          <p>Each possible result is defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> - Address validation succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>1</code> - Address validation succeeded. The address was a close enough
+   *                match and has been corrected as part of the address object.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2</code> - Address validation failed. You should re-submit the validation
+   *                request with candidates from the <code>CandidateAddressList</code> result, if it's a
+   *                close match.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ValidationResult?: number;
