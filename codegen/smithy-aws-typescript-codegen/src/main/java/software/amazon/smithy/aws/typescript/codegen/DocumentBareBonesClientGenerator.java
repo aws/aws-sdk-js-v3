@@ -186,7 +186,8 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                 writer.write("""
                 if (this.config?.cacheMiddleware) {
                     throw new Error(
-                        "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the DynamoDBDocument client. This option must be set to false."
+                        "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the"
+                          + " DynamoDBDocumentClient. This option must be set to false."
                     );
                 }
                 """);
