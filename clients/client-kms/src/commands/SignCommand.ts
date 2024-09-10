@@ -231,9 +231,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  */
 export class SignCommand extends $Command
   .classBuilder<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes>()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
