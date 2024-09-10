@@ -3350,9 +3350,51 @@
             "eu-north-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
-            "us-east-1": {},
-            "us-east-2": {},
-            "us-west-2": {}
+            "fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "cleanrooms-fips.us-east-1.amazonaws.com"
+            },
+            "fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "cleanrooms-fips.us-east-2.amazonaws.com"
+            },
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "cleanrooms-fips.us-west-2.amazonaws.com"
+            },
+            "us-east-1": {
+              "variants": [
+                {
+                  "hostname": "cleanrooms-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-east-2": {
+              "variants": [
+                {
+                  "hostname": "cleanrooms-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "cleanrooms-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
           }
         },
         "cloud9": {
@@ -7056,10 +7098,38 @@
             "protocols": ["http", "https"]
           },
           "endpoints": {
-            "af-south-1": {},
-            "ap-east-1": {},
-            "ap-northeast-1": {},
-            "ap-northeast-2": {},
+            "af-south-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.af-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-east-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.ap-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.ap-northeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-2": {
+              "variants": [
+                {
+                  "hostname": "ec2.ap-northeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ap-northeast-3": {},
             "ap-south-1": {
               "variants": [
@@ -7070,15 +7140,34 @@
               ]
             },
             "ap-south-2": {},
-            "ap-southeast-1": {},
-            "ap-southeast-2": {},
+            "ap-southeast-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.ap-southeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-2": {
+              "variants": [
+                {
+                  "hostname": "ec2.ap-southeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
                   "hostname": "ec2-fips.ca-central-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "ec2.ca-central-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -7090,10 +7179,31 @@
                 }
               ]
             },
-            "eu-central-1": {},
+            "eu-central-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.eu-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "eu-central-2": {},
-            "eu-north-1": {},
-            "eu-south-1": {},
+            "eu-north-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.eu-north-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-south-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.eu-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "eu-south-2": {},
             "eu-west-1": {
               "variants": [
@@ -7103,8 +7213,22 @@
                 }
               ]
             },
-            "eu-west-2": {},
-            "eu-west-3": {},
+            "eu-west-2": {
+              "variants": [
+                {
+                  "hostname": "ec2.eu-west-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-3": {
+              "variants": [
+                {
+                  "hostname": "ec2.eu-west-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "fips-ca-central-1": {
               "credentialScope": {
                 "region": "ca-central-1"
@@ -7149,7 +7273,14 @@
             },
             "il-central-1": {},
             "me-central-1": {},
-            "me-south-1": {},
+            "me-south-1": {
+              "variants": [
+                {
+                  "hostname": "ec2.me-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "sa-east-1": {
               "variants": [
                 {
@@ -7187,6 +7318,10 @@
                 {
                   "hostname": "ec2-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "ec2.us-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -14268,6 +14403,7 @@
             "ap-northeast-2": {},
             "ap-northeast-3": {},
             "ap-south-1": {},
+            "ap-south-2": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
             "ap-southeast-4": {},
@@ -14277,6 +14413,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
@@ -24582,8 +24719,36 @@
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
-            "us-east-1": {},
-            "us-west-2": {}
+            "fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "workspaces-web-fips.us-east-1.amazonaws.com"
+            },
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "workspaces-web-fips.us-west-2.amazonaws.com"
+            },
+            "us-east-1": {
+              "variants": [
+                {
+                  "hostname": "workspaces-web-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "workspaces-web-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
           }
         },
         "xray": {
