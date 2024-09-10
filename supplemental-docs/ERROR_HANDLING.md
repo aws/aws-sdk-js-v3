@@ -115,8 +115,8 @@ try {
     switch (e.$response?.headers["header-name"]) {
     }
 
-    if (e.$responseText) {
-      console.log(e.$responseText);
+    if ((e as any).$responseBodyText) {
+      console.debug((e as any).$responseBodyText);
     }
   }
 }
