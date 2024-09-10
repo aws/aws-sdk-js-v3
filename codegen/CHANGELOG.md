@@ -1,5 +1,12 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.23.0 (2024-09-10)
+
+### Features
+* Added support for SigV4a and sigining region sets ([#6368](https://github.com/aws/aws-sdk-js-v3/pull/6368))
+* Added support for Smithy RPCv2 CBOR protocol ([#6096](https://github.com/aws/aws-sdk-js-v3/pull/6096))
+
+
 ## 0.22.0 (2024-08-06)
 
 ### Features
