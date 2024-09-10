@@ -67,7 +67,7 @@ In the AWS Lambda example, it is the one at the bottom that reads:
 LambdaServiceException	- Base exception class for all service exceptions from Lambda service.
 ```
 
-### Example of handling service returned errors.
+### Handling service returned errors
 
 As seen in the example below, SDK error handling best-practices involve the following points:
 - cast the initial unknown error to the service base exception type to have type-access to the `$metadata` and `$response` fields.
