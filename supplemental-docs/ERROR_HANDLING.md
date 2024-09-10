@@ -61,8 +61,8 @@ exceptions. These are the modeled exceptions for this Command or operation.
 because of incomplete modeling by the service, or because of routing layers, load balancers, security etc. that sit in front
 of the service. 
 
-Unmodeled errors are grouped into the default ServiceException class that exists for each AWS service. In the AWS Lambda example, it is
-the one at the bottom that reads: 
+Unmodeled errors are created as the default ServiceException class that exists for each AWS service, which the modeled errors also extend.
+In the AWS Lambda example, it is the one at the bottom that reads: 
 ```
 LambdaServiceException	- Base exception class for all service exceptions from Lambda service.
 ```
@@ -71,7 +71,10 @@ LambdaServiceException	- Base exception class for all service exceptions from La
 
 As seen in the example below, SDK error handling best-practices involve the following points:
 - cast the initial unknown error to the service base exception type to have type-access to the `$metadata` and `$response` fields.
-- 
+- you can use switches to handle errors based on
+  - the error name. `instanceof` checks are not recommended for error handling due to the possibility of prototype mismatch caused by nesting or other forms of copying/duplication.
+  - the `$metadata.httpStatusCode` value.
+  - additional fields on the raw HTTP response object available at `error.$response`.
 
 ```ts
 // Example: service error handling
@@ -111,6 +114,40 @@ try {
     // the raw HTTP response.
     switch (e.$response?.headers["header-name"]) {
     }
+
+    if (e.$responseText) {
+      console.log(e.$responseText);
+    }
   }
 }
 ```
+
+### Parsing errors arising from service responses
+
+An additional untyped field may be present, called `error.$responseBodyText`. This is only populated when the SDK fails to parse the error response, because
+it is in an unexpected format. For example, if the service model says the service data format is JSON, but the error body is plaintext. 
+This can happen if for example a front-end layer throttles the request but is unaware of the underlying service data format.
+
+In such cases, the error message will include the hint
+```
+Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+```
+It is not automatically logged to avoid accidental logging of sensitive data.
+
+To inspect it:
+
+```ts
+// using S3 as an example, but applicable to any service.
+import { S3 } from "@aws-sdk/client-s3";
+
+const client = new S3();
+
+try {
+  await client.listBuckets();
+} catch (e: any) {
+  if (e.$responseBodyText) {
+    console.debug(e.$responseBodyText);
+  }
+}
+```
+
