@@ -389,6 +389,7 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new CreatePipeCommand(input);
  * const response = await client.send(command);

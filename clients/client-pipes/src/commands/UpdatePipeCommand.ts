@@ -380,6 +380,7 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new UpdatePipeCommand(input);
  * const response = await client.send(command);
