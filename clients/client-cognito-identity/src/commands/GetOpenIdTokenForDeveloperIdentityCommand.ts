@@ -8,7 +8,9 @@ import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetOpenIdTokenForDeveloperIdentityInput,
+  GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
   GetOpenIdTokenForDeveloperIdentityResponse,
+  GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_GetOpenIdTokenForDeveloperIdentityCommand,
@@ -129,7 +131,10 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetOpenIdTokenForDeveloperIdentity", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenForDeveloperIdentityCommand")
-  .f(void 0, void 0)
+  .f(
+    GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
+    GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog
+  )
   .ser(se_GetOpenIdTokenForDeveloperIdentityCommand)
   .de(de_GetOpenIdTokenForDeveloperIdentityCommand)
   .build() {}
