@@ -43,7 +43,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *   nluIntentConfidenceThreshold: Number("double"), // required
  *   voiceSettings: { // VoiceSettings
  *     voiceId: "STRING_VALUE", // required
- *     engine: "standard" || "neural",
+ *     engine: "standard" || "neural" || "long-form" || "generative",
  *   },
  *   generativeAISettings: { // GenerativeAISettings
  *     runtimeSettings: { // RuntimeSettings
@@ -99,7 +99,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
  * //     voiceId: "STRING_VALUE", // required
- * //     engine: "standard" || "neural",
+ * //     engine: "standard" || "neural" || "long-form" || "generative",
  * //   },
  * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
  * //   failureReasons: [ // FailureReasons

@@ -3547,6 +3547,8 @@ export interface BotLocaleHistoryEvent {
  * @enum
  */
 export const VoiceEngine = {
+  Generative: "generative",
+  LongForm: "long-form",
   Neural: "neural",
   Standard: "standard",
 } as const;
@@ -3559,6 +3561,29 @@ export type VoiceEngine = (typeof VoiceEngine)[keyof typeof VoiceEngine];
 /**
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
+ *          <p>Valid values include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>standard</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>neural</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>long-form</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>generative</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface VoiceSettings {
@@ -3647,6 +3672,29 @@ export interface BotLocaleImportSpecification {
   /**
    * <p>Defines settings for using an Amazon Polly voice to communicate with a
    *          user.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>neural</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>long-form</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>generative</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   voiceSettings?: VoiceSettings;

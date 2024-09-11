@@ -60,7 +60,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       nluIntentConfidenceThreshold: Number("double"),
  *       voiceSettings: { // VoiceSettings
  *         voiceId: "STRING_VALUE", // required
- *         engine: "standard" || "neural",
+ *         engine: "standard" || "neural" || "long-form" || "generative",
  *       },
  *     },
  *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
@@ -116,7 +116,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       nluIntentConfidenceThreshold: Number("double"),
  * //       voiceSettings: { // VoiceSettings
  * //         voiceId: "STRING_VALUE", // required
- * //         engine: "standard" || "neural",
+ * //         engine: "standard" || "neural" || "long-form" || "generative",
  * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification

@@ -52,7 +52,7 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
  * //     voiceId: "STRING_VALUE", // required
- * //     engine: "standard" || "neural",
+ * //     engine: "standard" || "neural" || "long-form" || "generative",
  * //   },
  * //   intentsCount: Number("int"),
  * //   slotTypesCount: Number("int"),
