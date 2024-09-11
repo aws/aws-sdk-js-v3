@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+
+### Features
+
+* **client-guardduty:** Add support for new statistic types in GetFindingsStatistics. ([85d62db](https://github.com/aws/aws-sdk-js-v3/commit/85d62dbe2574f863e8f9b25686f7ac4ec0079f24))
+
+
+
+
+
 # [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
 
 

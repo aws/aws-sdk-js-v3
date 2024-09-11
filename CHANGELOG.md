@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+
+### Bug Fixes
+
+* **codegen:** checkstyle issue in DocumentBareBonesClientGenerator ([#6455](https://github.com/aws/aws-sdk-js-v3/issues/6455)) ([c3d86a6](https://github.com/aws/aws-sdk-js-v3/commit/c3d86a6a5ce9cf1fdb6ab087d8e87138bf168132))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Amazon Bedrock Knowledge Bases now supports using inference profiles to increase throughput and improve resilience. ([a70cc8d](https://github.com/aws/aws-sdk-js-v3/commit/a70cc8d86da6b3e8e943d3982fd228635e7c685d))
+* **client-bedrock-agent:** Amazon Bedrock Knowledge Bases now supports using inference profiles to increase throughput and improve resilience. ([f68727d](https://github.com/aws/aws-sdk-js-v3/commit/f68727d96fae13e666942e6c01d72eddc65f62f9))
+* **client-ecr:** Added KMS_DSSE to EncryptionType ([33886e7](https://github.com/aws/aws-sdk-js-v3/commit/33886e7204f53d935a333ef859992c872ca9fcae))
+* **client-guardduty:** Add support for new statistic types in GetFindingsStatistics. ([85d62db](https://github.com/aws/aws-sdk-js-v3/commit/85d62dbe2574f863e8f9b25686f7ac4ec0079f24))
+* **client-lex-models-v2:** Support new Polly voice engines in VoiceSettings: long-form and generative ([e0e36b5](https://github.com/aws/aws-sdk-js-v3/commit/e0e36b505acc354d6e5982988f15e874c1e8aaba))
+* **client-medialive:** Adds AV1 Codec support, SRT ouputs, and MediaLive Anywhere support. ([1a98084](https://github.com/aws/aws-sdk-js-v3/commit/1a9808455818f27648227582b6f565470046a122))
+* **clients:** update client endpoints as of 2024-09-11 ([11eae4b](https://github.com/aws/aws-sdk-js-v3/commit/11eae4b8cd36d04ec348e2f648e9d17aae68dd86))
+
+
+
+
+
 # [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
 
 

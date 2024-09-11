@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Amazon Bedrock Knowledge Bases now supports using inference profiles to increase throughput and improve resilience. ([a70cc8d](https://github.com/aws/aws-sdk-js-v3/commit/a70cc8d86da6b3e8e943d3982fd228635e7c685d))
+
+
+
+
+
 # [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
 
 

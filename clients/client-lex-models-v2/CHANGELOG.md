@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+
+### Features
+
+* **client-lex-models-v2:** Support new Polly voice engines in VoiceSettings: long-form and generative ([e0e36b5](https://github.com/aws/aws-sdk-js-v3/commit/e0e36b505acc354d6e5982988f15e874c1e8aaba))
+
+
+
+
+
 # [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
 
 
