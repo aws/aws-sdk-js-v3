@@ -48,7 +48,7 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  *   prefix: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   encryptionConfiguration: { // EncryptionConfigurationForRepositoryCreationTemplate
- *     encryptionType: "AES256" || "KMS", // required
+ *     encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  *     kmsKey: "STRING_VALUE",
  *   },
  *   resourceTags: [ // TagList
@@ -73,7 +73,7 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  * //     prefix: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     encryptionConfiguration: { // EncryptionConfigurationForRepositoryCreationTemplate
- * //       encryptionType: "AES256" || "KMS", // required
+ * //       encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  * //       kmsKey: "STRING_VALUE",
  * //     },
  * //     resourceTags: [ // TagList

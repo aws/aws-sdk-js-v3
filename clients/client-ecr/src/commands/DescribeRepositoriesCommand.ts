@@ -58,7 +58,7 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * //         scanOnPush: true || false,
  * //       },
  * //       encryptionConfiguration: { // EncryptionConfiguration
- * //         encryptionType: "AES256" || "KMS", // required
+ * //         encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  * //         kmsKey: "STRING_VALUE",
  * //       },
  * //     },
