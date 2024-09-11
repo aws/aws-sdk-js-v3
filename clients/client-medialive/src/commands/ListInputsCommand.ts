@@ -57,6 +57,13 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //             AvailabilityZone: "STRING_VALUE",
  * //             NetworkInterfaceId: "STRING_VALUE",
  * //           },
+ * //           Network: "STRING_VALUE",
+ * //           NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //             { // InputDestinationRoute
+ * //               Cidr: "STRING_VALUE",
+ * //               Gateway: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       Id: "STRING_VALUE",
@@ -91,7 +98,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  * //       SrtSettings: { // SrtSettings
  * //         SrtCallerSources: [ // __listOfSrtCallerSource
  * //           { // SrtCallerSource
@@ -103,6 +110,15 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //             SrtListenerAddress: "STRING_VALUE",
  * //             SrtListenerPort: "STRING_VALUE",
  * //             StreamId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //       MulticastSettings: { // MulticastSettings
+ * //         Sources: [ // __listOfMulticastSource
+ * //           { // MulticastSource
+ * //             SourceIp: "STRING_VALUE",
+ * //             Url: "STRING_VALUE", // required
  * //           },
  * //         ],
  * //       },

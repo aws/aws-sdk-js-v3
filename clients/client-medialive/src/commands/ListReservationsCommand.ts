@@ -72,7 +72,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * //       ReservationId: "STRING_VALUE",
  * //       ResourceSpecification: { // ReservationResourceSpecification
  * //         ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
+ * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK" || "AV1",
  * //         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  * //         MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
  * //         Resolution: "SD" || "HD" || "FHD" || "UHD",

@@ -69,6 +69,13 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               Username: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           SrtSettings: [ // __listOfSrtOutputDestinationSettings
+ * //             { // SrtOutputDestinationSettings
+ * //               EncryptionPassphraseSecretArn: "STRING_VALUE",
+ * //               StreamId: "STRING_VALUE",
+ * //               Url: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       EgressEndpoints: [ // __listOfChannelEgressEndpoint
@@ -184,6 +191,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //                 Scte35Source: "MANIFEST" || "SEGMENTS",
  * //               },
  * //               ServerValidation: "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME" || "CHECK_CRYPTOGRAPHY_ONLY",
+ * //               MulticastInputSettings: { // MulticastInputSettings
+ * //                 SourceIpAddress: "STRING_VALUE",
+ * //               },
  * //             },
  * //             Scte35Pid: Number("int"),
  * //             Smpte2038DataPreference: "IGNORE" || "PREFER",
@@ -207,6 +217,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               },
  * //             },
  * //           },
+ * //           LogicalInterfaceNames: [ // __listOf__string
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       InputSpecification: { // InputSpecification
@@ -229,7 +242,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       Vpc: { // VpcOutputSettingsDescription
- * //         AvailabilityZones: [ // __listOf__string
+ * //         AvailabilityZones: [
  * //           "STRING_VALUE",
  * //         ],
  * //         NetworkInterfaceIds: [
@@ -241,6 +254,10 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         SubnetIds: [
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       AnywhereSettings: { // DescribeAnywhereSettings
+ * //         ChannelPlacementGroupId: "STRING_VALUE",
+ * //         ClusterId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -9,7 +9,7 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   CreateCloudWatchAlarmTemplateGroupRequest,
   CreateCloudWatchAlarmTemplateGroupResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_CreateCloudWatchAlarmTemplateGroupCommand,
   se_CreateCloudWatchAlarmTemplateGroupCommand,

@@ -2683,6 +2683,24 @@ export const ChannelPipelineIdToRestart = {
 export type ChannelPipelineIdToRestart = (typeof ChannelPipelineIdToRestart)[keyof typeof ChannelPipelineIdToRestart];
 
 /**
+ * Elemental anywhere settings
+ * @public
+ */
+export interface DescribeAnywhereSettings {
+  /**
+   * The ID of the channel placement group for the channel.
+   * @public
+   */
+  ChannelPlacementGroupId?: string;
+
+  /**
+   * The ID of the cluster for the channel.
+   * @public
+   */
+  ClusterId?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2786,6 +2804,30 @@ export interface OutputDestinationSettings {
 }
 
 /**
+ * Placeholder documentation for SrtOutputDestinationSettings
+ * @public
+ */
+export interface SrtOutputDestinationSettings {
+  /**
+   * Arn used to extract the password from Secrets Manager
+   * @public
+   */
+  EncryptionPassphraseSecretArn?: string;
+
+  /**
+   * Stream id for SRT destinations (URLs of type srt://)
+   * @public
+   */
+  StreamId?: string;
+
+  /**
+   * A URL specifying a destination
+   * @public
+   */
+  Url?: string;
+}
+
+/**
  * Placeholder documentation for OutputDestination
  * @public
  */
@@ -2813,6 +2855,12 @@ export interface OutputDestination {
    * @public
    */
   Settings?: OutputDestinationSettings[];
+
+  /**
+   * SRT settings for an SRT output; one destination for each redundant encoder.
+   * @public
+   */
+  SrtSettings?: SrtOutputDestinationSettings[];
 }
 
 /**
@@ -3037,6 +3085,18 @@ export interface HlsInputSettings {
 }
 
 /**
+ * Multicast-specific input settings.
+ * @public
+ */
+export interface MulticastInputSettings {
+  /**
+   * Optionally, a source ip address to filter by for Source-specific Multicast (SSM)
+   * @public
+   */
+  SourceIpAddress?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3067,6 +3127,12 @@ export interface NetworkInputSettings {
    * @public
    */
   ServerValidation?: NetworkInputServerValidation;
+
+  /**
+   * Specifies multicast input settings when the uri is for a multicast event.
+   * @public
+   */
+  MulticastInputSettings?: MulticastInputSettings;
 }
 
 /**
@@ -3340,6 +3406,12 @@ export interface InputAttachment {
    * @public
    */
   InputSettings?: InputSettings;
+
+  /**
+   * Optional assignment of an input to a logical interface on the Node. Only applies to on premises channels.
+   * @public
+   */
+  LogicalInterfaceNames?: string[];
 }
 
 /**
@@ -3635,6 +3707,12 @@ export interface ChannelSummary {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * AnywhereSettings settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
 }
 
 /**
@@ -3913,6 +3991,455 @@ export interface ColorCorrection {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ChannelPlacementGroupState = {
+  ASSIGNED: "ASSIGNED",
+  ASSIGNING: "ASSIGNING",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UNASSIGNED: "UNASSIGNED",
+  UNASSIGNING: "UNASSIGNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelPlacementGroupState = (typeof ChannelPlacementGroupState)[keyof typeof ChannelPlacementGroupState];
+
+/**
+ * Contains the response for ListChannelPlacementGroups
+ * @public
+ */
+export interface DescribeChannelPlacementGroupSummary {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterType = {
+  ON_PREMISES: "ON_PREMISES",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+
+/**
+ * Used in ClusterNetworkSettings
+ * @public
+ */
+export interface InterfaceMapping {
+  /**
+   * The logical name for one interface (on every Node) that handles a specific type of traffic. We recommend that the name hints at the physical interface it applies to. For example, it could refer to the traffic that the physical interface handles. For example, my-Inputs-Interface.
+   * @public
+   */
+  LogicalInterfaceName?: string;
+
+  /**
+   * The ID of the network that you want to connect to the specified logicalInterfaceName.
+   * @public
+   */
+  NetworkId?: string;
+}
+
+/**
+ * Used in DescribeClusterResult, DescribeClusterSummary, UpdateClusterResult.
+ * @public
+ */
+export interface ClusterNetworkSettings {
+  /**
+   * The network interface that is the default route for traffic to and from the node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings.
+   * @public
+   */
+  DefaultRoute?: string;
+
+  /**
+   * An array of interfaceMapping objects for this Cluster. Each mapping logically connects one interface on the nodes with one Network. You need only one mapping for each interface because all the Nodes share the mapping.
+   * @public
+   */
+  InterfaceMappings?: InterfaceMapping[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * Used in ListClustersResult.
+ * @public
+ */
+export interface DescribeClusterSummary {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of the IDs of the Channels that are associated with this Cluster. One Channel is associated with the Cluster as follows: A Channel belongs to a ChannelPlacementGroup. A ChannelPlacementGroup is attached to a Node. A Node belongs to a Cluster.
+   * @public
+   */
+  ChannelIds?: string[];
+
+  /**
+   * The hardware type for the Cluster.
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The ID of the Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState;
+}
+
+/**
+ * Used in DescribeNetworkResult, DescribeNetworkSummary, UpdateNetworkResult.
+ * @public
+ */
+export interface IpPool {
+  /**
+   * A CIDR block of IP addresses that are reserved for MediaLive Anywhere.
+   * @public
+   */
+  Cidr?: string;
+}
+
+/**
+ * Used in DescribeNetworkResult, DescribeNetworkSummary, UpdateNetworkResult.
+ * @public
+ */
+export interface Route {
+  /**
+   * A CIDR block for one Route.
+   * @public
+   */
+  Cidr?: string;
+
+  /**
+   * The IP address of the Gateway for this route, if applicable.
+   * @public
+   */
+  Gateway?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  IDLE: "IDLE",
+  IN_USE: "IN_USE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkState = (typeof NetworkState)[keyof typeof NetworkState];
+
+/**
+ * Used in ListNetworksResult.
+ * @public
+ */
+export interface DescribeNetworkSummary {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[];
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in your organization's network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[];
+
+  /**
+   * The name that you specified for this Network.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[];
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeConnectionState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeConnectionState = (typeof NodeConnectionState)[keyof typeof NodeConnectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceMode = {
+  BRIDGE: "BRIDGE",
+  NAT: "NAT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceMode = (typeof NetworkInterfaceMode)[keyof typeof NetworkInterfaceMode];
+
+/**
+ * A mapping that's used to pair a logical network interface name on a Node with the physical interface name exposed in the operating system.
+ * @public
+ */
+export interface NodeInterfaceMapping {
+  /**
+   * A uniform logical interface name to address in a MediaLive channel configuration.
+   * @public
+   */
+  LogicalInterfaceName?: string;
+
+  /**
+   * Used in NodeInterfaceMapping and NodeInterfaceMappingCreateRequest
+   * @public
+   */
+  NetworkInterfaceMode?: NetworkInterfaceMode;
+
+  /**
+   * The name of the physical interface on the hardware that will be running Elemental anywhere.
+   * @public
+   */
+  PhysicalInterfaceName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeRole = {
+  ACTIVE: "ACTIVE",
+  BACKUP: "BACKUP",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeRole = (typeof NodeRole)[keyof typeof NodeRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeState = {
+  ACTIVATION_FAILED: "ACTIVATION_FAILED",
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  DEREGISTERED: "DEREGISTERED",
+  DEREGISTERING: "DEREGISTERING",
+  DEREGISTRATION_FAILED: "DEREGISTRATION_FAILED",
+  DRAINING: "DRAINING",
+  IN_USE: "IN_USE",
+  READY: "READY",
+  READY_TO_ACTIVATE: "READY_TO_ACTIVATE",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeState = (typeof NodeState)[keyof typeof NodeState];
+
+/**
+ * Placeholder documentation for DescribeNodeSummary
+ * @public
+ */
+export interface DescribeNodeSummary {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The EC2 ARN of the Instance associated with the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * At the routing layer will get it from the callerId/context for use with bring your own device.
+   * @public
+   */
+  ManagedInstanceId?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
+}
+
+/**
  * Placeholder documentation for EventBridgeRuleTemplateGroupSummary
  * @public
  */
@@ -4086,6 +4613,24 @@ export const HlsAdMarkers = {
 export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
 
 /**
+ * A network route configuration.
+ * @public
+ */
+export interface InputDestinationRoute {
+  /**
+   * The CIDR of the route.
+   * @public
+   */
+  Cidr?: string;
+
+  /**
+   * An optional gateway for the route.
+   * @public
+   */
+  Gateway?: string;
+}
+
+/**
  * The properties for a VPC type input destination.
  * @public
  */
@@ -4133,6 +4678,19 @@ export interface InputDestination {
    * @public
    */
   Vpc?: InputDestinationVpc;
+
+  /**
+   * The ID of the attached network.
+   * @public
+   */
+  Network?: string;
+
+  /**
+   * If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+   * is going to be on the customer local network.
+   * @public
+   */
+  NetworkRoutes?: InputDestinationRoute[];
 }
 
 /**
@@ -4165,6 +4723,21 @@ export interface InputDeviceSettings {
  * @public
  * @enum
  */
+export const InputNetworkLocation = {
+  AWS: "AWS",
+  ON_PREMISE: "ON_PREMISE",
+  ON_PREMISES: "ON_PREMISES",
+} as const;
+
+/**
+ * @public
+ */
+export type InputNetworkLocation = (typeof InputNetworkLocation)[keyof typeof InputNetworkLocation];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputSourceType = {
   DYNAMIC: "DYNAMIC",
   STATIC: "STATIC",
@@ -4185,6 +4758,36 @@ export interface MediaConnectFlow {
    * @public
    */
   FlowArn?: string;
+}
+
+/**
+ * Pair of multicast url and source ip address (optional) that make up a multicast source.
+ * @public
+ */
+export interface MulticastSource {
+  /**
+   * This represents the ip address of the device sending the multicast stream.
+   * @public
+   */
+  SourceIp?: string;
+
+  /**
+   * This represents the customer's source URL where multicast stream is pulled from.
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+ * @public
+ */
+export interface MulticastSettings {
+  /**
+   * Placeholder documentation for __listOfMulticastSource
+   * @public
+   */
+  Sources?: MulticastSource[];
 }
 
 /**
@@ -4319,6 +4922,7 @@ export const InputType = {
   INPUT_DEVICE: "INPUT_DEVICE",
   MEDIACONNECT: "MEDIACONNECT",
   MP4_FILE: "MP4_FILE",
+  MULTICAST: "MULTICAST",
   RTMP_PULL: "RTMP_PULL",
   RTMP_PUSH: "RTMP_PUSH",
   RTP_PUSH: "RTP_PUSH",
@@ -4364,7 +4968,7 @@ export interface Input {
 
   /**
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
-   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    * @public
    */
   InputClass?: InputClass;
@@ -4441,6 +5045,37 @@ export interface Input {
    * @public
    */
   SrtSettings?: SrtSettings;
+
+  /**
+   * The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
+   * an input in a customer network.
+   * @public
+   */
+  InputNetworkLocation?: InputNetworkLocation;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettings;
+}
+
+/**
+ * A network route configuration.
+ * @public
+ */
+export interface InputRequestDestinationRoute {
+  /**
+   * The CIDR of the route.
+   * @public
+   */
+  Cidr?: string;
+
+  /**
+   * An optional gateway for the route.
+   * @public
+   */
+  Gateway?: string;
 }
 
 /**
@@ -4454,6 +5089,26 @@ export interface InputDestinationRequest {
    * @public
    */
   StreamName?: string;
+
+  /**
+   * If the push input has an input location of ON-PREM, ID the ID of the attached network.
+   * @public
+   */
+  Network?: string;
+
+  /**
+   * If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+   * is going to be on the customer local network.
+   * @public
+   */
+  NetworkRoutes?: InputRequestDestinationRoute[];
+
+  /**
+   * If the push input has an input location of ON-PREM it's optional to specify what the ip address
+   * of the input is going to be on the customer local network.
+   * @public
+   */
+  StaticIpAddress?: string;
 }
 
 /**
@@ -5117,6 +5772,66 @@ export interface InputWhitelistRuleCidr {
 }
 
 /**
+ * Used in ClusterNetworkSettingsCreateRequest.
+ * @public
+ */
+export interface InterfaceMappingCreateRequest {
+  /**
+   * The logical name for one interface (on every Node) that handles a specific type of traffic. We recommend that the name hints at the physical interface it applies to. For example, it could refer to the traffic that the physical interface handles. For example, my-Inputs-Interface.
+   * @public
+   */
+  LogicalInterfaceName?: string;
+
+  /**
+   * The ID of the network that you want to connect to the specified logicalInterfaceName.
+   * @public
+   */
+  NetworkId?: string;
+}
+
+/**
+ * Placeholder documentation for InterfaceMappingUpdateRequest
+ * @public
+ */
+export interface InterfaceMappingUpdateRequest {
+  /**
+   * The logical name for one interface (on every Node) that handles a specific type of traffic. We recommend that the name hints at the physical interface it applies to. For example, it could refer to the traffic that the physical interface handles. For example, my-Inputs-Interface.
+   * @public
+   */
+  LogicalInterfaceName?: string;
+
+  /**
+   * The ID of the network that you want to connect to the specified logicalInterfaceName. You can use the ListNetworks operation to discover all the IDs.
+   * @public
+   */
+  NetworkId?: string;
+}
+
+/**
+ * Used in CreateNetworkRequest.
+ * @public
+ */
+export interface IpPoolCreateRequest {
+  /**
+   * A CIDR block of IP addresses to reserve for MediaLive Anywhere.
+   * @public
+   */
+  Cidr?: string;
+}
+
+/**
+ * Used in UpdateNetworkRequest.
+ * @public
+ */
+export interface IpPoolUpdateRequest {
+  /**
+   * A CIDR block of IP addresses to reserve for MediaLive Anywhere.
+   * @public
+   */
+  Cidr?: string;
+}
+
+/**
  * The settings for a MediaConnect Flow.
  * @public
  */
@@ -5144,6 +5859,42 @@ export interface MediaResourceNeighbor {
    * @public
    */
   Name?: string;
+}
+
+/**
+ * Pair of multicast url and source ip address (optional) that make up a multicast source.
+ * @public
+ */
+export interface MulticastSourceCreateRequest {
+  /**
+   * This represents the ip address of the device sending the multicast stream.
+   * @public
+   */
+  SourceIp?: string;
+
+  /**
+   * This represents the customer's source URL where multicast stream is pulled from.
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * Pair of multicast url and source ip address (optional) that make up a multicast source.
+ * @public
+ */
+export interface MulticastSourceUpdateRequest {
+  /**
+   * This represents the ip address of the device sending the multicast stream.
+   * @public
+   */
+  SourceIp?: string;
+
+  /**
+   * This represents the customer's source URL where multicast stream is pulled from.
+   * @public
+   */
+  Url: string | undefined;
 }
 
 /**
@@ -5300,6 +6051,30 @@ export interface MultiplexSummary {
 }
 
 /**
+ * Used in CreateNodeRequest.
+ * @public
+ */
+export interface NodeInterfaceMappingCreateRequest {
+  /**
+   * Specify one of the logicalInterfaceNames that you created in the Cluster that this node belongs to. For example, my-Inputs-Interface.
+   * @public
+   */
+  LogicalInterfaceName?: string;
+
+  /**
+   * The style of the network -- NAT or BRIDGE.
+   * @public
+   */
+  NetworkInterfaceMode?: NetworkInterfaceMode;
+
+  /**
+   * Specify the physical name that corresponds to the logicalInterfaceName that you specified in this interface mapping. For example, Eth1 or ENO1234EXAMPLE.
+   * @public
+   */
+  PhysicalInterfaceName?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5331,6 +6106,7 @@ export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
  */
 export const ReservationCodec = {
   AUDIO: "AUDIO",
+  AV1: "AV1",
   AVC: "AVC",
   HEVC: "HEVC",
   LINK: "LINK",
@@ -6271,729 +7047,3 @@ export interface CmafIngestOutputSettings {
    */
   NameModifier?: string;
 }
-
-/**
- * Frame Capture Output Settings
- * @public
- */
-export interface FrameCaptureOutputSettings {
-  /**
-   * Required if the output group contains more than one output. This modifier forms part of the output file name.
-   * @public
-   */
-  NameModifier?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsH265PackagingType = {
-  HEV1: "HEV1",
-  HVC1: "HVC1",
-} as const;
-
-/**
- * @public
- */
-export type HlsH265PackagingType = (typeof HlsH265PackagingType)[keyof typeof HlsH265PackagingType];
-
-/**
- * @public
- * @enum
- */
-export const AudioOnlyHlsTrackType = {
-  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type AudioOnlyHlsTrackType = (typeof AudioOnlyHlsTrackType)[keyof typeof AudioOnlyHlsTrackType];
-
-/**
- * @public
- * @enum
- */
-export const AudioOnlyHlsSegmentType = {
-  AAC: "AAC",
-  FMP4: "FMP4",
-} as const;
-
-/**
- * @public
- */
-export type AudioOnlyHlsSegmentType = (typeof AudioOnlyHlsSegmentType)[keyof typeof AudioOnlyHlsSegmentType];
-
-/**
- * Audio Only Hls Settings
- * @public
- */
-export interface AudioOnlyHlsSettings {
-  /**
-   * Specifies the group to which the audio Rendition belongs.
-   * @public
-   */
-  AudioGroupId?: string;
-
-  /**
-   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
-   *
-   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
-   * @public
-   */
-  AudioOnlyImage?: InputLocation;
-
-  /**
-   * Four types of audio-only tracks are supported:
-   *
-   * Audio-Only Variant Stream
-   * The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
-   *
-   * Alternate Audio, Auto Select, Default
-   * Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
-   *
-   * Alternate Audio, Auto Select, Not Default
-   * Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
-   *
-   * Alternate Audio, not Auto Select
-   * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-   * @public
-   */
-  AudioTrackType?: AudioOnlyHlsTrackType;
-
-  /**
-   * Specifies the segment type.
-   * @public
-   */
-  SegmentType?: AudioOnlyHlsSegmentType;
-}
-
-/**
- * @public
- * @enum
- */
-export const Fmp4NielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type Fmp4NielsenId3Behavior = (typeof Fmp4NielsenId3Behavior)[keyof typeof Fmp4NielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const Fmp4TimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type Fmp4TimedMetadataBehavior = (typeof Fmp4TimedMetadataBehavior)[keyof typeof Fmp4TimedMetadataBehavior];
-
-/**
- * Fmp4 Hls Settings
- * @public
- */
-export interface Fmp4HlsSettings {
-  /**
-   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-   * @public
-   */
-  AudioRenditionSets?: string;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: Fmp4NielsenId3Behavior;
-
-  /**
-   * When set to passthrough, timed metadata is passed through from input to output.
-   * @public
-   */
-  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior;
-}
-
-/**
- * Frame Capture Hls Settings
- * @public
- */
-export interface FrameCaptureHlsSettings {}
-
-/**
- * @public
- * @enum
- */
-export const M3u8KlvBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8KlvBehavior = (typeof M3u8KlvBehavior)[keyof typeof M3u8KlvBehavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8NielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8NielsenId3Behavior = (typeof M3u8NielsenId3Behavior)[keyof typeof M3u8NielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8PcrControl = {
-  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
-} as const;
-
-/**
- * @public
- */
-export type M3u8PcrControl = (typeof M3u8PcrControl)[keyof typeof M3u8PcrControl];
-
-/**
- * @public
- * @enum
- */
-export const M3u8Scte35Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8Scte35Behavior = (typeof M3u8Scte35Behavior)[keyof typeof M3u8Scte35Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8TimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8TimedMetadataBehavior = (typeof M3u8TimedMetadataBehavior)[keyof typeof M3u8TimedMetadataBehavior];
-
-/**
- * Settings information for the .m3u8 container
- * @public
- */
-export interface M3u8Settings {
-  /**
-   * The number of audio frames to insert for each PES packet.
-   * @public
-   */
-  AudioFramesPerPes?: number;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
-   * @public
-   */
-  AudioPids?: string;
-
-  /**
-   * This parameter is unused and deprecated.
-   * @public
-   */
-  EcmPid?: string;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: M3u8NielsenId3Behavior;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   * @public
-   */
-  PatInterval?: number;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   * @public
-   */
-  PcrControl?: M3u8PcrControl;
-
-  /**
-   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
-   * @public
-   */
-  PcrPeriod?: number;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  PcrPid?: string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   * @public
-   */
-  PmtInterval?: number;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  PmtPid?: string;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   * @public
-   */
-  ProgramNum?: number;
-
-  /**
-   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
-   * @public
-   */
-  Scte35Behavior?: M3u8Scte35Behavior;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  Scte35Pid?: string;
-
-  /**
-   * When set to passthrough, timed metadata is passed through from input to output.
-   * @public
-   */
-  TimedMetadataBehavior?: M3u8TimedMetadataBehavior;
-
-  /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  TimedMetadataPid?: string;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   * @public
-   */
-  TransportStreamId?: number;
-
-  /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  VideoPid?: string;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  KlvBehavior?: M3u8KlvBehavior;
-
-  /**
-   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  KlvDataPids?: string;
-}
-
-/**
- * Standard Hls Settings
- * @public
- */
-export interface StandardHlsSettings {
-  /**
-   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-   * @public
-   */
-  AudioRenditionSets?: string;
-
-  /**
-   * Settings information for the .m3u8 container
-   * @public
-   */
-  M3u8Settings: M3u8Settings | undefined;
-}
-
-/**
- * Hls Settings
- * @public
- */
-export interface HlsSettings {
-  /**
-   * Audio Only Hls Settings
-   * @public
-   */
-  AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
-
-  /**
-   * Fmp4 Hls Settings
-   * @public
-   */
-  Fmp4HlsSettings?: Fmp4HlsSettings;
-
-  /**
-   * Frame Capture Hls Settings
-   * @public
-   */
-  FrameCaptureHlsSettings?: FrameCaptureHlsSettings;
-
-  /**
-   * Standard Hls Settings
-   * @public
-   */
-  StandardHlsSettings?: StandardHlsSettings;
-}
-
-/**
- * Hls Output Settings
- * @public
- */
-export interface HlsOutputSettings {
-  /**
-   * Only applicable when this output is referencing an H.265 video description.
-   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-   * @public
-   */
-  H265PackagingType?: HlsH265PackagingType;
-
-  /**
-   * Settings regarding the underlying stream. These settings are different for audio-only outputs.
-   * @public
-   */
-  HlsSettings: HlsSettings | undefined;
-
-  /**
-   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
-   * @public
-   */
-  NameModifier?: string;
-
-  /**
-   * String concatenated to end of segment filenames.
-   * @public
-   */
-  SegmentModifier?: string;
-}
-
-/**
- * Media Package Output Settings
- * @public
- */
-export interface MediaPackageOutputSettings {}
-
-/**
- * @public
- * @enum
- */
-export const MsSmoothH265PackagingType = {
-  HEV1: "HEV1",
-  HVC1: "HVC1",
-} as const;
-
-/**
- * @public
- */
-export type MsSmoothH265PackagingType = (typeof MsSmoothH265PackagingType)[keyof typeof MsSmoothH265PackagingType];
-
-/**
- * Ms Smooth Output Settings
- * @public
- */
-export interface MsSmoothOutputSettings {
-  /**
-   * Only applicable when this output is referencing an H.265 video description.
-   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-   * @public
-   */
-  H265PackagingType?: MsSmoothH265PackagingType;
-
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   * @public
-   */
-  NameModifier?: string;
-}
-
-/**
- * Reference to an OutputDestination ID defined in the channel
- * @public
- */
-export interface OutputLocationRef {
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  DestinationRefId?: string;
-}
-
-/**
- * Multiplex Output Settings
- * @public
- */
-export interface MultiplexOutputSettings {
-  /**
-   * Destination is a Multiplex.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RtmpOutputCertificateMode = {
-  SELF_SIGNED: "SELF_SIGNED",
-  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
-} as const;
-
-/**
- * @public
- */
-export type RtmpOutputCertificateMode = (typeof RtmpOutputCertificateMode)[keyof typeof RtmpOutputCertificateMode];
-
-/**
- * Rtmp Output Settings
- * @public
- */
-export interface RtmpOutputSettings {
-  /**
-   * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
-   * @public
-   */
-  CertificateMode?: RtmpOutputCertificateMode;
-
-  /**
-   * Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Number of retry attempts.
-   * @public
-   */
-  NumRetries?: number;
-}
-
-/**
- * Udp Container Settings
- * @public
- */
-export interface UdpContainerSettings {
-  /**
-   * M2ts Settings
-   * @public
-   */
-  M2tsSettings?: M2tsSettings;
-}
-
-/**
- * @public
- * @enum
- */
-export const FecOutputIncludeFec = {
-  COLUMN: "COLUMN",
-  COLUMN_AND_ROW: "COLUMN_AND_ROW",
-} as const;
-
-/**
- * @public
- */
-export type FecOutputIncludeFec = (typeof FecOutputIncludeFec)[keyof typeof FecOutputIncludeFec];
-
-/**
- * Fec Output Settings
- * @public
- */
-export interface FecOutputSettings {
-  /**
-   * Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
-   * @public
-   */
-  ColumnDepth?: number;
-
-  /**
-   * Enables column only or column and row based FEC
-   * @public
-   */
-  IncludeFec?: FecOutputIncludeFec;
-
-  /**
-   * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
-   * @public
-   */
-  RowLength?: number;
-}
-
-/**
- * Udp Output Settings
- * @public
- */
-export interface UdpOutputSettings {
-  /**
-   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-   * @public
-   */
-  BufferMsec?: number;
-
-  /**
-   * Udp Container Settings
-   * @public
-   */
-  ContainerSettings: UdpContainerSettings | undefined;
-
-  /**
-   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
-   * @public
-   */
-  FecOutputSettings?: FecOutputSettings;
-}
-
-/**
- * Output Settings
- * @public
- */
-export interface OutputSettings {
-  /**
-   * Archive Output Settings
-   * @public
-   */
-  ArchiveOutputSettings?: ArchiveOutputSettings;
-
-  /**
-   * Frame Capture Output Settings
-   * @public
-   */
-  FrameCaptureOutputSettings?: FrameCaptureOutputSettings;
-
-  /**
-   * Hls Output Settings
-   * @public
-   */
-  HlsOutputSettings?: HlsOutputSettings;
-
-  /**
-   * Media Package Output Settings
-   * @public
-   */
-  MediaPackageOutputSettings?: MediaPackageOutputSettings;
-
-  /**
-   * Ms Smooth Output Settings
-   * @public
-   */
-  MsSmoothOutputSettings?: MsSmoothOutputSettings;
-
-  /**
-   * Multiplex Output Settings
-   * @public
-   */
-  MultiplexOutputSettings?: MultiplexOutputSettings;
-
-  /**
-   * Rtmp Output Settings
-   * @public
-   */
-  RtmpOutputSettings?: RtmpOutputSettings;
-
-  /**
-   * Udp Output Settings
-   * @public
-   */
-  UdpOutputSettings?: UdpOutputSettings;
-
-  /**
-   * Cmaf Ingest Output Settings
-   * @public
-   */
-  CmafIngestOutputSettings?: CmafIngestOutputSettings;
-}
-
-/**
- * Output settings. There can be multiple outputs within a group.
- * @public
- */
-export interface Output {
-  /**
-   * The names of the AudioDescriptions used as audio sources for this output.
-   * @public
-   */
-  AudioDescriptionNames?: string[];
-
-  /**
-   * The names of the CaptionDescriptions used as caption sources for this output.
-   * @public
-   */
-  CaptionDescriptionNames?: string[];
-
-  /**
-   * The name used to identify an output.
-   * @public
-   */
-  OutputName?: string;
-
-  /**
-   * Output type-specific settings.
-   * @public
-   */
-  OutputSettings: OutputSettings | undefined;
-
-  /**
-   * The name of the VideoDescription used as the source for this output.
-   * @public
-   */
-  VideoDescriptionName?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const S3CannedAcl = {
-  AUTHENTICATED_READ: "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
-  PUBLIC_READ: "PUBLIC_READ",
-} as const;
-
-/**
- * @public
- */
-export type S3CannedAcl = (typeof S3CannedAcl)[keyof typeof S3CannedAcl];

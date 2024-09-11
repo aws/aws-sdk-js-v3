@@ -9,7 +9,7 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   CreateEventBridgeRuleTemplateGroupRequest,
   CreateEventBridgeRuleTemplateGroupResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_CreateEventBridgeRuleTemplateGroupCommand,
   se_CreateEventBridgeRuleTemplateGroupCommand,

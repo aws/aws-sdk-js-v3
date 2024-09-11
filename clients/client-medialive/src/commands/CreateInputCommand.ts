@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateInputRequest, CreateInputResponse } from "../models/models_1";
+import { CreateInputRequest, CreateInputResponse } from "../models/models_2";
 import { de_CreateInputCommand, se_CreateInputCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -39,6 +39,14 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Destinations: [ // __listOfInputDestinationRequest
  *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
+ *       Network: "STRING_VALUE",
+ *       NetworkRoutes: [ // __listOfInputRequestDestinationRoute
+ *         { // InputRequestDestinationRoute
+ *           Cidr: "STRING_VALUE",
+ *           Gateway: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StaticIpAddress: "STRING_VALUE",
  *     },
  *   ],
  *   InputDevices: [ // __listOfInputDeviceSettings
@@ -67,7 +75,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  *   Vpc: { // InputVpcRequest
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
@@ -90,6 +98,15 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *       },
  *     ],
  *   },
+ *   InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ *   MulticastSettings: { // MulticastSettingsCreateRequest
+ *     Sources: [ // __listOfMulticastSourceCreateRequest
+ *       { // MulticastSourceCreateRequest
+ *         SourceIp: "STRING_VALUE",
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateInputCommand(input);
  * const response = await client.send(command);
@@ -108,6 +125,13 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //           AvailabilityZone: "STRING_VALUE",
  * //           NetworkInterfaceId: "STRING_VALUE",
  * //         },
+ * //         Network: "STRING_VALUE",
+ * //         NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //           { // InputDestinationRoute
+ * //             Cidr: "STRING_VALUE",
+ * //             Gateway: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
@@ -142,7 +166,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -154,6 +178,15 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //           SrtListenerAddress: "STRING_VALUE",
  * //           SrtListenerPort: "STRING_VALUE",
  * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     MulticastSettings: { // MulticastSettings
+ * //       Sources: [ // __listOfMulticastSource
+ * //         { // MulticastSource
+ * //           SourceIp: "STRING_VALUE",
+ * //           Url: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },

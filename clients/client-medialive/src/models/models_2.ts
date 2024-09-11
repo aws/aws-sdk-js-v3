@@ -2,10 +2,13 @@
 import { StreamingBlobTypes } from "@smithy/types";
 
 import {
+  AudioDescription,
+  CaptionDescription,
   CdiInputSpecification,
   ChannelClass,
   ChannelEgressEndpoint,
   ChannelPipelineIdToRestart,
+  ChannelPlacementGroupState,
   ChannelState,
   ChannelSummary,
   CloudWatchAlarmTemplateComparisonOperator,
@@ -14,6 +17,14 @@ import {
   CloudWatchAlarmTemplateSummary,
   CloudWatchAlarmTemplateTargetResourceType,
   CloudWatchAlarmTemplateTreatMissingData,
+  ClusterNetworkSettings,
+  ClusterState,
+  ClusterType,
+  DescribeAnywhereSettings,
+  DescribeChannelPlacementGroupSummary,
+  DescribeClusterSummary,
+  DescribeNetworkSummary,
+  DescribeNodeSummary,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   EventBridgeRuleTemplateEventType,
@@ -37,6 +48,7 @@ import {
   InputDeviceSummary,
   InputDeviceType,
   InputDeviceUhdSettings,
+  InputNetworkLocation,
   InputSecurityGroup,
   InputSecurityGroupState,
   InputSource,
@@ -47,22 +59,37 @@ import {
   InputType,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
+  InterfaceMappingCreateRequest,
+  InterfaceMappingUpdateRequest,
+  IpPool,
+  IpPoolCreateRequest,
+  IpPoolUpdateRequest,
   LogLevel,
   MaintenanceDay,
   MaintenanceStatus,
   MediaConnectFlow,
   MediaConnectFlowRequest,
   MediaResourceNeighbor,
+  MulticastSettings,
+  MulticastSourceCreateRequest,
+  MulticastSourceUpdateRequest,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
   MultiplexState,
   MultiplexSummary,
+  NetworkState,
+  NodeConnectionState,
+  NodeInterfaceMapping,
+  NodeInterfaceMappingCreateRequest,
+  NodeRole,
+  NodeState,
   Offering,
   OfferingDurationUnits,
   OfferingType,
   OutputDestination,
   ReservationResourceSpecification,
+  Route,
   SrtSettings,
   VpcOutputSettingsDescription,
 } from "./models_0";
@@ -70,26 +97,2095 @@ import {
 import {
   AcceptHeader,
   AccountConfiguration,
-  Channel,
-  ContentType,
-  EncoderSettings,
-  Multiplex,
-  MultiplexProgram,
-  MultiplexProgramPacketIdentifiersMap,
-  MultiplexProgramSettings,
-  MultiplexSettings,
+  AnywhereSettings,
+  AvailBlanking,
+  AvailConfiguration,
+  BlackoutSlate,
+  ColorCorrectionSettings,
+  FeatureActivations,
+  GlobalConfiguration,
+  MotionGraphicsConfiguration,
+  OutputGroup,
   PipelineDetail,
   RenewalSettings,
   Reservation,
   ReservationState,
+  RouteCreateRequest,
+  RouteUpdateRequest,
   ScheduleAction,
   SignalMapMonitorDeploymentStatus,
   SignalMapStatus,
   SignalMapSummary,
-  SrtSettingsRequest,
+  SrtCallerSourceRequest,
   ThumbnailDetail,
   TransferringInputDeviceSummary,
+  VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const NielsenPcmToId3TaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type NielsenPcmToId3TaggingState =
+  (typeof NielsenPcmToId3TaggingState)[keyof typeof NielsenPcmToId3TaggingState];
+
+/**
+ * Nielsen Configuration
+ * @public
+ */
+export interface NielsenConfiguration {
+  /**
+   * Enter the Distributor ID assigned to your organization by Nielsen.
+   * @public
+   */
+  DistributorId?: string;
+
+  /**
+   * Enables Nielsen PCM to ID3 tagging
+   * @public
+   */
+  NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailState = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
+
+/**
+ * Thumbnail Configuration
+ * @public
+ */
+export interface ThumbnailConfiguration {
+  /**
+   * Enables the thumbnail feature. The feature generates thumbnails of the incoming video in each pipeline in the channel. AUTO turns the feature on, DISABLE turns the feature off.
+   * @public
+   */
+  State: ThumbnailState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeConfigSource = {
+  EMBEDDED: "EMBEDDED",
+  SYSTEMCLOCK: "SYSTEMCLOCK",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeConfigSource = (typeof TimecodeConfigSource)[keyof typeof TimecodeConfigSource];
+
+/**
+ * Timecode Config
+ * @public
+ */
+export interface TimecodeConfig {
+  /**
+   * Identifies the source for the timecode that will be associated with the events outputs.
+   * -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
+   * -System Clock (systemclock): Use the UTC time.
+   * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
+   * @public
+   */
+  Source: TimecodeConfigSource | undefined;
+
+  /**
+   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+   * @public
+   */
+  SyncThreshold?: number;
+}
+
+/**
+ * Encoder Settings
+ * @public
+ */
+export interface EncoderSettings {
+  /**
+   * Placeholder documentation for __listOfAudioDescription
+   * @public
+   */
+  AudioDescriptions: AudioDescription[] | undefined;
+
+  /**
+   * Settings for ad avail blanking.
+   * @public
+   */
+  AvailBlanking?: AvailBlanking;
+
+  /**
+   * Event-wide configuration settings for ad avail insertion.
+   * @public
+   */
+  AvailConfiguration?: AvailConfiguration;
+
+  /**
+   * Settings for blackout slate.
+   * @public
+   */
+  BlackoutSlate?: BlackoutSlate;
+
+  /**
+   * Settings for caption decriptions
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescription[];
+
+  /**
+   * Feature Activations
+   * @public
+   */
+  FeatureActivations?: FeatureActivations;
+
+  /**
+   * Configuration settings that apply to the event as a whole.
+   * @public
+   */
+  GlobalConfiguration?: GlobalConfiguration;
+
+  /**
+   * Settings for motion graphics.
+   * @public
+   */
+  MotionGraphicsConfiguration?: MotionGraphicsConfiguration;
+
+  /**
+   * Nielsen configuration settings.
+   * @public
+   */
+  NielsenConfiguration?: NielsenConfiguration;
+
+  /**
+   * Placeholder documentation for __listOfOutputGroup
+   * @public
+   */
+  OutputGroups: OutputGroup[] | undefined;
+
+  /**
+   * Contains settings used to acquire and adjust timecode information from inputs.
+   * @public
+   */
+  TimecodeConfig: TimecodeConfig | undefined;
+
+  /**
+   * Placeholder documentation for __listOfVideoDescription
+   * @public
+   */
+  VideoDescriptions: VideoDescription[] | undefined;
+
+  /**
+   * Thumbnail configuration settings.
+   * @public
+   */
+  ThumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * Color Correction Settings
+   * @public
+   */
+  ColorCorrectionSettings?: ColorCorrectionSettings;
+}
+
+/**
+ * Placeholder documentation for Channel
+ * @public
+ */
+export interface Channel {
+  /**
+   * The unique arn of the channel.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[];
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The unique id of the channel.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus;
+
+  /**
+   * The name of the channel. (user-mutable)
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   * @public
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
+}
+
+/**
+ * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
+ * @public
+ */
+export interface ClaimDeviceRequest {
+  /**
+   * The id of the device you want to claim.
+   * @public
+   */
+  Id?: string;
+}
+
+/**
+ * Placeholder documentation for ClaimDeviceResponse
+ * @public
+ */
+export interface ClaimDeviceResponse {}
+
+/**
+ * Used in a CreateClusterRequest.
+ * @public
+ */
+export interface ClusterNetworkSettingsCreateRequest {
+  /**
+   * Specify one network interface as the default route for traffic to and from the Node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings.
+   * @public
+   */
+  DefaultRoute?: string;
+
+  /**
+   * An array of interfaceMapping objects for this Cluster. You must create a mapping for node interfaces that you plan to use for encoding traffic. You typically don't create a mapping for the management interface. You define this mapping in the Cluster so that the mapping can be used by all the Nodes. Each mapping logically connects one interface on the nodes with one Network. Each mapping consists of a pair of parameters. The logicalInterfaceName parameter creates a logical name for the Node interface that handles a specific type of traffic. For example, my-Inputs-Interface. The networkID parameter refers to the ID of the network. When you create the Nodes in this Cluster, you will associate the logicalInterfaceName with the appropriate physical interface.
+   * @public
+   */
+  InterfaceMappings?: InterfaceMappingCreateRequest[];
+}
+
+/**
+ * Placeholder documentation for ClusterNetworkSettingsUpdateRequest
+ * @public
+ */
+export interface ClusterNetworkSettingsUpdateRequest {
+  /**
+   * Include this parameter only if you want to change the default route for the Cluster. Specify one network interface as the default route for traffic to and from the node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings.
+   * @public
+   */
+  DefaultRoute?: string;
+
+  /**
+   * An array of interfaceMapping objects for this Cluster. Include this parameter only if you want to change the interface mappings for the Cluster. Typically, you change the interface mappings only to fix an error you made when creating the mapping. In an update request, make sure that you enter the entire set of mappings again, not just the mappings that you want to add or change. You define this mapping so that the mapping can be used by all the Nodes. Each mapping logically connects one interface on the nodes with one Network. Each mapping consists of a pair of parameters. The logicalInterfaceName parameter creates a logical name for the Node interface that handles a specific type of traffic. For example, my-Inputs-Interface. The networkID parameter refers to the ID of the network. When you create the Nodes in this Cluster, you will associate the logicalInterfaceName with the appropriate physical interface.
+   * @public
+   */
+  InterfaceMappings?: InterfaceMappingUpdateRequest[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentType = {
+  image_jpeg: "image/jpeg",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * Placeholder documentation for MaintenanceCreateSettings
+ * @public
+ */
+export interface MaintenanceCreateSettings {
+  /**
+   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceDay?: MaintenanceDay;
+
+  /**
+   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceStartTime?: string;
+}
+
+/**
+ * The properties for a private VPC Output
+ * When this property is specified, the output egress addresses will be created in a user specified VPC
+ * @public
+ */
+export interface VpcOutputSettings {
+  /**
+   * List of public address allocation ids to associate with ENIs that will be created in Output VPC.
+   * Must specify one for SINGLE_PIPELINE, two for STANDARD channels
+   * @public
+   */
+  PublicAddressAllocationIds?: string[];
+
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces.
+   * If none are specified then the VPC default security group will be used
+   * @public
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * A list of VPC subnet IDs from the same VPC.
+   * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * A request to create a channel
+ * @public
+ */
+export interface CreateChannelRequest {
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass;
+
+  /**
+   * Placeholder documentation for __listOfOutputDestination
+   * @public
+   */
+  Destinations?: OutputDestination[];
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceCreateSettings;
+
+  /**
+   * Name of channel.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Unique request ID to be specified. This is needed to prevent retries from
+   * creating multiple resources.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * @deprecated
+   *
+   * Deprecated field that's only usable by whitelisted customers.
+   * @public
+   */
+  Reserved?: string;
+
+  /**
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * Settings for the VPC outputs
+   * @public
+   */
+  Vpc?: VpcOutputSettings;
+
+  /**
+   * The Elemental Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: AnywhereSettings;
+}
+
+/**
+ * Placeholder documentation for CreateChannelResponse
+ * @public
+ */
+export interface CreateChannelResponse {
+  /**
+   * Placeholder documentation for Channel
+   * @public
+   */
+  Channel?: Channel;
+}
+
+/**
+ * A request to create a channel placement group.
+ * @public
+ */
+export interface CreateChannelPlacementGroupRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of one ID for the Node that you want to associate with the ChannelPlacementGroup. (You can't associate more than one Node with the ChannelPlacementGroup.) The Node and the ChannelPlacementGroup must be in the same Cluster.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources. the request.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateChannelPlacementGroupResponse
+ * @public
+ */
+export interface CreateChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateRequest
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateRequest {
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateResponse
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateResponse {
+  /**
+   * A cloudwatch alarm template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods?: number;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string;
+
+  /**
+   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period?: number;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic?: CloudWatchAlarmTemplateStatistic;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold?: number;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupRequest
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupResponse
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateGroupResponse {
+  /**
+   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Create as many Clusters as you want, but create at least one. Each Cluster groups together Nodes that you want to treat as a collection. Within the Cluster, you will set up some Nodes as active Nodes, and some as backup Nodes, for Node failover purposes. Each Node can belong to only one Cluster.
+ * @public
+ */
+export interface CreateClusterRequest {
+  /**
+   * Specify a type. All the Nodes that you later add to this Cluster must be this type of hardware. One Cluster instance can't contain different hardware types. You won't be able to change this parameter after you create the Cluster.
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. The role must include all the operations that you expect these Node to perform. If necessary, create a role in IAM, then attach it here.
+   * @public
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend that you assign a name that hints at the types of Nodes in the Cluster. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettingsCreateRequest;
+
+  /**
+   * The unique ID of the request.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateClusterResponse
+ * @public
+ */
+export interface CreateClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[];
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateRequest
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[];
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateResponse
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateResponse {
+  /**
+   * An eventbridge rule template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[];
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType?: EventBridgeRuleTemplateEventType;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string;
+
+  /**
+   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateGroupRequest
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateGroupResponse
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateGroupResponse {
+  /**
+   * An eventbridge rule template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+ * @public
+ */
+export interface MulticastSettingsCreateRequest {
+  /**
+   * Placeholder documentation for __listOfMulticastSourceCreateRequest
+   * @public
+   */
+  Sources?: MulticastSourceCreateRequest[];
+}
+
+/**
+ * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
+ * @public
+ */
+export interface SrtSettingsRequest {
+  /**
+   * Placeholder documentation for __listOfSrtCallerSourceRequest
+   * @public
+   */
+  SrtCallerSources?: SrtCallerSourceRequest[];
+}
+
+/**
+ * Settings for a private VPC Input.
+ * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+ * This property requires setting the roleArn property on Input creation.
+ * Not compatible with the inputSecurityGroups property.
+ * @public
+ */
+export interface InputVpcRequest {
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+   * Requires subnetIds. If none are specified then the VPC default security group will be used.
+   * @public
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * A list of 2 VPC subnet IDs from the same VPC.
+   * Subnet IDs must be mapped to two unique availability zones (AZ).
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * The name of the input
+ * @public
+ */
+export interface CreateInputRequest {
+  /**
+   * Destination settings for PUSH type inputs.
+   * @public
+   */
+  Destinations?: InputDestinationRequest[];
+
+  /**
+   * Settings for the devices.
+   * @public
+   */
+  InputDevices?: InputDeviceSettings[];
+
+  /**
+   * A list of security groups referenced by IDs to attach to the input.
+   * @public
+   */
+  InputSecurityGroups?: string[];
+
+  /**
+   * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+   * @public
+   */
+  MediaConnectFlows?: MediaConnectFlowRequest[];
+
+  /**
+   * Name of the input.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   * @public
+   */
+  Sources?: InputSourceRequest[];
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The different types of inputs that AWS Elemental MediaLive supports.
+   * @public
+   */
+  Type?: InputType;
+
+  /**
+   * Settings for a private VPC Input.
+   * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+   * This property requires setting the roleArn property on Input creation.
+   * Not compatible with the inputSecurityGroups property.
+   * @public
+   */
+  Vpc?: InputVpcRequest;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettingsRequest;
+
+  /**
+   * The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
+   * an input in a customer network.
+   * @public
+   */
+  InputNetworkLocation?: InputNetworkLocation;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettingsCreateRequest;
+}
+
+/**
+ * Placeholder documentation for CreateInputResponse
+ * @public
+ */
+export interface CreateInputResponse {
+  /**
+   * Placeholder documentation for Input
+   * @public
+   */
+  Input?: Input;
+}
+
+/**
+ * The IPv4 CIDRs to whitelist for this Input Security Group
+ * @public
+ */
+export interface CreateInputSecurityGroupRequest {
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * List of IPv4 CIDR addresses to whitelist
+   * @public
+   */
+  WhitelistRules?: InputWhitelistRuleCidr[];
+}
+
+/**
+ * Placeholder documentation for CreateInputSecurityGroupResponse
+ * @public
+ */
+export interface CreateInputSecurityGroupResponse {
+  /**
+   * An Input Security Group
+   * @public
+   */
+  SecurityGroup?: InputSecurityGroup;
+}
+
+/**
+ * Contains configuration for a Multiplex event
+ * @public
+ */
+export interface MultiplexSettings {
+  /**
+   * Maximum video buffer delay in milliseconds.
+   * @public
+   */
+  MaximumVideoBufferDelayMilliseconds?: number;
+
+  /**
+   * Transport stream bit rate.
+   * @public
+   */
+  TransportStreamBitrate: number | undefined;
+
+  /**
+   * Transport stream ID.
+   * @public
+   */
+  TransportStreamId: number | undefined;
+
+  /**
+   * Transport stream reserved bit rate.
+   * @public
+   */
+  TransportStreamReservedBitrate?: number;
+}
+
+/**
+ * A request to create a multiplex.
+ * @public
+ */
+export interface CreateMultiplexRequest {
+  /**
+   * A list of availability zones for the multiplex. You must specify exactly two.
+   * @public
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings: MultiplexSettings | undefined;
+
+  /**
+   * Name of multiplex.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Unique request ID. This prevents retries from creating multiple
+   * resources.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * The multiplex object.
+ * @public
+ */
+export interface Multiplex {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateMultiplexResponse
+ * @public
+ */
+export interface CreateMultiplexResponse {
+  /**
+   * The newly created multiplex.
+   * @public
+   */
+  Multiplex?: Multiplex;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PreferredChannelPipeline = {
+  CURRENTLY_ACTIVE: "CURRENTLY_ACTIVE",
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+
+/**
+ * @public
+ */
+export type PreferredChannelPipeline = (typeof PreferredChannelPipeline)[keyof typeof PreferredChannelPipeline];
+
+/**
+ * Transport stream service descriptor configuration for the Multiplex program.
+ * @public
+ */
+export interface MultiplexProgramServiceDescriptor {
+  /**
+   * Name of the provider.
+   * @public
+   */
+  ProviderName: string | undefined;
+
+  /**
+   * Name of the service.
+   * @public
+   */
+  ServiceName: string | undefined;
+}
+
+/**
+ * Statmux rate control settings
+ * @public
+ */
+export interface MultiplexStatmuxVideoSettings {
+  /**
+   * Maximum statmux bitrate.
+   * @public
+   */
+  MaximumBitrate?: number;
+
+  /**
+   * Minimum statmux bitrate.
+   * @public
+   */
+  MinimumBitrate?: number;
+
+  /**
+   * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others. Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+   * @public
+   */
+  Priority?: number;
+}
+
+/**
+ * The video configuration for each program in a multiplex.
+ * @public
+ */
+export interface MultiplexVideoSettings {
+  /**
+   * The constant bitrate configuration for the video encode.
+   * When this field is defined, StatmuxSettings must be undefined.
+   * @public
+   */
+  ConstantBitrate?: number;
+
+  /**
+   * Statmux rate control settings.
+   * When this field is defined, ConstantBitrate must be undefined.
+   * @public
+   */
+  StatmuxSettings?: MultiplexStatmuxVideoSettings;
+}
+
+/**
+ * Multiplex Program settings configuration.
+ * @public
+ */
+export interface MultiplexProgramSettings {
+  /**
+   * Indicates which pipeline is preferred by the multiplex for program ingest.
+   * @public
+   */
+  PreferredChannelPipeline?: PreferredChannelPipeline;
+
+  /**
+   * Unique program number.
+   * @public
+   */
+  ProgramNumber: number | undefined;
+
+  /**
+   * Transport stream service descriptor configuration for the Multiplex program.
+   * @public
+   */
+  ServiceDescriptor?: MultiplexProgramServiceDescriptor;
+
+  /**
+   * Program video settings configuration.
+   * @public
+   */
+  VideoSettings?: MultiplexVideoSettings;
+}
+
+/**
+ * A request to create a program in a multiplex.
+ * @public
+ */
+export interface CreateMultiplexProgramRequest {
+  /**
+   * ID of the multiplex where the program is to be created.
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings: MultiplexProgramSettings | undefined;
+
+  /**
+   * Name of multiplex program.
+   * @public
+   */
+  ProgramName: string | undefined;
+
+  /**
+   * Unique request ID. This prevents retries from creating multiple
+   * resources.
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * Packet identifiers map for a given Multiplex program.
+ * @public
+ */
+export interface MultiplexProgramPacketIdentifiersMap {
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  AudioPids?: number[];
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  DvbSubPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  DvbTeletextPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EtvPlatformPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EtvSignalPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  KlvDataPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PcrPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PmtPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PrivateMetadataPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  Scte27Pids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  Scte35Pid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  TimedMetadataPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  VideoPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  AribCaptionsPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  DvbTeletextPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EcmPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  Smpte2038Pid?: number;
+}
+
+/**
+ * The multiplex program object.
+ * @public
+ */
+export interface MultiplexProgram {
+  /**
+   * The MediaLive channel associated with the program.
+   * @public
+   */
+  ChannelId?: string;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings?: MultiplexProgramSettings;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   * @public
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
+
+  /**
+   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+   * @public
+   */
+  PipelineDetails?: MultiplexProgramPipelineDetail[];
+
+  /**
+   * The name of the multiplex program.
+   * @public
+   */
+  ProgramName?: string;
+}
+
+/**
+ * Placeholder documentation for CreateMultiplexProgramResponse
+ * @public
+ */
+export interface CreateMultiplexProgramResponse {
+  /**
+   * The newly created multiplex program.
+   * @public
+   */
+  MultiplexProgram?: MultiplexProgram;
+}
+
+/**
+ * A request to create a Network.
+ * @public
+ */
+export interface CreateNetworkRequest {
+  /**
+   * An array of IpPoolCreateRequests that identify a collection of IP addresses in your network that you want to reserve for use in MediaLive Anywhere. MediaLiveAnywhere uses these IP addresses for Push inputs (in both Bridge and NATnetworks) and for output destinations (only in Bridge networks). EachIpPoolUpdateRequest specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPoolCreateRequest[];
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend that you assign a name that hints at the type of traffic on the network. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: RouteCreateRequest[];
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateNetworkResponse
+ * @public
+ */
+export interface CreateNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[];
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[];
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[];
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState;
+}
+
+/**
+ * A request to create a node
+ * @public
+ */
+export interface CreateNodeRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The user-specified name of the Node to be created.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMappingCreateRequest[];
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateNodeResponse
+ * @public
+ */
+export interface CreateNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
+}
+
+/**
+ * A request to create a new node registration script.
+ * @public
+ */
+export interface CreateNodeRegistrationScriptRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * If you're generating a re-registration script for an already existing node, this is where you provide the id.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Specify a pattern for MediaLive Anywhere to use to assign a name to each Node in the Cluster. The pattern can include the variables $hn (hostname of the node hardware) and $ts for the date and time that the Node is created, in UTC (for example, 2024-08-20T23:35:12Z).
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+}
+
+/**
+ * Placeholder documentation for CreateNodeRegistrationScriptResponse
+ * @public
+ */
+export interface CreateNodeRegistrationScriptResponse {
+  /**
+   * A script that can be run on a Bring Your Own Device Elemental Anywhere system to create a node in a cluster.
+   * @public
+   */
+  NodeRegistrationScript?: string;
+}
+
+/**
+ * A request to create a partner input
+ * @public
+ */
+export interface CreatePartnerInputRequest {
+  /**
+   * Unique ID of the input.
+   * @public
+   */
+  InputId: string | undefined;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreatePartnerInputResponse
+ * @public
+ */
+export interface CreatePartnerInputResponse {
+  /**
+   * Placeholder documentation for Input
+   * @public
+   */
+  Input?: Input;
+}
 
 /**
  * Placeholder documentation for CreateSignalMapRequest
@@ -457,6 +2553,78 @@ export interface DeleteChannelResponse {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelPlacementGroupRequest
+ * @public
+ */
+export interface DeleteChannelPlacementGroupRequest {
+  /**
+   * The ID of the channel placement group.
+   * @public
+   */
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelPlacementGroupResponse
+ * @public
+ */
+export interface DeleteChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState;
 }
 
 /**
@@ -481,6 +2649,72 @@ export interface DeleteCloudWatchAlarmTemplateGroupRequest {
    * @public
    */
   Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteClusterRequest
+ * @public
+ */
+export interface DeleteClusterRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteClusterResponse
+ * @public
+ */
+export interface DeleteClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[];
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState;
 }
 
 /**
@@ -673,6 +2907,150 @@ export interface DeleteMultiplexProgramResponse {
    * @public
    */
   ProgramName?: string;
+}
+
+/**
+ * Placeholder documentation for DeleteNetworkRequest
+ * @public
+ */
+export interface DeleteNetworkRequest {
+  /**
+   * The ID of the network.
+   * @public
+   */
+  NetworkId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNetworkResponse
+ * @public
+ */
+export interface DeleteNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[];
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[];
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[];
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState;
+}
+
+/**
+ * Placeholder documentation for DeleteNodeRequest
+ * @public
+ */
+export interface DeleteNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNodeResponse
+ * @public
+ */
+export interface DeleteNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
 }
 
 /**
@@ -999,6 +3377,144 @@ export interface DescribeChannelResponse {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
+}
+
+/**
+ * Placeholder documentation for DescribeChannelPlacementGroupRequest
+ * @public
+ */
+export interface DescribeChannelPlacementGroupRequest {
+  /**
+   * The ID of the channel placement group.
+   * @public
+   */
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeChannelPlacementGroupResponse
+ * @public
+ */
+export interface DescribeChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState;
+}
+
+/**
+ * Placeholder documentation for DescribeClusterRequest
+ * @public
+ */
+export interface DescribeClusterRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeClusterResponse
+ * @public
+ */
+export interface DescribeClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[];
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState;
 }
 
 /**
@@ -1044,7 +3560,7 @@ export interface DescribeInputResponse {
 
   /**
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
-   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    * @public
    */
   InputClass?: InputClass;
@@ -1121,6 +3637,19 @@ export interface DescribeInputResponse {
    * @public
    */
   SrtSettings?: SrtSettings;
+
+  /**
+   * The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
+   * an input in a customer network.
+   * @public
+   */
+  InputNetworkLocation?: InputNetworkLocation;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettings;
 }
 
 /**
@@ -1475,6 +4004,150 @@ export interface DescribeMultiplexProgramResponse {
    * @public
    */
   ProgramName?: string;
+}
+
+/**
+ * Placeholder documentation for DescribeNetworkRequest
+ * @public
+ */
+export interface DescribeNetworkRequest {
+  /**
+   * The ID of the network.
+   * @public
+   */
+  NetworkId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNetworkResponse
+ * @public
+ */
+export interface DescribeNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[];
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[];
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[];
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState;
+}
+
+/**
+ * Placeholder documentation for DescribeNodeRequest
+ * @public
+ */
+export interface DescribeNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNodeResponse
+ * @public
+ */
+export interface DescribeNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
 }
 
 /**
@@ -2288,6 +4961,48 @@ export interface InputDeviceConfigurableSettings {
 }
 
 /**
+ * Placeholder documentation for ListChannelPlacementGroupsRequest
+ * @public
+ */
+export interface ListChannelPlacementGroupsRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListChannelPlacementGroupsResponse
+ * @public
+ */
+export interface ListChannelPlacementGroupsResponse {
+  /**
+   * An array of ChannelPlacementGroups that exist in the Cluster.
+   * @public
+   */
+  ChannelPlacementGroups?: DescribeChannelPlacementGroupSummary[];
+
+  /**
+   * Token for the next result.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
  * Placeholder documentation for ListChannelsRequest
  * @public
  */
@@ -2420,6 +5135,42 @@ export interface ListCloudWatchAlarmTemplatesResponse {
 
   /**
    * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListClustersRequest
+ * @public
+ */
+export interface ListClustersRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListClustersResponse
+ * @public
+ */
+export interface ListClustersResponse {
+  /**
+   * A list of the Clusters that exist in your AWS account.
+   * @public
+   */
+  Clusters?: DescribeClusterSummary[];
+
+  /**
+   * Token for the next result.
    * @public
    */
   NextToken?: string;
@@ -2744,6 +5495,84 @@ export interface ListMultiplexProgramsResponse {
 }
 
 /**
+ * Placeholder documentation for ListNetworksRequest
+ * @public
+ */
+export interface ListNetworksRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListNetworksResponse
+ * @public
+ */
+export interface ListNetworksResponse {
+  /**
+   * An array of networks that you have created.
+   * @public
+   */
+  Networks?: DescribeNetworkSummary[];
+
+  /**
+   * Token for the next ListNetworks request.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListNodesRequest
+ * @public
+ */
+export interface ListNodesRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * Placeholder documentation for ListNodesResponse
+ * @public
+ */
+export interface ListNodesResponse {
+  /**
+   * Token for the next result.
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * An array of Nodes that exist in the Cluster.
+   * @public
+   */
+  Nodes?: DescribeNodeSummary[];
+}
+
+/**
  * Placeholder documentation for ListOfferingsRequest
  * @public
  */
@@ -2761,7 +5590,7 @@ export interface ListOfferingsRequest {
   ChannelConfiguration?: string;
 
   /**
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', 'LINK', or 'AV1'
    * @public
    */
   Codec?: string;
@@ -2851,7 +5680,7 @@ export interface ListReservationsRequest {
   ChannelClass?: string;
 
   /**
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', 'LINK', or 'AV1'
    * @public
    */
   Codec?: string;
@@ -3273,6 +6102,12 @@ export interface RestartChannelPipelinesResponse {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
 }
 
 /**
@@ -3401,6 +6236,12 @@ export interface StartChannelResponse {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
 }
 
 /**
@@ -4063,6 +6904,12 @@ export interface StopChannelResponse {
    * @public
    */
   Vpc?: VpcOutputSettingsDescription;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings;
 }
 
 /**
@@ -4336,6 +7183,84 @@ export interface UpdateChannelClassResponse {
 }
 
 /**
+ * A request to update the channel placement group
+ * @public
+ */
+export interface UpdateChannelPlacementGroupRequest {
+  /**
+   * The ID of the channel placement group.
+   * @public
+   */
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the ChannelPlacementGroup. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Include this parameter only if you want to change the list of Nodes that are associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+}
+
+/**
+ * Placeholder documentation for UpdateChannelPlacementGroupResponse
+ * @public
+ */
+export interface UpdateChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[];
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState;
+}
+
+/**
  * Placeholder documentation for UpdateCloudWatchAlarmTemplateRequest
  * @public
  */
@@ -4594,6 +7519,78 @@ export interface UpdateCloudWatchAlarmTemplateGroupResponse {
 }
 
 /**
+ * A request to update the cluster.
+ * @public
+ */
+export interface UpdateClusterRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the Cluster. Specify a name that is unique in the AWS account. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Include this property only if you want to change the current connections between the Nodes in the Cluster and the Networks the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettingsUpdateRequest;
+}
+
+/**
+ * Placeholder documentation for UpdateClusterResponse
+ * @public
+ */
+export interface UpdateClusterResponse {
+  /**
+   * The ARN of the Cluster.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of the IDs of the Channels that are associated with this Cluster. One Channel is associated with the Cluster as follows: A Channel belongs to a ChannelPlacementGroup. A ChannelPlacementGroup is attached to a Node. A Node belongs to a Cluster.
+   * @public
+   */
+  ChannelIds?: string[];
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType;
+
+  /**
+   * The unique ID of the Cluster.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The user-specified name of the Cluster.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState;
+}
+
+/**
  * Placeholder documentation for UpdateEventBridgeRuleTemplateRequest
  * @public
  */
@@ -4768,6 +7765,18 @@ export interface UpdateEventBridgeRuleTemplateGroupResponse {
 }
 
 /**
+ * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+ * @public
+ */
+export interface MulticastSettingsUpdateRequest {
+  /**
+   * Placeholder documentation for __listOfMulticastSourceUpdateRequest
+   * @public
+   */
+  Sources?: MulticastSourceUpdateRequest[];
+}
+
+/**
  * A request to update an input.
  * @public
  */
@@ -4829,6 +7838,12 @@ export interface UpdateInputRequest {
    * @public
    */
   SrtSettings?: SrtSettingsRequest;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettingsUpdateRequest;
 }
 
 /**
@@ -5093,6 +8108,284 @@ export interface UpdateMultiplexProgramResponse {
    * @public
    */
   MultiplexProgram?: MultiplexProgram;
+}
+
+/**
+ * A request to update the network.
+ * @public
+ */
+export interface UpdateNetworkRequest {
+  /**
+   * Include this parameter only if you want to change the pool of IP addresses in the network. An array of IpPoolCreateRequests that identify a collection of IP addresses in this network that you want to reserve for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPoolUpdateRequest specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPoolUpdateRequest[];
+
+  /**
+   * Include this parameter only if you want to change the name of the Network. Specify a name that is unique in the AWS account. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * The ID of the network
+   * @public
+   */
+  NetworkId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change or add routes in the Network. An array of Routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: RouteUpdateRequest[];
+}
+
+/**
+ * Placeholder documentation for UpdateNetworkResponse
+ * @public
+ */
+export interface UpdateNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[];
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[];
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * An array of Routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[];
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState;
+}
+
+/**
+ * A request to update the node.
+ * @public
+ */
+export interface UpdateNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the Node. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+}
+
+/**
+ * Placeholder documentation for UpdateNodeResponse
+ * @public
+ */
+export interface UpdateNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateNodeStateShape = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateNodeStateShape = (typeof UpdateNodeStateShape)[keyof typeof UpdateNodeStateShape];
+
+/**
+ * A request to update the state of a node.
+ * @public
+ */
+export interface UpdateNodeStateRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * The state to apply to the Node. Set to ACTIVE (COMMISSIONED) to indicate that the Node is deployable. MediaLive Anywhere will consider this node it needs a Node to run a Channel on, or when it needs a Node to promote from a backup node to an active node. Set to DRAINING to isolate the Node so that MediaLive Anywhere won't use it.
+   * @public
+   */
+  State?: UpdateNodeStateShape;
+}
+
+/**
+ * Placeholder documentation for UpdateNodeStateResponse
+ * @public
+ */
+export interface UpdateNodeStateResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[];
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[];
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState;
 }
 
 /**

@@ -5,50 +5,803 @@ import { MediaLiveServiceException as __BaseException } from "./MediaLiveService
 
 import {
   Algorithm,
-  AudioDescription,
+  ArchiveOutputSettings,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
-  CaptionDescription,
   CaptionLanguageMapping,
-  CdiInputSpecification,
-  ChannelClass,
-  ChannelEgressEndpoint,
-  ChannelState,
-  CloudWatchAlarmTemplateComparisonOperator,
-  CloudWatchAlarmTemplateStatistic,
-  CloudWatchAlarmTemplateTargetResourceType,
-  CloudWatchAlarmTemplateTreatMissingData,
+  CmafIngestOutputSettings,
   ColorCorrection,
-  EventBridgeRuleTemplateEventType,
-  EventBridgeRuleTemplateTarget,
   Hdr10Settings,
   HlsAdMarkers,
-  Input,
-  InputAttachment,
-  InputDestinationRequest,
-  InputDeviceSettings,
   InputLocation,
-  InputSecurityGroup,
-  InputSourceRequest,
-  InputSpecification,
-  InputType,
-  InputWhitelistRuleCidr,
-  LogLevel,
-  MaintenanceDay,
-  MaintenanceStatus,
-  MediaConnectFlowRequest,
-  MultiplexOutputDestination,
-  MultiplexProgramPipelineDetail,
-  MultiplexState,
+  M2tsSettings,
   OfferingDurationUnits,
   OfferingType,
-  Output,
-  OutputDestination,
-  OutputLocationRef,
   ReservationResourceSpecification,
-  S3CannedAcl,
-  VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Frame Capture Output Settings
+ * @public
+ */
+export interface FrameCaptureOutputSettings {
+  /**
+   * Required if the output group contains more than one output. This modifier forms part of the output file name.
+   * @public
+   */
+  NameModifier?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsH265PackagingType = {
+  HEV1: "HEV1",
+  HVC1: "HVC1",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsH265PackagingType = (typeof HlsH265PackagingType)[keyof typeof HlsH265PackagingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioOnlyHlsTrackType = {
+  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioOnlyHlsTrackType = (typeof AudioOnlyHlsTrackType)[keyof typeof AudioOnlyHlsTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioOnlyHlsSegmentType = {
+  AAC: "AAC",
+  FMP4: "FMP4",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioOnlyHlsSegmentType = (typeof AudioOnlyHlsSegmentType)[keyof typeof AudioOnlyHlsSegmentType];
+
+/**
+ * Audio Only Hls Settings
+ * @public
+ */
+export interface AudioOnlyHlsSettings {
+  /**
+   * Specifies the group to which the audio Rendition belongs.
+   * @public
+   */
+  AudioGroupId?: string;
+
+  /**
+   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
+   *
+   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+   * @public
+   */
+  AudioOnlyImage?: InputLocation;
+
+  /**
+   * Four types of audio-only tracks are supported:
+   *
+   * Audio-Only Variant Stream
+   * The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
+   *
+   * Alternate Audio, Auto Select, Default
+   * Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
+   *
+   * Alternate Audio, Auto Select, Not Default
+   * Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
+   *
+   * Alternate Audio, not Auto Select
+   * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+   * @public
+   */
+  AudioTrackType?: AudioOnlyHlsTrackType;
+
+  /**
+   * Specifies the segment type.
+   * @public
+   */
+  SegmentType?: AudioOnlyHlsSegmentType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Fmp4NielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type Fmp4NielsenId3Behavior = (typeof Fmp4NielsenId3Behavior)[keyof typeof Fmp4NielsenId3Behavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Fmp4TimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type Fmp4TimedMetadataBehavior = (typeof Fmp4TimedMetadataBehavior)[keyof typeof Fmp4TimedMetadataBehavior];
+
+/**
+ * Fmp4 Hls Settings
+ * @public
+ */
+export interface Fmp4HlsSettings {
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * @public
+   */
+  AudioRenditionSets?: string;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: Fmp4NielsenId3Behavior;
+
+  /**
+   * When set to passthrough, timed metadata is passed through from input to output.
+   * @public
+   */
+  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior;
+}
+
+/**
+ * Frame Capture Hls Settings
+ * @public
+ */
+export interface FrameCaptureHlsSettings {}
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8KlvBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8KlvBehavior = (typeof M3u8KlvBehavior)[keyof typeof M3u8KlvBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8NielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8NielsenId3Behavior = (typeof M3u8NielsenId3Behavior)[keyof typeof M3u8NielsenId3Behavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8PcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8PcrControl = (typeof M3u8PcrControl)[keyof typeof M3u8PcrControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8Scte35Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8Scte35Behavior = (typeof M3u8Scte35Behavior)[keyof typeof M3u8Scte35Behavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8TimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8TimedMetadataBehavior = (typeof M3u8TimedMetadataBehavior)[keyof typeof M3u8TimedMetadataBehavior];
+
+/**
+ * Settings information for the .m3u8 container
+ * @public
+ */
+export interface M3u8Settings {
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
+   * @public
+   */
+  AudioPids?: string;
+
+  /**
+   * This parameter is unused and deprecated.
+   * @public
+   */
+  EcmPid?: string;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: M3u8NielsenId3Behavior;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   * @public
+   */
+  PatInterval?: number;
+
+  /**
+   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M3u8PcrControl;
+
+  /**
+   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
+   * @public
+   */
+  PcrPeriod?: number;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  PcrPid?: string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   * @public
+   */
+  PmtInterval?: number;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  PmtPid?: string;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   * @public
+   */
+  ProgramNum?: number;
+
+  /**
+   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+   * @public
+   */
+  Scte35Behavior?: M3u8Scte35Behavior;
+
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  Scte35Pid?: string;
+
+  /**
+   * When set to passthrough, timed metadata is passed through from input to output.
+   * @public
+   */
+  TimedMetadataBehavior?: M3u8TimedMetadataBehavior;
+
+  /**
+   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  TimedMetadataPid?: string;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   * @public
+   */
+  TransportStreamId?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  VideoPid?: string;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: M3u8KlvBehavior;
+
+  /**
+   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  KlvDataPids?: string;
+}
+
+/**
+ * Standard Hls Settings
+ * @public
+ */
+export interface StandardHlsSettings {
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * @public
+   */
+  AudioRenditionSets?: string;
+
+  /**
+   * Settings information for the .m3u8 container
+   * @public
+   */
+  M3u8Settings: M3u8Settings | undefined;
+}
+
+/**
+ * Hls Settings
+ * @public
+ */
+export interface HlsSettings {
+  /**
+   * Audio Only Hls Settings
+   * @public
+   */
+  AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
+
+  /**
+   * Fmp4 Hls Settings
+   * @public
+   */
+  Fmp4HlsSettings?: Fmp4HlsSettings;
+
+  /**
+   * Frame Capture Hls Settings
+   * @public
+   */
+  FrameCaptureHlsSettings?: FrameCaptureHlsSettings;
+
+  /**
+   * Standard Hls Settings
+   * @public
+   */
+  StandardHlsSettings?: StandardHlsSettings;
+}
+
+/**
+ * Hls Output Settings
+ * @public
+ */
+export interface HlsOutputSettings {
+  /**
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   * @public
+   */
+  H265PackagingType?: HlsH265PackagingType;
+
+  /**
+   * Settings regarding the underlying stream. These settings are different for audio-only outputs.
+   * @public
+   */
+  HlsSettings: HlsSettings | undefined;
+
+  /**
+   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
+   * @public
+   */
+  NameModifier?: string;
+
+  /**
+   * String concatenated to end of segment filenames.
+   * @public
+   */
+  SegmentModifier?: string;
+}
+
+/**
+ * Media Package Output Settings
+ * @public
+ */
+export interface MediaPackageOutputSettings {}
+
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothH265PackagingType = {
+  HEV1: "HEV1",
+  HVC1: "HVC1",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothH265PackagingType = (typeof MsSmoothH265PackagingType)[keyof typeof MsSmoothH265PackagingType];
+
+/**
+ * Ms Smooth Output Settings
+ * @public
+ */
+export interface MsSmoothOutputSettings {
+  /**
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   * @public
+   */
+  H265PackagingType?: MsSmoothH265PackagingType;
+
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string;
+}
+
+/**
+ * Reference to an OutputDestination ID defined in the channel
+ * @public
+ */
+export interface OutputLocationRef {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  DestinationRefId?: string;
+}
+
+/**
+ * Multiplex Output Settings
+ * @public
+ */
+export interface MultiplexOutputSettings {
+  /**
+   * Destination is a Multiplex.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpOutputCertificateMode = {
+  SELF_SIGNED: "SELF_SIGNED",
+  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
+} as const;
+
+/**
+ * @public
+ */
+export type RtmpOutputCertificateMode = (typeof RtmpOutputCertificateMode)[keyof typeof RtmpOutputCertificateMode];
+
+/**
+ * Rtmp Output Settings
+ * @public
+ */
+export interface RtmpOutputSettings {
+  /**
+   * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
+   * @public
+   */
+  CertificateMode?: RtmpOutputCertificateMode;
+
+  /**
+   * Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Number of retry attempts.
+   * @public
+   */
+  NumRetries?: number;
+}
+
+/**
+ * Udp Container Settings
+ * @public
+ */
+export interface UdpContainerSettings {
+  /**
+   * M2ts Settings
+   * @public
+   */
+  M2tsSettings?: M2tsSettings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SrtEncryptionType = {
+  AES128: "AES128",
+  AES192: "AES192",
+  AES256: "AES256",
+} as const;
+
+/**
+ * @public
+ */
+export type SrtEncryptionType = (typeof SrtEncryptionType)[keyof typeof SrtEncryptionType];
+
+/**
+ * Srt Output Settings
+ * @public
+ */
+export interface SrtOutputSettings {
+  /**
+   * SRT output buffering in milliseconds. A higher value increases latency through the encoder. But the benefits are that it helps to maintain a constant, low-jitter SRT output, and it accommodates clock recovery, input switching, input disruptions, picture reordering, and so on. Range: 0-10000 milliseconds.
+   * @public
+   */
+  BufferMsec?: number;
+
+  /**
+   * Udp Container Settings
+   * @public
+   */
+  ContainerSettings: UdpContainerSettings | undefined;
+
+  /**
+   * Reference to an OutputDestination ID defined in the channel
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * The encryption level for the content. Valid values are AES128, AES192, AES256. You and the downstream system should plan how to set this field because the values must not conflict with each other.
+   * @public
+   */
+  EncryptionType?: SrtEncryptionType;
+
+  /**
+   * The latency value, in milliseconds, that is proposed during the SRT connection handshake. SRT will choose the maximum of the values proposed by the sender and receiver. On the sender side, latency is the amount of time a packet is held to give it a chance to be delivered successfully. On the receiver side, latency is the amount of time the packet is held before delivering to the application, aiding in packet recovery and matching as closely as possible the packet timing of the sender. Range: 40-16000 milliseconds.
+   * @public
+   */
+  Latency?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FecOutputIncludeFec = {
+  COLUMN: "COLUMN",
+  COLUMN_AND_ROW: "COLUMN_AND_ROW",
+} as const;
+
+/**
+ * @public
+ */
+export type FecOutputIncludeFec = (typeof FecOutputIncludeFec)[keyof typeof FecOutputIncludeFec];
+
+/**
+ * Fec Output Settings
+ * @public
+ */
+export interface FecOutputSettings {
+  /**
+   * Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
+   * @public
+   */
+  ColumnDepth?: number;
+
+  /**
+   * Enables column only or column and row based FEC
+   * @public
+   */
+  IncludeFec?: FecOutputIncludeFec;
+
+  /**
+   * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
+   * @public
+   */
+  RowLength?: number;
+}
+
+/**
+ * Udp Output Settings
+ * @public
+ */
+export interface UdpOutputSettings {
+  /**
+   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+   * @public
+   */
+  BufferMsec?: number;
+
+  /**
+   * Udp Container Settings
+   * @public
+   */
+  ContainerSettings: UdpContainerSettings | undefined;
+
+  /**
+   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+   * @public
+   */
+  FecOutputSettings?: FecOutputSettings;
+}
+
+/**
+ * Output Settings
+ * @public
+ */
+export interface OutputSettings {
+  /**
+   * Archive Output Settings
+   * @public
+   */
+  ArchiveOutputSettings?: ArchiveOutputSettings;
+
+  /**
+   * Frame Capture Output Settings
+   * @public
+   */
+  FrameCaptureOutputSettings?: FrameCaptureOutputSettings;
+
+  /**
+   * Hls Output Settings
+   * @public
+   */
+  HlsOutputSettings?: HlsOutputSettings;
+
+  /**
+   * Media Package Output Settings
+   * @public
+   */
+  MediaPackageOutputSettings?: MediaPackageOutputSettings;
+
+  /**
+   * Ms Smooth Output Settings
+   * @public
+   */
+  MsSmoothOutputSettings?: MsSmoothOutputSettings;
+
+  /**
+   * Multiplex Output Settings
+   * @public
+   */
+  MultiplexOutputSettings?: MultiplexOutputSettings;
+
+  /**
+   * Rtmp Output Settings
+   * @public
+   */
+  RtmpOutputSettings?: RtmpOutputSettings;
+
+  /**
+   * Udp Output Settings
+   * @public
+   */
+  UdpOutputSettings?: UdpOutputSettings;
+
+  /**
+   * Cmaf Ingest Output Settings
+   * @public
+   */
+  CmafIngestOutputSettings?: CmafIngestOutputSettings;
+
+  /**
+   * Srt Output Settings
+   * @public
+   */
+  SrtOutputSettings?: SrtOutputSettings;
+}
+
+/**
+ * Output settings. There can be multiple outputs within a group.
+ * @public
+ */
+export interface Output {
+  /**
+   * The names of the AudioDescriptions used as audio sources for this output.
+   * @public
+   */
+  AudioDescriptionNames?: string[];
+
+  /**
+   * The names of the CaptionDescriptions used as caption sources for this output.
+   * @public
+   */
+  CaptionDescriptionNames?: string[];
+
+  /**
+   * The name used to identify an output.
+   * @public
+   */
+  OutputName?: string;
+
+  /**
+   * Output type-specific settings.
+   * @public
+   */
+  OutputSettings: OutputSettings | undefined;
+
+  /**
+   * The name of the VideoDescription used as the source for this output.
+   * @public
+   */
+  VideoDescriptionName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3CannedAcl = {
+  AUTHENTICATED_READ: "AUTHENTICATED_READ",
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type S3CannedAcl = (typeof S3CannedAcl)[keyof typeof S3CannedAcl];
 
 /**
  * Archive S3 Settings
@@ -1561,6 +2314,18 @@ export const InputLossActionForUdpOut = {
 export type InputLossActionForUdpOut = (typeof InputLossActionForUdpOut)[keyof typeof InputLossActionForUdpOut];
 
 /**
+ * Srt Group Settings
+ * @public
+ */
+export interface SrtGroupSettings {
+  /**
+   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
+   * @public
+   */
+  InputLossAction?: InputLossActionForUdpOut;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1657,6 +2422,12 @@ export interface OutputGroupSettings {
    * @public
    */
   CmafIngestGroupSettings?: CmafIngestGroupSettings;
+
+  /**
+   * Srt Group Settings
+   * @public
+   */
+  SrtGroupSettings?: SrtGroupSettings;
 }
 
 /**
@@ -1913,6 +2684,42 @@ export interface Reservation {
    * @public
    */
   UsagePrice?: number;
+}
+
+/**
+ * Used in CreateNetworkRequest.
+ * @public
+ */
+export interface RouteCreateRequest {
+  /**
+   * A CIDR block for one Route.
+   * @public
+   */
+  Cidr?: string;
+
+  /**
+   * The IP address of the Gateway for this route, if applicable.
+   * @public
+   */
+  Gateway?: string;
+}
+
+/**
+ * Used in UpdateNetworkRequest.
+ * @public
+ */
+export interface RouteUpdateRequest {
+  /**
+   * A CIDR block for one Route.
+   * @public
+   */
+  Cidr?: string;
+
+  /**
+   * The IP address of the Gateway for this route, if applicable.
+   * @public
+   */
+  Gateway?: string;
 }
 
 /**
@@ -3058,15 +3865,157 @@ export interface ValidationError {
  * @public
  * @enum
  */
-export const FrameCaptureIntervalUnit = {
-  MILLISECONDS: "MILLISECONDS",
+export const AfdSignaling = {
+  AUTO: "AUTO",
+  FIXED: "FIXED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
+
+/**
+ * Passthrough applies no color space conversion to the output
+ * @public
+ */
+export interface ColorSpacePassthroughSettings {}
+
+/**
+ * Rec601 Settings
+ * @public
+ */
+export interface Rec601Settings {}
+
+/**
+ * Rec709 Settings
+ * @public
+ */
+export interface Rec709Settings {}
+
+/**
+ * Av1 Color Space Settings
+ * @public
+ */
+export interface Av1ColorSpaceSettings {
+  /**
+   * Passthrough applies no color space conversion to the output
+   * @public
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+
+  /**
+   * Hdr10 Settings
+   * @public
+   */
+  Hdr10Settings?: Hdr10Settings;
+
+  /**
+   * Rec601 Settings
+   * @public
+   */
+  Rec601Settings?: Rec601Settings;
+
+  /**
+   * Rec709 Settings
+   * @public
+   */
+  Rec709Settings?: Rec709Settings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FixedAfd = {
+  AFD_0000: "AFD_0000",
+  AFD_0010: "AFD_0010",
+  AFD_0011: "AFD_0011",
+  AFD_0100: "AFD_0100",
+  AFD_1000: "AFD_1000",
+  AFD_1001: "AFD_1001",
+  AFD_1010: "AFD_1010",
+  AFD_1011: "AFD_1011",
+  AFD_1101: "AFD_1101",
+  AFD_1110: "AFD_1110",
+  AFD_1111: "AFD_1111",
+} as const;
+
+/**
+ * @public
+ */
+export type FixedAfd = (typeof FixedAfd)[keyof typeof FixedAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1GopSizeUnits = {
+  FRAMES: "FRAMES",
   SECONDS: "SECONDS",
 } as const;
 
 /**
  * @public
  */
-export type FrameCaptureIntervalUnit = (typeof FrameCaptureIntervalUnit)[keyof typeof FrameCaptureIntervalUnit];
+export type Av1GopSizeUnits = (typeof Av1GopSizeUnits)[keyof typeof Av1GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1Level = {
+  AV1_LEVEL_2: "AV1_LEVEL_2",
+  AV1_LEVEL_2_1: "AV1_LEVEL_2_1",
+  AV1_LEVEL_3: "AV1_LEVEL_3",
+  AV1_LEVEL_3_1: "AV1_LEVEL_3_1",
+  AV1_LEVEL_4: "AV1_LEVEL_4",
+  AV1_LEVEL_4_1: "AV1_LEVEL_4_1",
+  AV1_LEVEL_5: "AV1_LEVEL_5",
+  AV1_LEVEL_5_1: "AV1_LEVEL_5_1",
+  AV1_LEVEL_5_2: "AV1_LEVEL_5_2",
+  AV1_LEVEL_5_3: "AV1_LEVEL_5_3",
+  AV1_LEVEL_6: "AV1_LEVEL_6",
+  AV1_LEVEL_6_1: "AV1_LEVEL_6_1",
+  AV1_LEVEL_6_2: "AV1_LEVEL_6_2",
+  AV1_LEVEL_6_3: "AV1_LEVEL_6_3",
+  AV1_LEVEL_AUTO: "AV1_LEVEL_AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1Level = (typeof Av1Level)[keyof typeof Av1Level];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1LookAheadRateControl = (typeof Av1LookAheadRateControl)[keyof typeof Av1LookAheadRateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1SceneChangeDetect = (typeof Av1SceneChangeDetect)[keyof typeof Av1SceneChangeDetect];
 
 /**
  * @public
@@ -3130,6 +4079,144 @@ export interface TimecodeBurninSettings {
 }
 
 /**
+ * Av1 Settings
+ * @public
+ */
+export interface Av1Settings {
+  /**
+   * Configures whether MediaLive will write AFD values into the video.
+   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
+   * FIXED: the AFD value will be the value configured in the fixedAfd parameter.
+   * NONE: MediaLive won't write AFD into the video
+   * @public
+   */
+  AfdSignaling?: AfdSignaling;
+
+  /**
+   * The size of the buffer (HRD buffer model) in bits.
+   * @public
+   */
+  BufSize?: number;
+
+  /**
+   * Color Space settings
+   * @public
+   */
+  ColorSpaceSettings?: Av1ColorSpaceSettings;
+
+  /**
+   * Complete this property only if you set the afdSignaling property to FIXED. Choose the AFD value (4 bits) to write on all frames of the video encode.
+   * @public
+   */
+  FixedAfd?: FixedAfd;
+
+  /**
+   * The denominator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
+   * @public
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * The numerator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
+   * @public
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * The GOP size (keyframe interval).
+   * If GopSizeUnits is frames, GopSize must be a whole number and must be greater than or equal to 1.
+   * If GopSizeUnits is seconds, GopSize must be greater than 0, but it can be a decimal.
+   * @public
+   */
+  GopSize?: number;
+
+  /**
+   * Choose the units for the GOP size: FRAMES or SECONDS. For SECONDS, MediaLive converts the size into a frame count at run time.
+   * @public
+   */
+  GopSizeUnits?: Av1GopSizeUnits;
+
+  /**
+   * Sets the level. This parameter is one of the properties of the encoding scheme for AV1.
+   * @public
+   */
+  Level?: Av1Level;
+
+  /**
+   * Sets the amount of lookahead. A value of LOW can decrease latency and memory usage. A value of HIGH can produce better quality for certain content.
+   * @public
+   */
+  LookAheadRateControl?: Av1LookAheadRateControl;
+
+  /**
+   * The maximum bitrate to assign.
+   * For recommendations, see the description for qvbrQualityLevel.
+   * @public
+   */
+  MaxBitrate?: number;
+
+  /**
+   * Applies only if you enable SceneChangeDetect. Sets the interval between frames. This property ensures a minimum separation between repeated (cadence) I-frames and any I-frames inserted by scene change detection (SCD frames).
+   * Enter a number for the interval, measured in number of frames.
+   * If an SCD frame and a cadence frame are closer than the specified number of frames, MediaLive shrinks or stretches the GOP to include the SCD frame. Then normal cadence resumes in the next GOP. For GOP stretch to succeed, you must enable LookAheadRateControl.
+   * Note that the maximum GOP stretch = (GOP size) + (Minimum I-interval) - 1
+   * @public
+   */
+  MinIInterval?: number;
+
+  /**
+   * The denominator for the output pixel aspect ratio (PAR).
+   * @public
+   */
+  ParDenominator?: number;
+
+  /**
+   * The numerator for the output pixel aspect ratio (PAR).
+   * @public
+   */
+  ParNumerator?: number;
+
+  /**
+   * Controls the target quality for the video encode. With QVBR rate control mode, the final quality is the target quality, constrained by the maxBitrate.
+   * Set values for the qvbrQualityLevel property and maxBitrate property that suit your most important viewing devices.
+   * To let MediaLive set the quality level (AUTO mode), leave the qvbrQualityLevel field empty. In this case, MediaLive uses the maximum bitrate, and the quality follows from that: more complex content might have a lower quality.
+   * Or set a target quality level and a maximum bitrate. With more complex content, MediaLive will try to achieve the target quality, but it won't exceed the maximum bitrate. With less complex content, This option will use only the bitrate needed to reach the target quality.
+   * Recommended values are:
+   * Primary screen: qvbrQualityLevel: Leave empty. maxBitrate: 4,000,000
+   * PC or tablet: qvbrQualityLevel: Leave empty. maxBitrate: 1,500,000 to 3,000,000
+   * Smartphone: qvbrQualityLevel: Leave empty. maxBitrate: 1,000,000 to 1,500,000
+   * @public
+   */
+  QvbrQualityLevel?: number;
+
+  /**
+   * Controls whether MediaLive inserts I-frames when it detects a scene change. ENABLED or DISABLED.
+   * @public
+   */
+  SceneChangeDetect?: Av1SceneChangeDetect;
+
+  /**
+   * Configures the timecode burn-in feature. If you enable this feature, the timecode will become part of the video.
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FrameCaptureIntervalUnit = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameCaptureIntervalUnit = (typeof FrameCaptureIntervalUnit)[keyof typeof FrameCaptureIntervalUnit];
+
+/**
  * Frame Capture Settings
  * @public
  */
@@ -3176,21 +4263,6 @@ export type H264AdaptiveQuantization = (typeof H264AdaptiveQuantization)[keyof t
  * @public
  * @enum
  */
-export const AfdSignaling = {
-  AUTO: "AUTO",
-  FIXED: "FIXED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
-
-/**
- * @public
- * @enum
- */
 export const H264ColorMetadata = {
   IGNORE: "IGNORE",
   INSERT: "INSERT",
@@ -3200,24 +4272,6 @@ export const H264ColorMetadata = {
  * @public
  */
 export type H264ColorMetadata = (typeof H264ColorMetadata)[keyof typeof H264ColorMetadata];
-
-/**
- * Passthrough applies no color space conversion to the output
- * @public
- */
-export interface ColorSpacePassthroughSettings {}
-
-/**
- * Rec601 Settings
- * @public
- */
-export interface Rec601Settings {}
-
-/**
- * Rec709 Settings
- * @public
- */
-export interface Rec709Settings {}
 
 /**
  * H264 Color Space Settings
@@ -3333,29 +4387,6 @@ export interface H264FilterSettings {
    */
   TemporalFilterSettings?: TemporalFilterSettings;
 }
-
-/**
- * @public
- * @enum
- */
-export const FixedAfd = {
-  AFD_0000: "AFD_0000",
-  AFD_0010: "AFD_0010",
-  AFD_0011: "AFD_0011",
-  AFD_0100: "AFD_0100",
-  AFD_1000: "AFD_1000",
-  AFD_1001: "AFD_1001",
-  AFD_1010: "AFD_1010",
-  AFD_1011: "AFD_1011",
-  AFD_1101: "AFD_1101",
-  AFD_1110: "AFD_1110",
-  AFD_1111: "AFD_1111",
-} as const;
-
-/**
- * @public
- */
-export type FixedAfd = (typeof FixedAfd)[keyof typeof FixedAfd];
 
 /**
  * @public
@@ -4787,6 +5818,12 @@ export interface VideoCodecSettings {
    * @public
    */
   Mpeg2Settings?: Mpeg2Settings;
+
+  /**
+   * Av1 Settings
+   * @public
+   */
+  Av1Settings?: Av1Settings;
 }
 
 /**
@@ -5153,6 +6190,24 @@ export interface AccountConfiguration {
    * @public
    */
   KmsKeyId?: string;
+}
+
+/**
+ * Elemental anywhere settings
+ * @public
+ */
+export interface AnywhereSettings {
+  /**
+   * The ID of the channel placement group for the channel.
+   * @public
+   */
+  ChannelPlacementGroupId?: string;
+
+  /**
+   * The ID of the cluster for the channel.
+   * @public
+   */
+  ClusterId?: string;
 }
 
 /**
@@ -6002,1570 +7057,4 @@ export interface MotionGraphicsConfiguration {
    * @public
    */
   MotionGraphicsSettings: MotionGraphicsSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NielsenPcmToId3TaggingState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NielsenPcmToId3TaggingState =
-  (typeof NielsenPcmToId3TaggingState)[keyof typeof NielsenPcmToId3TaggingState];
-
-/**
- * Nielsen Configuration
- * @public
- */
-export interface NielsenConfiguration {
-  /**
-   * Enter the Distributor ID assigned to your organization by Nielsen.
-   * @public
-   */
-  DistributorId?: string;
-
-  /**
-   * Enables Nielsen PCM to ID3 tagging
-   * @public
-   */
-  NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState;
-}
-
-/**
- * @public
- * @enum
- */
-export const ThumbnailState = {
-  AUTO: "AUTO",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
-
-/**
- * Thumbnail Configuration
- * @public
- */
-export interface ThumbnailConfiguration {
-  /**
-   * Enables the thumbnail feature. The feature generates thumbnails of the incoming video in each pipeline in the channel. AUTO turns the feature on, DISABLE turns the feature off.
-   * @public
-   */
-  State: ThumbnailState | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TimecodeConfigSource = {
-  EMBEDDED: "EMBEDDED",
-  SYSTEMCLOCK: "SYSTEMCLOCK",
-  ZEROBASED: "ZEROBASED",
-} as const;
-
-/**
- * @public
- */
-export type TimecodeConfigSource = (typeof TimecodeConfigSource)[keyof typeof TimecodeConfigSource];
-
-/**
- * Timecode Config
- * @public
- */
-export interface TimecodeConfig {
-  /**
-   * Identifies the source for the timecode that will be associated with the events outputs.
-   * -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
-   * -System Clock (systemclock): Use the UTC time.
-   * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
-   * @public
-   */
-  Source: TimecodeConfigSource | undefined;
-
-  /**
-   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
-   * @public
-   */
-  SyncThreshold?: number;
-}
-
-/**
- * Encoder Settings
- * @public
- */
-export interface EncoderSettings {
-  /**
-   * Placeholder documentation for __listOfAudioDescription
-   * @public
-   */
-  AudioDescriptions: AudioDescription[] | undefined;
-
-  /**
-   * Settings for ad avail blanking.
-   * @public
-   */
-  AvailBlanking?: AvailBlanking;
-
-  /**
-   * Event-wide configuration settings for ad avail insertion.
-   * @public
-   */
-  AvailConfiguration?: AvailConfiguration;
-
-  /**
-   * Settings for blackout slate.
-   * @public
-   */
-  BlackoutSlate?: BlackoutSlate;
-
-  /**
-   * Settings for caption decriptions
-   * @public
-   */
-  CaptionDescriptions?: CaptionDescription[];
-
-  /**
-   * Feature Activations
-   * @public
-   */
-  FeatureActivations?: FeatureActivations;
-
-  /**
-   * Configuration settings that apply to the event as a whole.
-   * @public
-   */
-  GlobalConfiguration?: GlobalConfiguration;
-
-  /**
-   * Settings for motion graphics.
-   * @public
-   */
-  MotionGraphicsConfiguration?: MotionGraphicsConfiguration;
-
-  /**
-   * Nielsen configuration settings.
-   * @public
-   */
-  NielsenConfiguration?: NielsenConfiguration;
-
-  /**
-   * Placeholder documentation for __listOfOutputGroup
-   * @public
-   */
-  OutputGroups: OutputGroup[] | undefined;
-
-  /**
-   * Contains settings used to acquire and adjust timecode information from inputs.
-   * @public
-   */
-  TimecodeConfig: TimecodeConfig | undefined;
-
-  /**
-   * Placeholder documentation for __listOfVideoDescription
-   * @public
-   */
-  VideoDescriptions: VideoDescription[] | undefined;
-
-  /**
-   * Thumbnail configuration settings.
-   * @public
-   */
-  ThumbnailConfiguration?: ThumbnailConfiguration;
-
-  /**
-   * Color Correction Settings
-   * @public
-   */
-  ColorCorrectionSettings?: ColorCorrectionSettings;
-}
-
-/**
- * Placeholder documentation for Channel
- * @public
- */
-export interface Channel {
-  /**
-   * The unique arn of the channel.
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Specification of CDI inputs for this channel
-   * @public
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   * @public
-   */
-  ChannelClass?: ChannelClass;
-
-  /**
-   * A list of destinations of the channel. For UDP outputs, there is one
-   * destination per output. For other types (HLS, for example), there is
-   * one destination per packager.
-   * @public
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   * @public
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   * @public
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   * @public
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   * @public
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   * @public
-   */
-  LogLevel?: LogLevel;
-
-  /**
-   * Maintenance settings for this channel.
-   * @public
-   */
-  Maintenance?: MaintenanceStatus;
-
-  /**
-   * The name of the channel. (user-mutable)
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   * @public
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   * @public
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   * @public
-   */
-  State?: ChannelState;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Settings for VPC output
-   * @public
-   */
-  Vpc?: VpcOutputSettingsDescription;
-}
-
-/**
- * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
- * @public
- */
-export interface ClaimDeviceRequest {
-  /**
-   * The id of the device you want to claim.
-   * @public
-   */
-  Id?: string;
-}
-
-/**
- * Placeholder documentation for ClaimDeviceResponse
- * @public
- */
-export interface ClaimDeviceResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  image_jpeg: "image/jpeg",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
-
-/**
- * Placeholder documentation for MaintenanceCreateSettings
- * @public
- */
-export interface MaintenanceCreateSettings {
-  /**
-   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
-   * @public
-   */
-  MaintenanceDay?: MaintenanceDay;
-
-  /**
-   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
-   * @public
-   */
-  MaintenanceStartTime?: string;
-}
-
-/**
- * The properties for a private VPC Output
- * When this property is specified, the output egress addresses will be created in a user specified VPC
- * @public
- */
-export interface VpcOutputSettings {
-  /**
-   * List of public address allocation ids to associate with ENIs that will be created in Output VPC.
-   * Must specify one for SINGLE_PIPELINE, two for STANDARD channels
-   * @public
-   */
-  PublicAddressAllocationIds?: string[];
-
-  /**
-   * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces.
-   * If none are specified then the VPC default security group will be used
-   * @public
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * A list of VPC subnet IDs from the same VPC.
-   * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-}
-
-/**
- * A request to create a channel
- * @public
- */
-export interface CreateChannelRequest {
-  /**
-   * Specification of CDI inputs for this channel
-   * @public
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   * @public
-   */
-  ChannelClass?: ChannelClass;
-
-  /**
-   * Placeholder documentation for __listOfOutputDestination
-   * @public
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * Encoder Settings
-   * @public
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * List of input attachments for channel.
-   * @public
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   * @public
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   * @public
-   */
-  LogLevel?: LogLevel;
-
-  /**
-   * Maintenance settings for this channel.
-   * @public
-   */
-  Maintenance?: MaintenanceCreateSettings;
-
-  /**
-   * Name of channel.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Unique request ID to be specified. This is needed to prevent retries from
-   * creating multiple resources.
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * @deprecated
-   *
-   * Deprecated field that's only usable by whitelisted customers.
-   * @public
-   */
-  Reserved?: string;
-
-  /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Settings for the VPC outputs
-   * @public
-   */
-  Vpc?: VpcOutputSettings;
-}
-
-/**
- * Placeholder documentation for CreateChannelResponse
- * @public
- */
-export interface CreateChannelResponse {
-  /**
-   * Placeholder documentation for Channel
-   * @public
-   */
-  Channel?: Channel;
-}
-
-/**
- * Placeholder documentation for CreateCloudWatchAlarmTemplateRequest
- * @public
- */
-export interface CreateCloudWatchAlarmTemplateRequest {
-  /**
-   * The comparison operator used to compare the specified statistic and the threshold.
-   * @public
-   */
-  ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator | undefined;
-
-  /**
-   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
-   * @public
-   */
-  DatapointsToAlarm?: number;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * The number of periods over which data is compared to the specified threshold.
-   * @public
-   */
-  EvaluationPeriods: number | undefined;
-
-  /**
-   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-   * @public
-   */
-  GroupIdentifier: string | undefined;
-
-  /**
-   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
-   * @public
-   */
-  MetricName: string | undefined;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * The period, in seconds, over which the specified statistic is applied.
-   * @public
-   */
-  Period: number | undefined;
-
-  /**
-   * The statistic to apply to the alarm's metric data.
-   * @public
-   */
-  Statistic: CloudWatchAlarmTemplateStatistic | undefined;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * The resource type this template should dynamically generate cloudwatch metric alarms for.
-   * @public
-   */
-  TargetResourceType: CloudWatchAlarmTemplateTargetResourceType | undefined;
-
-  /**
-   * The threshold value to compare with the specified statistic.
-   * @public
-   */
-  Threshold: number | undefined;
-
-  /**
-   * Specifies how missing data points are treated when evaluating the alarm's condition.
-   * @public
-   */
-  TreatMissingData: CloudWatchAlarmTemplateTreatMissingData | undefined;
-}
-
-/**
- * Placeholder documentation for CreateCloudWatchAlarmTemplateResponse
- * @public
- */
-export interface CreateCloudWatchAlarmTemplateResponse {
-  /**
-   * A cloudwatch alarm template's ARN (Amazon Resource Name)
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * The comparison operator used to compare the specified statistic and the threshold.
-   * @public
-   */
-  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
-   * @public
-   */
-  DatapointsToAlarm?: number;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * The number of periods over which data is compared to the specified threshold.
-   * @public
-   */
-  EvaluationPeriods?: number;
-
-  /**
-   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
-   * @public
-   */
-  GroupId?: string;
-
-  /**
-   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
-   * @public
-   */
-  MetricName?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  ModifiedAt?: Date;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * The period, in seconds, over which the specified statistic is applied.
-   * @public
-   */
-  Period?: number;
-
-  /**
-   * The statistic to apply to the alarm's metric data.
-   * @public
-   */
-  Statistic?: CloudWatchAlarmTemplateStatistic;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * The resource type this template should dynamically generate cloudwatch metric alarms for.
-   * @public
-   */
-  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType;
-
-  /**
-   * The threshold value to compare with the specified statistic.
-   * @public
-   */
-  Threshold?: number;
-
-  /**
-   * Specifies how missing data points are treated when evaluating the alarm's condition.
-   * @public
-   */
-  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData;
-}
-
-/**
- * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupRequest
- * @public
- */
-export interface CreateCloudWatchAlarmTemplateGroupRequest {
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupResponse
- * @public
- */
-export interface CreateCloudWatchAlarmTemplateGroupResponse {
-  /**
-   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  ModifiedAt?: Date;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateEventBridgeRuleTemplateRequest
- * @public
- */
-export interface CreateEventBridgeRuleTemplateRequest {
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
-   * @public
-   */
-  EventTargets?: EventBridgeRuleTemplateTarget[];
-
-  /**
-   * The type of event to match with the rule.
-   * @public
-   */
-  EventType: EventBridgeRuleTemplateEventType | undefined;
-
-  /**
-   * An eventbridge rule template group's identifier. Can be either be its id or current name.
-   * @public
-   */
-  GroupIdentifier: string | undefined;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateEventBridgeRuleTemplateResponse
- * @public
- */
-export interface CreateEventBridgeRuleTemplateResponse {
-  /**
-   * An eventbridge rule template's ARN (Amazon Resource Name)
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
-   * @public
-   */
-  EventTargets?: EventBridgeRuleTemplateTarget[];
-
-  /**
-   * The type of event to match with the rule.
-   * @public
-   */
-  EventType?: EventBridgeRuleTemplateEventType;
-
-  /**
-   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
-   * @public
-   */
-  GroupId?: string;
-
-  /**
-   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  ModifiedAt?: Date;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateEventBridgeRuleTemplateGroupRequest
- * @public
- */
-export interface CreateEventBridgeRuleTemplateGroupRequest {
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateEventBridgeRuleTemplateGroupResponse
- * @public
- */
-export interface CreateEventBridgeRuleTemplateGroupResponse {
-  /**
-   * An eventbridge rule template group's ARN (Amazon Resource Name)
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  ModifiedAt?: Date;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
- * @public
- */
-export interface SrtSettingsRequest {
-  /**
-   * Placeholder documentation for __listOfSrtCallerSourceRequest
-   * @public
-   */
-  SrtCallerSources?: SrtCallerSourceRequest[];
-}
-
-/**
- * Settings for a private VPC Input.
- * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
- * This property requires setting the roleArn property on Input creation.
- * Not compatible with the inputSecurityGroups property.
- * @public
- */
-export interface InputVpcRequest {
-  /**
-   * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
-   * Requires subnetIds. If none are specified then the VPC default security group will be used.
-   * @public
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * A list of 2 VPC subnet IDs from the same VPC.
-   * Subnet IDs must be mapped to two unique availability zones (AZ).
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-}
-
-/**
- * The name of the input
- * @public
- */
-export interface CreateInputRequest {
-  /**
-   * Destination settings for PUSH type inputs.
-   * @public
-   */
-  Destinations?: InputDestinationRequest[];
-
-  /**
-   * Settings for the devices.
-   * @public
-   */
-  InputDevices?: InputDeviceSettings[];
-
-  /**
-   * A list of security groups referenced by IDs to attach to the input.
-   * @public
-   */
-  InputSecurityGroups?: string[];
-
-  /**
-   * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
-   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
-   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   * @public
-   */
-  MediaConnectFlows?: MediaConnectFlowRequest[];
-
-  /**
-   * Name of the input.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Unique identifier of the request to ensure the request is handled
-   * exactly once in case of retries.
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   * @public
-   */
-  Sources?: InputSourceRequest[];
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * The different types of inputs that AWS Elemental MediaLive supports.
-   * @public
-   */
-  Type?: InputType;
-
-  /**
-   * Settings for a private VPC Input.
-   * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
-   * This property requires setting the roleArn property on Input creation.
-   * Not compatible with the inputSecurityGroups property.
-   * @public
-   */
-  Vpc?: InputVpcRequest;
-
-  /**
-   * The settings associated with an SRT input.
-   * @public
-   */
-  SrtSettings?: SrtSettingsRequest;
-}
-
-/**
- * Placeholder documentation for CreateInputResponse
- * @public
- */
-export interface CreateInputResponse {
-  /**
-   * Placeholder documentation for Input
-   * @public
-   */
-  Input?: Input;
-}
-
-/**
- * The IPv4 CIDRs to whitelist for this Input Security Group
- * @public
- */
-export interface CreateInputSecurityGroupRequest {
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * List of IPv4 CIDR addresses to whitelist
-   * @public
-   */
-  WhitelistRules?: InputWhitelistRuleCidr[];
-}
-
-/**
- * Placeholder documentation for CreateInputSecurityGroupResponse
- * @public
- */
-export interface CreateInputSecurityGroupResponse {
-  /**
-   * An Input Security Group
-   * @public
-   */
-  SecurityGroup?: InputSecurityGroup;
-}
-
-/**
- * Contains configuration for a Multiplex event
- * @public
- */
-export interface MultiplexSettings {
-  /**
-   * Maximum video buffer delay in milliseconds.
-   * @public
-   */
-  MaximumVideoBufferDelayMilliseconds?: number;
-
-  /**
-   * Transport stream bit rate.
-   * @public
-   */
-  TransportStreamBitrate: number | undefined;
-
-  /**
-   * Transport stream ID.
-   * @public
-   */
-  TransportStreamId: number | undefined;
-
-  /**
-   * Transport stream reserved bit rate.
-   * @public
-   */
-  TransportStreamReservedBitrate?: number;
-}
-
-/**
- * A request to create a multiplex.
- * @public
- */
-export interface CreateMultiplexRequest {
-  /**
-   * A list of availability zones for the multiplex. You must specify exactly two.
-   * @public
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * Configuration for a multiplex event.
-   * @public
-   */
-  MultiplexSettings: MultiplexSettings | undefined;
-
-  /**
-   * Name of multiplex.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Unique request ID. This prevents retries from creating multiple
-   * resources.
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * The multiplex object.
- * @public
- */
-export interface Multiplex {
-  /**
-   * The unique arn of the multiplex.
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   * @public
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * A list of the multiplex output destinations.
-   * @public
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * The unique id of the multiplex.
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   * @public
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * The name of the multiplex.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   * @public
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   * @public
-   */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   * @public
-   */
-  State?: MultiplexState;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateMultiplexResponse
- * @public
- */
-export interface CreateMultiplexResponse {
-  /**
-   * The newly created multiplex.
-   * @public
-   */
-  Multiplex?: Multiplex;
-}
-
-/**
- * @public
- * @enum
- */
-export const PreferredChannelPipeline = {
-  CURRENTLY_ACTIVE: "CURRENTLY_ACTIVE",
-  PIPELINE_0: "PIPELINE_0",
-  PIPELINE_1: "PIPELINE_1",
-} as const;
-
-/**
- * @public
- */
-export type PreferredChannelPipeline = (typeof PreferredChannelPipeline)[keyof typeof PreferredChannelPipeline];
-
-/**
- * Transport stream service descriptor configuration for the Multiplex program.
- * @public
- */
-export interface MultiplexProgramServiceDescriptor {
-  /**
-   * Name of the provider.
-   * @public
-   */
-  ProviderName: string | undefined;
-
-  /**
-   * Name of the service.
-   * @public
-   */
-  ServiceName: string | undefined;
-}
-
-/**
- * Statmux rate control settings
- * @public
- */
-export interface MultiplexStatmuxVideoSettings {
-  /**
-   * Maximum statmux bitrate.
-   * @public
-   */
-  MaximumBitrate?: number;
-
-  /**
-   * Minimum statmux bitrate.
-   * @public
-   */
-  MinimumBitrate?: number;
-
-  /**
-   * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
-   * @public
-   */
-  Priority?: number;
-}
-
-/**
- * The video configuration for each program in a multiplex.
- * @public
- */
-export interface MultiplexVideoSettings {
-  /**
-   * The constant bitrate configuration for the video encode.
-   * When this field is defined, StatmuxSettings must be undefined.
-   * @public
-   */
-  ConstantBitrate?: number;
-
-  /**
-   * Statmux rate control settings.
-   * When this field is defined, ConstantBitrate must be undefined.
-   * @public
-   */
-  StatmuxSettings?: MultiplexStatmuxVideoSettings;
-}
-
-/**
- * Multiplex Program settings configuration.
- * @public
- */
-export interface MultiplexProgramSettings {
-  /**
-   * Indicates which pipeline is preferred by the multiplex for program ingest.
-   * @public
-   */
-  PreferredChannelPipeline?: PreferredChannelPipeline;
-
-  /**
-   * Unique program number.
-   * @public
-   */
-  ProgramNumber: number | undefined;
-
-  /**
-   * Transport stream service descriptor configuration for the Multiplex program.
-   * @public
-   */
-  ServiceDescriptor?: MultiplexProgramServiceDescriptor;
-
-  /**
-   * Program video settings configuration.
-   * @public
-   */
-  VideoSettings?: MultiplexVideoSettings;
-}
-
-/**
- * A request to create a program in a multiplex.
- * @public
- */
-export interface CreateMultiplexProgramRequest {
-  /**
-   * ID of the multiplex where the program is to be created.
-   * @public
-   */
-  MultiplexId: string | undefined;
-
-  /**
-   * The settings for this multiplex program.
-   * @public
-   */
-  MultiplexProgramSettings: MultiplexProgramSettings | undefined;
-
-  /**
-   * Name of multiplex program.
-   * @public
-   */
-  ProgramName: string | undefined;
-
-  /**
-   * Unique request ID. This prevents retries from creating multiple
-   * resources.
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * Packet identifiers map for a given Multiplex program.
- * @public
- */
-export interface MultiplexProgramPacketIdentifiersMap {
-  /**
-   * Placeholder documentation for __listOf__integer
-   * @public
-   */
-  AudioPids?: number[];
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   * @public
-   */
-  DvbSubPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  DvbTeletextPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  EtvPlatformPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  EtvSignalPid?: number;
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   * @public
-   */
-  KlvDataPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  PcrPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  PmtPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  PrivateMetadataPid?: number;
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   * @public
-   */
-  Scte27Pids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  Scte35Pid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  TimedMetadataPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  VideoPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  AribCaptionsPid?: number;
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   * @public
-   */
-  DvbTeletextPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  EcmPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   * @public
-   */
-  Smpte2038Pid?: number;
-}
-
-/**
- * The multiplex program object.
- * @public
- */
-export interface MultiplexProgram {
-  /**
-   * The MediaLive channel associated with the program.
-   * @public
-   */
-  ChannelId?: string;
-
-  /**
-   * The settings for this multiplex program.
-   * @public
-   */
-  MultiplexProgramSettings?: MultiplexProgramSettings;
-
-  /**
-   * The packet identifier map for this multiplex program.
-   * @public
-   */
-  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
-
-  /**
-   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
-   * @public
-   */
-  PipelineDetails?: MultiplexProgramPipelineDetail[];
-
-  /**
-   * The name of the multiplex program.
-   * @public
-   */
-  ProgramName?: string;
-}
-
-/**
- * Placeholder documentation for CreateMultiplexProgramResponse
- * @public
- */
-export interface CreateMultiplexProgramResponse {
-  /**
-   * The newly created multiplex program.
-   * @public
-   */
-  MultiplexProgram?: MultiplexProgram;
-}
-
-/**
- * A request to create a partner input
- * @public
- */
-export interface CreatePartnerInputRequest {
-  /**
-   * Unique ID of the input.
-   * @public
-   */
-  InputId: string | undefined;
-
-  /**
-   * Unique identifier of the request to ensure the request is handled
-   * exactly once in case of retries.
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreatePartnerInputResponse
- * @public
- */
-export interface CreatePartnerInputResponse {
-  /**
-   * Placeholder documentation for Input
-   * @public
-   */
-  Input?: Input;
 }

@@ -39,6 +39,14 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *   Destinations: [ // __listOfInputDestinationRequest
  *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
+ *       Network: "STRING_VALUE",
+ *       NetworkRoutes: [ // __listOfInputRequestDestinationRoute
+ *         { // InputRequestDestinationRoute
+ *           Cidr: "STRING_VALUE",
+ *           Gateway: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StaticIpAddress: "STRING_VALUE",
  *     },
  *   ],
  *   InputDevices: [ // __listOfInputDeviceRequest
@@ -78,6 +86,14 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *       },
  *     ],
  *   },
+ *   MulticastSettings: { // MulticastSettingsUpdateRequest
+ *     Sources: [ // __listOfMulticastSourceUpdateRequest
+ *       { // MulticastSourceUpdateRequest
+ *         SourceIp: "STRING_VALUE",
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
@@ -96,6 +112,13 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //           AvailabilityZone: "STRING_VALUE",
  * //           NetworkInterfaceId: "STRING_VALUE",
  * //         },
+ * //         Network: "STRING_VALUE",
+ * //         NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //           { // InputDestinationRoute
+ * //             Cidr: "STRING_VALUE",
+ * //             Gateway: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
@@ -130,7 +153,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -142,6 +165,15 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //           SrtListenerAddress: "STRING_VALUE",
  * //           SrtListenerPort: "STRING_VALUE",
  * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     MulticastSettings: { // MulticastSettings
+ * //       Sources: [ // __listOfMulticastSource
+ * //         { // MulticastSource
+ * //           SourceIp: "STRING_VALUE",
+ * //           Url: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },

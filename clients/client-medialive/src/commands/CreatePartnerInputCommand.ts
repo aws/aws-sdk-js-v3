@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_1";
+import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_2";
 import { de_CreatePartnerInputCommand, se_CreatePartnerInputCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -59,6 +59,13 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //           AvailabilityZone: "STRING_VALUE",
  * //           NetworkInterfaceId: "STRING_VALUE",
  * //         },
+ * //         Network: "STRING_VALUE",
+ * //         NetworkRoutes: [ // __listOfInputDestinationRoute
+ * //           { // InputDestinationRoute
+ * //             Cidr: "STRING_VALUE",
+ * //             Gateway: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
@@ -93,7 +100,7 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -105,6 +112,15 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //           SrtListenerAddress: "STRING_VALUE",
  * //           SrtListenerPort: "STRING_VALUE",
  * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     MulticastSettings: { // MulticastSettings
+ * //       Sources: [ // __listOfMulticastSource
+ * //         { // MulticastSource
+ * //           SourceIp: "STRING_VALUE",
+ * //           Url: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },
