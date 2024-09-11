@@ -37,7 +37,7 @@ export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequ
 export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results. The response only cites sources that are relevant to the query.</p>
+ * <p>Queries a knowledge base and generates responses based on the retrieved results and using the specified foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>. The response only cites sources that are relevant to the query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

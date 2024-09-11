@@ -4840,13 +4840,13 @@ export interface KnowledgeBaseConfiguration {
  */
 export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
   /**
-   * <p>The unique identifier of the knowledge base that is queried and the foundation model used for generation.</p>
+   * <p>The unique identifier of the knowledge base that is queried.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The ARN of the foundation model used to generate a response.</p>
+   * <p>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate a response.</p>
    * @public
    */
   modelArn: string | undefined;
