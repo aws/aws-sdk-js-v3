@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/models_0";
+import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/models_1";
 import { de_GetThreatIntelSetCommand, se_GetThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
 /**

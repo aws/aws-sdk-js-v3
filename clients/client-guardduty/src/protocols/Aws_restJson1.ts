@@ -224,6 +224,7 @@ import {
   AccountDetail,
   AccountFreeTrialInfo,
   AccountLevelPermissions,
+  AccountStatistics,
   Action,
   AddonDetails,
   AdminAccount,
@@ -262,6 +263,7 @@ import {
   DataSourceConfigurationsResult,
   DataSourceFreeTrial,
   DataSourcesFreeTrial,
+  DateStatistics,
   DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
@@ -288,6 +290,7 @@ import {
   FindingCriteria,
   FindingStatistics,
   FindingStatisticType,
+  FindingTypeStatistics,
   FlowLogsConfigurationResult,
   FreeTrialFeatureConfigurationResult,
   GeoLocation,
@@ -361,6 +364,7 @@ import {
   Resource,
   ResourceDetails,
   ResourceNotFoundException,
+  ResourceStatistics,
   RuntimeContext,
   RuntimeDetails,
   S3BucketDetail,
@@ -383,6 +387,7 @@ import {
   SecurityGroup,
   Service,
   ServiceAdditionalInfo,
+  SeverityStatistics,
   SortCriteria,
   Tag,
   Threat,
@@ -1149,6 +1154,9 @@ export const se_GetFindingsStatisticsCommand = async (
     take(input, {
       findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
       findingStatisticTypes: [, (_) => _json(_), `FindingStatisticTypes`],
+      groupBy: [, , `GroupBy`],
+      maxResults: [, , `MaxResults`],
+      orderBy: [, , `OrderBy`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2698,6 +2706,7 @@ export const de_GetFindingsStatisticsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     FindingStatistics: [, (_) => de_FindingStatistics(_, context), `findingStatistics`],
+    NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -4326,6 +4335,17 @@ const de_AccountLevelPermissions = (output: any, context: __SerdeContext): Accou
 };
 
 /**
+ * deserializeAws_restJson1AccountStatistics
+ */
+const de_AccountStatistics = (output: any, context: __SerdeContext): AccountStatistics => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Action
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
@@ -4803,6 +4823,18 @@ const de_DataSourcesFreeTrial = (output: any, context: __SerdeContext): DataSour
 };
 
 /**
+ * deserializeAws_restJson1DateStatistics
+ */
+const de_DateStatistics = (output: any, context: __SerdeContext): DateStatistics => {
+  return take(output, {
+    Date: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `date`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    Severity: [, __limitedParseDouble, `severity`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DefaultServerSideEncryption
  */
 const de_DefaultServerSideEncryption = (output: any, context: __SerdeContext): DefaultServerSideEncryption => {
@@ -5121,6 +5153,22 @@ const de_Findings = (output: any, context: __SerdeContext): Finding[] => {
 const de_FindingStatistics = (output: any, context: __SerdeContext): FindingStatistics => {
   return take(output, {
     CountBySeverity: [, _json, `countBySeverity`],
+    GroupedByAccount: [, (_: any) => de_GroupedByAccount(_, context), `groupedByAccount`],
+    GroupedByDate: [, (_: any) => de_GroupedByDate(_, context), `groupedByDate`],
+    GroupedByFindingType: [, (_: any) => de_GroupedByFindingType(_, context), `groupedByFindingType`],
+    GroupedByResource: [, (_: any) => de_GroupedByResource(_, context), `groupedByResource`],
+    GroupedBySeverity: [, (_: any) => de_GroupedBySeverity(_, context), `groupedBySeverity`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingTypeStatistics
+ */
+const de_FindingTypeStatistics = (output: any, context: __SerdeContext): FindingTypeStatistics => {
+  return take(output, {
+    FindingType: [, __expectString, `findingType`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
   }) as any;
 };
 
@@ -5171,6 +5219,66 @@ const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
     Lat: [, __limitedParseDouble, `lat`],
     Lon: [, __limitedParseDouble, `lon`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByAccount
+ */
+const de_GroupedByAccount = (output: any, context: __SerdeContext): AccountStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AccountStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByDate
+ */
+const de_GroupedByDate = (output: any, context: __SerdeContext): DateStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DateStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByFindingType
+ */
+const de_GroupedByFindingType = (output: any, context: __SerdeContext): FindingTypeStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingTypeStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedByResource
+ */
+const de_GroupedByResource = (output: any, context: __SerdeContext): ResourceStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceStatistics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GroupedBySeverity
+ */
+const de_GroupedBySeverity = (output: any, context: __SerdeContext): SeverityStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SeverityStatistics(entry, context);
+    });
+  return retVal;
 };
 
 // de_Groups omitted.
@@ -6290,6 +6398,19 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
 };
 
 /**
+ * deserializeAws_restJson1ResourceStatistics
+ */
+const de_ResourceStatistics = (output: any, context: __SerdeContext): ResourceStatistics => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    ResourceId: [, __expectString, `resourceId`],
+    ResourceType: [, __expectString, `resourceType`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RuntimeContext
  */
 const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext => {
@@ -6630,6 +6751,17 @@ const de_ServiceAdditionalInfo = (output: any, context: __SerdeContext): Service
 };
 
 // de_SessionNameList omitted.
+
+/**
+ * deserializeAws_restJson1SeverityStatistics
+ */
+const de_SeverityStatistics = (output: any, context: __SerdeContext): SeverityStatistics => {
+  return take(output, {
+    LastGeneratedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastGeneratedAt`],
+    Severity: [, __limitedParseDouble, `severity`],
+    TotalFindings: [, __expectInt32, `totalFindings`],
+  }) as any;
+};
 
 // de_SourceIps omitted.
 

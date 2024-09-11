@@ -424,6 +424,30 @@ export interface AccountLevelPermissions {
 }
 
 /**
+ * <p>Represents a list of map of accounts with the number of findings associated with each account.</p>
+ * @public
+ */
+export interface AccountStatistics {
+  /**
+   * <p>The ID of the Amazon Web Services account.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The timestamp at which the finding for this account was last generated.</p>
+   * @public
+   */
+  LastGeneratedAt?: Date;
+
+  /**
+   * <p>The total number of findings associated with an account.</p>
+   * @public
+   */
+  TotalFindings?: number;
+}
+
+/**
  * <p>Contains information about the domain.</p>
  * @public
  */
@@ -2445,8 +2469,7 @@ export interface FindingCriteria {
  */
 export interface CreateFilterRequest {
   /**
-   * <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter
-   *       for.</p>
+   * <p>The detector ID associated with the GuardDuty account for which you want to create a filter.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -2845,8 +2868,7 @@ export type IpSetFormat = (typeof IpSetFormat)[keyof typeof IpSetFormat];
  */
 export interface CreateIPSetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account that you want to create an IPSet
-   *       for.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -2985,7 +3007,7 @@ export interface CreateMalwareProtectionPlanRequest {
   ClientToken?: string;
 
   /**
-   * <p>IAM role with permissions required to scan and add tags to the associated
+   * <p>Amazon Resource Name (ARN) of the IAM role that has the permissions to scan and add tags to the associated
    *       protected resource.</p>
    * @public
    */
@@ -3028,8 +3050,8 @@ export interface CreateMalwareProtectionPlanResponse {
  */
 export interface CreateMembersRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account that you want to associate member
-   *       accounts with.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to associate member
+   *       accounts.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3154,7 +3176,7 @@ export interface CreatePublishingDestinationResponse {
  */
 export interface CreateSampleFindingsRequest {
   /**
-   * <p>The ID of the detector to create sample findings for.</p>
+   * <p>The ID of the detector for which you need to create sample findings.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3194,8 +3216,8 @@ export type ThreatIntelSetFormat = (typeof ThreatIntelSetFormat)[keyof typeof Th
  */
 export interface CreateThreatIntelSetRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty account that you want to create a
-   *       threatIntelSet for.</p>
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a
+   *       <code>ThreatIntelSet</code>.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3393,6 +3415,38 @@ export interface DataSourceConfigurationsResult {
 }
 
 /**
+ * <p>Represents list a map of dates with a count of total findings generated on each date.</p>
+ * @public
+ */
+export interface DateStatistics {
+  /**
+   * <p>The timestamp when the total findings count is observed.</p>
+   *          <p>For example, <code>Date</code> would look like <code>"2024-09-05T17:00:00-07:00"</code>
+   *       whereas <code>LastGeneratedAt</code> would look like 2024-09-05T17:12:29-07:00".</p>
+   * @public
+   */
+  Date?: Date;
+
+  /**
+   * <p>The timestamp at which the last finding in the findings count, was generated.</p>
+   * @public
+   */
+  LastGeneratedAt?: Date;
+
+  /**
+   * <p>The severity of the findings generated on each date.</p>
+   * @public
+   */
+  Severity?: number;
+
+  /**
+   * <p>The total number of findings that were generated per severity level on each date.</p>
+   * @public
+   */
+  TotalFindings?: number;
+}
+
+/**
  * @public
  */
 export interface DeclineInvitationsRequest {
@@ -3458,7 +3512,7 @@ export interface DeleteDetectorResponse {}
  */
 export interface DeleteFilterRequest {
   /**
-   * <p>The unique ID of the detector that the filter is associated with.</p>
+   * <p>The unique ID of the detector that is associated with the filter.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3621,7 +3675,7 @@ export interface DeletePublishingDestinationResponse {}
  */
 export interface DeleteThreatIntelSetRequest {
   /**
-   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
+   * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -3913,8 +3967,8 @@ export interface Scan {
 
   /**
    * <p>The unique detector ID of the administrator account that the request is associated with.
-   *       Note that this value will be the same as the one used for <code>DetectorId</code> if the
-   *       account is an administrator.</p>
+   *       If the account is an administrator, the <code>AdminDetectorId</code> will be the same as the one used for
+   *       <code>DetectorId</code>.</p>
    * @public
    */
   AdminDetectorId?: string;
@@ -4021,8 +4075,7 @@ export interface DescribeMalwareScansResponse {
  */
 export interface DescribeOrganizationConfigurationRequest {
   /**
-   * <p>The ID of the detector to retrieve information about the delegated administrator
-   *       from.</p>
+   * <p>The detector ID of the delegated administrator for which you need to retrieve the information.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -6573,15 +6626,184 @@ export interface Finding {
 }
 
 /**
+ * <p>Information about each finding type associated with the
+ *       <code>groupedByFindingType</code> statistics.</p>
+ * @public
+ */
+export interface FindingTypeStatistics {
+  /**
+   * <p>Name of the finding type.</p>
+   * @public
+   */
+  FindingType?: string;
+
+  /**
+   * <p>The timestamp at which this finding type was last generated in your environment.</p>
+   * @public
+   */
+  LastGeneratedAt?: Date;
+
+  /**
+   * <p>The total number of findings associated with generated for each distinct finding type.</p>
+   * @public
+   */
+  TotalFindings?: number;
+}
+
+/**
+ * <p>Information about each resource type associated with the
+ *       <code>groupedByResource</code> statistics.</p>
+ * @public
+ */
+export interface ResourceStatistics {
+  /**
+   * <p>The ID of the Amazon Web Services account.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The timestamp at which the statistics for this resource was last generated.</p>
+   * @public
+   */
+  LastGeneratedAt?: Date;
+
+  /**
+   * <p>ID associated with each resource. The following list provides the mapping of the resource type
+   *     and resource ID.</p>
+   *          <p class="title">
+   *             <b>Mapping of resource and resource ID</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>AccessKey - <code>resource.accessKeyDetails.accessKeyId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Container - <code>resource.containerDetails.id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ECSCluster - <code>resource.ecsClusterDetails.name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>EKSCluster - <code>resource.eksClusterDetails.name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Instance - <code>resource.instanceDetails.instanceId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>KubernetesCluster - <code>resource.kubernetesDetails.kubernetesWorkloadDetails.name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda - <code>resource.lambdaDetails.functionName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDSDBInstance - <code>resource.rdsDbInstanceDetails.dbInstanceIdentifier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>S3Bucket - <code>resource.s3BucketDetails.name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>S3Object - <code>resource.s3BucketDetails.name</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The total number of findings associated with this resource.</p>
+   * @public
+   */
+  TotalFindings?: number;
+}
+
+/**
+ * <p>Information about severity level for each finding type.</p>
+ * @public
+ */
+export interface SeverityStatistics {
+  /**
+   * <p>The timestamp at which a finding type for a specific severity was last generated.</p>
+   * @public
+   */
+  LastGeneratedAt?: Date;
+
+  /**
+   * <p>The severity level associated with each finding type.</p>
+   * @public
+   */
+  Severity?: number;
+
+  /**
+   * <p>The total number of findings associated with this severity.</p>
+   * @public
+   */
+  TotalFindings?: number;
+}
+
+/**
  * <p>Contains information about finding statistics.</p>
  * @public
  */
 export interface FindingStatistics {
   /**
-   * <p>Represents a map of severity to count statistics for a set of findings.</p>
+   * @deprecated
+   *
+   * <p>Represents a list of map of severity to count statistics for a set of findings.</p>
    * @public
    */
   CountBySeverity?: Record<string, number>;
+
+  /**
+   * <p>Represents a list of map of accounts with a findings count associated with each account.</p>
+   * @public
+   */
+  GroupedByAccount?: AccountStatistics[];
+
+  /**
+   * <p>Represents a list of map of dates with a count of total findings generated on each date per severity level.</p>
+   * @public
+   */
+  GroupedByDate?: DateStatistics[];
+
+  /**
+   * <p>Represents a list of map of finding types with a count of total findings generated for each type. </p>
+   *          <p>Based on the <code>orderBy</code>
+   *     parameter, this request returns either the most occurring finding types or the least occurring finding types. If the
+   *     <code>orderBy</code> parameter is <code>ASC</code>, this will represent the least occurring finding types in
+   *     your account; otherwise, this will represent the most occurring finding types. The default
+   *     value of <code>orderBy</code> is <code>DESC</code>.</p>
+   * @public
+   */
+  GroupedByFindingType?: FindingTypeStatistics[];
+
+  /**
+   * <p>Represents a list of map of top resources with a count of total findings.</p>
+   * @public
+   */
+  GroupedByResource?: ResourceStatistics[];
+
+  /**
+   * <p>Represents a list of map of total findings for each severity level.</p>
+   * @public
+   */
+  GroupedBySeverity?: SeverityStatistics[];
 }
 
 /**
@@ -6624,13 +6846,13 @@ export interface GetAdministratorAccountResponse {
  */
 export interface GetCoverageStatisticsRequest {
   /**
-   * <p>The unique ID of the GuardDuty detector associated to the coverage statistics.</p>
+   * <p>The unique ID of the GuardDuty detector.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
-   * <p>Represents the criteria used to filter the coverage statistics</p>
+   * <p>Represents the criteria used to filter the coverage statistics.</p>
    * @public
    */
   FilterCriteria?: CoverageFilterCriteria;
@@ -6725,7 +6947,7 @@ export interface GetDetectorResponse {
  */
 export interface GetFilterRequest {
   /**
-   * <p>The unique ID of the detector that the filter is associated with.</p>
+   * <p>The unique ID of the detector that is associated with this filter.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -6816,26 +7038,66 @@ export interface GetFindingsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const GroupByType = {
+  ACCOUNT: "ACCOUNT",
+  DATE: "DATE",
+  FINDING_TYPE: "FINDING_TYPE",
+  RESOURCE: "RESOURCE",
+  SEVERITY: "SEVERITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByType = (typeof GroupByType)[keyof typeof GroupByType];
+
+/**
+ * @public
  */
 export interface GetFindingsStatisticsRequest {
   /**
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings' statistics you
+   * <p>The ID of the detector whose findings statistics you
    *       want to retrieve.</p>
    * @public
    */
   DetectorId: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>The types of finding statistics to retrieve.</p>
    * @public
    */
-  FindingStatisticTypes: FindingStatisticType[] | undefined;
+  FindingStatisticTypes?: FindingStatisticType[];
 
   /**
    * <p>Represents the criteria that is used for querying findings.</p>
    * @public
    */
   FindingCriteria?: FindingCriteria;
+
+  /**
+   * <p>Displays the findings statistics grouped by one of the listed valid values.</p>
+   * @public
+   */
+  GroupBy?: GroupByType;
+
+  /**
+   * <p>Displays the sorted findings in the requested order. The default
+   *       value of <code>orderBy</code> is <code>DESC</code>.</p>
+   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  OrderBy?: OrderBy;
+
+  /**
+   * <p>The maximum number of results to be returned in the response. The default value is 25.</p>
+   *          <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  MaxResults?: number;
 }
 
 /**
@@ -6847,6 +7109,13 @@ export interface GetFindingsStatisticsResponse {
    * @public
    */
   FindingStatistics: FindingStatistics | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   *          <p>This parameter is currently not supported.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -6870,7 +7139,7 @@ export interface GetInvitationsCountResponse {
  */
 export interface GetIPSetRequest {
   /**
-   * <p>The unique ID of the detector that the IPSet is associated with.</p>
+   * <p>The unique ID of the detector that is associated with the IPSet.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -6996,7 +7265,7 @@ export interface GetMalwareProtectionPlanResponse {
   Arn?: string;
 
   /**
-   * <p>IAM role that includes the permissions required to scan and
+   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and
    *       add tags to the associated protected resource.</p>
    * @public
    */
@@ -7047,7 +7316,7 @@ export interface GetMalwareProtectionPlanResponse {
  */
 export interface GetMalwareScanSettingsRequest {
   /**
-   * <p>The unique ID of the detector that the scan setting is associated with.</p>
+   * <p>The unique ID of the detector that is associated with this scan.</p>
    * @public
    */
   DetectorId: string | undefined;
@@ -7201,7 +7470,7 @@ export interface GetMemberDetectorsRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The account ID of the member account.</p>
+   * <p>A list of member account IDs.</p>
    * @public
    */
   AccountIds: string[] | undefined;
@@ -7510,125 +7779,6 @@ export interface OrganizationDetails {
    * @public
    */
   OrganizationStatistics?: OrganizationStatistics;
-}
-
-/**
- * @public
- */
-export interface GetOrganizationStatisticsResponse {
-  /**
-   * <p>Information about the statistics report for your organization.</p>
-   * @public
-   */
-  OrganizationDetails?: OrganizationDetails;
-}
-
-/**
- * @public
- */
-export interface GetRemainingFreeTrialDaysRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account identifiers of the GuardDuty member account.</p>
-   * @public
-   */
-  AccountIds?: string[];
-}
-
-/**
- * @public
- */
-export interface GetRemainingFreeTrialDaysResponse {
-  /**
-   * <p>The member accounts which were included in a request and were processed
-   *       successfully.</p>
-   * @public
-   */
-  Accounts?: AccountFreeTrialInfo[];
-
-  /**
-   * <p>The member account that was included in a request but for which the request could not be
-   *       processed.</p>
-   * @public
-   */
-  UnprocessedAccounts?: UnprocessedAccount[];
-}
-
-/**
- * @public
- */
-export interface GetThreatIntelSetRequest {
-  /**
-   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The unique ID of the threatIntelSet that you want to get.</p>
-   * @public
-   */
-  ThreatIntelSetId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ThreatIntelSetStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  DEACTIVATING: "DEACTIVATING",
-  DELETED: "DELETED",
-  DELETE_PENDING: "DELETE_PENDING",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ThreatIntelSetStatus = (typeof ThreatIntelSetStatus)[keyof typeof ThreatIntelSetStatus];
-
-/**
- * @public
- */
-export interface GetThreatIntelSetResponse {
-  /**
-   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
-   *       activity that involves IP addresses included in this ThreatIntelSet.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The format of the threatIntelSet.</p>
-   * @public
-   */
-  Format: ThreatIntelSetFormat | undefined;
-
-  /**
-   * <p>The URI of the file that contains the ThreatIntelSet. </p>
-   * @public
-   */
-  Location: string | undefined;
-
-  /**
-   * <p>The status of threatIntelSet file uploaded.</p>
-   * @public
-   */
-  Status: ThreatIntelSetStatus | undefined;
-
-  /**
-   * <p>The tags of the threat list resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
 }
 
 /**
