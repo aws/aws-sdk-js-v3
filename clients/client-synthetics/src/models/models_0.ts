@@ -736,6 +736,23 @@ export interface CanaryLastRun {
  *          script is stored in an S3 bucket, the bucket name, key, and version are also included. If
  *          the script was passed into the canary directly, the script code is contained in the value
  *          of <code>Zipfile</code>. </p>
+ *          <p>If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your
+ *       script in a certain folder structure.</p>
+ *          <ul>
+ *             <li>
+ *                <p>For Node.js canaries, the folder structure must be <code>nodejs/node_modules/<i>myCanaryFilename.js</i>
+ *                   </code>
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs.html#CloudWatch_Synthetics_Canaries_package">Packaging your Node.js canary files</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>For Python canaries, the folder structure must be <code>python/<i>myCanaryFilename.p</i>
+ *                   </code> or <code>python/<i>myFolder/myCanaryFilename.py</i>
+ *                   </code>
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary_Python.html#CloudWatch_Synthetics_Canaries_WritingCanary_Python_package">Packaging your Python canary files</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface CanaryCodeInput {
@@ -871,6 +888,19 @@ export interface CanaryScheduleInput {
    */
   DurationInSeconds?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceToTag = {
+  LAMBDA_FUNCTION: "lambda-function",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceToTag = (typeof ResourceToTag)[keyof typeof ResourceToTag];
 
 /**
  * <p>If this canary is to test an endpoint in a VPC, this structure contains
@@ -1021,12 +1051,23 @@ export interface CreateCanaryRequest {
   VpcConfig?: VpcConfigInput;
 
   /**
+   * <p>To have the tags that you apply to this canary also be applied to the Lambda function that
+   *          the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>
+   *          <p>If you specify this parameter and don't specify any tags in the <code>Tags</code>
+   *       parameter, the canary creation fails.</p>
+   * @public
+   */
+  ResourcesToReplicateTags?: ResourceToTag[];
+
+  /**
    * <p>A list of key-value pairs to associate with the canary.
    *          You can associate as many as 50 tags with a canary.</p>
    *          <p>Tags can help you organize and categorize your
    *          resources. You can also use them to scope user permissions, by
    *          granting a user permission to access or change only the resources that have
    *          certain tag values.</p>
+   *          <p>To have the tags that you apply to this canary also be applied to the Lambda function that
+   *          the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -1203,7 +1244,7 @@ export interface DescribeCanariesRequest {
 
   /**
    * <p>Specify this parameter to limit how many canaries are returned each time you use
-   *       the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.</p>
+   *       the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 20 is used.</p>
    * @public
    */
   MaxResults?: number;

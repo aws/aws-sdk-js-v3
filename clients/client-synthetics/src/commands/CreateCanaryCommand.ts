@@ -82,6 +82,9 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ResourcesToReplicateTags: [ // ResourceList
+ *     "lambda-function",
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

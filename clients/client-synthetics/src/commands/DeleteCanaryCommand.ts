@@ -38,8 +38,9 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *          <ul>
  *             <li>
  *                <p>The CloudWatch alarms created for this canary. These alarms have a name of
- *                      <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i>
- *                   </code>.</p>
+ *                <code>Synthetics-Alarm-<i>first-198-characters-of-canary-name</i>-<i>canaryId</i>-<i>alarm number</i>
+ *                   </code>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>Amazon S3 objects and buckets, such as the canary's artifact location.</p>
@@ -47,13 +48,15 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *             <li>
  *                <p>IAM roles created for the canary. If they were created in the console, these roles
  *                have the name <code>
- *                      role/service-role/CloudWatchSyntheticsRole-<i>MyCanaryName</i>
- *                   </code>.</p>
+ *                      role/service-role/CloudWatchSyntheticsRole-<i>First-21-Characters-of-CanaryName</i>
+ *                   </code>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>CloudWatch Logs log groups created for the canary. These logs groups have the name
- *                      <code>/aws/lambda/cwsyn-<i>MyCanaryName</i>
- *                   </code>. </p>
+ *                <code>/aws/lambda/cwsyn-<i>First-21-Characters-of-CanaryName</i>
+ *                   </code>
+ *                </p>
  *             </li>
  *          </ul>
  *          <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display

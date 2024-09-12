@@ -79,6 +79,7 @@ import {
   NotFoundException,
   RequestEntityTooLargeException,
   ResourceNotFoundException,
+  ResourceToTag,
   RuntimeVersion,
   S3EncryptionConfig,
   ServiceQuotaExceededException,
@@ -133,6 +134,7 @@ export const se_CreateCanaryCommand = async (
       ExecutionRoleArn: [],
       FailureRetentionPeriodInDays: [],
       Name: [],
+      ResourcesToReplicateTags: (_) => _json(_),
       RunConfig: (_) => _json(_),
       RuntimeVersion: [],
       Schedule: (_) => _json(_),
@@ -1231,6 +1233,8 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 // se_DescribeCanariesNameFilter omitted.
 
 // se_EnvironmentVariablesMap omitted.
+
+// se_ResourceList omitted.
 
 // se_S3EncryptionConfig omitted.
 
