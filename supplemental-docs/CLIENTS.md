@@ -533,6 +533,45 @@ client.middlewareStack.add(
 await client.listBuckets({});
 ```
 
+### Middleware Caching `cacheMiddleware`.
+
+> Available only in [v3.649.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.649.0) and later.
+
+By default (false), the middleware function stack is resolved every request,
+because the user may modify the middleware stack by adding middleware to the
+`client` or `command` instances at any time.
+
+By contrast, when `cacheMiddleware=true`, the creation of the middleware function stack
+is cached on a per-client, per-command-class basis.
+
+In the following example, the S3 HeadObject Command is called 10 times, but
+its middleware function stack is only created once, instead of once per request.
+
+```ts
+// example: middleware caching
+import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
+
+const client = new S3Client({ cacheMiddleware: true });
+
+for (let i = 0; i < 10; ++i) {
+  await client.send(
+    new HeadObjectCommand({
+      Bucket: "...",
+      Key: String(i),
+    })
+  );
+}
+```
+
+This caches the combination of `S3Client+HeadObjectCommand`'s resolved
+`middlewareStack` upon the first request. This has two key effects:
+
+- request creation time is reduced by (up to) a few milliseconds per request
+- modifying the middleware stack after requests have begun will have no effect.
+
+**Only enable this feature if you need the marginal increaese to
+request performance, and are aware of its side-effects.**
+
 ### Dual-stack `useDualstackEndpoint`
 
 This is a simple `boolean` setting that is present in most SDK Clients.

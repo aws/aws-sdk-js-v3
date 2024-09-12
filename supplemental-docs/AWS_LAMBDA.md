@@ -2,9 +2,9 @@
 
 ## AWS Lambda provided AWS SDK
 
-Several AWS Lambda runtimes, including those for Node.js, include the AWS SDK at various versions. 
+Several AWS Lambda runtimes, including those for Node.js, include the AWS SDK at various versions.
 
-The SDK is provided as a convenience for development. For greater control of the SDK version and its runtime characteristics such as 
+The SDK is provided as a convenience for development. For greater control of the SDK version and its runtime characteristics such as
 JavaScript bundling, upload your selection of the AWS SDK as part of your function code.
 
 To check the version of the SDK that is installed, you can log the package.json metadata of a package that you are using.
@@ -16,13 +16,13 @@ const pkgJson = require("@aws-sdk/client-s3/package.json");
 exports.handler = function (event) {
   console.log(pkgJson);
   return JSON.stringify(pkgJson);
-}
+};
 ```
 
 ## Best practices for initializing AWS SDK Clients in AWS Lambda
 
-Suppose that you have an `async` function called, for example `prepare`, that you need to initialize only once. 
-You do not want to execute it for every function invocation. 
+Suppose that you have an `async` function called, for example `prepare`, that you need to initialize only once.
+You do not want to execute it for every function invocation.
 
 ```js
 // Example: one-time initialization in the handler code path.
@@ -51,7 +51,7 @@ export async function handler(event) {
 }
 ```
 
-There is a potential complication with this style. This is a peculiarity of AWS Lambda's cold/warm states and provisioned concurrency. 
+There is a potential complication with this style. This is a peculiarity of AWS Lambda's cold/warm states and provisioned concurrency.
 If you make network requests in the `prepare()` function, they may be frozen pre-flight as part of early provisioning. In a certain
 edge case, time-sensitive signed requests may become invalid due to the delay between provisioning and execution.
 
@@ -65,7 +65,8 @@ let ready = false;
 
 export async function handler(event) {
   if (!ready) {
-    await prepare(); ready = true;
+    await prepare();
+    ready = true;
   }
   // ...
 }
@@ -94,3 +95,9 @@ export async function handler(event) {
   });
 }
 ```
+
+## Parallel request workloads with the AWS SDK on AWS Lambda
+
+See also the section about parallel workloads in Node.js, which is
+applicable to AWS Lambda:
+[Performance/Parallel Workloads in Node.js](./performance//parallel-workloads-node-js.md).

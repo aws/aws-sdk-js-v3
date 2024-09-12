@@ -14,3 +14,4 @@ Topics:
 - [Bundle Sizes](./bundle-sizes.md)
 - [Dynamic Imports](./dynamic-imports.md)
 - [Dependency File Count Reduction](./dependency-file-count-reduction.md)
+- [Parallel workloads in Node.js](./parallel-workloads-node-js.md)
