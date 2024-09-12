@@ -60,6 +60,7 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateNFSFileShareInput
  *   FileShareARN: "STRING_VALUE", // required
+ *   EncryptionType: "SseS3" || "SseKms" || "DsseKms",
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
  *   NFSFileShareDefaults: { // NFSFileShareDefaults

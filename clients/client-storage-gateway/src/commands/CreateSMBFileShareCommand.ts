@@ -52,6 +52,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * const input = { // CreateSMBFileShareInput
  *   ClientToken: "STRING_VALUE", // required
  *   GatewayARN: "STRING_VALUE", // required
+ *   EncryptionType: "SseS3" || "SseKms" || "DsseKms",
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required

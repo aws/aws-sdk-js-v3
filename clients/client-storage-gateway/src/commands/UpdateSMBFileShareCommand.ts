@@ -53,6 +53,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateSMBFileShareInput
  *   FileShareARN: "STRING_VALUE", // required
+ *   EncryptionType: "SseS3" || "SseKms" || "DsseKms",
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
  *   DefaultStorageClass: "STRING_VALUE",

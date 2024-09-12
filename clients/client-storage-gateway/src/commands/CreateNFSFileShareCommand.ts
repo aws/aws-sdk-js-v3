@@ -58,6 +58,7 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *     OwnerId: Number("long"),
  *   },
  *   GatewayARN: "STRING_VALUE", // required
+ *   EncryptionType: "SseS3" || "SseKms" || "DsseKms",
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required

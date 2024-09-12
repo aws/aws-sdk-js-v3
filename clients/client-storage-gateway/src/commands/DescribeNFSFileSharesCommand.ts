@@ -56,6 +56,7 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * //       FileShareId: "STRING_VALUE",
  * //       FileShareStatus: "STRING_VALUE",
  * //       GatewayARN: "STRING_VALUE",
+ * //       EncryptionType: "SseS3" || "SseKms" || "DsseKms",
  * //       KMSEncrypted: true || false,
  * //       KMSKey: "STRING_VALUE",
  * //       Path: "STRING_VALUE",

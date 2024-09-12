@@ -1015,8 +1015,10 @@ export interface CachediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -1261,6 +1263,21 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  DsseKms: "DsseKms",
+  SseKms: "SseKms",
+  SseS3: "SseS3",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
  * <p>Describes Network File System (NFS) file share default values. Files and folders stored
  *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file
  *          permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3
@@ -1344,9 +1361,39 @@ export interface CreateNFSFileShareInput {
   GatewayARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -1354,8 +1401,10 @@ export interface CreateNFSFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -1514,6 +1563,9 @@ export interface CreateNFSFileShareInput {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
@@ -1589,9 +1641,39 @@ export interface CreateSMBFileShareInput {
   GatewayARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -1599,8 +1681,10 @@ export interface CreateSMBFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -1695,9 +1779,9 @@ export interface CreateSMBFileShareInput {
    * <p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file
    *          share. Set it to <code>false</code> to map file and directory permissions to the POSIX
    *          permissions.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>Storage Gateway User
-   *             Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html">Using Windows ACLs to limit SMB file share
+   *             access</a> in the <i>Amazon S3 File Gateway User
+   *          Guide</i>.</p>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -1808,6 +1892,9 @@ export interface CreateSMBFileShareInput {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
@@ -3403,8 +3490,11 @@ export interface SoftwareUpdatePreferences {
    *          <p>
    *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
    *          <p>
-   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
-   *          updates.</p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The
+   *          gateway will still receive emergency version updates on rare occasions if necessary to
+   *          remedy highly critical security or durability issues. You will be notified before an
+   *          emergency version update is applied. These updates are applied during your gateway's
+   *          scheduled maintenance window.</p>
    * @public
    */
   AutomaticUpdatePolicy?: AutomaticUpdatePolicy;
@@ -3495,12 +3585,15 @@ export interface DescribeMaintenanceStartTimeOutput {
 
   /**
    * <p>A set of variables indicating the software update preferences for the gateway.</p>
-   *          <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>
+   *          <p>Includes <code>AutomaticUpdatePolicy</code> parameter with the following inputs:</p>
    *          <p>
    *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
    *          <p>
-   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
-   *          updates.</p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The
+   *          gateway will still receive emergency version updates on rare occasions if necessary to
+   *          remedy highly critical security or durability issues. You will be notified before an
+   *          emergency version update is applied. These updates are applied during your gateway's
+   *          scheduled maintenance window.</p>
    * @public
    */
   SoftwareUpdatePreferences?: SoftwareUpdatePreferences;
@@ -3565,9 +3658,39 @@ export interface NFSFileShareInfo {
   GatewayARN?: string;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -3575,8 +3698,10 @@ export interface NFSFileShareInfo {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -3736,6 +3861,9 @@ export interface NFSFileShareInfo {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
@@ -3841,9 +3969,39 @@ export interface SMBFileShareInfo {
   GatewayARN?: string;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -3851,8 +4009,10 @@ export interface SMBFileShareInfo {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -3954,9 +4114,9 @@ export interface SMBFileShareInfo {
    * <p>If this value is set to <code>true</code>, it indicates that access control list (ACL)
    *          is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that
    *          file and directory permissions are mapped to the POSIX permission.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>Storage Gateway User
-   *             Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html">Using Windows ACLs to limit SMB file share
+   *             access</a> in the <i>Amazon S3 File Gateway User
+   *          Guide</i>.</p>
    * @public
    */
   SMBACLEnabled?: boolean;
@@ -4056,6 +4216,9 @@ export interface SMBFileShareInfo {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
@@ -4459,8 +4622,10 @@ export interface StorediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -4659,8 +4824,10 @@ export interface TapeArchive {
   TapeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -4906,8 +5073,10 @@ export interface Tape {
   TapeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -7132,8 +7301,11 @@ export interface UpdateMaintenanceStartTimeInput {
    *          <p>
    *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
    *          <p>
-   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
-   *          updates.</p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The
+   *          gateway will still receive emergency version updates on rare occasions if necessary to
+   *          remedy highly critical security or durability issues. You will be notified before an
+   *          emergency version update is applied. These updates are applied during your gateway's
+   *          scheduled maintenance window.</p>
    * @public
    */
   SoftwareUpdatePreferences?: SoftwareUpdatePreferences;
@@ -7165,9 +7337,39 @@ export interface UpdateNFSFileShareInput {
   FileShareARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -7175,8 +7377,10 @@ export interface UpdateNFSFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -7295,6 +7499,9 @@ export interface UpdateNFSFileShareInput {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
@@ -7340,9 +7547,39 @@ export interface UpdateSMBFileShareInput {
   FileShareARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own
-   *             KMS key, or <code>false</code> to use a key managed by Amazon S3.
-   *          Optional.</p>
+   * <p>A value that specifies the type of server-side encryption that the file share will use
+   *          for the data that it stores in Amazon S3.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType;
+
+  /**
+   * @deprecated
+   *
+   * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
+   *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
+   *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
+   *             <code>EncryptionType</code> parameter instead.</p>
+   *          <note>
+   *             <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code>
+   *             to set the file share encryption method. You do not need to provide values for both
+   *             parameters.</p>
+   *             <p>If values for both parameters exist in the same request, then the specified
+   *             encryption methods must not conflict. For example, if <code>EncryptionType</code> is
+   *                <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If
+   *                <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then
+   *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
+   *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -7350,8 +7587,10 @@ export interface UpdateSMBFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-   *          value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used
+   *          for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+   *          CMKs. This value must be set if <code>KMSEncrypted</code> is <code>true</code>, or if
+   *             <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>.</p>
    * @public
    */
   KMSKey?: string;
@@ -7413,9 +7652,9 @@ export interface UpdateSMBFileShareInput {
    * <p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file
    *          share. Set it to <code>false</code> to map file and directory permissions to the POSIX
    *          permissions.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>Storage Gateway User
-   *             Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html">Using Windows ACLs to limit SMB file share
+   *             access</a> in the <i>Amazon S3 File Gateway User
+   *          Guide</i>.</p>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    * @public
@@ -7501,6 +7740,9 @@ export interface UpdateSMBFileShareInput {
    *             <p>
    *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
    *             uploading to Amazon S3, only the timing of the notification.</p>
+   *             <p>This setting is not meant to specify an exact time at which the notification will be
+   *             sent. In some cases, the gateway might require more than the specified delay time to
+   *             generate and send notifications.</p>
    *          </note>
    *          <p>The following example sets <code>NotificationPolicy</code> on with
    *             <code>SettlingTimeInSeconds</code> set to 60.</p>
