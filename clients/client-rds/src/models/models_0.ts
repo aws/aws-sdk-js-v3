@@ -771,9 +771,37 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
-   *          <p>Valid Values: <code>system-update</code>, <code>db-upgrade</code>,
-   *           <code>hardware-maintenance</code>, <code>ca-certificate-rotation</code>
-   *          </p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ca-certificate-rotation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hardware-maintenance</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>os-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-update</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these actions, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   ApplyAction: string | undefined;
@@ -811,8 +839,37 @@ export interface PendingMaintenanceAction {
   /**
    * <p>The type of pending maintenance action that is available for the resource. </p>
    *          <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p>
-   *          <p>Valid Values:<code> system-update | db-upgrade | hardware-maintenance | ca-certificate-rotation</code>
-   *          </p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ca-certificate-rotation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hardware-maintenance</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>os-upgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system-update</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these actions, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   Action?: string;
@@ -7430,6 +7487,10 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>custom-sqlserver-dev</code> (for RDS Custom for SQL Server DB instances)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db2-ae</code>
    *                </p>
    *             </li>
@@ -7602,9 +7663,6 @@ export interface CreateDBInstanceMessage {
    *          <ul>
    *             <li>
    *                <p>Must match the name of an existing DB subnet group.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must not be <code>default</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mydbsubnetgroup</code>
@@ -8613,7 +8671,34 @@ export interface DBParameterGroupStatus {
   DBParameterGroupName?: string;
 
   /**
-   * <p>The status of parameter updates.</p>
+   * <p>The status of parameter updates. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>applying</code>: The parameter group change is being applied to the
+   *                     database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-to-apply</code>: The parameter group is in an invalid
+   *                     state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>in-sync</code>: The parameter group change is synchronized with the
+   *                     database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending-database-upgrade</code>: The parameter group change will be
+   *                     applied after the DB instance is upgraded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending-reboot</code>: The parameter group change will be applied after
+   *                     the DB instance reboots.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ParameterApplyStatus?: string;
@@ -10118,9 +10203,6 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
    *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
    *                 for the operation that can run in the source Amazon Web Services Region.</p>
-   *             <p>
-   *                <code>SourceRegion</code> isn't supported for SQL Server, because Amazon RDS for SQL Server
-   *                 doesn't support cross-Region read replicas.</p>
    *          </note>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    * @public
