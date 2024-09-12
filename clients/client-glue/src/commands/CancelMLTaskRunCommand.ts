@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/models_0";
+import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/models_1";
 import { de_CancelMLTaskRunCommand, se_CancelMLTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**

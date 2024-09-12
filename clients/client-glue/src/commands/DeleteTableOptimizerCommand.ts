@@ -39,7 +39,7 @@ export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerR
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   Type: "compaction", // required
+ *   Type: "compaction" || "retention" || "orphan_file_deletion", // required
  * };
  * const command = new DeleteTableOptimizerCommand(input);
  * const response = await client.send(command);
@@ -64,6 +64,9 @@ export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerR
  *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling threshhold was exceeded.</p>
  *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>

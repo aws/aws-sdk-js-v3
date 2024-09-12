@@ -41,7 +41,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  *       catalogId: "STRING_VALUE",
  *       databaseName: "STRING_VALUE",
  *       tableName: "STRING_VALUE",
- *       type: "compaction",
+ *       type: "compaction" || "retention" || "orphan_file_deletion",
  *     },
  *   ],
  * };
@@ -54,10 +54,23 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //       databaseName: "STRING_VALUE",
  * //       tableName: "STRING_VALUE",
  * //       tableOptimizer: { // TableOptimizer
- * //         type: "compaction",
+ * //         type: "compaction" || "retention" || "orphan_file_deletion",
  * //         configuration: { // TableOptimizerConfiguration
  * //           roleArn: "STRING_VALUE",
  * //           enabled: true || false,
+ * //           retentionConfiguration: { // RetentionConfiguration
+ * //             icebergConfiguration: { // IcebergRetentionConfiguration
+ * //               snapshotRetentionPeriodInDays: Number("int"),
+ * //               numberOfSnapshotsToRetain: Number("int"),
+ * //               cleanExpiredFiles: true || false,
+ * //             },
+ * //           },
+ * //           orphanFileDeletionConfiguration: { // OrphanFileDeletionConfiguration
+ * //             icebergConfiguration: { // IcebergOrphanFileDeletionConfiguration
+ * //               orphanFileRetentionPeriodInDays: Number("int"),
+ * //               location: "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //         lastRun: { // TableOptimizerRun
  * //           eventType: "starting" || "completed" || "failed" || "in_progress",
@@ -70,6 +83,30 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //             JobDurationInHour: "STRING_VALUE",
  * //           },
  * //           error: "STRING_VALUE",
+ * //           compactionMetrics: { // CompactionMetrics
+ * //             IcebergMetrics: { // IcebergCompactionMetrics
+ * //               NumberOfBytesCompacted: Number("long"),
+ * //               NumberOfFilesCompacted: Number("long"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
+ * //           retentionMetrics: { // RetentionMetrics
+ * //             IcebergMetrics: { // IcebergRetentionMetrics
+ * //               NumberOfDataFilesDeleted: Number("long"),
+ * //               NumberOfManifestFilesDeleted: Number("long"),
+ * //               NumberOfManifestListsDeleted: Number("long"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
+ * //           orphanFileDeletionMetrics: { // OrphanFileDeletionMetrics
+ * //             IcebergMetrics: { // IcebergOrphanFileDeletionMetrics
+ * //               NumberOfOrphanFilesDeleted: Number("long"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
@@ -83,7 +120,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //       catalogId: "STRING_VALUE",
  * //       databaseName: "STRING_VALUE",
  * //       tableName: "STRING_VALUE",
- * //       type: "compaction",
+ * //       type: "compaction" || "retention" || "orphan_file_deletion",
  * //     },
  * //   ],
  * // };
@@ -96,8 +133,20 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * @see {@link BatchGetTableOptimizerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling threshhold was exceeded.</p>
  *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>

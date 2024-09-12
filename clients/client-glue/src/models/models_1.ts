@@ -12,7 +12,6 @@ import {
   ConnectionsList,
   Crawler,
   CrawlerTargets,
-  DataFormat,
   DataQualityAnalyzerResult,
   DataQualityAnalyzerResultFilterSensitiveLog,
   DataQualityObservation,
@@ -36,10 +35,187 @@ import {
   StorageDescriptor,
   TableOptimizerConfiguration,
   TableOptimizerType,
-  TaskStatusType,
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CancelDataQualityRulesetEvaluationRunRequest {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   * @public
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelDataQualityRulesetEvaluationRunResponse {}
+
+/**
+ * @public
+ */
+export interface CancelMLTaskRunRequest {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task run.</p>
+   * @public
+   */
+  TaskRunId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatusType = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
+
+/**
+ * @public
+ */
+export interface CancelMLTaskRunResponse {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   * @public
+   */
+  TransformId?: string;
+
+  /**
+   * <p>The unique identifier for the task run.</p>
+   * @public
+   */
+  TaskRunId?: string;
+
+  /**
+   * <p>The status for this run.</p>
+   * @public
+   */
+  Status?: TaskStatusType;
+}
+
+/**
+ * @public
+ */
+export interface CancelStatementRequest {
+  /**
+   * <p>The Session ID of the statement to be cancelled.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The ID of the statement to be cancelled.</p>
+   * @public
+   */
+  Id: number | undefined;
+
+  /**
+   * <p>The origin of the request to cancel the statement.</p>
+   * @public
+   */
+  RequestOrigin?: string;
+}
+
+/**
+ * @public
+ */
+export interface CancelStatementResponse {}
+
+/**
+ * <p>The session is in an invalid state to perform a requested operation.</p>
+ * @public
+ */
+export class IllegalSessionStateException extends __BaseException {
+  readonly name: "IllegalSessionStateException" = "IllegalSessionStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalSessionStateException, __BaseException>) {
+    super({
+      name: "IllegalSessionStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalSessionStateException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  PROTOBUF: "PROTOBUF",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
+
+/**
+ * @public
+ */
+export interface CheckSchemaVersionValidityInput {
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   * @public
+   */
+  DataFormat: DataFormat | undefined;
+
+  /**
+   * <p>The definition of the schema that has to be validated.</p>
+   * @public
+   */
+  SchemaDefinition: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CheckSchemaVersionValidityResponse {
+  /**
+   * <p>Return true, if the schema is valid and false otherwise.</p>
+   * @public
+   */
+  Valid?: boolean;
+
+  /**
+   * <p>A validation failure error message.</p>
+   * @public
+   */
+  Error?: string;
+}
 
 /**
  * @public
@@ -7659,414 +7835,6 @@ export interface GetMLTaskRunsResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetMLTransformRequest {
-  /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-}
-
-/**
- * <p>A structure containing the column name and column importance score for a column. </p>
- *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
- * @public
- */
-export interface ColumnImportance {
-  /**
-   * <p>The name of a column.</p>
-   * @public
-   */
-  ColumnName?: string;
-
-  /**
-   * <p>The column importance score for the column, as a decimal.</p>
-   * @public
-   */
-  Importance?: number;
-}
-
-/**
- * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
- *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
- * @public
- */
-export interface ConfusionMatrix {
-  /**
-   * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumTruePositives?: number;
-
-  /**
-   * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
-   *       in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumFalsePositives?: number;
-
-  /**
-   * <p>The number of nonmatches in the data that the transform correctly rejected, in the
-   *       confusion matrix for your transform.</p>
-   * @public
-   */
-  NumTrueNegatives?: number;
-
-  /**
-   * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumFalseNegatives?: number;
-}
-
-/**
- * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
- *       learning transform is measured by getting your transform to predict some matches and comparing
- *       the results to known matches from the same dataset. The quality metrics are based on a subset
- *       of your data, so they are not precise.</p>
- * @public
- */
-export interface FindMatchesMetrics {
-  /**
-   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
-   *       quality of the transform, that is independent of the choice made for precision vs. recall.
-   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  AreaUnderPRCurve?: number;
-
-  /**
-   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  Precision?: number;
-
-  /**
-   * <p>The recall metric indicates that for an actual match, how often your transform predicts
-   *       the match. Specifically, it measures how well the transform finds true positives from the
-   *       total records in the source data.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  Recall?: number;
-
-  /**
-   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
-   * @public
-   */
-  F1?: number;
-
-  /**
-   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
-   * @public
-   */
-  ConfusionMatrix?: ConfusionMatrix;
-
-  /**
-   * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
-   * @public
-   */
-  ColumnImportances?: ColumnImportance[];
-}
-
-/**
- * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
- * @public
- */
-export interface EvaluationMetrics {
-  /**
-   * <p>The type of machine learning transform.</p>
-   * @public
-   */
-  TransformType: TransformType | undefined;
-
-  /**
-   * <p>The evaluation metrics for the find matches algorithm.</p>
-   * @public
-   */
-  FindMatchesMetrics?: FindMatchesMetrics;
-}
-
-/**
- * <p>A key-value pair representing a column and data type that this transform can
- *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
- * @public
- */
-export interface SchemaColumn {
-  /**
-   * <p>The name of the column.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of data in the column.</p>
-   * @public
-   */
-  DataType?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const TransformStatusType = {
-  DELETING: "DELETING",
-  NOT_READY: "NOT_READY",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type TransformStatusType = (typeof TransformStatusType)[keyof typeof TransformStatusType];
-
-/**
- * @public
- */
-export interface GetMLTransformResponse {
-  /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   * @public
-   */
-  TransformId?: string;
-
-  /**
-   * <p>The unique name given to the transform when it was created.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of the transform.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   * @public
-   */
-  Status?: TransformStatusType;
-
-  /**
-   * <p>The date and time when the transform was created.</p>
-   * @public
-   */
-  CreatedOn?: Date;
-
-  /**
-   * <p>The date and time when the transform was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   * <p>A list of Glue table definitions used by the transform.</p>
-   * @public
-   */
-  InputRecordTables?: GlueTable[];
-
-  /**
-   * <p>The configuration parameters that are specific to the algorithm used.</p>
-   * @public
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   * <p>The latest evaluation metrics.</p>
-   * @public
-   */
-  EvaluationMetrics?: EvaluationMetrics;
-
-  /**
-   * <p>The number of labels available for this transform.</p>
-   * @public
-   */
-  LabelCount?: number;
-
-  /**
-   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
-   *       transform accepts. Has an upper bound of 100 columns.</p>
-   * @public
-   */
-  Schema?: SchemaColumn[];
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   * @public
-   */
-  Role?: string;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   * @public
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   * @public
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   * @public
-   */
-  MaxRetries?: number;
-
-  /**
-   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-   * @public
-   */
-  TransformEncryption?: TransformEncryption;
-}
-
-/**
- * <p>The criteria used to filter the machine learning transforms.</p>
- * @public
- */
-export interface TransformFilterCriteria {
-  /**
-   * <p>A unique transform name that is used to filter the machine learning transforms.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of machine learning transform that is used to filter the machine learning
-   *       transforms.</p>
-   * @public
-   */
-  TransformType?: TransformType;
-
-  /**
-   * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   * @public
-   */
-  Status?: TransformStatusType;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   * @public
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The time and date before which the transforms were created.</p>
-   * @public
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The time and date after which the transforms were created.</p>
-   * @public
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>Filter on transforms last modified before this date.</p>
-   * @public
-   */
-  LastModifiedBefore?: Date;
-
-  /**
-   * <p>Filter on transforms last modified after this date.</p>
-   * @public
-   */
-  LastModifiedAfter?: Date;
-
-  /**
-   * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
-   *       object is an array of key-value pairs representing the schema this transform accepts, where
-   *         <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data
-   *       such as an integer or string. Has an upper bound of 100 columns.</p>
-   * @public
-   */
-  Schema?: SchemaColumn[];
-}
-
-/**
- * @public
- * @enum
- */
-export const TransformSortColumnType = {
-  CREATED: "CREATED",
-  LAST_MODIFIED: "LAST_MODIFIED",
-  NAME: "NAME",
-  STATUS: "STATUS",
-  TRANSFORM_TYPE: "TRANSFORM_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type TransformSortColumnType = (typeof TransformSortColumnType)[keyof typeof TransformSortColumnType];
-
-/**
- * <p>The sorting criteria that are associated with the machine learning transform.</p>
- * @public
- */
-export interface TransformSortCriteria {
-  /**
-   * <p>The column to be used in the sorting criteria that are associated with the machine
-   *       learning transform.</p>
-   * @public
-   */
-  Column: TransformSortColumnType | undefined;
-
-  /**
-   * <p>The sort direction to be used in the sorting criteria that are associated with the machine
-   *       learning transform.</p>
-   * @public
-   */
-  SortDirection: SortDirectionType | undefined;
 }
 
 /**

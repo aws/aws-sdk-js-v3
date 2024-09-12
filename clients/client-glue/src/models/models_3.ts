@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  Action,
   Aggregate,
   AmazonRedshiftSource,
   AmazonRedshiftTarget,
@@ -28,6 +29,7 @@ import {
   ErrorDetail,
   EvaluateDataQuality,
   EvaluateDataQualityMultiFrame,
+  EventBatchingCondition,
   ExecutionClass,
   ExecutionProperty,
   FillMissingValues,
@@ -50,6 +52,7 @@ import {
   PIIDetection,
   PostgreSQLCatalogSource,
   PostgreSQLCatalogTarget,
+  Predicate,
   Recipe,
   RedshiftSource,
   RedshiftTarget,
@@ -81,11 +84,14 @@ import {
   Spigot,
   SplitFields,
   StorageDescriptor,
+  TableOptimizerConfiguration,
+  TableOptimizerType,
+  Trigger,
   Union,
   WorkerType,
 } from "./models_0";
 
-import { Permission, TableIdentifier } from "./models_1";
+import { Permission, ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
 
 import {
   ColumnRowFilter,
@@ -95,6 +101,226 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateTableResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerRequest {
+  /**
+   * <p>The Catalog ID of the table.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   * @public
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+   * @public
+   */
+  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerResponse {}
+
+/**
+ * <p>A structure used to provide information used to update a trigger. This object updates the
+ *       previous trigger definition by overwriting it completely.</p>
+ * @public
+ */
+export interface TriggerUpdate {
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of this trigger.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+   *       Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   * @public
+   */
+  Schedule?: string;
+
+  /**
+   * <p>The actions initiated by this trigger.</p>
+   * @public
+   */
+  Actions?: Action[];
+
+  /**
+   * <p>The predicate of this trigger, which defines when it will fire.</p>
+   * @public
+   */
+  Predicate?: Predicate;
+
+  /**
+   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+   *       before EventBridge event trigger fires.</p>
+   * @public
+   */
+  EventBatchingCondition?: EventBatchingCondition;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTriggerRequest {
+  /**
+   * <p>The name of the trigger to update.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The new values with which to update the trigger.</p>
+   * @public
+   */
+  TriggerUpdate: TriggerUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTriggerResponse {
+  /**
+   * <p>The resulting trigger definition.</p>
+   * @public
+   */
+  Trigger?: Trigger;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUsageProfileRequest {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
+   * @public
+   */
+  Configuration: ProfileConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUsageProfileResponse {
+  /**
+   * <p>The name of the usage profile that was updated.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserDefinedFunctionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the function to be updated is
+   *       located.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A <code>FunctionInput</code> object that redefines the function in the Data
+   *       Catalog.</p>
+   * @public
+   */
+  FunctionInput: UserDefinedFunctionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserDefinedFunctionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateWorkflowRequest {
+  /**
+   * <p>Name of the workflow to be updated.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the workflow.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   * @public
+   */
+  DefaultRunProperties?: Record<string, string>;
+
+  /**
+   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+   * @public
+   */
+  MaxConcurrentRuns?: number;
+}
 
 /**
  * @public

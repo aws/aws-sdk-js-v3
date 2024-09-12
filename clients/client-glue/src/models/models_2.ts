@@ -4,14 +4,11 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 import {
-  Action,
   AuditContext,
   CrawlerTargets,
   CustomEntityType,
-  DataFormat,
   DataSource,
   ErrorDetail,
-  EventBatchingCondition,
   ExecutionClass,
   GlueTable,
   InclusionAnnotationValue,
@@ -21,7 +18,6 @@ import {
   Partition,
   PartitionInput,
   PartitionValueList,
-  Predicate,
   RecrawlPolicy,
   SchemaChangePolicy,
   SchemaId,
@@ -29,10 +25,8 @@ import {
   SourceControlProvider,
   StatisticAnnotation,
   TableOptimizer,
-  TableOptimizerConfiguration,
   TableOptimizerRun,
   TableOptimizerType,
-  TaskStatusType,
   TimestampedInclusionAnnotation,
   Trigger,
   WorkerType,
@@ -49,10 +43,10 @@ import {
   CsvSerdeOption,
   DatabaseInput,
   DataCatalogEncryptionSettings,
+  DataFormat,
   DataQualityEvaluationRunAdditionalRunOptions,
   DataQualityTargetTable,
   EncryptionConfiguration,
-  EvaluationMetrics,
   JobBookmarkEntry,
   Language,
   Location,
@@ -64,19 +58,425 @@ import {
   RegistryStatus,
   ResourceShareType,
   ResourceUri,
-  SchemaColumn,
   SchemaStatus,
   SchemaVersionStatus,
   Session,
+  SortDirectionType,
   TableInput,
+  TaskStatusType,
   TransformEncryption,
-  TransformFilterCriteria,
   TransformParameters,
-  TransformSortCriteria,
-  TransformStatusType,
-  UserDefinedFunctionInput,
+  TransformType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetMLTransformRequest {
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+}
+
+/**
+ * <p>A structure containing the column name and column importance score for a column. </p>
+ *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
+ * @public
+ */
+export interface ColumnImportance {
+  /**
+   * <p>The name of a column.</p>
+   * @public
+   */
+  ColumnName?: string;
+
+  /**
+   * <p>The column importance score for the column, as a decimal.</p>
+   * @public
+   */
+  Importance?: number;
+}
+
+/**
+ * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+ *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+ * @public
+ */
+export interface ConfusionMatrix {
+  /**
+   * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumTruePositives?: number;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
+   *       in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumFalsePositives?: number;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform correctly rejected, in the
+   *       confusion matrix for your transform.</p>
+   * @public
+   */
+  NumTrueNegatives?: number;
+
+  /**
+   * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumFalseNegatives?: number;
+}
+
+/**
+ * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
+ *       learning transform is measured by getting your transform to predict some matches and comparing
+ *       the results to known matches from the same dataset. The quality metrics are based on a subset
+ *       of your data, so they are not precise.</p>
+ * @public
+ */
+export interface FindMatchesMetrics {
+  /**
+   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
+   *       quality of the transform, that is independent of the choice made for precision vs. recall.
+   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  AreaUnderPRCurve?: number;
+
+  /**
+   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  Precision?: number;
+
+  /**
+   * <p>The recall metric indicates that for an actual match, how often your transform predicts
+   *       the match. Specifically, it measures how well the transform finds true positives from the
+   *       total records in the source data.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  Recall?: number;
+
+  /**
+   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
+   * @public
+   */
+  F1?: number;
+
+  /**
+   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+   * @public
+   */
+  ConfusionMatrix?: ConfusionMatrix;
+
+  /**
+   * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
+   * @public
+   */
+  ColumnImportances?: ColumnImportance[];
+}
+
+/**
+ * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+ * @public
+ */
+export interface EvaluationMetrics {
+  /**
+   * <p>The type of machine learning transform.</p>
+   * @public
+   */
+  TransformType: TransformType | undefined;
+
+  /**
+   * <p>The evaluation metrics for the find matches algorithm.</p>
+   * @public
+   */
+  FindMatchesMetrics?: FindMatchesMetrics;
+}
+
+/**
+ * <p>A key-value pair representing a column and data type that this transform can
+ *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
+ * @public
+ */
+export interface SchemaColumn {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of data in the column.</p>
+   * @public
+   */
+  DataType?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformStatusType = {
+  DELETING: "DELETING",
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformStatusType = (typeof TransformStatusType)[keyof typeof TransformStatusType];
+
+/**
+ * @public
+ */
+export interface GetMLTransformResponse {
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   * @public
+   */
+  TransformId?: string;
+
+  /**
+   * <p>The unique name given to the transform when it was created.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the transform.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   * @public
+   */
+  Status?: TransformStatusType;
+
+  /**
+   * <p>The date and time when the transform was created.</p>
+   * @public
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time when the transform was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>A list of Glue table definitions used by the transform.</p>
+   * @public
+   */
+  InputRecordTables?: GlueTable[];
+
+  /**
+   * <p>The configuration parameters that are specific to the algorithm used.</p>
+   * @public
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   * <p>The latest evaluation metrics.</p>
+   * @public
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
+   * <p>The number of labels available for this transform.</p>
+   * @public
+   */
+  LabelCount?: number;
+
+  /**
+   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
+   *       transform accepts. Has an upper bound of 100 columns.</p>
+   * @public
+   */
+  Schema?: SchemaColumn[];
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string;
+
+  /**
+   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
+   *         page</a>. </p>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   * @public
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   * @public
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   * @public
+   */
+  MaxRetries?: number;
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   * @public
+   */
+  TransformEncryption?: TransformEncryption;
+}
+
+/**
+ * <p>The criteria used to filter the machine learning transforms.</p>
+ * @public
+ */
+export interface TransformFilterCriteria {
+  /**
+   * <p>A unique transform name that is used to filter the machine learning transforms.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of machine learning transform that is used to filter the machine learning
+   *       transforms.</p>
+   * @public
+   */
+  TransformType?: TransformType;
+
+  /**
+   * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   * @public
+   */
+  Status?: TransformStatusType;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string;
+
+  /**
+   * <p>The time and date before which the transforms were created.</p>
+   * @public
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The time and date after which the transforms were created.</p>
+   * @public
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>Filter on transforms last modified before this date.</p>
+   * @public
+   */
+  LastModifiedBefore?: Date;
+
+  /**
+   * <p>Filter on transforms last modified after this date.</p>
+   * @public
+   */
+  LastModifiedAfter?: Date;
+
+  /**
+   * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
+   *       object is an array of key-value pairs representing the schema this transform accepts, where
+   *         <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data
+   *       such as an integer or string. Has an upper bound of 100 columns.</p>
+   * @public
+   */
+  Schema?: SchemaColumn[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformSortColumnType = {
+  CREATED: "CREATED",
+  LAST_MODIFIED: "LAST_MODIFIED",
+  NAME: "NAME",
+  STATUS: "STATUS",
+  TRANSFORM_TYPE: "TRANSFORM_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformSortColumnType = (typeof TransformSortColumnType)[keyof typeof TransformSortColumnType];
+
+/**
+ * <p>The sorting criteria that are associated with the machine learning transform.</p>
+ * @public
+ */
+export interface TransformSortCriteria {
+  /**
+   * <p>The column to be used in the sorting criteria that are associated with the machine
+   *       learning transform.</p>
+   * @public
+   */
+  Column: TransformSortColumnType | undefined;
+
+  /**
+   * <p>The sort direction to be used in the sorting criteria that are associated with the machine
+   *       learning transform.</p>
+   * @public
+   */
+  SortDirection: SortDirectionType | undefined;
+}
 
 /**
  * @public
@@ -7604,226 +8004,6 @@ export interface UpdateTableRequest {
    * @public
    */
   Force?: boolean;
-}
-
-/**
- * @public
- */
-export interface UpdateTableResponse {}
-
-/**
- * @public
- */
-export interface UpdateTableOptimizerRequest {
-  /**
-   * <p>The Catalog ID of the table.</p>
-   * @public
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The name of the database in the catalog in which the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
-   * @public
-   */
-  Type: TableOptimizerType | undefined;
-
-  /**
-   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
-   * @public
-   */
-  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTableOptimizerResponse {}
-
-/**
- * <p>A structure used to provide information used to update a trigger. This object updates the
- *       previous trigger definition by overwriting it completely.</p>
- * @public
- */
-export interface TriggerUpdate {
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of this trigger.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
-   *       Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   * @public
-   */
-  Schedule?: string;
-
-  /**
-   * <p>The actions initiated by this trigger.</p>
-   * @public
-   */
-  Actions?: Action[];
-
-  /**
-   * <p>The predicate of this trigger, which defines when it will fire.</p>
-   * @public
-   */
-  Predicate?: Predicate;
-
-  /**
-   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
-   *       before EventBridge event trigger fires.</p>
-   * @public
-   */
-  EventBatchingCondition?: EventBatchingCondition;
-}
-
-/**
- * @public
- */
-export interface UpdateTriggerRequest {
-  /**
-   * <p>The name of the trigger to update.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The new values with which to update the trigger.</p>
-   * @public
-   */
-  TriggerUpdate: TriggerUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTriggerResponse {
-  /**
-   * <p>The resulting trigger definition.</p>
-   * @public
-   */
-  Trigger?: Trigger;
-}
-
-/**
- * @public
- */
-export interface UpdateUsageProfileRequest {
-  /**
-   * <p>The name of the usage profile.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the usage profile.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
-   * @public
-   */
-  Configuration: ProfileConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUsageProfileResponse {
-  /**
-   * <p>The name of the usage profile that was updated.</p>
-   * @public
-   */
-  Name?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateUserDefinedFunctionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the function to be updated is
-   *       located.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the function.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A <code>FunctionInput</code> object that redefines the function in the Data
-   *       Catalog.</p>
-   * @public
-   */
-  FunctionInput: UserDefinedFunctionInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserDefinedFunctionResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkflowRequest {
-  /**
-   * <p>Name of the workflow to be updated.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the workflow.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   * @public
-   */
-  DefaultRunProperties?: Record<string, string>;
-
-  /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   * @public
-   */
-  MaxConcurrentRuns?: number;
 }
 
 /**

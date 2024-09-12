@@ -7466,6 +7466,8 @@ export class InvalidStateException extends __BaseException {
  */
 export const TableOptimizerType = {
   COMPACTION: "compaction",
+  ORPHAN_FILE_DELETION: "orphan_file_deletion",
+  RETENTION: "retention",
 } as const;
 
 /**
@@ -7551,6 +7553,72 @@ export interface BatchGetTableOptimizerError {
 }
 
 /**
+ * <p>The configuration for an Iceberg orphan file deletion optimizer.</p>
+ * @public
+ */
+export interface IcebergOrphanFileDeletionConfiguration {
+  /**
+   * <p>The number of days that orphan files should be retained before file deletion. If an input is not provided, the default value 3 will be used.</p>
+   * @public
+   */
+  orphanFileRetentionPeriodInDays?: number;
+
+  /**
+   * <p>Specifies a directory in which to look for files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.</p>
+   * @public
+   */
+  location?: string;
+}
+
+/**
+ * <p>The configuration for an orphan file deletion optimizer.</p>
+ * @public
+ */
+export interface OrphanFileDeletionConfiguration {
+  /**
+   * <p>The configuration for an Iceberg orphan file deletion optimizer.</p>
+   * @public
+   */
+  icebergConfiguration?: IcebergOrphanFileDeletionConfiguration;
+}
+
+/**
+ * <p>The configuration for an Iceberg snapshot retention optimizer.</p>
+ * @public
+ */
+export interface IcebergRetentionConfiguration {
+  /**
+   * <p>The number of days to retain the Iceberg snapshots. If an input is not provided, the corresponding Iceberg table configuration field will be used or if not present, the default value 5 will be used.</p>
+   * @public
+   */
+  snapshotRetentionPeriodInDays?: number;
+
+  /**
+   * <p>The number of Iceberg snapshots to retain within the retention period. If an input is not provided, the corresponding Iceberg table configuration field will be used or if not present, the default value 1 will be used.</p>
+   * @public
+   */
+  numberOfSnapshotsToRetain?: number;
+
+  /**
+   * <p>If set to false, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted.</p>
+   * @public
+   */
+  cleanExpiredFiles?: boolean;
+}
+
+/**
+ * <p>The configuration for a snapshot retention optimizer.</p>
+ * @public
+ */
+export interface RetentionConfiguration {
+  /**
+   * <p>The configuration for an Iceberg snapshot retention optimizer.</p>
+   * @public
+   */
+  icebergConfiguration?: IcebergRetentionConfiguration;
+}
+
+/**
  * <p>Contains details on the configuration of a table optimizer. You pass this configuration when creating or updating a table optimizer.</p>
  * @public
  */
@@ -7562,10 +7630,64 @@ export interface TableOptimizerConfiguration {
   roleArn?: string;
 
   /**
-   * <p>Whether table optimization is enabled. </p>
+   * <p>Whether table optimization is enabled.</p>
    * @public
    */
   enabled?: boolean;
+
+  /**
+   * <p>The configuration for a snapshot retention optimizer.</p>
+   * @public
+   */
+  retentionConfiguration?: RetentionConfiguration;
+
+  /**
+   * <p>The configuration for an orphan file deletion optimizer.</p>
+   * @public
+   */
+  orphanFileDeletionConfiguration?: OrphanFileDeletionConfiguration;
+}
+
+/**
+ * <p>Compaction metrics for Iceberg for the optimizer run.</p>
+ * @public
+ */
+export interface IcebergCompactionMetrics {
+  /**
+   * <p>The number of bytes removed by the compaction job run.</p>
+   * @public
+   */
+  NumberOfBytesCompacted?: number;
+
+  /**
+   * <p>The number of files removed by the compaction job run.</p>
+   * @public
+   */
+  NumberOfFilesCompacted?: number;
+
+  /**
+   * <p>The number of DPU hours consumed by the job.</p>
+   * @public
+   */
+  NumberOfDpus?: number;
+
+  /**
+   * <p>The duration of the job in hours.</p>
+   * @public
+   */
+  JobDurationInHour?: number;
+}
+
+/**
+ * <p>A structure that contains compaction metrics for the optimizer run.</p>
+ * @public
+ */
+export interface CompactionMetrics {
+  /**
+   * <p>A structure containing the Iceberg compaction metrics for the optimizer run.</p>
+   * @public
+   */
+  IcebergMetrics?: IcebergCompactionMetrics;
 }
 
 /**
@@ -7586,6 +7708,7 @@ export type TableOptimizerEventType = (typeof TableOptimizerEventType)[keyof typ
 
 /**
  * <p>Metrics for the optimizer run.</p>
+ *          <p>This structure is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>
  * @public
  */
 export interface RunMetrics {
@@ -7615,6 +7738,90 @@ export interface RunMetrics {
 }
 
 /**
+ * <p>Orphan file deletion metrics for Iceberg for the optimizer run.</p>
+ * @public
+ */
+export interface IcebergOrphanFileDeletionMetrics {
+  /**
+   * <p>The number of orphan files deleted by the orphan file deletion job run.</p>
+   * @public
+   */
+  NumberOfOrphanFilesDeleted?: number;
+
+  /**
+   * <p>The number of DPU hours consumed by the job.</p>
+   * @public
+   */
+  NumberOfDpus?: number;
+
+  /**
+   * <p>The duration of the job in hours.</p>
+   * @public
+   */
+  JobDurationInHour?: number;
+}
+
+/**
+ * <p>A structure that contains orphan file deletion metrics for the optimizer run.</p>
+ * @public
+ */
+export interface OrphanFileDeletionMetrics {
+  /**
+   * <p>A structure containing the Iceberg orphan file deletion metrics for the optimizer run.</p>
+   * @public
+   */
+  IcebergMetrics?: IcebergOrphanFileDeletionMetrics;
+}
+
+/**
+ * <p>Snapshot retention metrics for Iceberg for the optimizer run.</p>
+ * @public
+ */
+export interface IcebergRetentionMetrics {
+  /**
+   * <p>The number of data files deleted by the retention job run.</p>
+   * @public
+   */
+  NumberOfDataFilesDeleted?: number;
+
+  /**
+   * <p>The number of manifest files deleted by the retention job run.</p>
+   * @public
+   */
+  NumberOfManifestFilesDeleted?: number;
+
+  /**
+   * <p>The number of manifest lists deleted by the retention job run.</p>
+   * @public
+   */
+  NumberOfManifestListsDeleted?: number;
+
+  /**
+   * <p>The number of DPU hours consumed by the job.</p>
+   * @public
+   */
+  NumberOfDpus?: number;
+
+  /**
+   * <p>The duration of the job in hours.</p>
+   * @public
+   */
+  JobDurationInHour?: number;
+}
+
+/**
+ * <p>A structure that contains retention metrics for the optimizer run.</p>
+ * @public
+ */
+export interface RetentionMetrics {
+  /**
+   * <p>A structure containing the Iceberg retention metrics for the optimizer run.</p>
+   * @public
+   */
+  IcebergMetrics?: IcebergRetentionMetrics;
+}
+
+/**
  * <p>Contains details for a table optimizer run.</p>
  * @public
  */
@@ -7638,7 +7845,10 @@ export interface TableOptimizerRun {
   endTimestamp?: Date;
 
   /**
+   * @deprecated
+   *
    * <p>A <code>RunMetrics</code> object containing metrics for the optimizer run.</p>
+   *          <p>This member is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>
    * @public
    */
   metrics?: RunMetrics;
@@ -7648,6 +7858,24 @@ export interface TableOptimizerRun {
    * @public
    */
   error?: string;
+
+  /**
+   * <p>A <code>CompactionMetrics</code> object containing metrics for the optimizer run.</p>
+   * @public
+   */
+  compactionMetrics?: CompactionMetrics;
+
+  /**
+   * <p>A <code>RetentionMetrics</code> object containing metrics for the optimizer run.</p>
+   * @public
+   */
+  retentionMetrics?: RetentionMetrics;
+
+  /**
+   * <p>An <code>OrphanFileDeletionMetrics</code> object containing metrics for the optimizer run.</p>
+   * @public
+   */
+  orphanFileDeletionMetrics?: OrphanFileDeletionMetrics;
 }
 
 /**
@@ -7656,7 +7884,21 @@ export interface TableOptimizerRun {
  */
 export interface TableOptimizer {
   /**
-   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   * <p>The type of table optimizer. The valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>compaction</code>: for managing compaction with a table optimizer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>retention</code>: for managing the retention of snapshot with a table optimizer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>orphan_file_deletion</code>: for managing the deletion of orphan files with a table optimizer.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   type?: TableOptimizerType;
@@ -7698,7 +7940,7 @@ export interface BatchTableOptimizer {
   tableName?: string;
 
   /**
-   * <p>A <code>TableOptimizer</code> object that contains details on the configuration and last run of a table optimzer.</p>
+   * <p>A <code>TableOptimizer</code> object that contains details on the configuration and last run of a table optimizer.</p>
    * @public
    */
   tableOptimizer?: TableOptimizer;
@@ -7719,6 +7961,32 @@ export interface BatchGetTableOptimizerResponse {
    * @public
    */
   Failures?: BatchGetTableOptimizerError[];
+}
+
+/**
+ * <p>The throttling threshhold was exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -8974,184 +9242,6 @@ export interface CancelDataQualityRuleRecommendationRunRequest {
  * @public
  */
 export interface CancelDataQualityRuleRecommendationRunResponse {}
-
-/**
- * @public
- */
-export interface CancelDataQualityRulesetEvaluationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelDataQualityRulesetEvaluationRunResponse {}
-
-/**
- * @public
- */
-export interface CancelMLTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the task run.</p>
-   * @public
-   */
-  TaskRunId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TaskStatusType = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  SUCCEEDED: "SUCCEEDED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
-
-/**
- * @public
- */
-export interface CancelMLTaskRunResponse {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId?: string;
-
-  /**
-   * <p>The unique identifier for the task run.</p>
-   * @public
-   */
-  TaskRunId?: string;
-
-  /**
-   * <p>The status for this run.</p>
-   * @public
-   */
-  Status?: TaskStatusType;
-}
-
-/**
- * @public
- */
-export interface CancelStatementRequest {
-  /**
-   * <p>The Session ID of the statement to be cancelled.</p>
-   * @public
-   */
-  SessionId: string | undefined;
-
-  /**
-   * <p>The ID of the statement to be cancelled.</p>
-   * @public
-   */
-  Id: number | undefined;
-
-  /**
-   * <p>The origin of the request to cancel the statement.</p>
-   * @public
-   */
-  RequestOrigin?: string;
-}
-
-/**
- * @public
- */
-export interface CancelStatementResponse {}
-
-/**
- * <p>The session is in an invalid state to perform a requested operation.</p>
- * @public
- */
-export class IllegalSessionStateException extends __BaseException {
-  readonly name: "IllegalSessionStateException" = "IllegalSessionStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalSessionStateException, __BaseException>) {
-    super({
-      name: "IllegalSessionStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalSessionStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DataFormat = {
-  AVRO: "AVRO",
-  JSON: "JSON",
-  PROTOBUF: "PROTOBUF",
-} as const;
-
-/**
- * @public
- */
-export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
-
-/**
- * @public
- */
-export interface CheckSchemaVersionValidityInput {
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   * @public
-   */
-  DataFormat: DataFormat | undefined;
-
-  /**
-   * <p>The definition of the schema that has to be validated.</p>
-   * @public
-   */
-  SchemaDefinition: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CheckSchemaVersionValidityResponse {
-  /**
-   * <p>Return true, if the schema is valid and false otherwise.</p>
-   * @public
-   */
-  Valid?: boolean;
-
-  /**
-   * <p>A validation failure error message.</p>
-   * @public
-   */
-  Error?: string;
-}
 
 /**
  * @internal

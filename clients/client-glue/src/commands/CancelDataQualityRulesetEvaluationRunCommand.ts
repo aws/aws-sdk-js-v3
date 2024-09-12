@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   CancelDataQualityRulesetEvaluationRunRequest,
   CancelDataQualityRulesetEvaluationRunResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_CancelDataQualityRulesetEvaluationRunCommand,
   se_CancelDataQualityRulesetEvaluationRunCommand,
