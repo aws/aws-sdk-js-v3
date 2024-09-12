@@ -1687,7 +1687,7 @@ export interface AdminGetUserResponse {
 
   /**
    * <p>The MFA options that are activated for the user. The possible values in this list are
-   *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   *             <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
    * @public
    */
   UserMFASettingList?: string[];
@@ -2044,6 +2044,7 @@ export const ChallengeNameType = {
   CUSTOM_CHALLENGE: "CUSTOM_CHALLENGE",
   DEVICE_PASSWORD_VERIFIER: "DEVICE_PASSWORD_VERIFIER",
   DEVICE_SRP_AUTH: "DEVICE_SRP_AUTH",
+  EMAIL_OTP: "EMAIL_OTP",
   MFA_SETUP: "MFA_SETUP",
   NEW_PASSWORD_REQUIRED: "NEW_PASSWORD_REQUIRED",
   PASSWORD_VERIFIER: "PASSWORD_VERIFIER",
@@ -2077,13 +2078,21 @@ export interface AdminInitiateAuthResponse {
    *             <li>
    *                <p>
    *                   <code>SELECT_MFA_TYPE</code>: Selects the MFA type. Valid MFA options are
-   *                         <code>SMS_MFA</code> for text SMS MFA, and <code>SOFTWARE_TOKEN_MFA</code>
-   *                     for time-based one-time password (TOTP) software token MFA.</p>
+   *                     <code>SMS_MFA</code> for SMS message MFA, <code>EMAIL_OTP</code> for email
+   *                     message MFA, and <code>SOFTWARE_TOKEN_MFA</code> for time-based one-time
+   *                     password (TOTP) software token MFA.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SMS_MFA</code>: Next challenge is to supply an
-   *                     <code>SMS_MFA_CODE</code>, delivered via SMS.</p>
+   *                     <code>SMS_MFA_CODE</code>that your user pool delivered
+   *                     in an SMS message.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMAIL_OTP</code>: Next challenge is to supply an
+   *                     <code>EMAIL_OTP_CODE</code> that your user pool delivered
+   *                     in an email message.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2182,6 +2191,27 @@ export interface AdminInitiateAuthResponse {
    * @public
    */
   AuthenticationResult?: AuthenticationResultType;
+}
+
+/**
+ * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
+ * @public
+ */
+export class InvalidEmailRoleAccessPolicyException extends __BaseException {
+  readonly name: "InvalidEmailRoleAccessPolicyException" = "InvalidEmailRoleAccessPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEmailRoleAccessPolicyException, __BaseException>) {
+    super({
+      name: "InvalidEmailRoleAccessPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEmailRoleAccessPolicyException.prototype);
+  }
 }
 
 /**
@@ -2922,27 +2952,6 @@ export interface AdminResetUserPasswordRequest {
 export interface AdminResetUserPasswordResponse {}
 
 /**
- * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
- *             status code: 400.</p>
- * @public
- */
-export class InvalidEmailRoleAccessPolicyException extends __BaseException {
-  readonly name: "InvalidEmailRoleAccessPolicyException" = "InvalidEmailRoleAccessPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEmailRoleAccessPolicyException, __BaseException>) {
-    super({
-      name: "InvalidEmailRoleAccessPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEmailRoleAccessPolicyException.prototype);
-  }
-}
-
-/**
  * <p>The request to respond to the authentication challenge, as an administrator.</p>
  * @public
  */
@@ -2978,11 +2987,22 @@ export interface AdminRespondToAuthChallengeRequest {
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
-   *                     "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                     "[code]", "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>EMAIL_OTP</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "EMAIL_OTP", "ChallengeResponses": \{"EMAIL_OTP_CODE":
+   *                     "[code]", "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>PASSWORD_VERIFIER</dt>
    *             <dd>
+   *                <p>This challenge response is part of the SRP flow. Amazon Cognito requires
+   *             that your application respond to this challenge within a few seconds. When
+   *             the response time exceeds this period, your user pool returns a
+   *             <code>NotAuthorizedException</code> error.</p>
    *                <p>
    *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
    *                     \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
@@ -3272,6 +3292,29 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
 }
 
 /**
+ * <p>User preferences for multi-factor authentication with email messages. Activates or
+ *             deactivates email MFA and sets it as the preferred MFA method when multiple methods are
+ *             available. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+ *                      advanced security features</a> must be active in your user pool.</p>
+ * @public
+ */
+export interface EmailMfaSettingsType {
+  /**
+   * <p>Specifies whether email message MFA is active for a user. When the value of this
+   *             parameter is <code>Enabled</code>, the user will be prompted for MFA during all sign-in
+   *             attempts, unless device tracking is turned on and the device has been trusted.</p>
+   * @public
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Specifies whether email message MFA is the user's preferred method.</p>
+   * @public
+   */
+  PreferredMfa?: boolean;
+}
+
+/**
  * <p>The type used for enabling SMS multi-factor authentication (MFA) at the user level.
  *             Phone numbers don't need to be verified to be used for SMS MFA. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
@@ -3282,7 +3325,7 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
  */
 export interface SMSMfaSettingsType {
   /**
-   * <p>Specifies whether SMS text message MFA is activated. If an MFA type is activated for a
+   * <p>Specifies whether SMS message MFA is activated. If an MFA type is activated for a
    *             user, the user will be prompted for MFA during all sign-in attempts, unless device
    *             tracking is turned on and the device has been trusted.</p>
    * @public
@@ -3325,16 +3368,27 @@ export interface SoftwareTokenMfaSettingsType {
  */
 export interface AdminSetUserMFAPreferenceRequest {
   /**
-   * <p>The SMS text message MFA settings.</p>
+   * <p>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it as
+   *             the preferred MFA method when multiple methods are available.</p>
    * @public
    */
   SMSMfaSettings?: SMSMfaSettingsType;
 
   /**
-   * <p>The time-based one-time password software token MFA settings.</p>
+   * <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
+   *             TOTP MFA and sets it as the preferred MFA method when multiple methods are
+   *             available.</p>
    * @public
    */
   SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType;
+
+  /**
+   * <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it
+   *             as the preferred MFA method when multiple methods are available. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+   *                      advanced security features</a> must be active in your user pool.</p>
+   * @public
+   */
+  EmailMfaSettings?: EmailMfaSettingsType;
 
   /**
    * <p>The username of the user that you want to query or modify. The value of this parameter
@@ -3347,7 +3401,7 @@ export interface AdminSetUserMFAPreferenceRequest {
   Username: string | undefined;
 
   /**
-   * <p>The user pool ID.</p>
+   * <p>The ID of the user pool where you want to set a user's MFA preferences.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -6333,7 +6387,7 @@ export interface CreateUserPoolClientRequest {
   TokenValidityUnits?: TokenValidityUnitsType;
 
   /**
-   * <p>The list of user attributes that you want your app client to have read-only access to.
+   * <p>The list of user attributes that you want your app client to have read access to.
    *     After your user authenticates in your app, their access token authorizes them to read
    *     their own attribute value for any attribute in this list. An example of this kind of
    *     activity is when your user selects a link to view their profile information. Your app
@@ -6342,7 +6396,7 @@ export interface CreateUserPoolClientRequest {
    *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
    *     app can read the values of <code>email_verified</code>,
    *         <code>phone_number_verified</code>, and the Standard attributes of your user pool.
-   *     When your user pool has read access to these default attributes,
+   *     When your user pool app client has read access to these default attributes,
    *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
    *     populates <code>ReadAttributes</code> in the API response if you have specified your own
    *     custom set of read attributes.</p>
@@ -6717,7 +6771,7 @@ export interface UserPoolClientType {
   TokenValidityUnits?: TokenValidityUnitsType;
 
   /**
-   * <p>The list of user attributes that you want your app client to have read-only access to.
+   * <p>The list of user attributes that you want your app client to have read access to.
    *     After your user authenticates in your app, their access token authorizes them to read
    *     their own attribute value for any attribute in this list. An example of this kind of
    *     activity is when your user selects a link to view their profile information. Your app
@@ -6726,7 +6780,7 @@ export interface UserPoolClientType {
    *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
    *     app can read the values of <code>email_verified</code>,
    *         <code>phone_number_verified</code>, and the Standard attributes of your user pool.
-   *     When your user pool has read access to these default attributes,
+   *     When your user pool app client has read access to these default attributes,
    *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
    *     populates <code>ReadAttributes</code> in the API response if you have specified your own
    *     custom set of read attributes.</p>
@@ -8259,7 +8313,7 @@ export interface GetUserResponse {
 
   /**
    * <p>The MFA options that are activated for the user. The possible values in this list are
-   *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   *             <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
    * @public
    */
   UserMFASettingList?: string[];
@@ -8347,14 +8401,40 @@ export interface GetUserPoolMfaConfigRequest {
 }
 
 /**
- * <p>The SMS text message multi-factor authentication (MFA) configuration type.</p>
+ * <p>Sets or shows user pool email message configuration for MFA. Includes the subject and
+ *             body of the email message template for MFA messages. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+ *                      advanced security features</a> must be active in your user pool.</p>
+ * @public
+ */
+export interface EmailMfaConfigType {
+  /**
+   * <p>The template for the email message that your user pool sends to users with an MFA
+   *             code. The message must contain the <code>\{####\}</code> placeholder. In the message,
+   *             Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter,
+   *             Amazon Cognito sends messages in the default format.</p>
+   * @public
+   */
+  Message?: string;
+
+  /**
+   * <p>The subject of the email message that your user pool sends to users with an MFA
+   *             code.</p>
+   * @public
+   */
+  Subject?: string;
+}
+
+/**
+ * <p>Configures user pool SMS messages for multi-factor authentication (MFA). Sets the
+ *             message template and the SMS message sending configuration for Amazon SNS.</p>
  * @public
  */
 export interface SmsMfaConfigType {
   /**
-   * <p>The SMS authentication message that will be sent to users with the code they must sign
-   *             in. The message must contain the ‘\{####\}’ placeholder, which is replaced with the code.
-   *             If the message isn't included, and default message will be used.</p>
+   * <p>The SMS message that your user pool sends to users with an MFA code. The message must
+   *             contain the <code>\{####\}</code> placeholder. In the message, Amazon Cognito replaces this
+   *             placeholder with the code. If you don't provide this parameter, Amazon Cognito sends
+   *             messages in the default format.</p>
    * @public
    */
   SmsAuthenticationMessage?: string;
@@ -8370,7 +8450,8 @@ export interface SmsMfaConfigType {
 }
 
 /**
- * <p>The type used for enabling software token MFA at the user pool level.</p>
+ * <p>Configures a user pool for time-based one-time password (TOTP) multi-factor
+ *             authentication (MFA). Enables or disables TOTP.</p>
  * @public
  */
 export interface SoftwareTokenMfaConfigType {
@@ -8386,16 +8467,26 @@ export interface SoftwareTokenMfaConfigType {
  */
 export interface GetUserPoolMfaConfigResponse {
   /**
-   * <p>The SMS text message multi-factor authentication (MFA) configuration.</p>
+   * <p>Shows user pool SMS message configuration for MFA. Includes the message template and
+   *             the SMS message sending configuration for Amazon SNS.</p>
    * @public
    */
   SmsMfaConfiguration?: SmsMfaConfigType;
 
   /**
-   * <p>The software token multi-factor authentication (MFA) configuration.</p>
+   * <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes
+   *             TOTP enabled or disabled state.</p>
    * @public
    */
   SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
+
+  /**
+   * <p>Shows user pool email message configuration for MFA. Includes the subject and body of
+   *             the email message template for MFA messages. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+   *                      advanced security features</a> must be active in your user pool.</p>
+   * @public
+   */
+  EmailMfaConfiguration?: EmailMfaConfigType;
 
   /**
    * <p>The multi-factor authentication (MFA) configuration. Valid values include:</p>
@@ -8636,7 +8727,14 @@ export interface InitiateAuthResponse {
    *             <li>
    *                <p>
    *                   <code>SMS_MFA</code>: Next challenge is to supply an
-   *                     <code>SMS_MFA_CODE</code>, delivered via SMS.</p>
+   *                     <code>SMS_MFA_CODE</code>that your user pool delivered
+   *                     in an SMS message.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMAIL_OTP</code>: Next challenge is to supply an
+   *                     <code>EMAIL_OTP_CODE</code> that your user pool delivered
+   *                     in an email message.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9503,11 +9601,22 @@ export interface RespondToAuthChallengeRequest {
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
-   *                     "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                     "[code]", "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>EMAIL_OTP</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "EMAIL_OTP", "ChallengeResponses": \{"EMAIL_OTP_CODE":
+   *                     "[code]", "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>PASSWORD_VERIFIER</dt>
    *             <dd>
+   *                <p>This challenge response is part of the SRP flow. Amazon Cognito requires
+   *             that your application respond to this challenge within a few seconds. When
+   *             the response time exceeds this period, your user pool returns a
+   *             <code>NotAuthorizedException</code> error.</p>
    *                <p>
    *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
    *                     \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
@@ -9645,64 +9754,6 @@ export interface RespondToAuthChallengeRequest {
    * @public
    */
   ClientMetadata?: Record<string, string>;
-}
-
-/**
- * <p>The response to respond to the authentication challenge.</p>
- * @public
- */
-export interface RespondToAuthChallengeResponse {
-  /**
-   * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
-   * @public
-   */
-  ChallengeName?: ChallengeNameType;
-
-  /**
-   * <p>The session that should be passed both ways in challenge-response calls to the
-   *             service. If the caller must pass another challenge, they return a session with other
-   *             challenge parameters. This session should be passed as it is to the next
-   *                 <code>RespondToAuthChallenge</code> API call.</p>
-   * @public
-   */
-  Session?: string;
-
-  /**
-   * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
-   * @public
-   */
-  ChallengeParameters?: Record<string, string>;
-
-  /**
-   * <p>The result returned by the server in response to the request to respond to the
-   *             authentication challenge.</p>
-   * @public
-   */
-  AuthenticationResult?: AuthenticationResultType;
-}
-
-/**
- * @public
- */
-export interface RevokeTokenRequest {
-  /**
-   * <p>The refresh token that you want to revoke.</p>
-   * @public
-   */
-  Token: string | undefined;
-
-  /**
-   * <p>The client ID for the token that you want to revoke.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The secret for the client ID. This is required only if the client ID has a
-   *             secret.</p>
-   * @public
-   */
-  ClientSecret?: string;
 }
 
 /**
@@ -10341,25 +10392,4 @@ export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAu
   ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
   ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RespondToAuthChallengeResponseFilterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
-  ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.AuthenticationResult && {
-    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
-  }),
-});
-
-/**
- * @internal
- */
-export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): any => ({
-  ...obj,
-  ...(obj.Token && { Token: SENSITIVE_STRING }),
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
 });

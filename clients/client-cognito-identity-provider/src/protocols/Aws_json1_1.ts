@@ -399,6 +399,8 @@ import {
   DeviceType,
   DuplicateProviderException,
   EmailConfigurationType,
+  EmailMfaConfigType,
+  EmailMfaSettingsType,
   EventFeedbackType,
   EventFilterType,
   ExpiredCodeException,
@@ -476,7 +478,6 @@ import {
   ResourceNotFoundException,
   ResourceServerScopeType,
   RespondToAuthChallengeRequest,
-  RevokeTokenRequest,
   RiskConfigurationType,
   RiskExceptionConfigurationType,
   S3ConfigurationType,
@@ -519,6 +520,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  RevokeTokenRequest,
   SetLogDeliveryConfigurationRequest,
   SetRiskConfigurationRequest,
   SetRiskConfigurationResponse,
@@ -3989,6 +3991,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
       throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
+    case "InvalidEmailRoleAccessPolicyException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
       throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
@@ -4001,9 +4006,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
       throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
       throw await de_CodeMismatchExceptionRes(parsedOutput, context);
@@ -4903,6 +4905,10 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_EmailConfigurationType omitted.
 
+// se_EmailMfaConfigType omitted.
+
+// se_EmailMfaSettingsType omitted.
+
 // se_EventFiltersType omitted.
 
 // se_ExplicitAuthFlowsListType omitted.
@@ -5450,6 +5456,8 @@ const de_DeviceType = (output: any, context: __SerdeContext): DeviceType => {
 // de_DuplicateProviderException omitted.
 
 // de_EmailConfigurationType omitted.
+
+// de_EmailMfaConfigType omitted.
 
 // de_EnableSoftwareTokenMFAException omitted.
 

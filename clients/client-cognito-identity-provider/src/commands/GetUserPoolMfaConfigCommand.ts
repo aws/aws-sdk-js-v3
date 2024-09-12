@@ -56,6 +56,10 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * //   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  * //     Enabled: true || false,
  * //   },
+ * //   EmailMfaConfiguration: { // EmailMfaConfigType
+ * //     Message: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //   },
  * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
  * // };
  *

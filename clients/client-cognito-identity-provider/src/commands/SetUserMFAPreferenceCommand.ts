@@ -67,6 +67,10 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },
+ *   EmailMfaSettings: { // EmailMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
  *   AccessToken: "STRING_VALUE", // required
  * };
  * const command = new SetUserMFAPreferenceCommand(input);

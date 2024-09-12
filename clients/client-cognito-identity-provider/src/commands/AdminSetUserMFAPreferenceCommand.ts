@@ -36,11 +36,11 @@ export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPr
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
- * <p>The user's multi-factor authentication (MFA) preference, including which MFA options
- *             are activated, and if any are preferred. Only one factor can be set as preferred. The
- *             preferred MFA factor will be used to authenticate a user if multiple factors are
- *             activated. If multiple options are activated and no preference is set, a challenge to
- *             choose an MFA option will be returned during sign-in.</p>
+ * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA
+ *             options are activated, and if any are preferred. Only one factor can be set as
+ *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
+ *             factors are activated. If multiple options are activated and no preference is set, a
+ *             challenge to choose an MFA option will be returned during sign-in.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -73,6 +73,10 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *     PreferredMfa: true || false,
  *   },
  *   SoftwareTokenMfaSettings: { // SoftwareTokenMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   EmailMfaSettings: { // EmailMfaSettingsType
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },

@@ -10,12 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RespondToAuthChallengeRequest,
-  RespondToAuthChallengeRequestFilterSensitiveLog,
-  RespondToAuthChallengeResponse,
-  RespondToAuthChallengeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RespondToAuthChallengeRequest, RespondToAuthChallengeRequestFilterSensitiveLog } from "../models/models_0";
+import { RespondToAuthChallengeResponse, RespondToAuthChallengeResponseFilterSensitiveLog } from "../models/models_1";
 import { de_RespondToAuthChallengeCommand, se_RespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -58,7 +54,7 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -75,7 +71,7 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // RespondToAuthChallengeRequest
  *   ClientId: "STRING_VALUE", // required
- *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
+ *   ChallengeName: "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
  *   Session: "STRING_VALUE",
  *   ChallengeResponses: { // ChallengeResponsesType
  *     "<keys>": "STRING_VALUE",
@@ -94,7 +90,7 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * const command = new RespondToAuthChallengeCommand(input);
  * const response = await client.send(command);
  * // { // RespondToAuthChallengeResponse
- * //   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
+ * //   ChallengeName: "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
  * //   Session: "STRING_VALUE",
  * //   ChallengeParameters: { // ChallengeParametersType
  * //     "<keys>": "STRING_VALUE",
@@ -140,6 +136,10 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
  *
  * @throws {@link InvalidLambdaResponseException} (client fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
