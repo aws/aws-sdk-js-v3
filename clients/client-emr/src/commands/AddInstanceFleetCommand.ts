@@ -105,10 +105,17 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  *     },
  *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *       SpotResizeSpecification: { // SpotResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  *       },
  *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "lowest-price" || "prioritized",
+ *         CapacityReservationOptions: {
+ *           UsageStrategy: "use-capacity-reservations-first",
+ *           CapacityReservationPreference: "open" || "none",
+ *           CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *         },
  *       },
  *     },
  *   },

@@ -832,7 +832,7 @@ export const se_ModifyInstanceFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyInstanceFleet");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2428,7 +2428,18 @@ const se_InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __Ser
     });
 };
 
-// se_InstanceFleetModifyConfig omitted.
+/**
+ * serializeAws_json1_1InstanceFleetModifyConfig
+ */
+const se_InstanceFleetModifyConfig = (input: InstanceFleetModifyConfig, context: __SerdeContext): any => {
+  return take(input, {
+    InstanceFleetId: [],
+    InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
+    ResizeSpecifications: _json,
+    TargetOnDemandCapacity: [],
+    TargetSpotCapacity: [],
+  });
+};
 
 // se_InstanceFleetProvisioningSpecifications omitted.
 
@@ -2609,7 +2620,15 @@ const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, cont
 
 // se_ModifyClusterInput omitted.
 
-// se_ModifyInstanceFleetInput omitted.
+/**
+ * serializeAws_json1_1ModifyInstanceFleetInput
+ */
+const se_ModifyInstanceFleetInput = (input: ModifyInstanceFleetInput, context: __SerdeContext): any => {
+  return take(input, {
+    ClusterId: [],
+    InstanceFleet: (_) => se_InstanceFleetModifyConfig(_, context),
+  });
+};
 
 /**
  * serializeAws_json1_1ModifyInstanceGroupsInput

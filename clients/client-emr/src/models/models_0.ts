@@ -332,8 +332,7 @@ export interface SpotProvisioningSpecification {
 }
 
 /**
- * <p>The launch specification for Spot Instances in the fleet, which determines the defined
- *          duration, provisioning timeout behavior, and allocation strategy.</p>
+ * <p>The launch specification for On-Demand and Spot Instances in the fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
  *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
@@ -343,15 +342,15 @@ export interface SpotProvisioningSpecification {
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot instances in the fleet, which determines the defined
-   *          duration, provisioning timeout behavior, and allocation strategy.</p>
+   * <p>The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined
+   *          duration, and provisioning timeout behavior.</p>
    * @public
    */
   SpotSpecification?: SpotProvisioningSpecification;
 
   /**
    * <p> The launch specification for On-Demand Instances in the instance fleet, which
-   *          determines the allocation strategy. </p>
+   *          determines the allocation strategy and capacity reservation options.</p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR releases
    *             4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is
@@ -377,7 +376,20 @@ export interface OnDemandResizingSpecification {
    *             Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
    * @public
    */
-  TimeoutDurationMinutes: number | undefined;
+  TimeoutDurationMinutes?: number;
+
+  /**
+   * <p>Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is <code>lowest-price</code>.</p>
+   * @public
+   */
+  AllocationStrategy?: OnDemandProvisioningAllocationStrategy;
+
+  /**
+   * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
+   *          capacity.</p>
+   * @public
+   */
+  CapacityReservationOptions?: OnDemandCapacityReservationOptions;
 }
 
 /**
@@ -395,7 +407,15 @@ export interface SpotResizingSpecification {
    *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
    * @public
    */
-  TimeoutDurationMinutes: number | undefined;
+  TimeoutDurationMinutes?: number;
+
+  /**
+   * <p>Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher,
+   *       the default is <code>price-capacity-optimized</code>. If you run Amazon EMR releases 6.8.0 or lower, the default is
+   *       <code>capacity-optimized</code>.</p>
+   * @public
+   */
+  AllocationStrategy?: SpotProvisioningAllocationStrategy;
 }
 
 /**
@@ -405,14 +425,14 @@ export interface SpotResizingSpecification {
 export interface InstanceFleetResizingSpecifications {
   /**
    * <p>The resize specification for Spot Instances in the instance fleet, which contains the
-   *          resize timeout period. </p>
+   *          allocation strategy and the resize timeout period. </p>
    * @public
    */
   SpotResizeSpecification?: SpotResizingSpecification;
 
   /**
    * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
-   *          the resize timeout period. </p>
+   *          the allocation strategy, capacity reservation options, and the resize timeout period. </p>
    * @public
    */
   OnDemandResizeSpecification?: OnDemandResizingSpecification;
@@ -5447,59 +5467,6 @@ export interface ModifyClusterOutput {
 }
 
 /**
- * <p>Configuration parameters for an instance fleet modification request.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
- * @public
- */
-export interface InstanceFleetModifyConfig {
-  /**
-   * <p>A unique identifier for the instance fleet.</p>
-   * @public
-   */
-  InstanceFleetId: string | undefined;
-
-  /**
-   * <p>The target capacity of On-Demand units for the instance fleet. For more information see
-   *             <a>InstanceFleetConfig$TargetOnDemandCapacity</a>.</p>
-   * @public
-   */
-  TargetOnDemandCapacity?: number;
-
-  /**
-   * <p>The target capacity of Spot units for the instance fleet. For more information, see
-   *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
-   * @public
-   */
-  TargetSpotCapacity?: number;
-
-  /**
-   * <p>The resize specification for the instance fleet.</p>
-   * @public
-   */
-  ResizeSpecifications?: InstanceFleetResizingSpecifications;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceFleetInput {
-  /**
-   * <p>The unique identifier of the cluster.</p>
-   * @public
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * <p>The configuration parameters of the instance fleet.</p>
-   * @public
-   */
-  InstanceFleet: InstanceFleetModifyConfig | undefined;
-}
-
-/**
  * @public
  * @enum
  */
@@ -6982,6 +6949,49 @@ export interface InstanceFleetConfig {
 }
 
 /**
+ * <p>Configuration parameters for an instance fleet modification request.</p>
+ *          <note>
+ *             <p>The instance fleet configuration is available only in Amazon EMR releases
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
+ *          </note>
+ * @public
+ */
+export interface InstanceFleetModifyConfig {
+  /**
+   * <p>A unique identifier for the instance fleet.</p>
+   * @public
+   */
+  InstanceFleetId: string | undefined;
+
+  /**
+   * <p>The target capacity of On-Demand units for the instance fleet. For more information see
+   *             <a>InstanceFleetConfig$TargetOnDemandCapacity</a>.</p>
+   * @public
+   */
+  TargetOnDemandCapacity?: number;
+
+  /**
+   * <p>The target capacity of Spot units for the instance fleet. For more information, see
+   *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
+   * @public
+   */
+  TargetSpotCapacity?: number;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   * @public
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
+
+  /**
+   * <p>An array of InstanceTypeConfig objects that specify how Amazon EMR provisions Amazon EC2 instances
+   *          when it fulfills On-Demand and Spot capacities. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html">InstanceTypeConfig</a>.</p>
+   * @public
+   */
+  InstanceTypeConfigs?: InstanceTypeConfig[];
+}
+
+/**
  * <p>Change the size of some instance groups.</p>
  * @public
  */
@@ -7144,6 +7154,23 @@ export interface InstanceGroup {
    * @public
    */
   CustomAmiId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceFleetInput {
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>The configuration parameters of the instance fleet.</p>
+   * @public
+   */
+  InstanceFleet: InstanceFleetModifyConfig | undefined;
 }
 
 /**

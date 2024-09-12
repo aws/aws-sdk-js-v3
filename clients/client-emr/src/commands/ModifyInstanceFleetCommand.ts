@@ -49,12 +49,60 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  *     TargetSpotCapacity: Number("int"),
  *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *       SpotResizeSpecification: { // SpotResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  *       },
  *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "lowest-price" || "prioritized",
+ *         CapacityReservationOptions: { // OnDemandCapacityReservationOptions
+ *           UsageStrategy: "use-capacity-reservations-first",
+ *           CapacityReservationPreference: "open" || "none",
+ *           CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *         },
  *       },
  *     },
+ *     InstanceTypeConfigs: [ // InstanceTypeConfigList
+ *       { // InstanceTypeConfig
+ *         InstanceType: "STRING_VALUE", // required
+ *         WeightedCapacity: Number("int"),
+ *         BidPrice: "STRING_VALUE",
+ *         BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ *         EbsConfiguration: { // EbsConfiguration
+ *           EbsBlockDeviceConfigs: [ // EbsBlockDeviceConfigList
+ *             { // EbsBlockDeviceConfig
+ *               VolumeSpecification: { // VolumeSpecification
+ *                 VolumeType: "STRING_VALUE", // required
+ *                 Iops: Number("int"),
+ *                 SizeInGB: Number("int"), // required
+ *                 Throughput: Number("int"),
+ *               },
+ *               VolumesPerInstance: Number("int"),
+ *             },
+ *           ],
+ *           EbsOptimized: true || false,
+ *         },
+ *         Configurations: [ // ConfigurationList
+ *           { // Configuration
+ *             Classification: "STRING_VALUE",
+ *             Configurations: [
+ *               {
+ *                 Classification: "STRING_VALUE",
+ *                 Configurations: "<ConfigurationList>",
+ *                 Properties: { // StringMap
+ *                   "<keys>": "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *             Properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         CustomAmiId: "STRING_VALUE",
+ *         Priority: Number("double"),
+ *       },
+ *     ],
  *   },
  * };
  * const command = new ModifyInstanceFleetCommand(input);
