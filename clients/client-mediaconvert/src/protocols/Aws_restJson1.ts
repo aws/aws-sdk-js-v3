@@ -58,6 +58,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -175,6 +176,8 @@ import {
   VideoOverlay,
   VideoOverlayInput,
   VideoOverlayInputClipping,
+  VideoOverlayPosition,
+  VideoOverlayTransition,
   VideoSelector,
   VorbisSettings,
   WavSettings,
@@ -186,12 +189,10 @@ import {
   Av1Settings,
   AvcIntraSettings,
   AvcIntraUhdSettings,
-  BadRequestException,
   BandwidthReductionFilter,
   ClipLimits,
   CmfcSettings,
   ColorCorrector,
-  ConflictException,
   ContainerSettings,
   Deinterlacer,
   DolbyVision,
@@ -200,7 +201,6 @@ import {
   DvbSdtSettings,
   DvbTdtSettings,
   F4vSettings,
-  ForbiddenException,
   FrameCaptureSettings,
   H264QvbrSettings,
   H264Settings,
@@ -208,8 +208,8 @@ import {
   H265Settings,
   Hdr10Plus,
   HlsSettings,
-  InternalServerErrorException,
   Job,
+  JobEngineVersion,
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
@@ -227,7 +227,6 @@ import {
   NoiseReducerFilterSettings,
   NoiseReducerSpatialFilterSettings,
   NoiseReducerTemporalFilterSettings,
-  NotFoundException,
   Output,
   OutputGroup,
   OutputSettings,
@@ -256,7 +255,17 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
-import { Policy, ReservationPlanSettings, ResourceTags, TooManyRequestsException } from "../models/models_2";
+import {
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  Policy,
+  ReservationPlanSettings,
+  ResourceTags,
+  TooManyRequestsException,
+} from "../models/models_2";
 
 /**
  * serializeAws_restJson1AssociateCertificateCommand
@@ -315,6 +324,7 @@ export const se_CreateJobCommand = async (
       billingTagsSource: [, , `BillingTagsSource`],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientRequestToken`],
       hopDestinations: [, (_) => se___listOfHopDestination(_, context), `HopDestinations`],
+      jobEngineVersion: [, , `JobEngineVersion`],
       jobTemplate: [, , `JobTemplate`],
       priority: [, , `Priority`],
       queue: [, , `Queue`],
@@ -693,6 +703,25 @@ export const se_ListTagsForResourceCommand = async (
   b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListVersionsCommand
+ */
+export const se_ListVersionsCommand = async (
+  input: ListVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2017-08-29/versions");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1307,6 +1336,28 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListVersionsCommand
+ */
+export const de_ListVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Versions: [, (_) => de___listOfJobEngineVersion(_, context), `versions`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutPolicyCommand
  */
 export const de_PutPolicyCommand = async (
@@ -1876,6 +1927,17 @@ const se___listOfVideoOverlayInputClipping = (input: VideoOverlayInputClipping[]
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_VideoOverlayInputClipping(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfVideoOverlayTransition
+ */
+const se___listOfVideoOverlayTransition = (input: VideoOverlayTransition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlayTransition(entry, context);
     });
 };
 
@@ -2838,6 +2900,7 @@ const se_FileGroupSettings = (input: FileGroupSettings, context: __SerdeContext)
  */
 const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContext): any => {
   return take(input, {
+    byteRateLimit: [, , `ByteRateLimit`],
     convert608To708: [, , `Convert608To708`],
     convertPaintToPop: [, , `ConvertPaintToPop`],
     framerate: [, (_) => se_CaptionSourceFramerate(_, context), `Framerate`],
@@ -2929,6 +2992,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     qvbrSettings: [, (_) => se_H264QvbrSettings(_, context), `QvbrSettings`],
     rateControlMode: [, , `RateControlMode`],
     repeatPps: [, , `RepeatPps`],
+    saliencyAwareEncoding: [, , `SaliencyAwareEncoding`],
     scanTypeConversionMode: [, , `ScanTypeConversionMode`],
     sceneChangeDetect: [, , `SceneChangeDetect`],
     slices: [, , `Slices`],
@@ -4190,8 +4254,11 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
 const se_VideoOverlay = (input: VideoOverlay, context: __SerdeContext): any => {
   return take(input, {
     endTimecode: [, , `EndTimecode`],
+    initialPosition: [, (_) => se_VideoOverlayPosition(_, context), `InitialPosition`],
     input: [, (_) => se_VideoOverlayInput(_, context), `Input`],
+    playback: [, , `Playback`],
     startTimecode: [, , `StartTimecode`],
+    transitions: [, (_) => se___listOfVideoOverlayTransition(_, context), `Transitions`],
   });
 };
 
@@ -4212,6 +4279,30 @@ const se_VideoOverlayInput = (input: VideoOverlayInput, context: __SerdeContext)
  */
 const se_VideoOverlayInputClipping = (input: VideoOverlayInputClipping, context: __SerdeContext): any => {
   return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayPosition
+ */
+const se_VideoOverlayPosition = (input: VideoOverlayPosition, context: __SerdeContext): any => {
+  return take(input, {
+    height: [, , `Height`],
+    unit: [, , `Unit`],
+    width: [, , `Width`],
+    xPosition: [, , `XPosition`],
+    yPosition: [, , `YPosition`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayTransition
+ */
+const se_VideoOverlayTransition = (input: VideoOverlayTransition, context: __SerdeContext): any => {
+  return take(input, {
+    endPosition: [, (_) => se_VideoOverlayPosition(_, context), `EndPosition`],
     endTimecode: [, , `EndTimecode`],
     startTimecode: [, , `StartTimecode`],
   });
@@ -4698,6 +4789,18 @@ const de___listOfJob = (output: any, context: __SerdeContext): Job[] => {
 };
 
 /**
+ * deserializeAws_restJson1__listOfJobEngineVersion
+ */
+const de___listOfJobEngineVersion = (output: any, context: __SerdeContext): JobEngineVersion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobEngineVersion(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfJobTemplate
  */
 const de___listOfJobTemplate = (output: any, context: __SerdeContext): JobTemplate[] => {
@@ -4839,6 +4942,18 @@ const de___listOfVideoOverlayInputClipping = (output: any, context: __SerdeConte
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_VideoOverlayInputClipping(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfVideoOverlayTransition
+ */
+const de___listOfVideoOverlayTransition = (output: any, context: __SerdeContext): VideoOverlayTransition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlayTransition(entry, context);
     });
   return retVal;
 };
@@ -5838,6 +5953,7 @@ const de_FileGroupSettings = (output: any, context: __SerdeContext): FileGroupSe
  */
 const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSourceSettings => {
   return take(output, {
+    ByteRateLimit: [, __expectString, `byteRateLimit`],
     Convert608To708: [, __expectString, `convert608To708`],
     ConvertPaintToPop: [, __expectString, `convertPaintToPop`],
     Framerate: [, (_: any) => de_CaptionSourceFramerate(_, context), `framerate`],
@@ -5929,6 +6045,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     QvbrSettings: [, (_: any) => de_H264QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     RepeatPps: [, __expectString, `repeatPps`],
+    SaliencyAwareEncoding: [, __expectString, `saliencyAwareEncoding`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
     SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
     Slices: [, __expectInt32, `slices`],
@@ -6340,6 +6457,8 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     ErrorMessage: [, __expectString, `errorMessage`],
     HopDestinations: [, (_: any) => de___listOfHopDestination(_, context), `hopDestinations`],
     Id: [, __expectString, `id`],
+    JobEngineVersionRequested: [, __expectString, `jobEngineVersionRequested`],
+    JobEngineVersionUsed: [, __expectString, `jobEngineVersionUsed`],
     JobPercentComplete: [, __expectInt32, `jobPercentComplete`],
     JobTemplate: [, __expectString, `jobTemplate`],
     Messages: [, (_: any) => de_JobMessages(_, context), `messages`],
@@ -6356,6 +6475,16 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     Timing: [, (_: any) => de_Timing(_, context), `timing`],
     UserMetadata: [, _json, `userMetadata`],
     Warnings: [, (_: any) => de___listOfWarningGroup(_, context), `warnings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1JobEngineVersion
+ */
+const de_JobEngineVersion = (output: any, context: __SerdeContext): JobEngineVersion => {
+  return take(output, {
+    ExpirationDate: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `expirationDate`],
+    Version: [, __expectString, `version`],
   }) as any;
 };
 
@@ -7375,8 +7504,11 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
 const de_VideoOverlay = (output: any, context: __SerdeContext): VideoOverlay => {
   return take(output, {
     EndTimecode: [, __expectString, `endTimecode`],
+    InitialPosition: [, (_: any) => de_VideoOverlayPosition(_, context), `initialPosition`],
     Input: [, (_: any) => de_VideoOverlayInput(_, context), `input`],
+    Playback: [, __expectString, `playback`],
     StartTimecode: [, __expectString, `startTimecode`],
+    Transitions: [, (_: any) => de___listOfVideoOverlayTransition(_, context), `transitions`],
   }) as any;
 };
 
@@ -7397,6 +7529,30 @@ const de_VideoOverlayInput = (output: any, context: __SerdeContext): VideoOverla
  */
 const de_VideoOverlayInputClipping = (output: any, context: __SerdeContext): VideoOverlayInputClipping => {
   return take(output, {
+    EndTimecode: [, __expectString, `endTimecode`],
+    StartTimecode: [, __expectString, `startTimecode`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayPosition
+ */
+const de_VideoOverlayPosition = (output: any, context: __SerdeContext): VideoOverlayPosition => {
+  return take(output, {
+    Height: [, __expectInt32, `height`],
+    Unit: [, __expectString, `unit`],
+    Width: [, __expectInt32, `width`],
+    XPosition: [, __expectInt32, `xPosition`],
+    YPosition: [, __expectInt32, `yPosition`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayTransition
+ */
+const de_VideoOverlayTransition = (output: any, context: __SerdeContext): VideoOverlayTransition => {
+  return take(output, {
+    EndPosition: [, (_: any) => de_VideoOverlayPosition(_, context), `endPosition`],
     EndTimecode: [, __expectString, `endTimecode`],
     StartTimecode: [, __expectString, `startTimecode`],
   }) as any;

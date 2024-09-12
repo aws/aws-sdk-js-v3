@@ -304,7 +304,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         TimedMetadataSchemeIdUri: "STRING_VALUE",
  *         TimedMetadataValue: "STRING_VALUE",
  *       },
- *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
+ *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "OGG" || "WEBM" || "RAW" || "Y4M",
  *       F4vSettings: { // F4vSettings
  *         MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *       },
@@ -516,6 +516,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           },
  *           RateControlMode: "VBR" || "CBR" || "QVBR",
  *           RepeatPps: "DISABLED" || "ENABLED",
+ *           SaliencyAwareEncoding: "DISABLED" || "PREFERRED",
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  *           SceneChangeDetect: "DISABLED" || "ENABLED" || "TRANSITION_DETECTION",
  *           Slices: Number("int"),
@@ -1124,7 +1125,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           TimedMetadataSchemeIdUri: "STRING_VALUE",
  * //           TimedMetadataValue: "STRING_VALUE",
  * //         },
- * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
+ * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "OGG" || "WEBM" || "RAW" || "Y4M",
  * //         F4vSettings: { // F4vSettings
  * //           MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //         },
@@ -1336,6 +1337,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             },
  * //             RateControlMode: "VBR" || "CBR" || "QVBR",
  * //             RepeatPps: "DISABLED" || "ENABLED",
+ * //             SaliencyAwareEncoding: "DISABLED" || "PREFERRED",
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //             SceneChangeDetect: "DISABLED" || "ENABLED" || "TRANSITION_DETECTION",
  * //             Slices: Number("int"),

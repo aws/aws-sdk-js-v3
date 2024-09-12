@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_2";
-import { de_AssociateCertificateCommand, se_AssociateCertificateCommand } from "../protocols/Aws_restJson1";
+import { ListVersionsRequest, ListVersionsResponse } from "../models/models_2";
+import { de_ListVersionsCommand, se_ListVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,37 +17,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link AssociateCertificateCommand}.
+ * The input for {@link ListVersionsCommand}.
  */
-export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
+export interface ListVersionsCommandInput extends ListVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateCertificateCommand}.
+ * The output of {@link ListVersionsCommand}.
  */
-export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
+export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
- * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+ * Retrieve a JSON array of all available Job engine versions and the date they expire.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, AssociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, ListVersionsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, ListVersionsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = { // AssociateCertificateRequest
- *   Arn: "STRING_VALUE", // required
+ * const input = { // ListVersionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new AssociateCertificateCommand(input);
+ * const command = new ListVersionsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfJobEngineVersion
+ * //     { // JobEngineVersion
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param AssociateCertificateCommandInput - {@link AssociateCertificateCommandInput}
- * @returns {@link AssociateCertificateCommandOutput}
- * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
- * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
+ * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
+ * @returns {@link ListVersionsCommandOutput}
+ * @see {@link ListVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListVersionsCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -73,10 +82,10 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  *
  * @public
  */
-export class AssociateCertificateCommand extends $Command
+export class ListVersionsCommand extends $Command
   .classBuilder<
-    AssociateCertificateCommandInput,
-    AssociateCertificateCommandOutput,
+    ListVersionsCommandInput,
+    ListVersionsCommandOutput,
     MediaConvertClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -88,9 +97,9 @@ export class AssociateCertificateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaConvert", "AssociateCertificate", {})
-  .n("MediaConvertClient", "AssociateCertificateCommand")
+  .s("MediaConvert", "ListVersions", {})
+  .n("MediaConvertClient", "ListVersionsCommand")
   .f(void 0, void 0)
-  .ser(se_AssociateCertificateCommand)
-  .de(de_AssociateCertificateCommand)
+  .ser(se_ListVersionsCommand)
+  .de(de_ListVersionsCommand)
   .build() {}

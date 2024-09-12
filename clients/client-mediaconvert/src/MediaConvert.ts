@@ -68,6 +68,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVersionsCommand,
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
+} from "./commands/ListVersionsCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -112,6 +117,7 @@ const commands = {
   ListPresetsCommand,
   ListQueuesCommand,
   ListTagsForResourceCommand,
+  ListVersionsCommand,
   PutPolicyCommand,
   SearchJobsCommand,
   TagResourceCommand,
@@ -414,6 +420,18 @@ export interface MediaConvert {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   */
+  listVersions(): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
   /**

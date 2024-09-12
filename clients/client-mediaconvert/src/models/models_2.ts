@@ -8,6 +8,7 @@ import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } fro
 import {
   Commitment,
   Job,
+  JobEngineVersion,
   JobSettings,
   JobStatus,
   JobTemplate,
@@ -21,6 +22,132 @@ import {
   SimulateReservedQueue,
   StatusUpdateInterval,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface AssociateCertificateRequest {
+  /**
+   * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateCertificateResponse {}
+
+/**
+ * The service can't process your request because of a problem in the request. Please check your request form and syntax.
+ * @public
+ */
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * The service couldn't complete your request because there is a conflict with the current state of the resource.
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * You don't have permissions for this action with the credentials you sent.
+ * @public
+ */
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * The service encountered an unexpected condition and can't fulfill your request.
+ * @public
+ */
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * The resource you requested doesn't exist.
+ * @public
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
@@ -87,6 +214,12 @@ export interface CreateJobRequest {
    * @public
    */
   HopDestinations?: HopDestination[];
+
+  /**
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. To specify a Job engine version: Enter a date in a YYYY-MM-DD format. For a list of valid Job engine versions, submit a ListVersions request. To not specify a Job engine version: Leave blank.
+   * @public
+   */
+  JobEngineVersion?: string;
 
   /**
    * Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
@@ -922,6 +1055,40 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   ResourceTags?: ResourceTags;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsRequest {
+  /**
+   * Optional. Number of valid Job engine versions, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * Retrieve a JSON array of all available Job engine versions and the date they expire.
+   * @public
+   */
+  Versions?: JobEngineVersion[];
 }
 
 /**

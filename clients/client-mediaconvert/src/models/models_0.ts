@@ -342,7 +342,7 @@ export interface AacSettings {
   Bitrate?: number;
 
   /**
-   * AAC Profile.
+   * Specify the AAC profile. For the widest player compatibility and where higher bitrates are acceptable: Keep the default profile, LC (AAC-LC) For improved audio performance at lower bitrates: Choose HEV1 or HEV2. HEV1 (AAC-HE v1) adds spectral band replication to improve speech audio at low bitrates. HEV2 (AAC-HE v2) adds parametric stereo, which optimizes for encoding stereo audio at very low bitrates.
    * @public
    */
   CodecProfile?: AacCodecProfile;
@@ -354,7 +354,7 @@ export interface AacSettings {
   CodingMode?: AacCodingMode;
 
   /**
-   * Rate Control Mode.
+   * Specify the AAC rate control mode. For a constant bitrate: Choose CBR. Your AAC output bitrate will be equal to the value that you choose for Bitrate. For a variable bitrate: Choose VBR. Your AAC output bitrate will vary according to your audio content and the value that you choose for Bitrate quality.
    * @public
    */
   RateControlMode?: AacRateControlMode;
@@ -366,7 +366,7 @@ export interface AacSettings {
   RawFormat?: AacRawFormat;
 
   /**
-   * Specify the Sample rate in Hz. Valid sample rates depend on the Profile and Coding mode that you select. The following list shows valid sample rates for each Profile and Coding mode. * LC Profile, Coding mode 1.0, 2.0, and Receiver Mix: 8000, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000. * LC Profile, Coding mode 5.1: 32000, 44100, 48000, 96000. * HEV1 Profile, Coding mode 1.0 and Receiver Mix: 22050, 24000, 32000, 44100, 48000. * HEV1 Profile, Coding mode 2.0 and 5.1: 32000, 44100, 48000, 96000. * HEV2 Profile, Coding mode 2.0: 22050, 24000, 32000, 44100, 48000.
+   * Specify the AAC sample rate in samples per second (Hz). Valid sample rates depend on the AAC profile and Coding mode that you select. For a list of supported sample rates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html
    * @public
    */
   SampleRate?: number;
@@ -378,7 +378,7 @@ export interface AacSettings {
   Specification?: AacSpecification;
 
   /**
-   * VBR Quality Level - Only used if rate_control_mode is VBR.
+   * Specify the quality of your variable bitrate (VBR) AAC audio. For a list of approximate VBR bitrates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html#aac_vbr
    * @public
    */
   VbrQuality?: AacVbrQuality;
@@ -3325,6 +3325,7 @@ export interface AudioSelectorGroup {
 export const AudioDurationCorrection = {
   AUTO: "AUTO",
   DISABLED: "DISABLED",
+  FORCE: "FORCE",
   FRAME: "FRAME",
   TRACK: "TRACK",
 } as const;
@@ -3394,7 +3395,7 @@ export type AudioSelectorType = (typeof AudioSelectorType)[keyof typeof AudioSel
  */
 export interface AudioSelector {
   /**
-   * Apply audio timing corrections to help synchronize audio and video in your output. To apply timing corrections, your input must meet the following requirements: * Container: MP4, or MOV, with an accurate time-to-sample (STTS) table. * Audio track: AAC. Choose from the following audio timing correction settings: * Disabled (Default): Apply no correction. * Auto: Recommended for most inputs. MediaConvert analyzes the audio timing in your input and determines which correction setting to use, if needed. * Track: Adjust the duration of each audio frame by a constant amount to align the audio track length with STTS duration. Track-level correction does not affect pitch, and is recommended for tonal audio content such as music. * Frame: Adjust the duration of each audio frame by a variable amount to align audio frames with STTS timestamps. No corrections are made to already-aligned frames. Frame-level correction may affect the pitch of corrected frames, and is recommended for atonal audio content such as speech or percussion.
+   * Apply audio timing corrections to help synchronize audio and video in your output. To apply timing corrections, your input must meet the following requirements: * Container: MP4, or MOV, with an accurate time-to-sample (STTS) table. * Audio track: AAC. Choose from the following audio timing correction settings: * Disabled (Default): Apply no correction. * Auto: Recommended for most inputs. MediaConvert analyzes the audio timing in your input and determines which correction setting to use, if needed. * Track: Adjust the duration of each audio frame by a constant amount to align the audio track length with STTS duration. Track-level correction does not affect pitch, and is recommended for tonal audio content such as music. * Frame: Adjust the duration of each audio frame by a variable amount to align audio frames with STTS timestamps. No corrections are made to already-aligned frames. Frame-level correction may affect the pitch of corrected frames, and is recommended for atonal audio content such as speech or percussion. * Force: Apply audio duration correction, either Track or Frame depending on your input, regardless of the accuracy of your input's STTS table. Your output audio and video may not be aligned or it may contain audio artifacts.
    * @public
    */
   AudioDurationCorrection?: AudioDurationCorrection;
@@ -3592,6 +3593,20 @@ export interface EmbeddedSourceSettings {
  * @public
  * @enum
  */
+export const CaptionSourceByteRateLimit = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CaptionSourceByteRateLimit = (typeof CaptionSourceByteRateLimit)[keyof typeof CaptionSourceByteRateLimit];
+
+/**
+ * @public
+ * @enum
+ */
 export const FileSourceConvert608To708 = {
   DISABLED: "DISABLED",
   UPCONVERT: "UPCONVERT",
@@ -3654,6 +3669,12 @@ export type FileSourceTimeDeltaUnits = (typeof FileSourceTimeDeltaUnits)[keyof t
  * @public
  */
 export interface FileSourceSettings {
+  /**
+   * Choose whether to limit the byte rate at which your SCC input captions are inserted into your output. To not limit the caption rate: We recommend that you keep the default value, Disabled. MediaConvert inserts captions in your output according to the byte rates listed in the EIA-608 specification, typically 2 or 3 caption bytes per frame depending on your output frame rate. To limit your output caption rate: Choose Enabled. Choose this option if your downstream systems require a maximum of 2 caption bytes per frame. Note that this setting has no effect when your output frame rate is 30 or 60.
+   * @public
+   */
+  ByteRateLimit?: CaptionSourceByteRateLimit;
+
   /**
    * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert, MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
    * @public
@@ -4151,6 +4172,56 @@ export interface InputVideoGenerator {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoOverlayUnit = {
+  PERCENTAGE: "PERCENTAGE",
+  PIXELS: "PIXELS",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoOverlayUnit = (typeof VideoOverlayUnit)[keyof typeof VideoOverlayUnit];
+
+/**
+ * position of video overlay
+ * @public
+ */
+export interface VideoOverlayPosition {
+  /**
+   * To scale your video overlay to the same height as the base input video: Leave blank. To scale the height of your video overlay to a different height: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 360 and choose Pixels, your video overlay will be rendered with a height of 360. When you enter 50, choose Percentage, and your overlay's source has a height of 1080, your video overlay will be rendered with a height of 540. To scale your overlay to a specific height while automatically maintaining its original aspect ratio, enter a value for Height and leave Width blank.
+   * @public
+   */
+  Height?: number;
+
+  /**
+   * Specify the Unit type to use when you enter a value for X position, Y position, Width, or Height. You can choose Pixels or Percentage. Leave blank to use the default value, Pixels.
+   * @public
+   */
+  Unit?: VideoOverlayUnit;
+
+  /**
+   * To scale your video overlay to the same width as the base input video: Leave blank. To scale the width of your video overlay to a different width: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 640 and choose Pixels, your video overlay will scale to a height of 640 pixels. When you enter 50, choose Percentage, and your overlay's source has a width of 1920, your video overlay will scale to a width of 960. To scale your overlay to a specific width while automatically maintaining its original aspect ratio, enter a value for Width and leave Height blank.
+   * @public
+   */
+  Width?: number;
+
+  /**
+   * To position the left edge of your video overlay along the left edge of the base input video's frame: Keep blank, or enter 0. To position the left edge of your video overlay to the right, relative to the left edge of the base input video's frame: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 10 and choose Pixels, your video overlay will be positioned 10 pixels from the left edge of the base input video's frame. When you enter 10, choose Percentage, and your base input video is 1920x1080, your video overlay will be positioned 192 pixels from the left edge of the base input video's frame.
+   * @public
+   */
+  XPosition?: number;
+
+  /**
+   * To position the top edge of your video overlay along the top edge of the base input video's frame: Keep blank, or enter 0. To position the top edge of your video overlay down, relative to the top edge of the base input video's frame: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 10 and choose Pixels, your video overlay will be positioned 10 pixels from the top edge of the base input video's frame. When you enter 10, choose Percentage, and your underlying video is 1920x1080, your video overlay will be positioned 108 pixels from the top edge of the base input video's frame.
+   * @public
+   */
+  YPosition?: number;
+}
+
+/**
  * To transcode only portions of your video overlay, include one input clip for each part of your video overlay that you want in your output.
  * @public
  */
@@ -4174,7 +4245,8 @@ export interface VideoOverlayInputClipping {
  */
 export interface VideoOverlayInput {
   /**
-   * Specify the input file S3, HTTP, or HTTPS URI for your video overlay. For consistency in color and formatting in your output video image, we recommend that you specify a video with similar characteristics as the underlying input video.
+   * Specify the input file S3, HTTP, or HTTPS URL for your video overlay.
+   * To specify one or more Transitions for your base input video instead: Leave blank.
    * @public
    */
   FileInput?: string;
@@ -4199,15 +4271,59 @@ export interface VideoOverlayInput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoOverlayPlayBackMode = {
+  ONCE: "ONCE",
+  REPEAT: "REPEAT",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoOverlayPlayBackMode = (typeof VideoOverlayPlayBackMode)[keyof typeof VideoOverlayPlayBackMode];
+
+/**
+ * Specify one or more Transitions for your video overlay. Use Transitions to reposition or resize your overlay over time. To use the same position and size for the duration of your video overlay: Leave blank. To specify a Transition: Enter a value for Start timecode, End Timecode, X Position, Y Position, Width, or Height.
+ * @public
+ */
+export interface VideoOverlayTransition {
+  /**
+   * Specify the ending position for this transition, relative to the base input video's frame. Your video overlay will move smoothly to this position, beginning at this transition's Start timecode and ending at this transition's End timecode.
+   * @public
+   */
+  EndPosition?: VideoOverlayPosition;
+
+  /**
+   * Specify the timecode for when this transition ends. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When entering this value, take into account your choice for Timecode source.
+   * @public
+   */
+  EndTimecode?: string;
+
+  /**
+   * Specify the timecode for when this transition begins. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When entering this value, take into account your choice for Timecode source.
+   * @public
+   */
+  StartTimecode?: string;
+}
+
+/**
  * Overlay one or more videos on top of your input video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-overlays.html
  * @public
  */
 export interface VideoOverlay {
   /**
-   * Enter the end timecode in the underlying input video for this overlay. Your overlay will be active through this frame. To display your video overlay for the duration of the underlying video: Leave blank. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When entering this value, take into account your choice for the underlying Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your overlay to end ten minutes into the video, enter 01:10:00:00.
+   * Enter the end timecode in the base input video for this overlay. Your overlay will be active through this frame. To display your video overlay for the duration of the base input video: Leave blank. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS isthe second, and FF is the frame number. When entering this value, take into account your choice for the base input video's timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your overlay to end ten minutes into the video, enter 01:10:00:00.
    * @public
    */
   EndTimecode?: string;
+
+  /**
+   * Specify the Initial position of your video overlay. To specify the Initial position of your video overlay, including distance from the left or top edge of the base input video's frame, or size: Enter a value for X position, Y position, Width, or Height. To use the full frame of the base input video: Leave blank.
+   * @public
+   */
+  InitialPosition?: VideoOverlayPosition;
 
   /**
    * Input settings for Video overlay. You can include one or more video overlays in sequence at different times that you specify.
@@ -4216,10 +4332,22 @@ export interface VideoOverlay {
   Input?: VideoOverlayInput;
 
   /**
-   * Enter the start timecode in the underlying input video for this overlay. Your overlay will be active starting with this frame. To display your video overlay starting at the beginning of the underlying video: Leave blank. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When entering this value, take into account your choice for the underlying Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your overlay to begin five minutes into the video, enter 01:05:00:00.
+   * Specify whether your video overlay repeats or plays only once. To repeat your video overlay on a loop: Keep the default value, Repeat. Your overlay will repeat for the duration of the base input video. To playback your video overlay only once: Choose Once. With either option, you can end playback at a time that you specify by entering a value for End timecode.
+   * @public
+   */
+  Playback?: VideoOverlayPlayBackMode;
+
+  /**
+   * Enter the start timecode in the base input video for this overlay. Your overlay will be active starting with this frame. To display your video overlay starting at the beginning of the base input video: Leave blank. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When entering this value, take into account your choice for the base input video's timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your overlay to begin five minutes into the video, enter 01:05:00:00.
    * @public
    */
   StartTimecode?: string;
+
+  /**
+   * Specify one or more transitions for your video overlay. Use Transitions to reposition or resize your overlay over time. To use the same position and size for the duration of your video overlay: Leave blank. To specify a Transition: Enter a value for Start timecode, End Timecode, X Position, Y Position, Width, or Height.
+   * @public
+   */
+  Transitions?: VideoOverlayTransition[];
 }
 
 /**
@@ -7386,75 +7514,3 @@ export const CmfcAudioTrackType = {
  * @public
  */
 export type CmfcAudioTrackType = (typeof CmfcAudioTrackType)[keyof typeof CmfcAudioTrackType];
-
-/**
- * @public
- * @enum
- */
-export const CmfcDescriptiveVideoServiceFlag = {
-  DONT_FLAG: "DONT_FLAG",
-  FLAG: "FLAG",
-} as const;
-
-/**
- * @public
- */
-export type CmfcDescriptiveVideoServiceFlag =
-  (typeof CmfcDescriptiveVideoServiceFlag)[keyof typeof CmfcDescriptiveVideoServiceFlag];
-
-/**
- * @public
- * @enum
- */
-export const CmfcIFrameOnlyManifest = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type CmfcIFrameOnlyManifest = (typeof CmfcIFrameOnlyManifest)[keyof typeof CmfcIFrameOnlyManifest];
-
-/**
- * @public
- * @enum
- */
-export const CmfcKlvMetadata = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type CmfcKlvMetadata = (typeof CmfcKlvMetadata)[keyof typeof CmfcKlvMetadata];
-
-/**
- * @public
- * @enum
- */
-export const CmfcManifestMetadataSignaling = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmfcManifestMetadataSignaling =
-  (typeof CmfcManifestMetadataSignaling)[keyof typeof CmfcManifestMetadataSignaling];
-
-/**
- * @public
- * @enum
- */
-export const CmfcScte35Esam = {
-  INSERT: "INSERT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type CmfcScte35Esam = (typeof CmfcScte35Esam)[keyof typeof CmfcScte35Esam];
