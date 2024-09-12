@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.651.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.650.0...v3.651.0) (2024-09-12)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added email MFA option to user pools with advanced security features. ([b2fefb3](https://github.com/aws/aws-sdk-js-v3/commit/b2fefb3d5497e8cae3d137684c562e8dc6d0cd5e))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

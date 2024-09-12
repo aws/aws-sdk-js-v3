@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.651.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.650.0...v3.651.0) (2024-09-12)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Correct incorrectly mapped error in ELBv2 waiters ([7501e91](https://github.com/aws/aws-sdk-js-v3/commit/7501e914a5e4a6a630f3cf5016c33a284e0558c7))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

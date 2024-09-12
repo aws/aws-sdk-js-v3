@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.651.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.650.0...v3.651.0) (2024-09-12)
+
+
+### Features
+
+* **client-mediaconvert:** This release includes support for dynamic video overlay workflows, including picture-in-picture and squeezeback ([d4befea](https://github.com/aws/aws-sdk-js-v3/commit/d4befea49d6136914ff7d45dbcf01cc571a4b756))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

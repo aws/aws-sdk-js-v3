@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.651.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.650.0...v3.651.0) (2024-09-12)
+
+
+### Features
+
+* **client-storage-gateway:** The S3 File Gateway now supports DSSE-KMS encryption. A new parameter EncryptionType is added to these APIs: CreateSmbFileShare, CreateNfsFileShare, UpdateSmbFileShare, UpdateNfsFileShare, DescribeSmbFileShares, DescribeNfsFileShares. Also, in favor of EncryptionType, KmsEncrypted is deprecated. ([362f7e0](https://github.com/aws/aws-sdk-js-v3/commit/362f7e0f97c28c5c891ef06292c3572c24f894fe))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-storage-gateway

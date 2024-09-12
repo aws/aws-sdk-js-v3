@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.651.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.650.0...v3.651.0) (2024-09-12)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added email MFA option to user pools with advanced security features. ([b2fefb3](https://github.com/aws/aws-sdk-js-v3/commit/b2fefb3d5497e8cae3d137684c562e8dc6d0cd5e))
+* **client-elastic-load-balancing-v2:** Correct incorrectly mapped error in ELBv2 waiters ([7501e91](https://github.com/aws/aws-sdk-js-v3/commit/7501e914a5e4a6a630f3cf5016c33a284e0558c7))
+* **client-emr:** Update APIs to allow modification of ODCR options, allocation strategy, and InstanceTypeConfigs on running InstanceFleet clusters. ([b3df65a](https://github.com/aws/aws-sdk-js-v3/commit/b3df65a0a291b6db1c090a2dc63039d6b2c8bb33))
+* **client-glue:** AWS Glue is introducing two new optimizers for Apache Iceberg tables: snapshot retention and orphan file deletion. Customers can enable these optimizers and customize their configurations to perform daily maintenance tasks on their Iceberg tables based on their specific requirements. ([0dac89e](https://github.com/aws/aws-sdk-js-v3/commit/0dac89ec2fbf639bfb4420ac14da34c2ee069724))
+* **client-mediaconvert:** This release includes support for dynamic video overlay workflows, including picture-in-picture and squeezeback ([d4befea](https://github.com/aws/aws-sdk-js-v3/commit/d4befea49d6136914ff7d45dbcf01cc571a4b756))
+* **client-storage-gateway:** The S3 File Gateway now supports DSSE-KMS encryption. A new parameter EncryptionType is added to these APIs: CreateSmbFileShare, CreateNfsFileShare, UpdateSmbFileShare, UpdateNfsFileShare, DescribeSmbFileShares, DescribeNfsFileShares. Also, in favor of EncryptionType, KmsEncrypted is deprecated. ([362f7e0](https://github.com/aws/aws-sdk-js-v3/commit/362f7e0f97c28c5c891ef06292c3572c24f894fe))
+* **client-synthetics:** This release introduces two features. The first is tag replication, which allows for the propagation of canary tags onto Synthetics related resources, such as Lambda functions. The second is a limit increase in canary name length, which has now been increased from 21 to 255 characters. ([9d8cf33](https://github.com/aws/aws-sdk-js-v3/commit/9d8cf33b515137b62f3df4d1e35640769ef6fb07))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 
