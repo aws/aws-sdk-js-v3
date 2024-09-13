@@ -167,18 +167,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addDependency(AwsDependency.AWS_CRYPTO_SHA1_BROWSER);
                         writer.addImport("Sha1", "Sha1", AwsDependency.AWS_CRYPTO_SHA1_BROWSER);
                         writer.write("Sha1");
-                    },
-                    "requestChecksumCalculation", writer -> {
-                        writer.addDependency(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.addImport("DEFAULT_REQUEST_CHECKSUM_CALCULATION", null,
-                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.write("DEFAULT_REQUEST_CHECKSUM_CALCULATION");
-                    },
-                    "responseChecksumValidation", writer -> {
-                        writer.addDependency(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.addImport("DEFAULT_RESPONSE_CHECKSUM_VALIDATION", null,
-                            AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
-                        writer.write("DEFAULT_RESPONSE_CHECKSUM_VALIDATION");
                     }
                 );
             default:
