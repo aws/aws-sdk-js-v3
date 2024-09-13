@@ -35,6 +35,7 @@
     "@smithy/node-config-provider": "^3.1.5",
     "@smithy/protocol-http": "^4.1.1",
     "@smithy/types": "^3.4.0",
+    "@smithy/util-middleware": "^3.0.4",
     "@smithy/util-utf8": "^3.0.0",
     "tslib": "^2.6.2"
   },
