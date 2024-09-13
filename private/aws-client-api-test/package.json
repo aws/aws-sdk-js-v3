@@ -20,6 +20,7 @@
     "@aws-sdk/client-s3": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-bucket-endpoint": "*",
+    "@aws-sdk/middleware-flexible-checksums": "*",
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/util-user-agent-node": "*",
