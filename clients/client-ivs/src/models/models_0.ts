@@ -167,8 +167,7 @@ export interface Channel {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -282,8 +281,7 @@ export interface StreamKey {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -506,9 +504,7 @@ export interface CreateChannelRequest {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
-   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
    * @public
    */
@@ -641,9 +637,7 @@ export interface CreatePlaybackRestrictionPolicyRequest {
   name?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
-   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
    * @public
    */
@@ -693,8 +687,7 @@ export interface PlaybackRestrictionPolicy {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -933,9 +926,7 @@ export interface CreateRecordingConfigurationRequest {
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
-   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
    * @public
    */
@@ -1010,8 +1001,7 @@ export interface RecordingConfiguration {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -1086,9 +1076,7 @@ export interface CreateStreamKeyRequest {
   channelArn: string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
-   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
    * @public
    */
@@ -1224,8 +1212,7 @@ export interface PlaybackKeyPair {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -1676,9 +1663,7 @@ export interface ImportPlaybackKeyPairRequest {
   name?: string;
 
   /**
-   * <p>Any tags provided with the request are added to the playback key pair tags. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
-   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   * <p>Any tags provided with the request are added to the playback key pair tags. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
    * @public
    */
@@ -1773,8 +1758,7 @@ export interface ChannelSummary {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -1870,8 +1854,7 @@ export interface PlaybackKeyPairSummary {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -1956,8 +1939,7 @@ export interface PlaybackRestrictionPolicySummary {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -2033,8 +2015,7 @@ export interface RecordingConfigurationSummary {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -2102,8 +2083,7 @@ export interface StreamKeySummary {
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -2430,8 +2410,7 @@ export interface TagResourceRequest {
 
   /**
    * <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
@@ -2455,8 +2434,7 @@ export interface UntagResourceRequest {
 
   /**
    * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
-   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
    * @public
    */
