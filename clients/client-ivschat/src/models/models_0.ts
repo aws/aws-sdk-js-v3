@@ -407,9 +407,7 @@ export interface CreateLoggingConfigurationRequest {
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is
    *          documented there.</p>
    * @public
    */
@@ -603,9 +601,7 @@ export interface CreateRoomRequest {
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *          there.</p>
    * @public
    */
@@ -1066,9 +1062,7 @@ export interface LoggingConfigurationSummary {
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *         Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *       limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented
    *       there.</p>
    * @public
    */
@@ -1177,9 +1171,7 @@ export interface RoomSummary {
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
-   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *         Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *       limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *       there.</p>
    * @public
    */
@@ -1302,9 +1294,7 @@ export interface TagResourceRequest {
 
   /**
    * <p>Array of tags to be added or updated. Array of maps, each of the form
-   *             <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *             <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *          there.</p>
    * @public
    */
@@ -1328,9 +1318,7 @@ export interface UntagResourceRequest {
 
   /**
    * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *          there.</p>
    * @public
    */
