@@ -21,6 +21,8 @@ export const RequestChecksumCalculation = {
 
 export type RequestChecksumCalculation = (typeof RequestChecksumCalculation)[keyof typeof RequestChecksumCalculation];
 
+export const DEFAULT_REQUEST_CHECKSUM_CALCULATION = RequestChecksumCalculation.WHEN_SUPPORTED;
+
 /**
  * Determines when checksum validation will be performed on response payloads.
  */
@@ -43,6 +45,8 @@ export const ResponseChecksumValidation = {
 } as const;
 
 export type ResponseChecksumValidation = (typeof ResponseChecksumValidation)[keyof typeof ResponseChecksumValidation];
+
+export const DEFAULT_RESPONSE_CHECKSUM_VALIDATION = RequestChecksumCalculation.WHEN_SUPPORTED;
 
 /**
  * Checksum Algorithms supported by the SDK.
