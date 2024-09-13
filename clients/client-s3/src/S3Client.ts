@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-expect-continue";
 import {
+  FlexibleChecksumsInputConfig,
+  FlexibleChecksumsResolvedConfig,
+  resolveFlexibleChecksumsConfig,
+} from "@aws-sdk/middleware-flexible-checksums";
+import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
@@ -729,6 +734,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   UserAgentInputConfig &
+  FlexibleChecksumsInputConfig &
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
@@ -751,6 +757,7 @@ export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   UserAgentResolvedConfig &
+  FlexibleChecksumsResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
@@ -785,16 +792,17 @@ export class S3Client extends __Client<
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveRegionConfig(_config_3);
-    const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
-    const _config_9 = resolveS3Config(_config_8, { session: [() => this, CreateSessionCommand] });
-    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    super(_config_10);
-    this.config = _config_10;
+    const _config_3 = resolveFlexibleChecksumsConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveRegionConfig(_config_4);
+    const _config_6 = resolveHostHeaderConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
+    const _config_10 = resolveS3Config(_config_9, { session: [() => this, CreateSessionCommand] });
+    const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
+    super(_config_11);
+    this.config = _config_11;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

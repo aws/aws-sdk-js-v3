@@ -4,6 +4,10 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha1 } from "@aws-crypto/sha1-browser";
 import { Sha256 } from "@aws-crypto/sha256-browser";
+import {
+  DEFAULT_REQUEST_CHECKSUM_CALCULATION,
+  DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+} from "@aws-sdk/middleware-flexible-checksums";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
@@ -40,7 +44,9 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,
     region: config?.region ?? invalidProvider("Region is missing"),
+    requestChecksumCalculation: config?.requestChecksumCalculation ?? DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
+    responseChecksumValidation: config?.responseChecksumValidation ?? DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha1: config?.sha1 ?? Sha1,
     sha256: config?.sha256 ?? Sha256,
