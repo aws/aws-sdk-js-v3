@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** fix recursive assume role and optional role_arn in credential_source ([#6472](https://github.com/aws/aws-sdk-js-v3/issues/6472)) ([c095306](https://github.com/aws/aws-sdk-js-v3/commit/c095306e7248c3e53e4d8d77551fdad2663e0e77))
+
+
+
+
+
 # [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-ini
