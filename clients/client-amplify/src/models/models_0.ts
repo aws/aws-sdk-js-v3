@@ -241,6 +241,11 @@ export interface CreateAppRequest {
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+   *             the platform type to <code>WEB_COMPUTE</code> and set the artifacts
+   *                 <code>baseDirectory</code> to <code>.next</code> in the application's build
+   *             settings. For an example of the build specification settings, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14">Amplify build
+   *                 settings for a Next.js 14 SSG application</a> in the <i>Amplify Hosting User Guide</i>.</p>
    * @public
    */
   platform?: Platform;
@@ -463,6 +468,8 @@ export interface App {
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js 14 or later, you must use the
+   *             platform type <code>WEB_COMPUTE</code>.</p>
    * @public
    */
   platform: Platform | undefined;
@@ -2867,6 +2874,8 @@ export interface UpdateAppRequest {
    *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
    *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
    *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
+   *          <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+   *             the platform type to <code>WEB_COMPUTE</code>.</p>
    * @public
    */
   platform?: Platform;
