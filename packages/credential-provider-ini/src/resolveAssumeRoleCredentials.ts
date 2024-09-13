@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity, Logger, ParsedIniData, Profile } from "@smithy/types";
+import { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -140,43 +140,62 @@ export const resolveAssumeRoleCredentials = async (
   const sourceCredsProvider: Promise<AwsCredentialIdentity> = source_profile
     ? resolveProfileData(
         source_profile,
-        {
-          ...profiles,
-          [source_profile]: {
-            ...profiles[source_profile],
-            // This assigns the role_arn of the "root" profile
-            // to the credential_source profile so this recursive call knows
-            // what role to assume.
-            role_arn: data.role_arn ?? profiles[source_profile].role_arn,
-          },
-        },
+        profiles,
         options,
         {
           ...visitedProfiles,
           [source_profile]: true,
-        }
+        },
+        isCredentialSourceWithoutRoleArn(profiles[source_profile!] ?? {})
       )
     : (await resolveCredentialSource(data.credential_source!, profileName, options.logger)(options))();
 
-  const params: AssumeRoleParams = {
-    RoleArn: data.role_arn!,
-    RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
-    ExternalId: data.external_id,
-    DurationSeconds: parseInt(data.duration_seconds || "3600", 10),
-  };
+  if (isCredentialSourceWithoutRoleArn(data)) {
+    /**
+     * This control-flow branch is accessed when in a chained source_profile
+     * scenario, and the last step of the chain is a credential_source
+     * without its own role_arn. In this case, we return the credentials
+     * of the credential_source so that the previous recursive layer
+     * can use its role_arn instead of redundantly needing another role_arn at
+     * this final layer.
+     */
+    return sourceCredsProvider;
+  } else {
+    const params: AssumeRoleParams = {
+      RoleArn: data.role_arn!,
+      RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
+      ExternalId: data.external_id,
+      DurationSeconds: parseInt(data.duration_seconds || "3600", 10),
+    };
 
-  const { mfa_serial } = data;
-  if (mfa_serial) {
-    if (!options.mfaCodeProvider) {
-      throw new CredentialsProviderError(
-        `Profile ${profileName} requires multi-factor authentication, but no MFA code callback was provided.`,
-        { logger: options.logger, tryNextLink: false }
-      );
+    const { mfa_serial } = data;
+    if (mfa_serial) {
+      if (!options.mfaCodeProvider) {
+        throw new CredentialsProviderError(
+          `Profile ${profileName} requires multi-factor authentication, but no MFA code callback was provided.`,
+          { logger: options.logger, tryNextLink: false }
+        );
+      }
+      params.SerialNumber = mfa_serial;
+      params.TokenCode = await options.mfaCodeProvider(mfa_serial);
     }
-    params.SerialNumber = mfa_serial;
-    params.TokenCode = await options.mfaCodeProvider(mfa_serial);
-  }
 
-  const sourceCreds = await sourceCredsProvider;
-  return options.roleAssumer!(sourceCreds, params);
+    const sourceCreds = await sourceCredsProvider;
+    return options.roleAssumer!(sourceCreds, params);
+  }
+};
+
+/**
+ * @internal
+ *
+ * Returns true when the ini section in question, typically a profile,
+ * has a credential_source but not a role_arn.
+ *
+ * Previously, a role_arn was a required sibling element to credential_source.
+ * However, this would require a role_arn+source_profile pointed to a
+ * credential_source to have a second role_arn, resulting in at least two
+ * calls to assume-role.
+ */
+const isCredentialSourceWithoutRoleArn = (section: IniSection): boolean => {
+  return !section.role_arn && !!section.credential_source;
 };
