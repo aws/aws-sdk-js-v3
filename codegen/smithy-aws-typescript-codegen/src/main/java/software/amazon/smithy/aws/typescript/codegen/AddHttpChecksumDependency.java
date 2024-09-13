@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
@@ -131,6 +132,22 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
                                 TypeScriptDependency.AWS_SDK_TYPES);
                         writer.write("Hash.bind(null, \"sha1\")");
+                    },
+                    "requestChecksumCalculation", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS", null,
+                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS)");
+                    },
+                    "responseChecksumValidation", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS", null,
+                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS)");
                     }
                 );
             case BROWSER:
@@ -160,6 +177,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
+            RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
+                                         HAS_CONFIG)
+                        .servicePredicate((m, s) -> hasHttpChecksumTrait(m, s))
+                        .build(),
             RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
                                          HAS_MIDDLEWARE)

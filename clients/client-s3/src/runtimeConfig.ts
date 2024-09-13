@@ -5,6 +5,10 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import { NODE_SIGV4A_CONFIG_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import {
+  NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS,
+  NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS,
+} from "@aws-sdk/middleware-flexible-checksums";
 import { NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS } from "@aws-sdk/middleware-sdk-s3";
 import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -53,7 +57,11 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
+    requestChecksumCalculation:
+      config?.requestChecksumCalculation ?? loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
+    responseChecksumValidation:
+      config?.responseChecksumValidation ?? loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS),
     retryMode:
       config?.retryMode ??
       loadNodeConfig({
