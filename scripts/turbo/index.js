@@ -15,7 +15,14 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
   command = command.concat(args);
   const turboRoot = path.join(__dirname, "..", "..");
   try {
-    return await spawnProcess("npx", command, { stdio: "inherit", cwd: turboRoot });
+    return await spawnProcess("npx", command, {
+      stdio: "inherit",
+      cwd: turboRoot,
+      env: {
+        ...process.env,
+        TURBO_TELEMETRY_DISABLED: "1",
+      },
+    });
   } catch (error) {
     console.error("Error running turbo:", error);
     if (args?.length > 0) {
