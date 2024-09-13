@@ -169,9 +169,15 @@ describe(resolveAssumeRoleCredentials.name, () => {
 
     const receivedCreds = await resolveAssumeRoleCredentials(mockProfileCurrent, mockProfilesWithSource, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveProfileData).toHaveBeenCalledWith(mockProfileName, mockProfilesWithSource, mockOptions, {
-      mockProfileName: true,
-    });
+    expect(resolveProfileData).toHaveBeenCalledWith(
+      mockProfileName,
+      mockProfilesWithSource,
+      mockOptions,
+      {
+        mockProfileName: true,
+      },
+      false
+    );
     expect(resolveCredentialSource).not.toHaveBeenCalled();
     expect(mockOptions.roleAssumer).toHaveBeenCalledWith(mockSourceCredsFromProfile, {
       RoleArn: mockRoleAssumeParams.role_arn,
