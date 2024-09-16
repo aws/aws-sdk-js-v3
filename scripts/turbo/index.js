@@ -3,8 +3,8 @@ const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
 
 const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
-  let command = ["turbo", "run", task, "--concurrency=100%"];
-  command = command.concat(args);
+  const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=hash-only"];
+  command.push(...args);
   const turboRoot = path.join(__dirname, "..", "..");
   try {
     return await spawnProcess("npx", command, {
