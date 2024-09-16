@@ -57,10 +57,10 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                <li>
  *                   <p>You can close only 10% of member accounts, between 10 and 1000, within a
  *                         rolling 30 day period. This quota is not bound by a calendar month, but
- *                         starts when you close an account. After you reach this limit, you can close
+ *                         starts when you close an account. After you reach this limit, you can't close
  *                         additional accounts. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for
- *                             Organizations</a>in the <i>Organizations User Guide</i>. </p>
+ *                             Organizations</a> in the <i>Organizations User Guide</i>. </p>
  *                </li>
  *                <li>
  *                   <p>To reinstate a closed account, contact Amazon Web Services Support within the 90-day
@@ -312,9 +312,8 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
