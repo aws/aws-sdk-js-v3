@@ -7,7 +7,7 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
   command.push(...args);
   const turboRoot = path.join(__dirname, "..", "..");
   try {
-    return await spawnProcess("npx", command, {
+    return await spawnProcess("yarn", command, {
       stdio: "inherit",
       cwd: turboRoot,
       env: {
