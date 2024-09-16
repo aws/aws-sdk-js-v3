@@ -3154,18 +3154,18 @@ export namespace ModelDataSource {
 }
 
 /**
- * <p>VPC configuration.</p>
+ * <p>The configuration of a virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html">Protect your data using Amazon Virtual Private Cloud and Amazon Web Services PrivateLink</a>.</p>
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>VPC configuration subnets.</p>
+   * <p>An array of IDs for each subnet in the VPC to use.</p>
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>VPC configuration security group Ids.</p>
+   * <p>An array of IDs for each security group in the VPC to use.</p>
    * @public
    */
   securityGroupIds: string[] | undefined;
@@ -3673,7 +3673,7 @@ export const S3InputFormat = {
 export type S3InputFormat = (typeof S3InputFormat)[keyof typeof S3InputFormat];
 
 /**
- * <p>Contains the configuration of the S3 location of the output data.</p>
+ * <p>Contains the configuration of the S3 location of the input data.</p>
  * @public
  */
 export interface ModelInvocationJobS3InputDataConfig {
@@ -3688,6 +3688,12 @@ export interface ModelInvocationJobS3InputDataConfig {
    * @public
    */
   s3Uri: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the S3 bucket containing the input data.</p>
+   * @public
+   */
+  s3BucketOwner?: string;
 }
 
 /**
@@ -3746,6 +3752,12 @@ export interface ModelInvocationJobS3OutputDataConfig {
    * @public
    */
   s3EncryptionKeyId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the S3 bucket containing the output data.</p>
+   * @public
+   */
+  s3BucketOwner?: string;
 }
 
 /**
@@ -3828,6 +3840,12 @@ export interface CreateModelInvocationJobRequest {
    * @public
    */
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
 
   /**
    * <p>The number of hours after which to force the batch inference job to time out.</p>
@@ -3962,6 +3980,12 @@ export interface GetModelInvocationJobResponse {
    * @public
    */
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
 
   /**
    * <p>The number of hours after which batch inference job was set to time out.</p>
@@ -4110,6 +4134,12 @@ export interface ModelInvocationJobSummary {
    * @public
    */
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
+
+  /**
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
 
   /**
    * <p>The number of hours after which the batch inference job was set to time out.</p>
@@ -5317,8 +5347,7 @@ export interface CreateModelCustomizationJobRequest {
   hyperParameters: Record<string, string> | undefined;
 
   /**
-   * <p>VPC configuration (optional). Configuration parameters for the
-   *            private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
+   * <p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html">Protect your model customization jobs using a VPC</a>.</p>
    * @public
    */
   vpcConfig?: VpcConfig;

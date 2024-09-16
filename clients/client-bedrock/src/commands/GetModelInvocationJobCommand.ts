@@ -60,13 +60,23 @@ export interface GetModelInvocationJobCommandOutput extends GetModelInvocationJo
  * //     s3InputDataConfig: { // ModelInvocationJobS3InputDataConfig
  * //       s3InputFormat: "JSONL",
  * //       s3Uri: "STRING_VALUE", // required
+ * //       s3BucketOwner: "STRING_VALUE",
  * //     },
  * //   },
  * //   outputDataConfig: { // ModelInvocationJobOutputDataConfig Union: only one key present
  * //     s3OutputDataConfig: { // ModelInvocationJobS3OutputDataConfig
  * //       s3Uri: "STRING_VALUE", // required
  * //       s3EncryptionKeyId: "STRING_VALUE",
+ * //       s3BucketOwner: "STRING_VALUE",
  * //     },
+ * //   },
+ * //   vpcConfig: { // VpcConfig
+ * //     subnetIds: [ // SubnetIds // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIds // required
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   timeoutDurationInHours: Number("int"),
  * //   jobExpirationTime: new Date("TIMESTAMP"),

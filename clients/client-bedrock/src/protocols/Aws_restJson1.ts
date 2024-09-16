@@ -445,6 +445,7 @@ export const se_CreateModelInvocationJobCommand = async (
       roleArn: [],
       tags: (_) => _json(_),
       timeoutDurationInHours: [],
+      vpcConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1808,6 +1809,7 @@ export const de_GetModelInvocationJobCommand = async (
     status: __expectString,
     submitTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     timeoutDurationInHours: __expectInt32,
+    vpcConfig: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3028,6 +3030,7 @@ const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): Mod
     status: __expectString,
     submitTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     timeoutDurationInHours: __expectInt32,
+    vpcConfig: _json,
   }) as any;
 };
 
