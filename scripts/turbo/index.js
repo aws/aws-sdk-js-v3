@@ -19,6 +19,9 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
             TURBO_TOKEN: apiSecret,
             TURBO_TEAM: "aws-sdk-js",
           }),
+        ...(!process.env.CODEBUILD_BUILD_ARN && {
+          TURBO_REMOTE_CACHE_READ_ONLY: "1",
+        }),
       },
     });
   } catch (error) {
