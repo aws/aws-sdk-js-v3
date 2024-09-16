@@ -28,11 +28,12 @@ export interface EnableAWSServiceAccessCommandInput extends EnableAWSServiceAcce
 export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables the integration of an Amazon Web Services service (the service that is specified by
- *                 <code>ServicePrincipal</code>) with Organizations. When you enable integration, you allow
- *             the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
- *             all the accounts in your organization. This allows the service to perform operations on
- *             your behalf in your organization and its accounts.</p>
+ * <p>Provides an Amazon Web Services service (the service that is specified by
+ *             <code>ServicePrincipal</code>) with permissions to view the structure of an organization,
+ *         create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in all the accounts in the organization,
+ *             and allow the service to perform operations
+ *         on behalf of the organization and its accounts. Establishing these permissions can be a first step
+ *         in enabling the integration of an Amazon Web Services service with Organizations.</p>
  *          <important>
  *             <p>We recommend that you enable integration between Organizations and the specified Amazon Web Services
  *                 service by using the console or commands that are provided by the specified service.
@@ -272,9 +273,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *

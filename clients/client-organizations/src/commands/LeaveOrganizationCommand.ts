@@ -84,8 +84,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>A newly created account has a waiting period before it can be removed from
- *                         its organization. If you get an error that indicates that a wait period is
- *                         required, then try again in a few days.</p>
+ *                         its organization.
+ *                         You must wait until at least seven days after the account was created. Invited accounts aren't subject to this waiting period.</p>
  *                </li>
  *                <li>
  *                   <p>If you are using an organization principal to call
@@ -322,9 +322,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *

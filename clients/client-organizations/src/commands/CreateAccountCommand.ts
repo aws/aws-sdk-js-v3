@@ -87,9 +87,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </li>
  *                <li>
- *                   <p>Using <code>CreateAccount</code> to create multiple temporary accounts
- *                         isn't recommended. You can only close an account from the Billing and Cost Management console, and
- *                         you must be signed in as the root user. For information on the requirements
+ *                   <p>It isn't recommended to use <code>CreateAccount</code> to create multiple temporary accounts, and using
+ *                         the <code>CreateAccount</code> API to close accounts is subject to a 30-day usage quota. For information on the requirements
  *                         and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> in the
  *                             <i>Organizations User Guide</i>.</p>
@@ -351,9 +350,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at least seven days after the account was created.
+ *                     Invited accounts aren't subject to this waiting period.</p>
  *             </li>
  *          </ul>
  *
