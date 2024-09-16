@@ -110,7 +110,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * //       },
  * //     ],
  * //   },
- * //   InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //   InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //   MulticastSettings: { // MulticastSettings
  * //     Sources: [ // __listOfMulticastSource
  * //       { // MulticastSource
