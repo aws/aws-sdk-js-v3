@@ -115,7 +115,7 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //         },
  * //       ],
  * //     },
- * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //     MulticastSettings: { // MulticastSettings
  * //       Sources: [ // __listOfMulticastSource
  * //         { // MulticastSource

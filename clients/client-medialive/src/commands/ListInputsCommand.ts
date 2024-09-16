@@ -113,7 +113,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //           },
  * //         ],
  * //       },
- * //       InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //       InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //       MulticastSettings: { // MulticastSettings
  * //         Sources: [ // __listOfMulticastSource
  * //           { // MulticastSource

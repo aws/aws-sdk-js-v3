@@ -98,7 +98,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *       },
  *     ],
  *   },
- *   InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ *   InputNetworkLocation: "AWS" || "ON_PREMISES",
  *   MulticastSettings: { // MulticastSettingsCreateRequest
  *     Sources: [ // __listOfMulticastSourceCreateRequest
  *       { // MulticastSourceCreateRequest
@@ -181,7 +181,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //         },
  * //       ],
  * //     },
- * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //     MulticastSettings: { // MulticastSettings
  * //       Sources: [ // __listOfMulticastSource
  * //         { // MulticastSource

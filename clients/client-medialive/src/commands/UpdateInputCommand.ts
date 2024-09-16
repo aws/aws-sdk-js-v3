@@ -168,7 +168,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * //         },
  * //       ],
  * //     },
- * //     InputNetworkLocation: "AWS" || "ON_PREMISE" || "ON_PREMISES",
+ * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //     MulticastSettings: { // MulticastSettings
  * //       Sources: [ // __listOfMulticastSource
  * //         { // MulticastSource

@@ -4725,7 +4725,6 @@ export interface InputDeviceSettings {
  */
 export const InputNetworkLocation = {
   AWS: "AWS",
-  ON_PREMISE: "ON_PREMISE",
   ON_PREMISES: "ON_PREMISES",
 } as const;
 
