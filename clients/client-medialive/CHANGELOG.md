@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.652.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.1...v3.652.0) (2024-09-16)
+
+
+### Features
+
+* **client-medialive:** Removing the ON_PREMISE enum from the input settings field. ([52794ee](https://github.com/aws/aws-sdk-js-v3/commit/52794eee9c7643946b2a94459c5efe1f32effe05))
+
+
+
+
+
 ## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

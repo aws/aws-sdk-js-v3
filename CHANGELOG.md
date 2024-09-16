@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.652.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.1...v3.652.0) (2024-09-16)
+
+
+### Features
+
+* **client-bedrock:** This feature adds cross account s3 bucket and VPC support to ModelInvocation jobs. To use a cross account bucket, pass in the accountId of the bucket to s3BucketOwner in the ModelInvocationJobInputDataConfig or ModelInvocationJobOutputDataConfig. ([de21918](https://github.com/aws/aws-sdk-js-v3/commit/de21918213e870e5e056971eca84868572d1c651))
+* **client-iot:** This release adds additional enhancements to AWS IoT Device Management Software Package Catalog and Jobs. It also adds SBOM support in Software Package Version. ([2df520d](https://github.com/aws/aws-sdk-js-v3/commit/2df520d4dabf1e07caa95ad2324f2de56062c555))
+* **client-medialive:** Removing the ON_PREMISE enum from the input settings field. ([52794ee](https://github.com/aws/aws-sdk-js-v3/commit/52794eee9c7643946b2a94459c5efe1f32effe05))
+* **client-rds:** Launching Global Cluster tagging. ([c35b721](https://github.com/aws/aws-sdk-js-v3/commit/c35b7218f429afc977952724aacd4b20c65e56b5))
+* **clients:** update client endpoints as of 2024-09-16 ([291c786](https://github.com/aws/aws-sdk-js-v3/commit/291c786c308972e48999faa5763879ee8eb8180b))
+
+
+
+
+
 ## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
 
 
