@@ -50,12 +50,15 @@ import {
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
+  PackageVersionArtifact,
   PackageVersionStatus,
   Policy,
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
   ResourceIdentifier,
+  Sbom,
+  SbomValidationStatus,
   SchedulingConfig,
   ServerCertificateConfig,
   ServiceType,
@@ -70,6 +73,61 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * <p>Input for the DeleteCACertificate operation.</p>
+ * @public
+ */
+export interface DeleteCACertificateRequest {
+  /**
+   * <p>The ID of the certificate to delete. (The last part of the certificate ARN contains
+   *          the certificate ID.)</p>
+   * @public
+   */
+  certificateId: string | undefined;
+}
+
+/**
+ * <p>The output for the DeleteCACertificate operation.</p>
+ * @public
+ */
+export interface DeleteCACertificateResponse {}
+
+/**
+ * <p>The input for the DeleteCertificate operation.</p>
+ * @public
+ */
+export interface DeleteCertificateRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   * @public
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT
+   *          thing.</p>
+   * @public
+   */
+  forceDelete?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderRequest {
+  /**
+   * <p>The name of the certificate provider.</p>
+   * @public
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderResponse {}
 
 /**
  * @public
@@ -2282,6 +2340,12 @@ export interface DescribeJobRequest {
    * @public
    */
   jobId: string | undefined;
+
+  /**
+   * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+   * @public
+   */
+  beforeSubstitution?: boolean;
 }
 
 /**
@@ -3971,6 +4035,34 @@ export interface DisableTopicRuleRequest {
 }
 
 /**
+ * @public
+ */
+export interface DisassociateSbomFromPackageVersionRequest {
+  /**
+   * <p>The name of the new software package.</p>
+   * @public
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the new package version.</p>
+   * @public
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSbomFromPackageVersionResponse {}
+
+/**
  * <p>The input for the EnableTopicRuleRequest operation.</p>
  * @public
  */
@@ -4655,6 +4747,12 @@ export interface GetJobDocumentRequest {
    * @public
    */
   jobId: string | undefined;
+
+  /**
+   * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+   * @public
+   */
+  beforeSubstitution?: boolean;
 }
 
 /**
@@ -4982,6 +5080,12 @@ export interface GetPackageVersionResponse {
   attributes?: Record<string, string>;
 
   /**
+   * <p>The various components that make up a software package version.</p>
+   * @public
+   */
+  artifact?: PackageVersionArtifact;
+
+  /**
    * <p>The status associated to the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    * @public
    */
@@ -5004,6 +5108,26 @@ export interface GetPackageVersionResponse {
    * @public
    */
   lastModifiedDate?: Date;
+
+  /**
+   * <p>The software bill of materials for a software package version.</p>
+   * @public
+   */
+  sbom?: Sbom;
+
+  /**
+   * <p>The status of the validation for a new software bill of materials added to a software
+   *          package version.</p>
+   * @public
+   */
+  sbomValidationStatus?: SbomValidationStatus;
+
+  /**
+   * <p>The inline job document associated with a software package version used for a quick job
+   *          deployment via IoT Jobs.</p>
+   * @public
+   */
+  recipe?: string;
 }
 
 /**
@@ -7332,152 +7456,6 @@ export interface MetricDatum {
 }
 
 /**
- * @public
- */
-export interface ListMetricValuesResponse {
-  /**
-   * <p>The data the thing reports for the metric during the specified time period.</p>
-   * @public
-   */
-  metricDatumList?: MetricDatum[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *         if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListMitigationActionsRequest {
-  /**
-   * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
-   * @public
-   */
-  actionType?: MitigationActionType;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>
- * @public
- */
-export interface MitigationActionIdentifier {
-  /**
-   * <p>The friendly name of the mitigation action.</p>
-   * @public
-   */
-  actionName?: string;
-
-  /**
-   * <p>The IAM role ARN used to apply this mitigation action.</p>
-   * @public
-   */
-  actionArn?: string;
-
-  /**
-   * <p>The date when this mitigation action was created.</p>
-   * @public
-   */
-  creationDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListMitigationActionsResponse {
-  /**
-   * <p>A set of actions that matched the specified filter criteria.</p>
-   * @public
-   */
-  actionIdentifiers?: MitigationActionIdentifier[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListOTAUpdatesRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token used to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The OTA update job status.</p>
-   * @public
-   */
-  otaUpdateStatus?: OTAUpdateStatus;
-}
-
-/**
- * <p>An OTA update summary.</p>
- * @public
- */
-export interface OTAUpdateSummary {
-  /**
-   * <p>The OTA update ID.</p>
-   * @public
-   */
-  otaUpdateId?: string;
-
-  /**
-   * <p>The OTA update ARN.</p>
-   * @public
-   */
-  otaUpdateArn?: string;
-
-  /**
-   * <p>The date when the OTA update was created.</p>
-   * @public
-   */
-  creationDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListOTAUpdatesResponse {
-  /**
-   * <p>A list of OTA update jobs.</p>
-   * @public
-   */
-  otaUpdates?: OTAUpdateSummary[];
-
-  /**
-   * <p>A token to use to get the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
  * @internal
  */
 export const GetPackageResponseFilterSensitiveLog = (obj: GetPackageResponse): any => ({
@@ -7492,4 +7470,5 @@ export const GetPackageVersionResponseFilterSensitiveLog = (obj: GetPackageVersi
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
 });

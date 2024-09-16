@@ -43,6 +43,10 @@ import {
   AddThingToThingGroupCommandOutput,
 } from "../commands/AddThingToThingGroupCommand";
 import {
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "../commands/AssociateSbomWithPackageVersionCommand";
+import {
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
 } from "../commands/AssociateTargetsWithJobCommand";
@@ -358,6 +362,10 @@ import {
   DetachThingPrincipalCommandOutput,
 } from "../commands/DetachThingPrincipalCommand";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "../commands/DisableTopicRuleCommand";
+import {
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "../commands/DisassociateSbomFromPackageVersionCommand";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "../commands/EnableTopicRuleCommand";
 import {
   GetBehaviorModelTrainingSummariesCommandInput,
@@ -508,6 +516,10 @@ import {
   ListRelatedResourcesForAuditFindingCommandOutput,
 } from "../commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "../commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "../commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommandInput,
   ListScheduledAuditsCommandOutput,
@@ -822,6 +834,7 @@ import {
   MqttHeaders,
   OpenSearchAction,
   OTAUpdateFile,
+  PackageVersionArtifact,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
   Protocol,
@@ -840,6 +853,7 @@ import {
   S3Destination,
   S3Location,
   SalesforceAction,
+  Sbom,
   SchedulingConfig,
   ServerCertificateConfig,
   ServiceQuotaExceededException,
@@ -900,10 +914,8 @@ import {
   JobSummary,
   JobTemplateSummary,
   MetricDatum,
-  MitigationActionIdentifier,
   NotConfiguredException,
   OTAUpdateInfo,
-  OTAUpdateSummary,
   PercentPair,
   RegistrationConfig,
   RoleAliasDescription,
@@ -925,7 +937,9 @@ import {
   InvalidResponseException,
   LoggingOptionsPayload,
   LogTarget,
+  MitigationActionIdentifier,
   MqttContext,
+  OTAUpdateSummary,
   OutgoingCertificate,
   PackageSummary,
   PackageVersionSummary,
@@ -1010,6 +1024,33 @@ export const se_AddThingToThingGroupCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateSbomWithPackageVersionCommand
+ */
+export const se_AssociateSbomWithPackageVersionCommand = async (
+  input: AssociateSbomWithPackageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sbom: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1735,8 +1776,10 @@ export const se_CreatePackageVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      artifact: (_) => _json(_),
       attributes: (_) => _json(_),
       description: [],
+      recipe: [],
       tags: (_) => _json(_),
     })
   );
@@ -3037,8 +3080,11 @@ export const se_DescribeJobCommand = async (
   const headers: any = {};
   b.bp("/jobs/{jobId}");
   b.p("jobId", () => input.jobId!, "{jobId}", false);
+  const query: any = map({
+    [_bS]: [() => input.beforeSubstitution !== void 0, () => input[_bS]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3369,6 +3415,26 @@ export const se_DisableTopicRuleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateSbomFromPackageVersionCommand
+ */
+export const se_DisassociateSbomFromPackageVersionCommand = async (
+  input: DisassociateSbomFromPackageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1EnableTopicRuleCommand
  */
 export const se_EnableTopicRuleCommand = async (
@@ -3507,8 +3573,11 @@ export const se_GetJobDocumentCommand = async (
   const headers: any = {};
   b.bp("/jobs/{jobId}/job-document");
   b.p("jobId", () => input.jobId!, "{jobId}", false);
+  const query: any = map({
+    [_bS]: [() => input.beforeSubstitution !== void 0, () => input[_bS]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4575,6 +4644,28 @@ export const se_ListRoleAliasesCommand = async (
     [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
     [_m]: [, input[_m]!],
     [_iAO]: [() => input.ascendingOrder !== void 0, () => input[_aO]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSbomValidationResultsCommand
+ */
+export const se_ListSbomValidationResultsCommand = async (
+  input: ListSbomValidationResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/packages/{packageName}/versions/{versionName}/sbom-validation-results");
+  b.p("packageName", () => input.packageName!, "{packageName}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_vR]: [, input[_vR]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -6076,8 +6167,10 @@ export const se_UpdatePackageVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       action: [],
+      artifact: (_) => _json(_),
       attributes: (_) => _json(_),
       description: [],
+      recipe: [],
     })
   );
   b.m("PATCH").h(headers).q(query).b(body);
@@ -6390,6 +6483,30 @@ export const de_AddThingToThingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateSbomWithPackageVersionCommand
+ */
+export const de_AssociateSbomWithPackageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSbomWithPackageVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageName: __expectString,
+    sbom: _json,
+    sbomValidationStatus: __expectString,
+    versionName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8872,6 +8989,23 @@ export const de_DisableTopicRuleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateSbomFromPackageVersionCommand
+ */
+export const de_DisassociateSbomFromPackageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSbomFromPackageVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1EnableTopicRuleCommand
  */
 export const de_EnableTopicRuleCommand = async (
@@ -9122,6 +9256,7 @@ export const de_GetPackageVersionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    artifact: _json,
     attributes: _json,
     creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
@@ -9129,6 +9264,9 @@ export const de_GetPackageVersionCommand = async (
     lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     packageName: __expectString,
     packageVersionArn: __expectString,
+    recipe: __expectString,
+    sbom: _json,
+    sbomValidationStatus: __expectString,
     status: __expectString,
     versionName: __expectString,
   });
@@ -10194,6 +10332,28 @@ export const de_ListRoleAliasesCommand = async (
   const doc = take(data, {
     nextMarker: __expectString,
     roleAliases: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSbomValidationResultsCommand
+ */
+export const de_ListSbomValidationResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSbomValidationResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    validationResultSummaries: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -11737,6 +11897,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnauthorizedException":
     case "com.amazonaws.iot#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iot#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iot#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iot#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iot#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -11767,18 +11939,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidAggregationException":
     case "com.amazonaws.iot#InvalidAggregationException":
       throw await de_InvalidAggregationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iot#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iot#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.iot#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iot#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "MalformedPolicyException":
     case "com.amazonaws.iot#MalformedPolicyException":
       throw await de_MalformedPolicyExceptionRes(parsedOutput, context);
@@ -12897,6 +13057,8 @@ const se_OTAUpdateFiles = (input: OTAUpdateFile[], context: __SerdeContext): any
     });
 };
 
+// se_PackageVersionArtifact omitted.
+
 // se_ParameterMap omitted.
 
 // se_Parameters omitted.
@@ -12961,6 +13123,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 // se_S3Location omitted.
 
 // se_SalesforceAction omitted.
+
+// se_Sbom omitted.
 
 // se_SchedulingConfig omitted.
 
@@ -14201,6 +14365,8 @@ const de_PackageSummaryList = (output: any, context: __SerdeContext): PackageSum
   return retVal;
 };
 
+// de_PackageVersionArtifact omitted.
+
 /**
  * deserializeAws_restJson1PackageVersionSummary
  */
@@ -14413,6 +14579,12 @@ const de_RoleAliasDescription = (output: any, context: __SerdeContext): RoleAlia
 // de_S3Location omitted.
 
 // de_SalesforceAction omitted.
+
+// de_Sbom omitted.
+
+// de_SbomValidationResultSummary omitted.
+
+// de_SbomValidationResultSummaryList omitted.
 
 // de_ScheduledAuditMetadata omitted.
 
@@ -14795,6 +14967,7 @@ const _aT = "actionType";
 const _aTI = "auditTaskId";
 const _aV = "attributeValue";
 const _bCT = "behaviorCriteriaType";
+const _bS = "beforeSubstitution";
 const _cI = "clientId";
 const _cT = "clientToken";
 const _dN = "dimensionName";
@@ -14853,6 +15026,7 @@ const _tV = "templateVersion";
 const _to = "topic";
 const _uPAV = "usePrefixAttributeValue";
 const _vI = "violationId";
+const _vR = "validationResult";
 const _vS = "verificationState";
 const _xaip = "x-amzn-iot-principal";
 const _xaip_ = "x-amzn-iot-policy";

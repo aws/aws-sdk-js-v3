@@ -38,6 +38,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * const client = new IoTClient(config);
  * const input = { // GetJobDocumentRequest
  *   jobId: "STRING_VALUE", // required
+ *   beforeSubstitution: true || false,
  * };
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);

@@ -33,6 +33,8 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  OTAUpdateStatus,
+  PackageVersionArtifact,
   PackageVersionStatus,
   Policy,
   PresignedUrlConfig,
@@ -64,6 +66,8 @@ import {
   EventType,
   GroupNameAndArn,
   LogTargetType,
+  MetricDatum,
+  MitigationActionType,
   RegistrationConfig,
   Status,
   ThingGroupIndexingConfiguration,
@@ -72,6 +76,152 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListMetricValuesResponse {
+  /**
+   * <p>The data the thing reports for the metric during the specified time period.</p>
+   * @public
+   */
+  metricDatumList?: MetricDatum[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *         if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMitigationActionsRequest {
+  /**
+   * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
+   * @public
+   */
+  actionType?: MitigationActionType;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>
+ * @public
+ */
+export interface MitigationActionIdentifier {
+  /**
+   * <p>The friendly name of the mitigation action.</p>
+   * @public
+   */
+  actionName?: string;
+
+  /**
+   * <p>The IAM role ARN used to apply this mitigation action.</p>
+   * @public
+   */
+  actionArn?: string;
+
+  /**
+   * <p>The date when this mitigation action was created.</p>
+   * @public
+   */
+  creationDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListMitigationActionsResponse {
+  /**
+   * <p>A set of actions that matched the specified filter criteria.</p>
+   * @public
+   */
+  actionIdentifiers?: MitigationActionIdentifier[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOTAUpdatesRequest {
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token used to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The OTA update job status.</p>
+   * @public
+   */
+  otaUpdateStatus?: OTAUpdateStatus;
+}
+
+/**
+ * <p>An OTA update summary.</p>
+ * @public
+ */
+export interface OTAUpdateSummary {
+  /**
+   * <p>The OTA update ID.</p>
+   * @public
+   */
+  otaUpdateId?: string;
+
+  /**
+   * <p>The OTA update ARN.</p>
+   * @public
+   */
+  otaUpdateArn?: string;
+
+  /**
+   * <p>The date when the OTA update was created.</p>
+   * @public
+   */
+  creationDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListOTAUpdatesResponse {
+  /**
+   * <p>A list of OTA update jobs.</p>
+   * @public
+   */
+  otaUpdates?: OTAUpdateSummary[];
+
+  /**
+   * <p>A token to use to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * <p>The input to the ListOutgoingCertificates operation.</p>
@@ -770,6 +920,118 @@ export interface ListRoleAliasesResponse {
    * @public
    */
   nextMarker?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SbomValidationResult = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type SbomValidationResult = (typeof SbomValidationResult)[keyof typeof SbomValidationResult];
+
+/**
+ * @public
+ */
+export interface ListSbomValidationResultsRequest {
+  /**
+   * <p>The name of the new software package.</p>
+   * @public
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the new package version.</p>
+   * @public
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>The end result of the </p>
+   * @public
+   */
+  validationResult?: SbomValidationResult;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SbomValidationErrorCode = {
+  FILE_SIZE_LIMIT_EXCEEDED: "FILE_SIZE_LIMIT_EXCEEDED",
+  INCOMPATIBLE_FORMAT: "INCOMPATIBLE_FORMAT",
+} as const;
+
+/**
+ * @public
+ */
+export type SbomValidationErrorCode = (typeof SbomValidationErrorCode)[keyof typeof SbomValidationErrorCode];
+
+/**
+ * <p>A summary of the validation results for a specific software bill of materials (SBOM) attached to a software package version.</p>
+ * @public
+ */
+export interface SbomValidationResultSummary {
+  /**
+   * <p>The name of the SBOM file.</p>
+   * @public
+   */
+  fileName?: string;
+
+  /**
+   * <p>The end result of the SBOM validation.</p>
+   * @public
+   */
+  validationResult?: SbomValidationResult;
+
+  /**
+   * <p>The <code>errorCode</code> representing the validation failure error if the SBOM
+   *          validation failed.</p>
+   * @public
+   */
+  errorCode?: SbomValidationErrorCode;
+
+  /**
+   * <p>The <code>errorMessage</code> representing the validation failure error if the SBOM
+   *          validation failed.</p>
+   * @public
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSbomValidationResultsResponse {
+  /**
+   * <p>A summary of the validation results for each software bill of materials attached to a software package version.</p>
+   * @public
+   */
+  validationResultSummaries?: SbomValidationResultSummary[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string;
 }
 
 /**
@@ -4309,10 +4571,23 @@ export interface UpdatePackageVersionRequest {
   attributes?: Record<string, string>;
 
   /**
+   * <p>The various components that make up a software package version.</p>
+   * @public
+   */
+  artifact?: PackageVersionArtifact;
+
+  /**
    * <p>The status that the package version should be assigned. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    * @public
    */
   action?: PackageVersionAction;
+
+  /**
+   * <p>The inline job document associated with a software package version used for a quick job
+   *          deployment via IoT Jobs.</p>
+   * @public
+   */
+  recipe?: string;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
@@ -4953,4 +5228,5 @@ export const UpdatePackageVersionRequestFilterSensitiveLog = (obj: UpdatePackage
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
 });

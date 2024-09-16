@@ -47,7 +47,15 @@ export interface UpdatePackageVersionCommandOutput extends UpdatePackageVersionR
  *   attributes: { // ResourceAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   artifact: { // PackageVersionArtifact
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *   },
  *   action: "PUBLISH" || "DEPRECATE",
+ *   recipe: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdatePackageVersionCommand(input);

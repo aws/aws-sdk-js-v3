@@ -2302,6 +2302,206 @@ export interface Allowed {
 }
 
 /**
+ * <p>The S3 location.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The S3 bucket.</p>
+   * @public
+   */
+  bucket?: string;
+
+  /**
+   * <p>The S3 key.</p>
+   * @public
+   */
+  key?: string;
+
+  /**
+   * <p>The S3 bucket version.</p>
+   * @public
+   */
+  version?: string;
+}
+
+/**
+ * <p>The Amazon S3 location for the software bill of materials associated with a software
+ *          package version.</p>
+ * @public
+ */
+export interface Sbom {
+  /**
+   * <p>The S3 location.</p>
+   * @public
+   */
+  s3Location?: S3Location;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSbomWithPackageVersionRequest {
+  /**
+   * <p>The name of the new software package.</p>
+   * @public
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the new package version.</p>
+   * @public
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location for the software bill of materials associated with a software
+   *          package version.</p>
+   * @public
+   */
+  sbom: Sbom | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SbomValidationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type SbomValidationStatus = (typeof SbomValidationStatus)[keyof typeof SbomValidationStatus];
+
+/**
+ * @public
+ */
+export interface AssociateSbomWithPackageVersionResponse {
+  /**
+   * <p>The name of the new software package.</p>
+   * @public
+   */
+  packageName?: string;
+
+  /**
+   * <p>The name of the new package version.</p>
+   * @public
+   */
+  versionName?: string;
+
+  /**
+   * <p>The Amazon S3 location for the software bill of materials associated with a software
+   *          package version.</p>
+   * @public
+   */
+  sbom?: Sbom;
+
+  /**
+   * <p>The status of the initial validation for the SBOM against the Software Package Data Exchange (SPDX) and CycloneDX industry standard format.</p>
+   * @public
+   */
+  sbomValidationStatus?: SbomValidationStatus;
+}
+
+/**
+ * <p>A resource with the same name already exists.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A resource with the same name already exists.</p>
+   * @public
+   */
+  resourceId?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+  }
+}
+
+/**
+ * <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>A limit has been exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The request is not valid.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface AssociateTargetsWithJobRequest {
@@ -4256,7 +4456,7 @@ export interface ServerCertificateConfig {
   /**
    * <p>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
    *          certificate check is enabled or not.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring OCSP server-certificate stapling in domain
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-cert-config.html">Configuring OCSP server-certificate stapling in domain
    *          configuration</a> from Amazon Web Services IoT Core Developer Guide.</p>
    * @public
    */
@@ -5087,33 +5287,6 @@ export interface CreateJobResponse {
 }
 
 /**
- * <p>A resource with the same name already exists.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A resource with the same name already exists.</p>
-   * @public
-   */
-  resourceId?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateJobTemplateRequest {
@@ -5835,30 +6008,6 @@ export interface CodeSigning {
 }
 
 /**
- * <p>The S3 location.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>The S3 bucket.</p>
-   * @public
-   */
-  bucket?: string;
-
-  /**
-   * <p>The S3 key.</p>
-   * @public
-   */
-  key?: string;
-
-  /**
-   * <p>The S3 bucket version.</p>
-   * @public
-   */
-  version?: string;
-}
-
-/**
  * <p>Describes a group of files that can be streamed.</p>
  * @public
  */
@@ -6151,64 +6300,16 @@ export interface CreatePackageResponse {
 }
 
 /**
- * <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ * <p>The Amazon S3 location for the artifacts associated with a software package
+ *          version.</p>
  * @public
  */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
+export interface PackageVersionArtifact {
   /**
-   * @internal
+   * <p>The S3 location.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>A limit has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
+  s3Location?: S3Location;
 }
 
 /**
@@ -6239,6 +6340,20 @@ export interface CreatePackageVersionRequest {
    * @public
    */
   attributes?: Record<string, string>;
+
+  /**
+   * <p>The various build components created during the build process such as libraries and
+   *          configuration files that make up a software package version.</p>
+   * @public
+   */
+  artifact?: PackageVersionArtifact;
+
+  /**
+   * <p>The inline job document associated with a software package version used for a quick job
+   *          deployment via IoT Jobs.</p>
+   * @public
+   */
+  recipe?: string;
 
   /**
    * <p>Metadata that can be used to manage the package version.</p>
@@ -7641,61 +7756,6 @@ export class CertificateStateException extends __BaseException {
 }
 
 /**
- * <p>Input for the DeleteCACertificate operation.</p>
- * @public
- */
-export interface DeleteCACertificateRequest {
-  /**
-   * <p>The ID of the certificate to delete. (The last part of the certificate ARN contains
-   *          the certificate ID.)</p>
-   * @public
-   */
-  certificateId: string | undefined;
-}
-
-/**
- * <p>The output for the DeleteCACertificate operation.</p>
- * @public
- */
-export interface DeleteCACertificateResponse {}
-
-/**
- * <p>The input for the DeleteCertificate operation.</p>
- * @public
- */
-export interface DeleteCertificateRequest {
-  /**
-   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   * @public
-   */
-  certificateId: string | undefined;
-
-  /**
-   * <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT
-   *          thing.</p>
-   * @public
-   */
-  forceDelete?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteCertificateProviderRequest {
-  /**
-   * <p>The name of the certificate provider.</p>
-   * @public
-   */
-  certificateProviderName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCertificateProviderResponse {}
-
-/**
  * @internal
  */
 export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
@@ -7734,6 +7794,7 @@ export const CreatePackageVersionRequestFilterSensitiveLog = (obj: CreatePackage
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
 });
 
 /**

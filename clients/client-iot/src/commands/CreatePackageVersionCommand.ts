@@ -48,6 +48,14 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  *   attributes: { // ResourceAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   artifact: { // PackageVersionArtifact
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *   },
+ *   recipe: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

@@ -245,6 +245,14 @@ AddThingToThingGroup
 </details>
 <details>
 <summary>
+AssociateSbomWithPackageVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/AssociateSbomWithPackageVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/AssociateSbomWithPackageVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/AssociateSbomWithPackageVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateTargetsWithJob
 </summary>
 
@@ -1189,6 +1197,14 @@ DisableTopicRule
 </details>
 <details>
 <summary>
+DisassociateSbomFromPackageVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/DisassociateSbomFromPackageVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/DisassociateSbomFromPackageVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/DisassociateSbomFromPackageVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableTopicRule
 </summary>
 
@@ -1665,6 +1681,14 @@ ListRoleAliases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/ListRoleAliasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/ListRoleAliasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/ListRoleAliasesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSbomValidationResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/ListSbomValidationResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/ListSbomValidationResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/ListSbomValidationResultsCommandOutput/)
 
 </details>
 <details>
