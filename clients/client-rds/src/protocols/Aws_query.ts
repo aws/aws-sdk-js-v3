@@ -11385,6 +11385,16 @@ const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, contex
   if (input[_SE] != null) {
     entries[_SE] = input[_SE];
   }
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -21288,6 +21298,11 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
   }
   if (output[_FSa] != null) {
     contents[_FSa] = de_FailoverState(output[_FSa], context);
+  }
+  if (output.TagList === "") {
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
