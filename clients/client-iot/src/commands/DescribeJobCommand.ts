@@ -38,6 +38,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * const client = new IoTClient(config);
  * const input = { // DescribeJobRequest
  *   jobId: "STRING_VALUE", // required
+ *   beforeSubstitution: true || false,
  * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);

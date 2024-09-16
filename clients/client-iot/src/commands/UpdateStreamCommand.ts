@@ -74,6 +74,9 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *

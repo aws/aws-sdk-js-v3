@@ -18,6 +18,11 @@ import {
   AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
+  AssociateSbomWithPackageVersionCommand,
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "./commands/AssociateSbomWithPackageVersionCommand";
+import {
   AssociateTargetsWithJobCommand,
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
@@ -584,6 +589,11 @@ import {
   DisableTopicRuleCommandOutput,
 } from "./commands/DisableTopicRuleCommand";
 import {
+  DisassociateSbomFromPackageVersionCommand,
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "./commands/DisassociateSbomFromPackageVersionCommand";
+import {
   EnableTopicRuleCommand,
   EnableTopicRuleCommandInput,
   EnableTopicRuleCommandOutput,
@@ -867,6 +877,11 @@ import {
   ListRoleAliasesCommandInput,
   ListRoleAliasesCommandOutput,
 } from "./commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommand,
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "./commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommand,
   ListScheduledAuditsCommandInput,
@@ -1219,6 +1234,7 @@ const commands = {
   AcceptCertificateTransferCommand,
   AddThingToBillingGroupCommand,
   AddThingToThingGroupCommand,
+  AssociateSbomWithPackageVersionCommand,
   AssociateTargetsWithJobCommand,
   AttachPolicyCommand,
   AttachPrincipalPolicyCommand,
@@ -1337,6 +1353,7 @@ const commands = {
   DetachSecurityProfileCommand,
   DetachThingPrincipalCommand,
   DisableTopicRuleCommand,
+  DisassociateSbomFromPackageVersionCommand,
   EnableTopicRuleCommand,
   GetBehaviorModelTrainingSummariesCommand,
   GetBucketsAggregationCommand,
@@ -1397,6 +1414,7 @@ const commands = {
   ListProvisioningTemplateVersionsCommand,
   ListRelatedResourcesForAuditFindingCommand,
   ListRoleAliasesCommand,
+  ListSbomValidationResultsCommand,
   ListScheduledAuditsCommand,
   ListSecurityProfilesCommand,
   ListSecurityProfilesForTargetCommand,
@@ -1525,6 +1543,23 @@ export interface IoT {
     args: AddThingToThingGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSbomWithPackageVersionCommand}
+   */
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSbomWithPackageVersionCommandOutput>;
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    cb: (err: any, data?: AssociateSbomWithPackageVersionCommandOutput) => void
+  ): void;
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSbomWithPackageVersionCommandOutput) => void
   ): void;
 
   /**
@@ -3410,6 +3445,23 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link DisassociateSbomFromPackageVersionCommand}
+   */
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSbomFromPackageVersionCommandOutput>;
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    cb: (err: any, data?: DisassociateSbomFromPackageVersionCommandOutput) => void
+  ): void;
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSbomFromPackageVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableTopicRuleCommand}
    */
   enableTopicRule(
@@ -4377,6 +4429,23 @@ export interface IoT {
     args: ListRoleAliasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRoleAliasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSbomValidationResultsCommand}
+   */
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSbomValidationResultsCommandOutput>;
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    cb: (err: any, data?: ListSbomValidationResultsCommandOutput) => void
+  ): void;
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSbomValidationResultsCommandOutput) => void
   ): void;
 
   /**

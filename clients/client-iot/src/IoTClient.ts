@@ -72,6 +72,10 @@ import {
   AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "./commands/AssociateSbomWithPackageVersionCommand";
+import {
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
 } from "./commands/AssociateTargetsWithJobCommand";
@@ -387,6 +391,10 @@ import {
   DetachThingPrincipalCommandOutput,
 } from "./commands/DetachThingPrincipalCommand";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand";
+import {
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "./commands/DisassociateSbomFromPackageVersionCommand";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand";
 import {
   GetBehaviorModelTrainingSummariesCommandInput,
@@ -537,6 +545,10 @@ import {
   ListRelatedResourcesForAuditFindingCommandOutput,
 } from "./commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "./commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommandInput,
   ListScheduledAuditsCommandOutput,
@@ -776,6 +788,7 @@ export type ServiceInputTypes =
   | AcceptCertificateTransferCommandInput
   | AddThingToBillingGroupCommandInput
   | AddThingToThingGroupCommandInput
+  | AssociateSbomWithPackageVersionCommandInput
   | AssociateTargetsWithJobCommandInput
   | AttachPolicyCommandInput
   | AttachPrincipalPolicyCommandInput
@@ -894,6 +907,7 @@ export type ServiceInputTypes =
   | DetachSecurityProfileCommandInput
   | DetachThingPrincipalCommandInput
   | DisableTopicRuleCommandInput
+  | DisassociateSbomFromPackageVersionCommandInput
   | EnableTopicRuleCommandInput
   | GetBehaviorModelTrainingSummariesCommandInput
   | GetBucketsAggregationCommandInput
@@ -954,6 +968,7 @@ export type ServiceInputTypes =
   | ListProvisioningTemplatesCommandInput
   | ListRelatedResourcesForAuditFindingCommandInput
   | ListRoleAliasesCommandInput
+  | ListSbomValidationResultsCommandInput
   | ListScheduledAuditsCommandInput
   | ListSecurityProfilesCommandInput
   | ListSecurityProfilesForTargetCommandInput
@@ -1036,6 +1051,7 @@ export type ServiceOutputTypes =
   | AcceptCertificateTransferCommandOutput
   | AddThingToBillingGroupCommandOutput
   | AddThingToThingGroupCommandOutput
+  | AssociateSbomWithPackageVersionCommandOutput
   | AssociateTargetsWithJobCommandOutput
   | AttachPolicyCommandOutput
   | AttachPrincipalPolicyCommandOutput
@@ -1154,6 +1170,7 @@ export type ServiceOutputTypes =
   | DetachSecurityProfileCommandOutput
   | DetachThingPrincipalCommandOutput
   | DisableTopicRuleCommandOutput
+  | DisassociateSbomFromPackageVersionCommandOutput
   | EnableTopicRuleCommandOutput
   | GetBehaviorModelTrainingSummariesCommandOutput
   | GetBucketsAggregationCommandOutput
@@ -1214,6 +1231,7 @@ export type ServiceOutputTypes =
   | ListProvisioningTemplatesCommandOutput
   | ListRelatedResourcesForAuditFindingCommandOutput
   | ListRoleAliasesCommandOutput
+  | ListSbomValidationResultsCommandOutput
   | ListScheduledAuditsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListSecurityProfilesForTargetCommandOutput

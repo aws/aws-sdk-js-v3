@@ -54,10 +54,26 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  * //   attributes: { // ResourceAttributes
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   artifact: { // PackageVersionArtifact
+ * //     s3Location: { // S3Location
+ * //       bucket: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   status: "DRAFT" || "PUBLISHED" || "DEPRECATED",
  * //   errorReason: "STRING_VALUE",
  * //   creationDate: new Date("TIMESTAMP"),
  * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   sbom: { // Sbom
+ * //     s3Location: {
+ * //       bucket: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   sbomValidationStatus: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //   recipe: "STRING_VALUE",
  * // };
  *
  * ```

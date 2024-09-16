@@ -39,6 +39,7 @@ export * from "./ListProvisioningTemplateVersionsPaginator";
 export * from "./ListProvisioningTemplatesPaginator";
 export * from "./ListRelatedResourcesForAuditFindingPaginator";
 export * from "./ListRoleAliasesPaginator";
+export * from "./ListSbomValidationResultsPaginator";
 export * from "./ListScheduledAuditsPaginator";
 export * from "./ListSecurityProfilesForTargetPaginator";
 export * from "./ListSecurityProfilesPaginator";
