@@ -56,6 +56,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *   DeletionProtection: true || false,
  *   DatabaseName: "STRING_VALUE",
  *   StorageEncrypted: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -88,6 +94,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

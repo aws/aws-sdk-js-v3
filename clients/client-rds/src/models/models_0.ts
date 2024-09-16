@@ -771,37 +771,9 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
-   *          <p>Valid Values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ca-certificate-rotation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-upgrade</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hardware-maintenance</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>os-upgrade</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-update</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about these actions, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
+   *          <p>Valid Values: <code>system-update</code>, <code>db-upgrade</code>,
+   *           <code>hardware-maintenance</code>, <code>ca-certificate-rotation</code>
+   *          </p>
    * @public
    */
   ApplyAction: string | undefined;
@@ -839,37 +811,8 @@ export interface PendingMaintenanceAction {
   /**
    * <p>The type of pending maintenance action that is available for the resource. </p>
    *          <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p>
-   *          <p>Valid Values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ca-certificate-rotation</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-upgrade</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hardware-maintenance</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>os-upgrade</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>system-update</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about these actions, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
+   *          <p>Valid Values:<code> system-update | db-upgrade | hardware-maintenance | ca-certificate-rotation</code>
+   *          </p>
    * @public
    */
   Action?: string;
@@ -12237,6 +12180,12 @@ export interface CreateGlobalClusterMessage {
    * @public
    */
   StorageEncrypted?: boolean;
+
+  /**
+   * <p>Tags to assign to the global cluster.</p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -12442,6 +12391,16 @@ export interface GlobalCluster {
    * @public
    */
   FailoverState?: FailoverState;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  TagList?: Tag[];
 }
 
 /**
