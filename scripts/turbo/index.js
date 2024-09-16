@@ -3,15 +3,7 @@ const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
 
 const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
-  let command = ["turbo", "run", task];
-  if (apiSecret && apiEndpoint) {
-    command = command.concat([
-      `--api=${apiEndpoint}`,
-      "--team=aws-sdk-js",
-      `--token=${apiSecret}`,
-      "--concurrency=100%",
-    ]);
-  }
+  let command = ["turbo", "run", task, "--concurrency=100%"];
   command = command.concat(args);
   const turboRoot = path.join(__dirname, "..", "..");
   try {
@@ -21,6 +13,12 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
       env: {
         ...process.env,
         TURBO_TELEMETRY_DISABLED: "1",
+        ...(apiSecret &&
+          apiEndpoint && {
+            TURBO_API: apiEndpoint,
+            TURBO_TOKEN: apiSecret,
+            TURBO_TEAM: "aws-sdk-js",
+          }),
       },
     });
   } catch (error) {
