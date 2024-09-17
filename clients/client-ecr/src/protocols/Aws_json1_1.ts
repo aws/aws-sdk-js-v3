@@ -3133,8 +3133,10 @@ const de_EnhancedImageScanFinding = (output: any, context: __SerdeContext): Enha
   return take(output, {
     awsAccountId: __expectString,
     description: __expectString,
+    exploitAvailable: __expectString,
     findingArn: __expectString,
     firstObservedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fixAvailable: __expectString,
     lastObservedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     packageVulnerabilityDetails: (_: any) => de_PackageVulnerabilityDetails(_, context),
     remediation: _json,
