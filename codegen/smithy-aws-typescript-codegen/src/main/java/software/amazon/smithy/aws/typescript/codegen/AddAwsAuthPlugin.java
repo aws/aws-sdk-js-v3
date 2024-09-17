@@ -100,9 +100,8 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         if (!isSigV4Service(service) && isAwsService(service)) {
-            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
             settings.setDefaultSigningName(
-                serviceTrait.getArnNamespace()
+                service.expectTrait(ServiceTrait.class).getArnNamespace()
             );
             return;
         }
@@ -123,15 +122,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             writer.write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         }
 
-        try {
-            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
-            settings.setDefaultSigningName(
-                service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
-                    .orElse(serviceTrait.getArnNamespace())
-            );
-        } catch (Exception e) {
-            LOGGER.warning("Unable to set service default signing name. A SigV4 or Service trait is needed.");
-        }
+        settings.setDefaultSigningName(
+            service.expectTrait(SigV4Trait.class).getName()
+        );
     }
 
     // Only one of AwsAuth or SigV4Auth should be used
