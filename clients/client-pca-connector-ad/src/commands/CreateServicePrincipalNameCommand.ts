@@ -105,4 +105,16 @@ export class CreateServicePrincipalNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServicePrincipalNameCommand)
   .de(de_CreateServicePrincipalNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServicePrincipalNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateServicePrincipalNameCommandInput;
+      output: CreateServicePrincipalNameCommandOutput;
+    };
+  };
+}

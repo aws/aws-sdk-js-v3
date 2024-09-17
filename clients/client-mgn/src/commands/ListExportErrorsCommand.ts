@@ -93,4 +93,16 @@ export class ListExportErrorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExportErrorsCommand)
   .de(de_ListExportErrorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExportErrorsRequest;
+      output: ListExportErrorsResponse;
+    };
+    sdk: {
+      input: ListExportErrorsCommandInput;
+      output: ListExportErrorsCommandOutput;
+    };
+  };
+}

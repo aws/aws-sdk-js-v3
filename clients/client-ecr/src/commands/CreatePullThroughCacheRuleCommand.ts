@@ -123,4 +123,16 @@ export class CreatePullThroughCacheRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePullThroughCacheRuleCommand)
   .de(de_CreatePullThroughCacheRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePullThroughCacheRuleRequest;
+      output: CreatePullThroughCacheRuleResponse;
+    };
+    sdk: {
+      input: CreatePullThroughCacheRuleCommandInput;
+      output: CreatePullThroughCacheRuleCommandOutput;
+    };
+  };
+}

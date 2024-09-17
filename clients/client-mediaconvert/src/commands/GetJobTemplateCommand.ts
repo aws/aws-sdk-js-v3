@@ -1568,4 +1568,16 @@ export class GetJobTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobTemplateCommand)
   .de(de_GetJobTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobTemplateRequest;
+      output: GetJobTemplateResponse;
+    };
+    sdk: {
+      input: GetJobTemplateCommandInput;
+      output: GetJobTemplateCommandOutput;
+    };
+  };
+}

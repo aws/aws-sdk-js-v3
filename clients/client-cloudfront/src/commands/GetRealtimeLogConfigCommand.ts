@@ -106,4 +106,16 @@ export class GetRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRealtimeLogConfigCommand)
   .de(de_GetRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRealtimeLogConfigRequest;
+      output: GetRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: GetRealtimeLogConfigCommandInput;
+      output: GetRealtimeLogConfigCommandOutput;
+    };
+  };
+}

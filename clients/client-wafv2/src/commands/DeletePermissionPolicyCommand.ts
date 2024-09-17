@@ -107,4 +107,16 @@ export class DeletePermissionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePermissionPolicyCommand)
   .de(de_DeletePermissionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePermissionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePermissionPolicyCommandInput;
+      output: DeletePermissionPolicyCommandOutput;
+    };
+  };
+}

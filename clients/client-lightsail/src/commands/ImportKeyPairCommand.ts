@@ -124,4 +124,16 @@ export class ImportKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportKeyPairCommand)
   .de(de_ImportKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportKeyPairRequest;
+      output: ImportKeyPairResult;
+    };
+    sdk: {
+      input: ImportKeyPairCommandInput;
+      output: ImportKeyPairCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetIngestConfigurationCommand extends $Command
   .f(void 0, GetIngestConfigurationResponseFilterSensitiveLog)
   .ser(se_GetIngestConfigurationCommand)
   .de(de_GetIngestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIngestConfigurationRequest;
+      output: GetIngestConfigurationResponse;
+    };
+    sdk: {
+      input: GetIngestConfigurationCommandInput;
+      output: GetIngestConfigurationCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class GetTriggersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTriggersCommand)
   .de(de_GetTriggersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTriggersRequest;
+      output: GetTriggersResponse;
+    };
+    sdk: {
+      input: GetTriggersCommandInput;
+      output: GetTriggersCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class DescribeActivityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeActivityTypeCommand)
   .de(de_DescribeActivityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActivityTypeInput;
+      output: ActivityTypeDetail;
+    };
+    sdk: {
+      input: DescribeActivityTypeCommandInput;
+      output: DescribeActivityTypeCommandOutput;
+    };
+  };
+}

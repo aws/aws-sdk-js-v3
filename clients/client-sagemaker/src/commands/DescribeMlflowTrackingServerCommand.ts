@@ -117,4 +117,16 @@ export class DescribeMlflowTrackingServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMlflowTrackingServerCommand)
   .de(de_DescribeMlflowTrackingServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMlflowTrackingServerRequest;
+      output: DescribeMlflowTrackingServerResponse;
+    };
+    sdk: {
+      input: DescribeMlflowTrackingServerCommandInput;
+      output: DescribeMlflowTrackingServerCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DeleteBotReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBotReplicaCommand)
   .de(de_DeleteBotReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBotReplicaRequest;
+      output: DeleteBotReplicaResponse;
+    };
+    sdk: {
+      input: DeleteBotReplicaCommandInput;
+      output: DeleteBotReplicaCommandOutput;
+    };
+  };
+}

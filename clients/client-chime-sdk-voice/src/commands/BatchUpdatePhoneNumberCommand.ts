@@ -121,4 +121,16 @@ export class BatchUpdatePhoneNumberCommand extends $Command
   .f(BatchUpdatePhoneNumberRequestFilterSensitiveLog, BatchUpdatePhoneNumberResponseFilterSensitiveLog)
   .ser(se_BatchUpdatePhoneNumberCommand)
   .de(de_BatchUpdatePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdatePhoneNumberRequest;
+      output: BatchUpdatePhoneNumberResponse;
+    };
+    sdk: {
+      input: BatchUpdatePhoneNumberCommandInput;
+      output: BatchUpdatePhoneNumberCommandOutput;
+    };
+  };
+}

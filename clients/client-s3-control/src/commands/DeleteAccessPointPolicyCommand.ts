@@ -101,4 +101,16 @@ export class DeleteAccessPointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessPointPolicyCommand)
   .de(de_DeleteAccessPointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessPointPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessPointPolicyCommandInput;
+      output: DeleteAccessPointPolicyCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class StopTrainingDocumentClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTrainingDocumentClassifierCommand)
   .de(de_StopTrainingDocumentClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTrainingDocumentClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTrainingDocumentClassifierCommandInput;
+      output: StopTrainingDocumentClassifierCommandOutput;
+    };
+  };
+}

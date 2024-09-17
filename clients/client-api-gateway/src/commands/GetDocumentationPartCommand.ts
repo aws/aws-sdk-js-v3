@@ -98,4 +98,16 @@ export class GetDocumentationPartCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDocumentationPartCommand)
   .de(de_GetDocumentationPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentationPartRequest;
+      output: DocumentationPart;
+    };
+    sdk: {
+      input: GetDocumentationPartCommandInput;
+      output: GetDocumentationPartCommandOutput;
+    };
+  };
+}

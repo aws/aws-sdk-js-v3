@@ -99,4 +99,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command
   .f(UpdatePhoneNumberSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePhoneNumberSettingsCommand)
   .de(de_UpdatePhoneNumberSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePhoneNumberSettingsCommandInput;
+      output: UpdatePhoneNumberSettingsCommandOutput;
+    };
+  };
+}

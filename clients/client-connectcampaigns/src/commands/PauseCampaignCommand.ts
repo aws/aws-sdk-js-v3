@@ -96,4 +96,16 @@ export class PauseCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PauseCampaignCommand)
   .de(de_PauseCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PauseCampaignRequest;
+      output: {};
+    };
+    sdk: {
+      input: PauseCampaignCommandInput;
+      output: PauseCampaignCommandOutput;
+    };
+  };
+}

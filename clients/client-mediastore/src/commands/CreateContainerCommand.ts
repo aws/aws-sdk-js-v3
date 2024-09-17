@@ -101,4 +101,16 @@ export class CreateContainerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContainerCommand)
   .de(de_CreateContainerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContainerInput;
+      output: CreateContainerOutput;
+    };
+    sdk: {
+      input: CreateContainerCommandInput;
+      output: CreateContainerCommandOutput;
+    };
+  };
+}

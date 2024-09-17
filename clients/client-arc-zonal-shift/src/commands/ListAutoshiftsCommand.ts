@@ -102,4 +102,16 @@ export class ListAutoshiftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutoshiftsCommand)
   .de(de_ListAutoshiftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutoshiftsRequest;
+      output: ListAutoshiftsResponse;
+    };
+    sdk: {
+      input: ListAutoshiftsCommandInput;
+      output: ListAutoshiftsCommandOutput;
+    };
+  };
+}

@@ -147,4 +147,16 @@ export class UpdateProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProbeCommand)
   .de(de_UpdateProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProbeInput;
+      output: UpdateProbeOutput;
+    };
+    sdk: {
+      input: UpdateProbeCommandInput;
+      output: UpdateProbeCommandOutput;
+    };
+  };
+}

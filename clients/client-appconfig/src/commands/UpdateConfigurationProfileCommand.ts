@@ -139,4 +139,16 @@ export class UpdateConfigurationProfileCommand extends $Command
   .f(UpdateConfigurationProfileRequestFilterSensitiveLog, ConfigurationProfileFilterSensitiveLog)
   .ser(se_UpdateConfigurationProfileCommand)
   .de(de_UpdateConfigurationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationProfileRequest;
+      output: ConfigurationProfile;
+    };
+    sdk: {
+      input: UpdateConfigurationProfileCommandInput;
+      output: UpdateConfigurationProfileCommandOutput;
+    };
+  };
+}

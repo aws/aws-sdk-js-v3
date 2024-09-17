@@ -116,4 +116,16 @@ export class CreatePrefetchScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrefetchScheduleCommand)
   .de(de_CreatePrefetchScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrefetchScheduleRequest;
+      output: CreatePrefetchScheduleResponse;
+    };
+    sdk: {
+      input: CreatePrefetchScheduleCommandInput;
+      output: CreatePrefetchScheduleCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class GetApplicationAssignmentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationAssignmentConfigurationCommand)
   .de(de_GetApplicationAssignmentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationAssignmentConfigurationRequest;
+      output: GetApplicationAssignmentConfigurationResponse;
+    };
+    sdk: {
+      input: GetApplicationAssignmentConfigurationCommandInput;
+      output: GetApplicationAssignmentConfigurationCommandOutput;
+    };
+  };
+}

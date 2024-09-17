@@ -100,4 +100,16 @@ export class ListFargateProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFargateProfilesCommand)
   .de(de_ListFargateProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFargateProfilesRequest;
+      output: ListFargateProfilesResponse;
+    };
+    sdk: {
+      input: ListFargateProfilesCommandInput;
+      output: ListFargateProfilesCommandOutput;
+    };
+  };
+}

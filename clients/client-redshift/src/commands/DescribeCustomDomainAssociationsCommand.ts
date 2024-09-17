@@ -104,4 +104,16 @@ export class DescribeCustomDomainAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomDomainAssociationsCommand)
   .de(de_DescribeCustomDomainAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomDomainAssociationsMessage;
+      output: CustomDomainAssociationsMessage;
+    };
+    sdk: {
+      input: DescribeCustomDomainAssociationsCommandInput;
+      output: DescribeCustomDomainAssociationsCommandOutput;
+    };
+  };
+}

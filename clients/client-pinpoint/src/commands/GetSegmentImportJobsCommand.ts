@@ -131,4 +131,16 @@ export class GetSegmentImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentImportJobsCommand)
   .de(de_GetSegmentImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentImportJobsRequest;
+      output: GetSegmentImportJobsResponse;
+    };
+    sdk: {
+      input: GetSegmentImportJobsCommandInput;
+      output: GetSegmentImportJobsCommandOutput;
+    };
+  };
+}

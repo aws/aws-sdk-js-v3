@@ -110,4 +110,16 @@ export class DescribeVolumeAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumeAttributeCommand)
   .de(de_DescribeVolumeAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumeAttributeRequest;
+      output: DescribeVolumeAttributeResult;
+    };
+    sdk: {
+      input: DescribeVolumeAttributeCommandInput;
+      output: DescribeVolumeAttributeCommandOutput;
+    };
+  };
+}

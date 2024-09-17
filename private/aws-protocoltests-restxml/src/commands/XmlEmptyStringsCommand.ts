@@ -71,4 +71,16 @@ export class XmlEmptyStringsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyStringsCommand)
   .de(de_XmlEmptyStringsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyStringsRequest;
+      output: XmlEmptyStringsResponse;
+    };
+    sdk: {
+      input: XmlEmptyStringsCommandInput;
+      output: XmlEmptyStringsCommandOutput;
+    };
+  };
+}

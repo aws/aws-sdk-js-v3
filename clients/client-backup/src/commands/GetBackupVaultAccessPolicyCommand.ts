@@ -93,4 +93,16 @@ export class GetBackupVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackupVaultAccessPolicyCommand)
   .de(de_GetBackupVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupVaultAccessPolicyInput;
+      output: GetBackupVaultAccessPolicyOutput;
+    };
+    sdk: {
+      input: GetBackupVaultAccessPolicyCommandInput;
+      output: GetBackupVaultAccessPolicyCommandOutput;
+    };
+  };
+}

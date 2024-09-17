@@ -112,4 +112,16 @@ export class DescribeFaqCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFaqCommand)
   .de(de_DescribeFaqCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFaqRequest;
+      output: DescribeFaqResponse;
+    };
+    sdk: {
+      input: DescribeFaqCommandInput;
+      output: DescribeFaqCommandOutput;
+    };
+  };
+}

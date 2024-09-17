@@ -107,4 +107,16 @@ export class AddRoleToDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddRoleToDBInstanceCommand)
   .de(de_AddRoleToDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddRoleToDBInstanceMessage;
+      output: {};
+    };
+    sdk: {
+      input: AddRoleToDBInstanceCommandInput;
+      output: AddRoleToDBInstanceCommandOutput;
+    };
+  };
+}

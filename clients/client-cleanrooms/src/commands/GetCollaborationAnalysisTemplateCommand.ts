@@ -139,4 +139,16 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command
   .f(void 0, GetCollaborationAnalysisTemplateOutputFilterSensitiveLog)
   .ser(se_GetCollaborationAnalysisTemplateCommand)
   .de(de_GetCollaborationAnalysisTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCollaborationAnalysisTemplateInput;
+      output: GetCollaborationAnalysisTemplateOutput;
+    };
+    sdk: {
+      input: GetCollaborationAnalysisTemplateCommandInput;
+      output: GetCollaborationAnalysisTemplateCommandOutput;
+    };
+  };
+}

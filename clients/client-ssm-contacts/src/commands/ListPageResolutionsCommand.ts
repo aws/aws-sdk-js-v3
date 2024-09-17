@@ -105,4 +105,16 @@ export class ListPageResolutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPageResolutionsCommand)
   .de(de_ListPageResolutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPageResolutionsRequest;
+      output: ListPageResolutionsResult;
+    };
+    sdk: {
+      input: ListPageResolutionsCommandInput;
+      output: ListPageResolutionsCommandOutput;
+    };
+  };
+}

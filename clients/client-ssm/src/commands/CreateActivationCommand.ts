@@ -110,4 +110,16 @@ export class CreateActivationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActivationCommand)
   .de(de_CreateActivationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActivationRequest;
+      output: CreateActivationResult;
+    };
+    sdk: {
+      input: CreateActivationCommandInput;
+      output: CreateActivationCommandOutput;
+    };
+  };
+}

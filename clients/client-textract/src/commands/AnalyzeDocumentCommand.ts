@@ -264,4 +264,16 @@ export class AnalyzeDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AnalyzeDocumentCommand)
   .de(de_AnalyzeDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AnalyzeDocumentRequest;
+      output: AnalyzeDocumentResponse;
+    };
+    sdk: {
+      input: AnalyzeDocumentCommandInput;
+      output: AnalyzeDocumentCommandOutput;
+    };
+  };
+}

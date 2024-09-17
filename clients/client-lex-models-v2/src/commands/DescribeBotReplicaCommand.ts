@@ -104,4 +104,16 @@ export class DescribeBotReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBotReplicaCommand)
   .de(de_DescribeBotReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotReplicaRequest;
+      output: DescribeBotReplicaResponse;
+    };
+    sdk: {
+      input: DescribeBotReplicaCommandInput;
+      output: DescribeBotReplicaCommandOutput;
+    };
+  };
+}

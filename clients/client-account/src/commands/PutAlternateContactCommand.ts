@@ -103,4 +103,16 @@ export class PutAlternateContactCommand extends $Command
   .f(PutAlternateContactRequestFilterSensitiveLog, void 0)
   .ser(se_PutAlternateContactCommand)
   .de(de_PutAlternateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAlternateContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAlternateContactCommandInput;
+      output: PutAlternateContactCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class PutRolePermissionsBoundaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRolePermissionsBoundaryCommand)
   .de(de_PutRolePermissionsBoundaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRolePermissionsBoundaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRolePermissionsBoundaryCommandInput;
+      output: PutRolePermissionsBoundaryCommandOutput;
+    };
+  };
+}

@@ -150,4 +150,16 @@ export class RevokeSnapshotAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeSnapshotAccessCommand)
   .de(de_RevokeSnapshotAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSnapshotAccessMessage;
+      output: RevokeSnapshotAccessResult;
+    };
+    sdk: {
+      input: RevokeSnapshotAccessCommandInput;
+      output: RevokeSnapshotAccessCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class CreateModelCardExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelCardExportJobCommand)
   .de(de_CreateModelCardExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCardExportJobRequest;
+      output: CreateModelCardExportJobResponse;
+    };
+    sdk: {
+      input: CreateModelCardExportJobCommandInput;
+      output: CreateModelCardExportJobCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class ListMLTransformsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLTransformsCommand)
   .de(de_ListMLTransformsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLTransformsRequest;
+      output: ListMLTransformsResponse;
+    };
+    sdk: {
+      input: ListMLTransformsCommandInput;
+      output: ListMLTransformsCommandOutput;
+    };
+  };
+}

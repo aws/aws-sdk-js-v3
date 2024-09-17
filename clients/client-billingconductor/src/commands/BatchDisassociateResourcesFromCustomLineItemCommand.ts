@@ -135,4 +135,16 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_BatchDisassociateResourcesFromCustomLineItemCommand)
   .de(de_BatchDisassociateResourcesFromCustomLineItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateResourcesFromCustomLineItemInput;
+      output: BatchDisassociateResourcesFromCustomLineItemOutput;
+    };
+    sdk: {
+      input: BatchDisassociateResourcesFromCustomLineItemCommandInput;
+      output: BatchDisassociateResourcesFromCustomLineItemCommandOutput;
+    };
+  };
+}

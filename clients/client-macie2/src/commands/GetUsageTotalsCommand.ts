@@ -105,4 +105,16 @@ export class GetUsageTotalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsageTotalsCommand)
   .de(de_GetUsageTotalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsageTotalsRequest;
+      output: GetUsageTotalsResponse;
+    };
+    sdk: {
+      input: GetUsageTotalsCommandInput;
+      output: GetUsageTotalsCommandOutput;
+    };
+  };
+}

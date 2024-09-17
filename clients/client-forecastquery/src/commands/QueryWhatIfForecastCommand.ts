@@ -108,4 +108,16 @@ export class QueryWhatIfForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryWhatIfForecastCommand)
   .de(de_QueryWhatIfForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryWhatIfForecastRequest;
+      output: QueryWhatIfForecastResponse;
+    };
+    sdk: {
+      input: QueryWhatIfForecastCommandInput;
+      output: QueryWhatIfForecastCommandOutput;
+    };
+  };
+}

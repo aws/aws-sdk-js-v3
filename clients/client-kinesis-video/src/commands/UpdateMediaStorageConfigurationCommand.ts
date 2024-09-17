@@ -138,4 +138,16 @@ export class UpdateMediaStorageConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMediaStorageConfigurationCommand)
   .de(de_UpdateMediaStorageConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMediaStorageConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMediaStorageConfigurationCommandInput;
+      output: UpdateMediaStorageConfigurationCommandOutput;
+    };
+  };
+}

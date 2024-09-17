@@ -124,4 +124,16 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebalanceSlotsInGlobalReplicationGroupCommand)
   .de(de_RebalanceSlotsInGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebalanceSlotsInGlobalReplicationGroupMessage;
+      output: RebalanceSlotsInGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: RebalanceSlotsInGlobalReplicationGroupCommandInput;
+      output: RebalanceSlotsInGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

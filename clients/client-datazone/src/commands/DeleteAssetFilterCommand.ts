@@ -98,4 +98,16 @@ export class DeleteAssetFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetFilterCommand)
   .de(de_DeleteAssetFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetFilterInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssetFilterCommandInput;
+      output: DeleteAssetFilterCommandOutput;
+    };
+  };
+}

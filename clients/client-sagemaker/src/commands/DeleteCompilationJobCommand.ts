@@ -85,4 +85,16 @@ export class DeleteCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCompilationJobCommand)
   .de(de_DeleteCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCompilationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCompilationJobCommandInput;
+      output: DeleteCompilationJobCommandOutput;
+    };
+  };
+}

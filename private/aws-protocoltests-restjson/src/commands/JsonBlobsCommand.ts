@@ -71,4 +71,16 @@ export class JsonBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonBlobsCommand)
   .de(de_JsonBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonBlobsInputOutput;
+      output: JsonBlobsInputOutput;
+    };
+    sdk: {
+      input: JsonBlobsCommandInput;
+      output: JsonBlobsCommandOutput;
+    };
+  };
+}

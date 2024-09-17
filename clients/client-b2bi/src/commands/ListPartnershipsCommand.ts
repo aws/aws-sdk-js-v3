@@ -139,4 +139,16 @@ export class ListPartnershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartnershipsCommand)
   .de(de_ListPartnershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnershipsRequest;
+      output: ListPartnershipsResponse;
+    };
+    sdk: {
+      input: ListPartnershipsCommandInput;
+      output: ListPartnershipsCommandOutput;
+    };
+  };
+}

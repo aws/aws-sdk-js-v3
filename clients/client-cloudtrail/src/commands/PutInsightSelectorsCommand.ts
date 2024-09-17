@@ -199,4 +199,16 @@ export class PutInsightSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInsightSelectorsCommand)
   .de(de_PutInsightSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInsightSelectorsRequest;
+      output: PutInsightSelectorsResponse;
+    };
+    sdk: {
+      input: PutInsightSelectorsCommandInput;
+      output: PutInsightSelectorsCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class DeleteImagePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImagePipelineCommand)
   .de(de_DeleteImagePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImagePipelineRequest;
+      output: DeleteImagePipelineResponse;
+    };
+    sdk: {
+      input: DeleteImagePipelineCommandInput;
+      output: DeleteImagePipelineCommandOutput;
+    };
+  };
+}

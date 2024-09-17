@@ -110,4 +110,16 @@ export class BatchStartRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStartRecommendationsCommand)
   .de(de_BatchStartRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStartRecommendationsRequest;
+      output: BatchStartRecommendationsResponse;
+    };
+    sdk: {
+      input: BatchStartRecommendationsCommandInput;
+      output: BatchStartRecommendationsCommandOutput;
+    };
+  };
+}

@@ -84,4 +84,16 @@ export class GetDefaultPatchBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDefaultPatchBaselineCommand)
   .de(de_GetDefaultPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDefaultPatchBaselineRequest;
+      output: GetDefaultPatchBaselineResult;
+    };
+    sdk: {
+      input: GetDefaultPatchBaselineCommandInput;
+      output: GetDefaultPatchBaselineCommandOutput;
+    };
+  };
+}

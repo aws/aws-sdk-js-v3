@@ -112,4 +112,16 @@ export class GetSceneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSceneCommand)
   .de(de_GetSceneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSceneRequest;
+      output: GetSceneResponse;
+    };
+    sdk: {
+      input: GetSceneCommandInput;
+      output: GetSceneCommandOutput;
+    };
+  };
+}

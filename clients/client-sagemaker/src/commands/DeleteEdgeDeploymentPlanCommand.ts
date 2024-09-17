@@ -79,4 +79,16 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEdgeDeploymentPlanCommand)
   .de(de_DeleteEdgeDeploymentPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEdgeDeploymentPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEdgeDeploymentPlanCommandInput;
+      output: DeleteEdgeDeploymentPlanCommandOutput;
+    };
+  };
+}

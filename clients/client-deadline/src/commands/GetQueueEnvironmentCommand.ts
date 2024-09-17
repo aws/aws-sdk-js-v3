@@ -107,4 +107,16 @@ export class GetQueueEnvironmentCommand extends $Command
   .f(void 0, GetQueueEnvironmentResponseFilterSensitiveLog)
   .ser(se_GetQueueEnvironmentCommand)
   .de(de_GetQueueEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueEnvironmentRequest;
+      output: GetQueueEnvironmentResponse;
+    };
+    sdk: {
+      input: GetQueueEnvironmentCommandInput;
+      output: GetQueueEnvironmentCommandOutput;
+    };
+  };
+}

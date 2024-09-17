@@ -98,4 +98,16 @@ export class GetMaintenanceWindowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMaintenanceWindowExecutionCommand)
   .de(de_GetMaintenanceWindowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMaintenanceWindowExecutionRequest;
+      output: GetMaintenanceWindowExecutionResult;
+    };
+    sdk: {
+      input: GetMaintenanceWindowExecutionCommandInput;
+      output: GetMaintenanceWindowExecutionCommandOutput;
+    };
+  };
+}

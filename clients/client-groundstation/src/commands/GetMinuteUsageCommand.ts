@@ -91,4 +91,16 @@ export class GetMinuteUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMinuteUsageCommand)
   .de(de_GetMinuteUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMinuteUsageRequest;
+      output: GetMinuteUsageResponse;
+    };
+    sdk: {
+      input: GetMinuteUsageCommandInput;
+      output: GetMinuteUsageCommandOutput;
+    };
+  };
+}

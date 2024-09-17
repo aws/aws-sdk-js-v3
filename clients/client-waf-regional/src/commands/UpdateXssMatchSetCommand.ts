@@ -267,4 +267,16 @@ export class UpdateXssMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateXssMatchSetCommand)
   .de(de_UpdateXssMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateXssMatchSetRequest;
+      output: UpdateXssMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateXssMatchSetCommandInput;
+      output: UpdateXssMatchSetCommandOutput;
+    };
+  };
+}

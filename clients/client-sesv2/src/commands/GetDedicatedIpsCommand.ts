@@ -97,4 +97,16 @@ export class GetDedicatedIpsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDedicatedIpsCommand)
   .de(de_GetDedicatedIpsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDedicatedIpsRequest;
+      output: GetDedicatedIpsResponse;
+    };
+    sdk: {
+      input: GetDedicatedIpsCommandInput;
+      output: GetDedicatedIpsCommandOutput;
+    };
+  };
+}

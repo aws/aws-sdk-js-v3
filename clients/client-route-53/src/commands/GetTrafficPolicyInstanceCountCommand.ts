@@ -81,4 +81,16 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrafficPolicyInstanceCountCommand)
   .de(de_GetTrafficPolicyInstanceCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetTrafficPolicyInstanceCountResponse;
+    };
+    sdk: {
+      input: GetTrafficPolicyInstanceCountCommandInput;
+      output: GetTrafficPolicyInstanceCountCommandOutput;
+    };
+  };
+}

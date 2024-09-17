@@ -94,4 +94,16 @@ export class PutResourceLogLevelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourceLogLevelCommand)
   .de(de_PutResourceLogLevelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourceLogLevelRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutResourceLogLevelCommandInput;
+      output: PutResourceLogLevelCommandOutput;
+    };
+  };
+}

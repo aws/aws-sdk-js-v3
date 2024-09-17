@@ -111,4 +111,16 @@ export class DescribeHostReservationOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHostReservationOfferingsCommand)
   .de(de_DescribeHostReservationOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHostReservationOfferingsRequest;
+      output: DescribeHostReservationOfferingsResult;
+    };
+    sdk: {
+      input: DescribeHostReservationOfferingsCommandInput;
+      output: DescribeHostReservationOfferingsCommandOutput;
+    };
+  };
+}

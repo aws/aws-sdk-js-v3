@@ -169,4 +169,16 @@ export class DescribeChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeChangeSetCommand)
   .de(de_DescribeChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChangeSetInput;
+      output: DescribeChangeSetOutput;
+    };
+    sdk: {
+      input: DescribeChangeSetCommandInput;
+      output: DescribeChangeSetCommandOutput;
+    };
+  };
+}

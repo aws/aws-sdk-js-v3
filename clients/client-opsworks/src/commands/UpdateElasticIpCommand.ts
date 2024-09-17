@@ -87,4 +87,16 @@ export class UpdateElasticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateElasticIpCommand)
   .de(de_UpdateElasticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateElasticIpRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateElasticIpCommandInput;
+      output: UpdateElasticIpCommandOutput;
+    };
+  };
+}

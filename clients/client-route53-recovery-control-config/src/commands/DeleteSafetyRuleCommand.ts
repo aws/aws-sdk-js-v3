@@ -88,4 +88,16 @@ export class DeleteSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSafetyRuleCommand)
   .de(de_DeleteSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSafetyRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSafetyRuleCommandInput;
+      output: DeleteSafetyRuleCommandOutput;
+    };
+  };
+}

@@ -147,4 +147,16 @@ export class GetCisScanResultDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCisScanResultDetailsCommand)
   .de(de_GetCisScanResultDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCisScanResultDetailsRequest;
+      output: GetCisScanResultDetailsResponse;
+    };
+    sdk: {
+      input: GetCisScanResultDetailsCommandInput;
+      output: GetCisScanResultDetailsCommandOutput;
+    };
+  };
+}

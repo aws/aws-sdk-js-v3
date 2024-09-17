@@ -185,4 +185,16 @@ export class SearchContactsCommand extends $Command
   .f(SearchContactsRequestFilterSensitiveLog, void 0)
   .ser(se_SearchContactsCommand)
   .de(de_SearchContactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchContactsRequest;
+      output: SearchContactsResponse;
+    };
+    sdk: {
+      input: SearchContactsCommandInput;
+      output: SearchContactsCommandOutput;
+    };
+  };
+}

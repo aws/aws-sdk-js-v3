@@ -166,4 +166,16 @@ export class PutAutoScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAutoScalingPolicyCommand)
   .de(de_PutAutoScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAutoScalingPolicyInput;
+      output: PutAutoScalingPolicyOutput;
+    };
+    sdk: {
+      input: PutAutoScalingPolicyCommandInput;
+      output: PutAutoScalingPolicyCommandOutput;
+    };
+  };
+}

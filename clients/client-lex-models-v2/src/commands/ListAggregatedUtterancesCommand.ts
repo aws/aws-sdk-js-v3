@@ -165,4 +165,16 @@ export class ListAggregatedUtterancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAggregatedUtterancesCommand)
   .de(de_ListAggregatedUtterancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAggregatedUtterancesRequest;
+      output: ListAggregatedUtterancesResponse;
+    };
+    sdk: {
+      input: ListAggregatedUtterancesCommandInput;
+      output: ListAggregatedUtterancesCommandOutput;
+    };
+  };
+}

@@ -157,4 +157,16 @@ export class DescribeConnectionCommand extends $Command
   .f(void 0, DescribeConnectionResponseFilterSensitiveLog)
   .ser(se_DescribeConnectionCommand)
   .de(de_DescribeConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionRequest;
+      output: DescribeConnectionResponse;
+    };
+    sdk: {
+      input: DescribeConnectionCommandInput;
+      output: DescribeConnectionCommandOutput;
+    };
+  };
+}

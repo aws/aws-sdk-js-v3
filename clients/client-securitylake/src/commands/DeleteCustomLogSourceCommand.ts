@@ -102,4 +102,16 @@ export class DeleteCustomLogSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomLogSourceCommand)
   .de(de_DeleteCustomLogSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomLogSourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomLogSourceCommandInput;
+      output: DeleteCustomLogSourceCommandOutput;
+    };
+  };
+}

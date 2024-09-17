@@ -230,4 +230,16 @@ export class SendMessageBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendMessageBatchCommand)
   .de(de_SendMessageBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendMessageBatchRequest;
+      output: SendMessageBatchResult;
+    };
+    sdk: {
+      input: SendMessageBatchCommandInput;
+      output: SendMessageBatchCommandOutput;
+    };
+  };
+}

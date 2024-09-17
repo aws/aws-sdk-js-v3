@@ -125,4 +125,16 @@ export class ListComplianceSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComplianceSummariesCommand)
   .de(de_ListComplianceSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComplianceSummariesRequest;
+      output: ListComplianceSummariesResult;
+    };
+    sdk: {
+      input: ListComplianceSummariesCommandInput;
+      output: ListComplianceSummariesCommandOutput;
+    };
+  };
+}

@@ -974,4 +974,16 @@ export class UpdateDistributionCommand extends $Command
   .f(UpdateDistributionRequestFilterSensitiveLog, UpdateDistributionResultFilterSensitiveLog)
   .ser(se_UpdateDistributionCommand)
   .de(de_UpdateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionRequest;
+      output: UpdateDistributionResult;
+    };
+    sdk: {
+      input: UpdateDistributionCommandInput;
+      output: UpdateDistributionCommandOutput;
+    };
+  };
+}

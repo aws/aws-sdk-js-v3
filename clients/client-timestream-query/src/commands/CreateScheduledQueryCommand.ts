@@ -178,4 +178,16 @@ export class CreateScheduledQueryCommand extends $Command
   .f(CreateScheduledQueryRequestFilterSensitiveLog, void 0)
   .ser(se_CreateScheduledQueryCommand)
   .de(de_CreateScheduledQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduledQueryRequest;
+      output: CreateScheduledQueryResponse;
+    };
+    sdk: {
+      input: CreateScheduledQueryCommandInput;
+      output: CreateScheduledQueryCommandOutput;
+    };
+  };
+}

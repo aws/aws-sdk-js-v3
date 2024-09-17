@@ -149,4 +149,16 @@ export class PutLifecycleHookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecycleHookCommand)
   .de(de_PutLifecycleHookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecycleHookType;
+      output: {};
+    };
+    sdk: {
+      input: PutLifecycleHookCommandInput;
+      output: PutLifecycleHookCommandOutput;
+    };
+  };
+}

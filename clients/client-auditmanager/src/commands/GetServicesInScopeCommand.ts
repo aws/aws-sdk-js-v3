@@ -104,4 +104,16 @@ export class GetServicesInScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServicesInScopeCommand)
   .de(de_GetServicesInScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetServicesInScopeResponse;
+    };
+    sdk: {
+      input: GetServicesInScopeCommandInput;
+      output: GetServicesInScopeCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class BatchUpdateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateVehicleCommand)
   .de(de_BatchUpdateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateVehicleRequest;
+      output: BatchUpdateVehicleResponse;
+    };
+    sdk: {
+      input: BatchUpdateVehicleCommandInput;
+      output: BatchUpdateVehicleCommandOutput;
+    };
+  };
+}

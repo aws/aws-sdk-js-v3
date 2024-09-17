@@ -166,4 +166,16 @@ export class CreateAppBlockBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppBlockBuilderCommand)
   .de(de_CreateAppBlockBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppBlockBuilderRequest;
+      output: CreateAppBlockBuilderResult;
+    };
+    sdk: {
+      input: CreateAppBlockBuilderCommandInput;
+      output: CreateAppBlockBuilderCommandOutput;
+    };
+  };
+}

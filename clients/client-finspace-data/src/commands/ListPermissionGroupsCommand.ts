@@ -110,4 +110,16 @@ export class ListPermissionGroupsCommand extends $Command
   .f(void 0, ListPermissionGroupsResponseFilterSensitiveLog)
   .ser(se_ListPermissionGroupsCommand)
   .de(de_ListPermissionGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionGroupsRequest;
+      output: ListPermissionGroupsResponse;
+    };
+    sdk: {
+      input: ListPermissionGroupsCommandInput;
+      output: ListPermissionGroupsCommandOutput;
+    };
+  };
+}

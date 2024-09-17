@@ -137,4 +137,16 @@ export class GetSignalingChannelEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSignalingChannelEndpointCommand)
   .de(de_GetSignalingChannelEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSignalingChannelEndpointInput;
+      output: GetSignalingChannelEndpointOutput;
+    };
+    sdk: {
+      input: GetSignalingChannelEndpointCommandInput;
+      output: GetSignalingChannelEndpointCommandOutput;
+    };
+  };
+}

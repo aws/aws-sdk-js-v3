@@ -103,4 +103,16 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
   .f(void 0, void 0)
   .ser(se_RejectTransitGatewayMulticastDomainAssociationsCommand)
   .de(de_RejectTransitGatewayMulticastDomainAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectTransitGatewayMulticastDomainAssociationsRequest;
+      output: RejectTransitGatewayMulticastDomainAssociationsResult;
+    };
+    sdk: {
+      input: RejectTransitGatewayMulticastDomainAssociationsCommandInput;
+      output: RejectTransitGatewayMulticastDomainAssociationsCommandOutput;
+    };
+  };
+}

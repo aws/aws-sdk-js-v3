@@ -127,4 +127,16 @@ export class CreateSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSnapshotScheduleCommand)
   .de(de_CreateSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSnapshotScheduleMessage;
+      output: SnapshotSchedule;
+    };
+    sdk: {
+      input: CreateSnapshotScheduleCommandInput;
+      output: CreateSnapshotScheduleCommandOutput;
+    };
+  };
+}

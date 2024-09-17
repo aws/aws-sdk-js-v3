@@ -100,4 +100,16 @@ export class RemoveUserFromGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveUserFromGroupCommand)
   .de(de_RemoveUserFromGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveUserFromGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveUserFromGroupCommandInput;
+      output: RemoveUserFromGroupCommandOutput;
+    };
+  };
+}

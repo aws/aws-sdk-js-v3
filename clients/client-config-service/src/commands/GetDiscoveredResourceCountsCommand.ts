@@ -160,4 +160,16 @@ export class GetDiscoveredResourceCountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDiscoveredResourceCountsCommand)
   .de(de_GetDiscoveredResourceCountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDiscoveredResourceCountsRequest;
+      output: GetDiscoveredResourceCountsResponse;
+    };
+    sdk: {
+      input: GetDiscoveredResourceCountsCommandInput;
+      output: GetDiscoveredResourceCountsCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class PutRepositoryCatalogDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRepositoryCatalogDataCommand)
   .de(de_PutRepositoryCatalogDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRepositoryCatalogDataRequest;
+      output: PutRepositoryCatalogDataResponse;
+    };
+    sdk: {
+      input: PutRepositoryCatalogDataCommandInput;
+      output: PutRepositoryCatalogDataCommandOutput;
+    };
+  };
+}

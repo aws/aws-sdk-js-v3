@@ -130,4 +130,16 @@ export class DescribeStorageConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStorageConfigurationCommand)
   .de(de_DescribeStorageConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeStorageConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeStorageConfigurationCommandInput;
+      output: DescribeStorageConfigurationCommandOutput;
+    };
+  };
+}

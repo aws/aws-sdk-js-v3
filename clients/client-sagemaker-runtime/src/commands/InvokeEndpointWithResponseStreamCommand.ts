@@ -179,4 +179,16 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command
   .f(InvokeEndpointWithResponseStreamInputFilterSensitiveLog, InvokeEndpointWithResponseStreamOutputFilterSensitiveLog)
   .ser(se_InvokeEndpointWithResponseStreamCommand)
   .de(de_InvokeEndpointWithResponseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeEndpointWithResponseStreamInput;
+      output: InvokeEndpointWithResponseStreamOutput;
+    };
+    sdk: {
+      input: InvokeEndpointWithResponseStreamCommandInput;
+      output: InvokeEndpointWithResponseStreamCommandOutput;
+    };
+  };
+}

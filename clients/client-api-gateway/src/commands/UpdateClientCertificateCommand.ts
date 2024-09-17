@@ -110,4 +110,16 @@ export class UpdateClientCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClientCertificateCommand)
   .de(de_UpdateClientCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClientCertificateRequest;
+      output: ClientCertificate;
+    };
+    sdk: {
+      input: UpdateClientCertificateCommandInput;
+      output: UpdateClientCertificateCommandOutput;
+    };
+  };
+}

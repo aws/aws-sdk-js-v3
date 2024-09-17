@@ -120,4 +120,16 @@ export class CreateFlowAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFlowAliasCommand)
   .de(de_CreateFlowAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFlowAliasRequest;
+      output: CreateFlowAliasResponse;
+    };
+    sdk: {
+      input: CreateFlowAliasCommandInput;
+      output: CreateFlowAliasCommandOutput;
+    };
+  };
+}

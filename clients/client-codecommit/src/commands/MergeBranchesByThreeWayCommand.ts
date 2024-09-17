@@ -238,4 +238,16 @@ export class MergeBranchesByThreeWayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergeBranchesByThreeWayCommand)
   .de(de_MergeBranchesByThreeWayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergeBranchesByThreeWayInput;
+      output: MergeBranchesByThreeWayOutput;
+    };
+    sdk: {
+      input: MergeBranchesByThreeWayCommandInput;
+      output: MergeBranchesByThreeWayCommandOutput;
+    };
+  };
+}

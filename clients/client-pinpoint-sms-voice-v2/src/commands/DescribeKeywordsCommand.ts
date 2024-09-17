@@ -128,4 +128,16 @@ export class DescribeKeywordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeywordsCommand)
   .de(de_DescribeKeywordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeywordsRequest;
+      output: DescribeKeywordsResult;
+    };
+    sdk: {
+      input: DescribeKeywordsCommandInput;
+      output: DescribeKeywordsCommandOutput;
+    };
+  };
+}

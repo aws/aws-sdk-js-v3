@@ -108,4 +108,16 @@ export class AddTrustStoreRevocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTrustStoreRevocationsCommand)
   .de(de_AddTrustStoreRevocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTrustStoreRevocationsInput;
+      output: AddTrustStoreRevocationsOutput;
+    };
+    sdk: {
+      input: AddTrustStoreRevocationsCommandInput;
+      output: AddTrustStoreRevocationsCommandOutput;
+    };
+  };
+}

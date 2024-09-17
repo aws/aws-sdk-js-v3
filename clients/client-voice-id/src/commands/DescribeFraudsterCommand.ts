@@ -110,4 +110,16 @@ export class DescribeFraudsterCommand extends $Command
   .f(DescribeFraudsterRequestFilterSensitiveLog, void 0)
   .ser(se_DescribeFraudsterCommand)
   .de(de_DescribeFraudsterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFraudsterRequest;
+      output: DescribeFraudsterResponse;
+    };
+    sdk: {
+      input: DescribeFraudsterCommandInput;
+      output: DescribeFraudsterCommandOutput;
+    };
+  };
+}

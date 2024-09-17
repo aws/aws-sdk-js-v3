@@ -121,4 +121,16 @@ export class ListUserTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserTagsCommand)
   .de(de_ListUserTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserTagsRequest;
+      output: ListUserTagsResponse;
+    };
+    sdk: {
+      input: ListUserTagsCommandInput;
+      output: ListUserTagsCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class DescribeManagedPrefixListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeManagedPrefixListsCommand)
   .de(de_DescribeManagedPrefixListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeManagedPrefixListsRequest;
+      output: DescribeManagedPrefixListsResult;
+    };
+    sdk: {
+      input: DescribeManagedPrefixListsCommandInput;
+      output: DescribeManagedPrefixListsCommandOutput;
+    };
+  };
+}

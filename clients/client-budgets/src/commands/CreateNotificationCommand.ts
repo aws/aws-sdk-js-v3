@@ -115,4 +115,16 @@ export class CreateNotificationCommand extends $Command
   .f(CreateNotificationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateNotificationCommand)
   .de(de_CreateNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateNotificationCommandInput;
+      output: CreateNotificationCommandOutput;
+    };
+  };
+}

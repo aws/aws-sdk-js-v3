@@ -126,4 +126,16 @@ export class DescribeRuntimeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuntimeConfigurationCommand)
   .de(de_DescribeRuntimeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuntimeConfigurationInput;
+      output: DescribeRuntimeConfigurationOutput;
+    };
+    sdk: {
+      input: DescribeRuntimeConfigurationCommandInput;
+      output: DescribeRuntimeConfigurationCommandOutput;
+    };
+  };
+}

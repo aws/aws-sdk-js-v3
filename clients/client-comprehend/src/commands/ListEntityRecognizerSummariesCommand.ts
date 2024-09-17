@@ -101,4 +101,16 @@ export class ListEntityRecognizerSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntityRecognizerSummariesCommand)
   .de(de_ListEntityRecognizerSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntityRecognizerSummariesRequest;
+      output: ListEntityRecognizerSummariesResponse;
+    };
+    sdk: {
+      input: ListEntityRecognizerSummariesCommandInput;
+      output: ListEntityRecognizerSummariesCommandOutput;
+    };
+  };
+}

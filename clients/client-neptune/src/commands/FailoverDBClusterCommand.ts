@@ -189,4 +189,16 @@ export class FailoverDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverDBClusterCommand)
   .de(de_FailoverDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverDBClusterMessage;
+      output: FailoverDBClusterResult;
+    };
+    sdk: {
+      input: FailoverDBClusterCommandInput;
+      output: FailoverDBClusterCommandOutput;
+    };
+  };
+}

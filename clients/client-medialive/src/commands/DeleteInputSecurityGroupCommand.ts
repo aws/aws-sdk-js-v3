@@ -96,4 +96,16 @@ export class DeleteInputSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInputSecurityGroupCommand)
   .de(de_DeleteInputSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInputSecurityGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInputSecurityGroupCommandInput;
+      output: DeleteInputSecurityGroupCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class GetObjectRetentionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectRetentionCommand)
   .de(de_GetObjectRetentionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectRetentionRequest;
+      output: GetObjectRetentionOutput;
+    };
+    sdk: {
+      input: GetObjectRetentionCommandInput;
+      output: GetObjectRetentionCommandOutput;
+    };
+  };
+}

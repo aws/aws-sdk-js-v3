@@ -95,4 +95,16 @@ export class TerminateWorkspacesPoolSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateWorkspacesPoolSessionCommand)
   .de(de_TerminateWorkspacesPoolSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateWorkspacesPoolSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: TerminateWorkspacesPoolSessionCommandInput;
+      output: TerminateWorkspacesPoolSessionCommandOutput;
+    };
+  };
+}

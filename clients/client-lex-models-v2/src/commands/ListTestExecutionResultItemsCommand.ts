@@ -300,4 +300,16 @@ export class ListTestExecutionResultItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestExecutionResultItemsCommand)
   .de(de_ListTestExecutionResultItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestExecutionResultItemsRequest;
+      output: ListTestExecutionResultItemsResponse;
+    };
+    sdk: {
+      input: ListTestExecutionResultItemsCommandInput;
+      output: ListTestExecutionResultItemsCommandOutput;
+    };
+  };
+}

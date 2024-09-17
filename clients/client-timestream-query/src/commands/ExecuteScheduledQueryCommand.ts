@@ -103,4 +103,16 @@ export class ExecuteScheduledQueryCommand extends $Command
   .f(ExecuteScheduledQueryRequestFilterSensitiveLog, void 0)
   .ser(se_ExecuteScheduledQueryCommand)
   .de(de_ExecuteScheduledQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteScheduledQueryRequest;
+      output: {};
+    };
+    sdk: {
+      input: ExecuteScheduledQueryCommandInput;
+      output: ExecuteScheduledQueryCommandOutput;
+    };
+  };
+}

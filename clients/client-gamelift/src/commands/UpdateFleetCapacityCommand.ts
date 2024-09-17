@@ -156,4 +156,16 @@ export class UpdateFleetCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetCapacityCommand)
   .de(de_UpdateFleetCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetCapacityInput;
+      output: UpdateFleetCapacityOutput;
+    };
+    sdk: {
+      input: UpdateFleetCapacityCommandInput;
+      output: UpdateFleetCapacityCommandOutput;
+    };
+  };
+}

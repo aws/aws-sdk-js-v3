@@ -106,4 +106,16 @@ export class ListEngagementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEngagementsCommand)
   .de(de_ListEngagementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEngagementsRequest;
+      output: ListEngagementsResult;
+    };
+    sdk: {
+      input: ListEngagementsCommandInput;
+      output: ListEngagementsCommandOutput;
+    };
+  };
+}

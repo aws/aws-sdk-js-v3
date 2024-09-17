@@ -100,4 +100,16 @@ export class ListPipelineBlueprintsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelineBlueprintsCommand)
   .de(de_ListPipelineBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListPipelineBlueprintsResponse;
+    };
+    sdk: {
+      input: ListPipelineBlueprintsCommandInput;
+      output: ListPipelineBlueprintsCommandOutput;
+    };
+  };
+}

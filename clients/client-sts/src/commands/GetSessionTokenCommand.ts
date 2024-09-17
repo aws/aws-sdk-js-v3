@@ -176,4 +176,16 @@ export class GetSessionTokenCommand extends $Command
   .f(void 0, GetSessionTokenResponseFilterSensitiveLog)
   .ser(se_GetSessionTokenCommand)
   .de(de_GetSessionTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionTokenRequest;
+      output: GetSessionTokenResponse;
+    };
+    sdk: {
+      input: GetSessionTokenCommandInput;
+      output: GetSessionTokenCommandOutput;
+    };
+  };
+}

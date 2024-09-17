@@ -433,4 +433,16 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command
   .f(void 0, DescribeLaunchTemplateVersionsResultFilterSensitiveLog)
   .ser(se_DescribeLaunchTemplateVersionsCommand)
   .de(de_DescribeLaunchTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLaunchTemplateVersionsRequest;
+      output: DescribeLaunchTemplateVersionsResult;
+    };
+    sdk: {
+      input: DescribeLaunchTemplateVersionsCommandInput;
+      output: DescribeLaunchTemplateVersionsCommandOutput;
+    };
+  };
+}

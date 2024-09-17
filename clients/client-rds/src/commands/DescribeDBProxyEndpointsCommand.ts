@@ -113,4 +113,16 @@ export class DescribeDBProxyEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBProxyEndpointsCommand)
   .de(de_DescribeDBProxyEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBProxyEndpointsRequest;
+      output: DescribeDBProxyEndpointsResponse;
+    };
+    sdk: {
+      input: DescribeDBProxyEndpointsCommandInput;
+      output: DescribeDBProxyEndpointsCommandOutput;
+    };
+  };
+}

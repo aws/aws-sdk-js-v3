@@ -92,4 +92,16 @@ export class DeleteAppBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppBundleCommand)
   .de(de_DeleteAppBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppBundleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppBundleCommandInput;
+      output: DeleteAppBundleCommandOutput;
+    };
+  };
+}

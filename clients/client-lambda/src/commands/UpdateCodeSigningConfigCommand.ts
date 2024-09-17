@@ -109,4 +109,16 @@ export class UpdateCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCodeSigningConfigCommand)
   .de(de_UpdateCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCodeSigningConfigRequest;
+      output: UpdateCodeSigningConfigResponse;
+    };
+    sdk: {
+      input: UpdateCodeSigningConfigCommandInput;
+      output: UpdateCodeSigningConfigCommandOutput;
+    };
+  };
+}

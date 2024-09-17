@@ -125,4 +125,16 @@ export class UpdateFirewallRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallRuleCommand)
   .de(de_UpdateFirewallRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallRuleRequest;
+      output: UpdateFirewallRuleResponse;
+    };
+    sdk: {
+      input: UpdateFirewallRuleCommandInput;
+      output: UpdateFirewallRuleCommandOutput;
+    };
+  };
+}

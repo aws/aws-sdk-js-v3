@@ -150,4 +150,16 @@ export class TestIdentityProviderCommand extends $Command
   .f(TestIdentityProviderRequestFilterSensitiveLog, void 0)
   .ser(se_TestIdentityProviderCommand)
   .de(de_TestIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestIdentityProviderRequest;
+      output: TestIdentityProviderResponse;
+    };
+    sdk: {
+      input: TestIdentityProviderCommandInput;
+      output: TestIdentityProviderCommandOutput;
+    };
+  };
+}

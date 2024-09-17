@@ -193,4 +193,16 @@ export class CreateCostCategoryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCostCategoryDefinitionCommand)
   .de(de_CreateCostCategoryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCostCategoryDefinitionRequest;
+      output: CreateCostCategoryDefinitionResponse;
+    };
+    sdk: {
+      input: CreateCostCategoryDefinitionCommandInput;
+      output: CreateCostCategoryDefinitionCommandOutput;
+    };
+  };
+}

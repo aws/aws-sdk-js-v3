@@ -371,4 +371,16 @@ export class CreateMultipartUploadCommand extends $Command
   .f(CreateMultipartUploadRequestFilterSensitiveLog, CreateMultipartUploadOutputFilterSensitiveLog)
   .ser(se_CreateMultipartUploadCommand)
   .de(de_CreateMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMultipartUploadRequest;
+      output: CreateMultipartUploadOutput;
+    };
+    sdk: {
+      input: CreateMultipartUploadCommandInput;
+      output: CreateMultipartUploadCommandOutput;
+    };
+  };
+}

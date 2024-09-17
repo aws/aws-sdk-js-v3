@@ -180,4 +180,16 @@ export class StartLendingAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartLendingAnalysisCommand)
   .de(de_StartLendingAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLendingAnalysisRequest;
+      output: StartLendingAnalysisResponse;
+    };
+    sdk: {
+      input: StartLendingAnalysisCommandInput;
+      output: StartLendingAnalysisCommandOutput;
+    };
+  };
+}

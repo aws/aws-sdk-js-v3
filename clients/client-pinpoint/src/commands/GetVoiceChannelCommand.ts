@@ -109,4 +109,16 @@ export class GetVoiceChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceChannelCommand)
   .de(de_GetVoiceChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceChannelRequest;
+      output: GetVoiceChannelResponse;
+    };
+    sdk: {
+      input: GetVoiceChannelCommandInput;
+      output: GetVoiceChannelCommandOutput;
+    };
+  };
+}

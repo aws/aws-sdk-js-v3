@@ -106,4 +106,16 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTextMessageSpendLimitOverrideCommand)
   .de(de_DeleteTextMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteTextMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: DeleteTextMessageSpendLimitOverrideCommandInput;
+      output: DeleteTextMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

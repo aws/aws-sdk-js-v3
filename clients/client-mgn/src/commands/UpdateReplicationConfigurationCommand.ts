@@ -155,4 +155,16 @@ export class UpdateReplicationConfigurationCommand extends $Command
   .f(UpdateReplicationConfigurationRequestFilterSensitiveLog, ReplicationConfigurationFilterSensitiveLog)
   .ser(se_UpdateReplicationConfigurationCommand)
   .de(de_UpdateReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationConfigurationRequest;
+      output: ReplicationConfiguration;
+    };
+    sdk: {
+      input: UpdateReplicationConfigurationCommandInput;
+      output: UpdateReplicationConfigurationCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class AddUserToGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddUserToGroupCommand)
   .de(de_AddUserToGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddUserToGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddUserToGroupCommandInput;
+      output: AddUserToGroupCommandOutput;
+    };
+  };
+}

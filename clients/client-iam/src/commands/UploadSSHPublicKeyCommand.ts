@@ -108,4 +108,16 @@ export class UploadSSHPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UploadSSHPublicKeyCommand)
   .de(de_UploadSSHPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadSSHPublicKeyRequest;
+      output: UploadSSHPublicKeyResponse;
+    };
+    sdk: {
+      input: UploadSSHPublicKeyCommandInput;
+      output: UploadSSHPublicKeyCommandOutput;
+    };
+  };
+}

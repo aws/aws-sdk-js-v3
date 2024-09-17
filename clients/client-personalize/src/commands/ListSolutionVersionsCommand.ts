@@ -101,4 +101,16 @@ export class ListSolutionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolutionVersionsCommand)
   .de(de_ListSolutionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolutionVersionsRequest;
+      output: ListSolutionVersionsResponse;
+    };
+    sdk: {
+      input: ListSolutionVersionsCommandInput;
+      output: ListSolutionVersionsCommandOutput;
+    };
+  };
+}

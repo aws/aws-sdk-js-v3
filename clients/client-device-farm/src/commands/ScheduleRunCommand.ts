@@ -274,4 +274,16 @@ export class ScheduleRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScheduleRunCommand)
   .de(de_ScheduleRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScheduleRunRequest;
+      output: ScheduleRunResult;
+    };
+    sdk: {
+      input: ScheduleRunCommandInput;
+      output: ScheduleRunCommandOutput;
+    };
+  };
+}

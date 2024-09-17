@@ -260,4 +260,16 @@ export class DescribeUserPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserPoolCommand)
   .de(de_DescribeUserPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserPoolRequest;
+      output: DescribeUserPoolResponse;
+    };
+    sdk: {
+      input: DescribeUserPoolCommandInput;
+      output: DescribeUserPoolCommandOutput;
+    };
+  };
+}

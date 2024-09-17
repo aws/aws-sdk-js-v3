@@ -110,4 +110,16 @@ export class DescribeAccountLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountLimitsCommand)
   .de(de_DescribeAccountLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountLimitsInput;
+      output: DescribeAccountLimitsOutput;
+    };
+    sdk: {
+      input: DescribeAccountLimitsCommandInput;
+      output: DescribeAccountLimitsCommandOutput;
+    };
+  };
+}

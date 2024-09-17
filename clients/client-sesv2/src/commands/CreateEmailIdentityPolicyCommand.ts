@@ -102,4 +102,16 @@ export class CreateEmailIdentityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEmailIdentityPolicyCommand)
   .de(de_CreateEmailIdentityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEmailIdentityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateEmailIdentityPolicyCommandInput;
+      output: CreateEmailIdentityPolicyCommandOutput;
+    };
+  };
+}

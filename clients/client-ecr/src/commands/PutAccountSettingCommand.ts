@@ -95,4 +95,16 @@ export class PutAccountSettingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountSettingCommand)
   .de(de_PutAccountSettingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountSettingRequest;
+      output: PutAccountSettingResponse;
+    };
+    sdk: {
+      input: PutAccountSettingCommandInput;
+      output: PutAccountSettingCommandOutput;
+    };
+  };
+}

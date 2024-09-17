@@ -142,4 +142,16 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppAssessmentComplianceDriftsCommand)
   .de(de_ListAppAssessmentComplianceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppAssessmentComplianceDriftsRequest;
+      output: ListAppAssessmentComplianceDriftsResponse;
+    };
+    sdk: {
+      input: ListAppAssessmentComplianceDriftsCommandInput;
+      output: ListAppAssessmentComplianceDriftsCommandOutput;
+    };
+  };
+}

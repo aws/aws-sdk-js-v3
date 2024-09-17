@@ -120,4 +120,16 @@ export class DescribeIpamExternalResourceVerificationTokensCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_DescribeIpamExternalResourceVerificationTokensCommand)
   .de(de_DescribeIpamExternalResourceVerificationTokensCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIpamExternalResourceVerificationTokensRequest;
+      output: DescribeIpamExternalResourceVerificationTokensResult;
+    };
+    sdk: {
+      input: DescribeIpamExternalResourceVerificationTokensCommandInput;
+      output: DescribeIpamExternalResourceVerificationTokensCommandOutput;
+    };
+  };
+}

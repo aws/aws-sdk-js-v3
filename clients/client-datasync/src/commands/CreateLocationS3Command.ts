@@ -116,4 +116,16 @@ export class CreateLocationS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationS3Command)
   .de(de_CreateLocationS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationS3Request;
+      output: CreateLocationS3Response;
+    };
+    sdk: {
+      input: CreateLocationS3CommandInput;
+      output: CreateLocationS3CommandOutput;
+    };
+  };
+}

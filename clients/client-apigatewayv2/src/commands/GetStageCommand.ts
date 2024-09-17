@@ -118,4 +118,16 @@ export class GetStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStageCommand)
   .de(de_GetStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStageRequest;
+      output: GetStageResponse;
+    };
+    sdk: {
+      input: GetStageCommandInput;
+      output: GetStageCommandOutput;
+    };
+  };
+}

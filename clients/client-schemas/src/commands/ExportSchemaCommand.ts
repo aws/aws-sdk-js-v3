@@ -98,4 +98,16 @@ export class ExportSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportSchemaCommand)
   .de(de_ExportSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportSchemaRequest;
+      output: ExportSchemaResponse;
+    };
+    sdk: {
+      input: ExportSchemaCommandInput;
+      output: ExportSchemaCommandOutput;
+    };
+  };
+}

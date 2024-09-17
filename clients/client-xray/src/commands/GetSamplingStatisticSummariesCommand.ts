@@ -97,4 +97,16 @@ export class GetSamplingStatisticSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSamplingStatisticSummariesCommand)
   .de(de_GetSamplingStatisticSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSamplingStatisticSummariesRequest;
+      output: GetSamplingStatisticSummariesResult;
+    };
+    sdk: {
+      input: GetSamplingStatisticSummariesCommandInput;
+      output: GetSamplingStatisticSummariesCommandOutput;
+    };
+  };
+}

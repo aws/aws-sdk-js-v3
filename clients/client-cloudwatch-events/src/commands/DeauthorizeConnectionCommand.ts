@@ -91,4 +91,16 @@ export class DeauthorizeConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeauthorizeConnectionCommand)
   .de(de_DeauthorizeConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeauthorizeConnectionRequest;
+      output: DeauthorizeConnectionResponse;
+    };
+    sdk: {
+      input: DeauthorizeConnectionCommandInput;
+      output: DeauthorizeConnectionCommandOutput;
+    };
+  };
+}

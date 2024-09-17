@@ -118,4 +118,16 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFunctionEventInvokeConfigCommand)
   .de(de_UpdateFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionEventInvokeConfigRequest;
+      output: FunctionEventInvokeConfig;
+    };
+    sdk: {
+      input: UpdateFunctionEventInvokeConfigCommandInput;
+      output: UpdateFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

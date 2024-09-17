@@ -99,4 +99,16 @@ export class EvaluateMappingTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EvaluateMappingTemplateCommand)
   .de(de_EvaluateMappingTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluateMappingTemplateRequest;
+      output: EvaluateMappingTemplateResponse;
+    };
+    sdk: {
+      input: EvaluateMappingTemplateCommandInput;
+      output: EvaluateMappingTemplateCommandOutput;
+    };
+  };
+}

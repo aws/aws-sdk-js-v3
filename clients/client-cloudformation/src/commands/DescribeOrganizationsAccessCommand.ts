@@ -85,4 +85,16 @@ export class DescribeOrganizationsAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationsAccessCommand)
   .de(de_DescribeOrganizationsAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationsAccessInput;
+      output: DescribeOrganizationsAccessOutput;
+    };
+    sdk: {
+      input: DescribeOrganizationsAccessCommandInput;
+      output: DescribeOrganizationsAccessCommandOutput;
+    };
+  };
+}

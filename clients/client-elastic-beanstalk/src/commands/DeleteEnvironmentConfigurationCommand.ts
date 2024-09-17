@@ -96,4 +96,16 @@ export class DeleteEnvironmentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentConfigurationCommand)
   .de(de_DeleteEnvironmentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentConfigurationMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentConfigurationCommandInput;
+      output: DeleteEnvironmentConfigurationCommandOutput;
+    };
+  };
+}

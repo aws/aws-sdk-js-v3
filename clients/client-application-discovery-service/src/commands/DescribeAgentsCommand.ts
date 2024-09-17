@@ -136,4 +136,16 @@ export class DescribeAgentsCommand extends $Command
   .f(void 0, DescribeAgentsResponseFilterSensitiveLog)
   .ser(se_DescribeAgentsCommand)
   .de(de_DescribeAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgentsRequest;
+      output: DescribeAgentsResponse;
+    };
+    sdk: {
+      input: DescribeAgentsCommandInput;
+      output: DescribeAgentsCommandOutput;
+    };
+  };
+}

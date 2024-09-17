@@ -126,4 +126,16 @@ export class PutVoiceConnectorOriginationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutVoiceConnectorOriginationCommand)
   .de(de_PutVoiceConnectorOriginationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorOriginationRequest;
+      output: PutVoiceConnectorOriginationResponse;
+    };
+    sdk: {
+      input: PutVoiceConnectorOriginationCommandInput;
+      output: PutVoiceConnectorOriginationCommandOutput;
+    };
+  };
+}

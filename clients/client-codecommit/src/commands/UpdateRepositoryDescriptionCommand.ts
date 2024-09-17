@@ -115,4 +115,16 @@ export class UpdateRepositoryDescriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRepositoryDescriptionCommand)
   .de(de_UpdateRepositoryDescriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRepositoryDescriptionInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRepositoryDescriptionCommandInput;
+      output: UpdateRepositoryDescriptionCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class CreateCustomMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomMetricCommand)
   .de(de_CreateCustomMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomMetricRequest;
+      output: CreateCustomMetricResponse;
+    };
+    sdk: {
+      input: CreateCustomMetricCommandInput;
+      output: CreateCustomMetricCommandOutput;
+    };
+  };
+}

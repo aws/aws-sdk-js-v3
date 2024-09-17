@@ -112,4 +112,16 @@ export class ListBotResourceGenerationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotResourceGenerationsCommand)
   .de(de_ListBotResourceGenerationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotResourceGenerationsRequest;
+      output: ListBotResourceGenerationsResponse;
+    };
+    sdk: {
+      input: ListBotResourceGenerationsCommandInput;
+      output: ListBotResourceGenerationsCommandOutput;
+    };
+  };
+}

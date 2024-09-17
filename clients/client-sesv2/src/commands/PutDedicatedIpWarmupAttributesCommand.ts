@@ -90,4 +90,16 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDedicatedIpWarmupAttributesCommand)
   .de(de_PutDedicatedIpWarmupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDedicatedIpWarmupAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDedicatedIpWarmupAttributesCommandInput;
+      output: PutDedicatedIpWarmupAttributesCommandOutput;
+    };
+  };
+}

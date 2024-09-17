@@ -97,4 +97,16 @@ export class ListScheduleGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListScheduleGroupsCommand)
   .de(de_ListScheduleGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListScheduleGroupsInput;
+      output: ListScheduleGroupsOutput;
+    };
+    sdk: {
+      input: ListScheduleGroupsCommandInput;
+      output: ListScheduleGroupsCommandOutput;
+    };
+  };
+}

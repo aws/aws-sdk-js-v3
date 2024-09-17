@@ -142,4 +142,16 @@ export class StartOutboundVoiceContactCommand extends $Command
   .f(StartOutboundVoiceContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartOutboundVoiceContactCommand)
   .de(de_StartOutboundVoiceContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOutboundVoiceContactRequest;
+      output: StartOutboundVoiceContactResponse;
+    };
+    sdk: {
+      input: StartOutboundVoiceContactCommandInput;
+      output: StartOutboundVoiceContactCommandOutput;
+    };
+  };
+}

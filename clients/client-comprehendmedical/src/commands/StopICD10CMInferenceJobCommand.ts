@@ -92,4 +92,16 @@ export class StopICD10CMInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopICD10CMInferenceJobCommand)
   .de(de_StopICD10CMInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopICD10CMInferenceJobRequest;
+      output: StopICD10CMInferenceJobResponse;
+    };
+    sdk: {
+      input: StopICD10CMInferenceJobCommandInput;
+      output: StopICD10CMInferenceJobCommandOutput;
+    };
+  };
+}

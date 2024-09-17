@@ -81,4 +81,16 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelQualityJobDefinitionCommand)
   .de(de_DeleteModelQualityJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelQualityJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelQualityJobDefinitionCommandInput;
+      output: DeleteModelQualityJobDefinitionCommandOutput;
+    };
+  };
+}

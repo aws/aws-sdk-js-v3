@@ -97,4 +97,16 @@ export class StopTrainingEntityRecognizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTrainingEntityRecognizerCommand)
   .de(de_StopTrainingEntityRecognizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTrainingEntityRecognizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTrainingEntityRecognizerCommandInput;
+      output: StopTrainingEntityRecognizerCommandOutput;
+    };
+  };
+}

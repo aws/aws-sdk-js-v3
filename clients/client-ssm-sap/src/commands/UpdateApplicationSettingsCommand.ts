@@ -119,4 +119,16 @@ export class UpdateApplicationSettingsCommand extends $Command
   .f(UpdateApplicationSettingsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateApplicationSettingsCommand)
   .de(de_UpdateApplicationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationSettingsInput;
+      output: UpdateApplicationSettingsOutput;
+    };
+    sdk: {
+      input: UpdateApplicationSettingsCommandInput;
+      output: UpdateApplicationSettingsCommandOutput;
+    };
+  };
+}

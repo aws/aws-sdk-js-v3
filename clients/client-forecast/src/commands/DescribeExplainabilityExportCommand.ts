@@ -104,4 +104,16 @@ export class DescribeExplainabilityExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExplainabilityExportCommand)
   .de(de_DescribeExplainabilityExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExplainabilityExportRequest;
+      output: DescribeExplainabilityExportResponse;
+    };
+    sdk: {
+      input: DescribeExplainabilityExportCommandInput;
+      output: DescribeExplainabilityExportCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class GetBucketAccessKeysCommand extends $Command
   .f(void 0, GetBucketAccessKeysResultFilterSensitiveLog)
   .ser(se_GetBucketAccessKeysCommand)
   .de(de_GetBucketAccessKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketAccessKeysRequest;
+      output: GetBucketAccessKeysResult;
+    };
+    sdk: {
+      input: GetBucketAccessKeysCommandInput;
+      output: GetBucketAccessKeysCommandOutput;
+    };
+  };
+}

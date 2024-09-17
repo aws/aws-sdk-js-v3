@@ -129,4 +129,16 @@ export class ListPullRequestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPullRequestsCommand)
   .de(de_ListPullRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPullRequestsInput;
+      output: ListPullRequestsOutput;
+    };
+    sdk: {
+      input: ListPullRequestsCommandInput;
+      output: ListPullRequestsCommandOutput;
+    };
+  };
+}

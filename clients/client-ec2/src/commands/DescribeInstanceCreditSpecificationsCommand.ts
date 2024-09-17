@@ -123,4 +123,16 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceCreditSpecificationsCommand)
   .de(de_DescribeInstanceCreditSpecificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceCreditSpecificationsRequest;
+      output: DescribeInstanceCreditSpecificationsResult;
+    };
+    sdk: {
+      input: DescribeInstanceCreditSpecificationsCommandInput;
+      output: DescribeInstanceCreditSpecificationsCommandOutput;
+    };
+  };
+}

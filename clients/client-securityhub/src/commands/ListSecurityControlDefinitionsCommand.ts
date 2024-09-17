@@ -219,4 +219,16 @@ export class ListSecurityControlDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityControlDefinitionsCommand)
   .de(de_ListSecurityControlDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityControlDefinitionsRequest;
+      output: ListSecurityControlDefinitionsResponse;
+    };
+    sdk: {
+      input: ListSecurityControlDefinitionsCommandInput;
+      output: ListSecurityControlDefinitionsCommandOutput;
+    };
+  };
+}

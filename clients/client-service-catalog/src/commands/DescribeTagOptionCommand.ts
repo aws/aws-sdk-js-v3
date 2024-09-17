@@ -91,4 +91,16 @@ export class DescribeTagOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTagOptionCommand)
   .de(de_DescribeTagOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTagOptionInput;
+      output: DescribeTagOptionOutput;
+    };
+    sdk: {
+      input: DescribeTagOptionCommandInput;
+      output: DescribeTagOptionCommandOutput;
+    };
+  };
+}

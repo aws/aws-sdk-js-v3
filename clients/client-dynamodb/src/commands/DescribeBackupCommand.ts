@@ -178,4 +178,16 @@ export class DescribeBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBackupCommand)
   .de(de_DescribeBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBackupInput;
+      output: DescribeBackupOutput;
+    };
+    sdk: {
+      input: DescribeBackupCommandInput;
+      output: DescribeBackupCommandOutput;
+    };
+  };
+}

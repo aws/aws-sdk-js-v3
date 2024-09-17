@@ -91,4 +91,16 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
   .f(void 0, GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog)
   .ser(se_GetVpnConnectionDeviceSampleConfigurationCommand)
   .de(de_GetVpnConnectionDeviceSampleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVpnConnectionDeviceSampleConfigurationRequest;
+      output: GetVpnConnectionDeviceSampleConfigurationResult;
+    };
+    sdk: {
+      input: GetVpnConnectionDeviceSampleConfigurationCommandInput;
+      output: GetVpnConnectionDeviceSampleConfigurationCommandOutput;
+    };
+  };
+}

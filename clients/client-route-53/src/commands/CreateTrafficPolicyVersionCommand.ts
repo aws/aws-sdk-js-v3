@@ -117,4 +117,16 @@ export class CreateTrafficPolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrafficPolicyVersionCommand)
   .de(de_CreateTrafficPolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrafficPolicyVersionRequest;
+      output: CreateTrafficPolicyVersionResponse;
+    };
+    sdk: {
+      input: CreateTrafficPolicyVersionCommandInput;
+      output: CreateTrafficPolicyVersionCommandOutput;
+    };
+  };
+}

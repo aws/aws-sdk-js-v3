@@ -112,4 +112,16 @@ export class ListTagsForStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForStreamCommand)
   .de(de_ListTagsForStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForStreamInput;
+      output: ListTagsForStreamOutput;
+    };
+    sdk: {
+      input: ListTagsForStreamCommandInput;
+      output: ListTagsForStreamCommandOutput;
+    };
+  };
+}

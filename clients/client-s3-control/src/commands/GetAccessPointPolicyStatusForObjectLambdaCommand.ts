@@ -98,4 +98,16 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointPolicyStatusForObjectLambdaCommand)
   .de(de_GetAccessPointPolicyStatusForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointPolicyStatusForObjectLambdaRequest;
+      output: GetAccessPointPolicyStatusForObjectLambdaResult;
+    };
+    sdk: {
+      input: GetAccessPointPolicyStatusForObjectLambdaCommandInput;
+      output: GetAccessPointPolicyStatusForObjectLambdaCommandOutput;
+    };
+  };
+}

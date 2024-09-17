@@ -121,4 +121,16 @@ export class ListProjectsCommand extends $Command
   .f(ListProjectsInputFilterSensitiveLog, ListProjectsOutputFilterSensitiveLog)
   .ser(se_ListProjectsCommand)
   .de(de_ListProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectsInput;
+      output: ListProjectsOutput;
+    };
+    sdk: {
+      input: ListProjectsCommandInput;
+      output: ListProjectsCommandOutput;
+    };
+  };
+}

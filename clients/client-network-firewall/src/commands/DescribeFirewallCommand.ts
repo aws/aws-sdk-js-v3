@@ -162,4 +162,16 @@ export class DescribeFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFirewallCommand)
   .de(de_DescribeFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFirewallRequest;
+      output: DescribeFirewallResponse;
+    };
+    sdk: {
+      input: DescribeFirewallCommandInput;
+      output: DescribeFirewallCommandOutput;
+    };
+  };
+}

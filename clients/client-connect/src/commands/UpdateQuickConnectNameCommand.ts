@@ -93,4 +93,16 @@ export class UpdateQuickConnectNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQuickConnectNameCommand)
   .de(de_UpdateQuickConnectNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQuickConnectNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQuickConnectNameCommandInput;
+      output: UpdateQuickConnectNameCommandOutput;
+    };
+  };
+}

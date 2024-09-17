@@ -71,4 +71,16 @@ export class HttpEnumPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpEnumPayloadCommand)
   .de(de_HttpEnumPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnumPayloadInput;
+      output: EnumPayloadInput;
+    };
+    sdk: {
+      input: HttpEnumPayloadCommandInput;
+      output: HttpEnumPayloadCommandOutput;
+    };
+  };
+}

@@ -208,4 +208,16 @@ export class GetKeyRotationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyRotationStatusCommand)
   .de(de_GetKeyRotationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyRotationStatusRequest;
+      output: GetKeyRotationStatusResponse;
+    };
+    sdk: {
+      input: GetKeyRotationStatusCommandInput;
+      output: GetKeyRotationStatusCommandOutput;
+    };
+  };
+}

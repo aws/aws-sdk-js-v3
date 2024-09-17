@@ -108,4 +108,16 @@ export class ListEphemeridesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEphemeridesCommand)
   .de(de_ListEphemeridesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEphemeridesRequest;
+      output: ListEphemeridesResponse;
+    };
+    sdk: {
+      input: ListEphemeridesCommandInput;
+      output: ListEphemeridesCommandOutput;
+    };
+  };
+}

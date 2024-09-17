@@ -118,4 +118,16 @@ export class GetMetricsSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricsSummaryCommand)
   .de(de_GetMetricsSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricsSummaryRequest;
+      output: GetMetricsSummaryResponse;
+    };
+    sdk: {
+      input: GetMetricsSummaryCommandInput;
+      output: GetMetricsSummaryCommandOutput;
+    };
+  };
+}

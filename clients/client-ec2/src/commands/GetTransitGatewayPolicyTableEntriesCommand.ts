@@ -112,4 +112,16 @@ export class GetTransitGatewayPolicyTableEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPolicyTableEntriesCommand)
   .de(de_GetTransitGatewayPolicyTableEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPolicyTableEntriesRequest;
+      output: GetTransitGatewayPolicyTableEntriesResult;
+    };
+    sdk: {
+      input: GetTransitGatewayPolicyTableEntriesCommandInput;
+      output: GetTransitGatewayPolicyTableEntriesCommandOutput;
+    };
+  };
+}

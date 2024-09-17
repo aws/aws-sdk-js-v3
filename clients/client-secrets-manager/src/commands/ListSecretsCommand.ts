@@ -198,4 +198,16 @@ export class ListSecretsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecretsCommand)
   .de(de_ListSecretsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecretsRequest;
+      output: ListSecretsResponse;
+    };
+    sdk: {
+      input: ListSecretsCommandInput;
+      output: ListSecretsCommandOutput;
+    };
+  };
+}

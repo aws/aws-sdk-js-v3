@@ -295,4 +295,16 @@ export class UpdateIPSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIPSetCommand)
   .de(de_UpdateIPSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIPSetRequest;
+      output: UpdateIPSetResponse;
+    };
+    sdk: {
+      input: UpdateIPSetCommandInput;
+      output: UpdateIPSetCommandOutput;
+    };
+  };
+}

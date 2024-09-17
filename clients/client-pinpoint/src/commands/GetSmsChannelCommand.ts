@@ -113,4 +113,16 @@ export class GetSmsChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSmsChannelCommand)
   .de(de_GetSmsChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSmsChannelRequest;
+      output: GetSmsChannelResponse;
+    };
+    sdk: {
+      input: GetSmsChannelCommandInput;
+      output: GetSmsChannelCommandOutput;
+    };
+  };
+}

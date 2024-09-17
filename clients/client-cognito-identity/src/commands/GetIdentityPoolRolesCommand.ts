@@ -117,4 +117,16 @@ export class GetIdentityPoolRolesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityPoolRolesCommand)
   .de(de_GetIdentityPoolRolesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityPoolRolesInput;
+      output: GetIdentityPoolRolesResponse;
+    };
+    sdk: {
+      input: GetIdentityPoolRolesCommandInput;
+      output: GetIdentityPoolRolesCommandOutput;
+    };
+  };
+}

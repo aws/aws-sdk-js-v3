@@ -138,4 +138,16 @@ export class TestFunctionCommand extends $Command
   .f(TestFunctionRequestFilterSensitiveLog, TestFunctionResultFilterSensitiveLog)
   .ser(se_TestFunctionCommand)
   .de(de_TestFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestFunctionRequest;
+      output: TestFunctionResult;
+    };
+    sdk: {
+      input: TestFunctionCommandInput;
+      output: TestFunctionCommandOutput;
+    };
+  };
+}

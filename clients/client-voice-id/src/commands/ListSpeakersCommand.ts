@@ -111,4 +111,16 @@ export class ListSpeakersCommand extends $Command
   .f(void 0, ListSpeakersResponseFilterSensitiveLog)
   .ser(se_ListSpeakersCommand)
   .de(de_ListSpeakersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpeakersRequest;
+      output: ListSpeakersResponse;
+    };
+    sdk: {
+      input: ListSpeakersCommandInput;
+      output: ListSpeakersCommandOutput;
+    };
+  };
+}

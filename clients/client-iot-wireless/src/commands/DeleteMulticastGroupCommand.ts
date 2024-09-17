@@ -93,4 +93,16 @@ export class DeleteMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMulticastGroupCommand)
   .de(de_DeleteMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMulticastGroupCommandInput;
+      output: DeleteMulticastGroupCommandOutput;
+    };
+  };
+}

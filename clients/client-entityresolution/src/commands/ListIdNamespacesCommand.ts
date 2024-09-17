@@ -106,4 +106,16 @@ export class ListIdNamespacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdNamespacesCommand)
   .de(de_ListIdNamespacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdNamespacesInput;
+      output: ListIdNamespacesOutput;
+    };
+    sdk: {
+      input: ListIdNamespacesCommandInput;
+      output: ListIdNamespacesCommandOutput;
+    };
+  };
+}

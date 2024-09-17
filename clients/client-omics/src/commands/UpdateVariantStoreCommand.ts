@@ -101,4 +101,16 @@ export class UpdateVariantStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVariantStoreCommand)
   .de(de_UpdateVariantStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVariantStoreRequest;
+      output: UpdateVariantStoreResponse;
+    };
+    sdk: {
+      input: UpdateVariantStoreCommandInput;
+      output: UpdateVariantStoreCommandOutput;
+    };
+  };
+}

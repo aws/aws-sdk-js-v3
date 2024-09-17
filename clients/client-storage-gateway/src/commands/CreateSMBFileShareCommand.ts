@@ -138,4 +138,16 @@ export class CreateSMBFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSMBFileShareCommand)
   .de(de_CreateSMBFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSMBFileShareInput;
+      output: CreateSMBFileShareOutput;
+    };
+    sdk: {
+      input: CreateSMBFileShareCommandInput;
+      output: CreateSMBFileShareCommandOutput;
+    };
+  };
+}

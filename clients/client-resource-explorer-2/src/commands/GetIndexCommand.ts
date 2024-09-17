@@ -114,4 +114,16 @@ export class GetIndexCommand extends $Command
   .f(void 0, GetIndexOutputFilterSensitiveLog)
   .ser(se_GetIndexCommand)
   .de(de_GetIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetIndexOutput;
+    };
+    sdk: {
+      input: GetIndexCommandInput;
+      output: GetIndexCommandOutput;
+    };
+  };
+}

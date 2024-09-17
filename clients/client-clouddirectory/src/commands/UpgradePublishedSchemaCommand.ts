@@ -109,4 +109,16 @@ export class UpgradePublishedSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpgradePublishedSchemaCommand)
   .de(de_UpgradePublishedSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpgradePublishedSchemaRequest;
+      output: UpgradePublishedSchemaResponse;
+    };
+    sdk: {
+      input: UpgradePublishedSchemaCommandInput;
+      output: UpgradePublishedSchemaCommandOutput;
+    };
+  };
+}

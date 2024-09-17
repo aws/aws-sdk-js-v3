@@ -106,4 +106,16 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPolicyTableAssociationsCommand)
   .de(de_GetTransitGatewayPolicyTableAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPolicyTableAssociationsRequest;
+      output: GetTransitGatewayPolicyTableAssociationsResult;
+    };
+    sdk: {
+      input: GetTransitGatewayPolicyTableAssociationsCommandInput;
+      output: GetTransitGatewayPolicyTableAssociationsCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionEventInvokeConfigsCommand)
   .de(de_ListFunctionEventInvokeConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionEventInvokeConfigsRequest;
+      output: ListFunctionEventInvokeConfigsResponse;
+    };
+    sdk: {
+      input: ListFunctionEventInvokeConfigsCommandInput;
+      output: ListFunctionEventInvokeConfigsCommandOutput;
+    };
+  };
+}

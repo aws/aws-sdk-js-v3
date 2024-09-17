@@ -93,4 +93,16 @@ export class PutKMSEncryptionKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutKMSEncryptionKeyCommand)
   .de(de_PutKMSEncryptionKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutKMSEncryptionKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutKMSEncryptionKeyCommandInput;
+      output: PutKMSEncryptionKeyCommandOutput;
+    };
+  };
+}

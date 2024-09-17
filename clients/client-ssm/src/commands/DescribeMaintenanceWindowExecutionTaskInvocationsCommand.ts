@@ -124,4 +124,16 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
   .f(void 0, DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensitiveLog)
   .ser(se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand)
   .de(de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMaintenanceWindowExecutionTaskInvocationsRequest;
+      output: DescribeMaintenanceWindowExecutionTaskInvocationsResult;
+    };
+    sdk: {
+      input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput;
+      output: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput;
+    };
+  };
+}

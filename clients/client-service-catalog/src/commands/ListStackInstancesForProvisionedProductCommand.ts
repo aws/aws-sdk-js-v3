@@ -102,4 +102,16 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackInstancesForProvisionedProductCommand)
   .de(de_ListStackInstancesForProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackInstancesForProvisionedProductInput;
+      output: ListStackInstancesForProvisionedProductOutput;
+    };
+    sdk: {
+      input: ListStackInstancesForProvisionedProductCommandInput;
+      output: ListStackInstancesForProvisionedProductCommandOutput;
+    };
+  };
+}

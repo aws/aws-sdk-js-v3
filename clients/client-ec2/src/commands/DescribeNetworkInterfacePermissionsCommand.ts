@@ -110,4 +110,16 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkInterfacePermissionsCommand)
   .de(de_DescribeNetworkInterfacePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkInterfacePermissionsRequest;
+      output: DescribeNetworkInterfacePermissionsResult;
+    };
+    sdk: {
+      input: DescribeNetworkInterfacePermissionsCommandInput;
+      output: DescribeNetworkInterfacePermissionsCommandOutput;
+    };
+  };
+}

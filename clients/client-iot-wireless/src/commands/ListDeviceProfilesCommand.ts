@@ -98,4 +98,16 @@ export class ListDeviceProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeviceProfilesCommand)
   .de(de_ListDeviceProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeviceProfilesRequest;
+      output: ListDeviceProfilesResponse;
+    };
+    sdk: {
+      input: ListDeviceProfilesCommandInput;
+      output: ListDeviceProfilesCommandOutput;
+    };
+  };
+}

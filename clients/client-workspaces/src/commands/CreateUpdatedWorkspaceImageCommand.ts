@@ -127,4 +127,16 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUpdatedWorkspaceImageCommand)
   .de(de_CreateUpdatedWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUpdatedWorkspaceImageRequest;
+      output: CreateUpdatedWorkspaceImageResult;
+    };
+    sdk: {
+      input: CreateUpdatedWorkspaceImageCommandInput;
+      output: CreateUpdatedWorkspaceImageCommandOutput;
+    };
+  };
+}

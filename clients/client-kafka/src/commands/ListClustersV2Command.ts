@@ -237,4 +237,16 @@ export class ListClustersV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListClustersV2Command)
   .de(de_ListClustersV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClustersV2Request;
+      output: ListClustersV2Response;
+    };
+    sdk: {
+      input: ListClustersV2CommandInput;
+      output: ListClustersV2CommandOutput;
+    };
+  };
+}

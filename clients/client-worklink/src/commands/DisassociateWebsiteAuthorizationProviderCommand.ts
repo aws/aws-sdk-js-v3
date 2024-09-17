@@ -107,4 +107,16 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateWebsiteAuthorizationProviderCommand)
   .de(de_DisassociateWebsiteAuthorizationProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWebsiteAuthorizationProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWebsiteAuthorizationProviderCommandInput;
+      output: DisassociateWebsiteAuthorizationProviderCommandOutput;
+    };
+  };
+}

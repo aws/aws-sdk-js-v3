@@ -140,4 +140,16 @@ export class DescribeCapacityProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCapacityProvidersCommand)
   .de(de_DescribeCapacityProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCapacityProvidersRequest;
+      output: DescribeCapacityProvidersResponse;
+    };
+    sdk: {
+      input: DescribeCapacityProvidersCommandInput;
+      output: DescribeCapacityProvidersCommandOutput;
+    };
+  };
+}

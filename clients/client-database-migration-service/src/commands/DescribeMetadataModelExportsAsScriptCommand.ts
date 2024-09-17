@@ -151,4 +151,16 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetadataModelExportsAsScriptCommand)
   .de(de_DescribeMetadataModelExportsAsScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetadataModelExportsAsScriptMessage;
+      output: DescribeMetadataModelExportsAsScriptResponse;
+    };
+    sdk: {
+      input: DescribeMetadataModelExportsAsScriptCommandInput;
+      output: DescribeMetadataModelExportsAsScriptCommandOutput;
+    };
+  };
+}

@@ -385,4 +385,16 @@ export class DeregisterTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTaskDefinitionCommand)
   .de(de_DeregisterTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTaskDefinitionRequest;
+      output: DeregisterTaskDefinitionResponse;
+    };
+    sdk: {
+      input: DeregisterTaskDefinitionCommandInput;
+      output: DeregisterTaskDefinitionCommandOutput;
+    };
+  };
+}

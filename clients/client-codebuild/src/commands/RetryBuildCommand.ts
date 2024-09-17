@@ -271,4 +271,16 @@ export class RetryBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetryBuildCommand)
   .de(de_RetryBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetryBuildInput;
+      output: RetryBuildOutput;
+    };
+    sdk: {
+      input: RetryBuildCommandInput;
+      output: RetryBuildCommandOutput;
+    };
+  };
+}

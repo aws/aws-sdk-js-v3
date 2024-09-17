@@ -114,4 +114,16 @@ export class GetMatchingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMatchingJobCommand)
   .de(de_GetMatchingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMatchingJobInput;
+      output: GetMatchingJobOutput;
+    };
+    sdk: {
+      input: GetMatchingJobCommandInput;
+      output: GetMatchingJobCommandOutput;
+    };
+  };
+}

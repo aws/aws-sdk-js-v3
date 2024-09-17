@@ -110,4 +110,16 @@ export class CreateTemplateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTemplateAliasCommand)
   .de(de_CreateTemplateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTemplateAliasRequest;
+      output: CreateTemplateAliasResponse;
+    };
+    sdk: {
+      input: CreateTemplateAliasCommandInput;
+      output: CreateTemplateAliasCommandOutput;
+    };
+  };
+}

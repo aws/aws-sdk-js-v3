@@ -96,4 +96,16 @@ export class DeleteAppValidationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppValidationConfigurationCommand)
   .de(de_DeleteAppValidationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppValidationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppValidationConfigurationCommandInput;
+      output: DeleteAppValidationConfigurationCommandOutput;
+    };
+  };
+}

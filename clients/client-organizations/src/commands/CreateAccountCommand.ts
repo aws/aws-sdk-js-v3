@@ -524,4 +524,16 @@ export class CreateAccountCommand extends $Command
   .f(CreateAccountRequestFilterSensitiveLog, CreateAccountResponseFilterSensitiveLog)
   .ser(se_CreateAccountCommand)
   .de(de_CreateAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountRequest;
+      output: CreateAccountResponse;
+    };
+    sdk: {
+      input: CreateAccountCommandInput;
+      output: CreateAccountCommandOutput;
+    };
+  };
+}

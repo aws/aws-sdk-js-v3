@@ -101,4 +101,16 @@ export class ListIdentityPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentityPoolsCommand)
   .de(de_ListIdentityPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentityPoolsInput;
+      output: ListIdentityPoolsResponse;
+    };
+    sdk: {
+      input: ListIdentityPoolsCommandInput;
+      output: ListIdentityPoolsCommandOutput;
+    };
+  };
+}

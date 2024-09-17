@@ -160,4 +160,16 @@ export class DescribeReservedDBInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedDBInstancesCommand)
   .de(de_DescribeReservedDBInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedDBInstancesMessage;
+      output: ReservedDBInstanceMessage;
+    };
+    sdk: {
+      input: DescribeReservedDBInstancesCommandInput;
+      output: DescribeReservedDBInstancesCommandOutput;
+    };
+  };
+}

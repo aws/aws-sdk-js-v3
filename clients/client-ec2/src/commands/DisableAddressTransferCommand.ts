@@ -85,4 +85,16 @@ export class DisableAddressTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAddressTransferCommand)
   .de(de_DisableAddressTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAddressTransferRequest;
+      output: DisableAddressTransferResult;
+    };
+    sdk: {
+      input: DisableAddressTransferCommandInput;
+      output: DisableAddressTransferCommandOutput;
+    };
+  };
+}

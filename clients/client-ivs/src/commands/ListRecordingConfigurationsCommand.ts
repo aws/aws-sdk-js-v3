@@ -108,4 +108,16 @@ export class ListRecordingConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecordingConfigurationsCommand)
   .de(de_ListRecordingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecordingConfigurationsRequest;
+      output: ListRecordingConfigurationsResponse;
+    };
+    sdk: {
+      input: ListRecordingConfigurationsCommandInput;
+      output: ListRecordingConfigurationsCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class DeleteDocumentClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDocumentClassifierCommand)
   .de(de_DeleteDocumentClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDocumentClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDocumentClassifierCommandInput;
+      output: DeleteDocumentClassifierCommandOutput;
+    };
+  };
+}

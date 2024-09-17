@@ -115,4 +115,16 @@ export class AssociateAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAccessPolicyCommand)
   .de(de_AssociateAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAccessPolicyRequest;
+      output: AssociateAccessPolicyResponse;
+    };
+    sdk: {
+      input: AssociateAccessPolicyCommandInput;
+      output: AssociateAccessPolicyCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class BatchStartViewerSessionRevocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStartViewerSessionRevocationCommand)
   .de(de_BatchStartViewerSessionRevocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStartViewerSessionRevocationRequest;
+      output: BatchStartViewerSessionRevocationResponse;
+    };
+    sdk: {
+      input: BatchStartViewerSessionRevocationCommandInput;
+      output: BatchStartViewerSessionRevocationCommandOutput;
+    };
+  };
+}

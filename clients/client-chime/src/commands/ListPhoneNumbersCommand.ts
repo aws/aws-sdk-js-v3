@@ -137,4 +137,16 @@ export class ListPhoneNumbersCommand extends $Command
   .f(void 0, ListPhoneNumbersResponseFilterSensitiveLog)
   .ser(se_ListPhoneNumbersCommand)
   .de(de_ListPhoneNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersRequest;
+      output: ListPhoneNumbersResponse;
+    };
+    sdk: {
+      input: ListPhoneNumbersCommandInput;
+      output: ListPhoneNumbersCommandOutput;
+    };
+  };
+}

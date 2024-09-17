@@ -89,4 +89,16 @@ export class GetInstanceUefiDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceUefiDataCommand)
   .de(de_GetInstanceUefiDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceUefiDataRequest;
+      output: GetInstanceUefiDataResult;
+    };
+    sdk: {
+      input: GetInstanceUefiDataCommandInput;
+      output: GetInstanceUefiDataCommandOutput;
+    };
+  };
+}

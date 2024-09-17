@@ -142,4 +142,16 @@ export class DeleteEventDataStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventDataStoreCommand)
   .de(de_DeleteEventDataStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventDataStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventDataStoreCommandInput;
+      output: DeleteEventDataStoreCommandOutput;
+    };
+  };
+}

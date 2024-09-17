@@ -104,4 +104,16 @@ export class BatchStopJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStopJobRunCommand)
   .de(de_BatchStopJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStopJobRunRequest;
+      output: BatchStopJobRunResponse;
+    };
+    sdk: {
+      input: BatchStopJobRunCommandInput;
+      output: BatchStopJobRunCommandOutput;
+    };
+  };
+}

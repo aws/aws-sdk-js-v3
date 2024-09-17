@@ -104,4 +104,16 @@ export class GetNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkSettingsCommand)
   .de(de_GetNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkSettingsRequest;
+      output: GetNetworkSettingsResponse;
+    };
+    sdk: {
+      input: GetNetworkSettingsCommandInput;
+      output: GetNetworkSettingsCommandOutput;
+    };
+  };
+}

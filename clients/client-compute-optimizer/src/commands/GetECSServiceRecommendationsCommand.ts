@@ -224,4 +224,16 @@ export class GetECSServiceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetECSServiceRecommendationsCommand)
   .de(de_GetECSServiceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetECSServiceRecommendationsRequest;
+      output: GetECSServiceRecommendationsResponse;
+    };
+    sdk: {
+      input: GetECSServiceRecommendationsCommandInput;
+      output: GetECSServiceRecommendationsCommandOutput;
+    };
+  };
+}

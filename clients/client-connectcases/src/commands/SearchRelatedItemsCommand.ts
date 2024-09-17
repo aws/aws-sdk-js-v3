@@ -142,4 +142,16 @@ export class SearchRelatedItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchRelatedItemsCommand)
   .de(de_SearchRelatedItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRelatedItemsRequest;
+      output: SearchRelatedItemsResponse;
+    };
+    sdk: {
+      input: SearchRelatedItemsCommandInput;
+      output: SearchRelatedItemsCommandOutput;
+    };
+  };
+}

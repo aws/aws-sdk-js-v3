@@ -307,4 +307,16 @@ export class StopDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDBClusterCommand)
   .de(de_StopDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDBClusterMessage;
+      output: StopDBClusterResult;
+    };
+    sdk: {
+      input: StopDBClusterCommandInput;
+      output: StopDBClusterCommandOutput;
+    };
+  };
+}

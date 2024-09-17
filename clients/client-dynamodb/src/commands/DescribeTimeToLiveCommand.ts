@@ -89,4 +89,16 @@ export class DescribeTimeToLiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTimeToLiveCommand)
   .de(de_DescribeTimeToLiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTimeToLiveInput;
+      output: DescribeTimeToLiveOutput;
+    };
+    sdk: {
+      input: DescribeTimeToLiveCommandInput;
+      output: DescribeTimeToLiveCommandOutput;
+    };
+  };
+}

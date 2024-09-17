@@ -118,4 +118,16 @@ export class DescribeFHIRImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFHIRImportJobCommand)
   .de(de_DescribeFHIRImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFHIRImportJobRequest;
+      output: DescribeFHIRImportJobResponse;
+    };
+    sdk: {
+      input: DescribeFHIRImportJobCommandInput;
+      output: DescribeFHIRImportJobCommandOutput;
+    };
+  };
+}

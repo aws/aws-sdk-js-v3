@@ -86,4 +86,16 @@ export class GetAddonInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAddonInstanceCommand)
   .de(de_GetAddonInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAddonInstanceRequest;
+      output: GetAddonInstanceResponse;
+    };
+    sdk: {
+      input: GetAddonInstanceCommandInput;
+      output: GetAddonInstanceCommandOutput;
+    };
+  };
+}

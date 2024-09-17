@@ -110,4 +110,16 @@ export class GetPipelineChangeProgressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPipelineChangeProgressCommand)
   .de(de_GetPipelineChangeProgressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPipelineChangeProgressRequest;
+      output: GetPipelineChangeProgressResponse;
+    };
+    sdk: {
+      input: GetPipelineChangeProgressCommandInput;
+      output: GetPipelineChangeProgressCommandOutput;
+    };
+  };
+}

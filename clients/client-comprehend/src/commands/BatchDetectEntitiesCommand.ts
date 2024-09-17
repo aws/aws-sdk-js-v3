@@ -140,4 +140,16 @@ export class BatchDetectEntitiesCommand extends $Command
   .f(BatchDetectEntitiesRequestFilterSensitiveLog, BatchDetectEntitiesResponseFilterSensitiveLog)
   .ser(se_BatchDetectEntitiesCommand)
   .de(de_BatchDetectEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDetectEntitiesRequest;
+      output: BatchDetectEntitiesResponse;
+    };
+    sdk: {
+      input: BatchDetectEntitiesCommandInput;
+      output: BatchDetectEntitiesCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class CreateResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourcePolicyCommand)
   .de(de_CreateResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourcePolicyRequest;
+      output: CreateResourcePolicyResponse;
+    };
+    sdk: {
+      input: CreateResourcePolicyCommandInput;
+      output: CreateResourcePolicyCommandOutput;
+    };
+  };
+}

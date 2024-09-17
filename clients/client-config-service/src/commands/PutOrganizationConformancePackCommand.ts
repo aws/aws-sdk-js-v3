@@ -205,4 +205,16 @@ export class PutOrganizationConformancePackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOrganizationConformancePackCommand)
   .de(de_PutOrganizationConformancePackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOrganizationConformancePackRequest;
+      output: PutOrganizationConformancePackResponse;
+    };
+    sdk: {
+      input: PutOrganizationConformancePackCommandInput;
+      output: PutOrganizationConformancePackCommandOutput;
+    };
+  };
+}

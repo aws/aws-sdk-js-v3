@@ -98,4 +98,16 @@ export class StopStreamProcessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopStreamProcessorCommand)
   .de(de_StopStreamProcessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopStreamProcessorRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopStreamProcessorCommandInput;
+      output: StopStreamProcessorCommandOutput;
+    };
+  };
+}

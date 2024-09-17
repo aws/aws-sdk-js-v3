@@ -192,4 +192,16 @@ export class CreateStreamProcessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStreamProcessorCommand)
   .de(de_CreateStreamProcessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamProcessorRequest;
+      output: CreateStreamProcessorResponse;
+    };
+    sdk: {
+      input: CreateStreamProcessorCommandInput;
+      output: CreateStreamProcessorCommandOutput;
+    };
+  };
+}

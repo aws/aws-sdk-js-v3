@@ -99,4 +99,16 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePresignedNotebookInstanceUrlCommand)
   .de(de_CreatePresignedNotebookInstanceUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePresignedNotebookInstanceUrlInput;
+      output: CreatePresignedNotebookInstanceUrlOutput;
+    };
+    sdk: {
+      input: CreatePresignedNotebookInstanceUrlCommandInput;
+      output: CreatePresignedNotebookInstanceUrlCommandOutput;
+    };
+  };
+}

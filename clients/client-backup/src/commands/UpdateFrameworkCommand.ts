@@ -127,4 +127,16 @@ export class UpdateFrameworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFrameworkCommand)
   .de(de_UpdateFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFrameworkInput;
+      output: UpdateFrameworkOutput;
+    };
+    sdk: {
+      input: UpdateFrameworkCommandInput;
+      output: UpdateFrameworkCommandOutput;
+    };
+  };
+}

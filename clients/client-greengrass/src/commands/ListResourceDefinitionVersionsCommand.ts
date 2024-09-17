@@ -95,4 +95,16 @@ export class ListResourceDefinitionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceDefinitionVersionsCommand)
   .de(de_ListResourceDefinitionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceDefinitionVersionsRequest;
+      output: ListResourceDefinitionVersionsResponse;
+    };
+    sdk: {
+      input: ListResourceDefinitionVersionsCommandInput;
+      output: ListResourceDefinitionVersionsCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class StartSegmentDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSegmentDetectionCommand)
   .de(de_StartSegmentDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSegmentDetectionRequest;
+      output: StartSegmentDetectionResponse;
+    };
+    sdk: {
+      input: StartSegmentDetectionCommandInput;
+      output: StartSegmentDetectionCommandOutput;
+    };
+  };
+}

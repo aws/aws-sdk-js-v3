@@ -149,4 +149,16 @@ export class UpdateCustomLineItemCommand extends $Command
   .f(UpdateCustomLineItemInputFilterSensitiveLog, UpdateCustomLineItemOutputFilterSensitiveLog)
   .ser(se_UpdateCustomLineItemCommand)
   .de(de_UpdateCustomLineItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomLineItemInput;
+      output: UpdateCustomLineItemOutput;
+    };
+    sdk: {
+      input: UpdateCustomLineItemCommandInput;
+      output: UpdateCustomLineItemCommandOutput;
+    };
+  };
+}

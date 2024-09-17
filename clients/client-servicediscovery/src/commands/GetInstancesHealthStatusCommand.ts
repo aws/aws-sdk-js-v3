@@ -120,4 +120,16 @@ export class GetInstancesHealthStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstancesHealthStatusCommand)
   .de(de_GetInstancesHealthStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstancesHealthStatusRequest;
+      output: GetInstancesHealthStatusResponse;
+    };
+    sdk: {
+      input: GetInstancesHealthStatusCommandInput;
+      output: GetInstancesHealthStatusCommandOutput;
+    };
+  };
+}

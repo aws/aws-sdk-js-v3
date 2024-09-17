@@ -147,4 +147,16 @@ export class ListUsersInGroupCommand extends $Command
   .f(void 0, ListUsersInGroupResponseFilterSensitiveLog)
   .ser(se_ListUsersInGroupCommand)
   .de(de_ListUsersInGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersInGroupRequest;
+      output: ListUsersInGroupResponse;
+    };
+    sdk: {
+      input: ListUsersInGroupCommandInput;
+      output: ListUsersInGroupCommandOutput;
+    };
+  };
+}

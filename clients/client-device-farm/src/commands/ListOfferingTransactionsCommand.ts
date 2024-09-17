@@ -220,4 +220,16 @@ export class ListOfferingTransactionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOfferingTransactionsCommand)
   .de(de_ListOfferingTransactionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOfferingTransactionsRequest;
+      output: ListOfferingTransactionsResult;
+    };
+    sdk: {
+      input: ListOfferingTransactionsCommandInput;
+      output: ListOfferingTransactionsCommandOutput;
+    };
+  };
+}

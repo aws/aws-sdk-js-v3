@@ -129,4 +129,16 @@ export class UpdateAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppImageConfigCommand)
   .de(de_UpdateAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppImageConfigRequest;
+      output: UpdateAppImageConfigResponse;
+    };
+    sdk: {
+      input: UpdateAppImageConfigCommandInput;
+      output: UpdateAppImageConfigCommandOutput;
+    };
+  };
+}

@@ -184,4 +184,16 @@ export class DescribeSolutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSolutionCommand)
   .de(de_DescribeSolutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSolutionRequest;
+      output: DescribeSolutionResponse;
+    };
+    sdk: {
+      input: DescribeSolutionCommandInput;
+      output: DescribeSolutionCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class DeregisterDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterDeviceCommand)
   .de(de_DeregisterDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterDeviceCommandInput;
+      output: DeregisterDeviceCommandOutput;
+    };
+  };
+}

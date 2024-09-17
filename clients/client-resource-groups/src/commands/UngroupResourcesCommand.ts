@@ -127,4 +127,16 @@ export class UngroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UngroupResourcesCommand)
   .de(de_UngroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UngroupResourcesInput;
+      output: UngroupResourcesOutput;
+    };
+    sdk: {
+      input: UngroupResourcesCommandInput;
+      output: UngroupResourcesCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class ListCollaborationAnalysisTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollaborationAnalysisTemplatesCommand)
   .de(de_ListCollaborationAnalysisTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollaborationAnalysisTemplatesInput;
+      output: ListCollaborationAnalysisTemplatesOutput;
+    };
+    sdk: {
+      input: ListCollaborationAnalysisTemplatesCommandInput;
+      output: ListCollaborationAnalysisTemplatesCommandOutput;
+    };
+  };
+}

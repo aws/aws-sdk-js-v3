@@ -106,4 +106,16 @@ export class StartContactEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartContactEvaluationCommand)
   .de(de_StartContactEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartContactEvaluationRequest;
+      output: StartContactEvaluationResponse;
+    };
+    sdk: {
+      input: StartContactEvaluationCommandInput;
+      output: StartContactEvaluationCommandOutput;
+    };
+  };
+}

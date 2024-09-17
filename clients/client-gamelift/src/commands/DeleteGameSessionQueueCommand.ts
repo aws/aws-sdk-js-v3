@@ -95,4 +95,16 @@ export class DeleteGameSessionQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGameSessionQueueCommand)
   .de(de_DeleteGameSessionQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGameSessionQueueInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGameSessionQueueCommandInput;
+      output: DeleteGameSessionQueueCommandOutput;
+    };
+  };
+}

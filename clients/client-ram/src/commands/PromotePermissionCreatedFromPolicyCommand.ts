@@ -160,4 +160,16 @@ export class PromotePermissionCreatedFromPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromotePermissionCreatedFromPolicyCommand)
   .de(de_PromotePermissionCreatedFromPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromotePermissionCreatedFromPolicyRequest;
+      output: PromotePermissionCreatedFromPolicyResponse;
+    };
+    sdk: {
+      input: PromotePermissionCreatedFromPolicyCommandInput;
+      output: PromotePermissionCreatedFromPolicyCommandOutput;
+    };
+  };
+}

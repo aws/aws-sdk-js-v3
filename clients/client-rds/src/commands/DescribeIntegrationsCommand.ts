@@ -145,4 +145,16 @@ export class DescribeIntegrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIntegrationsCommand)
   .de(de_DescribeIntegrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIntegrationsMessage;
+      output: DescribeIntegrationsResponse;
+    };
+    sdk: {
+      input: DescribeIntegrationsCommandInput;
+      output: DescribeIntegrationsCommandOutput;
+    };
+  };
+}

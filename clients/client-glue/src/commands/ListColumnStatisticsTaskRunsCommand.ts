@@ -89,4 +89,16 @@ export class ListColumnStatisticsTaskRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListColumnStatisticsTaskRunsCommand)
   .de(de_ListColumnStatisticsTaskRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListColumnStatisticsTaskRunsRequest;
+      output: ListColumnStatisticsTaskRunsResponse;
+    };
+    sdk: {
+      input: ListColumnStatisticsTaskRunsCommandInput;
+      output: ListColumnStatisticsTaskRunsCommandOutput;
+    };
+  };
+}

@@ -156,4 +156,16 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActivatedRulesInRuleGroupCommand)
   .de(de_ListActivatedRulesInRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActivatedRulesInRuleGroupRequest;
+      output: ListActivatedRulesInRuleGroupResponse;
+    };
+    sdk: {
+      input: ListActivatedRulesInRuleGroupCommandInput;
+      output: ListActivatedRulesInRuleGroupCommandOutput;
+    };
+  };
+}

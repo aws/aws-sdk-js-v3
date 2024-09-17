@@ -399,4 +399,16 @@ export class AcceptHandshakeCommand extends $Command
   .f(void 0, AcceptHandshakeResponseFilterSensitiveLog)
   .ser(se_AcceptHandshakeCommand)
   .de(de_AcceptHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptHandshakeRequest;
+      output: AcceptHandshakeResponse;
+    };
+    sdk: {
+      input: AcceptHandshakeCommandInput;
+      output: AcceptHandshakeCommandOutput;
+    };
+  };
+}

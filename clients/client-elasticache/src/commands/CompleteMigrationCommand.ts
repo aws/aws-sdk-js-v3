@@ -206,4 +206,16 @@ export class CompleteMigrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteMigrationCommand)
   .de(de_CompleteMigrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteMigrationMessage;
+      output: CompleteMigrationResponse;
+    };
+    sdk: {
+      input: CompleteMigrationCommandInput;
+      output: CompleteMigrationCommandOutput;
+    };
+  };
+}

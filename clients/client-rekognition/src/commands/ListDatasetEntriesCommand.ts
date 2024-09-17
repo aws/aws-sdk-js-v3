@@ -162,4 +162,16 @@ export class ListDatasetEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasetEntriesCommand)
   .de(de_ListDatasetEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasetEntriesRequest;
+      output: ListDatasetEntriesResponse;
+    };
+    sdk: {
+      input: ListDatasetEntriesCommandInput;
+      output: ListDatasetEntriesCommandOutput;
+    };
+  };
+}

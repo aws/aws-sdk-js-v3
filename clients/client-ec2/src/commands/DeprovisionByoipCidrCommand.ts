@@ -95,4 +95,16 @@ export class DeprovisionByoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeprovisionByoipCidrCommand)
   .de(de_DeprovisionByoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeprovisionByoipCidrRequest;
+      output: DeprovisionByoipCidrResult;
+    };
+    sdk: {
+      input: DeprovisionByoipCidrCommandInput;
+      output: DeprovisionByoipCidrCommandOutput;
+    };
+  };
+}

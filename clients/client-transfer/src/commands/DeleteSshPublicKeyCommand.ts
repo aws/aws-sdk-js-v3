@@ -93,4 +93,16 @@ export class DeleteSshPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSshPublicKeyCommand)
   .de(de_DeleteSshPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSshPublicKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSshPublicKeyCommandInput;
+      output: DeleteSshPublicKeyCommandOutput;
+    };
+  };
+}

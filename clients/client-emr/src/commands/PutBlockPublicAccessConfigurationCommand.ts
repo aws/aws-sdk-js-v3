@@ -117,4 +117,16 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBlockPublicAccessConfigurationCommand)
   .de(de_PutBlockPublicAccessConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBlockPublicAccessConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBlockPublicAccessConfigurationCommandInput;
+      output: PutBlockPublicAccessConfigurationCommandOutput;
+    };
+  };
+}

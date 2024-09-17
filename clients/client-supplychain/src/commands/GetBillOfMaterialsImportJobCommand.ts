@@ -155,4 +155,16 @@ export class GetBillOfMaterialsImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBillOfMaterialsImportJobCommand)
   .de(de_GetBillOfMaterialsImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBillOfMaterialsImportJobRequest;
+      output: GetBillOfMaterialsImportJobResponse;
+    };
+    sdk: {
+      input: GetBillOfMaterialsImportJobCommandInput;
+      output: GetBillOfMaterialsImportJobCommandOutput;
+    };
+  };
+}

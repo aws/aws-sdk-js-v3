@@ -122,4 +122,16 @@ export class GetDecryptedAPIKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDecryptedAPIKeyCommand)
   .de(de_GetDecryptedAPIKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDecryptedAPIKeyRequest;
+      output: GetDecryptedAPIKeyResponse;
+    };
+    sdk: {
+      input: GetDecryptedAPIKeyCommandInput;
+      output: GetDecryptedAPIKeyCommandOutput;
+    };
+  };
+}

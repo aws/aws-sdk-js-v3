@@ -126,4 +126,16 @@ export class CreateKxChangesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxChangesetCommand)
   .de(de_CreateKxChangesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxChangesetRequest;
+      output: CreateKxChangesetResponse;
+    };
+    sdk: {
+      input: CreateKxChangesetCommandInput;
+      output: CreateKxChangesetCommandOutput;
+    };
+  };
+}

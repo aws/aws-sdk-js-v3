@@ -130,4 +130,16 @@ export class CancelOpenCypherQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelOpenCypherQueryCommand)
   .de(de_CancelOpenCypherQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelOpenCypherQueryInput;
+      output: CancelOpenCypherQueryOutput;
+    };
+    sdk: {
+      input: CancelOpenCypherQueryCommandInput;
+      output: CancelOpenCypherQueryCommandOutput;
+    };
+  };
+}

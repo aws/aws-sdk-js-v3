@@ -112,4 +112,16 @@ export class ListOriginationNumbersCommand extends $Command
   .f(void 0, ListOriginationNumbersResultFilterSensitiveLog)
   .ser(se_ListOriginationNumbersCommand)
   .de(de_ListOriginationNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOriginationNumbersRequest;
+      output: ListOriginationNumbersResult;
+    };
+    sdk: {
+      input: ListOriginationNumbersCommandInput;
+      output: ListOriginationNumbersCommandOutput;
+    };
+  };
+}

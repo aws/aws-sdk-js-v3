@@ -103,4 +103,16 @@ export class UpdateLogPatternCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLogPatternCommand)
   .de(de_UpdateLogPatternCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLogPatternRequest;
+      output: UpdateLogPatternResponse;
+    };
+    sdk: {
+      input: UpdateLogPatternCommandInput;
+      output: UpdateLogPatternCommandOutput;
+    };
+  };
+}

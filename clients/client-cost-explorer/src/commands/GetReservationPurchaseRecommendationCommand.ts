@@ -285,4 +285,16 @@ export class GetReservationPurchaseRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservationPurchaseRecommendationCommand)
   .de(de_GetReservationPurchaseRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservationPurchaseRecommendationRequest;
+      output: GetReservationPurchaseRecommendationResponse;
+    };
+    sdk: {
+      input: GetReservationPurchaseRecommendationCommandInput;
+      output: GetReservationPurchaseRecommendationCommandOutput;
+    };
+  };
+}

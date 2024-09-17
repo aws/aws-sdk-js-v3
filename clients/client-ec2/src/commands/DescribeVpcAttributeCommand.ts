@@ -128,4 +128,16 @@ export class DescribeVpcAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcAttributeCommand)
   .de(de_DescribeVpcAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcAttributeRequest;
+      output: DescribeVpcAttributeResult;
+    };
+    sdk: {
+      input: DescribeVpcAttributeCommandInput;
+      output: DescribeVpcAttributeCommandOutput;
+    };
+  };
+}

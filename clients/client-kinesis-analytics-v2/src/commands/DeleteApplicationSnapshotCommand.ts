@@ -102,4 +102,16 @@ export class DeleteApplicationSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationSnapshotCommand)
   .de(de_DeleteApplicationSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationSnapshotRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationSnapshotCommandInput;
+      output: DeleteApplicationSnapshotCommandOutput;
+    };
+  };
+}

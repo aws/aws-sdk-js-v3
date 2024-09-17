@@ -126,4 +126,16 @@ export class OperationWithNestedStructureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_OperationWithNestedStructureCommand)
   .de(de_OperationWithNestedStructureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OperationWithNestedStructureInput;
+      output: OperationWithNestedStructureOutput;
+    };
+    sdk: {
+      input: OperationWithNestedStructureCommandInput;
+      output: OperationWithNestedStructureCommandOutput;
+    };
+  };
+}

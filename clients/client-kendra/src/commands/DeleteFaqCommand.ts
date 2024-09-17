@@ -100,4 +100,16 @@ export class DeleteFaqCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFaqCommand)
   .de(de_DeleteFaqCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFaqRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFaqCommandInput;
+      output: DeleteFaqCommandOutput;
+    };
+  };
+}

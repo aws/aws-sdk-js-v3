@@ -98,4 +98,16 @@ export class CreateLoggerDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoggerDefinitionVersionCommand)
   .de(de_CreateLoggerDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoggerDefinitionVersionRequest;
+      output: CreateLoggerDefinitionVersionResponse;
+    };
+    sdk: {
+      input: CreateLoggerDefinitionVersionCommandInput;
+      output: CreateLoggerDefinitionVersionCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class BatchGetCodeSnippetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCodeSnippetCommand)
   .de(de_BatchGetCodeSnippetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCodeSnippetRequest;
+      output: BatchGetCodeSnippetResponse;
+    };
+    sdk: {
+      input: BatchGetCodeSnippetCommandInput;
+      output: BatchGetCodeSnippetCommandOutput;
+    };
+  };
+}

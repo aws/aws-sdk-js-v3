@@ -97,4 +97,16 @@ export class DeleteRoutingControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoutingControlCommand)
   .de(de_DeleteRoutingControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoutingControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoutingControlCommandInput;
+      output: DeleteRoutingControlCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class UnclaimDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnclaimDeviceCommand)
   .de(de_UnclaimDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnclaimDeviceRequest;
+      output: UnclaimDeviceResponse;
+    };
+    sdk: {
+      input: UnclaimDeviceCommandInput;
+      output: UnclaimDeviceCommandOutput;
+    };
+  };
+}

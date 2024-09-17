@@ -92,4 +92,16 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSMBFileShareVisibilityCommand)
   .de(de_UpdateSMBFileShareVisibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSMBFileShareVisibilityInput;
+      output: UpdateSMBFileShareVisibilityOutput;
+    };
+    sdk: {
+      input: UpdateSMBFileShareVisibilityCommandInput;
+      output: UpdateSMBFileShareVisibilityCommandOutput;
+    };
+  };
+}

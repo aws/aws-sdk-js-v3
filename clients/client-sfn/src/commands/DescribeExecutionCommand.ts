@@ -126,4 +126,16 @@ export class DescribeExecutionCommand extends $Command
   .f(void 0, DescribeExecutionOutputFilterSensitiveLog)
   .ser(se_DescribeExecutionCommand)
   .de(de_DescribeExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExecutionInput;
+      output: DescribeExecutionOutput;
+    };
+    sdk: {
+      input: DescribeExecutionCommandInput;
+      output: DescribeExecutionCommandOutput;
+    };
+  };
+}

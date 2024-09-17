@@ -92,4 +92,16 @@ export class StartApplicationRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartApplicationRefreshCommand)
   .de(de_StartApplicationRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartApplicationRefreshInput;
+      output: StartApplicationRefreshOutput;
+    };
+    sdk: {
+      input: StartApplicationRefreshCommandInput;
+      output: StartApplicationRefreshCommandOutput;
+    };
+  };
+}

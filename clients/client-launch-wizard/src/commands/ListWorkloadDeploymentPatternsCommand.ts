@@ -105,4 +105,16 @@ export class ListWorkloadDeploymentPatternsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadDeploymentPatternsCommand)
   .de(de_ListWorkloadDeploymentPatternsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadDeploymentPatternsInput;
+      output: ListWorkloadDeploymentPatternsOutput;
+    };
+    sdk: {
+      input: ListWorkloadDeploymentPatternsCommandInput;
+      output: ListWorkloadDeploymentPatternsCommandOutput;
+    };
+  };
+}

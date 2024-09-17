@@ -135,4 +135,16 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateResolverEndpointIpAddressCommand)
   .de(de_DisassociateResolverEndpointIpAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateResolverEndpointIpAddressRequest;
+      output: DisassociateResolverEndpointIpAddressResponse;
+    };
+    sdk: {
+      input: DisassociateResolverEndpointIpAddressCommandInput;
+      output: DisassociateResolverEndpointIpAddressCommandOutput;
+    };
+  };
+}

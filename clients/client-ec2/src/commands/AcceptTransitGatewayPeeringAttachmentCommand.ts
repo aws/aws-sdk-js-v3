@@ -118,4 +118,16 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptTransitGatewayPeeringAttachmentCommand)
   .de(de_AcceptTransitGatewayPeeringAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptTransitGatewayPeeringAttachmentRequest;
+      output: AcceptTransitGatewayPeeringAttachmentResult;
+    };
+    sdk: {
+      input: AcceptTransitGatewayPeeringAttachmentCommandInput;
+      output: AcceptTransitGatewayPeeringAttachmentCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class ListCrossAccountAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCrossAccountAttachmentsCommand)
   .de(de_ListCrossAccountAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCrossAccountAttachmentsRequest;
+      output: ListCrossAccountAttachmentsResponse;
+    };
+    sdk: {
+      input: ListCrossAccountAttachmentsCommandInput;
+      output: ListCrossAccountAttachmentsCommandOutput;
+    };
+  };
+}

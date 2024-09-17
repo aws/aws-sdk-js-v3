@@ -91,4 +91,16 @@ export class ExportTransitGatewayRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportTransitGatewayRoutesCommand)
   .de(de_ExportTransitGatewayRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportTransitGatewayRoutesRequest;
+      output: ExportTransitGatewayRoutesResult;
+    };
+    sdk: {
+      input: ExportTransitGatewayRoutesCommandInput;
+      output: ExportTransitGatewayRoutesCommandOutput;
+    };
+  };
+}

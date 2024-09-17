@@ -132,4 +132,16 @@ export class StartMetadataModelExportToTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMetadataModelExportToTargetCommand)
   .de(de_StartMetadataModelExportToTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMetadataModelExportToTargetMessage;
+      output: StartMetadataModelExportToTargetResponse;
+    };
+    sdk: {
+      input: StartMetadataModelExportToTargetCommandInput;
+      output: StartMetadataModelExportToTargetCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class SetDefaultPolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDefaultPolicyVersionCommand)
   .de(de_SetDefaultPolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDefaultPolicyVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetDefaultPolicyVersionCommandInput;
+      output: SetDefaultPolicyVersionCommandOutput;
+    };
+  };
+}

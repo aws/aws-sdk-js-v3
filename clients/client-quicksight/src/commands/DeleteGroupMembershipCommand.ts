@@ -105,4 +105,16 @@ export class DeleteGroupMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupMembershipCommand)
   .de(de_DeleteGroupMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupMembershipRequest;
+      output: DeleteGroupMembershipResponse;
+    };
+    sdk: {
+      input: DeleteGroupMembershipCommandInput;
+      output: DeleteGroupMembershipCommandOutput;
+    };
+  };
+}

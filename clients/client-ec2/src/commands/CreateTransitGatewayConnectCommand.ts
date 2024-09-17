@@ -108,4 +108,16 @@ export class CreateTransitGatewayConnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransitGatewayConnectCommand)
   .de(de_CreateTransitGatewayConnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransitGatewayConnectRequest;
+      output: CreateTransitGatewayConnectResult;
+    };
+    sdk: {
+      input: CreateTransitGatewayConnectCommandInput;
+      output: CreateTransitGatewayConnectCommandOutput;
+    };
+  };
+}

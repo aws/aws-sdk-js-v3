@@ -113,4 +113,16 @@ export class GetConfiguredTableAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfiguredTableAssociationCommand)
   .de(de_GetConfiguredTableAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfiguredTableAssociationInput;
+      output: GetConfiguredTableAssociationOutput;
+    };
+    sdk: {
+      input: GetConfiguredTableAssociationCommandInput;
+      output: GetConfiguredTableAssociationCommandOutput;
+    };
+  };
+}

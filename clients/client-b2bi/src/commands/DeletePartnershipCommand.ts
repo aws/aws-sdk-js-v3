@@ -105,4 +105,16 @@ export class DeletePartnershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePartnershipCommand)
   .de(de_DeletePartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePartnershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePartnershipCommandInput;
+      output: DeletePartnershipCommandOutput;
+    };
+  };
+}

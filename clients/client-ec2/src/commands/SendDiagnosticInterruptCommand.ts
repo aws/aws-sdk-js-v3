@@ -89,4 +89,16 @@ export class SendDiagnosticInterruptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDiagnosticInterruptCommand)
   .de(de_SendDiagnosticInterruptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDiagnosticInterruptRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendDiagnosticInterruptCommandInput;
+      output: SendDiagnosticInterruptCommandOutput;
+    };
+  };
+}

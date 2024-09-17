@@ -140,4 +140,16 @@ export class DisassociateExternalConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateExternalConnectionCommand)
   .de(de_DisassociateExternalConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateExternalConnectionRequest;
+      output: DisassociateExternalConnectionResult;
+    };
+    sdk: {
+      input: DisassociateExternalConnectionCommandInput;
+      output: DisassociateExternalConnectionCommandOutput;
+    };
+  };
+}

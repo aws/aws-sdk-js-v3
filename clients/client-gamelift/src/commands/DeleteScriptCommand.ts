@@ -112,4 +112,16 @@ export class DeleteScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScriptCommand)
   .de(de_DeleteScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScriptInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScriptCommandInput;
+      output: DeleteScriptCommandOutput;
+    };
+  };
+}

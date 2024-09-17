@@ -131,4 +131,16 @@ export class ListTransactionEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTransactionEventsCommand)
   .de(de_ListTransactionEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTransactionEventsInput;
+      output: ListTransactionEventsOutput;
+    };
+    sdk: {
+      input: ListTransactionEventsCommandInput;
+      output: ListTransactionEventsCommandOutput;
+    };
+  };
+}

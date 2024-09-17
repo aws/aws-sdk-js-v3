@@ -114,4 +114,16 @@ export class DescribeChannelPlacementGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeChannelPlacementGroupCommand)
   .de(de_DescribeChannelPlacementGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelPlacementGroupRequest;
+      output: DescribeChannelPlacementGroupResponse;
+    };
+    sdk: {
+      input: DescribeChannelPlacementGroupCommandInput;
+      output: DescribeChannelPlacementGroupCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class ListRoutesCommand extends $Command
   .f(void 0, ListRoutesResponseFilterSensitiveLog)
   .ser(se_ListRoutesCommand)
   .de(de_ListRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutesRequest;
+      output: ListRoutesResponse;
+    };
+    sdk: {
+      input: ListRoutesCommandInput;
+      output: ListRoutesCommandOutput;
+    };
+  };
+}

@@ -275,4 +275,16 @@ export class ListAccountsCommand extends $Command
   .f(void 0, ListAccountsResponseFilterSensitiveLog)
   .ser(se_ListAccountsCommand)
   .de(de_ListAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountsRequest;
+      output: ListAccountsResponse;
+    };
+    sdk: {
+      input: ListAccountsCommandInput;
+      output: ListAccountsCommandOutput;
+    };
+  };
+}

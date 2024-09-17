@@ -204,4 +204,16 @@ export class RetrieveCommand extends $Command
   .f(RetrieveRequestFilterSensitiveLog, RetrieveResponseFilterSensitiveLog)
   .ser(se_RetrieveCommand)
   .de(de_RetrieveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveRequest;
+      output: RetrieveResponse;
+    };
+    sdk: {
+      input: RetrieveCommandInput;
+      output: RetrieveCommandOutput;
+    };
+  };
+}

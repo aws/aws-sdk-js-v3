@@ -178,4 +178,16 @@ export class PromoteReadReplicaDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteReadReplicaDBClusterCommand)
   .de(de_PromoteReadReplicaDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteReadReplicaDBClusterMessage;
+      output: PromoteReadReplicaDBClusterResult;
+    };
+    sdk: {
+      input: PromoteReadReplicaDBClusterCommandInput;
+      output: PromoteReadReplicaDBClusterCommandOutput;
+    };
+  };
+}

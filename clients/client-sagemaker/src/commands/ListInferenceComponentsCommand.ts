@@ -100,4 +100,16 @@ export class ListInferenceComponentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceComponentsCommand)
   .de(de_ListInferenceComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceComponentsInput;
+      output: ListInferenceComponentsOutput;
+    };
+    sdk: {
+      input: ListInferenceComponentsCommandInput;
+      output: ListInferenceComponentsCommandOutput;
+    };
+  };
+}

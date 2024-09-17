@@ -93,4 +93,16 @@ export class DeleteConfiguredTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfiguredTableCommand)
   .de(de_DeleteConfiguredTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfiguredTableInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfiguredTableCommandInput;
+      output: DeleteConfiguredTableCommandOutput;
+    };
+  };
+}

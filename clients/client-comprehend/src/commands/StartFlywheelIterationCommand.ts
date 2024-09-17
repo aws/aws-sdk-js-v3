@@ -97,4 +97,16 @@ export class StartFlywheelIterationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFlywheelIterationCommand)
   .de(de_StartFlywheelIterationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFlywheelIterationRequest;
+      output: StartFlywheelIterationResponse;
+    };
+    sdk: {
+      input: StartFlywheelIterationCommandInput;
+      output: StartFlywheelIterationCommandOutput;
+    };
+  };
+}

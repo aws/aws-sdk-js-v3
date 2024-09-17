@@ -103,4 +103,16 @@ export class ListDevicesJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicesJobsCommand)
   .de(de_ListDevicesJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesJobsRequest;
+      output: ListDevicesJobsResponse;
+    };
+    sdk: {
+      input: ListDevicesJobsCommandInput;
+      output: ListDevicesJobsCommandOutput;
+    };
+  };
+}

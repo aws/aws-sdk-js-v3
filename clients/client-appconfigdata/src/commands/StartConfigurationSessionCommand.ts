@@ -95,4 +95,16 @@ export class StartConfigurationSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConfigurationSessionCommand)
   .de(de_StartConfigurationSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConfigurationSessionRequest;
+      output: StartConfigurationSessionResponse;
+    };
+    sdk: {
+      input: StartConfigurationSessionCommandInput;
+      output: StartConfigurationSessionCommandOutput;
+    };
+  };
+}

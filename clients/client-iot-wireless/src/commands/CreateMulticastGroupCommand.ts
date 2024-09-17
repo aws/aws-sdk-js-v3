@@ -108,4 +108,16 @@ export class CreateMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMulticastGroupCommand)
   .de(de_CreateMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMulticastGroupRequest;
+      output: CreateMulticastGroupResponse;
+    };
+    sdk: {
+      input: CreateMulticastGroupCommandInput;
+      output: CreateMulticastGroupCommandOutput;
+    };
+  };
+}

@@ -83,4 +83,16 @@ export class DeleteServiceSpecificCredentialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceSpecificCredentialCommand)
   .de(de_DeleteServiceSpecificCredentialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceSpecificCredentialRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceSpecificCredentialCommandInput;
+      output: DeleteServiceSpecificCredentialCommandOutput;
+    };
+  };
+}

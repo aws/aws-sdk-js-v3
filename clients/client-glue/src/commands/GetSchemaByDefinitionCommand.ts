@@ -98,4 +98,16 @@ export class GetSchemaByDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaByDefinitionCommand)
   .de(de_GetSchemaByDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaByDefinitionInput;
+      output: GetSchemaByDefinitionResponse;
+    };
+    sdk: {
+      input: GetSchemaByDefinitionCommandInput;
+      output: GetSchemaByDefinitionCommandOutput;
+    };
+  };
+}

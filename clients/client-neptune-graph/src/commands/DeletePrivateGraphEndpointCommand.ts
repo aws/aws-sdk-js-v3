@@ -101,4 +101,16 @@ export class DeletePrivateGraphEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrivateGraphEndpointCommand)
   .de(de_DeletePrivateGraphEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrivateGraphEndpointInput;
+      output: DeletePrivateGraphEndpointOutput;
+    };
+    sdk: {
+      input: DeletePrivateGraphEndpointCommandInput;
+      output: DeletePrivateGraphEndpointCommandOutput;
+    };
+  };
+}

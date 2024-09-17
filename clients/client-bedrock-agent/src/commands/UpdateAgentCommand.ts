@@ -194,4 +194,16 @@ export class UpdateAgentCommand extends $Command
   .f(UpdateAgentRequestFilterSensitiveLog, UpdateAgentResponseFilterSensitiveLog)
   .ser(se_UpdateAgentCommand)
   .de(de_UpdateAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentRequest;
+      output: UpdateAgentResponse;
+    };
+    sdk: {
+      input: UpdateAgentCommandInput;
+      output: UpdateAgentCommandOutput;
+    };
+  };
+}

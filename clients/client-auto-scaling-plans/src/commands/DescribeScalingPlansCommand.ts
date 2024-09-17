@@ -185,4 +185,16 @@ export class DescribeScalingPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingPlansCommand)
   .de(de_DescribeScalingPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingPlansRequest;
+      output: DescribeScalingPlansResponse;
+    };
+    sdk: {
+      input: DescribeScalingPlansCommandInput;
+      output: DescribeScalingPlansCommandOutput;
+    };
+  };
+}

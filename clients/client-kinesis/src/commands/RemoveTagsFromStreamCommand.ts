@@ -113,4 +113,16 @@ export class RemoveTagsFromStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromStreamCommand)
   .de(de_RemoveTagsFromStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromStreamCommandInput;
+      output: RemoveTagsFromStreamCommandOutput;
+    };
+  };
+}

@@ -166,4 +166,16 @@ export class SearchImageSetsCommand extends $Command
   .f(SearchImageSetsRequestFilterSensitiveLog, SearchImageSetsResponseFilterSensitiveLog)
   .ser(se_SearchImageSetsCommand)
   .de(de_SearchImageSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchImageSetsRequest;
+      output: SearchImageSetsResponse;
+    };
+    sdk: {
+      input: SearchImageSetsCommandInput;
+      output: SearchImageSetsCommandOutput;
+    };
+  };
+}

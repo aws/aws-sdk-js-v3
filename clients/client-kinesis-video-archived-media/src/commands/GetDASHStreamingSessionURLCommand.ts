@@ -278,4 +278,16 @@ export class GetDASHStreamingSessionURLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDASHStreamingSessionURLCommand)
   .de(de_GetDASHStreamingSessionURLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDASHStreamingSessionURLInput;
+      output: GetDASHStreamingSessionURLOutput;
+    };
+    sdk: {
+      input: GetDASHStreamingSessionURLCommandInput;
+      output: GetDASHStreamingSessionURLCommandOutput;
+    };
+  };
+}

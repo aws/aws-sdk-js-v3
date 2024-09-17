@@ -114,4 +114,16 @@ export class CountPendingDecisionTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CountPendingDecisionTasksCommand)
   .de(de_CountPendingDecisionTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CountPendingDecisionTasksInput;
+      output: PendingTaskCount;
+    };
+    sdk: {
+      input: CountPendingDecisionTasksCommandInput;
+      output: CountPendingDecisionTasksCommandOutput;
+    };
+  };
+}

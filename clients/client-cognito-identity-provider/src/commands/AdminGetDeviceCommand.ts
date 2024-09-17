@@ -140,4 +140,16 @@ export class AdminGetDeviceCommand extends $Command
   .f(AdminGetDeviceRequestFilterSensitiveLog, AdminGetDeviceResponseFilterSensitiveLog)
   .ser(se_AdminGetDeviceCommand)
   .de(de_AdminGetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminGetDeviceRequest;
+      output: AdminGetDeviceResponse;
+    };
+    sdk: {
+      input: AdminGetDeviceCommandInput;
+      output: AdminGetDeviceCommandOutput;
+    };
+  };
+}

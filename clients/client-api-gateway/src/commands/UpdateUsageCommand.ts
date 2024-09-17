@@ -114,4 +114,16 @@ export class UpdateUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUsageCommand)
   .de(de_UpdateUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUsageRequest;
+      output: Usage;
+    };
+    sdk: {
+      input: UpdateUsageCommandInput;
+      output: UpdateUsageCommandOutput;
+    };
+  };
+}

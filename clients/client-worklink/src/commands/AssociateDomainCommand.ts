@@ -98,4 +98,16 @@ export class AssociateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDomainCommand)
   .de(de_AssociateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDomainCommandInput;
+      output: AssociateDomainCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetDirectoryRegistrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDirectoryRegistrationCommand)
   .de(de_GetDirectoryRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDirectoryRegistrationRequest;
+      output: GetDirectoryRegistrationResponse;
+    };
+    sdk: {
+      input: GetDirectoryRegistrationCommandInput;
+      output: GetDirectoryRegistrationCommandOutput;
+    };
+  };
+}

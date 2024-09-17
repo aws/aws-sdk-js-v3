@@ -104,4 +104,16 @@ export class AssociateRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateRoutingProfileQueuesCommand)
   .de(de_AssociateRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateRoutingProfileQueuesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateRoutingProfileQueuesCommandInput;
+      output: AssociateRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

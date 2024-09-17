@@ -157,4 +157,16 @@ export class UpdateImagePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateImagePipelineCommand)
   .de(de_UpdateImagePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImagePipelineRequest;
+      output: UpdateImagePipelineResponse;
+    };
+    sdk: {
+      input: UpdateImagePipelineCommandInput;
+      output: UpdateImagePipelineCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class AddNotificationChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddNotificationChannelsCommand)
   .de(de_AddNotificationChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddNotificationChannelsRequest;
+      output: AddNotificationChannelsResponse;
+    };
+    sdk: {
+      input: AddNotificationChannelsCommandInput;
+      output: AddNotificationChannelsCommandOutput;
+    };
+  };
+}

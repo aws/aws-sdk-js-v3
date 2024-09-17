@@ -84,4 +84,16 @@ export class StopQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopQueryExecutionCommand)
   .de(de_StopQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopQueryExecutionInput;
+      output: {};
+    };
+    sdk: {
+      input: StopQueryExecutionCommandInput;
+      output: StopQueryExecutionCommandOutput;
+    };
+  };
+}

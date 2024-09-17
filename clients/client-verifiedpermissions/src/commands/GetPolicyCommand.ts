@@ -214,4 +214,16 @@ export class GetPolicyCommand extends $Command
   .f(void 0, GetPolicyOutputFilterSensitiveLog)
   .ser(se_GetPolicyCommand)
   .de(de_GetPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPolicyInput;
+      output: GetPolicyOutput;
+    };
+    sdk: {
+      input: GetPolicyCommandInput;
+      output: GetPolicyCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class GetKxConnectionStringCommand extends $Command
   .f(void 0, GetKxConnectionStringResponseFilterSensitiveLog)
   .ser(se_GetKxConnectionStringCommand)
   .de(de_GetKxConnectionStringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKxConnectionStringRequest;
+      output: GetKxConnectionStringResponse;
+    };
+    sdk: {
+      input: GetKxConnectionStringCommandInput;
+      output: GetKxConnectionStringCommandOutput;
+    };
+  };
+}

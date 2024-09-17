@@ -137,4 +137,16 @@ export class GetHealthCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHealthCheckCommand)
   .de(de_GetHealthCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHealthCheckRequest;
+      output: GetHealthCheckResponse;
+    };
+    sdk: {
+      input: GetHealthCheckCommandInput;
+      output: GetHealthCheckCommandOutput;
+    };
+  };
+}

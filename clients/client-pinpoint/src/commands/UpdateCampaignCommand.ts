@@ -870,4 +870,16 @@ export class UpdateCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCampaignCommand)
   .de(de_UpdateCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCampaignRequest;
+      output: UpdateCampaignResponse;
+    };
+    sdk: {
+      input: UpdateCampaignCommandInput;
+      output: UpdateCampaignCommandOutput;
+    };
+  };
+}

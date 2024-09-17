@@ -89,4 +89,16 @@ export class ModifyInstanceEventStartTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceEventStartTimeCommand)
   .de(de_ModifyInstanceEventStartTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceEventStartTimeRequest;
+      output: ModifyInstanceEventStartTimeResult;
+    };
+    sdk: {
+      input: ModifyInstanceEventStartTimeCommandInput;
+      output: ModifyInstanceEventStartTimeCommandOutput;
+    };
+  };
+}

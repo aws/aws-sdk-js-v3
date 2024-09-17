@@ -202,4 +202,16 @@ export class MarkAsArchivedCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_MarkAsArchivedCommand)
   .de(de_MarkAsArchivedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MarkAsArchivedRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: MarkAsArchivedCommandInput;
+      output: MarkAsArchivedCommandOutput;
+    };
+  };
+}

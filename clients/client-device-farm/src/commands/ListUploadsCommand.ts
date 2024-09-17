@@ -122,4 +122,16 @@ export class ListUploadsCommand extends $Command
   .f(void 0, ListUploadsResultFilterSensitiveLog)
   .ser(se_ListUploadsCommand)
   .de(de_ListUploadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUploadsRequest;
+      output: ListUploadsResult;
+    };
+    sdk: {
+      input: ListUploadsCommandInput;
+      output: ListUploadsCommandOutput;
+    };
+  };
+}

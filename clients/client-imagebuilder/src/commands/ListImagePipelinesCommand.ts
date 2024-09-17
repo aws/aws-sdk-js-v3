@@ -166,4 +166,16 @@ export class ListImagePipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagePipelinesCommand)
   .de(de_ListImagePipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagePipelinesRequest;
+      output: ListImagePipelinesResponse;
+    };
+    sdk: {
+      input: ListImagePipelinesCommandInput;
+      output: ListImagePipelinesCommandOutput;
+    };
+  };
+}

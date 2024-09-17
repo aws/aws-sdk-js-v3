@@ -94,4 +94,16 @@ export class ListConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConnectionsCommand)
   .de(de_ListConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectionsRequest;
+      output: ListConnectionsResponse;
+    };
+    sdk: {
+      input: ListConnectionsCommandInput;
+      output: ListConnectionsCommandOutput;
+    };
+  };
+}

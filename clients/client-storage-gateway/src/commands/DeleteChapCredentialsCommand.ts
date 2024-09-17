@@ -107,4 +107,16 @@ export class DeleteChapCredentialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChapCredentialsCommand)
   .de(de_DeleteChapCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChapCredentialsInput;
+      output: DeleteChapCredentialsOutput;
+    };
+    sdk: {
+      input: DeleteChapCredentialsCommandInput;
+      output: DeleteChapCredentialsCommandOutput;
+    };
+  };
+}

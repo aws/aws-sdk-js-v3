@@ -118,4 +118,16 @@ export class CreateReviewTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReviewTemplateCommand)
   .de(de_CreateReviewTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReviewTemplateInput;
+      output: CreateReviewTemplateOutput;
+    };
+    sdk: {
+      input: CreateReviewTemplateCommandInput;
+      output: CreateReviewTemplateCommandOutput;
+    };
+  };
+}

@@ -213,4 +213,16 @@ export class SearchCasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchCasesCommand)
   .de(de_SearchCasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchCasesRequest;
+      output: SearchCasesResponse;
+    };
+    sdk: {
+      input: SearchCasesCommandInput;
+      output: SearchCasesCommandOutput;
+    };
+  };
+}

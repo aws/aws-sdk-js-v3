@@ -112,4 +112,16 @@ export class DeleteKeySigningKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKeySigningKeyCommand)
   .de(de_DeleteKeySigningKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKeySigningKeyRequest;
+      output: DeleteKeySigningKeyResponse;
+    };
+    sdk: {
+      input: DeleteKeySigningKeyCommandInput;
+      output: DeleteKeySigningKeyCommandOutput;
+    };
+  };
+}

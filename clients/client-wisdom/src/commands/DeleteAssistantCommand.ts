@@ -84,4 +84,16 @@ export class DeleteAssistantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssistantCommand)
   .de(de_DeleteAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssistantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssistantCommandInput;
+      output: DeleteAssistantCommandOutput;
+    };
+  };
+}

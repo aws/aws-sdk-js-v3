@@ -126,4 +126,16 @@ export class GetQuickResponseCommand extends $Command
   .f(void 0, GetQuickResponseResponseFilterSensitiveLog)
   .ser(se_GetQuickResponseCommand)
   .de(de_GetQuickResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQuickResponseRequest;
+      output: GetQuickResponseResponse;
+    };
+    sdk: {
+      input: GetQuickResponseCommandInput;
+      output: GetQuickResponseCommandOutput;
+    };
+  };
+}

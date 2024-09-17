@@ -95,4 +95,16 @@ export class DeleteQueuedReservedInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueuedReservedInstancesCommand)
   .de(de_DeleteQueuedReservedInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueuedReservedInstancesRequest;
+      output: DeleteQueuedReservedInstancesResult;
+    };
+    sdk: {
+      input: DeleteQueuedReservedInstancesCommandInput;
+      output: DeleteQueuedReservedInstancesCommandOutput;
+    };
+  };
+}

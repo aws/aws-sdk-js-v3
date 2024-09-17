@@ -99,4 +99,16 @@ export class UpdateRoleAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoleAliasCommand)
   .de(de_UpdateRoleAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoleAliasRequest;
+      output: UpdateRoleAliasResponse;
+    };
+    sdk: {
+      input: UpdateRoleAliasCommandInput;
+      output: UpdateRoleAliasCommandOutput;
+    };
+  };
+}

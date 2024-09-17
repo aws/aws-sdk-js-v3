@@ -102,4 +102,16 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociatePhoneNumberFromUserCommand)
   .de(de_DisassociatePhoneNumberFromUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePhoneNumberFromUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociatePhoneNumberFromUserCommandInput;
+      output: DisassociatePhoneNumberFromUserCommandOutput;
+    };
+  };
+}

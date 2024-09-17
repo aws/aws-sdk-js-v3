@@ -82,4 +82,16 @@ export class DeleteImagePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImagePermissionsCommand)
   .de(de_DeleteImagePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImagePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImagePermissionsCommandInput;
+      output: DeleteImagePermissionsCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_EnableAwsNetworkPerformanceMetricSubscriptionCommand)
   .de(de_EnableAwsNetworkPerformanceMetricSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableAwsNetworkPerformanceMetricSubscriptionRequest;
+      output: EnableAwsNetworkPerformanceMetricSubscriptionResult;
+    };
+    sdk: {
+      input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput;
+      output: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput;
+    };
+  };
+}

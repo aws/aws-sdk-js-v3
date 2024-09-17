@@ -108,4 +108,16 @@ export class GetActionRecommendationsCommand extends $Command
   .f(GetActionRecommendationsRequestFilterSensitiveLog, void 0)
   .ser(se_GetActionRecommendationsCommand)
   .de(de_GetActionRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActionRecommendationsRequest;
+      output: GetActionRecommendationsResponse;
+    };
+    sdk: {
+      input: GetActionRecommendationsCommandInput;
+      output: GetActionRecommendationsCommandOutput;
+    };
+  };
+}

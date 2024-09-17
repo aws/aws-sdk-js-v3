@@ -103,4 +103,16 @@ export class DownloadDBLogFilePortionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DownloadDBLogFilePortionCommand)
   .de(de_DownloadDBLogFilePortionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DownloadDBLogFilePortionMessage;
+      output: DownloadDBLogFilePortionDetails;
+    };
+    sdk: {
+      input: DownloadDBLogFilePortionCommandInput;
+      output: DownloadDBLogFilePortionCommandOutput;
+    };
+  };
+}

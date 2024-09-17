@@ -108,4 +108,16 @@ export class DeleteAgentMemoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAgentMemoryCommand)
   .de(de_DeleteAgentMemoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAgentMemoryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAgentMemoryCommandInput;
+      output: DeleteAgentMemoryCommandOutput;
+    };
+  };
+}

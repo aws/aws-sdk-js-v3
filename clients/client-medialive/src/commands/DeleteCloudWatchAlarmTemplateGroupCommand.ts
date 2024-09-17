@@ -96,4 +96,16 @@ export class DeleteCloudWatchAlarmTemplateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCloudWatchAlarmTemplateGroupCommand)
   .de(de_DeleteCloudWatchAlarmTemplateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCloudWatchAlarmTemplateGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCloudWatchAlarmTemplateGroupCommandInput;
+      output: DeleteCloudWatchAlarmTemplateGroupCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class DeletePrincipalMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrincipalMappingCommand)
   .de(de_DeletePrincipalMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrincipalMappingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePrincipalMappingCommandInput;
+      output: DeletePrincipalMappingCommandOutput;
+    };
+  };
+}

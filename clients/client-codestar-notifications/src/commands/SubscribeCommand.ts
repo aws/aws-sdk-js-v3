@@ -97,4 +97,16 @@ export class SubscribeCommand extends $Command
   .f(SubscribeRequestFilterSensitiveLog, void 0)
   .ser(se_SubscribeCommand)
   .de(de_SubscribeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeRequest;
+      output: SubscribeResult;
+    };
+    sdk: {
+      input: SubscribeCommandInput;
+      output: SubscribeCommandOutput;
+    };
+  };
+}

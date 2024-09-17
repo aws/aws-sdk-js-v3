@@ -102,4 +102,16 @@ export class GetLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggingConfigurationCommand)
   .de(de_GetLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoggingConfigurationRequest;
+      output: GetLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetLoggingConfigurationCommandInput;
+      output: GetLoggingConfigurationCommandOutput;
+    };
+  };
+}

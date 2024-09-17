@@ -121,4 +121,16 @@ export class DescribeDeliveryChannelStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliveryChannelStatusCommand)
   .de(de_DescribeDeliveryChannelStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliveryChannelStatusRequest;
+      output: DescribeDeliveryChannelStatusResponse;
+    };
+    sdk: {
+      input: DescribeDeliveryChannelStatusCommandInput;
+      output: DescribeDeliveryChannelStatusCommandOutput;
+    };
+  };
+}

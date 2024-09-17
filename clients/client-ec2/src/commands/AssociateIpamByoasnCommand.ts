@@ -87,4 +87,16 @@ export class AssociateIpamByoasnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateIpamByoasnCommand)
   .de(de_AssociateIpamByoasnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateIpamByoasnRequest;
+      output: AssociateIpamByoasnResult;
+    };
+    sdk: {
+      input: AssociateIpamByoasnCommandInput;
+      output: AssociateIpamByoasnCommandOutput;
+    };
+  };
+}

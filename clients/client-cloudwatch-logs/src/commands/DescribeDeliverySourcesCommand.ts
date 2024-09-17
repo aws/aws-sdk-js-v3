@@ -104,4 +104,16 @@ export class DescribeDeliverySourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliverySourcesCommand)
   .de(de_DescribeDeliverySourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliverySourcesRequest;
+      output: DescribeDeliverySourcesResponse;
+    };
+    sdk: {
+      input: DescribeDeliverySourcesCommandInput;
+      output: DescribeDeliverySourcesCommandOutput;
+    };
+  };
+}

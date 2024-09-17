@@ -86,4 +86,16 @@ export class DeleteWorkforceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkforceCommand)
   .de(de_DeleteWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkforceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkforceCommandInput;
+      output: DeleteWorkforceCommandOutput;
+    };
+  };
+}

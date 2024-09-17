@@ -106,4 +106,16 @@ export class GetDeviceFleetReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeviceFleetReportCommand)
   .de(de_GetDeviceFleetReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceFleetReportRequest;
+      output: GetDeviceFleetReportResponse;
+    };
+    sdk: {
+      input: GetDeviceFleetReportCommandInput;
+      output: GetDeviceFleetReportCommandOutput;
+    };
+  };
+}

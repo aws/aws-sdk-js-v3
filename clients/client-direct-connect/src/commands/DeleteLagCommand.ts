@@ -153,4 +153,16 @@ export class DeleteLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLagCommand)
   .de(de_DeleteLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLagRequest;
+      output: Lag;
+    };
+    sdk: {
+      input: DeleteLagCommandInput;
+      output: DeleteLagCommandOutput;
+    };
+  };
+}

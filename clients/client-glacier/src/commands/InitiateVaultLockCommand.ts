@@ -148,4 +148,16 @@ export class InitiateVaultLockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateVaultLockCommand)
   .de(de_InitiateVaultLockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateVaultLockInput;
+      output: InitiateVaultLockOutput;
+    };
+    sdk: {
+      input: InitiateVaultLockCommandInput;
+      output: InitiateVaultLockCommandOutput;
+    };
+  };
+}

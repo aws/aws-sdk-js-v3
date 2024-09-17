@@ -384,4 +384,16 @@ export class DescribeModelPackageCommand extends $Command
   .f(void 0, DescribeModelPackageOutputFilterSensitiveLog)
   .ser(se_DescribeModelPackageCommand)
   .de(de_DescribeModelPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelPackageInput;
+      output: DescribeModelPackageOutput;
+    };
+    sdk: {
+      input: DescribeModelPackageCommandInput;
+      output: DescribeModelPackageCommandOutput;
+    };
+  };
+}

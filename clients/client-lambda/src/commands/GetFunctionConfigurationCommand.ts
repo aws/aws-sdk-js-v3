@@ -196,4 +196,16 @@ export class GetFunctionConfigurationCommand extends $Command
   .f(void 0, FunctionConfigurationFilterSensitiveLog)
   .ser(se_GetFunctionConfigurationCommand)
   .de(de_GetFunctionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionConfigurationRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: GetFunctionConfigurationCommandInput;
+      output: GetFunctionConfigurationCommandOutput;
+    };
+  };
+}

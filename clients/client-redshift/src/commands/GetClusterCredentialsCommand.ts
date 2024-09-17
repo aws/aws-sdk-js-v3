@@ -115,4 +115,16 @@ export class GetClusterCredentialsCommand extends $Command
   .f(void 0, ClusterCredentialsFilterSensitiveLog)
   .ser(se_GetClusterCredentialsCommand)
   .de(de_GetClusterCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterCredentialsMessage;
+      output: ClusterCredentials;
+    };
+    sdk: {
+      input: GetClusterCredentialsCommandInput;
+      output: GetClusterCredentialsCommandOutput;
+    };
+  };
+}

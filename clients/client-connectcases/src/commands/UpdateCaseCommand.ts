@@ -115,4 +115,16 @@ export class UpdateCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCaseCommand)
   .de(de_UpdateCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCaseCommandInput;
+      output: UpdateCaseCommandOutput;
+    };
+  };
+}

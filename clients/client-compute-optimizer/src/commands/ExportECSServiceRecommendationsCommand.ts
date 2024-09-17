@@ -138,4 +138,16 @@ export class ExportECSServiceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportECSServiceRecommendationsCommand)
   .de(de_ExportECSServiceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportECSServiceRecommendationsRequest;
+      output: ExportECSServiceRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportECSServiceRecommendationsCommandInput;
+      output: ExportECSServiceRecommendationsCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class EnableAddOnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableAddOnCommand)
   .de(de_EnableAddOnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableAddOnRequest;
+      output: EnableAddOnResult;
+    };
+    sdk: {
+      input: EnableAddOnCommandInput;
+      output: EnableAddOnCommandOutput;
+    };
+  };
+}

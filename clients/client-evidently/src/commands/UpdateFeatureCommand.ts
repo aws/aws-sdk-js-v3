@@ -149,4 +149,16 @@ export class UpdateFeatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFeatureCommand)
   .de(de_UpdateFeatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFeatureRequest;
+      output: UpdateFeatureResponse;
+    };
+    sdk: {
+      input: UpdateFeatureCommandInput;
+      output: UpdateFeatureCommandOutput;
+    };
+  };
+}

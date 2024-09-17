@@ -106,4 +106,16 @@ export class PutFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFeedbackCommand)
   .de(de_PutFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFeedbackRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutFeedbackCommandInput;
+      output: PutFeedbackCommandOutput;
+    };
+  };
+}

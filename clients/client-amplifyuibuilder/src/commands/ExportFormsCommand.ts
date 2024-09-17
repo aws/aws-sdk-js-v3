@@ -244,4 +244,16 @@ export class ExportFormsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportFormsCommand)
   .de(de_ExportFormsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportFormsRequest;
+      output: ExportFormsResponse;
+    };
+    sdk: {
+      input: ExportFormsCommandInput;
+      output: ExportFormsCommandOutput;
+    };
+  };
+}

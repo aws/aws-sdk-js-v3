@@ -129,4 +129,16 @@ export class GetPluginCommand extends $Command
   .f(void 0, GetPluginResponseFilterSensitiveLog)
   .ser(se_GetPluginCommand)
   .de(de_GetPluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPluginRequest;
+      output: GetPluginResponse;
+    };
+    sdk: {
+      input: GetPluginCommandInput;
+      output: GetPluginCommandOutput;
+    };
+  };
+}

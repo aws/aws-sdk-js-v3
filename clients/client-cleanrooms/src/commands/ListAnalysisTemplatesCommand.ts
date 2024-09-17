@@ -108,4 +108,16 @@ export class ListAnalysisTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalysisTemplatesCommand)
   .de(de_ListAnalysisTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalysisTemplatesInput;
+      output: ListAnalysisTemplatesOutput;
+    };
+    sdk: {
+      input: ListAnalysisTemplatesCommandInput;
+      output: ListAnalysisTemplatesCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class RespondActivityTaskCanceledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RespondActivityTaskCanceledCommand)
   .de(de_RespondActivityTaskCanceledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RespondActivityTaskCanceledInput;
+      output: {};
+    };
+    sdk: {
+      input: RespondActivityTaskCanceledCommandInput;
+      output: RespondActivityTaskCanceledCommandOutput;
+    };
+  };
+}

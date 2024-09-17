@@ -107,4 +107,16 @@ export class DescribeIpRestrictionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIpRestrictionCommand)
   .de(de_DescribeIpRestrictionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIpRestrictionRequest;
+      output: DescribeIpRestrictionResponse;
+    };
+    sdk: {
+      input: DescribeIpRestrictionCommandInput;
+      output: DescribeIpRestrictionCommandOutput;
+    };
+  };
+}

@@ -238,4 +238,16 @@ export class DescribeSimulationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSimulationJobCommand)
   .de(de_DescribeSimulationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSimulationJobRequest;
+      output: DescribeSimulationJobResponse;
+    };
+    sdk: {
+      input: DescribeSimulationJobCommandInput;
+      output: DescribeSimulationJobCommandOutput;
+    };
+  };
+}

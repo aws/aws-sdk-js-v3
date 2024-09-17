@@ -95,4 +95,16 @@ export class UntagPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagPolicyCommand)
   .de(de_UntagPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagPolicyCommandInput;
+      output: UntagPolicyCommandOutput;
+    };
+  };
+}

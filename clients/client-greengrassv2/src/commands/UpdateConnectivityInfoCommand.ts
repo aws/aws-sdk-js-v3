@@ -99,4 +99,16 @@ export class UpdateConnectivityInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectivityInfoCommand)
   .de(de_UpdateConnectivityInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectivityInfoRequest;
+      output: UpdateConnectivityInfoResponse;
+    };
+    sdk: {
+      input: UpdateConnectivityInfoCommandInput;
+      output: UpdateConnectivityInfoCommandOutput;
+    };
+  };
+}

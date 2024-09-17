@@ -137,4 +137,16 @@ export class GetSizeConstraintSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSizeConstraintSetCommand)
   .de(de_GetSizeConstraintSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSizeConstraintSetRequest;
+      output: GetSizeConstraintSetResponse;
+    };
+    sdk: {
+      input: GetSizeConstraintSetCommandInput;
+      output: GetSizeConstraintSetCommandOutput;
+    };
+  };
+}

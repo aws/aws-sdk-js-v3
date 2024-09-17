@@ -103,4 +103,16 @@ export class DeleteCustomDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomDomainAssociationCommand)
   .de(de_DeleteCustomDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomDomainAssociationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomDomainAssociationCommandInput;
+      output: DeleteCustomDomainAssociationCommandOutput;
+    };
+  };
+}

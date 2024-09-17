@@ -97,4 +97,16 @@ export class DeleteDomainUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainUnitCommand)
   .de(de_DeleteDomainUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainUnitInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDomainUnitCommandInput;
+      output: DeleteDomainUnitCommandOutput;
+    };
+  };
+}

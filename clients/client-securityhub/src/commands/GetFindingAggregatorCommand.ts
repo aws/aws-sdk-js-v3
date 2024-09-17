@@ -124,4 +124,16 @@ export class GetFindingAggregatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingAggregatorCommand)
   .de(de_GetFindingAggregatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingAggregatorRequest;
+      output: GetFindingAggregatorResponse;
+    };
+    sdk: {
+      input: GetFindingAggregatorCommandInput;
+      output: GetFindingAggregatorCommandOutput;
+    };
+  };
+}

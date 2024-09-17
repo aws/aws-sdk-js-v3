@@ -97,4 +97,16 @@ export class UpdatePromptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePromptCommand)
   .de(de_UpdatePromptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePromptRequest;
+      output: UpdatePromptResponse;
+    };
+    sdk: {
+      input: UpdatePromptCommandInput;
+      output: UpdatePromptCommandOutput;
+    };
+  };
+}

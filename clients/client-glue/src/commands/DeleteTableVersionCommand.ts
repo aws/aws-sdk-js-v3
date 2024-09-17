@@ -90,4 +90,16 @@ export class DeleteTableVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTableVersionCommand)
   .de(de_DeleteTableVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTableVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTableVersionCommandInput;
+      output: DeleteTableVersionCommandOutput;
+    };
+  };
+}

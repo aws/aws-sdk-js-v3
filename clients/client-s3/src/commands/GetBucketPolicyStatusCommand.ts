@@ -117,4 +117,16 @@ export class GetBucketPolicyStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketPolicyStatusCommand)
   .de(de_GetBucketPolicyStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketPolicyStatusRequest;
+      output: GetBucketPolicyStatusOutput;
+    };
+    sdk: {
+      input: GetBucketPolicyStatusCommandInput;
+      output: GetBucketPolicyStatusCommandOutput;
+    };
+  };
+}

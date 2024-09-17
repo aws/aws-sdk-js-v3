@@ -86,4 +86,16 @@ export class DeleteEventTrackerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventTrackerCommand)
   .de(de_DeleteEventTrackerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventTrackerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventTrackerCommandInput;
+      output: DeleteEventTrackerCommandOutput;
+    };
+  };
+}

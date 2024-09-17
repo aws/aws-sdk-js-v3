@@ -100,4 +100,16 @@ export class ListPolicyGenerationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPolicyGenerationsCommand)
   .de(de_ListPolicyGenerationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyGenerationsRequest;
+      output: ListPolicyGenerationsResponse;
+    };
+    sdk: {
+      input: ListPolicyGenerationsCommandInput;
+      output: ListPolicyGenerationsCommandOutput;
+    };
+  };
+}

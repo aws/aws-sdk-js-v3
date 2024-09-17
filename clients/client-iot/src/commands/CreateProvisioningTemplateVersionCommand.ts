@@ -113,4 +113,16 @@ export class CreateProvisioningTemplateVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProvisioningTemplateVersionCommand)
   .de(de_CreateProvisioningTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProvisioningTemplateVersionRequest;
+      output: CreateProvisioningTemplateVersionResponse;
+    };
+    sdk: {
+      input: CreateProvisioningTemplateVersionCommandInput;
+      output: CreateProvisioningTemplateVersionCommandOutput;
+    };
+  };
+}

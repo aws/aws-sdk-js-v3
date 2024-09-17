@@ -101,4 +101,16 @@ export class DeleteProjectMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectMembershipCommand)
   .de(de_DeleteProjectMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectMembershipInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectMembershipCommandInput;
+      output: DeleteProjectMembershipCommandOutput;
+    };
+  };
+}

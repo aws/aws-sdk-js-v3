@@ -132,4 +132,16 @@ export class DescribeAddonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAddonCommand)
   .de(de_DescribeAddonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAddonRequest;
+      output: DescribeAddonResponse;
+    };
+    sdk: {
+      input: DescribeAddonCommandInput;
+      output: DescribeAddonCommandOutput;
+    };
+  };
+}

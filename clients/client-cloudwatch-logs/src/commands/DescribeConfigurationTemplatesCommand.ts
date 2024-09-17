@@ -140,4 +140,16 @@ export class DescribeConfigurationTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationTemplatesCommand)
   .de(de_DescribeConfigurationTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationTemplatesRequest;
+      output: DescribeConfigurationTemplatesResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationTemplatesCommandInput;
+      output: DescribeConfigurationTemplatesCommandOutput;
+    };
+  };
+}

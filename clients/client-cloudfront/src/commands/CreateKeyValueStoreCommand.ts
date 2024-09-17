@@ -140,4 +140,16 @@ export class CreateKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyValueStoreCommand)
   .de(de_CreateKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyValueStoreRequest;
+      output: CreateKeyValueStoreResult;
+    };
+    sdk: {
+      input: CreateKeyValueStoreCommandInput;
+      output: CreateKeyValueStoreCommandOutput;
+    };
+  };
+}

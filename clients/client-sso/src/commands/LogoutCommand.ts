@@ -100,4 +100,16 @@ export class LogoutCommand extends $Command
   .f(LogoutRequestFilterSensitiveLog, void 0)
   .ser(se_LogoutCommand)
   .de(de_LogoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LogoutRequest;
+      output: {};
+    };
+    sdk: {
+      input: LogoutCommandInput;
+      output: LogoutCommandOutput;
+    };
+  };
+}

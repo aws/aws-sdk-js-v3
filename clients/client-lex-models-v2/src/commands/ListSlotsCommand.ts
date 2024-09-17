@@ -204,4 +204,16 @@ export class ListSlotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSlotsCommand)
   .de(de_ListSlotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSlotsRequest;
+      output: ListSlotsResponse;
+    };
+    sdk: {
+      input: ListSlotsCommandInput;
+      output: ListSlotsCommandOutput;
+    };
+  };
+}

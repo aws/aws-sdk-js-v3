@@ -82,4 +82,16 @@ export class EnableUserCommand extends $Command
   .f(EnableUserRequestFilterSensitiveLog, void 0)
   .ser(se_EnableUserCommand)
   .de(de_EnableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableUserCommandInput;
+      output: EnableUserCommandOutput;
+    };
+  };
+}

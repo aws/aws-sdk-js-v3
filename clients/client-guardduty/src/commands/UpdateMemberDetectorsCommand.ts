@@ -126,4 +126,16 @@ export class UpdateMemberDetectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMemberDetectorsCommand)
   .de(de_UpdateMemberDetectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMemberDetectorsRequest;
+      output: UpdateMemberDetectorsResponse;
+    };
+    sdk: {
+      input: UpdateMemberDetectorsCommandInput;
+      output: UpdateMemberDetectorsCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DeleteProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProtectionCommand)
   .de(de_DeleteProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProtectionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProtectionCommandInput;
+      output: DeleteProtectionCommandOutput;
+    };
+  };
+}

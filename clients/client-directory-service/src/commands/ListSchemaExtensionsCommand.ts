@@ -102,4 +102,16 @@ export class ListSchemaExtensionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSchemaExtensionsCommand)
   .de(de_ListSchemaExtensionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSchemaExtensionsRequest;
+      output: ListSchemaExtensionsResult;
+    };
+    sdk: {
+      input: ListSchemaExtensionsCommandInput;
+      output: ListSchemaExtensionsCommandOutput;
+    };
+  };
+}

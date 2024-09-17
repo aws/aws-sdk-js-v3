@@ -479,4 +479,16 @@ export class DescribeAssetBundleImportJobCommand extends $Command
   .f(void 0, DescribeAssetBundleImportJobResponseFilterSensitiveLog)
   .ser(se_DescribeAssetBundleImportJobCommand)
   .de(de_DescribeAssetBundleImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssetBundleImportJobRequest;
+      output: DescribeAssetBundleImportJobResponse;
+    };
+    sdk: {
+      input: DescribeAssetBundleImportJobCommandInput;
+      output: DescribeAssetBundleImportJobCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class CancelIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelIngestionCommand)
   .de(de_CancelIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelIngestionRequest;
+      output: CancelIngestionResponse;
+    };
+    sdk: {
+      input: CancelIngestionCommandInput;
+      output: CancelIngestionCommandOutput;
+    };
+  };
+}

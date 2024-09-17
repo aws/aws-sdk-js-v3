@@ -112,4 +112,16 @@ export class DescribeDataSourcePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSourcePermissionsCommand)
   .de(de_DescribeDataSourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSourcePermissionsRequest;
+      output: DescribeDataSourcePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeDataSourcePermissionsCommandInput;
+      output: DescribeDataSourcePermissionsCommandOutput;
+    };
+  };
+}

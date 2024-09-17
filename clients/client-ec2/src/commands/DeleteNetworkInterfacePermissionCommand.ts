@@ -87,4 +87,16 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkInterfacePermissionCommand)
   .de(de_DeleteNetworkInterfacePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkInterfacePermissionRequest;
+      output: DeleteNetworkInterfacePermissionResult;
+    };
+    sdk: {
+      input: DeleteNetworkInterfacePermissionCommandInput;
+      output: DeleteNetworkInterfacePermissionCommandOutput;
+    };
+  };
+}

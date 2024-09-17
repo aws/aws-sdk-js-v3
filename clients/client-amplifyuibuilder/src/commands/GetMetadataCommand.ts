@@ -86,4 +86,16 @@ export class GetMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetadataCommand)
   .de(de_GetMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetadataRequest;
+      output: GetMetadataResponse;
+    };
+    sdk: {
+      input: GetMetadataCommandInput;
+      output: GetMetadataCommandOutput;
+    };
+  };
+}

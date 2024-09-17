@@ -343,4 +343,16 @@ export class CreateConnectorProfileCommand extends $Command
   .f(CreateConnectorProfileRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectorProfileCommand)
   .de(de_CreateConnectorProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorProfileRequest;
+      output: CreateConnectorProfileResponse;
+    };
+    sdk: {
+      input: CreateConnectorProfileCommandInput;
+      output: CreateConnectorProfileCommandOutput;
+    };
+  };
+}

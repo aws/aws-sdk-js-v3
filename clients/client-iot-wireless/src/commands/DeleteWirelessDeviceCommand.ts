@@ -90,4 +90,16 @@ export class DeleteWirelessDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWirelessDeviceCommand)
   .de(de_DeleteWirelessDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWirelessDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWirelessDeviceCommandInput;
+      output: DeleteWirelessDeviceCommandOutput;
+    };
+  };
+}

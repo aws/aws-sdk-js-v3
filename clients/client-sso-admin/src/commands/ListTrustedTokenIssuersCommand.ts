@@ -100,4 +100,16 @@ export class ListTrustedTokenIssuersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrustedTokenIssuersCommand)
   .de(de_ListTrustedTokenIssuersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrustedTokenIssuersRequest;
+      output: ListTrustedTokenIssuersResponse;
+    };
+    sdk: {
+      input: ListTrustedTokenIssuersCommandInput;
+      output: ListTrustedTokenIssuersCommandOutput;
+    };
+  };
+}

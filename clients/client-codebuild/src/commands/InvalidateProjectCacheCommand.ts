@@ -81,4 +81,16 @@ export class InvalidateProjectCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InvalidateProjectCacheCommand)
   .de(de_InvalidateProjectCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvalidateProjectCacheInput;
+      output: {};
+    };
+    sdk: {
+      input: InvalidateProjectCacheCommandInput;
+      output: InvalidateProjectCacheCommandOutput;
+    };
+  };
+}

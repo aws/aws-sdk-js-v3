@@ -134,4 +134,16 @@ export class CreateOpsItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOpsItemCommand)
   .de(de_CreateOpsItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOpsItemRequest;
+      output: CreateOpsItemResponse;
+    };
+    sdk: {
+      input: CreateOpsItemCommandInput;
+      output: CreateOpsItemCommandOutput;
+    };
+  };
+}

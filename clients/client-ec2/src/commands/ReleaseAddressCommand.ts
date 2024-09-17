@@ -100,4 +100,16 @@ export class ReleaseAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseAddressCommand)
   .de(de_ReleaseAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseAddressRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReleaseAddressCommandInput;
+      output: ReleaseAddressCommandOutput;
+    };
+  };
+}

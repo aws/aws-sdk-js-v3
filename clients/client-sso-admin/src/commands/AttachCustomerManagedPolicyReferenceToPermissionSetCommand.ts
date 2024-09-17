@@ -116,4 +116,16 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
   .f(void 0, void 0)
   .ser(se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand)
   .de(de_AttachCustomerManagedPolicyReferenceToPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput;
+      output: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class GetTransformerJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransformerJobCommand)
   .de(de_GetTransformerJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransformerJobRequest;
+      output: GetTransformerJobResponse;
+    };
+    sdk: {
+      input: GetTransformerJobCommandInput;
+      output: GetTransformerJobCommandOutput;
+    };
+  };
+}

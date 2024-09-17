@@ -103,4 +103,16 @@ export class DeleteRecommendationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecommendationTemplateCommand)
   .de(de_DeleteRecommendationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecommendationTemplateRequest;
+      output: DeleteRecommendationTemplateResponse;
+    };
+    sdk: {
+      input: DeleteRecommendationTemplateCommandInput;
+      output: DeleteRecommendationTemplateCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class CreateStandbyWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStandbyWorkspacesCommand)
   .de(de_CreateStandbyWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStandbyWorkspacesRequest;
+      output: CreateStandbyWorkspacesResult;
+    };
+    sdk: {
+      input: CreateStandbyWorkspacesCommandInput;
+      output: CreateStandbyWorkspacesCommandOutput;
+    };
+  };
+}

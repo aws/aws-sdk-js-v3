@@ -108,4 +108,16 @@ export class ListMedicalScribeJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMedicalScribeJobsCommand)
   .de(de_ListMedicalScribeJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMedicalScribeJobsRequest;
+      output: ListMedicalScribeJobsResponse;
+    };
+    sdk: {
+      input: ListMedicalScribeJobsCommandInput;
+      output: ListMedicalScribeJobsCommandOutput;
+    };
+  };
+}

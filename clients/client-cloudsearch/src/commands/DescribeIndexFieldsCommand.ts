@@ -190,4 +190,16 @@ export class DescribeIndexFieldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIndexFieldsCommand)
   .de(de_DescribeIndexFieldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIndexFieldsRequest;
+      output: DescribeIndexFieldsResponse;
+    };
+    sdk: {
+      input: DescribeIndexFieldsCommandInput;
+      output: DescribeIndexFieldsCommandOutput;
+    };
+  };
+}

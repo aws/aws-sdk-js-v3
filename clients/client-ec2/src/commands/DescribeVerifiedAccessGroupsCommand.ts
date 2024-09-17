@@ -115,4 +115,16 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedAccessGroupsCommand)
   .de(de_DescribeVerifiedAccessGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessGroupsRequest;
+      output: DescribeVerifiedAccessGroupsResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessGroupsCommandInput;
+      output: DescribeVerifiedAccessGroupsCommandOutput;
+    };
+  };
+}

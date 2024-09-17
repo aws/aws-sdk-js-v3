@@ -108,4 +108,16 @@ export class ListAttachedPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedPoliciesCommand)
   .de(de_ListAttachedPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedPoliciesRequest;
+      output: ListAttachedPoliciesResponse;
+    };
+    sdk: {
+      input: ListAttachedPoliciesCommandInput;
+      output: ListAttachedPoliciesCommandOutput;
+    };
+  };
+}

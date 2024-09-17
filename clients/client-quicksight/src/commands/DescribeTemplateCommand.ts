@@ -167,4 +167,16 @@ export class DescribeTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTemplateCommand)
   .de(de_DescribeTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTemplateRequest;
+      output: DescribeTemplateResponse;
+    };
+    sdk: {
+      input: DescribeTemplateCommandInput;
+      output: DescribeTemplateCommandOutput;
+    };
+  };
+}

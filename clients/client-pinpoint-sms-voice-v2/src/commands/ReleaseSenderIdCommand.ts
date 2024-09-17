@@ -114,4 +114,16 @@ export class ReleaseSenderIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseSenderIdCommand)
   .de(de_ReleaseSenderIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseSenderIdRequest;
+      output: ReleaseSenderIdResult;
+    };
+    sdk: {
+      input: ReleaseSenderIdCommandInput;
+      output: ReleaseSenderIdCommandOutput;
+    };
+  };
+}

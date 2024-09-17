@@ -187,4 +187,16 @@ export class DescribeBatchLoadTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBatchLoadTaskCommand)
   .de(de_DescribeBatchLoadTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBatchLoadTaskRequest;
+      output: DescribeBatchLoadTaskResponse;
+    };
+    sdk: {
+      input: DescribeBatchLoadTaskCommandInput;
+      output: DescribeBatchLoadTaskCommandOutput;
+    };
+  };
+}

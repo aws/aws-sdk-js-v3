@@ -132,4 +132,16 @@ export class DisassociateInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateInstanceEventWindowCommand)
   .de(de_DisassociateInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateInstanceEventWindowRequest;
+      output: DisassociateInstanceEventWindowResult;
+    };
+    sdk: {
+      input: DisassociateInstanceEventWindowCommandInput;
+      output: DisassociateInstanceEventWindowCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class DescribeDomainConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainConfigurationCommand)
   .de(de_DescribeDomainConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainConfigurationRequest;
+      output: DescribeDomainConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeDomainConfigurationCommandInput;
+      output: DescribeDomainConfigurationCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetImageFrameCommand extends $Command
   .f(void 0, GetImageFrameResponseFilterSensitiveLog)
   .ser(se_GetImageFrameCommand)
   .de(de_GetImageFrameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageFrameRequest;
+      output: GetImageFrameResponse;
+    };
+    sdk: {
+      input: GetImageFrameCommandInput;
+      output: GetImageFrameCommandOutput;
+    };
+  };
+}

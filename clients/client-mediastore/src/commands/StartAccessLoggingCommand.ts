@@ -85,4 +85,16 @@ export class StartAccessLoggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAccessLoggingCommand)
   .de(de_StartAccessLoggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAccessLoggingInput;
+      output: {};
+    };
+    sdk: {
+      input: StartAccessLoggingCommandInput;
+      output: StartAccessLoggingCommandOutput;
+    };
+  };
+}

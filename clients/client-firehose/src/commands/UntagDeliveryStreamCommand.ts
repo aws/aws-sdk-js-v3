@@ -93,4 +93,16 @@ export class UntagDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagDeliveryStreamCommand)
   .de(de_UntagDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagDeliveryStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: UntagDeliveryStreamCommandInput;
+      output: UntagDeliveryStreamCommandOutput;
+    };
+  };
+}

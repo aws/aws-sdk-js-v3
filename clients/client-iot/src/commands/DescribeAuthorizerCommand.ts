@@ -109,4 +109,16 @@ export class DescribeAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuthorizerCommand)
   .de(de_DescribeAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuthorizerRequest;
+      output: DescribeAuthorizerResponse;
+    };
+    sdk: {
+      input: DescribeAuthorizerCommandInput;
+      output: DescribeAuthorizerCommandOutput;
+    };
+  };
+}

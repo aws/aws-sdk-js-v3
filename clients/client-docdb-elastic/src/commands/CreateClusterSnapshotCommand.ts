@@ -118,4 +118,16 @@ export class CreateClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterSnapshotCommand)
   .de(de_CreateClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterSnapshotInput;
+      output: CreateClusterSnapshotOutput;
+    };
+    sdk: {
+      input: CreateClusterSnapshotCommandInput;
+      output: CreateClusterSnapshotCommandOutput;
+    };
+  };
+}

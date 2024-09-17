@@ -121,4 +121,16 @@ export class ValidateStateMachineDefinitionCommand extends $Command
   .f(ValidateStateMachineDefinitionInputFilterSensitiveLog, void 0)
   .ser(se_ValidateStateMachineDefinitionCommand)
   .de(de_ValidateStateMachineDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateStateMachineDefinitionInput;
+      output: ValidateStateMachineDefinitionOutput;
+    };
+    sdk: {
+      input: ValidateStateMachineDefinitionCommandInput;
+      output: ValidateStateMachineDefinitionCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class CreateCoreDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCoreDefinitionVersionCommand)
   .de(de_CreateCoreDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCoreDefinitionVersionRequest;
+      output: CreateCoreDefinitionVersionResponse;
+    };
+    sdk: {
+      input: CreateCoreDefinitionVersionCommandInput;
+      output: CreateCoreDefinitionVersionCommandOutput;
+    };
+  };
+}

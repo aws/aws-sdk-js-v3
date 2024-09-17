@@ -88,4 +88,16 @@ export class UpdateNotebookMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNotebookMetadataCommand)
   .de(de_UpdateNotebookMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNotebookMetadataInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNotebookMetadataCommandInput;
+      output: UpdateNotebookMetadataCommandOutput;
+    };
+  };
+}

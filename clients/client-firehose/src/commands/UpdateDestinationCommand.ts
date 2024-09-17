@@ -563,4 +563,16 @@ export class UpdateDestinationCommand extends $Command
   .f(UpdateDestinationInputFilterSensitiveLog, void 0)
   .ser(se_UpdateDestinationCommand)
   .de(de_UpdateDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDestinationInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDestinationCommandInput;
+      output: UpdateDestinationCommandOutput;
+    };
+  };
+}

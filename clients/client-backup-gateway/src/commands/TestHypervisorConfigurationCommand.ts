@@ -99,4 +99,16 @@ export class TestHypervisorConfigurationCommand extends $Command
   .f(TestHypervisorConfigurationInputFilterSensitiveLog, void 0)
   .ser(se_TestHypervisorConfigurationCommand)
   .de(de_TestHypervisorConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestHypervisorConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: TestHypervisorConfigurationCommandInput;
+      output: TestHypervisorConfigurationCommandOutput;
+    };
+  };
+}

@@ -76,4 +76,16 @@ export class DeleteProgramCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProgramCommand)
   .de(de_DeleteProgramCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProgramRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProgramCommandInput;
+      output: DeleteProgramCommandOutput;
+    };
+  };
+}

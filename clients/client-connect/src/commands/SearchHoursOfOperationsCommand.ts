@@ -167,4 +167,16 @@ export class SearchHoursOfOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchHoursOfOperationsCommand)
   .de(de_SearchHoursOfOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchHoursOfOperationsRequest;
+      output: SearchHoursOfOperationsResponse;
+    };
+    sdk: {
+      input: SearchHoursOfOperationsCommandInput;
+      output: SearchHoursOfOperationsCommandOutput;
+    };
+  };
+}

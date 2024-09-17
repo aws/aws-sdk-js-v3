@@ -102,4 +102,16 @@ export class ListLabelGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLabelGroupsCommand)
   .de(de_ListLabelGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLabelGroupsRequest;
+      output: ListLabelGroupsResponse;
+    };
+    sdk: {
+      input: ListLabelGroupsCommandInput;
+      output: ListLabelGroupsCommandOutput;
+    };
+  };
+}

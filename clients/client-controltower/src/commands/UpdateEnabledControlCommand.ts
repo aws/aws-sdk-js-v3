@@ -111,4 +111,16 @@ export class UpdateEnabledControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnabledControlCommand)
   .de(de_UpdateEnabledControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnabledControlInput;
+      output: UpdateEnabledControlOutput;
+    };
+    sdk: {
+      input: UpdateEnabledControlCommandInput;
+      output: UpdateEnabledControlCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class StartRxNormInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRxNormInferenceJobCommand)
   .de(de_StartRxNormInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRxNormInferenceJobRequest;
+      output: StartRxNormInferenceJobResponse;
+    };
+    sdk: {
+      input: StartRxNormInferenceJobCommandInput;
+      output: StartRxNormInferenceJobCommandOutput;
+    };
+  };
+}

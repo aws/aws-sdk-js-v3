@@ -102,4 +102,16 @@ export class GetFlowTemplateRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFlowTemplateRevisionsCommand)
   .de(de_GetFlowTemplateRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFlowTemplateRevisionsRequest;
+      output: GetFlowTemplateRevisionsResponse;
+    };
+    sdk: {
+      input: GetFlowTemplateRevisionsCommandInput;
+      output: GetFlowTemplateRevisionsCommandOutput;
+    };
+  };
+}

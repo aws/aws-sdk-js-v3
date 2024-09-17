@@ -143,4 +143,16 @@ export class SubscribeToDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubscribeToDatasetCommand)
   .de(de_SubscribeToDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToDatasetRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubscribeToDatasetCommandInput;
+      output: SubscribeToDatasetCommandOutput;
+    };
+  };
+}

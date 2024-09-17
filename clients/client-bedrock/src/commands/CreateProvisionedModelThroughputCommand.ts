@@ -114,4 +114,16 @@ export class CreateProvisionedModelThroughputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProvisionedModelThroughputCommand)
   .de(de_CreateProvisionedModelThroughputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProvisionedModelThroughputRequest;
+      output: CreateProvisionedModelThroughputResponse;
+    };
+    sdk: {
+      input: CreateProvisionedModelThroughputCommandInput;
+      output: CreateProvisionedModelThroughputCommandOutput;
+    };
+  };
+}

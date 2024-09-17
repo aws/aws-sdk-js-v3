@@ -100,4 +100,16 @@ export class GetLensReviewReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLensReviewReportCommand)
   .de(de_GetLensReviewReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLensReviewReportInput;
+      output: GetLensReviewReportOutput;
+    };
+    sdk: {
+      input: GetLensReviewReportCommandInput;
+      output: GetLensReviewReportCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class CancelSigningProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelSigningProfileCommand)
   .de(de_CancelSigningProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelSigningProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelSigningProfileCommandInput;
+      output: CancelSigningProfileCommandOutput;
+    };
+  };
+}

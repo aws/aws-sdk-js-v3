@@ -140,4 +140,16 @@ export class CreateRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRepositoryCommand)
   .de(de_CreateRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRepositoryRequest;
+      output: CreateRepositoryResponse;
+    };
+    sdk: {
+      input: CreateRepositoryCommandInput;
+      output: CreateRepositoryCommandOutput;
+    };
+  };
+}

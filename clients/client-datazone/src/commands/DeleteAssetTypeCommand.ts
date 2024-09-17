@@ -97,4 +97,16 @@ export class DeleteAssetTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetTypeCommand)
   .de(de_DeleteAssetTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssetTypeCommandInput;
+      output: DeleteAssetTypeCommandOutput;
+    };
+  };
+}

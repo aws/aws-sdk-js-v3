@@ -109,4 +109,16 @@ export class GetInternetEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInternetEventCommand)
   .de(de_GetInternetEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInternetEventInput;
+      output: GetInternetEventOutput;
+    };
+    sdk: {
+      input: GetInternetEventCommandInput;
+      output: GetInternetEventCommandOutput;
+    };
+  };
+}

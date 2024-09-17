@@ -146,4 +146,16 @@ export class DescribeClusterSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterSecurityGroupsCommand)
   .de(de_DescribeClusterSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterSecurityGroupsMessage;
+      output: ClusterSecurityGroupMessage;
+    };
+    sdk: {
+      input: DescribeClusterSecurityGroupsCommandInput;
+      output: DescribeClusterSecurityGroupsCommandOutput;
+    };
+  };
+}

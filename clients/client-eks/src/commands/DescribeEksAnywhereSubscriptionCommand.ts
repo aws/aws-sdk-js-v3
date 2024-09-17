@@ -118,4 +118,16 @@ export class DescribeEksAnywhereSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEksAnywhereSubscriptionCommand)
   .de(de_DescribeEksAnywhereSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEksAnywhereSubscriptionRequest;
+      output: DescribeEksAnywhereSubscriptionResponse;
+    };
+    sdk: {
+      input: DescribeEksAnywhereSubscriptionCommandInput;
+      output: DescribeEksAnywhereSubscriptionCommandOutput;
+    };
+  };
+}

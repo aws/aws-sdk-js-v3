@@ -109,4 +109,16 @@ export class DisableImportFindingsForProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImportFindingsForProductCommand)
   .de(de_DisableImportFindingsForProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImportFindingsForProductRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableImportFindingsForProductCommandInput;
+      output: DisableImportFindingsForProductCommandOutput;
+    };
+  };
+}

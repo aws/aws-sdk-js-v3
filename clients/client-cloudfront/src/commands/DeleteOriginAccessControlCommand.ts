@@ -96,4 +96,16 @@ export class DeleteOriginAccessControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOriginAccessControlCommand)
   .de(de_DeleteOriginAccessControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOriginAccessControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOriginAccessControlCommandInput;
+      output: DeleteOriginAccessControlCommandOutput;
+    };
+  };
+}

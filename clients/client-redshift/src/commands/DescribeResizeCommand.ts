@@ -114,4 +114,16 @@ export class DescribeResizeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResizeCommand)
   .de(de_DescribeResizeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResizeMessage;
+      output: ResizeProgressMessage;
+    };
+    sdk: {
+      input: DescribeResizeCommandInput;
+      output: DescribeResizeCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class ListPrincipalsForPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrincipalsForPortfolioCommand)
   .de(de_ListPrincipalsForPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrincipalsForPortfolioInput;
+      output: ListPrincipalsForPortfolioOutput;
+    };
+    sdk: {
+      input: ListPrincipalsForPortfolioCommandInput;
+      output: ListPrincipalsForPortfolioCommandOutput;
+    };
+  };
+}

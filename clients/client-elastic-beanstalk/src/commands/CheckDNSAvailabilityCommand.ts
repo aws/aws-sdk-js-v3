@@ -95,4 +95,16 @@ export class CheckDNSAvailabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckDNSAvailabilityCommand)
   .de(de_CheckDNSAvailabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckDNSAvailabilityMessage;
+      output: CheckDNSAvailabilityResultMessage;
+    };
+    sdk: {
+      input: CheckDNSAvailabilityCommandInput;
+      output: CheckDNSAvailabilityCommandOutput;
+    };
+  };
+}

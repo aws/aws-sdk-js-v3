@@ -113,4 +113,16 @@ export class CreateAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAgreementCommand)
   .de(de_CreateAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAgreementRequest;
+      output: CreateAgreementResponse;
+    };
+    sdk: {
+      input: CreateAgreementCommandInput;
+      output: CreateAgreementCommandOutput;
+    };
+  };
+}

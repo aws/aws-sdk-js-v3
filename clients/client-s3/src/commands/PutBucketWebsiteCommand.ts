@@ -260,4 +260,16 @@ export class PutBucketWebsiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketWebsiteCommand)
   .de(de_PutBucketWebsiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketWebsiteRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketWebsiteCommandInput;
+      output: PutBucketWebsiteCommandOutput;
+    };
+  };
+}

@@ -133,4 +133,16 @@ export class CreateWorkspaceBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspaceBundleCommand)
   .de(de_CreateWorkspaceBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceBundleRequest;
+      output: CreateWorkspaceBundleResult;
+    };
+    sdk: {
+      input: CreateWorkspaceBundleCommandInput;
+      output: CreateWorkspaceBundleCommandOutput;
+    };
+  };
+}

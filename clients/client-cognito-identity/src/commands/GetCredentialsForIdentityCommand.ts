@@ -124,4 +124,16 @@ export class GetCredentialsForIdentityCommand extends $Command
   .f(GetCredentialsForIdentityInputFilterSensitiveLog, GetCredentialsForIdentityResponseFilterSensitiveLog)
   .ser(se_GetCredentialsForIdentityCommand)
   .de(de_GetCredentialsForIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCredentialsForIdentityInput;
+      output: GetCredentialsForIdentityResponse;
+    };
+    sdk: {
+      input: GetCredentialsForIdentityCommandInput;
+      output: GetCredentialsForIdentityCommandOutput;
+    };
+  };
+}

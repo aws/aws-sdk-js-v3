@@ -128,4 +128,16 @@ export class ListRxNormInferenceJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRxNormInferenceJobsCommand)
   .de(de_ListRxNormInferenceJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRxNormInferenceJobsRequest;
+      output: ListRxNormInferenceJobsResponse;
+    };
+    sdk: {
+      input: ListRxNormInferenceJobsCommandInput;
+      output: ListRxNormInferenceJobsCommandOutput;
+    };
+  };
+}

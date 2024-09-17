@@ -86,4 +86,16 @@ export class StopSuiteRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopSuiteRunCommand)
   .de(de_StopSuiteRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSuiteRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopSuiteRunCommandInput;
+      output: StopSuiteRunCommandOutput;
+    };
+  };
+}

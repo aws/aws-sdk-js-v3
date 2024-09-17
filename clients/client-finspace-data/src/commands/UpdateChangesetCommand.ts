@@ -107,4 +107,16 @@ export class UpdateChangesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateChangesetCommand)
   .de(de_UpdateChangesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChangesetRequest;
+      output: UpdateChangesetResponse;
+    };
+    sdk: {
+      input: UpdateChangesetCommandInput;
+      output: UpdateChangesetCommandOutput;
+    };
+  };
+}

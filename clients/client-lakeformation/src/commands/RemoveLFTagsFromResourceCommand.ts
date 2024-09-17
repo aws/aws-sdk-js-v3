@@ -176,4 +176,16 @@ export class RemoveLFTagsFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveLFTagsFromResourceCommand)
   .de(de_RemoveLFTagsFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveLFTagsFromResourceRequest;
+      output: RemoveLFTagsFromResourceResponse;
+    };
+    sdk: {
+      input: RemoveLFTagsFromResourceCommandInput;
+      output: RemoveLFTagsFromResourceCommandOutput;
+    };
+  };
+}

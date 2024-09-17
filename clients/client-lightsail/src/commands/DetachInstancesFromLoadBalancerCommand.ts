@@ -138,4 +138,16 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachInstancesFromLoadBalancerCommand)
   .de(de_DetachInstancesFromLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachInstancesFromLoadBalancerRequest;
+      output: DetachInstancesFromLoadBalancerResult;
+    };
+    sdk: {
+      input: DetachInstancesFromLoadBalancerCommandInput;
+      output: DetachInstancesFromLoadBalancerCommandOutput;
+    };
+  };
+}

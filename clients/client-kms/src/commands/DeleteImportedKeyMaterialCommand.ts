@@ -156,4 +156,16 @@ export class DeleteImportedKeyMaterialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImportedKeyMaterialCommand)
   .de(de_DeleteImportedKeyMaterialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImportedKeyMaterialRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImportedKeyMaterialCommandInput;
+      output: DeleteImportedKeyMaterialCommandOutput;
+    };
+  };
+}

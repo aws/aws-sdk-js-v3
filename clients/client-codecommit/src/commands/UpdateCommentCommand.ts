@@ -115,4 +115,16 @@ export class UpdateCommentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCommentCommand)
   .de(de_UpdateCommentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCommentInput;
+      output: UpdateCommentOutput;
+    };
+    sdk: {
+      input: UpdateCommentCommandInput;
+      output: UpdateCommentCommandOutput;
+    };
+  };
+}

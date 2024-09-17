@@ -198,4 +198,16 @@ export class UpdatePolicyStoreCommand extends $Command
   .f(UpdatePolicyStoreInputFilterSensitiveLog, void 0)
   .ser(se_UpdatePolicyStoreCommand)
   .de(de_UpdatePolicyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePolicyStoreInput;
+      output: UpdatePolicyStoreOutput;
+    };
+    sdk: {
+      input: UpdatePolicyStoreCommandInput;
+      output: UpdatePolicyStoreCommandOutput;
+    };
+  };
+}

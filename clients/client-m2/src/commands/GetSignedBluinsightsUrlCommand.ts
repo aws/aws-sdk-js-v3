@@ -84,4 +84,16 @@ export class GetSignedBluinsightsUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSignedBluinsightsUrlCommand)
   .de(de_GetSignedBluinsightsUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSignedBluinsightsUrlResponse;
+    };
+    sdk: {
+      input: GetSignedBluinsightsUrlCommandInput;
+      output: GetSignedBluinsightsUrlCommandOutput;
+    };
+  };
+}

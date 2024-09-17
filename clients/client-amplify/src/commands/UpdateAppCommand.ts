@@ -198,4 +198,16 @@ export class UpdateAppCommand extends $Command
   .f(UpdateAppRequestFilterSensitiveLog, UpdateAppResultFilterSensitiveLog)
   .ser(se_UpdateAppCommand)
   .de(de_UpdateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppRequest;
+      output: UpdateAppResult;
+    };
+    sdk: {
+      input: UpdateAppCommandInput;
+      output: UpdateAppCommandOutput;
+    };
+  };
+}

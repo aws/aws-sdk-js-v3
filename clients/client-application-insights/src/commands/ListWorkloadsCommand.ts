@@ -103,4 +103,16 @@ export class ListWorkloadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadsCommand)
   .de(de_ListWorkloadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadsRequest;
+      output: ListWorkloadsResponse;
+    };
+    sdk: {
+      input: ListWorkloadsCommandInput;
+      output: ListWorkloadsCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class GetInsightImpactGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightImpactGraphCommand)
   .de(de_GetInsightImpactGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightImpactGraphRequest;
+      output: GetInsightImpactGraphResult;
+    };
+    sdk: {
+      input: GetInsightImpactGraphCommandInput;
+      output: GetInsightImpactGraphCommandOutput;
+    };
+  };
+}

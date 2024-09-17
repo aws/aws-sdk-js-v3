@@ -112,4 +112,16 @@ export class CreateFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFuotaTaskCommand)
   .de(de_CreateFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFuotaTaskRequest;
+      output: CreateFuotaTaskResponse;
+    };
+    sdk: {
+      input: CreateFuotaTaskCommandInput;
+      output: CreateFuotaTaskCommandOutput;
+    };
+  };
+}

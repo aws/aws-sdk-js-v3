@@ -254,4 +254,16 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableReplicaAutoScalingCommand)
   .de(de_UpdateTableReplicaAutoScalingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableReplicaAutoScalingInput;
+      output: UpdateTableReplicaAutoScalingOutput;
+    };
+    sdk: {
+      input: UpdateTableReplicaAutoScalingCommandInput;
+      output: UpdateTableReplicaAutoScalingCommandOutput;
+    };
+  };
+}

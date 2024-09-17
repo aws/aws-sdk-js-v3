@@ -112,4 +112,16 @@ export class GetServiceNetworkVpcAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceNetworkVpcAssociationCommand)
   .de(de_GetServiceNetworkVpcAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceNetworkVpcAssociationRequest;
+      output: GetServiceNetworkVpcAssociationResponse;
+    };
+    sdk: {
+      input: GetServiceNetworkVpcAssociationCommandInput;
+      output: GetServiceNetworkVpcAssociationCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class UntagMeetingCommand extends $Command
   .f(UntagMeetingRequestFilterSensitiveLog, void 0)
   .ser(se_UntagMeetingCommand)
   .de(de_UntagMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagMeetingRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagMeetingCommandInput;
+      output: UntagMeetingCommandOutput;
+    };
+  };
+}

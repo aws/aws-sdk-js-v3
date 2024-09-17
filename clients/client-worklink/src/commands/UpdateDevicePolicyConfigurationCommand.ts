@@ -98,4 +98,16 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDevicePolicyConfigurationCommand)
   .de(de_UpdateDevicePolicyConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDevicePolicyConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDevicePolicyConfigurationCommandInput;
+      output: UpdateDevicePolicyConfigurationCommandOutput;
+    };
+  };
+}

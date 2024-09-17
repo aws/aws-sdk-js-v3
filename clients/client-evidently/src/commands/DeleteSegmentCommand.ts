@@ -91,4 +91,16 @@ export class DeleteSegmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSegmentCommand)
   .de(de_DeleteSegmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSegmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSegmentCommandInput;
+      output: DeleteSegmentCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class DetectPHICommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectPHICommand)
   .de(de_DetectPHICommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectPHIRequest;
+      output: DetectPHIResponse;
+    };
+    sdk: {
+      input: DetectPHICommandInput;
+      output: DetectPHICommandOutput;
+    };
+  };
+}

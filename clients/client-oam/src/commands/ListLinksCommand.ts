@@ -100,4 +100,16 @@ export class ListLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLinksCommand)
   .de(de_ListLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLinksInput;
+      output: ListLinksOutput;
+    };
+    sdk: {
+      input: ListLinksCommandInput;
+      output: ListLinksCommandOutput;
+    };
+  };
+}

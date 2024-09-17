@@ -90,4 +90,16 @@ export class CancelVariantImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelVariantImportJobCommand)
   .de(de_CancelVariantImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelVariantImportRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelVariantImportJobCommandInput;
+      output: CancelVariantImportJobCommandOutput;
+    };
+  };
+}

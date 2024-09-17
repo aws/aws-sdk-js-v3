@@ -111,4 +111,16 @@ export class DeleteVoiceConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceConnectorCommand)
   .de(de_DeleteVoiceConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceConnectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceConnectorCommandInput;
+      output: DeleteVoiceConnectorCommandOutput;
+    };
+  };
+}

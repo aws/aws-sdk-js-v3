@@ -132,4 +132,16 @@ export class RescoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RescoreCommand)
   .de(de_RescoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RescoreRequest;
+      output: RescoreResult;
+    };
+    sdk: {
+      input: RescoreCommandInput;
+      output: RescoreCommandOutput;
+    };
+  };
+}

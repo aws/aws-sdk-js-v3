@@ -109,4 +109,16 @@ export class DeleteOpsItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOpsItemCommand)
   .de(de_DeleteOpsItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOpsItemRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOpsItemCommandInput;
+      output: DeleteOpsItemCommandOutput;
+    };
+  };
+}

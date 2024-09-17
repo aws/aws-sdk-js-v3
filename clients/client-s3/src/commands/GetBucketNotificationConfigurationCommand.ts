@@ -169,4 +169,16 @@ export class GetBucketNotificationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketNotificationConfigurationCommand)
   .de(de_GetBucketNotificationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketNotificationConfigurationRequest;
+      output: NotificationConfiguration;
+    };
+    sdk: {
+      input: GetBucketNotificationConfigurationCommandInput;
+      output: GetBucketNotificationConfigurationCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class ManagePropertygraphStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ManagePropertygraphStatisticsCommand)
   .de(de_ManagePropertygraphStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ManagePropertygraphStatisticsInput;
+      output: ManagePropertygraphStatisticsOutput;
+    };
+    sdk: {
+      input: ManagePropertygraphStatisticsCommandInput;
+      output: ManagePropertygraphStatisticsCommandOutput;
+    };
+  };
+}

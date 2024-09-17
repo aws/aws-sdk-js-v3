@@ -124,4 +124,16 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationCloudWatchLoggingOptionCommand)
   .de(de_AddApplicationCloudWatchLoggingOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationCloudWatchLoggingOptionRequest;
+      output: AddApplicationCloudWatchLoggingOptionResponse;
+    };
+    sdk: {
+      input: AddApplicationCloudWatchLoggingOptionCommandInput;
+      output: AddApplicationCloudWatchLoggingOptionCommandOutput;
+    };
+  };
+}

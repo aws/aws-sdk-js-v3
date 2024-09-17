@@ -101,4 +101,16 @@ export class ListContextsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContextsCommand)
   .de(de_ListContextsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContextsRequest;
+      output: ListContextsResponse;
+    };
+    sdk: {
+      input: ListContextsCommandInput;
+      output: ListContextsCommandOutput;
+    };
+  };
+}

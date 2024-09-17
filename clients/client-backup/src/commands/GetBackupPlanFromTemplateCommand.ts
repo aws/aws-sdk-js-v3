@@ -134,4 +134,16 @@ export class GetBackupPlanFromTemplateCommand extends $Command
   .f(void 0, GetBackupPlanFromTemplateOutputFilterSensitiveLog)
   .ser(se_GetBackupPlanFromTemplateCommand)
   .de(de_GetBackupPlanFromTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupPlanFromTemplateInput;
+      output: GetBackupPlanFromTemplateOutput;
+    };
+    sdk: {
+      input: GetBackupPlanFromTemplateCommandInput;
+      output: GetBackupPlanFromTemplateCommandOutput;
+    };
+  };
+}

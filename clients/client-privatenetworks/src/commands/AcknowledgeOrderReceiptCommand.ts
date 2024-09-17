@@ -124,4 +124,16 @@ export class AcknowledgeOrderReceiptCommand extends $Command
   .f(void 0, AcknowledgeOrderReceiptResponseFilterSensitiveLog)
   .ser(se_AcknowledgeOrderReceiptCommand)
   .de(de_AcknowledgeOrderReceiptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcknowledgeOrderReceiptRequest;
+      output: AcknowledgeOrderReceiptResponse;
+    };
+    sdk: {
+      input: AcknowledgeOrderReceiptCommandInput;
+      output: AcknowledgeOrderReceiptCommandOutput;
+    };
+  };
+}

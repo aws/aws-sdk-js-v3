@@ -101,4 +101,16 @@ export class GetPrincipalTagAttributeMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPrincipalTagAttributeMapCommand)
   .de(de_GetPrincipalTagAttributeMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrincipalTagAttributeMapInput;
+      output: GetPrincipalTagAttributeMapResponse;
+    };
+    sdk: {
+      input: GetPrincipalTagAttributeMapCommandInput;
+      output: GetPrincipalTagAttributeMapCommandOutput;
+    };
+  };
+}

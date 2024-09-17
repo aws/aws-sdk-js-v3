@@ -121,4 +121,16 @@ export class GetAssetPropertyValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssetPropertyValueCommand)
   .de(de_GetAssetPropertyValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetPropertyValueRequest;
+      output: GetAssetPropertyValueResponse;
+    };
+    sdk: {
+      input: GetAssetPropertyValueCommandInput;
+      output: GetAssetPropertyValueCommandOutput;
+    };
+  };
+}

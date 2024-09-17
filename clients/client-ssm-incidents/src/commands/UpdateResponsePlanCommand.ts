@@ -149,4 +149,16 @@ export class UpdateResponsePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResponsePlanCommand)
   .de(de_UpdateResponsePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResponsePlanInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResponsePlanCommandInput;
+      output: UpdateResponsePlanCommandOutput;
+    };
+  };
+}

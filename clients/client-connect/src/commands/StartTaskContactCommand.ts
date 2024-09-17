@@ -167,4 +167,16 @@ export class StartTaskContactCommand extends $Command
   .f(StartTaskContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartTaskContactCommand)
   .de(de_StartTaskContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTaskContactRequest;
+      output: StartTaskContactResponse;
+    };
+    sdk: {
+      input: StartTaskContactCommandInput;
+      output: StartTaskContactCommandOutput;
+    };
+  };
+}

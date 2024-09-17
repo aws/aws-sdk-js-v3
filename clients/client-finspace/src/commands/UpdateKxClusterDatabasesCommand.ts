@@ -133,4 +133,16 @@ export class UpdateKxClusterDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxClusterDatabasesCommand)
   .de(de_UpdateKxClusterDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxClusterDatabasesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateKxClusterDatabasesCommandInput;
+      output: UpdateKxClusterDatabasesCommandOutput;
+    };
+  };
+}

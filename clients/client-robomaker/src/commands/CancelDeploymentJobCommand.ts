@@ -93,4 +93,16 @@ export class CancelDeploymentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelDeploymentJobCommand)
   .de(de_CancelDeploymentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelDeploymentJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelDeploymentJobCommandInput;
+      output: CancelDeploymentJobCommandOutput;
+    };
+  };
+}

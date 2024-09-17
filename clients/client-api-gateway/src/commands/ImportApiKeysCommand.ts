@@ -109,4 +109,16 @@ export class ImportApiKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportApiKeysCommand)
   .de(de_ImportApiKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportApiKeysRequest;
+      output: ApiKeyIds;
+    };
+    sdk: {
+      input: ImportApiKeysCommandInput;
+      output: ImportApiKeysCommandOutput;
+    };
+  };
+}

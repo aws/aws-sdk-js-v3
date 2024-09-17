@@ -136,4 +136,16 @@ export class ListReadSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReadSetsCommand)
   .de(de_ListReadSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReadSetsRequest;
+      output: ListReadSetsResponse;
+    };
+    sdk: {
+      input: ListReadSetsCommandInput;
+      output: ListReadSetsCommandOutput;
+    };
+  };
+}

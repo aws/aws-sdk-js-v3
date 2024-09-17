@@ -146,4 +146,16 @@ export class DescribeCachediSCSIVolumesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCachediSCSIVolumesCommand)
   .de(de_DescribeCachediSCSIVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCachediSCSIVolumesInput;
+      output: DescribeCachediSCSIVolumesOutput;
+    };
+    sdk: {
+      input: DescribeCachediSCSIVolumesCommandInput;
+      output: DescribeCachediSCSIVolumesCommandOutput;
+    };
+  };
+}

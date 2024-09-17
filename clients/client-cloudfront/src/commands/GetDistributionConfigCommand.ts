@@ -374,4 +374,16 @@ export class GetDistributionConfigCommand extends $Command
   .f(void 0, GetDistributionConfigResultFilterSensitiveLog)
   .ser(se_GetDistributionConfigCommand)
   .de(de_GetDistributionConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDistributionConfigRequest;
+      output: GetDistributionConfigResult;
+    };
+    sdk: {
+      input: GetDistributionConfigCommandInput;
+      output: GetDistributionConfigCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class GetEncryptionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEncryptionConfigurationCommand)
   .de(de_GetEncryptionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetEncryptionConfigurationResponse;
+    };
+    sdk: {
+      input: GetEncryptionConfigurationCommandInput;
+      output: GetEncryptionConfigurationCommandOutput;
+    };
+  };
+}

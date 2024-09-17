@@ -121,4 +121,16 @@ export class SendProjectSessionActionCommand extends $Command
   .f(SendProjectSessionActionRequestFilterSensitiveLog, void 0)
   .ser(se_SendProjectSessionActionCommand)
   .de(de_SendProjectSessionActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendProjectSessionActionRequest;
+      output: SendProjectSessionActionResponse;
+    };
+    sdk: {
+      input: SendProjectSessionActionCommandInput;
+      output: SendProjectSessionActionCommandOutput;
+    };
+  };
+}

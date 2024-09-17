@@ -153,4 +153,16 @@ export class GetDataQualityResultCommand extends $Command
   .f(void 0, GetDataQualityResultResponseFilterSensitiveLog)
   .ser(se_GetDataQualityResultCommand)
   .de(de_GetDataQualityResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataQualityResultRequest;
+      output: GetDataQualityResultResponse;
+    };
+    sdk: {
+      input: GetDataQualityResultCommandInput;
+      output: GetDataQualityResultCommandOutput;
+    };
+  };
+}

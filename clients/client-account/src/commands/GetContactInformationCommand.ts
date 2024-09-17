@@ -114,4 +114,16 @@ export class GetContactInformationCommand extends $Command
   .f(void 0, GetContactInformationResponseFilterSensitiveLog)
   .ser(se_GetContactInformationCommand)
   .de(de_GetContactInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactInformationRequest;
+      output: GetContactInformationResponse;
+    };
+    sdk: {
+      input: GetContactInformationCommandInput;
+      output: GetContactInformationCommandOutput;
+    };
+  };
+}

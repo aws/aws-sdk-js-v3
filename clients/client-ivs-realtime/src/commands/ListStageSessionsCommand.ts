@@ -92,4 +92,16 @@ export class ListStageSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStageSessionsCommand)
   .de(de_ListStageSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStageSessionsRequest;
+      output: ListStageSessionsResponse;
+    };
+    sdk: {
+      input: ListStageSessionsCommandInput;
+      output: ListStageSessionsCommandOutput;
+    };
+  };
+}

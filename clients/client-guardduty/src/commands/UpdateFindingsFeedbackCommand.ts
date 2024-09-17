@@ -86,4 +86,16 @@ export class UpdateFindingsFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFindingsFeedbackCommand)
   .de(de_UpdateFindingsFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFindingsFeedbackRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFindingsFeedbackCommandInput;
+      output: UpdateFindingsFeedbackCommandOutput;
+    };
+  };
+}

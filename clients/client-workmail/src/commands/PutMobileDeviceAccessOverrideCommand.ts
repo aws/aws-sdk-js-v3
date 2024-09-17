@@ -103,4 +103,16 @@ export class PutMobileDeviceAccessOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMobileDeviceAccessOverrideCommand)
   .de(de_PutMobileDeviceAccessOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMobileDeviceAccessOverrideRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMobileDeviceAccessOverrideCommandInput;
+      output: PutMobileDeviceAccessOverrideCommandOutput;
+    };
+  };
+}

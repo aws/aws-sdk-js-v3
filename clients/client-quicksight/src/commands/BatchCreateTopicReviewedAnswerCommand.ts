@@ -592,4 +592,16 @@ export class BatchCreateTopicReviewedAnswerCommand extends $Command
   .f(BatchCreateTopicReviewedAnswerRequestFilterSensitiveLog, void 0)
   .ser(se_BatchCreateTopicReviewedAnswerCommand)
   .de(de_BatchCreateTopicReviewedAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateTopicReviewedAnswerRequest;
+      output: BatchCreateTopicReviewedAnswerResponse;
+    };
+    sdk: {
+      input: BatchCreateTopicReviewedAnswerCommandInput;
+      output: BatchCreateTopicReviewedAnswerCommandOutput;
+    };
+  };
+}

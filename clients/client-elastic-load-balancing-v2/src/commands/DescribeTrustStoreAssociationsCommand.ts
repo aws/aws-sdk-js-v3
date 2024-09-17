@@ -96,4 +96,16 @@ export class DescribeTrustStoreAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustStoreAssociationsCommand)
   .de(de_DescribeTrustStoreAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustStoreAssociationsInput;
+      output: DescribeTrustStoreAssociationsOutput;
+    };
+    sdk: {
+      input: DescribeTrustStoreAssociationsCommandInput;
+      output: DescribeTrustStoreAssociationsCommandOutput;
+    };
+  };
+}

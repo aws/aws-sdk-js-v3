@@ -105,4 +105,16 @@ export class ResetConnectorMetadataCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetConnectorMetadataCacheCommand)
   .de(de_ResetConnectorMetadataCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetConnectorMetadataCacheRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetConnectorMetadataCacheCommandInput;
+      output: ResetConnectorMetadataCacheCommandOutput;
+    };
+  };
+}

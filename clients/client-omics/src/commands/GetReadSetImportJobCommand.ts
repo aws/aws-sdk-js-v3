@@ -123,4 +123,16 @@ export class GetReadSetImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReadSetImportJobCommand)
   .de(de_GetReadSetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReadSetImportJobRequest;
+      output: GetReadSetImportJobResponse;
+    };
+    sdk: {
+      input: GetReadSetImportJobCommandInput;
+      output: GetReadSetImportJobCommandOutput;
+    };
+  };
+}

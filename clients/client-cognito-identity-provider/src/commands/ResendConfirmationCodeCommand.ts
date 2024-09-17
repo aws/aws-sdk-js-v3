@@ -183,4 +183,16 @@ export class ResendConfirmationCodeCommand extends $Command
   .f(ResendConfirmationCodeRequestFilterSensitiveLog, void 0)
   .ser(se_ResendConfirmationCodeCommand)
   .de(de_ResendConfirmationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResendConfirmationCodeRequest;
+      output: ResendConfirmationCodeResponse;
+    };
+    sdk: {
+      input: ResendConfirmationCodeCommandInput;
+      output: ResendConfirmationCodeCommandOutput;
+    };
+  };
+}

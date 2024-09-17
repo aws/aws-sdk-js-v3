@@ -358,4 +358,16 @@ export class GetTableVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTableVersionsCommand)
   .de(de_GetTableVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTableVersionsRequest;
+      output: GetTableVersionsResponse;
+    };
+    sdk: {
+      input: GetTableVersionsCommandInput;
+      output: GetTableVersionsCommandOutput;
+    };
+  };
+}

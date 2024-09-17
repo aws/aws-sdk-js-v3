@@ -134,4 +134,16 @@ export class DescribeResourceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceGroupsCommand)
   .de(de_DescribeResourceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceGroupsRequest;
+      output: DescribeResourceGroupsResponse;
+    };
+    sdk: {
+      input: DescribeResourceGroupsCommandInput;
+      output: DescribeResourceGroupsCommandOutput;
+    };
+  };
+}

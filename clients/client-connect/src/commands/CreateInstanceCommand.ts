@@ -113,4 +113,16 @@ export class CreateInstanceCommand extends $Command
   .f(CreateInstanceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateInstanceCommand)
   .de(de_CreateInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceRequest;
+      output: CreateInstanceResponse;
+    };
+    sdk: {
+      input: CreateInstanceCommandInput;
+      output: CreateInstanceCommandOutput;
+    };
+  };
+}

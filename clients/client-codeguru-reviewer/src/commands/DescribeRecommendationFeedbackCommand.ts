@@ -108,4 +108,16 @@ export class DescribeRecommendationFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecommendationFeedbackCommand)
   .de(de_DescribeRecommendationFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecommendationFeedbackRequest;
+      output: DescribeRecommendationFeedbackResponse;
+    };
+    sdk: {
+      input: DescribeRecommendationFeedbackCommandInput;
+      output: DescribeRecommendationFeedbackCommandOutput;
+    };
+  };
+}

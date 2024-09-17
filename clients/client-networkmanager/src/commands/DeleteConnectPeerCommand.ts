@@ -134,4 +134,16 @@ export class DeleteConnectPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectPeerCommand)
   .de(de_DeleteConnectPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectPeerRequest;
+      output: DeleteConnectPeerResponse;
+    };
+    sdk: {
+      input: DeleteConnectPeerCommandInput;
+      output: DeleteConnectPeerCommandOutput;
+    };
+  };
+}

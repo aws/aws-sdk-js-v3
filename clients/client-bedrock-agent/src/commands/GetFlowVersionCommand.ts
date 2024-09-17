@@ -217,4 +217,16 @@ export class GetFlowVersionCommand extends $Command
   .f(void 0, GetFlowVersionResponseFilterSensitiveLog)
   .ser(se_GetFlowVersionCommand)
   .de(de_GetFlowVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFlowVersionRequest;
+      output: GetFlowVersionResponse;
+    };
+    sdk: {
+      input: GetFlowVersionCommandInput;
+      output: GetFlowVersionCommandOutput;
+    };
+  };
+}

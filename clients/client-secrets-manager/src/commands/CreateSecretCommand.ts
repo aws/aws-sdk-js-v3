@@ -212,4 +212,16 @@ export class CreateSecretCommand extends $Command
   .f(CreateSecretRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSecretCommand)
   .de(de_CreateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecretRequest;
+      output: CreateSecretResponse;
+    };
+    sdk: {
+      input: CreateSecretCommandInput;
+      output: CreateSecretCommandOutput;
+    };
+  };
+}

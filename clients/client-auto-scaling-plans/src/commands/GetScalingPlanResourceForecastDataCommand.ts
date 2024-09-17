@@ -106,4 +106,16 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetScalingPlanResourceForecastDataCommand)
   .de(de_GetScalingPlanResourceForecastDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetScalingPlanResourceForecastDataRequest;
+      output: GetScalingPlanResourceForecastDataResponse;
+    };
+    sdk: {
+      input: GetScalingPlanResourceForecastDataCommandInput;
+      output: GetScalingPlanResourceForecastDataCommandOutput;
+    };
+  };
+}

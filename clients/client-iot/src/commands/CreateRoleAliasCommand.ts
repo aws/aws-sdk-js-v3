@@ -108,4 +108,16 @@ export class CreateRoleAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRoleAliasCommand)
   .de(de_CreateRoleAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRoleAliasRequest;
+      output: CreateRoleAliasResponse;
+    };
+    sdk: {
+      input: CreateRoleAliasCommandInput;
+      output: CreateRoleAliasCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class StopSimulationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopSimulationCommand)
   .de(de_StopSimulationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSimulationInput;
+      output: {};
+    };
+    sdk: {
+      input: StopSimulationCommandInput;
+      output: StopSimulationCommandOutput;
+    };
+  };
+}

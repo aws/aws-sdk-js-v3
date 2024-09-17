@@ -273,4 +273,16 @@ export class UpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleCommand)
   .de(de_UpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleRequest;
+      output: UpdateRuleResponse;
+    };
+    sdk: {
+      input: UpdateRuleCommandInput;
+      output: UpdateRuleCommandOutput;
+    };
+  };
+}

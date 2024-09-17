@@ -126,4 +126,16 @@ export class PutSolFunctionPackageContentCommand extends $Command
   .f(PutSolFunctionPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_PutSolFunctionPackageContentCommand)
   .de(de_PutSolFunctionPackageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSolFunctionPackageContentInput;
+      output: PutSolFunctionPackageContentOutput;
+    };
+    sdk: {
+      input: PutSolFunctionPackageContentCommandInput;
+      output: PutSolFunctionPackageContentCommandOutput;
+    };
+  };
+}

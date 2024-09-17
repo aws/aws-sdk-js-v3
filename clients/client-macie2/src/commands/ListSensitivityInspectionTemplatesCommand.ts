@@ -107,4 +107,16 @@ export class ListSensitivityInspectionTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSensitivityInspectionTemplatesCommand)
   .de(de_ListSensitivityInspectionTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSensitivityInspectionTemplatesRequest;
+      output: ListSensitivityInspectionTemplatesResponse;
+    };
+    sdk: {
+      input: ListSensitivityInspectionTemplatesCommandInput;
+      output: ListSensitivityInspectionTemplatesCommandOutput;
+    };
+  };
+}

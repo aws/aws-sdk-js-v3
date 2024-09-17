@@ -135,4 +135,16 @@ export class PutProtocolsListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutProtocolsListCommand)
   .de(de_PutProtocolsListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutProtocolsListRequest;
+      output: PutProtocolsListResponse;
+    };
+    sdk: {
+      input: PutProtocolsListCommandInput;
+      output: PutProtocolsListCommandOutput;
+    };
+  };
+}

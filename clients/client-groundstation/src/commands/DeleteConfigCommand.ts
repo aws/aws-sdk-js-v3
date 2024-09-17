@@ -89,4 +89,16 @@ export class DeleteConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigCommand)
   .de(de_DeleteConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: DeleteConfigCommandInput;
+      output: DeleteConfigCommandOutput;
+    };
+  };
+}

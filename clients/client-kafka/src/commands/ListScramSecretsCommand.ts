@@ -103,4 +103,16 @@ export class ListScramSecretsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListScramSecretsCommand)
   .de(de_ListScramSecretsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListScramSecretsRequest;
+      output: ListScramSecretsResponse;
+    };
+    sdk: {
+      input: ListScramSecretsCommandInput;
+      output: ListScramSecretsCommandOutput;
+    };
+  };
+}

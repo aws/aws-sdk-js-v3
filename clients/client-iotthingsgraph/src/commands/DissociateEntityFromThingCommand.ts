@@ -91,4 +91,16 @@ export class DissociateEntityFromThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DissociateEntityFromThingCommand)
   .de(de_DissociateEntityFromThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DissociateEntityFromThingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DissociateEntityFromThingCommandInput;
+      output: DissociateEntityFromThingCommandOutput;
+    };
+  };
+}

@@ -5082,4 +5082,16 @@ export class UpdateTemplateCommand extends $Command
   .f(UpdateTemplateRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateTemplateCommand)
   .de(de_UpdateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplateRequest;
+      output: UpdateTemplateResponse;
+    };
+    sdk: {
+      input: UpdateTemplateCommandInput;
+      output: UpdateTemplateCommandOutput;
+    };
+  };
+}

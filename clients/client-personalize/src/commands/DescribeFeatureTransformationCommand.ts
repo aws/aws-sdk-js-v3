@@ -97,4 +97,16 @@ export class DescribeFeatureTransformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFeatureTransformationCommand)
   .de(de_DescribeFeatureTransformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFeatureTransformationRequest;
+      output: DescribeFeatureTransformationResponse;
+    };
+    sdk: {
+      input: DescribeFeatureTransformationCommandInput;
+      output: DescribeFeatureTransformationCommandOutput;
+    };
+  };
+}

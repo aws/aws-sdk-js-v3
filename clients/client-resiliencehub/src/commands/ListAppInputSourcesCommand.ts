@@ -115,4 +115,16 @@ export class ListAppInputSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppInputSourcesCommand)
   .de(de_ListAppInputSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInputSourcesRequest;
+      output: ListAppInputSourcesResponse;
+    };
+    sdk: {
+      input: ListAppInputSourcesCommandInput;
+      output: ListAppInputSourcesCommandOutput;
+    };
+  };
+}

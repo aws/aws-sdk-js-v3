@@ -113,4 +113,16 @@ export class ListProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfilesCommand)
   .de(de_ListProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfilesRequest;
+      output: ListProfilesResponse;
+    };
+    sdk: {
+      input: ListProfilesCommandInput;
+      output: ListProfilesCommandOutput;
+    };
+  };
+}

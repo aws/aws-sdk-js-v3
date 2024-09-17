@@ -99,4 +99,16 @@ export class TerminateJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateJobCommand)
   .de(de_TerminateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: TerminateJobCommandInput;
+      output: TerminateJobCommandOutput;
+    };
+  };
+}

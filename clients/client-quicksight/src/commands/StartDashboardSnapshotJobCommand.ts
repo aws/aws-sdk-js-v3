@@ -263,4 +263,16 @@ export class StartDashboardSnapshotJobCommand extends $Command
   .f(StartDashboardSnapshotJobRequestFilterSensitiveLog, void 0)
   .ser(se_StartDashboardSnapshotJobCommand)
   .de(de_StartDashboardSnapshotJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDashboardSnapshotJobRequest;
+      output: StartDashboardSnapshotJobResponse;
+    };
+    sdk: {
+      input: StartDashboardSnapshotJobCommandInput;
+      output: StartDashboardSnapshotJobCommandOutput;
+    };
+  };
+}

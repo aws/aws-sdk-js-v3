@@ -95,4 +95,16 @@ export class DeleteRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRotationCommand)
   .de(de_DeleteRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRotationCommandInput;
+      output: DeleteRotationCommandOutput;
+    };
+  };
+}

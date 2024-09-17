@@ -124,4 +124,16 @@ export class PublishFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishFunctionCommand)
   .de(de_PublishFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishFunctionRequest;
+      output: PublishFunctionResult;
+    };
+    sdk: {
+      input: PublishFunctionCommandInput;
+      output: PublishFunctionCommandOutput;
+    };
+  };
+}

@@ -154,4 +154,16 @@ export class PutGraphqlApiEnvironmentVariablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutGraphqlApiEnvironmentVariablesCommand)
   .de(de_PutGraphqlApiEnvironmentVariablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGraphqlApiEnvironmentVariablesRequest;
+      output: PutGraphqlApiEnvironmentVariablesResponse;
+    };
+    sdk: {
+      input: PutGraphqlApiEnvironmentVariablesCommandInput;
+      output: PutGraphqlApiEnvironmentVariablesCommandOutput;
+    };
+  };
+}

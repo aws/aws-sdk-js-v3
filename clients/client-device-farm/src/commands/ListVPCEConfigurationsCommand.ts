@@ -94,4 +94,16 @@ export class ListVPCEConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVPCEConfigurationsCommand)
   .de(de_ListVPCEConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVPCEConfigurationsRequest;
+      output: ListVPCEConfigurationsResult;
+    };
+    sdk: {
+      input: ListVPCEConfigurationsCommandInput;
+      output: ListVPCEConfigurationsCommandOutput;
+    };
+  };
+}

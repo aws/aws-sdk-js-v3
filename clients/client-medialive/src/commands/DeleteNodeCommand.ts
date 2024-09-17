@@ -119,4 +119,16 @@ export class DeleteNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNodeCommand)
   .de(de_DeleteNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNodeRequest;
+      output: DeleteNodeResponse;
+    };
+    sdk: {
+      input: DeleteNodeCommandInput;
+      output: DeleteNodeCommandOutput;
+    };
+  };
+}

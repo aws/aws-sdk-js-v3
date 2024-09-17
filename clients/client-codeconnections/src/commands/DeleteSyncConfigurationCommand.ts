@@ -94,4 +94,16 @@ export class DeleteSyncConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSyncConfigurationCommand)
   .de(de_DeleteSyncConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSyncConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSyncConfigurationCommandInput;
+      output: DeleteSyncConfigurationCommandOutput;
+    };
+  };
+}

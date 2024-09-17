@@ -142,4 +142,16 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointServiceConfigurationsCommand)
   .de(de_DescribeVpcEndpointServiceConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointServiceConfigurationsRequest;
+      output: DescribeVpcEndpointServiceConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointServiceConfigurationsCommandInput;
+      output: DescribeVpcEndpointServiceConfigurationsCommandOutput;
+    };
+  };
+}

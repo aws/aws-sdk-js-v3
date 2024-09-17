@@ -100,4 +100,16 @@ export class GetUsagePlanKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsagePlanKeysCommand)
   .de(de_GetUsagePlanKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsagePlanKeysRequest;
+      output: UsagePlanKeys;
+    };
+    sdk: {
+      input: GetUsagePlanKeysCommandInput;
+      output: GetUsagePlanKeysCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class BatchDisassociateAnalyticsDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDisassociateAnalyticsDataSetCommand)
   .de(de_BatchDisassociateAnalyticsDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateAnalyticsDataSetRequest;
+      output: BatchDisassociateAnalyticsDataSetResponse;
+    };
+    sdk: {
+      input: BatchDisassociateAnalyticsDataSetCommandInput;
+      output: BatchDisassociateAnalyticsDataSetCommandOutput;
+    };
+  };
+}

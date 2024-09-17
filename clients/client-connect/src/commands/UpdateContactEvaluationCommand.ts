@@ -111,4 +111,16 @@ export class UpdateContactEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactEvaluationCommand)
   .de(de_UpdateContactEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactEvaluationRequest;
+      output: UpdateContactEvaluationResponse;
+    };
+    sdk: {
+      input: UpdateContactEvaluationCommandInput;
+      output: UpdateContactEvaluationCommandOutput;
+    };
+  };
+}

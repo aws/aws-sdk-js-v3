@@ -86,4 +86,16 @@ export class EnableAddressTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableAddressTransferCommand)
   .de(de_EnableAddressTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableAddressTransferRequest;
+      output: EnableAddressTransferResult;
+    };
+    sdk: {
+      input: EnableAddressTransferCommandInput;
+      output: EnableAddressTransferCommandOutput;
+    };
+  };
+}

@@ -353,4 +353,16 @@ export class CreateAssociationCommand extends $Command
   .f(CreateAssociationRequestFilterSensitiveLog, CreateAssociationResultFilterSensitiveLog)
   .ser(se_CreateAssociationCommand)
   .de(de_CreateAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssociationRequest;
+      output: CreateAssociationResult;
+    };
+    sdk: {
+      input: CreateAssociationCommandInput;
+      output: CreateAssociationCommandOutput;
+    };
+  };
+}

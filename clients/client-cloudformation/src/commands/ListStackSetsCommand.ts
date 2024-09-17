@@ -114,4 +114,16 @@ export class ListStackSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackSetsCommand)
   .de(de_ListStackSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackSetsInput;
+      output: ListStackSetsOutput;
+    };
+    sdk: {
+      input: ListStackSetsCommandInput;
+      output: ListStackSetsCommandOutput;
+    };
+  };
+}

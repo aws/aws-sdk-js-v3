@@ -88,4 +88,16 @@ export class DeleteEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEndpointGroupCommand)
   .de(de_DeleteEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEndpointGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEndpointGroupCommandInput;
+      output: DeleteEndpointGroupCommandOutput;
+    };
+  };
+}

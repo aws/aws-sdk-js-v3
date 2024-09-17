@@ -114,4 +114,16 @@ export class DetachFromIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachFromIndexCommand)
   .de(de_DetachFromIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachFromIndexRequest;
+      output: DetachFromIndexResponse;
+    };
+    sdk: {
+      input: DetachFromIndexCommandInput;
+      output: DetachFromIndexCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class GetFarmCommand extends $Command
   .f(void 0, GetFarmResponseFilterSensitiveLog)
   .ser(se_GetFarmCommand)
   .de(de_GetFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFarmRequest;
+      output: GetFarmResponse;
+    };
+    sdk: {
+      input: GetFarmCommandInput;
+      output: GetFarmCommandOutput;
+    };
+  };
+}

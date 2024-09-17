@@ -178,4 +178,16 @@ export class CreatePartnerInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePartnerInputCommand)
   .de(de_CreatePartnerInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePartnerInputRequest;
+      output: CreatePartnerInputResponse;
+    };
+    sdk: {
+      input: CreatePartnerInputCommandInput;
+      output: CreatePartnerInputCommandOutput;
+    };
+  };
+}

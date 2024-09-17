@@ -138,4 +138,16 @@ export class GetQAppSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQAppSessionCommand)
   .de(de_GetQAppSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQAppSessionInput;
+      output: GetQAppSessionOutput;
+    };
+    sdk: {
+      input: GetQAppSessionCommandInput;
+      output: GetQAppSessionCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class GetSmsTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSmsTemplateCommand)
   .de(de_GetSmsTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSmsTemplateRequest;
+      output: GetSmsTemplateResponse;
+    };
+    sdk: {
+      input: GetSmsTemplateCommandInput;
+      output: GetSmsTemplateCommandOutput;
+    };
+  };
+}

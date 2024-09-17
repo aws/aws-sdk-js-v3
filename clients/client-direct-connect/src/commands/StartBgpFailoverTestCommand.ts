@@ -101,4 +101,16 @@ export class StartBgpFailoverTestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBgpFailoverTestCommand)
   .de(de_StartBgpFailoverTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBgpFailoverTestRequest;
+      output: StartBgpFailoverTestResponse;
+    };
+    sdk: {
+      input: StartBgpFailoverTestCommandInput;
+      output: StartBgpFailoverTestCommandOutput;
+    };
+  };
+}

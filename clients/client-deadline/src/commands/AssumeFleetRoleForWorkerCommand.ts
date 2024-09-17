@@ -108,4 +108,16 @@ export class AssumeFleetRoleForWorkerCommand extends $Command
   .f(void 0, AssumeFleetRoleForWorkerResponseFilterSensitiveLog)
   .ser(se_AssumeFleetRoleForWorkerCommand)
   .de(de_AssumeFleetRoleForWorkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeFleetRoleForWorkerRequest;
+      output: AssumeFleetRoleForWorkerResponse;
+    };
+    sdk: {
+      input: AssumeFleetRoleForWorkerCommandInput;
+      output: AssumeFleetRoleForWorkerCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class ListConfigurationSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationSetsCommand)
   .de(de_ListConfigurationSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationSetsRequest;
+      output: ListConfigurationSetsResponse;
+    };
+    sdk: {
+      input: ListConfigurationSetsCommandInput;
+      output: ListConfigurationSetsCommandOutput;
+    };
+  };
+}

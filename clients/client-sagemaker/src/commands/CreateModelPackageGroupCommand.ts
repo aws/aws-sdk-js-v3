@@ -88,4 +88,16 @@ export class CreateModelPackageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelPackageGroupCommand)
   .de(de_CreateModelPackageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelPackageGroupInput;
+      output: CreateModelPackageGroupOutput;
+    };
+    sdk: {
+      input: CreateModelPackageGroupCommandInput;
+      output: CreateModelPackageGroupCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class DescribeScheduledInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduledInstancesCommand)
   .de(de_DescribeScheduledInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduledInstancesRequest;
+      output: DescribeScheduledInstancesResult;
+    };
+    sdk: {
+      input: DescribeScheduledInstancesCommandInput;
+      output: DescribeScheduledInstancesCommandOutput;
+    };
+  };
+}

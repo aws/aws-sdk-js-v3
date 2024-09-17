@@ -90,4 +90,16 @@ export class DescribeStudioLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStudioLifecycleConfigCommand)
   .de(de_DescribeStudioLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStudioLifecycleConfigRequest;
+      output: DescribeStudioLifecycleConfigResponse;
+    };
+    sdk: {
+      input: DescribeStudioLifecycleConfigCommandInput;
+      output: DescribeStudioLifecycleConfigCommandOutput;
+    };
+  };
+}

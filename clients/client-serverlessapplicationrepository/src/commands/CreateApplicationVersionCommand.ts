@@ -131,4 +131,16 @@ export class CreateApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationVersionCommand)
   .de(de_CreateApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationVersionRequest;
+      output: CreateApplicationVersionResponse;
+    };
+    sdk: {
+      input: CreateApplicationVersionCommandInput;
+      output: CreateApplicationVersionCommandOutput;
+    };
+  };
+}

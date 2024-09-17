@@ -76,4 +76,16 @@ export class DeleteTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTemplateCommand)
   .de(de_DeleteTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTemplateCommandInput;
+      output: DeleteTemplateCommandOutput;
+    };
+  };
+}

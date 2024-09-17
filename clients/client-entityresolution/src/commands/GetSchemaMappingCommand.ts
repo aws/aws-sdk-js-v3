@@ -111,4 +111,16 @@ export class GetSchemaMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaMappingCommand)
   .de(de_GetSchemaMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaMappingInput;
+      output: GetSchemaMappingOutput;
+    };
+    sdk: {
+      input: GetSchemaMappingCommandInput;
+      output: GetSchemaMappingCommandOutput;
+    };
+  };
+}

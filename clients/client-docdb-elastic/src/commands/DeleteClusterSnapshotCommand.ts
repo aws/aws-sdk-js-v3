@@ -111,4 +111,16 @@ export class DeleteClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterSnapshotCommand)
   .de(de_DeleteClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterSnapshotInput;
+      output: DeleteClusterSnapshotOutput;
+    };
+    sdk: {
+      input: DeleteClusterSnapshotCommandInput;
+      output: DeleteClusterSnapshotCommandOutput;
+    };
+  };
+}

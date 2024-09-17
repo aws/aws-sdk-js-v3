@@ -178,4 +178,16 @@ export class UpdateBridgeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBridgeCommand)
   .de(de_UpdateBridgeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBridgeRequest;
+      output: UpdateBridgeResponse;
+    };
+    sdk: {
+      input: UpdateBridgeCommandInput;
+      output: UpdateBridgeCommandOutput;
+    };
+  };
+}

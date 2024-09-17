@@ -111,4 +111,16 @@ export class DescribeRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecipeCommand)
   .de(de_DescribeRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecipeRequest;
+      output: DescribeRecipeResponse;
+    };
+    sdk: {
+      input: DescribeRecipeCommandInput;
+      output: DescribeRecipeCommandOutput;
+    };
+  };
+}

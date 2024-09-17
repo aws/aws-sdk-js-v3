@@ -114,4 +114,16 @@ export class StartReplayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplayCommand)
   .de(de_StartReplayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplayRequest;
+      output: StartReplayResponse;
+    };
+    sdk: {
+      input: StartReplayCommandInput;
+      output: StartReplayCommandOutput;
+    };
+  };
+}

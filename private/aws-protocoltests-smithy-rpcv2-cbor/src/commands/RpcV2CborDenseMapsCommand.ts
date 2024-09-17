@@ -112,4 +112,16 @@ export class RpcV2CborDenseMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RpcV2CborDenseMapsCommand)
   .de(de_RpcV2CborDenseMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RpcV2CborDenseMapsInputOutput;
+      output: RpcV2CborDenseMapsInputOutput;
+    };
+    sdk: {
+      input: RpcV2CborDenseMapsCommandInput;
+      output: RpcV2CborDenseMapsCommandOutput;
+    };
+  };
+}

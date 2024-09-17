@@ -100,4 +100,16 @@ export class GetSpaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSpaceCommand)
   .de(de_GetSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpaceRequest;
+      output: GetSpaceResponse;
+    };
+    sdk: {
+      input: GetSpaceCommandInput;
+      output: GetSpaceCommandOutput;
+    };
+  };
+}

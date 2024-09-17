@@ -94,4 +94,16 @@ export class CheckDomainTransferabilityCommand extends $Command
   .f(CheckDomainTransferabilityRequestFilterSensitiveLog, void 0)
   .ser(se_CheckDomainTransferabilityCommand)
   .de(de_CheckDomainTransferabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckDomainTransferabilityRequest;
+      output: CheckDomainTransferabilityResponse;
+    };
+    sdk: {
+      input: CheckDomainTransferabilityCommandInput;
+      output: CheckDomainTransferabilityCommandOutput;
+    };
+  };
+}

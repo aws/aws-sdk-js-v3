@@ -95,4 +95,16 @@ export class GetWorkingLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkingLocationCommand)
   .de(de_GetWorkingLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkingLocationRequest;
+      output: GetWorkingLocationResponse;
+    };
+    sdk: {
+      input: GetWorkingLocationCommandInput;
+      output: GetWorkingLocationCommandOutput;
+    };
+  };
+}

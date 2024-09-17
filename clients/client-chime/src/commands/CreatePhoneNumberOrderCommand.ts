@@ -122,4 +122,16 @@ export class CreatePhoneNumberOrderCommand extends $Command
   .f(CreatePhoneNumberOrderRequestFilterSensitiveLog, CreatePhoneNumberOrderResponseFilterSensitiveLog)
   .ser(se_CreatePhoneNumberOrderCommand)
   .de(de_CreatePhoneNumberOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePhoneNumberOrderRequest;
+      output: CreatePhoneNumberOrderResponse;
+    };
+    sdk: {
+      input: CreatePhoneNumberOrderCommandInput;
+      output: CreatePhoneNumberOrderCommandOutput;
+    };
+  };
+}

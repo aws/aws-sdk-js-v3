@@ -105,4 +105,16 @@ export class SetDefaultSenderIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDefaultSenderIdCommand)
   .de(de_SetDefaultSenderIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDefaultSenderIdRequest;
+      output: SetDefaultSenderIdResult;
+    };
+    sdk: {
+      input: SetDefaultSenderIdCommandInput;
+      output: SetDefaultSenderIdCommandOutput;
+    };
+  };
+}

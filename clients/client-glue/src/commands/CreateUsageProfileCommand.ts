@@ -121,4 +121,16 @@ export class CreateUsageProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUsageProfileCommand)
   .de(de_CreateUsageProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUsageProfileRequest;
+      output: CreateUsageProfileResponse;
+    };
+    sdk: {
+      input: CreateUsageProfileCommandInput;
+      output: CreateUsageProfileCommandOutput;
+    };
+  };
+}

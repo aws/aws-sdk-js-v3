@@ -144,4 +144,16 @@ export class ListDevicesCommand extends $Command
   .f(ListDevicesRequestFilterSensitiveLog, ListDevicesResponseFilterSensitiveLog)
   .ser(se_ListDevicesCommand)
   .de(de_ListDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesRequest;
+      output: ListDevicesResponse;
+    };
+    sdk: {
+      input: ListDevicesCommandInput;
+      output: ListDevicesCommandOutput;
+    };
+  };
+}

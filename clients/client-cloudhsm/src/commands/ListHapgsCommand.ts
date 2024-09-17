@@ -105,4 +105,16 @@ export class ListHapgsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHapgsCommand)
   .de(de_ListHapgsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHapgsRequest;
+      output: ListHapgsResponse;
+    };
+    sdk: {
+      input: ListHapgsCommandInput;
+      output: ListHapgsCommandOutput;
+    };
+  };
+}

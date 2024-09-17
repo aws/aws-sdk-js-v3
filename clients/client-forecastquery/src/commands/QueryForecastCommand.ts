@@ -119,4 +119,16 @@ export class QueryForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryForecastCommand)
   .de(de_QueryForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryForecastRequest;
+      output: QueryForecastResponse;
+    };
+    sdk: {
+      input: QueryForecastCommandInput;
+      output: QueryForecastCommandOutput;
+    };
+  };
+}

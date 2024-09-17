@@ -101,4 +101,16 @@ export class ListDomainUnitsForParentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainUnitsForParentCommand)
   .de(de_ListDomainUnitsForParentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainUnitsForParentInput;
+      output: ListDomainUnitsForParentOutput;
+    };
+    sdk: {
+      input: ListDomainUnitsForParentCommandInput;
+      output: ListDomainUnitsForParentCommandOutput;
+    };
+  };
+}

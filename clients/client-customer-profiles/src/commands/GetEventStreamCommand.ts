@@ -106,4 +106,16 @@ export class GetEventStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventStreamCommand)
   .de(de_GetEventStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventStreamRequest;
+      output: GetEventStreamResponse;
+    };
+    sdk: {
+      input: GetEventStreamCommandInput;
+      output: GetEventStreamCommandOutput;
+    };
+  };
+}

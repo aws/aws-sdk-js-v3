@@ -113,4 +113,16 @@ export class DescribeRuleGroupsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleGroupsNamespaceCommand)
   .de(de_DescribeRuleGroupsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleGroupsNamespaceRequest;
+      output: DescribeRuleGroupsNamespaceResponse;
+    };
+    sdk: {
+      input: DescribeRuleGroupsNamespaceCommandInput;
+      output: DescribeRuleGroupsNamespaceCommandOutput;
+    };
+  };
+}

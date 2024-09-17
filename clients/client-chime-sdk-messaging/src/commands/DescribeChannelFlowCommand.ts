@@ -121,4 +121,16 @@ export class DescribeChannelFlowCommand extends $Command
   .f(void 0, DescribeChannelFlowResponseFilterSensitiveLog)
   .ser(se_DescribeChannelFlowCommand)
   .de(de_DescribeChannelFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelFlowRequest;
+      output: DescribeChannelFlowResponse;
+    };
+    sdk: {
+      input: DescribeChannelFlowCommandInput;
+      output: DescribeChannelFlowCommandOutput;
+    };
+  };
+}

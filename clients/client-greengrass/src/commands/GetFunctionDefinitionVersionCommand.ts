@@ -136,4 +136,16 @@ export class GetFunctionDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionDefinitionVersionCommand)
   .de(de_GetFunctionDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionDefinitionVersionRequest;
+      output: GetFunctionDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetFunctionDefinitionVersionCommandInput;
+      output: GetFunctionDefinitionVersionCommandOutput;
+    };
+  };
+}

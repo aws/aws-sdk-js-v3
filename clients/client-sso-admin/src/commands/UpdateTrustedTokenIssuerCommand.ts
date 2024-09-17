@@ -109,4 +109,16 @@ export class UpdateTrustedTokenIssuerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrustedTokenIssuerCommand)
   .de(de_UpdateTrustedTokenIssuerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrustedTokenIssuerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTrustedTokenIssuerCommandInput;
+      output: UpdateTrustedTokenIssuerCommandOutput;
+    };
+  };
+}

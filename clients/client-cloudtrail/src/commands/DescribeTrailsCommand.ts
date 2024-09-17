@@ -144,4 +144,16 @@ export class DescribeTrailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrailsCommand)
   .de(de_DescribeTrailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrailsRequest;
+      output: DescribeTrailsResponse;
+    };
+    sdk: {
+      input: DescribeTrailsCommandInput;
+      output: DescribeTrailsCommandOutput;
+    };
+  };
+}

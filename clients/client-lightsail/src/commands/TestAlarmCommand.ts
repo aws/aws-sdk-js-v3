@@ -129,4 +129,16 @@ export class TestAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestAlarmCommand)
   .de(de_TestAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestAlarmRequest;
+      output: TestAlarmResult;
+    };
+    sdk: {
+      input: TestAlarmCommandInput;
+      output: TestAlarmCommandOutput;
+    };
+  };
+}

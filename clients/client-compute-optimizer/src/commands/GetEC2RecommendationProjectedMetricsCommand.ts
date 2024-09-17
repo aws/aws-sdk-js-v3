@@ -142,4 +142,16 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEC2RecommendationProjectedMetricsCommand)
   .de(de_GetEC2RecommendationProjectedMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEC2RecommendationProjectedMetricsRequest;
+      output: GetEC2RecommendationProjectedMetricsResponse;
+    };
+    sdk: {
+      input: GetEC2RecommendationProjectedMetricsCommandInput;
+      output: GetEC2RecommendationProjectedMetricsCommandOutput;
+    };
+  };
+}

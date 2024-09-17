@@ -99,4 +99,16 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopSNOMEDCTInferenceJobCommand)
   .de(de_StopSNOMEDCTInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSNOMEDCTInferenceJobRequest;
+      output: StopSNOMEDCTInferenceJobResponse;
+    };
+    sdk: {
+      input: StopSNOMEDCTInferenceJobCommandInput;
+      output: StopSNOMEDCTInferenceJobCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class DeleteMonitoringSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMonitoringSubscriptionCommand)
   .de(de_DeleteMonitoringSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMonitoringSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMonitoringSubscriptionCommandInput;
+      output: DeleteMonitoringSubscriptionCommandOutput;
+    };
+  };
+}

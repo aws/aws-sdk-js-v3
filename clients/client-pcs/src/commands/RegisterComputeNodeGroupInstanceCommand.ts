@@ -123,4 +123,16 @@ export class RegisterComputeNodeGroupInstanceCommand extends $Command
   .f(void 0, RegisterComputeNodeGroupInstanceResponseFilterSensitiveLog)
   .ser(se_RegisterComputeNodeGroupInstanceCommand)
   .de(de_RegisterComputeNodeGroupInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterComputeNodeGroupInstanceRequest;
+      output: RegisterComputeNodeGroupInstanceResponse;
+    };
+    sdk: {
+      input: RegisterComputeNodeGroupInstanceCommandInput;
+      output: RegisterComputeNodeGroupInstanceCommandOutput;
+    };
+  };
+}

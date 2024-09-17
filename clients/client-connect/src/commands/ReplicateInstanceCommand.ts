@@ -113,4 +113,16 @@ export class ReplicateInstanceCommand extends $Command
   .f(ReplicateInstanceRequestFilterSensitiveLog, void 0)
   .ser(se_ReplicateInstanceCommand)
   .de(de_ReplicateInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplicateInstanceRequest;
+      output: ReplicateInstanceResponse;
+    };
+    sdk: {
+      input: ReplicateInstanceCommandInput;
+      output: ReplicateInstanceCommandOutput;
+    };
+  };
+}

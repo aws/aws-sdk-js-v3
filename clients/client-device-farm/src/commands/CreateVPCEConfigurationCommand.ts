@@ -96,4 +96,16 @@ export class CreateVPCEConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVPCEConfigurationCommand)
   .de(de_CreateVPCEConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVPCEConfigurationRequest;
+      output: CreateVPCEConfigurationResult;
+    };
+    sdk: {
+      input: CreateVPCEConfigurationCommandInput;
+      output: CreateVPCEConfigurationCommandOutput;
+    };
+  };
+}

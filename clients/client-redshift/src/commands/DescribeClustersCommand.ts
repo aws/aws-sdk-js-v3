@@ -295,4 +295,16 @@ export class DescribeClustersCommand extends $Command
   .f(void 0, ClustersMessageFilterSensitiveLog)
   .ser(se_DescribeClustersCommand)
   .de(de_DescribeClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClustersMessage;
+      output: ClustersMessage;
+    };
+    sdk: {
+      input: DescribeClustersCommandInput;
+      output: DescribeClustersCommandOutput;
+    };
+  };
+}

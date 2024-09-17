@@ -104,4 +104,16 @@ export class AssumeFleetRoleForReadCommand extends $Command
   .f(void 0, AssumeFleetRoleForReadResponseFilterSensitiveLog)
   .ser(se_AssumeFleetRoleForReadCommand)
   .de(de_AssumeFleetRoleForReadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeFleetRoleForReadRequest;
+      output: AssumeFleetRoleForReadResponse;
+    };
+    sdk: {
+      input: AssumeFleetRoleForReadCommandInput;
+      output: AssumeFleetRoleForReadCommandOutput;
+    };
+  };
+}

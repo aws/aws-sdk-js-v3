@@ -90,4 +90,16 @@ export class StartDiscovererCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDiscovererCommand)
   .de(de_StartDiscovererCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDiscovererRequest;
+      output: StartDiscovererResponse;
+    };
+    sdk: {
+      input: StartDiscovererCommandInput;
+      output: StartDiscovererCommandOutput;
+    };
+  };
+}

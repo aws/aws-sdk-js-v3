@@ -116,4 +116,16 @@ export class CreateTrustStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrustStoreCommand)
   .de(de_CreateTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustStoreInput;
+      output: CreateTrustStoreOutput;
+    };
+    sdk: {
+      input: CreateTrustStoreCommandInput;
+      output: CreateTrustStoreCommandOutput;
+    };
+  };
+}

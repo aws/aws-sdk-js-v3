@@ -78,4 +78,16 @@ export class StopOptimizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopOptimizationJobCommand)
   .de(de_StopOptimizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopOptimizationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopOptimizationJobCommandInput;
+      output: StopOptimizationJobCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DescribeApplicationStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationStateCommand)
   .de(de_DescribeApplicationStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationStateRequest;
+      output: DescribeApplicationStateResult;
+    };
+    sdk: {
+      input: DescribeApplicationStateCommandInput;
+      output: DescribeApplicationStateCommandOutput;
+    };
+  };
+}

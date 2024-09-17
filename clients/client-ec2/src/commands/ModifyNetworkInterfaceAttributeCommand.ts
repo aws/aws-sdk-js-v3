@@ -165,4 +165,16 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyNetworkInterfaceAttributeCommand)
   .de(de_ModifyNetworkInterfaceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyNetworkInterfaceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyNetworkInterfaceAttributeCommandInput;
+      output: ModifyNetworkInterfaceAttributeCommandOutput;
+    };
+  };
+}

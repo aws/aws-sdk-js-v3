@@ -107,4 +107,16 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOpenIDConnectProviderTagsCommand)
   .de(de_ListOpenIDConnectProviderTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOpenIDConnectProviderTagsRequest;
+      output: ListOpenIDConnectProviderTagsResponse;
+    };
+    sdk: {
+      input: ListOpenIDConnectProviderTagsCommandInput;
+      output: ListOpenIDConnectProviderTagsCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class UpdateRecommenderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRecommenderConfigurationCommand)
   .de(de_UpdateRecommenderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRecommenderConfigurationRequest;
+      output: UpdateRecommenderConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateRecommenderConfigurationCommandInput;
+      output: UpdateRecommenderConfigurationCommandOutput;
+    };
+  };
+}

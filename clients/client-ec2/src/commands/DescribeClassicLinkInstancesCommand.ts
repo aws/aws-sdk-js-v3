@@ -115,4 +115,16 @@ export class DescribeClassicLinkInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClassicLinkInstancesCommand)
   .de(de_DescribeClassicLinkInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClassicLinkInstancesRequest;
+      output: DescribeClassicLinkInstancesResult;
+    };
+    sdk: {
+      input: DescribeClassicLinkInstancesCommandInput;
+      output: DescribeClassicLinkInstancesCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessPointsForObjectLambdaCommand)
   .de(de_ListAccessPointsForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessPointsForObjectLambdaRequest;
+      output: ListAccessPointsForObjectLambdaResult;
+    };
+    sdk: {
+      input: ListAccessPointsForObjectLambdaCommandInput;
+      output: ListAccessPointsForObjectLambdaCommandOutput;
+    };
+  };
+}

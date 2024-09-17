@@ -135,4 +135,16 @@ export class GetBlueprintsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBlueprintsCommand)
   .de(de_GetBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBlueprintsRequest;
+      output: GetBlueprintsResult;
+    };
+    sdk: {
+      input: GetBlueprintsCommandInput;
+      output: GetBlueprintsCommandOutput;
+    };
+  };
+}

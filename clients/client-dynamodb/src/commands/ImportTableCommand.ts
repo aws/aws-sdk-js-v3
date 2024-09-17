@@ -268,4 +268,16 @@ export class ImportTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportTableCommand)
   .de(de_ImportTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportTableInput;
+      output: ImportTableOutput;
+    };
+    sdk: {
+      input: ImportTableCommandInput;
+      output: ImportTableCommandOutput;
+    };
+  };
+}

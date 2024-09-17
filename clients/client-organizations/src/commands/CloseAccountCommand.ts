@@ -459,4 +459,16 @@ export class CloseAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CloseAccountCommand)
   .de(de_CloseAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CloseAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: CloseAccountCommandInput;
+      output: CloseAccountCommandOutput;
+    };
+  };
+}

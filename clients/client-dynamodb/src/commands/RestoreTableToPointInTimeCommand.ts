@@ -373,4 +373,16 @@ export class RestoreTableToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableToPointInTimeCommand)
   .de(de_RestoreTableToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableToPointInTimeInput;
+      output: RestoreTableToPointInTimeOutput;
+    };
+    sdk: {
+      input: RestoreTableToPointInTimeCommandInput;
+      output: RestoreTableToPointInTimeCommandOutput;
+    };
+  };
+}

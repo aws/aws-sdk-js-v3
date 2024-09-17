@@ -107,4 +107,16 @@ export class UpdateReplicationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReplicationSetCommand)
   .de(de_UpdateReplicationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationSetInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateReplicationSetCommandInput;
+      output: UpdateReplicationSetCommandOutput;
+    };
+  };
+}

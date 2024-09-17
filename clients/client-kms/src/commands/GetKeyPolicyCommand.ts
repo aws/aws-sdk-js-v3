@@ -142,4 +142,16 @@ export class GetKeyPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyPolicyCommand)
   .de(de_GetKeyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyPolicyRequest;
+      output: GetKeyPolicyResponse;
+    };
+    sdk: {
+      input: GetKeyPolicyCommandInput;
+      output: GetKeyPolicyCommandOutput;
+    };
+  };
+}

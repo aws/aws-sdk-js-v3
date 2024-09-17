@@ -208,4 +208,16 @@ export class StopReplicationCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_StopReplicationCommand)
   .de(de_StopReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopReplicationRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: StopReplicationCommandInput;
+      output: StopReplicationCommandOutput;
+    };
+  };
+}

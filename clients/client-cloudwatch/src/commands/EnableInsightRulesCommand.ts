@@ -95,4 +95,16 @@ export class EnableInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableInsightRulesCommand)
   .de(de_EnableInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableInsightRulesInput;
+      output: EnableInsightRulesOutput;
+    };
+    sdk: {
+      input: EnableInsightRulesCommandInput;
+      output: EnableInsightRulesCommandOutput;
+    };
+  };
+}

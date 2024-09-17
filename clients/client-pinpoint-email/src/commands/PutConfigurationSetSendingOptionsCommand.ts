@@ -94,4 +94,16 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationSetSendingOptionsCommand)
   .de(de_PutConfigurationSetSendingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationSetSendingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationSetSendingOptionsCommandInput;
+      output: PutConfigurationSetSendingOptionsCommandOutput;
+    };
+  };
+}

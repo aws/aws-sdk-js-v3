@@ -127,4 +127,16 @@ export class GetPlaybackConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlaybackConfigurationCommand)
   .de(de_GetPlaybackConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaybackConfigurationRequest;
+      output: GetPlaybackConfigurationResponse;
+    };
+    sdk: {
+      input: GetPlaybackConfigurationCommandInput;
+      output: GetPlaybackConfigurationCommandOutput;
+    };
+  };
+}

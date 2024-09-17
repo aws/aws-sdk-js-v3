@@ -96,4 +96,16 @@ export class DeletePullThroughCacheRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePullThroughCacheRuleCommand)
   .de(de_DeletePullThroughCacheRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePullThroughCacheRuleRequest;
+      output: DeletePullThroughCacheRuleResponse;
+    };
+    sdk: {
+      input: DeletePullThroughCacheRuleCommandInput;
+      output: DeletePullThroughCacheRuleCommandOutput;
+    };
+  };
+}

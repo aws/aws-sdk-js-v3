@@ -138,4 +138,16 @@ export class ListModelInvocationJobsCommand extends $Command
   .f(void 0, ListModelInvocationJobsResponseFilterSensitiveLog)
   .ser(se_ListModelInvocationJobsCommand)
   .de(de_ListModelInvocationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelInvocationJobsRequest;
+      output: ListModelInvocationJobsResponse;
+    };
+    sdk: {
+      input: ListModelInvocationJobsCommandInput;
+      output: ListModelInvocationJobsCommandOutput;
+    };
+  };
+}

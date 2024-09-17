@@ -124,4 +124,16 @@ export class CreateDefaultSubnetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDefaultSubnetCommand)
   .de(de_CreateDefaultSubnetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDefaultSubnetRequest;
+      output: CreateDefaultSubnetResult;
+    };
+    sdk: {
+      input: CreateDefaultSubnetCommandInput;
+      output: CreateDefaultSubnetCommandOutput;
+    };
+  };
+}

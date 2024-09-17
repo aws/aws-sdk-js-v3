@@ -102,4 +102,16 @@ export class GetAssistantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssistantCommand)
   .de(de_GetAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssistantRequest;
+      output: GetAssistantResponse;
+    };
+    sdk: {
+      input: GetAssistantCommandInput;
+      output: GetAssistantCommandOutput;
+    };
+  };
+}

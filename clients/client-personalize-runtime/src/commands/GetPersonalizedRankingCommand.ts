@@ -126,4 +126,16 @@ export class GetPersonalizedRankingCommand extends $Command
   .f(GetPersonalizedRankingRequestFilterSensitiveLog, GetPersonalizedRankingResponseFilterSensitiveLog)
   .ser(se_GetPersonalizedRankingCommand)
   .de(de_GetPersonalizedRankingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPersonalizedRankingRequest;
+      output: GetPersonalizedRankingResponse;
+    };
+    sdk: {
+      input: GetPersonalizedRankingCommandInput;
+      output: GetPersonalizedRankingCommandOutput;
+    };
+  };
+}

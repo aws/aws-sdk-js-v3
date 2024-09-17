@@ -114,4 +114,16 @@ export class CreateNodeRegistrationScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNodeRegistrationScriptCommand)
   .de(de_CreateNodeRegistrationScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNodeRegistrationScriptRequest;
+      output: CreateNodeRegistrationScriptResponse;
+    };
+    sdk: {
+      input: CreateNodeRegistrationScriptCommandInput;
+      output: CreateNodeRegistrationScriptCommandOutput;
+    };
+  };
+}

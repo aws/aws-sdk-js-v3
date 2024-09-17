@@ -146,4 +146,16 @@ export class GetPlaceCommand extends $Command
   .f(GetPlaceRequestFilterSensitiveLog, GetPlaceResponseFilterSensitiveLog)
   .ser(se_GetPlaceCommand)
   .de(de_GetPlaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaceRequest;
+      output: GetPlaceResponse;
+    };
+    sdk: {
+      input: GetPlaceCommandInput;
+      output: GetPlaceCommandOutput;
+    };
+  };
+}

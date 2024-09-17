@@ -113,4 +113,16 @@ export class AssociateVpcCidrBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateVpcCidrBlockCommand)
   .de(de_AssociateVpcCidrBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateVpcCidrBlockRequest;
+      output: AssociateVpcCidrBlockResult;
+    };
+    sdk: {
+      input: AssociateVpcCidrBlockCommandInput;
+      output: AssociateVpcCidrBlockCommandOutput;
+    };
+  };
+}

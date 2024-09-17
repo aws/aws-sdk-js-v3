@@ -116,4 +116,16 @@ export class GetQueryStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryStatusCommand)
   .de(de_GetQueryStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryStatusInput;
+      output: GetQueryStatusOutput;
+    };
+    sdk: {
+      input: GetQueryStatusCommandInput;
+      output: GetQueryStatusCommandOutput;
+    };
+  };
+}

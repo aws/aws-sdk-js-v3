@@ -197,4 +197,16 @@ export class UpdateCrawlerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCrawlerCommand)
   .de(de_UpdateCrawlerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCrawlerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCrawlerCommandInput;
+      output: UpdateCrawlerCommandOutput;
+    };
+  };
+}

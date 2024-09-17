@@ -143,4 +143,16 @@ export class ConfirmDeviceCommand extends $Command
   .f(ConfirmDeviceRequestFilterSensitiveLog, void 0)
   .ser(se_ConfirmDeviceCommand)
   .de(de_ConfirmDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmDeviceRequest;
+      output: ConfirmDeviceResponse;
+    };
+    sdk: {
+      input: ConfirmDeviceCommandInput;
+      output: ConfirmDeviceCommandOutput;
+    };
+  };
+}

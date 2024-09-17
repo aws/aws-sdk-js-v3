@@ -109,4 +109,16 @@ export class ListSolFunctionPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolFunctionPackagesCommand)
   .de(de_ListSolFunctionPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolFunctionPackagesInput;
+      output: ListSolFunctionPackagesOutput;
+    };
+    sdk: {
+      input: ListSolFunctionPackagesCommandInput;
+      output: ListSolFunctionPackagesCommandOutput;
+    };
+  };
+}

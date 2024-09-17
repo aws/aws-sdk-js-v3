@@ -99,4 +99,16 @@ export class ResetLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetLandingZoneCommand)
   .de(de_ResetLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetLandingZoneInput;
+      output: ResetLandingZoneOutput;
+    };
+    sdk: {
+      input: ResetLandingZoneCommandInput;
+      output: ResetLandingZoneCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class DeleteTrackerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrackerCommand)
   .de(de_DeleteTrackerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrackerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTrackerCommandInput;
+      output: DeleteTrackerCommandOutput;
+    };
+  };
+}

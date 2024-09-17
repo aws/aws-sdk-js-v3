@@ -103,4 +103,16 @@ export class SearchTransitGatewayRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchTransitGatewayRoutesCommand)
   .de(de_SearchTransitGatewayRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTransitGatewayRoutesRequest;
+      output: SearchTransitGatewayRoutesResult;
+    };
+    sdk: {
+      input: SearchTransitGatewayRoutesCommandInput;
+      output: SearchTransitGatewayRoutesCommandOutput;
+    };
+  };
+}

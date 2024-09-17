@@ -73,4 +73,16 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_OmitsNullSerializesEmptyStringCommand)
   .de(de_OmitsNullSerializesEmptyStringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OmitsNullSerializesEmptyStringInput;
+      output: {};
+    };
+    sdk: {
+      input: OmitsNullSerializesEmptyStringCommandInput;
+      output: OmitsNullSerializesEmptyStringCommandOutput;
+    };
+  };
+}

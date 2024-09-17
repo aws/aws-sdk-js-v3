@@ -162,4 +162,16 @@ export class ListActionExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActionExecutionsCommand)
   .de(de_ListActionExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActionExecutionsInput;
+      output: ListActionExecutionsOutput;
+    };
+    sdk: {
+      input: ListActionExecutionsCommandInput;
+      output: ListActionExecutionsCommandOutput;
+    };
+  };
+}

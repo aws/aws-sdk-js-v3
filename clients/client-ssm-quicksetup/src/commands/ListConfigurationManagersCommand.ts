@@ -130,4 +130,16 @@ export class ListConfigurationManagersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationManagersCommand)
   .de(de_ListConfigurationManagersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationManagersInput;
+      output: ListConfigurationManagersOutput;
+    };
+    sdk: {
+      input: ListConfigurationManagersCommandInput;
+      output: ListConfigurationManagersCommandOutput;
+    };
+  };
+}

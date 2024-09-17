@@ -132,4 +132,16 @@ export class RequestServiceQuotaIncreaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestServiceQuotaIncreaseCommand)
   .de(de_RequestServiceQuotaIncreaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestServiceQuotaIncreaseRequest;
+      output: RequestServiceQuotaIncreaseResponse;
+    };
+    sdk: {
+      input: RequestServiceQuotaIncreaseCommandInput;
+      output: RequestServiceQuotaIncreaseCommandOutput;
+    };
+  };
+}

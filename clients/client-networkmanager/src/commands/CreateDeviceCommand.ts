@@ -153,4 +153,16 @@ export class CreateDeviceCommand extends $Command
   .f(CreateDeviceRequestFilterSensitiveLog, CreateDeviceResponseFilterSensitiveLog)
   .ser(se_CreateDeviceCommand)
   .de(de_CreateDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeviceRequest;
+      output: CreateDeviceResponse;
+    };
+    sdk: {
+      input: CreateDeviceCommandInput;
+      output: CreateDeviceCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DeleteQuickResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQuickResponseCommand)
   .de(de_DeleteQuickResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQuickResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQuickResponseCommandInput;
+      output: DeleteQuickResponseCommandOutput;
+    };
+  };
+}

@@ -138,4 +138,16 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessEndpointCommand)
   .de(de_ModifyVerifiedAccessEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessEndpointRequest;
+      output: ModifyVerifiedAccessEndpointResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessEndpointCommandInput;
+      output: ModifyVerifiedAccessEndpointCommandOutput;
+    };
+  };
+}

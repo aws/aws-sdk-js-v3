@@ -116,4 +116,16 @@ export class RejectPredictionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectPredictionsCommand)
   .de(de_RejectPredictionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectPredictionsInput;
+      output: RejectPredictionsOutput;
+    };
+    sdk: {
+      input: RejectPredictionsCommandInput;
+      output: RejectPredictionsCommandOutput;
+    };
+  };
+}

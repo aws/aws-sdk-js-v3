@@ -91,4 +91,16 @@ export class DeleteExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExportCommand)
   .de(de_DeleteExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExportRequest;
+      output: DeleteExportResponse;
+    };
+    sdk: {
+      input: DeleteExportCommandInput;
+      output: DeleteExportCommandOutput;
+    };
+  };
+}

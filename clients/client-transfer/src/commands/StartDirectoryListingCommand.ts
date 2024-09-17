@@ -141,4 +141,16 @@ export class StartDirectoryListingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDirectoryListingCommand)
   .de(de_StartDirectoryListingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDirectoryListingRequest;
+      output: StartDirectoryListingResponse;
+    };
+    sdk: {
+      input: StartDirectoryListingCommandInput;
+      output: StartDirectoryListingCommandOutput;
+    };
+  };
+}

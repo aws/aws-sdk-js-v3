@@ -119,4 +119,16 @@ export class GetJobBookmarkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobBookmarkCommand)
   .de(de_GetJobBookmarkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobBookmarkRequest;
+      output: GetJobBookmarkResponse;
+    };
+    sdk: {
+      input: GetJobBookmarkCommandInput;
+      output: GetJobBookmarkCommandOutput;
+    };
+  };
+}

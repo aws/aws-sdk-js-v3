@@ -128,4 +128,16 @@ export class CreateSchemaMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSchemaMappingCommand)
   .de(de_CreateSchemaMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSchemaMappingInput;
+      output: CreateSchemaMappingOutput;
+    };
+    sdk: {
+      input: CreateSchemaMappingCommandInput;
+      output: CreateSchemaMappingCommandOutput;
+    };
+  };
+}

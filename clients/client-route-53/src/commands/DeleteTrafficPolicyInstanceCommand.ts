@@ -97,4 +97,16 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrafficPolicyInstanceCommand)
   .de(de_DeleteTrafficPolicyInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrafficPolicyInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTrafficPolicyInstanceCommandInput;
+      output: DeleteTrafficPolicyInstanceCommandOutput;
+    };
+  };
+}

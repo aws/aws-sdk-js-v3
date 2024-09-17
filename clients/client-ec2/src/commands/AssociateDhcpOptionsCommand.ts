@@ -104,4 +104,16 @@ export class AssociateDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDhcpOptionsCommand)
   .de(de_AssociateDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDhcpOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDhcpOptionsCommandInput;
+      output: AssociateDhcpOptionsCommandOutput;
+    };
+  };
+}

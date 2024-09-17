@@ -102,4 +102,16 @@ export class DeleteTemplateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTemplateAliasCommand)
   .de(de_DeleteTemplateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTemplateAliasRequest;
+      output: DeleteTemplateAliasResponse;
+    };
+    sdk: {
+      input: DeleteTemplateAliasCommandInput;
+      output: DeleteTemplateAliasCommandOutput;
+    };
+  };
+}

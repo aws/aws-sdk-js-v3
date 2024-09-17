@@ -100,4 +100,16 @@ export class GetWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebhookCommand)
   .de(de_GetWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebhookRequest;
+      output: GetWebhookResult;
+    };
+    sdk: {
+      input: GetWebhookCommandInput;
+      output: GetWebhookCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class GetPublicAccessBlockConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPublicAccessBlockConfigCommand)
   .de(de_GetPublicAccessBlockConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPublicAccessBlockConfigRequest;
+      output: GetPublicAccessBlockConfigResponse;
+    };
+    sdk: {
+      input: GetPublicAccessBlockConfigCommandInput;
+      output: GetPublicAccessBlockConfigCommandOutput;
+    };
+  };
+}

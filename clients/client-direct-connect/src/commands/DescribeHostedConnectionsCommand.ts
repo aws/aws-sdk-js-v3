@@ -124,4 +124,16 @@ export class DescribeHostedConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHostedConnectionsCommand)
   .de(de_DescribeHostedConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHostedConnectionsRequest;
+      output: Connections;
+    };
+    sdk: {
+      input: DescribeHostedConnectionsCommandInput;
+      output: DescribeHostedConnectionsCommandOutput;
+    };
+  };
+}

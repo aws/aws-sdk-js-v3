@@ -130,4 +130,16 @@ export class UpdateParticipantRoleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateParticipantRoleConfigCommand)
   .de(de_UpdateParticipantRoleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateParticipantRoleConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateParticipantRoleConfigCommandInput;
+      output: UpdateParticipantRoleConfigCommandOutput;
+    };
+  };
+}

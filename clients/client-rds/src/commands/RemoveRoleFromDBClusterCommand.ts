@@ -107,4 +107,16 @@ export class RemoveRoleFromDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRoleFromDBClusterCommand)
   .de(de_RemoveRoleFromDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRoleFromDBClusterMessage;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRoleFromDBClusterCommandInput;
+      output: RemoveRoleFromDBClusterCommandOutput;
+    };
+  };
+}

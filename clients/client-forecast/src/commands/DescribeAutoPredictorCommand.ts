@@ -146,4 +146,16 @@ export class DescribeAutoPredictorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoPredictorCommand)
   .de(de_DescribeAutoPredictorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoPredictorRequest;
+      output: DescribeAutoPredictorResponse;
+    };
+    sdk: {
+      input: DescribeAutoPredictorCommandInput;
+      output: DescribeAutoPredictorCommandOutput;
+    };
+  };
+}

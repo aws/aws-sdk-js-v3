@@ -89,4 +89,16 @@ export class UpdateEventConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventConfigurationsCommand)
   .de(de_UpdateEventConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventConfigurationsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEventConfigurationsCommandInput;
+      output: UpdateEventConfigurationsCommandOutput;
+    };
+  };
+}

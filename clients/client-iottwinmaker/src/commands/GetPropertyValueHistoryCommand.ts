@@ -215,4 +215,16 @@ export class GetPropertyValueHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPropertyValueHistoryCommand)
   .de(de_GetPropertyValueHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPropertyValueHistoryRequest;
+      output: GetPropertyValueHistoryResponse;
+    };
+    sdk: {
+      input: GetPropertyValueHistoryCommandInput;
+      output: GetPropertyValueHistoryCommandOutput;
+    };
+  };
+}

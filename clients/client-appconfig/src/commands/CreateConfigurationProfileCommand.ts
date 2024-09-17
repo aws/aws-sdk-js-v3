@@ -193,4 +193,16 @@ export class CreateConfigurationProfileCommand extends $Command
   .f(CreateConfigurationProfileRequestFilterSensitiveLog, ConfigurationProfileFilterSensitiveLog)
   .ser(se_CreateConfigurationProfileCommand)
   .de(de_CreateConfigurationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationProfileRequest;
+      output: ConfigurationProfile;
+    };
+    sdk: {
+      input: CreateConfigurationProfileCommandInput;
+      output: CreateConfigurationProfileCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class FailoverGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverGlobalClusterCommand)
   .de(de_FailoverGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverGlobalClusterMessage;
+      output: FailoverGlobalClusterResult;
+    };
+    sdk: {
+      input: FailoverGlobalClusterCommandInput;
+      output: FailoverGlobalClusterCommandOutput;
+    };
+  };
+}

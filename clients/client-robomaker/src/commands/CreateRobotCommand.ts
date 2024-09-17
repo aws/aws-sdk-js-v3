@@ -111,4 +111,16 @@ export class CreateRobotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRobotCommand)
   .de(de_CreateRobotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRobotRequest;
+      output: CreateRobotResponse;
+    };
+    sdk: {
+      input: CreateRobotCommandInput;
+      output: CreateRobotCommandOutput;
+    };
+  };
+}

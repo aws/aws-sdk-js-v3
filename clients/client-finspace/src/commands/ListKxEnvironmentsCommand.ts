@@ -135,4 +135,16 @@ export class ListKxEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxEnvironmentsCommand)
   .de(de_ListKxEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxEnvironmentsRequest;
+      output: ListKxEnvironmentsResponse;
+    };
+    sdk: {
+      input: ListKxEnvironmentsCommandInput;
+      output: ListKxEnvironmentsCommandOutput;
+    };
+  };
+}

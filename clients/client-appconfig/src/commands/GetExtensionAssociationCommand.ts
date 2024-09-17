@@ -95,4 +95,16 @@ export class GetExtensionAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExtensionAssociationCommand)
   .de(de_GetExtensionAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExtensionAssociationRequest;
+      output: ExtensionAssociation;
+    };
+    sdk: {
+      input: GetExtensionAssociationCommandInput;
+      output: GetExtensionAssociationCommandOutput;
+    };
+  };
+}

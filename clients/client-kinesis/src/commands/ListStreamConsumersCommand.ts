@@ -113,4 +113,16 @@ export class ListStreamConsumersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamConsumersCommand)
   .de(de_ListStreamConsumersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamConsumersInput;
+      output: ListStreamConsumersOutput;
+    };
+    sdk: {
+      input: ListStreamConsumersCommandInput;
+      output: ListStreamConsumersCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class ValidateTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateTemplateCommand)
   .de(de_ValidateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateTemplateInput;
+      output: ValidateTemplateOutput;
+    };
+    sdk: {
+      input: ValidateTemplateCommandInput;
+      output: ValidateTemplateCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class ModifyInstanceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceGroupsCommand)
   .de(de_ModifyInstanceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceGroupsInput;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceGroupsCommandInput;
+      output: ModifyInstanceGroupsCommandOutput;
+    };
+  };
+}

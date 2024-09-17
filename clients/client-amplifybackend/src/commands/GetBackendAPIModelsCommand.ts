@@ -93,4 +93,16 @@ export class GetBackendAPIModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackendAPIModelsCommand)
   .de(de_GetBackendAPIModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackendAPIModelsRequest;
+      output: GetBackendAPIModelsResponse;
+    };
+    sdk: {
+      input: GetBackendAPIModelsCommandInput;
+      output: GetBackendAPIModelsCommandOutput;
+    };
+  };
+}

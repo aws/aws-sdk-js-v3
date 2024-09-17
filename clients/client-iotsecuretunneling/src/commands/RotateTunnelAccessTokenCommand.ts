@@ -105,4 +105,16 @@ export class RotateTunnelAccessTokenCommand extends $Command
   .f(void 0, RotateTunnelAccessTokenResponseFilterSensitiveLog)
   .ser(se_RotateTunnelAccessTokenCommand)
   .de(de_RotateTunnelAccessTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateTunnelAccessTokenRequest;
+      output: RotateTunnelAccessTokenResponse;
+    };
+    sdk: {
+      input: RotateTunnelAccessTokenCommandInput;
+      output: RotateTunnelAccessTokenCommandOutput;
+    };
+  };
+}

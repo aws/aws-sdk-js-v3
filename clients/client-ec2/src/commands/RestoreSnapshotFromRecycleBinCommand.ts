@@ -91,4 +91,16 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreSnapshotFromRecycleBinCommand)
   .de(de_RestoreSnapshotFromRecycleBinCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreSnapshotFromRecycleBinRequest;
+      output: RestoreSnapshotFromRecycleBinResult;
+    };
+    sdk: {
+      input: RestoreSnapshotFromRecycleBinCommandInput;
+      output: RestoreSnapshotFromRecycleBinCommandOutput;
+    };
+  };
+}

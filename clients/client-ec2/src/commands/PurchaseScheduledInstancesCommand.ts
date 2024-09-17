@@ -118,4 +118,16 @@ export class PurchaseScheduledInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseScheduledInstancesCommand)
   .de(de_PurchaseScheduledInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseScheduledInstancesRequest;
+      output: PurchaseScheduledInstancesResult;
+    };
+    sdk: {
+      input: PurchaseScheduledInstancesCommandInput;
+      output: PurchaseScheduledInstancesCommandOutput;
+    };
+  };
+}

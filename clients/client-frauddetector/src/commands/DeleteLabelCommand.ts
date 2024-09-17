@@ -90,4 +90,16 @@ export class DeleteLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLabelCommand)
   .de(de_DeleteLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLabelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLabelCommandInput;
+      output: DeleteLabelCommandOutput;
+    };
+  };
+}

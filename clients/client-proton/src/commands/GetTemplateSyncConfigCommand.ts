@@ -100,4 +100,16 @@ export class GetTemplateSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateSyncConfigCommand)
   .de(de_GetTemplateSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateSyncConfigInput;
+      output: GetTemplateSyncConfigOutput;
+    };
+    sdk: {
+      input: GetTemplateSyncConfigCommandInput;
+      output: GetTemplateSyncConfigCommandOutput;
+    };
+  };
+}

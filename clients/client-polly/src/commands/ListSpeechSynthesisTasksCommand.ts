@@ -111,4 +111,16 @@ export class ListSpeechSynthesisTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSpeechSynthesisTasksCommand)
   .de(de_ListSpeechSynthesisTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpeechSynthesisTasksInput;
+      output: ListSpeechSynthesisTasksOutput;
+    };
+    sdk: {
+      input: ListSpeechSynthesisTasksCommandInput;
+      output: ListSpeechSynthesisTasksCommandOutput;
+    };
+  };
+}

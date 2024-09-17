@@ -108,4 +108,16 @@ export class CreateApiCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApiCacheCommand)
   .de(de_CreateApiCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApiCacheRequest;
+      output: CreateApiCacheResponse;
+    };
+    sdk: {
+      input: CreateApiCacheCommandInput;
+      output: CreateApiCacheCommandOutput;
+    };
+  };
+}

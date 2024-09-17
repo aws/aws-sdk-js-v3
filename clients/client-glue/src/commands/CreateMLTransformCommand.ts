@@ -146,4 +146,16 @@ export class CreateMLTransformCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMLTransformCommand)
   .de(de_CreateMLTransformCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMLTransformRequest;
+      output: CreateMLTransformResponse;
+    };
+    sdk: {
+      input: CreateMLTransformCommandInput;
+      output: CreateMLTransformCommandOutput;
+    };
+  };
+}

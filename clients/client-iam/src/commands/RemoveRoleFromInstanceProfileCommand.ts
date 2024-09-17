@@ -119,4 +119,16 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRoleFromInstanceProfileCommand)
   .de(de_RemoveRoleFromInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRoleFromInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRoleFromInstanceProfileCommandInput;
+      output: RemoveRoleFromInstanceProfileCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class CreateOutpostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOutpostCommand)
   .de(de_CreateOutpostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOutpostInput;
+      output: CreateOutpostOutput;
+    };
+    sdk: {
+      input: CreateOutpostCommandInput;
+      output: CreateOutpostCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class DeleteActivityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteActivityTypeCommand)
   .de(de_DeleteActivityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteActivityTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteActivityTypeCommandInput;
+      output: DeleteActivityTypeCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class ListWavesCommand extends $Command
   .f(void 0, ListWavesResponseFilterSensitiveLog)
   .ser(se_ListWavesCommand)
   .de(de_ListWavesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWavesRequest;
+      output: ListWavesResponse;
+    };
+    sdk: {
+      input: ListWavesCommandInput;
+      output: ListWavesCommandOutput;
+    };
+  };
+}

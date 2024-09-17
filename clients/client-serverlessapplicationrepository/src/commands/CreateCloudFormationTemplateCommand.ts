@@ -108,4 +108,16 @@ export class CreateCloudFormationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudFormationTemplateCommand)
   .de(de_CreateCloudFormationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudFormationTemplateRequest;
+      output: CreateCloudFormationTemplateResponse;
+    };
+    sdk: {
+      input: CreateCloudFormationTemplateCommandInput;
+      output: CreateCloudFormationTemplateCommandOutput;
+    };
+  };
+}

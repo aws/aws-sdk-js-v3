@@ -125,4 +125,16 @@ export class ListWirelessDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWirelessDevicesCommand)
   .de(de_ListWirelessDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWirelessDevicesRequest;
+      output: ListWirelessDevicesResponse;
+    };
+    sdk: {
+      input: ListWirelessDevicesCommandInput;
+      output: ListWirelessDevicesCommandOutput;
+    };
+  };
+}

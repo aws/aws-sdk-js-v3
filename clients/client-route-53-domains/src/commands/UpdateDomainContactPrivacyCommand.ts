@@ -122,4 +122,16 @@ export class UpdateDomainContactPrivacyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainContactPrivacyCommand)
   .de(de_UpdateDomainContactPrivacyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainContactPrivacyRequest;
+      output: UpdateDomainContactPrivacyResponse;
+    };
+    sdk: {
+      input: UpdateDomainContactPrivacyCommandInput;
+      output: UpdateDomainContactPrivacyCommandOutput;
+    };
+  };
+}

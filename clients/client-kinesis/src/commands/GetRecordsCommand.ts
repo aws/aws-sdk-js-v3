@@ -206,4 +206,16 @@ export class GetRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecordsCommand)
   .de(de_GetRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecordsInput;
+      output: GetRecordsOutput;
+    };
+    sdk: {
+      input: GetRecordsCommandInput;
+      output: GetRecordsCommandOutput;
+    };
+  };
+}

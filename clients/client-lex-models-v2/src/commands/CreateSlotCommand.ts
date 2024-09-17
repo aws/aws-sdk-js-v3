@@ -908,4 +908,16 @@ export class CreateSlotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSlotCommand)
   .de(de_CreateSlotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlotRequest;
+      output: CreateSlotResponse;
+    };
+    sdk: {
+      input: CreateSlotCommandInput;
+      output: CreateSlotCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class CreateIdentityProviderCommand extends $Command
   .f(CreateIdentityProviderRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIdentityProviderCommand)
   .de(de_CreateIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdentityProviderRequest;
+      output: CreateIdentityProviderResponse;
+    };
+    sdk: {
+      input: CreateIdentityProviderCommandInput;
+      output: CreateIdentityProviderCommandOutput;
+    };
+  };
+}

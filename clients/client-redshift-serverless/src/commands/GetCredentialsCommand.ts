@@ -110,4 +110,16 @@ export class GetCredentialsCommand extends $Command
   .f(void 0, GetCredentialsResponseFilterSensitiveLog)
   .ser(se_GetCredentialsCommand)
   .de(de_GetCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCredentialsRequest;
+      output: GetCredentialsResponse;
+    };
+    sdk: {
+      input: GetCredentialsCommandInput;
+      output: GetCredentialsCommandOutput;
+    };
+  };
+}

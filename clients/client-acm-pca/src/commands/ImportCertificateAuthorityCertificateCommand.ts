@@ -238,4 +238,16 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportCertificateAuthorityCertificateCommand)
   .de(de_ImportCertificateAuthorityCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateAuthorityCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportCertificateAuthorityCertificateCommandInput;
+      output: ImportCertificateAuthorityCertificateCommandOutput;
+    };
+  };
+}

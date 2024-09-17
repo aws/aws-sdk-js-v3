@@ -218,4 +218,16 @@ export class CreatePullRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePullRequestCommand)
   .de(de_CreatePullRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePullRequestInput;
+      output: CreatePullRequestOutput;
+    };
+    sdk: {
+      input: CreatePullRequestCommandInput;
+      output: CreatePullRequestCommandOutput;
+    };
+  };
+}

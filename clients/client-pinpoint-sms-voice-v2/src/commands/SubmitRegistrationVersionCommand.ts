@@ -118,4 +118,16 @@ export class SubmitRegistrationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitRegistrationVersionCommand)
   .de(de_SubmitRegistrationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitRegistrationVersionRequest;
+      output: SubmitRegistrationVersionResult;
+    };
+    sdk: {
+      input: SubmitRegistrationVersionCommandInput;
+      output: SubmitRegistrationVersionCommandOutput;
+    };
+  };
+}

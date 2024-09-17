@@ -94,4 +94,16 @@ export class EnableSsoCommand extends $Command
   .f(EnableSsoRequestFilterSensitiveLog, void 0)
   .ser(se_EnableSsoCommand)
   .de(de_EnableSsoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableSsoRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableSsoCommandInput;
+      output: EnableSsoCommandOutput;
+    };
+  };
+}

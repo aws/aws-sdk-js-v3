@@ -112,4 +112,16 @@ export class CreateSolFunctionPackageCommand extends $Command
   .f(CreateSolFunctionPackageInputFilterSensitiveLog, CreateSolFunctionPackageOutputFilterSensitiveLog)
   .ser(se_CreateSolFunctionPackageCommand)
   .de(de_CreateSolFunctionPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSolFunctionPackageInput;
+      output: CreateSolFunctionPackageOutput;
+    };
+    sdk: {
+      input: CreateSolFunctionPackageCommandInput;
+      output: CreateSolFunctionPackageCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_EnableReachabilityAnalyzerOrganizationSharingCommand)
   .de(de_EnableReachabilityAnalyzerOrganizationSharingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableReachabilityAnalyzerOrganizationSharingRequest;
+      output: EnableReachabilityAnalyzerOrganizationSharingResult;
+    };
+    sdk: {
+      input: EnableReachabilityAnalyzerOrganizationSharingCommandInput;
+      output: EnableReachabilityAnalyzerOrganizationSharingCommandOutput;
+    };
+  };
+}

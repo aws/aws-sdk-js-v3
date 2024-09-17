@@ -72,4 +72,16 @@ export class QueryPrecedenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryPrecedenceCommand)
   .de(de_QueryPrecedenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryPrecedenceInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryPrecedenceCommandInput;
+      output: QueryPrecedenceCommandOutput;
+    };
+  };
+}

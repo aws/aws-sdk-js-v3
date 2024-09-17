@@ -92,4 +92,16 @@ export class ListEmailTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEmailTemplatesCommand)
   .de(de_ListEmailTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEmailTemplatesRequest;
+      output: ListEmailTemplatesResponse;
+    };
+    sdk: {
+      input: ListEmailTemplatesCommandInput;
+      output: ListEmailTemplatesCommandOutput;
+    };
+  };
+}

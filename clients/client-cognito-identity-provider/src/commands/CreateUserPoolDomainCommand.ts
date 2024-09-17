@@ -123,4 +123,16 @@ export class CreateUserPoolDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserPoolDomainCommand)
   .de(de_CreateUserPoolDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserPoolDomainRequest;
+      output: CreateUserPoolDomainResponse;
+    };
+    sdk: {
+      input: CreateUserPoolDomainCommandInput;
+      output: CreateUserPoolDomainCommandOutput;
+    };
+  };
+}

@@ -194,4 +194,16 @@ export class DeleteDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterCommand)
   .de(de_DeleteDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterMessage;
+      output: DeleteDBClusterResult;
+    };
+    sdk: {
+      input: DeleteDBClusterCommandInput;
+      output: DeleteDBClusterCommandOutput;
+    };
+  };
+}

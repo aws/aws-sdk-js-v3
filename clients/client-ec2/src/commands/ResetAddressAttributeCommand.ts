@@ -88,4 +88,16 @@ export class ResetAddressAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetAddressAttributeCommand)
   .de(de_ResetAddressAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetAddressAttributeRequest;
+      output: ResetAddressAttributeResult;
+    };
+    sdk: {
+      input: ResetAddressAttributeCommandInput;
+      output: ResetAddressAttributeCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedAccessInstancesCommand)
   .de(de_DescribeVerifiedAccessInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessInstancesRequest;
+      output: DescribeVerifiedAccessInstancesResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessInstancesCommandInput;
+      output: DescribeVerifiedAccessInstancesCommandOutput;
+    };
+  };
+}

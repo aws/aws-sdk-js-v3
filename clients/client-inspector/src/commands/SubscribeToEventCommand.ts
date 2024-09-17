@@ -112,4 +112,16 @@ export class SubscribeToEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubscribeToEventCommand)
   .de(de_SubscribeToEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubscribeToEventCommandInput;
+      output: SubscribeToEventCommandOutput;
+    };
+  };
+}

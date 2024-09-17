@@ -94,4 +94,16 @@ export class UpdateInvestigationStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInvestigationStateCommand)
   .de(de_UpdateInvestigationStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInvestigationStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInvestigationStateCommandInput;
+      output: UpdateInvestigationStateCommandOutput;
+    };
+  };
+}

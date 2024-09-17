@@ -104,4 +104,16 @@ export class ListInferenceExperimentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceExperimentsCommand)
   .de(de_ListInferenceExperimentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceExperimentsRequest;
+      output: ListInferenceExperimentsResponse;
+    };
+    sdk: {
+      input: ListInferenceExperimentsCommandInput;
+      output: ListInferenceExperimentsCommandOutput;
+    };
+  };
+}

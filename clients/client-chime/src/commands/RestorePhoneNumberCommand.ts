@@ -133,4 +133,16 @@ export class RestorePhoneNumberCommand extends $Command
   .f(void 0, RestorePhoneNumberResponseFilterSensitiveLog)
   .ser(se_RestorePhoneNumberCommand)
   .de(de_RestorePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestorePhoneNumberRequest;
+      output: RestorePhoneNumberResponse;
+    };
+    sdk: {
+      input: RestorePhoneNumberCommandInput;
+      output: RestorePhoneNumberCommandOutput;
+    };
+  };
+}

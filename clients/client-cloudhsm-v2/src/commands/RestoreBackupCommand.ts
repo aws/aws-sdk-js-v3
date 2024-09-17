@@ -119,4 +119,16 @@ export class RestoreBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreBackupCommand)
   .de(de_RestoreBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreBackupRequest;
+      output: RestoreBackupResponse;
+    };
+    sdk: {
+      input: RestoreBackupCommandInput;
+      output: RestoreBackupCommandOutput;
+    };
+  };
+}

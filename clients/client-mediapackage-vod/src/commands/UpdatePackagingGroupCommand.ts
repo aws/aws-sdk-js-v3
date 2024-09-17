@@ -113,4 +113,16 @@ export class UpdatePackagingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackagingGroupCommand)
   .de(de_UpdatePackagingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackagingGroupRequest;
+      output: UpdatePackagingGroupResponse;
+    };
+    sdk: {
+      input: UpdatePackagingGroupCommandInput;
+      output: UpdatePackagingGroupCommandOutput;
+    };
+  };
+}

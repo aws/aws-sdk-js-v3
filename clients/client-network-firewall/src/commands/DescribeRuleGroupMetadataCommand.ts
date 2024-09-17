@@ -116,4 +116,16 @@ export class DescribeRuleGroupMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleGroupMetadataCommand)
   .de(de_DescribeRuleGroupMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleGroupMetadataRequest;
+      output: DescribeRuleGroupMetadataResponse;
+    };
+    sdk: {
+      input: DescribeRuleGroupMetadataCommandInput;
+      output: DescribeRuleGroupMetadataCommandOutput;
+    };
+  };
+}

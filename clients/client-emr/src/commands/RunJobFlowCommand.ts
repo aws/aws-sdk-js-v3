@@ -377,4 +377,16 @@ export class RunJobFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RunJobFlowCommand)
   .de(de_RunJobFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunJobFlowInput;
+      output: RunJobFlowOutput;
+    };
+    sdk: {
+      input: RunJobFlowCommandInput;
+      output: RunJobFlowCommandOutput;
+    };
+  };
+}

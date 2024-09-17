@@ -340,4 +340,16 @@ export class UpdateFlowCommand extends $Command
   .f(UpdateFlowRequestFilterSensitiveLog, UpdateFlowResponseFilterSensitiveLog)
   .ser(se_UpdateFlowCommand)
   .de(de_UpdateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowRequest;
+      output: UpdateFlowResponse;
+    };
+    sdk: {
+      input: UpdateFlowCommandInput;
+      output: UpdateFlowCommandOutput;
+    };
+  };
+}

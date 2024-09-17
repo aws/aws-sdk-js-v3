@@ -92,4 +92,16 @@ export class DeleteRealtimeEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRealtimeEndpointCommand)
   .de(de_DeleteRealtimeEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRealtimeEndpointInput;
+      output: DeleteRealtimeEndpointOutput;
+    };
+    sdk: {
+      input: DeleteRealtimeEndpointCommandInput;
+      output: DeleteRealtimeEndpointCommandOutput;
+    };
+  };
+}

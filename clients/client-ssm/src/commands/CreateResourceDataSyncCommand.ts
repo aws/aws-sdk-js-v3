@@ -134,4 +134,16 @@ export class CreateResourceDataSyncCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceDataSyncCommand)
   .de(de_CreateResourceDataSyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceDataSyncRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateResourceDataSyncCommandInput;
+      output: CreateResourceDataSyncCommandOutput;
+    };
+  };
+}

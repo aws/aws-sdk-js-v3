@@ -219,4 +219,16 @@ export class SearchUsersCommand extends $Command
   .f(void 0, SearchUsersResponseFilterSensitiveLog)
   .ser(se_SearchUsersCommand)
   .de(de_SearchUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchUsersRequest;
+      output: SearchUsersResponse;
+    };
+    sdk: {
+      input: SearchUsersCommandInput;
+      output: SearchUsersCommandOutput;
+    };
+  };
+}

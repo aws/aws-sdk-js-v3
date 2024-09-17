@@ -111,4 +111,16 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpotDatafeedSubscriptionCommand)
   .de(de_DescribeSpotDatafeedSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotDatafeedSubscriptionRequest;
+      output: DescribeSpotDatafeedSubscriptionResult;
+    };
+    sdk: {
+      input: DescribeSpotDatafeedSubscriptionCommandInput;
+      output: DescribeSpotDatafeedSubscriptionCommandOutput;
+    };
+  };
+}

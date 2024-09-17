@@ -199,4 +199,16 @@ export class GetPredictiveScalingForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPredictiveScalingForecastCommand)
   .de(de_GetPredictiveScalingForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPredictiveScalingForecastType;
+      output: GetPredictiveScalingForecastAnswer;
+    };
+    sdk: {
+      input: GetPredictiveScalingForecastCommandInput;
+      output: GetPredictiveScalingForecastCommandOutput;
+    };
+  };
+}

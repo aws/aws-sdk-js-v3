@@ -118,4 +118,16 @@ export class ListScriptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListScriptsCommand)
   .de(de_ListScriptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListScriptsInput;
+      output: ListScriptsOutput;
+    };
+    sdk: {
+      input: ListScriptsCommandInput;
+      output: ListScriptsCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class DisableGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableGatewayCommand)
   .de(de_DisableGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableGatewayInput;
+      output: DisableGatewayOutput;
+    };
+    sdk: {
+      input: DisableGatewayCommandInput;
+      output: DisableGatewayCommandOutput;
+    };
+  };
+}

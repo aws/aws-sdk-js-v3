@@ -103,4 +103,16 @@ export class PutPublicAccessBlockConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPublicAccessBlockConfigCommand)
   .de(de_PutPublicAccessBlockConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPublicAccessBlockConfigRequest;
+      output: PutPublicAccessBlockConfigResponse;
+    };
+    sdk: {
+      input: PutPublicAccessBlockConfigCommandInput;
+      output: PutPublicAccessBlockConfigCommandOutput;
+    };
+  };
+}

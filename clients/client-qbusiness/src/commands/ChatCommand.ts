@@ -309,4 +309,16 @@ export class ChatCommand extends $Command
   .f(ChatInputFilterSensitiveLog, ChatOutputFilterSensitiveLog)
   .ser(se_ChatCommand)
   .de(de_ChatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChatInput;
+      output: ChatOutput;
+    };
+    sdk: {
+      input: ChatCommandInput;
+      output: ChatCommandOutput;
+    };
+  };
+}

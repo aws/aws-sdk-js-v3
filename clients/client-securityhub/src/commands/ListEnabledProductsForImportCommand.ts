@@ -114,4 +114,16 @@ export class ListEnabledProductsForImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnabledProductsForImportCommand)
   .de(de_ListEnabledProductsForImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnabledProductsForImportRequest;
+      output: ListEnabledProductsForImportResponse;
+    };
+    sdk: {
+      input: ListEnabledProductsForImportCommandInput;
+      output: ListEnabledProductsForImportCommandOutput;
+    };
+  };
+}

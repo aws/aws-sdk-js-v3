@@ -118,4 +118,16 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command
   .f(void 0, ListEnvironmentTemplateVersionsOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentTemplateVersionsCommand)
   .de(de_ListEnvironmentTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentTemplateVersionsInput;
+      output: ListEnvironmentTemplateVersionsOutput;
+    };
+    sdk: {
+      input: ListEnvironmentTemplateVersionsCommandInput;
+      output: ListEnvironmentTemplateVersionsCommandOutput;
+    };
+  };
+}

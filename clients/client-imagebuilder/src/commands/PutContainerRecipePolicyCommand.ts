@@ -113,4 +113,16 @@ export class PutContainerRecipePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutContainerRecipePolicyCommand)
   .de(de_PutContainerRecipePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutContainerRecipePolicyRequest;
+      output: PutContainerRecipePolicyResponse;
+    };
+    sdk: {
+      input: PutContainerRecipePolicyCommandInput;
+      output: PutContainerRecipePolicyCommandOutput;
+    };
+  };
+}

@@ -136,4 +136,16 @@ export class TagInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagInstanceProfileCommand)
   .de(de_TagInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagInstanceProfileCommandInput;
+      output: TagInstanceProfileCommandOutput;
+    };
+  };
+}

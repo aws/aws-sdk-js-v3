@@ -121,4 +121,16 @@ export class CreateWatchlistCommand extends $Command
   .f(CreateWatchlistRequestFilterSensitiveLog, CreateWatchlistResponseFilterSensitiveLog)
   .ser(se_CreateWatchlistCommand)
   .de(de_CreateWatchlistCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWatchlistRequest;
+      output: CreateWatchlistResponse;
+    };
+    sdk: {
+      input: CreateWatchlistCommandInput;
+      output: CreateWatchlistCommandOutput;
+    };
+  };
+}

@@ -163,4 +163,16 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
   )
   .ser(se_CreateCalculatedAttributeDefinitionCommand)
   .de(de_CreateCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCalculatedAttributeDefinitionRequest;
+      output: CreateCalculatedAttributeDefinitionResponse;
+    };
+    sdk: {
+      input: CreateCalculatedAttributeDefinitionCommandInput;
+      output: CreateCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

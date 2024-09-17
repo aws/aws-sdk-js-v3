@@ -116,4 +116,16 @@ export class ListTemplateVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTemplateVersionsCommand)
   .de(de_ListTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTemplateVersionsRequest;
+      output: ListTemplateVersionsResponse;
+    };
+    sdk: {
+      input: ListTemplateVersionsCommandInput;
+      output: ListTemplateVersionsCommandOutput;
+    };
+  };
+}

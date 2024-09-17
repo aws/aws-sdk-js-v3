@@ -154,4 +154,16 @@ export class DescribeGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGeneratedTemplateCommand)
   .de(de_DescribeGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGeneratedTemplateInput;
+      output: DescribeGeneratedTemplateOutput;
+    };
+    sdk: {
+      input: DescribeGeneratedTemplateCommandInput;
+      output: DescribeGeneratedTemplateCommandOutput;
+    };
+  };
+}

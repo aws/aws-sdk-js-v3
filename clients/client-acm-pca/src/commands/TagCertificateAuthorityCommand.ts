@@ -114,4 +114,16 @@ export class TagCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagCertificateAuthorityCommand)
   .de(de_TagCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagCertificateAuthorityCommandInput;
+      output: TagCertificateAuthorityCommandOutput;
+    };
+  };
+}

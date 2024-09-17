@@ -141,4 +141,16 @@ export class ListBatchJobExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBatchJobExecutionsCommand)
   .de(de_ListBatchJobExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBatchJobExecutionsRequest;
+      output: ListBatchJobExecutionsResponse;
+    };
+    sdk: {
+      input: ListBatchJobExecutionsCommandInput;
+      output: ListBatchJobExecutionsCommandOutput;
+    };
+  };
+}

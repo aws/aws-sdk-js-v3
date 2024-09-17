@@ -119,4 +119,16 @@ export class UpdateRuleVersionCommand extends $Command
   .f(UpdateRuleVersionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRuleVersionCommand)
   .de(de_UpdateRuleVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleVersionRequest;
+      output: UpdateRuleVersionResult;
+    };
+    sdk: {
+      input: UpdateRuleVersionCommandInput;
+      output: UpdateRuleVersionCommandOutput;
+    };
+  };
+}

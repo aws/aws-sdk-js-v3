@@ -139,4 +139,16 @@ export class GetDocumentCommand extends $Command
   .f(GetDocumentRequestFilterSensitiveLog, GetDocumentResponseFilterSensitiveLog)
   .ser(se_GetDocumentCommand)
   .de(de_GetDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentRequest;
+      output: GetDocumentResponse;
+    };
+    sdk: {
+      input: GetDocumentCommandInput;
+      output: GetDocumentCommandOutput;
+    };
+  };
+}

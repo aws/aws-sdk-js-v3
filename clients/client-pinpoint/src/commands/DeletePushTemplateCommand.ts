@@ -102,4 +102,16 @@ export class DeletePushTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePushTemplateCommand)
   .de(de_DeletePushTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePushTemplateRequest;
+      output: DeletePushTemplateResponse;
+    };
+    sdk: {
+      input: DeletePushTemplateCommandInput;
+      output: DeletePushTemplateCommandOutput;
+    };
+  };
+}

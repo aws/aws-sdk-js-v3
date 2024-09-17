@@ -109,4 +109,16 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualInterfaceTestHistoryCommand)
   .de(de_ListVirtualInterfaceTestHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualInterfaceTestHistoryRequest;
+      output: ListVirtualInterfaceTestHistoryResponse;
+    };
+    sdk: {
+      input: ListVirtualInterfaceTestHistoryCommandInput;
+      output: ListVirtualInterfaceTestHistoryCommandOutput;
+    };
+  };
+}

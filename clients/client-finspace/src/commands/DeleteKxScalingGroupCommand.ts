@@ -100,4 +100,16 @@ export class DeleteKxScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKxScalingGroupCommand)
   .de(de_DeleteKxScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKxScalingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKxScalingGroupCommandInput;
+      output: DeleteKxScalingGroupCommandOutput;
+    };
+  };
+}

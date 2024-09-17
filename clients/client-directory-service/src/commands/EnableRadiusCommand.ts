@@ -103,4 +103,16 @@ export class EnableRadiusCommand extends $Command
   .f(EnableRadiusRequestFilterSensitiveLog, void 0)
   .ser(se_EnableRadiusCommand)
   .de(de_EnableRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableRadiusCommandInput;
+      output: EnableRadiusCommandOutput;
+    };
+  };
+}

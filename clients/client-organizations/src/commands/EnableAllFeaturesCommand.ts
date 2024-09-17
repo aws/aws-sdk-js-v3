@@ -350,4 +350,16 @@ export class EnableAllFeaturesCommand extends $Command
   .f(void 0, EnableAllFeaturesResponseFilterSensitiveLog)
   .ser(se_EnableAllFeaturesCommand)
   .de(de_EnableAllFeaturesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: EnableAllFeaturesResponse;
+    };
+    sdk: {
+      input: EnableAllFeaturesCommandInput;
+      output: EnableAllFeaturesCommandOutput;
+    };
+  };
+}

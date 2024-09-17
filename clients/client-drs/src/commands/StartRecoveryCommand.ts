@@ -160,4 +160,16 @@ export class StartRecoveryCommand extends $Command
   .f(StartRecoveryRequestFilterSensitiveLog, StartRecoveryResponseFilterSensitiveLog)
   .ser(se_StartRecoveryCommand)
   .de(de_StartRecoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRecoveryRequest;
+      output: StartRecoveryResponse;
+    };
+    sdk: {
+      input: StartRecoveryCommandInput;
+      output: StartRecoveryCommandOutput;
+    };
+  };
+}

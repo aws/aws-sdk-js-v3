@@ -141,4 +141,16 @@ export class CreateLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLibraryItemCommand)
   .de(de_CreateLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLibraryItemInput;
+      output: CreateLibraryItemOutput;
+    };
+    sdk: {
+      input: CreateLibraryItemCommandInput;
+      output: CreateLibraryItemCommandOutput;
+    };
+  };
+}

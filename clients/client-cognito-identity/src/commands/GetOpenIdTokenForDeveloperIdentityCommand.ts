@@ -135,4 +135,16 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   )
   .ser(se_GetOpenIdTokenForDeveloperIdentityCommand)
   .de(de_GetOpenIdTokenForDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOpenIdTokenForDeveloperIdentityInput;
+      output: GetOpenIdTokenForDeveloperIdentityResponse;
+    };
+    sdk: {
+      input: GetOpenIdTokenForDeveloperIdentityCommandInput;
+      output: GetOpenIdTokenForDeveloperIdentityCommandOutput;
+    };
+  };
+}

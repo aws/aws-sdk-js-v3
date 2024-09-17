@@ -343,4 +343,16 @@ export class UpdateAssociationCommand extends $Command
   .f(UpdateAssociationRequestFilterSensitiveLog, UpdateAssociationResultFilterSensitiveLog)
   .ser(se_UpdateAssociationCommand)
   .de(de_UpdateAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssociationRequest;
+      output: UpdateAssociationResult;
+    };
+    sdk: {
+      input: UpdateAssociationCommandInput;
+      output: UpdateAssociationCommandOutput;
+    };
+  };
+}

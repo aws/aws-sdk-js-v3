@@ -116,4 +116,16 @@ export class GetThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetThemeCommand)
   .de(de_GetThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThemeRequest;
+      output: GetThemeResponse;
+    };
+    sdk: {
+      input: GetThemeCommandInput;
+      output: GetThemeCommandOutput;
+    };
+  };
+}

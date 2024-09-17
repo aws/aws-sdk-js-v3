@@ -937,4 +937,16 @@ export class CreateDistributionCommand extends $Command
   .f(CreateDistributionRequestFilterSensitiveLog, CreateDistributionResultFilterSensitiveLog)
   .ser(se_CreateDistributionCommand)
   .de(de_CreateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDistributionRequest;
+      output: CreateDistributionResult;
+    };
+    sdk: {
+      input: CreateDistributionCommandInput;
+      output: CreateDistributionCommandOutput;
+    };
+  };
+}

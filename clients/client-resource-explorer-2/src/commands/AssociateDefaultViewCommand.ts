@@ -108,4 +108,16 @@ export class AssociateDefaultViewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDefaultViewCommand)
   .de(de_AssociateDefaultViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDefaultViewInput;
+      output: AssociateDefaultViewOutput;
+    };
+    sdk: {
+      input: AssociateDefaultViewCommandInput;
+      output: AssociateDefaultViewCommandOutput;
+    };
+  };
+}

@@ -213,4 +213,16 @@ export class CreateCachePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCachePolicyCommand)
   .de(de_CreateCachePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCachePolicyRequest;
+      output: CreateCachePolicyResult;
+    };
+    sdk: {
+      input: CreateCachePolicyCommandInput;
+      output: CreateCachePolicyCommandOutput;
+    };
+  };
+}

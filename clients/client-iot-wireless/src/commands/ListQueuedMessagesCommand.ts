@@ -115,4 +115,16 @@ export class ListQueuedMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueuedMessagesCommand)
   .de(de_ListQueuedMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueuedMessagesRequest;
+      output: ListQueuedMessagesResponse;
+    };
+    sdk: {
+      input: ListQueuedMessagesCommandInput;
+      output: ListQueuedMessagesCommandOutput;
+    };
+  };
+}

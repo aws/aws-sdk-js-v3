@@ -129,4 +129,16 @@ export class UpdateTemplatePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTemplatePermissionsCommand)
   .de(de_UpdateTemplatePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplatePermissionsRequest;
+      output: UpdateTemplatePermissionsResponse;
+    };
+    sdk: {
+      input: UpdateTemplatePermissionsCommandInput;
+      output: UpdateTemplatePermissionsCommandOutput;
+    };
+  };
+}

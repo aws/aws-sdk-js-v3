@@ -96,4 +96,16 @@ export class DeleteKxDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKxDatabaseCommand)
   .de(de_DeleteKxDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKxDatabaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKxDatabaseCommandInput;
+      output: DeleteKxDatabaseCommandOutput;
+    };
+  };
+}

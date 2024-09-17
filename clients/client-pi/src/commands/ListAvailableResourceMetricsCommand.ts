@@ -105,4 +105,16 @@ export class ListAvailableResourceMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableResourceMetricsCommand)
   .de(de_ListAvailableResourceMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableResourceMetricsRequest;
+      output: ListAvailableResourceMetricsResponse;
+    };
+    sdk: {
+      input: ListAvailableResourceMetricsCommandInput;
+      output: ListAvailableResourceMetricsCommandOutput;
+    };
+  };
+}

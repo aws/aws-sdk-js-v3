@@ -119,4 +119,16 @@ export class ListApplicationGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationGrantsCommand)
   .de(de_ListApplicationGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationGrantsRequest;
+      output: ListApplicationGrantsResponse;
+    };
+    sdk: {
+      input: ListApplicationGrantsCommandInput;
+      output: ListApplicationGrantsCommandOutput;
+    };
+  };
+}

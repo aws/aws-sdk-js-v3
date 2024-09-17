@@ -107,4 +107,16 @@ export class ListHostKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostKeysCommand)
   .de(de_ListHostKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostKeysRequest;
+      output: ListHostKeysResponse;
+    };
+    sdk: {
+      input: ListHostKeysCommandInput;
+      output: ListHostKeysCommandOutput;
+    };
+  };
+}

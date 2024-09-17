@@ -95,4 +95,16 @@ export class DeleteUserHierarchyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserHierarchyGroupCommand)
   .de(de_DeleteUserHierarchyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserHierarchyGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserHierarchyGroupCommandInput;
+      output: DeleteUserHierarchyGroupCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class UpdatePlaceIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePlaceIndexCommand)
   .de(de_UpdatePlaceIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePlaceIndexRequest;
+      output: UpdatePlaceIndexResponse;
+    };
+    sdk: {
+      input: UpdatePlaceIndexCommandInput;
+      output: UpdatePlaceIndexCommandOutput;
+    };
+  };
+}

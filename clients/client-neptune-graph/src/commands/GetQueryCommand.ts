@@ -106,4 +106,16 @@ export class GetQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryCommand)
   .de(de_GetQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryInput;
+      output: GetQueryOutput;
+    };
+    sdk: {
+      input: GetQueryCommandInput;
+      output: GetQueryCommandOutput;
+    };
+  };
+}

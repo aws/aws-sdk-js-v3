@@ -91,4 +91,16 @@ export class DeleteEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventCommand)
   .de(de_DeleteEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventCommandInput;
+      output: DeleteEventCommandOutput;
+    };
+  };
+}

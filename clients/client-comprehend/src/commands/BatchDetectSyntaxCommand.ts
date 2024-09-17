@@ -129,4 +129,16 @@ export class BatchDetectSyntaxCommand extends $Command
   .f(BatchDetectSyntaxRequestFilterSensitiveLog, BatchDetectSyntaxResponseFilterSensitiveLog)
   .ser(se_BatchDetectSyntaxCommand)
   .de(de_BatchDetectSyntaxCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDetectSyntaxRequest;
+      output: BatchDetectSyntaxResponse;
+    };
+    sdk: {
+      input: BatchDetectSyntaxCommandInput;
+      output: BatchDetectSyntaxCommandOutput;
+    };
+  };
+}

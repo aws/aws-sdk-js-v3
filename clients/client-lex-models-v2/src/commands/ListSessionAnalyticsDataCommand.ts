@@ -144,4 +144,16 @@ export class ListSessionAnalyticsDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSessionAnalyticsDataCommand)
   .de(de_ListSessionAnalyticsDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSessionAnalyticsDataRequest;
+      output: ListSessionAnalyticsDataResponse;
+    };
+    sdk: {
+      input: ListSessionAnalyticsDataCommandInput;
+      output: ListSessionAnalyticsDataCommandOutput;
+    };
+  };
+}

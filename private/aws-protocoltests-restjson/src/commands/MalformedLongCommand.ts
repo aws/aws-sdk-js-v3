@@ -72,4 +72,16 @@ export class MalformedLongCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedLongCommand)
   .de(de_MalformedLongCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedLongInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedLongCommandInput;
+      output: MalformedLongCommandOutput;
+    };
+  };
+}

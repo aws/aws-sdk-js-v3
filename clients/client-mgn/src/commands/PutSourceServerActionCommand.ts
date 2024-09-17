@@ -135,4 +135,16 @@ export class PutSourceServerActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSourceServerActionCommand)
   .de(de_PutSourceServerActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSourceServerActionRequest;
+      output: SourceServerActionDocument;
+    };
+    sdk: {
+      input: PutSourceServerActionCommandInput;
+      output: PutSourceServerActionCommandOutput;
+    };
+  };
+}

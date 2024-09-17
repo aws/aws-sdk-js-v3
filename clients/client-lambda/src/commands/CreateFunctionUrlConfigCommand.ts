@@ -132,4 +132,16 @@ export class CreateFunctionUrlConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFunctionUrlConfigCommand)
   .de(de_CreateFunctionUrlConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionUrlConfigRequest;
+      output: CreateFunctionUrlConfigResponse;
+    };
+    sdk: {
+      input: CreateFunctionUrlConfigCommandInput;
+      output: CreateFunctionUrlConfigCommandOutput;
+    };
+  };
+}

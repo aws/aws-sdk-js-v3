@@ -133,4 +133,16 @@ export class CreateAppMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppMonitorCommand)
   .de(de_CreateAppMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppMonitorRequest;
+      output: CreateAppMonitorResponse;
+    };
+    sdk: {
+      input: CreateAppMonitorCommandInput;
+      output: CreateAppMonitorCommandOutput;
+    };
+  };
+}

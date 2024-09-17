@@ -135,4 +135,16 @@ export class DeregisterTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTargetsCommand)
   .de(de_DeregisterTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTargetsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterTargetsCommandInput;
+      output: DeregisterTargetsCommandOutput;
+    };
+  };
+}

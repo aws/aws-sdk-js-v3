@@ -124,4 +124,16 @@ export class UpdateVPCConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVPCConnectionCommand)
   .de(de_UpdateVPCConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVPCConnectionRequest;
+      output: UpdateVPCConnectionResponse;
+    };
+    sdk: {
+      input: UpdateVPCConnectionCommandInput;
+      output: UpdateVPCConnectionCommandOutput;
+    };
+  };
+}

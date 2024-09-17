@@ -165,4 +165,16 @@ export class ListGraphqlApisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGraphqlApisCommand)
   .de(de_ListGraphqlApisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGraphqlApisRequest;
+      output: ListGraphqlApisResponse;
+    };
+    sdk: {
+      input: ListGraphqlApisCommandInput;
+      output: ListGraphqlApisCommandOutput;
+    };
+  };
+}

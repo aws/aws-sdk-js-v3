@@ -98,4 +98,16 @@ export class RebootInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootInstancesCommand)
   .de(de_RebootInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootInstancesRequest;
+      output: {};
+    };
+    sdk: {
+      input: RebootInstancesCommandInput;
+      output: RebootInstancesCommandOutput;
+    };
+  };
+}

@@ -136,4 +136,16 @@ export class CreateUserGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserGroupCommand)
   .de(de_CreateUserGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserGroupMessage;
+      output: UserGroup;
+    };
+    sdk: {
+      input: CreateUserGroupCommandInput;
+      output: CreateUserGroupCommandOutput;
+    };
+  };
+}

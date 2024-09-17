@@ -103,4 +103,16 @@ export class BatchAcknowledgeAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchAcknowledgeAlarmCommand)
   .de(de_BatchAcknowledgeAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAcknowledgeAlarmRequest;
+      output: BatchAcknowledgeAlarmResponse;
+    };
+    sdk: {
+      input: BatchAcknowledgeAlarmCommandInput;
+      output: BatchAcknowledgeAlarmCommandOutput;
+    };
+  };
+}

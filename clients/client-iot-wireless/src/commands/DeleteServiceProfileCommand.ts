@@ -93,4 +93,16 @@ export class DeleteServiceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceProfileCommand)
   .de(de_DeleteServiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceProfileCommandInput;
+      output: DeleteServiceProfileCommandOutput;
+    };
+  };
+}

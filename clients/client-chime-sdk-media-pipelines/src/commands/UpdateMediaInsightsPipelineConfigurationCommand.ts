@@ -314,4 +314,16 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command
   )
   .ser(se_UpdateMediaInsightsPipelineConfigurationCommand)
   .de(de_UpdateMediaInsightsPipelineConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMediaInsightsPipelineConfigurationRequest;
+      output: UpdateMediaInsightsPipelineConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateMediaInsightsPipelineConfigurationCommandInput;
+      output: UpdateMediaInsightsPipelineConfigurationCommandOutput;
+    };
+  };
+}

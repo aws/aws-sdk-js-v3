@@ -139,4 +139,16 @@ export class DescribeVirtualInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualInterfacesCommand)
   .de(de_DescribeVirtualInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualInterfacesRequest;
+      output: VirtualInterfaces;
+    };
+    sdk: {
+      input: DescribeVirtualInterfacesCommandInput;
+      output: DescribeVirtualInterfacesCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class ListVectorEnrichmentJobsCommand extends $Command
   .f(ListVectorEnrichmentJobInputFilterSensitiveLog, ListVectorEnrichmentJobOutputFilterSensitiveLog)
   .ser(se_ListVectorEnrichmentJobsCommand)
   .de(de_ListVectorEnrichmentJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVectorEnrichmentJobInput;
+      output: ListVectorEnrichmentJobOutput;
+    };
+    sdk: {
+      input: ListVectorEnrichmentJobsCommandInput;
+      output: ListVectorEnrichmentJobsCommandOutput;
+    };
+  };
+}

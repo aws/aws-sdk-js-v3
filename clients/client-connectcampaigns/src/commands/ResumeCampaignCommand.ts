@@ -96,4 +96,16 @@ export class ResumeCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeCampaignCommand)
   .de(de_ResumeCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeCampaignRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeCampaignCommandInput;
+      output: ResumeCampaignCommandOutput;
+    };
+  };
+}

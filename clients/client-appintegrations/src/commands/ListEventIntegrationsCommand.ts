@@ -104,4 +104,16 @@ export class ListEventIntegrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventIntegrationsCommand)
   .de(de_ListEventIntegrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventIntegrationsRequest;
+      output: ListEventIntegrationsResponse;
+    };
+    sdk: {
+      input: ListEventIntegrationsCommandInput;
+      output: ListEventIntegrationsCommandOutput;
+    };
+  };
+}

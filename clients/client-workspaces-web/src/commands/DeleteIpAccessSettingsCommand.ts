@@ -90,4 +90,16 @@ export class DeleteIpAccessSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpAccessSettingsCommand)
   .de(de_DeleteIpAccessSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpAccessSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIpAccessSettingsCommandInput;
+      output: DeleteIpAccessSettingsCommandOutput;
+    };
+  };
+}

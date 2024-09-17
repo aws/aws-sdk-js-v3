@@ -109,4 +109,16 @@ export class ListLinuxSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLinuxSubscriptionsCommand)
   .de(de_ListLinuxSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLinuxSubscriptionsRequest;
+      output: ListLinuxSubscriptionsResponse;
+    };
+    sdk: {
+      input: ListLinuxSubscriptionsCommandInput;
+      output: ListLinuxSubscriptionsCommandOutput;
+    };
+  };
+}

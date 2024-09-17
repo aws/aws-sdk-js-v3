@@ -129,4 +129,16 @@ export class GetResourceShareAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceShareAssociationsCommand)
   .de(de_GetResourceShareAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceShareAssociationsRequest;
+      output: GetResourceShareAssociationsResponse;
+    };
+    sdk: {
+      input: GetResourceShareAssociationsCommandInput;
+      output: GetResourceShareAssociationsCommandOutput;
+    };
+  };
+}

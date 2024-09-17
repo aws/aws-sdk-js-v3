@@ -106,4 +106,16 @@ export class UpdateHostedZoneCommentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHostedZoneCommentCommand)
   .de(de_UpdateHostedZoneCommentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHostedZoneCommentRequest;
+      output: UpdateHostedZoneCommentResponse;
+    };
+    sdk: {
+      input: UpdateHostedZoneCommentCommandInput;
+      output: UpdateHostedZoneCommentCommandOutput;
+    };
+  };
+}

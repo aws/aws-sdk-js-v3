@@ -104,4 +104,16 @@ export class ListReadinessChecksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReadinessChecksCommand)
   .de(de_ListReadinessChecksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReadinessChecksRequest;
+      output: ListReadinessChecksResponse;
+    };
+    sdk: {
+      input: ListReadinessChecksCommandInput;
+      output: ListReadinessChecksCommandOutput;
+    };
+  };
+}

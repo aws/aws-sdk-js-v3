@@ -139,4 +139,16 @@ export class ListComponentBuildVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComponentBuildVersionsCommand)
   .de(de_ListComponentBuildVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentBuildVersionsRequest;
+      output: ListComponentBuildVersionsResponse;
+    };
+    sdk: {
+      input: ListComponentBuildVersionsCommandInput;
+      output: ListComponentBuildVersionsCommandOutput;
+    };
+  };
+}

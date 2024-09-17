@@ -128,4 +128,16 @@ export class ListIntentPathsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIntentPathsCommand)
   .de(de_ListIntentPathsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIntentPathsRequest;
+      output: ListIntentPathsResponse;
+    };
+    sdk: {
+      input: ListIntentPathsCommandInput;
+      output: ListIntentPathsCommandOutput;
+    };
+  };
+}

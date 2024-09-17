@@ -122,4 +122,16 @@ export class AttachToIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachToIndexCommand)
   .de(de_AttachToIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachToIndexRequest;
+      output: AttachToIndexResponse;
+    };
+    sdk: {
+      input: AttachToIndexCommandInput;
+      output: AttachToIndexCommandOutput;
+    };
+  };
+}

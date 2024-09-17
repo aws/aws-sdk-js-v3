@@ -124,4 +124,16 @@ export class PutDomainPermissionsPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDomainPermissionsPolicyCommand)
   .de(de_PutDomainPermissionsPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDomainPermissionsPolicyRequest;
+      output: PutDomainPermissionsPolicyResult;
+    };
+    sdk: {
+      input: PutDomainPermissionsPolicyCommandInput;
+      output: PutDomainPermissionsPolicyCommandOutput;
+    };
+  };
+}

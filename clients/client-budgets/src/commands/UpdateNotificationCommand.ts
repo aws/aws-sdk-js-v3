@@ -109,4 +109,16 @@ export class UpdateNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNotificationCommand)
   .de(de_UpdateNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNotificationCommandInput;
+      output: UpdateNotificationCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class DetachTypedLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachTypedLinkCommand)
   .de(de_DetachTypedLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachTypedLinkRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachTypedLinkCommandInput;
+      output: DetachTypedLinkCommandOutput;
+    };
+  };
+}

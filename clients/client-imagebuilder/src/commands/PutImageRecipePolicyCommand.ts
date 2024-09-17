@@ -108,4 +108,16 @@ export class PutImageRecipePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutImageRecipePolicyCommand)
   .de(de_PutImageRecipePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutImageRecipePolicyRequest;
+      output: PutImageRecipePolicyResponse;
+    };
+    sdk: {
+      input: PutImageRecipePolicyCommandInput;
+      output: PutImageRecipePolicyCommandOutput;
+    };
+  };
+}

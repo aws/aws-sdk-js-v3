@@ -107,4 +107,16 @@ export class ListKxClusterNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxClusterNodesCommand)
   .de(de_ListKxClusterNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxClusterNodesRequest;
+      output: ListKxClusterNodesResponse;
+    };
+    sdk: {
+      input: ListKxClusterNodesCommandInput;
+      output: ListKxClusterNodesCommandOutput;
+    };
+  };
+}

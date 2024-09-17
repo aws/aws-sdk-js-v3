@@ -136,4 +136,16 @@ export class GetReplicationConfigurationCommand extends $Command
   .f(void 0, ReplicationConfigurationFilterSensitiveLog)
   .ser(se_GetReplicationConfigurationCommand)
   .de(de_GetReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReplicationConfigurationRequest;
+      output: ReplicationConfiguration;
+    };
+    sdk: {
+      input: GetReplicationConfigurationCommandInput;
+      output: GetReplicationConfigurationCommandOutput;
+    };
+  };
+}

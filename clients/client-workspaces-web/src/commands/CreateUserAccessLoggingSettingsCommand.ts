@@ -111,4 +111,16 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command
   .f(CreateUserAccessLoggingSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateUserAccessLoggingSettingsCommand)
   .de(de_CreateUserAccessLoggingSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserAccessLoggingSettingsRequest;
+      output: CreateUserAccessLoggingSettingsResponse;
+    };
+    sdk: {
+      input: CreateUserAccessLoggingSettingsCommandInput;
+      output: CreateUserAccessLoggingSettingsCommandOutput;
+    };
+  };
+}

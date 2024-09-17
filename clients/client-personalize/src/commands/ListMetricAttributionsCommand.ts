@@ -95,4 +95,16 @@ export class ListMetricAttributionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMetricAttributionsCommand)
   .de(de_ListMetricAttributionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMetricAttributionsRequest;
+      output: ListMetricAttributionsResponse;
+    };
+    sdk: {
+      input: ListMetricAttributionsCommandInput;
+      output: ListMetricAttributionsCommandOutput;
+    };
+  };
+}

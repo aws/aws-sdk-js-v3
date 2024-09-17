@@ -118,4 +118,16 @@ export class PutClassificationExportConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutClassificationExportConfigurationCommand)
   .de(de_PutClassificationExportConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutClassificationExportConfigurationRequest;
+      output: PutClassificationExportConfigurationResponse;
+    };
+    sdk: {
+      input: PutClassificationExportConfigurationCommandInput;
+      output: PutClassificationExportConfigurationCommandOutput;
+    };
+  };
+}

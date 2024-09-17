@@ -136,4 +136,16 @@ export class UpdateFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFunctionCommand)
   .de(de_UpdateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionRequest;
+      output: UpdateFunctionResponse;
+    };
+    sdk: {
+      input: UpdateFunctionCommandInput;
+      output: UpdateFunctionCommandOutput;
+    };
+  };
+}

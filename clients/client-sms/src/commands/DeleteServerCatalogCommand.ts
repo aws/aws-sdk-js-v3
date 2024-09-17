@@ -86,4 +86,16 @@ export class DeleteServerCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServerCatalogCommand)
   .de(de_DeleteServerCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteServerCatalogCommandInput;
+      output: DeleteServerCatalogCommandOutput;
+    };
+  };
+}

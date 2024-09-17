@@ -100,4 +100,16 @@ export class DeleteChatControlsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChatControlsConfigurationCommand)
   .de(de_DeleteChatControlsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChatControlsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChatControlsConfigurationCommandInput;
+      output: DeleteChatControlsConfigurationCommandOutput;
+    };
+  };
+}

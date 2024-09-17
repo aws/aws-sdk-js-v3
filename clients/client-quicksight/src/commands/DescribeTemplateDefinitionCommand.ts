@@ -5087,4 +5087,16 @@ export class DescribeTemplateDefinitionCommand extends $Command
   .f(void 0, DescribeTemplateDefinitionResponseFilterSensitiveLog)
   .ser(se_DescribeTemplateDefinitionCommand)
   .de(de_DescribeTemplateDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTemplateDefinitionRequest;
+      output: DescribeTemplateDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeTemplateDefinitionCommandInput;
+      output: DescribeTemplateDefinitionCommandOutput;
+    };
+  };
+}

@@ -200,4 +200,16 @@ export class CreateGlobalTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGlobalTableCommand)
   .de(de_CreateGlobalTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlobalTableInput;
+      output: CreateGlobalTableOutput;
+    };
+    sdk: {
+      input: CreateGlobalTableCommandInput;
+      output: CreateGlobalTableCommandOutput;
+    };
+  };
+}

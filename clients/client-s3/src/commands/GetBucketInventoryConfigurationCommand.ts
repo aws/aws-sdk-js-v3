@@ -150,4 +150,16 @@ export class GetBucketInventoryConfigurationCommand extends $Command
   .f(void 0, GetBucketInventoryConfigurationOutputFilterSensitiveLog)
   .ser(se_GetBucketInventoryConfigurationCommand)
   .de(de_GetBucketInventoryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketInventoryConfigurationRequest;
+      output: GetBucketInventoryConfigurationOutput;
+    };
+    sdk: {
+      input: GetBucketInventoryConfigurationCommandInput;
+      output: GetBucketInventoryConfigurationCommandOutput;
+    };
+  };
+}

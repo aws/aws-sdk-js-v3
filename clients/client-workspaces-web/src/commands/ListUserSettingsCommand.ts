@@ -123,4 +123,16 @@ export class ListUserSettingsCommand extends $Command
   .f(void 0, ListUserSettingsResponseFilterSensitiveLog)
   .ser(se_ListUserSettingsCommand)
   .de(de_ListUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserSettingsRequest;
+      output: ListUserSettingsResponse;
+    };
+    sdk: {
+      input: ListUserSettingsCommandInput;
+      output: ListUserSettingsCommandOutput;
+    };
+  };
+}

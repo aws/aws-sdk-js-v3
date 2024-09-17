@@ -104,4 +104,16 @@ export class ListStepConsumersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStepConsumersCommand)
   .de(de_ListStepConsumersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStepConsumersRequest;
+      output: ListStepConsumersResponse;
+    };
+    sdk: {
+      input: ListStepConsumersCommandInput;
+      output: ListStepConsumersCommandOutput;
+    };
+  };
+}

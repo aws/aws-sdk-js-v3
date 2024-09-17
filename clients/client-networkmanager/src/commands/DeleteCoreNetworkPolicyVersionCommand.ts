@@ -117,4 +117,16 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCoreNetworkPolicyVersionCommand)
   .de(de_DeleteCoreNetworkPolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCoreNetworkPolicyVersionRequest;
+      output: DeleteCoreNetworkPolicyVersionResponse;
+    };
+    sdk: {
+      input: DeleteCoreNetworkPolicyVersionCommandInput;
+      output: DeleteCoreNetworkPolicyVersionCommandOutput;
+    };
+  };
+}

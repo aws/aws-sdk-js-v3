@@ -99,4 +99,16 @@ export class CreateAddonSubscriptionCommand extends $Command
   .f(CreateAddonSubscriptionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAddonSubscriptionCommand)
   .de(de_CreateAddonSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddonSubscriptionRequest;
+      output: CreateAddonSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateAddonSubscriptionCommandInput;
+      output: CreateAddonSubscriptionCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class DescribeEngineDefaultParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEngineDefaultParametersCommand)
   .de(de_DescribeEngineDefaultParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEngineDefaultParametersMessage;
+      output: DescribeEngineDefaultParametersResult;
+    };
+    sdk: {
+      input: DescribeEngineDefaultParametersCommandInput;
+      output: DescribeEngineDefaultParametersCommandOutput;
+    };
+  };
+}

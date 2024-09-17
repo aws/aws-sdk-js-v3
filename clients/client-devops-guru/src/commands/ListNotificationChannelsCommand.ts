@@ -114,4 +114,16 @@ export class ListNotificationChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotificationChannelsCommand)
   .de(de_ListNotificationChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotificationChannelsRequest;
+      output: ListNotificationChannelsResponse;
+    };
+    sdk: {
+      input: ListNotificationChannelsCommandInput;
+      output: ListNotificationChannelsCommandOutput;
+    };
+  };
+}

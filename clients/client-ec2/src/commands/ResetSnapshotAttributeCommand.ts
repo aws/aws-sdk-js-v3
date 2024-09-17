@@ -91,4 +91,16 @@ export class ResetSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetSnapshotAttributeCommand)
   .de(de_ResetSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetSnapshotAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetSnapshotAttributeCommandInput;
+      output: ResetSnapshotAttributeCommandOutput;
+    };
+  };
+}

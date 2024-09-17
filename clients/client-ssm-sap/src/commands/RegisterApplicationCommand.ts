@@ -133,4 +133,16 @@ export class RegisterApplicationCommand extends $Command
   .f(RegisterApplicationInputFilterSensitiveLog, void 0)
   .ser(se_RegisterApplicationCommand)
   .de(de_RegisterApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterApplicationInput;
+      output: RegisterApplicationOutput;
+    };
+    sdk: {
+      input: RegisterApplicationCommandInput;
+      output: RegisterApplicationCommandOutput;
+    };
+  };
+}

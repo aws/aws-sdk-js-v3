@@ -321,4 +321,16 @@ export class DescribeProjectVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectVersionsCommand)
   .de(de_DescribeProjectVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectVersionsRequest;
+      output: DescribeProjectVersionsResponse;
+    };
+    sdk: {
+      input: DescribeProjectVersionsCommandInput;
+      output: DescribeProjectVersionsCommandOutput;
+    };
+  };
+}

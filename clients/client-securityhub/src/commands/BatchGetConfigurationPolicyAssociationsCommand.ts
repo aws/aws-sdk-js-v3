@@ -189,4 +189,16 @@ export class BatchGetConfigurationPolicyAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetConfigurationPolicyAssociationsCommand)
   .de(de_BatchGetConfigurationPolicyAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetConfigurationPolicyAssociationsRequest;
+      output: BatchGetConfigurationPolicyAssociationsResponse;
+    };
+    sdk: {
+      input: BatchGetConfigurationPolicyAssociationsCommandInput;
+      output: BatchGetConfigurationPolicyAssociationsCommandOutput;
+    };
+  };
+}

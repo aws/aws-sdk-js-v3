@@ -105,4 +105,16 @@ export class GetLicenseUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLicenseUsageCommand)
   .de(de_GetLicenseUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLicenseUsageRequest;
+      output: GetLicenseUsageResponse;
+    };
+    sdk: {
+      input: GetLicenseUsageCommandInput;
+      output: GetLicenseUsageCommandOutput;
+    };
+  };
+}

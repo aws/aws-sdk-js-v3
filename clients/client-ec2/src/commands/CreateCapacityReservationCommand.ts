@@ -151,4 +151,16 @@ export class CreateCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCapacityReservationCommand)
   .de(de_CreateCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCapacityReservationRequest;
+      output: CreateCapacityReservationResult;
+    };
+    sdk: {
+      input: CreateCapacityReservationCommandInput;
+      output: CreateCapacityReservationCommandOutput;
+    };
+  };
+}

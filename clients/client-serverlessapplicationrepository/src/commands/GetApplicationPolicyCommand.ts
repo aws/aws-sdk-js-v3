@@ -109,4 +109,16 @@ export class GetApplicationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationPolicyCommand)
   .de(de_GetApplicationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationPolicyRequest;
+      output: GetApplicationPolicyResponse;
+    };
+    sdk: {
+      input: GetApplicationPolicyCommandInput;
+      output: GetApplicationPolicyCommandOutput;
+    };
+  };
+}

@@ -89,4 +89,16 @@ export class DeleteAccessGrantsInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessGrantsInstanceCommand)
   .de(de_DeleteAccessGrantsInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessGrantsInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessGrantsInstanceCommandInput;
+      output: DeleteAccessGrantsInstanceCommandOutput;
+    };
+  };
+}

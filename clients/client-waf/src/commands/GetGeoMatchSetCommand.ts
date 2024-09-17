@@ -103,4 +103,16 @@ export class GetGeoMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGeoMatchSetCommand)
   .de(de_GetGeoMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGeoMatchSetRequest;
+      output: GetGeoMatchSetResponse;
+    };
+    sdk: {
+      input: GetGeoMatchSetCommandInput;
+      output: GetGeoMatchSetCommandOutput;
+    };
+  };
+}

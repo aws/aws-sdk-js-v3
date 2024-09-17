@@ -109,4 +109,16 @@ export class CreateUsageLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUsageLimitCommand)
   .de(de_CreateUsageLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUsageLimitRequest;
+      output: CreateUsageLimitResponse;
+    };
+    sdk: {
+      input: CreateUsageLimitCommandInput;
+      output: CreateUsageLimitCommandOutput;
+    };
+  };
+}

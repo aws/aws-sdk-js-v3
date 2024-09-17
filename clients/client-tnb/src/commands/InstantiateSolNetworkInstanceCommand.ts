@@ -117,4 +117,16 @@ export class InstantiateSolNetworkInstanceCommand extends $Command
   .f(InstantiateSolNetworkInstanceInputFilterSensitiveLog, InstantiateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_InstantiateSolNetworkInstanceCommand)
   .de(de_InstantiateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InstantiateSolNetworkInstanceInput;
+      output: InstantiateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: InstantiateSolNetworkInstanceCommandInput;
+      output: InstantiateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

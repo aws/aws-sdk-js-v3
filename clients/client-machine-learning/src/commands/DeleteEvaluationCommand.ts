@@ -91,4 +91,16 @@ export class DeleteEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEvaluationCommand)
   .de(de_DeleteEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEvaluationInput;
+      output: DeleteEvaluationOutput;
+    };
+    sdk: {
+      input: DeleteEvaluationCommandInput;
+      output: DeleteEvaluationCommandOutput;
+    };
+  };
+}

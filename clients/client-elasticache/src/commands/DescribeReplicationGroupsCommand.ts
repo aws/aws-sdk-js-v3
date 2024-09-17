@@ -278,4 +278,16 @@ export class DescribeReplicationGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationGroupsCommand)
   .de(de_DescribeReplicationGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationGroupsMessage;
+      output: ReplicationGroupMessage;
+    };
+    sdk: {
+      input: DescribeReplicationGroupsCommandInput;
+      output: DescribeReplicationGroupsCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class DeleteContactMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContactMethodCommand)
   .de(de_DeleteContactMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContactMethodRequest;
+      output: DeleteContactMethodResult;
+    };
+    sdk: {
+      input: DeleteContactMethodCommandInput;
+      output: DeleteContactMethodCommandOutput;
+    };
+  };
+}

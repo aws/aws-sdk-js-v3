@@ -100,4 +100,16 @@ export class DeleteWebExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebExperienceCommand)
   .de(de_DeleteWebExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebExperienceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWebExperienceCommandInput;
+      output: DeleteWebExperienceCommandOutput;
+    };
+  };
+}

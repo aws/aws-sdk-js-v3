@@ -204,4 +204,16 @@ export class BatchPutPropertyValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutPropertyValuesCommand)
   .de(de_BatchPutPropertyValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutPropertyValuesRequest;
+      output: BatchPutPropertyValuesResponse;
+    };
+    sdk: {
+      input: BatchPutPropertyValuesCommandInput;
+      output: BatchPutPropertyValuesCommandOutput;
+    };
+  };
+}

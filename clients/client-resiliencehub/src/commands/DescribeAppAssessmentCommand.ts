@@ -188,4 +188,16 @@ export class DescribeAppAssessmentCommand extends $Command
   .f(void 0, DescribeAppAssessmentResponseFilterSensitiveLog)
   .ser(se_DescribeAppAssessmentCommand)
   .de(de_DescribeAppAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppAssessmentRequest;
+      output: DescribeAppAssessmentResponse;
+    };
+    sdk: {
+      input: DescribeAppAssessmentCommandInput;
+      output: DescribeAppAssessmentCommandOutput;
+    };
+  };
+}

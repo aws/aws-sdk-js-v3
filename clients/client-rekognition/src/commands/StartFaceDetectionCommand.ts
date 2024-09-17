@@ -136,4 +136,16 @@ export class StartFaceDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFaceDetectionCommand)
   .de(de_StartFaceDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFaceDetectionRequest;
+      output: StartFaceDetectionResponse;
+    };
+    sdk: {
+      input: StartFaceDetectionCommandInput;
+      output: StartFaceDetectionCommandOutput;
+    };
+  };
+}

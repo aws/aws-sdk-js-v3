@@ -107,4 +107,16 @@ export class GetProtocolsListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProtocolsListCommand)
   .de(de_GetProtocolsListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProtocolsListRequest;
+      output: GetProtocolsListResponse;
+    };
+    sdk: {
+      input: GetProtocolsListCommandInput;
+      output: GetProtocolsListCommandOutput;
+    };
+  };
+}

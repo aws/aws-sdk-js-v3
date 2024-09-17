@@ -124,4 +124,16 @@ export class ListSessionActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSessionActionsCommand)
   .de(de_ListSessionActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSessionActionsRequest;
+      output: ListSessionActionsResponse;
+    };
+    sdk: {
+      input: ListSessionActionsCommandInput;
+      output: ListSessionActionsCommandOutput;
+    };
+  };
+}

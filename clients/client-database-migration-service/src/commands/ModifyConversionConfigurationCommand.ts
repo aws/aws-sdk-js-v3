@@ -110,4 +110,16 @@ export class ModifyConversionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyConversionConfigurationCommand)
   .de(de_ModifyConversionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyConversionConfigurationMessage;
+      output: ModifyConversionConfigurationResponse;
+    };
+    sdk: {
+      input: ModifyConversionConfigurationCommandInput;
+      output: ModifyConversionConfigurationCommandOutput;
+    };
+  };
+}

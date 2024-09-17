@@ -153,4 +153,16 @@ export class CreateFeatureGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFeatureGroupCommand)
   .de(de_CreateFeatureGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFeatureGroupRequest;
+      output: CreateFeatureGroupResponse;
+    };
+    sdk: {
+      input: CreateFeatureGroupCommandInput;
+      output: CreateFeatureGroupCommandOutput;
+    };
+  };
+}

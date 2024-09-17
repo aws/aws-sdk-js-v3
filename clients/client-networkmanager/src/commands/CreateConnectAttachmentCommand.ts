@@ -165,4 +165,16 @@ export class CreateConnectAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectAttachmentCommand)
   .de(de_CreateConnectAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectAttachmentRequest;
+      output: CreateConnectAttachmentResponse;
+    };
+    sdk: {
+      input: CreateConnectAttachmentCommandInput;
+      output: CreateConnectAttachmentCommandOutput;
+    };
+  };
+}

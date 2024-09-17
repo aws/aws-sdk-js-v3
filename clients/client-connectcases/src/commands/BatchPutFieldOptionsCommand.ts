@@ -113,4 +113,16 @@ export class BatchPutFieldOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutFieldOptionsCommand)
   .de(de_BatchPutFieldOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutFieldOptionsRequest;
+      output: BatchPutFieldOptionsResponse;
+    };
+    sdk: {
+      input: BatchPutFieldOptionsCommandInput;
+      output: BatchPutFieldOptionsCommandOutput;
+    };
+  };
+}

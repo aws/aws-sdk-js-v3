@@ -85,4 +85,16 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyEbsDefaultKmsKeyIdCommand)
   .de(de_ModifyEbsDefaultKmsKeyIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyEbsDefaultKmsKeyIdRequest;
+      output: ModifyEbsDefaultKmsKeyIdResult;
+    };
+    sdk: {
+      input: ModifyEbsDefaultKmsKeyIdCommandInput;
+      output: ModifyEbsDefaultKmsKeyIdCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DeleteDeliveryChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryChannelCommand)
   .de(de_DeleteDeliveryChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryChannelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryChannelCommandInput;
+      output: DeleteDeliveryChannelCommandOutput;
+    };
+  };
+}

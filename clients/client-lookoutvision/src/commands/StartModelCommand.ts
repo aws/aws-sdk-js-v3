@@ -114,4 +114,16 @@ export class StartModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartModelCommand)
   .de(de_StartModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartModelRequest;
+      output: StartModelResponse;
+    };
+    sdk: {
+      input: StartModelCommandInput;
+      output: StartModelCommandOutput;
+    };
+  };
+}

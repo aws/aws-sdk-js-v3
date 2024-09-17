@@ -108,4 +108,16 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssumeDecoratedRoleWithSAMLCommand)
   .de(de_AssumeDecoratedRoleWithSAMLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeDecoratedRoleWithSAMLRequest;
+      output: AssumeDecoratedRoleWithSAMLResponse;
+    };
+    sdk: {
+      input: AssumeDecoratedRoleWithSAMLCommandInput;
+      output: AssumeDecoratedRoleWithSAMLCommandOutput;
+    };
+  };
+}

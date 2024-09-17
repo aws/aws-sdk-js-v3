@@ -1023,4 +1023,16 @@ export class UpdateFileSystemCommand extends $Command
   .f(UpdateFileSystemRequestFilterSensitiveLog, UpdateFileSystemResponseFilterSensitiveLog)
   .ser(se_UpdateFileSystemCommand)
   .de(de_UpdateFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileSystemRequest;
+      output: UpdateFileSystemResponse;
+    };
+    sdk: {
+      input: UpdateFileSystemCommandInput;
+      output: UpdateFileSystemCommandOutput;
+    };
+  };
+}

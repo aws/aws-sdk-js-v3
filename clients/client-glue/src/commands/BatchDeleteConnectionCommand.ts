@@ -94,4 +94,16 @@ export class BatchDeleteConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteConnectionCommand)
   .de(de_BatchDeleteConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteConnectionRequest;
+      output: BatchDeleteConnectionResponse;
+    };
+    sdk: {
+      input: BatchDeleteConnectionCommandInput;
+      output: BatchDeleteConnectionCommandOutput;
+    };
+  };
+}

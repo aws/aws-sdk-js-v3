@@ -97,4 +97,16 @@ export class StartInvestigationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInvestigationCommand)
   .de(de_StartInvestigationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInvestigationRequest;
+      output: StartInvestigationResponse;
+    };
+    sdk: {
+      input: StartInvestigationCommandInput;
+      output: StartInvestigationCommandOutput;
+    };
+  };
+}

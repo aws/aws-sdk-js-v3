@@ -100,4 +100,16 @@ export class DeletePluginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePluginCommand)
   .de(de_DeletePluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePluginRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePluginCommandInput;
+      output: DeletePluginCommandOutput;
+    };
+  };
+}

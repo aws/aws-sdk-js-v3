@@ -128,4 +128,16 @@ export class ListIngestionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIngestionJobsCommand)
   .de(de_ListIngestionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIngestionJobsRequest;
+      output: ListIngestionJobsResponse;
+    };
+    sdk: {
+      input: ListIngestionJobsCommandInput;
+      output: ListIngestionJobsCommandOutput;
+    };
+  };
+}

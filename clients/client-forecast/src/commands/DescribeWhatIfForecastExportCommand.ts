@@ -129,4 +129,16 @@ export class DescribeWhatIfForecastExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWhatIfForecastExportCommand)
   .de(de_DescribeWhatIfForecastExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWhatIfForecastExportRequest;
+      output: DescribeWhatIfForecastExportResponse;
+    };
+    sdk: {
+      input: DescribeWhatIfForecastExportCommandInput;
+      output: DescribeWhatIfForecastExportCommandOutput;
+    };
+  };
+}

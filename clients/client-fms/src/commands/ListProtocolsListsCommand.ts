@@ -103,4 +103,16 @@ export class ListProtocolsListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProtocolsListsCommand)
   .de(de_ListProtocolsListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProtocolsListsRequest;
+      output: ListProtocolsListsResponse;
+    };
+    sdk: {
+      input: ListProtocolsListsCommandInput;
+      output: ListProtocolsListsCommandOutput;
+    };
+  };
+}

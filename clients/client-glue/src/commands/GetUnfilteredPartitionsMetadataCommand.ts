@@ -213,4 +213,16 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUnfilteredPartitionsMetadataCommand)
   .de(de_GetUnfilteredPartitionsMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUnfilteredPartitionsMetadataRequest;
+      output: GetUnfilteredPartitionsMetadataResponse;
+    };
+    sdk: {
+      input: GetUnfilteredPartitionsMetadataCommandInput;
+      output: GetUnfilteredPartitionsMetadataCommandOutput;
+    };
+  };
+}

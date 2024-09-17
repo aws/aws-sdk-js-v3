@@ -88,4 +88,16 @@ export class GetSuiteRunReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSuiteRunReportCommand)
   .de(de_GetSuiteRunReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSuiteRunReportRequest;
+      output: GetSuiteRunReportResponse;
+    };
+    sdk: {
+      input: GetSuiteRunReportCommandInput;
+      output: GetSuiteRunReportCommandOutput;
+    };
+  };
+}

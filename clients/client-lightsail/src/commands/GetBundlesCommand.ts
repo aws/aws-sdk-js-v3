@@ -138,4 +138,16 @@ export class GetBundlesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBundlesCommand)
   .de(de_GetBundlesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBundlesRequest;
+      output: GetBundlesResult;
+    };
+    sdk: {
+      input: GetBundlesCommandInput;
+      output: GetBundlesCommandOutput;
+    };
+  };
+}

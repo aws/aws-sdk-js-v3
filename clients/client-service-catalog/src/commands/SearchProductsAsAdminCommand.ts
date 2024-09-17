@@ -132,4 +132,16 @@ export class SearchProductsAsAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchProductsAsAdminCommand)
   .de(de_SearchProductsAsAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchProductsAsAdminInput;
+      output: SearchProductsAsAdminOutput;
+    };
+    sdk: {
+      input: SearchProductsAsAdminCommandInput;
+      output: SearchProductsAsAdminCommandOutput;
+    };
+  };
+}

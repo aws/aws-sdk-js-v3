@@ -106,4 +106,16 @@ export class SendApiAssetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendApiAssetCommand)
   .de(de_SendApiAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendApiAssetRequest;
+      output: SendApiAssetResponse;
+    };
+    sdk: {
+      input: SendApiAssetCommandInput;
+      output: SendApiAssetCommandOutput;
+    };
+  };
+}

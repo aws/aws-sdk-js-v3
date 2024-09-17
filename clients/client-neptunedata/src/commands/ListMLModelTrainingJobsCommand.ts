@@ -118,4 +118,16 @@ export class ListMLModelTrainingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLModelTrainingJobsCommand)
   .de(de_ListMLModelTrainingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLModelTrainingJobsInput;
+      output: ListMLModelTrainingJobsOutput;
+    };
+    sdk: {
+      input: ListMLModelTrainingJobsCommandInput;
+      output: ListMLModelTrainingJobsCommandOutput;
+    };
+  };
+}

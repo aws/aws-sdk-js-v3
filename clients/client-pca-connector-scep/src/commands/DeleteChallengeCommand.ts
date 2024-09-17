@@ -99,4 +99,16 @@ export class DeleteChallengeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChallengeCommand)
   .de(de_DeleteChallengeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChallengeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChallengeCommandInput;
+      output: DeleteChallengeCommandOutput;
+    };
+  };
+}

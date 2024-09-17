@@ -95,4 +95,16 @@ export class TestPayloadBlobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestPayloadBlobCommand)
   .de(de_TestPayloadBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestPayloadBlobInputOutput;
+      output: TestPayloadBlobInputOutput;
+    };
+    sdk: {
+      input: TestPayloadBlobCommandInput;
+      output: TestPayloadBlobCommandOutput;
+    };
+  };
+}

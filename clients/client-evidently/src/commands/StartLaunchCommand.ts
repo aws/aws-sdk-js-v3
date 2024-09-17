@@ -154,4 +154,16 @@ export class StartLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartLaunchCommand)
   .de(de_StartLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLaunchRequest;
+      output: StartLaunchResponse;
+    };
+    sdk: {
+      input: StartLaunchCommandInput;
+      output: StartLaunchCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class ListDirectoryRegistrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDirectoryRegistrationsCommand)
   .de(de_ListDirectoryRegistrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDirectoryRegistrationsRequest;
+      output: ListDirectoryRegistrationsResponse;
+    };
+    sdk: {
+      input: ListDirectoryRegistrationsCommandInput;
+      output: ListDirectoryRegistrationsCommandOutput;
+    };
+  };
+}

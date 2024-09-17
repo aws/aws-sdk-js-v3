@@ -134,4 +134,16 @@ export class ExitStandbyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExitStandbyCommand)
   .de(de_ExitStandbyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExitStandbyQuery;
+      output: ExitStandbyAnswer;
+    };
+    sdk: {
+      input: ExitStandbyCommandInput;
+      output: ExitStandbyCommandOutput;
+    };
+  };
+}

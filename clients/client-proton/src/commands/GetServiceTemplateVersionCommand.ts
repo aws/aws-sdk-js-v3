@@ -119,4 +119,16 @@ export class GetServiceTemplateVersionCommand extends $Command
   .f(void 0, GetServiceTemplateVersionOutputFilterSensitiveLog)
   .ser(se_GetServiceTemplateVersionCommand)
   .de(de_GetServiceTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceTemplateVersionInput;
+      output: GetServiceTemplateVersionOutput;
+    };
+    sdk: {
+      input: GetServiceTemplateVersionCommandInput;
+      output: GetServiceTemplateVersionCommandOutput;
+    };
+  };
+}

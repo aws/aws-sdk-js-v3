@@ -150,4 +150,16 @@ export class DescribeManagedEndpointCommand extends $Command
   .f(void 0, DescribeManagedEndpointResponseFilterSensitiveLog)
   .ser(se_DescribeManagedEndpointCommand)
   .de(de_DescribeManagedEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeManagedEndpointRequest;
+      output: DescribeManagedEndpointResponse;
+    };
+    sdk: {
+      input: DescribeManagedEndpointCommandInput;
+      output: DescribeManagedEndpointCommandOutput;
+    };
+  };
+}

@@ -316,4 +316,16 @@ export class DescribeAutoMLJobV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoMLJobV2Command)
   .de(de_DescribeAutoMLJobV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoMLJobV2Request;
+      output: DescribeAutoMLJobV2Response;
+    };
+    sdk: {
+      input: DescribeAutoMLJobV2CommandInput;
+      output: DescribeAutoMLJobV2CommandOutput;
+    };
+  };
+}

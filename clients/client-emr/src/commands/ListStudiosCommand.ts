@@ -96,4 +96,16 @@ export class ListStudiosCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStudiosCommand)
   .de(de_ListStudiosCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStudiosInput;
+      output: ListStudiosOutput;
+    };
+    sdk: {
+      input: ListStudiosCommandInput;
+      output: ListStudiosCommandOutput;
+    };
+  };
+}

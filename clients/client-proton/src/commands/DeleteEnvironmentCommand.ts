@@ -126,4 +126,16 @@ export class DeleteEnvironmentCommand extends $Command
   .f(void 0, DeleteEnvironmentOutputFilterSensitiveLog)
   .ser(se_DeleteEnvironmentCommand)
   .de(de_DeleteEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentInput;
+      output: DeleteEnvironmentOutput;
+    };
+    sdk: {
+      input: DeleteEnvironmentCommandInput;
+      output: DeleteEnvironmentCommandOutput;
+    };
+  };
+}

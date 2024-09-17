@@ -244,4 +244,16 @@ export class SendCommandCommand extends $Command
   .f(SendCommandRequestFilterSensitiveLog, SendCommandResultFilterSensitiveLog)
   .ser(se_SendCommandCommand)
   .de(de_SendCommandCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendCommandRequest;
+      output: SendCommandResult;
+    };
+    sdk: {
+      input: SendCommandCommandInput;
+      output: SendCommandCommandOutput;
+    };
+  };
+}

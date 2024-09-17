@@ -127,4 +127,16 @@ export class CreateRegistrationAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRegistrationAttachmentCommand)
   .de(de_CreateRegistrationAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRegistrationAttachmentRequest;
+      output: CreateRegistrationAttachmentResult;
+    };
+    sdk: {
+      input: CreateRegistrationAttachmentCommandInput;
+      output: CreateRegistrationAttachmentCommandOutput;
+    };
+  };
+}

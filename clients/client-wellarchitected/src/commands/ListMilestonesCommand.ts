@@ -125,4 +125,16 @@ export class ListMilestonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMilestonesCommand)
   .de(de_ListMilestonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMilestonesInput;
+      output: ListMilestonesOutput;
+    };
+    sdk: {
+      input: ListMilestonesCommandInput;
+      output: ListMilestonesCommandOutput;
+    };
+  };
+}

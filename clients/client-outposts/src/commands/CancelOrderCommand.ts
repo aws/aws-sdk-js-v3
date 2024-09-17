@@ -90,4 +90,16 @@ export class CancelOrderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelOrderCommand)
   .de(de_CancelOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelOrderInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelOrderCommandInput;
+      output: CancelOrderCommandOutput;
+    };
+  };
+}

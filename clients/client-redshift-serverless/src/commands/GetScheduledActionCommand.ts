@@ -119,4 +119,16 @@ export class GetScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetScheduledActionCommand)
   .de(de_GetScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetScheduledActionRequest;
+      output: GetScheduledActionResponse;
+    };
+    sdk: {
+      input: GetScheduledActionCommandInput;
+      output: GetScheduledActionCommandOutput;
+    };
+  };
+}

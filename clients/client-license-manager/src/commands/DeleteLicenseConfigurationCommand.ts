@@ -92,4 +92,16 @@ export class DeleteLicenseConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLicenseConfigurationCommand)
   .de(de_DeleteLicenseConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLicenseConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLicenseConfigurationCommandInput;
+      output: DeleteLicenseConfigurationCommandOutput;
+    };
+  };
+}

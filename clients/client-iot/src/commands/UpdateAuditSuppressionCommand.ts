@@ -111,4 +111,16 @@ export class UpdateAuditSuppressionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAuditSuppressionCommand)
   .de(de_UpdateAuditSuppressionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAuditSuppressionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAuditSuppressionCommandInput;
+      output: UpdateAuditSuppressionCommandOutput;
+    };
+  };
+}

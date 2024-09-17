@@ -832,4 +832,16 @@ export class ModifyEndpointCommand extends $Command
   .f(ModifyEndpointMessageFilterSensitiveLog, ModifyEndpointResponseFilterSensitiveLog)
   .ser(se_ModifyEndpointCommand)
   .de(de_ModifyEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyEndpointMessage;
+      output: ModifyEndpointResponse;
+    };
+    sdk: {
+      input: ModifyEndpointCommandInput;
+      output: ModifyEndpointCommandOutput;
+    };
+  };
+}

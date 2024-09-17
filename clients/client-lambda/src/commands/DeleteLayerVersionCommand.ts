@@ -84,4 +84,16 @@ export class DeleteLayerVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLayerVersionCommand)
   .de(de_DeleteLayerVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLayerVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLayerVersionCommandInput;
+      output: DeleteLayerVersionCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResolverQueryLogConfigAssociationCommand)
   .de(de_GetResolverQueryLogConfigAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResolverQueryLogConfigAssociationRequest;
+      output: GetResolverQueryLogConfigAssociationResponse;
+    };
+    sdk: {
+      input: GetResolverQueryLogConfigAssociationCommandInput;
+      output: GetResolverQueryLogConfigAssociationCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class GetTargetResourceTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTargetResourceTypeCommand)
   .de(de_GetTargetResourceTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTargetResourceTypeRequest;
+      output: GetTargetResourceTypeResponse;
+    };
+    sdk: {
+      input: GetTargetResourceTypeCommandInput;
+      output: GetTargetResourceTypeCommandOutput;
+    };
+  };
+}

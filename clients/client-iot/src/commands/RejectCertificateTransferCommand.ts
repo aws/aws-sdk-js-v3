@@ -105,4 +105,16 @@ export class RejectCertificateTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectCertificateTransferCommand)
   .de(de_RejectCertificateTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectCertificateTransferRequest;
+      output: {};
+    };
+    sdk: {
+      input: RejectCertificateTransferCommandInput;
+      output: RejectCertificateTransferCommandOutput;
+    };
+  };
+}

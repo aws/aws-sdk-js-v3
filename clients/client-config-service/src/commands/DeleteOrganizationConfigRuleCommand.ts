@@ -133,4 +133,16 @@ export class DeleteOrganizationConfigRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationConfigRuleCommand)
   .de(de_DeleteOrganizationConfigRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOrganizationConfigRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOrganizationConfigRuleCommandInput;
+      output: DeleteOrganizationConfigRuleCommandOutput;
+    };
+  };
+}

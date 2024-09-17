@@ -125,4 +125,16 @@ export class CreateDataSourceFromRDSCommand extends $Command
   .f(CreateDataSourceFromRDSInputFilterSensitiveLog, void 0)
   .ser(se_CreateDataSourceFromRDSCommand)
   .de(de_CreateDataSourceFromRDSCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceFromRDSInput;
+      output: CreateDataSourceFromRDSOutput;
+    };
+    sdk: {
+      input: CreateDataSourceFromRDSCommandInput;
+      output: CreateDataSourceFromRDSCommandOutput;
+    };
+  };
+}

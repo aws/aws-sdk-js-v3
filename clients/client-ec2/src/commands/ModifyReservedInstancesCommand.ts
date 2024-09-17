@@ -93,4 +93,16 @@ export class ModifyReservedInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReservedInstancesCommand)
   .de(de_ModifyReservedInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReservedInstancesRequest;
+      output: ModifyReservedInstancesResult;
+    };
+    sdk: {
+      input: ModifyReservedInstancesCommandInput;
+      output: ModifyReservedInstancesCommandOutput;
+    };
+  };
+}

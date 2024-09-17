@@ -107,4 +107,16 @@ export class JsonMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonMapsCommand)
   .de(de_JsonMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonMapsInputOutput;
+      output: JsonMapsInputOutput;
+    };
+    sdk: {
+      input: JsonMapsCommandInput;
+      output: JsonMapsCommandOutput;
+    };
+  };
+}

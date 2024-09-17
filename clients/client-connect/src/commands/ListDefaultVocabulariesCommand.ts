@@ -100,4 +100,16 @@ export class ListDefaultVocabulariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDefaultVocabulariesCommand)
   .de(de_ListDefaultVocabulariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDefaultVocabulariesRequest;
+      output: ListDefaultVocabulariesResponse;
+    };
+    sdk: {
+      input: ListDefaultVocabulariesCommandInput;
+      output: ListDefaultVocabulariesCommandOutput;
+    };
+  };
+}

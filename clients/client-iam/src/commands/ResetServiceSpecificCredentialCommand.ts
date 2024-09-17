@@ -102,4 +102,16 @@ export class ResetServiceSpecificCredentialCommand extends $Command
   .f(void 0, ResetServiceSpecificCredentialResponseFilterSensitiveLog)
   .ser(se_ResetServiceSpecificCredentialCommand)
   .de(de_ResetServiceSpecificCredentialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetServiceSpecificCredentialRequest;
+      output: ResetServiceSpecificCredentialResponse;
+    };
+    sdk: {
+      input: ResetServiceSpecificCredentialCommandInput;
+      output: ResetServiceSpecificCredentialCommandOutput;
+    };
+  };
+}

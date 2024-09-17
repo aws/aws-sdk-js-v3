@@ -103,4 +103,16 @@ export class ListAssistantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssistantsCommand)
   .de(de_ListAssistantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssistantsRequest;
+      output: ListAssistantsResponse;
+    };
+    sdk: {
+      input: ListAssistantsCommandInput;
+      output: ListAssistantsCommandOutput;
+    };
+  };
+}

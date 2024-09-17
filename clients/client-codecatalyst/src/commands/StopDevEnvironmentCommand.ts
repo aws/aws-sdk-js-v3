@@ -102,4 +102,16 @@ export class StopDevEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDevEnvironmentCommand)
   .de(de_StopDevEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDevEnvironmentRequest;
+      output: StopDevEnvironmentResponse;
+    };
+    sdk: {
+      input: StopDevEnvironmentCommandInput;
+      output: StopDevEnvironmentCommandOutput;
+    };
+  };
+}

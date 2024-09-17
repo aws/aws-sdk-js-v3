@@ -107,4 +107,16 @@ export class BatchApplyUpdateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchApplyUpdateActionCommand)
   .de(de_BatchApplyUpdateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchApplyUpdateActionMessage;
+      output: UpdateActionResultsMessage;
+    };
+    sdk: {
+      input: BatchApplyUpdateActionCommandInput;
+      output: BatchApplyUpdateActionCommandOutput;
+    };
+  };
+}

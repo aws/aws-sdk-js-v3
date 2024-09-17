@@ -91,4 +91,16 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupVaultAccessPolicyCommand)
   .de(de_DeleteBackupVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupVaultAccessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBackupVaultAccessPolicyCommandInput;
+      output: DeleteBackupVaultAccessPolicyCommandOutput;
+    };
+  };
+}

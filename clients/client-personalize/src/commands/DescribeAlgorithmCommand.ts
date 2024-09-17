@@ -127,4 +127,16 @@ export class DescribeAlgorithmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlgorithmCommand)
   .de(de_DescribeAlgorithmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlgorithmRequest;
+      output: DescribeAlgorithmResponse;
+    };
+    sdk: {
+      input: DescribeAlgorithmCommandInput;
+      output: DescribeAlgorithmCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePiiEntitiesDetectionJobCommand)
   .de(de_DescribePiiEntitiesDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePiiEntitiesDetectionJobRequest;
+      output: DescribePiiEntitiesDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribePiiEntitiesDetectionJobCommandInput;
+      output: DescribePiiEntitiesDetectionJobCommandOutput;
+    };
+  };
+}

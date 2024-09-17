@@ -102,4 +102,16 @@ export class CreateAddonInstanceCommand extends $Command
   .f(CreateAddonInstanceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAddonInstanceCommand)
   .de(de_CreateAddonInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddonInstanceRequest;
+      output: CreateAddonInstanceResponse;
+    };
+    sdk: {
+      input: CreateAddonInstanceCommandInput;
+      output: CreateAddonInstanceCommandOutput;
+    };
+  };
+}

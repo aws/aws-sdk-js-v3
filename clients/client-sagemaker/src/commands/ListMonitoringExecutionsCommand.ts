@@ -105,4 +105,16 @@ export class ListMonitoringExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMonitoringExecutionsCommand)
   .de(de_ListMonitoringExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMonitoringExecutionsRequest;
+      output: ListMonitoringExecutionsResponse;
+    };
+    sdk: {
+      input: ListMonitoringExecutionsCommandInput;
+      output: ListMonitoringExecutionsCommandOutput;
+    };
+  };
+}

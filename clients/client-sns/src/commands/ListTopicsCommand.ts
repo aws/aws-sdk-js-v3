@@ -96,4 +96,16 @@ export class ListTopicsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTopicsCommand)
   .de(de_ListTopicsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTopicsInput;
+      output: ListTopicsResponse;
+    };
+    sdk: {
+      input: ListTopicsCommandInput;
+      output: ListTopicsCommandOutput;
+    };
+  };
+}

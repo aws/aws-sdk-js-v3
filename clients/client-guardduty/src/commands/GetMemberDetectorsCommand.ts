@@ -141,4 +141,16 @@ export class GetMemberDetectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMemberDetectorsCommand)
   .de(de_GetMemberDetectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMemberDetectorsRequest;
+      output: GetMemberDetectorsResponse;
+    };
+    sdk: {
+      input: GetMemberDetectorsCommandInput;
+      output: GetMemberDetectorsCommandOutput;
+    };
+  };
+}

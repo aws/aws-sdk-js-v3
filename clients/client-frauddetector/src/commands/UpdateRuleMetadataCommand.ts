@@ -98,4 +98,16 @@ export class UpdateRuleMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleMetadataCommand)
   .de(de_UpdateRuleMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRuleMetadataCommandInput;
+      output: UpdateRuleMetadataCommandOutput;
+    };
+  };
+}

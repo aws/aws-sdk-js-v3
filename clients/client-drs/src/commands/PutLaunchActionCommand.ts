@@ -126,4 +126,16 @@ export class PutLaunchActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLaunchActionCommand)
   .de(de_PutLaunchActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLaunchActionRequest;
+      output: PutLaunchActionResponse;
+    };
+    sdk: {
+      input: PutLaunchActionCommandInput;
+      output: PutLaunchActionCommandOutput;
+    };
+  };
+}

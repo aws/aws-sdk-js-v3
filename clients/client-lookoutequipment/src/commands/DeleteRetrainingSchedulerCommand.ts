@@ -110,4 +110,16 @@ export class DeleteRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRetrainingSchedulerCommand)
   .de(de_DeleteRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRetrainingSchedulerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRetrainingSchedulerCommandInput;
+      output: DeleteRetrainingSchedulerCommandOutput;
+    };
+  };
+}

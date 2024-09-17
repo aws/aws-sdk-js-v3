@@ -103,4 +103,16 @@ export class DescribeLockedSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLockedSnapshotsCommand)
   .de(de_DescribeLockedSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLockedSnapshotsRequest;
+      output: DescribeLockedSnapshotsResult;
+    };
+    sdk: {
+      input: DescribeLockedSnapshotsCommandInput;
+      output: DescribeLockedSnapshotsCommandOutput;
+    };
+  };
+}

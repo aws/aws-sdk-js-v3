@@ -142,4 +142,16 @@ export class SearchCommand extends $Command
   .f(SearchInputFilterSensitiveLog, void 0)
   .ser(se_SearchCommand)
   .de(de_SearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchInput;
+      output: SearchOutput;
+    };
+    sdk: {
+      input: SearchCommandInput;
+      output: SearchCommandOutput;
+    };
+  };
+}

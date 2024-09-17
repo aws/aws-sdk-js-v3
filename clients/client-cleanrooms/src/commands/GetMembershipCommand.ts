@@ -122,4 +122,16 @@ export class GetMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMembershipCommand)
   .de(de_GetMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMembershipInput;
+      output: GetMembershipOutput;
+    };
+    sdk: {
+      input: GetMembershipCommandInput;
+      output: GetMembershipCommandOutput;
+    };
+  };
+}

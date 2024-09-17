@@ -135,4 +135,16 @@ export class PutRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRestApiCommand)
   .de(de_PutRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: PutRestApiCommandInput;
+      output: PutRestApiCommandOutput;
+    };
+  };
+}

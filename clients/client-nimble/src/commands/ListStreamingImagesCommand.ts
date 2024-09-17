@@ -133,4 +133,16 @@ export class ListStreamingImagesCommand extends $Command
   .f(void 0, ListStreamingImagesResponseFilterSensitiveLog)
   .ser(se_ListStreamingImagesCommand)
   .de(de_ListStreamingImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamingImagesRequest;
+      output: ListStreamingImagesResponse;
+    };
+    sdk: {
+      input: ListStreamingImagesCommandInput;
+      output: ListStreamingImagesCommandOutput;
+    };
+  };
+}

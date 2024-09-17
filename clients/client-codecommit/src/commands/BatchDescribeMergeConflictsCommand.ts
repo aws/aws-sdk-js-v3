@@ -222,4 +222,16 @@ export class BatchDescribeMergeConflictsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDescribeMergeConflictsCommand)
   .de(de_BatchDescribeMergeConflictsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDescribeMergeConflictsInput;
+      output: BatchDescribeMergeConflictsOutput;
+    };
+    sdk: {
+      input: BatchDescribeMergeConflictsCommandInput;
+      output: BatchDescribeMergeConflictsCommandOutput;
+    };
+  };
+}

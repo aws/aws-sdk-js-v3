@@ -136,4 +136,16 @@ export class ListInstanceProfilesForRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceProfilesForRoleCommand)
   .de(de_ListInstanceProfilesForRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceProfilesForRoleRequest;
+      output: ListInstanceProfilesForRoleResponse;
+    };
+    sdk: {
+      input: ListInstanceProfilesForRoleCommandInput;
+      output: ListInstanceProfilesForRoleCommandOutput;
+    };
+  };
+}

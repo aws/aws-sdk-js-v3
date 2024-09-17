@@ -140,4 +140,16 @@ export class GetChannelMessageStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChannelMessageStatusCommand)
   .de(de_GetChannelMessageStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelMessageStatusRequest;
+      output: GetChannelMessageStatusResponse;
+    };
+    sdk: {
+      input: GetChannelMessageStatusCommandInput;
+      output: GetChannelMessageStatusCommandOutput;
+    };
+  };
+}

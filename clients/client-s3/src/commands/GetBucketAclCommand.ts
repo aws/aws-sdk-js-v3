@@ -127,4 +127,16 @@ export class GetBucketAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketAclCommand)
   .de(de_GetBucketAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketAclRequest;
+      output: GetBucketAclOutput;
+    };
+    sdk: {
+      input: GetBucketAclCommandInput;
+      output: GetBucketAclCommandOutput;
+    };
+  };
+}

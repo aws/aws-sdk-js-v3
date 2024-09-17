@@ -99,4 +99,16 @@ export class DeleteCoreDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCoreDeviceCommand)
   .de(de_DeleteCoreDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCoreDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCoreDeviceCommandInput;
+      output: DeleteCoreDeviceCommandOutput;
+    };
+  };
+}

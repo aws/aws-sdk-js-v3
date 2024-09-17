@@ -105,4 +105,16 @@ export class ListIncidentFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIncidentFindingsCommand)
   .de(de_ListIncidentFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIncidentFindingsInput;
+      output: ListIncidentFindingsOutput;
+    };
+    sdk: {
+      input: ListIncidentFindingsCommandInput;
+      output: ListIncidentFindingsCommandOutput;
+    };
+  };
+}

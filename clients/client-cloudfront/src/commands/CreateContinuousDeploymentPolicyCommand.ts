@@ -160,4 +160,16 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContinuousDeploymentPolicyCommand)
   .de(de_CreateContinuousDeploymentPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContinuousDeploymentPolicyRequest;
+      output: CreateContinuousDeploymentPolicyResult;
+    };
+    sdk: {
+      input: CreateContinuousDeploymentPolicyCommandInput;
+      output: CreateContinuousDeploymentPolicyCommandOutput;
+    };
+  };
+}

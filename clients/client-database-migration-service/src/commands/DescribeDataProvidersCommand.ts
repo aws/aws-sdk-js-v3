@@ -209,4 +209,16 @@ export class DescribeDataProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataProvidersCommand)
   .de(de_DescribeDataProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataProvidersMessage;
+      output: DescribeDataProvidersResponse;
+    };
+    sdk: {
+      input: DescribeDataProvidersCommandInput;
+      output: DescribeDataProvidersCommandOutput;
+    };
+  };
+}

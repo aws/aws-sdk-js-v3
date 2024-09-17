@@ -117,4 +117,16 @@ export class BatchUpdateDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateDetectorCommand)
   .de(de_BatchUpdateDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateDetectorRequest;
+      output: BatchUpdateDetectorResponse;
+    };
+    sdk: {
+      input: BatchUpdateDetectorCommandInput;
+      output: BatchUpdateDetectorCommandOutput;
+    };
+  };
+}

@@ -346,4 +346,16 @@ export class DeleteVirtualNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVirtualNodeCommand)
   .de(de_DeleteVirtualNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVirtualNodeInput;
+      output: DeleteVirtualNodeOutput;
+    };
+    sdk: {
+      input: DeleteVirtualNodeCommandInput;
+      output: DeleteVirtualNodeCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListServiceLevelObjectivesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceLevelObjectivesCommand)
   .de(de_ListServiceLevelObjectivesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceLevelObjectivesInput;
+      output: ListServiceLevelObjectivesOutput;
+    };
+    sdk: {
+      input: ListServiceLevelObjectivesCommandInput;
+      output: ListServiceLevelObjectivesCommandOutput;
+    };
+  };
+}

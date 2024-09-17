@@ -204,4 +204,16 @@ export class PutRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordsCommand)
   .de(de_PutRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordsInput;
+      output: PutRecordsOutput;
+    };
+    sdk: {
+      input: PutRecordsCommandInput;
+      output: PutRecordsCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class DeleteCustomActionTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomActionTypeCommand)
   .de(de_DeleteCustomActionTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomActionTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomActionTypeCommandInput;
+      output: DeleteCustomActionTypeCommandOutput;
+    };
+  };
+}

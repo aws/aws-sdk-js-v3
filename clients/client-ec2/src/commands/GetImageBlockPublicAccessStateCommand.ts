@@ -85,4 +85,16 @@ export class GetImageBlockPublicAccessStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImageBlockPublicAccessStateCommand)
   .de(de_GetImageBlockPublicAccessStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageBlockPublicAccessStateRequest;
+      output: GetImageBlockPublicAccessStateResult;
+    };
+    sdk: {
+      input: GetImageBlockPublicAccessStateCommandInput;
+      output: GetImageBlockPublicAccessStateCommandOutput;
+    };
+  };
+}

@@ -194,4 +194,16 @@ export class CreateModelQualityJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelQualityJobDefinitionCommand)
   .de(de_CreateModelQualityJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelQualityJobDefinitionRequest;
+      output: CreateModelQualityJobDefinitionResponse;
+    };
+    sdk: {
+      input: CreateModelQualityJobDefinitionCommandInput;
+      output: CreateModelQualityJobDefinitionCommandOutput;
+    };
+  };
+}

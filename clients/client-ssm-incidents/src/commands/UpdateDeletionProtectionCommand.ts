@@ -95,4 +95,16 @@ export class UpdateDeletionProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeletionProtectionCommand)
   .de(de_UpdateDeletionProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeletionProtectionInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDeletionProtectionCommandInput;
+      output: UpdateDeletionProtectionCommandOutput;
+    };
+  };
+}

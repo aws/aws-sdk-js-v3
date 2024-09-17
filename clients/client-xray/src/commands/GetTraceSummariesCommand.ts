@@ -263,4 +263,16 @@ export class GetTraceSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTraceSummariesCommand)
   .de(de_GetTraceSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTraceSummariesRequest;
+      output: GetTraceSummariesResult;
+    };
+    sdk: {
+      input: GetTraceSummariesCommandInput;
+      output: GetTraceSummariesCommandOutput;
+    };
+  };
+}

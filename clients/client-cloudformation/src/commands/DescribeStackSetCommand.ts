@@ -131,4 +131,16 @@ export class DescribeStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackSetCommand)
   .de(de_DescribeStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackSetInput;
+      output: DescribeStackSetOutput;
+    };
+    sdk: {
+      input: DescribeStackSetCommandInput;
+      output: DescribeStackSetCommandOutput;
+    };
+  };
+}

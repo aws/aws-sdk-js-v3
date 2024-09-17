@@ -89,4 +89,16 @@ export class DescribeLocationFsxLustreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationFsxLustreCommand)
   .de(de_DescribeLocationFsxLustreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationFsxLustreRequest;
+      output: DescribeLocationFsxLustreResponse;
+    };
+    sdk: {
+      input: DescribeLocationFsxLustreCommandInput;
+      output: DescribeLocationFsxLustreCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class DeleteNatGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNatGatewayCommand)
   .de(de_DeleteNatGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNatGatewayRequest;
+      output: DeleteNatGatewayResult;
+    };
+    sdk: {
+      input: DeleteNatGatewayCommandInput;
+      output: DeleteNatGatewayCommandOutput;
+    };
+  };
+}

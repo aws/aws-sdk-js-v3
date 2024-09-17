@@ -129,4 +129,16 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransitGatewayVpcAttachmentCommand)
   .de(de_CreateTransitGatewayVpcAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransitGatewayVpcAttachmentRequest;
+      output: CreateTransitGatewayVpcAttachmentResult;
+    };
+    sdk: {
+      input: CreateTransitGatewayVpcAttachmentCommandInput;
+      output: CreateTransitGatewayVpcAttachmentCommandOutput;
+    };
+  };
+}

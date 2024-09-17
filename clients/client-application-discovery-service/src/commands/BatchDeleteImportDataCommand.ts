@@ -113,4 +113,16 @@ export class BatchDeleteImportDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteImportDataCommand)
   .de(de_BatchDeleteImportDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteImportDataRequest;
+      output: BatchDeleteImportDataResponse;
+    };
+    sdk: {
+      input: BatchDeleteImportDataCommandInput;
+      output: BatchDeleteImportDataCommandOutput;
+    };
+  };
+}

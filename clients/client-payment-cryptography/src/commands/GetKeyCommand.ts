@@ -150,4 +150,16 @@ export class GetKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyCommand)
   .de(de_GetKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyInput;
+      output: GetKeyOutput;
+    };
+    sdk: {
+      input: GetKeyCommandInput;
+      output: GetKeyCommandOutput;
+    };
+  };
+}

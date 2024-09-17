@@ -127,4 +127,16 @@ export class ListActivityTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActivityTypesCommand)
   .de(de_ListActivityTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActivityTypesInput;
+      output: ActivityTypeInfos;
+    };
+    sdk: {
+      input: ListActivityTypesCommandInput;
+      output: ListActivityTypesCommandOutput;
+    };
+  };
+}

@@ -346,4 +346,16 @@ export class PutTargetsCommand extends $Command
   .f(PutTargetsRequestFilterSensitiveLog, void 0)
   .ser(se_PutTargetsCommand)
   .de(de_PutTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTargetsRequest;
+      output: PutTargetsResponse;
+    };
+    sdk: {
+      input: PutTargetsCommandInput;
+      output: PutTargetsCommandOutput;
+    };
+  };
+}

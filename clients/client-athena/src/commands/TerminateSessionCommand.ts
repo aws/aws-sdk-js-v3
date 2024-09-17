@@ -92,4 +92,16 @@ export class TerminateSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateSessionCommand)
   .de(de_TerminateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateSessionRequest;
+      output: TerminateSessionResponse;
+    };
+    sdk: {
+      input: TerminateSessionCommandInput;
+      output: TerminateSessionCommandOutput;
+    };
+  };
+}

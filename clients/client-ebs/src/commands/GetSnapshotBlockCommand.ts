@@ -113,4 +113,16 @@ export class GetSnapshotBlockCommand extends $Command
   .f(void 0, GetSnapshotBlockResponseFilterSensitiveLog)
   .ser(se_GetSnapshotBlockCommand)
   .de(de_GetSnapshotBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSnapshotBlockRequest;
+      output: GetSnapshotBlockResponse;
+    };
+    sdk: {
+      input: GetSnapshotBlockCommandInput;
+      output: GetSnapshotBlockCommandOutput;
+    };
+  };
+}

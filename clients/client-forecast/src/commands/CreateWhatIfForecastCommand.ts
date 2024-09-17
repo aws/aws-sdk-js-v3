@@ -139,4 +139,16 @@ export class CreateWhatIfForecastCommand extends $Command
   .f(CreateWhatIfForecastRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWhatIfForecastCommand)
   .de(de_CreateWhatIfForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWhatIfForecastRequest;
+      output: CreateWhatIfForecastResponse;
+    };
+    sdk: {
+      input: CreateWhatIfForecastCommandInput;
+      output: CreateWhatIfForecastCommandOutput;
+    };
+  };
+}

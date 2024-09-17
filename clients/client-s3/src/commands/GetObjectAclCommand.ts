@@ -201,4 +201,16 @@ export class GetObjectAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectAclCommand)
   .de(de_GetObjectAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectAclRequest;
+      output: GetObjectAclOutput;
+    };
+    sdk: {
+      input: GetObjectAclCommandInput;
+      output: GetObjectAclCommandOutput;
+    };
+  };
+}

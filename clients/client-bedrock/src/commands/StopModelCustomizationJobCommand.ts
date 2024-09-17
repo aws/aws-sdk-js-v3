@@ -93,4 +93,16 @@ export class StopModelCustomizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopModelCustomizationJobCommand)
   .de(de_StopModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopModelCustomizationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopModelCustomizationJobCommandInput;
+      output: StopModelCustomizationJobCommandOutput;
+    };
+  };
+}

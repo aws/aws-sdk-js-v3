@@ -144,4 +144,16 @@ export class ListAppImageConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppImageConfigsCommand)
   .de(de_ListAppImageConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppImageConfigsRequest;
+      output: ListAppImageConfigsResponse;
+    };
+    sdk: {
+      input: ListAppImageConfigsCommandInput;
+      output: ListAppImageConfigsCommandOutput;
+    };
+  };
+}

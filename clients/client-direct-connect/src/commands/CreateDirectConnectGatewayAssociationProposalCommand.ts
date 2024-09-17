@@ -126,4 +126,16 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_CreateDirectConnectGatewayAssociationProposalCommand)
   .de(de_CreateDirectConnectGatewayAssociationProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectConnectGatewayAssociationProposalRequest;
+      output: CreateDirectConnectGatewayAssociationProposalResult;
+    };
+    sdk: {
+      input: CreateDirectConnectGatewayAssociationProposalCommandInput;
+      output: CreateDirectConnectGatewayAssociationProposalCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMaintenanceWindowExecutionTasksCommand)
   .de(de_DescribeMaintenanceWindowExecutionTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMaintenanceWindowExecutionTasksRequest;
+      output: DescribeMaintenanceWindowExecutionTasksResult;
+    };
+    sdk: {
+      input: DescribeMaintenanceWindowExecutionTasksCommandInput;
+      output: DescribeMaintenanceWindowExecutionTasksCommandOutput;
+    };
+  };
+}

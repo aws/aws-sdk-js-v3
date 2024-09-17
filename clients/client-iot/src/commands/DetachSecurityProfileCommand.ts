@@ -89,4 +89,16 @@ export class DetachSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachSecurityProfileCommand)
   .de(de_DetachSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachSecurityProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachSecurityProfileCommandInput;
+      output: DetachSecurityProfileCommandOutput;
+    };
+  };
+}

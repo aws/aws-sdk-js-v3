@@ -104,4 +104,16 @@ export class ListLogPatternsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLogPatternsCommand)
   .de(de_ListLogPatternsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLogPatternsRequest;
+      output: ListLogPatternsResponse;
+    };
+    sdk: {
+      input: ListLogPatternsCommandInput;
+      output: ListLogPatternsCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class DescribeSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityProfileCommand)
   .de(de_DescribeSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityProfileRequest;
+      output: DescribeSecurityProfileResponse;
+    };
+    sdk: {
+      input: DescribeSecurityProfileCommandInput;
+      output: DescribeSecurityProfileCommandOutput;
+    };
+  };
+}

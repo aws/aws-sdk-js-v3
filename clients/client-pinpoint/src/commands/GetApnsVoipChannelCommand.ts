@@ -111,4 +111,16 @@ export class GetApnsVoipChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApnsVoipChannelCommand)
   .de(de_GetApnsVoipChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApnsVoipChannelRequest;
+      output: GetApnsVoipChannelResponse;
+    };
+    sdk: {
+      input: GetApnsVoipChannelCommandInput;
+      output: GetApnsVoipChannelCommandOutput;
+    };
+  };
+}

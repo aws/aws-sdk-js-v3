@@ -99,4 +99,16 @@ export class GetApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationVersionCommand)
   .de(de_GetApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationVersionRequest;
+      output: GetApplicationVersionResponse;
+    };
+    sdk: {
+      input: GetApplicationVersionCommandInput;
+      output: GetApplicationVersionCommandOutput;
+    };
+  };
+}

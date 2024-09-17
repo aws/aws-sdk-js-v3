@@ -98,4 +98,16 @@ export class ListBatchInferenceJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBatchInferenceJobsCommand)
   .de(de_ListBatchInferenceJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBatchInferenceJobsRequest;
+      output: ListBatchInferenceJobsResponse;
+    };
+    sdk: {
+      input: ListBatchInferenceJobsCommandInput;
+      output: ListBatchInferenceJobsCommandOutput;
+    };
+  };
+}

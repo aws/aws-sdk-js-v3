@@ -130,4 +130,16 @@ export class CreateChimeWebhookConfigurationCommand extends $Command
   .f(CreateChimeWebhookConfigurationRequestFilterSensitiveLog, CreateChimeWebhookConfigurationResultFilterSensitiveLog)
   .ser(se_CreateChimeWebhookConfigurationCommand)
   .de(de_CreateChimeWebhookConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChimeWebhookConfigurationRequest;
+      output: CreateChimeWebhookConfigurationResult;
+    };
+    sdk: {
+      input: CreateChimeWebhookConfigurationCommandInput;
+      output: CreateChimeWebhookConfigurationCommandOutput;
+    };
+  };
+}

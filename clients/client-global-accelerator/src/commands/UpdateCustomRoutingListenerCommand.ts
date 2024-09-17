@@ -112,4 +112,16 @@ export class UpdateCustomRoutingListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCustomRoutingListenerCommand)
   .de(de_UpdateCustomRoutingListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomRoutingListenerRequest;
+      output: UpdateCustomRoutingListenerResponse;
+    };
+    sdk: {
+      input: UpdateCustomRoutingListenerCommandInput;
+      output: UpdateCustomRoutingListenerCommandOutput;
+    };
+  };
+}

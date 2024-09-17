@@ -116,4 +116,16 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewayRouteTableVpcAssociationsCommand)
   .de(de_DescribeLocalGatewayRouteTableVpcAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewayRouteTableVpcAssociationsRequest;
+      output: DescribeLocalGatewayRouteTableVpcAssociationsResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput;
+      output: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput;
+    };
+  };
+}

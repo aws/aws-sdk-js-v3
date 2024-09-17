@@ -185,4 +185,16 @@ export class GetCostCategoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostCategoriesCommand)
   .de(de_GetCostCategoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostCategoriesRequest;
+      output: GetCostCategoriesResponse;
+    };
+    sdk: {
+      input: GetCostCategoriesCommandInput;
+      output: GetCostCategoriesCommandOutput;
+    };
+  };
+}

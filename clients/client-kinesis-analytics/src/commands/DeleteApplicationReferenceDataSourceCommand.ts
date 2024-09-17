@@ -108,4 +108,16 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationReferenceDataSourceCommand)
   .de(de_DeleteApplicationReferenceDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationReferenceDataSourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationReferenceDataSourceCommandInput;
+      output: DeleteApplicationReferenceDataSourceCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class PutResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourcePolicyCommand)
   .de(de_PutResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourcePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutResourcePolicyCommandInput;
+      output: PutResourcePolicyCommandOutput;
+    };
+  };
+}

@@ -389,4 +389,16 @@ export class CreateFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFlowCommand)
   .de(de_CreateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFlowRequest;
+      output: CreateFlowResponse;
+    };
+    sdk: {
+      input: CreateFlowCommandInput;
+      output: CreateFlowCommandOutput;
+    };
+  };
+}

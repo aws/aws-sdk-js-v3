@@ -102,4 +102,16 @@ export class ListOTAUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOTAUpdatesCommand)
   .de(de_ListOTAUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOTAUpdatesRequest;
+      output: ListOTAUpdatesResponse;
+    };
+    sdk: {
+      input: ListOTAUpdatesCommandInput;
+      output: ListOTAUpdatesCommandOutput;
+    };
+  };
+}

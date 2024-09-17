@@ -136,4 +136,16 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyPhrasesDetectionJobsCommand)
   .de(de_ListKeyPhrasesDetectionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyPhrasesDetectionJobsRequest;
+      output: ListKeyPhrasesDetectionJobsResponse;
+    };
+    sdk: {
+      input: ListKeyPhrasesDetectionJobsCommandInput;
+      output: ListKeyPhrasesDetectionJobsCommandOutput;
+    };
+  };
+}

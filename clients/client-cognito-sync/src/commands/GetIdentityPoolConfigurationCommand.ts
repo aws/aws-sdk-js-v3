@@ -159,4 +159,16 @@ export class GetIdentityPoolConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityPoolConfigurationCommand)
   .de(de_GetIdentityPoolConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityPoolConfigurationRequest;
+      output: GetIdentityPoolConfigurationResponse;
+    };
+    sdk: {
+      input: GetIdentityPoolConfigurationCommandInput;
+      output: GetIdentityPoolConfigurationCommandOutput;
+    };
+  };
+}

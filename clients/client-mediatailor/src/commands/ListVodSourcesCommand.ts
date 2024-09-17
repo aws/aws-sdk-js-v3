@@ -98,4 +98,16 @@ export class ListVodSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVodSourcesCommand)
   .de(de_ListVodSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVodSourcesRequest;
+      output: ListVodSourcesResponse;
+    };
+    sdk: {
+      input: ListVodSourcesCommandInput;
+      output: ListVodSourcesCommandOutput;
+    };
+  };
+}

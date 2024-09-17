@@ -100,4 +100,16 @@ export class ListNodeFromTemplateJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNodeFromTemplateJobsCommand)
   .de(de_ListNodeFromTemplateJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNodeFromTemplateJobsRequest;
+      output: ListNodeFromTemplateJobsResponse;
+    };
+    sdk: {
+      input: ListNodeFromTemplateJobsCommandInput;
+      output: ListNodeFromTemplateJobsCommandOutput;
+    };
+  };
+}

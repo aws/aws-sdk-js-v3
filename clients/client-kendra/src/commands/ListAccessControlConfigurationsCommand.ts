@@ -112,4 +112,16 @@ export class ListAccessControlConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessControlConfigurationsCommand)
   .de(de_ListAccessControlConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessControlConfigurationsRequest;
+      output: ListAccessControlConfigurationsResponse;
+    };
+    sdk: {
+      input: ListAccessControlConfigurationsCommandInput;
+      output: ListAccessControlConfigurationsCommandOutput;
+    };
+  };
+}

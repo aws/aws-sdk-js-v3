@@ -162,4 +162,16 @@ export class CreatePublicVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicVirtualInterfaceCommand)
   .de(de_CreatePublicVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicVirtualInterfaceRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: CreatePublicVirtualInterfaceCommandInput;
+      output: CreatePublicVirtualInterfaceCommandOutput;
+    };
+  };
+}

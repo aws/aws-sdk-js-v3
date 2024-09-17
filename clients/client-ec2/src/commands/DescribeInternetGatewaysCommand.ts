@@ -144,4 +144,16 @@ export class DescribeInternetGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInternetGatewaysCommand)
   .de(de_DescribeInternetGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInternetGatewaysRequest;
+      output: DescribeInternetGatewaysResult;
+    };
+    sdk: {
+      input: DescribeInternetGatewaysCommandInput;
+      output: DescribeInternetGatewaysCommandOutput;
+    };
+  };
+}

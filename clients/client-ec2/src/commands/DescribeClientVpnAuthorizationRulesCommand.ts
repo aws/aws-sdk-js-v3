@@ -109,4 +109,16 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientVpnAuthorizationRulesCommand)
   .de(de_DescribeClientVpnAuthorizationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientVpnAuthorizationRulesRequest;
+      output: DescribeClientVpnAuthorizationRulesResult;
+    };
+    sdk: {
+      input: DescribeClientVpnAuthorizationRulesCommandInput;
+      output: DescribeClientVpnAuthorizationRulesCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command
   .f(DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_DeleteSMSSandboxPhoneNumberCommand)
   .de(de_DeleteSMSSandboxPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSMSSandboxPhoneNumberInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSMSSandboxPhoneNumberCommandInput;
+      output: DeleteSMSSandboxPhoneNumberCommandOutput;
+    };
+  };
+}

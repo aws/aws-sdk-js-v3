@@ -105,4 +105,16 @@ export class ListAccountAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountAliasesCommand)
   .de(de_ListAccountAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountAliasesRequest;
+      output: ListAccountAliasesResponse;
+    };
+    sdk: {
+      input: ListAccountAliasesCommandInput;
+      output: ListAccountAliasesCommandOutput;
+    };
+  };
+}

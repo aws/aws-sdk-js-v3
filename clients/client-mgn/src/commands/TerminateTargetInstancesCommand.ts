@@ -145,4 +145,16 @@ export class TerminateTargetInstancesCommand extends $Command
   .f(TerminateTargetInstancesRequestFilterSensitiveLog, TerminateTargetInstancesResponseFilterSensitiveLog)
   .ser(se_TerminateTargetInstancesCommand)
   .de(de_TerminateTargetInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateTargetInstancesRequest;
+      output: TerminateTargetInstancesResponse;
+    };
+    sdk: {
+      input: TerminateTargetInstancesCommandInput;
+      output: TerminateTargetInstancesCommandOutput;
+    };
+  };
+}

@@ -81,4 +81,16 @@ export class SparseNullsOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SparseNullsOperationCommand)
   .de(de_SparseNullsOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SparseNullsOperationInputOutput;
+      output: SparseNullsOperationInputOutput;
+    };
+    sdk: {
+      input: SparseNullsOperationCommandInput;
+      output: SparseNullsOperationCommandOutput;
+    };
+  };
+}

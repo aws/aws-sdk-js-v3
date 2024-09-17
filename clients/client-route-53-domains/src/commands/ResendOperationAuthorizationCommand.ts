@@ -84,4 +84,16 @@ export class ResendOperationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResendOperationAuthorizationCommand)
   .de(de_ResendOperationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResendOperationAuthorizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResendOperationAuthorizationCommandInput;
+      output: ResendOperationAuthorizationCommandOutput;
+    };
+  };
+}

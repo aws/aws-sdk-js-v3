@@ -106,4 +106,16 @@ export class AcceptSharedDirectoryCommand extends $Command
   .f(void 0, AcceptSharedDirectoryResultFilterSensitiveLog)
   .ser(se_AcceptSharedDirectoryCommand)
   .de(de_AcceptSharedDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptSharedDirectoryRequest;
+      output: AcceptSharedDirectoryResult;
+    };
+    sdk: {
+      input: AcceptSharedDirectoryCommandInput;
+      output: AcceptSharedDirectoryCommandOutput;
+    };
+  };
+}

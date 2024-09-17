@@ -91,4 +91,16 @@ export class CancelCapacityTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelCapacityTaskCommand)
   .de(de_CancelCapacityTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelCapacityTaskInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelCapacityTaskCommandInput;
+      output: CancelCapacityTaskCommandOutput;
+    };
+  };
+}

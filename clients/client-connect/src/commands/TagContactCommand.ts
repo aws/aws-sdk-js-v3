@@ -96,4 +96,16 @@ export class TagContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagContactCommand)
   .de(de_TagContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagContactCommandInput;
+      output: TagContactCommandOutput;
+    };
+  };
+}

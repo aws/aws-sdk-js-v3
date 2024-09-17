@@ -120,4 +120,16 @@ export class UpdateAppInstanceBotCommand extends $Command
   .f(UpdateAppInstanceBotRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppInstanceBotCommand)
   .de(de_UpdateAppInstanceBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppInstanceBotRequest;
+      output: UpdateAppInstanceBotResponse;
+    };
+    sdk: {
+      input: UpdateAppInstanceBotCommandInput;
+      output: UpdateAppInstanceBotCommandOutput;
+    };
+  };
+}

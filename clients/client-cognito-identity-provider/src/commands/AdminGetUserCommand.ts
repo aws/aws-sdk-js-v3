@@ -149,4 +149,16 @@ export class AdminGetUserCommand extends $Command
   .f(AdminGetUserRequestFilterSensitiveLog, AdminGetUserResponseFilterSensitiveLog)
   .ser(se_AdminGetUserCommand)
   .de(de_AdminGetUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminGetUserRequest;
+      output: AdminGetUserResponse;
+    };
+    sdk: {
+      input: AdminGetUserCommandInput;
+      output: AdminGetUserCommandOutput;
+    };
+  };
+}

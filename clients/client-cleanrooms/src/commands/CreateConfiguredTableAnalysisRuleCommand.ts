@@ -240,4 +240,16 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfiguredTableAnalysisRuleCommand)
   .de(de_CreateConfiguredTableAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfiguredTableAnalysisRuleInput;
+      output: CreateConfiguredTableAnalysisRuleOutput;
+    };
+    sdk: {
+      input: CreateConfiguredTableAnalysisRuleCommandInput;
+      output: CreateConfiguredTableAnalysisRuleCommandOutput;
+    };
+  };
+}

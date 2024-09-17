@@ -91,4 +91,16 @@ export class CancelJournalKinesisStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJournalKinesisStreamCommand)
   .de(de_CancelJournalKinesisStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJournalKinesisStreamRequest;
+      output: CancelJournalKinesisStreamResponse;
+    };
+    sdk: {
+      input: CancelJournalKinesisStreamCommandInput;
+      output: CancelJournalKinesisStreamCommandOutput;
+    };
+  };
+}

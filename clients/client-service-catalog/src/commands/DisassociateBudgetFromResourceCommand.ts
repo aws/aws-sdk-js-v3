@@ -84,4 +84,16 @@ export class DisassociateBudgetFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateBudgetFromResourceCommand)
   .de(de_DisassociateBudgetFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateBudgetFromResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateBudgetFromResourceCommandInput;
+      output: DisassociateBudgetFromResourceCommandOutput;
+    };
+  };
+}

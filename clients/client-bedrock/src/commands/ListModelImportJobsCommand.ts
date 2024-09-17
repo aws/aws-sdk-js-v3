@@ -110,4 +110,16 @@ export class ListModelImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelImportJobsCommand)
   .de(de_ListModelImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelImportJobsRequest;
+      output: ListModelImportJobsResponse;
+    };
+    sdk: {
+      input: ListModelImportJobsCommandInput;
+      output: ListModelImportJobsCommandOutput;
+    };
+  };
+}

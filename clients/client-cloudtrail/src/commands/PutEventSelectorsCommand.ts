@@ -309,4 +309,16 @@ export class PutEventSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEventSelectorsCommand)
   .de(de_PutEventSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventSelectorsRequest;
+      output: PutEventSelectorsResponse;
+    };
+    sdk: {
+      input: PutEventSelectorsCommandInput;
+      output: PutEventSelectorsCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class GetDomainMaintenanceStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainMaintenanceStatusCommand)
   .de(de_GetDomainMaintenanceStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainMaintenanceStatusRequest;
+      output: GetDomainMaintenanceStatusResponse;
+    };
+    sdk: {
+      input: GetDomainMaintenanceStatusCommandInput;
+      output: GetDomainMaintenanceStatusCommandOutput;
+    };
+  };
+}

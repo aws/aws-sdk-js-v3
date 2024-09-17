@@ -117,4 +117,16 @@ export class CreatePricingPlanCommand extends $Command
   .f(CreatePricingPlanInputFilterSensitiveLog, void 0)
   .ser(se_CreatePricingPlanCommand)
   .de(de_CreatePricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePricingPlanInput;
+      output: CreatePricingPlanOutput;
+    };
+    sdk: {
+      input: CreatePricingPlanCommandInput;
+      output: CreatePricingPlanCommandOutput;
+    };
+  };
+}

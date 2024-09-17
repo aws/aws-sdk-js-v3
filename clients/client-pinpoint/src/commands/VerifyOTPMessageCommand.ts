@@ -105,4 +105,16 @@ export class VerifyOTPMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyOTPMessageCommand)
   .de(de_VerifyOTPMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyOTPMessageRequest;
+      output: VerifyOTPMessageResponse;
+    };
+    sdk: {
+      input: VerifyOTPMessageCommandInput;
+      output: VerifyOTPMessageCommandOutput;
+    };
+  };
+}

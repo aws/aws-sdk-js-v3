@@ -109,4 +109,16 @@ export class CreateUserDefinedFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUserDefinedFunctionCommand)
   .de(de_CreateUserDefinedFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserDefinedFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateUserDefinedFunctionCommandInput;
+      output: CreateUserDefinedFunctionCommandOutput;
+    };
+  };
+}

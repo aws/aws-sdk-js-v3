@@ -102,4 +102,16 @@ export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOrgEc2DeepInspectionConfigurationCommand)
   .de(de_UpdateOrgEc2DeepInspectionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrgEc2DeepInspectionConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateOrgEc2DeepInspectionConfigurationCommandInput;
+      output: UpdateOrgEc2DeepInspectionConfigurationCommandOutput;
+    };
+  };
+}

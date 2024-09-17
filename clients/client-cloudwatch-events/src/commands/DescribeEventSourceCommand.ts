@@ -92,4 +92,16 @@ export class DescribeEventSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventSourceCommand)
   .de(de_DescribeEventSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventSourceRequest;
+      output: DescribeEventSourceResponse;
+    };
+    sdk: {
+      input: DescribeEventSourceCommandInput;
+      output: DescribeEventSourceCommandOutput;
+    };
+  };
+}

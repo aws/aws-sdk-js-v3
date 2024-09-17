@@ -424,4 +424,16 @@ export class PutObjectCommand extends $Command
   .f(PutObjectRequestFilterSensitiveLog, PutObjectOutputFilterSensitiveLog)
   .ser(se_PutObjectCommand)
   .de(de_PutObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutObjectRequest;
+      output: PutObjectOutput;
+    };
+    sdk: {
+      input: PutObjectCommandInput;
+      output: PutObjectCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class UpdateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateActionCommand)
   .de(de_UpdateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateActionRequest;
+      output: UpdateActionResponse;
+    };
+    sdk: {
+      input: UpdateActionCommandInput;
+      output: UpdateActionCommandOutput;
+    };
+  };
+}

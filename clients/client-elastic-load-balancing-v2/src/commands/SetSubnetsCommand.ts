@@ -160,4 +160,16 @@ export class SetSubnetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSubnetsCommand)
   .de(de_SetSubnetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSubnetsInput;
+      output: SetSubnetsOutput;
+    };
+    sdk: {
+      input: SetSubnetsCommandInput;
+      output: SetSubnetsCommandOutput;
+    };
+  };
+}

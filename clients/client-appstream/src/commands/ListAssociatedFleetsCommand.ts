@@ -81,4 +81,16 @@ export class ListAssociatedFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedFleetsCommand)
   .de(de_ListAssociatedFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedFleetsRequest;
+      output: ListAssociatedFleetsResult;
+    };
+    sdk: {
+      input: ListAssociatedFleetsCommandInput;
+      output: ListAssociatedFleetsCommandOutput;
+    };
+  };
+}

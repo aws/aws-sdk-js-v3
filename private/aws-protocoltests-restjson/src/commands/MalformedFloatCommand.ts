@@ -72,4 +72,16 @@ export class MalformedFloatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedFloatCommand)
   .de(de_MalformedFloatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedFloatInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedFloatCommandInput;
+      output: MalformedFloatCommandOutput;
+    };
+  };
+}

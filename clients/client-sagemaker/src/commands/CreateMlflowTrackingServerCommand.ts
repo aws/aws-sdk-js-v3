@@ -95,4 +95,16 @@ export class CreateMlflowTrackingServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMlflowTrackingServerCommand)
   .de(de_CreateMlflowTrackingServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMlflowTrackingServerRequest;
+      output: CreateMlflowTrackingServerResponse;
+    };
+    sdk: {
+      input: CreateMlflowTrackingServerCommandInput;
+      output: CreateMlflowTrackingServerCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DeleteConfiguredAudienceModelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfiguredAudienceModelPolicyCommand)
   .de(de_DeleteConfiguredAudienceModelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfiguredAudienceModelPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfiguredAudienceModelPolicyCommandInput;
+      output: DeleteConfiguredAudienceModelPolicyCommandOutput;
+    };
+  };
+}

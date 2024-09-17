@@ -228,4 +228,16 @@ export class DescribeElasticsearchDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeElasticsearchDomainsCommand)
   .de(de_DescribeElasticsearchDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeElasticsearchDomainsRequest;
+      output: DescribeElasticsearchDomainsResponse;
+    };
+    sdk: {
+      input: DescribeElasticsearchDomainsCommandInput;
+      output: DescribeElasticsearchDomainsCommandOutput;
+    };
+  };
+}

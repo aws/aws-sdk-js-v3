@@ -98,4 +98,16 @@ export class ListByteMatchSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListByteMatchSetsCommand)
   .de(de_ListByteMatchSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListByteMatchSetsRequest;
+      output: ListByteMatchSetsResponse;
+    };
+    sdk: {
+      input: ListByteMatchSetsCommandInput;
+      output: ListByteMatchSetsCommandOutput;
+    };
+  };
+}

@@ -166,4 +166,16 @@ export class ListIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndexCommand)
   .de(de_ListIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndexRequest;
+      output: ListIndexResponse;
+    };
+    sdk: {
+      input: ListIndexCommandInput;
+      output: ListIndexCommandOutput;
+    };
+  };
+}

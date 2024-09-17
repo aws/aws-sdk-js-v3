@@ -184,4 +184,16 @@ export class CreateCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCampaignCommand)
   .de(de_CreateCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCampaignRequest;
+      output: CreateCampaignResponse;
+    };
+    sdk: {
+      input: CreateCampaignCommandInput;
+      output: CreateCampaignCommandOutput;
+    };
+  };
+}

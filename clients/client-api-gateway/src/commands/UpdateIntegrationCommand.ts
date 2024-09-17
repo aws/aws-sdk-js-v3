@@ -139,4 +139,16 @@ export class UpdateIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIntegrationCommand)
   .de(de_UpdateIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIntegrationRequest;
+      output: Integration;
+    };
+    sdk: {
+      input: UpdateIntegrationCommandInput;
+      output: UpdateIntegrationCommandOutput;
+    };
+  };
+}

@@ -183,4 +183,16 @@ export class ListContainerGroupDefinitionsCommand extends $Command
   .f(void 0, ListContainerGroupDefinitionsOutputFilterSensitiveLog)
   .ser(se_ListContainerGroupDefinitionsCommand)
   .de(de_ListContainerGroupDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContainerGroupDefinitionsInput;
+      output: ListContainerGroupDefinitionsOutput;
+    };
+    sdk: {
+      input: ListContainerGroupDefinitionsCommandInput;
+      output: ListContainerGroupDefinitionsCommandOutput;
+    };
+  };
+}

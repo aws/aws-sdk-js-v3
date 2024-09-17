@@ -110,4 +110,16 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command
   .f(AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog, void 0)
   .ser(se_AcceptDomainTransferFromAnotherAwsAccountCommand)
   .de(de_AcceptDomainTransferFromAnotherAwsAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptDomainTransferFromAnotherAwsAccountRequest;
+      output: AcceptDomainTransferFromAnotherAwsAccountResponse;
+    };
+    sdk: {
+      input: AcceptDomainTransferFromAnotherAwsAccountCommandInput;
+      output: AcceptDomainTransferFromAnotherAwsAccountCommandOutput;
+    };
+  };
+}

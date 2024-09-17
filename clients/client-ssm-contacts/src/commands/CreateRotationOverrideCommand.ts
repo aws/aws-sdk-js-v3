@@ -102,4 +102,16 @@ export class CreateRotationOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRotationOverrideCommand)
   .de(de_CreateRotationOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRotationOverrideRequest;
+      output: CreateRotationOverrideResult;
+    };
+    sdk: {
+      input: CreateRotationOverrideCommandInput;
+      output: CreateRotationOverrideCommandOutput;
+    };
+  };
+}

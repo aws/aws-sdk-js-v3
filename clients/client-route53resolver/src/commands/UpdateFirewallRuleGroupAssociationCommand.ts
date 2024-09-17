@@ -125,4 +125,16 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallRuleGroupAssociationCommand)
   .de(de_UpdateFirewallRuleGroupAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallRuleGroupAssociationRequest;
+      output: UpdateFirewallRuleGroupAssociationResponse;
+    };
+    sdk: {
+      input: UpdateFirewallRuleGroupAssociationCommandInput;
+      output: UpdateFirewallRuleGroupAssociationCommandOutput;
+    };
+  };
+}

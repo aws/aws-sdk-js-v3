@@ -173,4 +173,16 @@ export class ListIntentStageMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIntentStageMetricsCommand)
   .de(de_ListIntentStageMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIntentStageMetricsRequest;
+      output: ListIntentStageMetricsResponse;
+    };
+    sdk: {
+      input: ListIntentStageMetricsCommandInput;
+      output: ListIntentStageMetricsCommandOutput;
+    };
+  };
+}

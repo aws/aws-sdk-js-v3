@@ -148,4 +148,16 @@ export class UpdateEndpointsBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointsBatchCommand)
   .de(de_UpdateEndpointsBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointsBatchRequest;
+      output: UpdateEndpointsBatchResponse;
+    };
+    sdk: {
+      input: UpdateEndpointsBatchCommandInput;
+      output: UpdateEndpointsBatchCommandOutput;
+    };
+  };
+}

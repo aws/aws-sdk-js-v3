@@ -110,4 +110,16 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeleteApplicationInputProcessingConfigurationCommand)
   .de(de_DeleteApplicationInputProcessingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationInputProcessingConfigurationRequest;
+      output: DeleteApplicationInputProcessingConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteApplicationInputProcessingConfigurationCommandInput;
+      output: DeleteApplicationInputProcessingConfigurationCommandOutput;
+    };
+  };
+}

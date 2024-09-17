@@ -91,4 +91,16 @@ export class UpdateRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoleCommand)
   .de(de_UpdateRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoleCommandInput;
+      output: UpdateRoleCommandOutput;
+    };
+  };
+}

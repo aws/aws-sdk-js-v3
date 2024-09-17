@@ -109,4 +109,16 @@ export class GetResolverQueryLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResolverQueryLogConfigCommand)
   .de(de_GetResolverQueryLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResolverQueryLogConfigRequest;
+      output: GetResolverQueryLogConfigResponse;
+    };
+    sdk: {
+      input: GetResolverQueryLogConfigCommandInput;
+      output: GetResolverQueryLogConfigCommandOutput;
+    };
+  };
+}

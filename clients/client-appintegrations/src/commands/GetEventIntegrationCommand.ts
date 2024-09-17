@@ -101,4 +101,16 @@ export class GetEventIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventIntegrationCommand)
   .de(de_GetEventIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventIntegrationRequest;
+      output: GetEventIntegrationResponse;
+    };
+    sdk: {
+      input: GetEventIntegrationCommandInput;
+      output: GetEventIntegrationCommandOutput;
+    };
+  };
+}

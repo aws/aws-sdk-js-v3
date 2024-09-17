@@ -133,4 +133,16 @@ export class GetPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlanCommand)
   .de(de_GetPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlanRequest;
+      output: GetPlanResponse;
+    };
+    sdk: {
+      input: GetPlanCommandInput;
+      output: GetPlanCommandOutput;
+    };
+  };
+}

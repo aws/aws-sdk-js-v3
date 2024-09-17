@@ -133,4 +133,16 @@ export class ListPendingInvitationResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPendingInvitationResourcesCommand)
   .de(de_ListPendingInvitationResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPendingInvitationResourcesRequest;
+      output: ListPendingInvitationResourcesResponse;
+    };
+    sdk: {
+      input: ListPendingInvitationResourcesCommandInput;
+      output: ListPendingInvitationResourcesCommandOutput;
+    };
+  };
+}

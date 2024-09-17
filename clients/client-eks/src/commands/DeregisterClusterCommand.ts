@@ -198,4 +198,16 @@ export class DeregisterClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterClusterCommand)
   .de(de_DeregisterClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterClusterRequest;
+      output: DeregisterClusterResponse;
+    };
+    sdk: {
+      input: DeregisterClusterCommandInput;
+      output: DeregisterClusterCommandOutput;
+    };
+  };
+}

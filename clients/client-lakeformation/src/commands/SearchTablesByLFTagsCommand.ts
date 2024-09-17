@@ -147,4 +147,16 @@ export class SearchTablesByLFTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchTablesByLFTagsCommand)
   .de(de_SearchTablesByLFTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTablesByLFTagsRequest;
+      output: SearchTablesByLFTagsResponse;
+    };
+    sdk: {
+      input: SearchTablesByLFTagsCommandInput;
+      output: SearchTablesByLFTagsCommandOutput;
+    };
+  };
+}

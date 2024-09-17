@@ -99,4 +99,16 @@ export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMicrosoftTeamsConfiguredTeamsCommand)
   .de(de_ListMicrosoftTeamsConfiguredTeamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMicrosoftTeamsConfiguredTeamsRequest;
+      output: ListMicrosoftTeamsConfiguredTeamsResult;
+    };
+    sdk: {
+      input: ListMicrosoftTeamsConfiguredTeamsCommandInput;
+      output: ListMicrosoftTeamsConfiguredTeamsCommandOutput;
+    };
+  };
+}

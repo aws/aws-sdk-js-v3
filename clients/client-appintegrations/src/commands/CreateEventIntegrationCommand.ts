@@ -107,4 +107,16 @@ export class CreateEventIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventIntegrationCommand)
   .de(de_CreateEventIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventIntegrationRequest;
+      output: CreateEventIntegrationResponse;
+    };
+    sdk: {
+      input: CreateEventIntegrationCommandInput;
+      output: CreateEventIntegrationCommandOutput;
+    };
+  };
+}

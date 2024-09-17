@@ -140,4 +140,16 @@ export class StopStreamingSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopStreamingSessionCommand)
   .de(de_StopStreamingSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopStreamingSessionRequest;
+      output: StopStreamingSessionResponse;
+    };
+    sdk: {
+      input: StopStreamingSessionCommandInput;
+      output: StopStreamingSessionCommandOutput;
+    };
+  };
+}

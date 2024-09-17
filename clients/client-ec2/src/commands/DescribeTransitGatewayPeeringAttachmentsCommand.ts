@@ -132,4 +132,16 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTransitGatewayPeeringAttachmentsCommand)
   .de(de_DescribeTransitGatewayPeeringAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTransitGatewayPeeringAttachmentsRequest;
+      output: DescribeTransitGatewayPeeringAttachmentsResult;
+    };
+    sdk: {
+      input: DescribeTransitGatewayPeeringAttachmentsCommandInput;
+      output: DescribeTransitGatewayPeeringAttachmentsCommandOutput;
+    };
+  };
+}

@@ -228,4 +228,16 @@ export class RegisterDomainCommand extends $Command
   .f(RegisterDomainRequestFilterSensitiveLog, void 0)
   .ser(se_RegisterDomainCommand)
   .de(de_RegisterDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDomainRequest;
+      output: RegisterDomainResponse;
+    };
+    sdk: {
+      input: RegisterDomainCommandInput;
+      output: RegisterDomainCommandOutput;
+    };
+  };
+}

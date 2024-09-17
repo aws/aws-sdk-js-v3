@@ -104,4 +104,16 @@ export class GetDelegationsCommand extends $Command
   .f(void 0, GetDelegationsResponseFilterSensitiveLog)
   .ser(se_GetDelegationsCommand)
   .de(de_GetDelegationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDelegationsRequest;
+      output: GetDelegationsResponse;
+    };
+    sdk: {
+      input: GetDelegationsCommandInput;
+      output: GetDelegationsCommandOutput;
+    };
+  };
+}

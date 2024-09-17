@@ -115,4 +115,16 @@ export class CreateContactFlowModuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContactFlowModuleCommand)
   .de(de_CreateContactFlowModuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContactFlowModuleRequest;
+      output: CreateContactFlowModuleResponse;
+    };
+    sdk: {
+      input: CreateContactFlowModuleCommandInput;
+      output: CreateContactFlowModuleCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class GetEventsConfigurationCommand extends $Command
   .f(void 0, GetEventsConfigurationResponseFilterSensitiveLog)
   .ser(se_GetEventsConfigurationCommand)
   .de(de_GetEventsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventsConfigurationRequest;
+      output: GetEventsConfigurationResponse;
+    };
+    sdk: {
+      input: GetEventsConfigurationCommandInput;
+      output: GetEventsConfigurationCommandOutput;
+    };
+  };
+}

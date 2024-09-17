@@ -111,4 +111,16 @@ export class ListCalculatedAttributesForProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCalculatedAttributesForProfileCommand)
   .de(de_ListCalculatedAttributesForProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCalculatedAttributesForProfileRequest;
+      output: ListCalculatedAttributesForProfileResponse;
+    };
+    sdk: {
+      input: ListCalculatedAttributesForProfileCommandInput;
+      output: ListCalculatedAttributesForProfileCommandOutput;
+    };
+  };
+}

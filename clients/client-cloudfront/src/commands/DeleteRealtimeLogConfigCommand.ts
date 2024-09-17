@@ -95,4 +95,16 @@ export class DeleteRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRealtimeLogConfigCommand)
   .de(de_DeleteRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRealtimeLogConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRealtimeLogConfigCommandInput;
+      output: DeleteRealtimeLogConfigCommandOutput;
+    };
+  };
+}

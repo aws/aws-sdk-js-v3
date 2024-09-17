@@ -122,4 +122,16 @@ export class DeleteCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCanaryCommand)
   .de(de_DeleteCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCanaryCommandInput;
+      output: DeleteCanaryCommandOutput;
+    };
+  };
+}

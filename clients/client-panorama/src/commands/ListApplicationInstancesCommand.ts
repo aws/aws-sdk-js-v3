@@ -111,4 +111,16 @@ export class ListApplicationInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationInstancesCommand)
   .de(de_ListApplicationInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationInstancesRequest;
+      output: ListApplicationInstancesResponse;
+    };
+    sdk: {
+      input: ListApplicationInstancesCommandInput;
+      output: ListApplicationInstancesCommandOutput;
+    };
+  };
+}

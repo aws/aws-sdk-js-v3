@@ -109,4 +109,16 @@ export class ListDataQualityStatisticAnnotationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataQualityStatisticAnnotationsCommand)
   .de(de_ListDataQualityStatisticAnnotationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataQualityStatisticAnnotationsRequest;
+      output: ListDataQualityStatisticAnnotationsResponse;
+    };
+    sdk: {
+      input: ListDataQualityStatisticAnnotationsCommandInput;
+      output: ListDataQualityStatisticAnnotationsCommandOutput;
+    };
+  };
+}

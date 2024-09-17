@@ -111,4 +111,16 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLicenseConversionTaskForResourceCommand)
   .de(de_CreateLicenseConversionTaskForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLicenseConversionTaskForResourceRequest;
+      output: CreateLicenseConversionTaskForResourceResponse;
+    };
+    sdk: {
+      input: CreateLicenseConversionTaskForResourceCommandInput;
+      output: CreateLicenseConversionTaskForResourceCommandOutput;
+    };
+  };
+}

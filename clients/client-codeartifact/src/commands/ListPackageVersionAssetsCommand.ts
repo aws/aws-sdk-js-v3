@@ -126,4 +126,16 @@ export class ListPackageVersionAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackageVersionAssetsCommand)
   .de(de_ListPackageVersionAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackageVersionAssetsRequest;
+      output: ListPackageVersionAssetsResult;
+    };
+    sdk: {
+      input: ListPackageVersionAssetsCommandInput;
+      output: ListPackageVersionAssetsCommandOutput;
+    };
+  };
+}

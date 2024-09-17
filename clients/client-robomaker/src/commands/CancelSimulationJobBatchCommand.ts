@@ -89,4 +89,16 @@ export class CancelSimulationJobBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelSimulationJobBatchCommand)
   .de(de_CancelSimulationJobBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelSimulationJobBatchRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelSimulationJobBatchCommandInput;
+      output: CancelSimulationJobBatchCommandOutput;
+    };
+  };
+}

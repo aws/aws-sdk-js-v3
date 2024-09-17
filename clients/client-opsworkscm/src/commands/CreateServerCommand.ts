@@ -193,4 +193,16 @@ export class CreateServerCommand extends $Command
   .f(CreateServerRequestFilterSensitiveLog, CreateServerResponseFilterSensitiveLog)
   .ser(se_CreateServerCommand)
   .de(de_CreateServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServerRequest;
+      output: CreateServerResponse;
+    };
+    sdk: {
+      input: CreateServerCommandInput;
+      output: CreateServerCommandOutput;
+    };
+  };
+}

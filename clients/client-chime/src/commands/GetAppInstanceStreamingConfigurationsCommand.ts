@@ -122,4 +122,16 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command
   .f(void 0, GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog)
   .ser(se_GetAppInstanceStreamingConfigurationsCommand)
   .de(de_GetAppInstanceStreamingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppInstanceStreamingConfigurationsRequest;
+      output: GetAppInstanceStreamingConfigurationsResponse;
+    };
+    sdk: {
+      input: GetAppInstanceStreamingConfigurationsCommandInput;
+      output: GetAppInstanceStreamingConfigurationsCommandOutput;
+    };
+  };
+}

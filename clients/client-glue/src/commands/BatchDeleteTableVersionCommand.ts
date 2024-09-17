@@ -103,4 +103,16 @@ export class BatchDeleteTableVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteTableVersionCommand)
   .de(de_BatchDeleteTableVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteTableVersionRequest;
+      output: BatchDeleteTableVersionResponse;
+    };
+    sdk: {
+      input: BatchDeleteTableVersionCommandInput;
+      output: BatchDeleteTableVersionCommandOutput;
+    };
+  };
+}

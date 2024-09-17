@@ -114,4 +114,16 @@ export class DescribeUserGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserGroupsCommand)
   .de(de_DescribeUserGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserGroupsMessage;
+      output: DescribeUserGroupsResult;
+    };
+    sdk: {
+      input: DescribeUserGroupsCommandInput;
+      output: DescribeUserGroupsCommandOutput;
+    };
+  };
+}

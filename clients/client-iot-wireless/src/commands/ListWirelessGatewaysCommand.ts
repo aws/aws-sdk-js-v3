@@ -121,4 +121,16 @@ export class ListWirelessGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWirelessGatewaysCommand)
   .de(de_ListWirelessGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWirelessGatewaysRequest;
+      output: ListWirelessGatewaysResponse;
+    };
+    sdk: {
+      input: ListWirelessGatewaysCommandInput;
+      output: ListWirelessGatewaysCommandOutput;
+    };
+  };
+}

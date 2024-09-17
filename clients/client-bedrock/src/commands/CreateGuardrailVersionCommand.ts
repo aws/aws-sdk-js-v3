@@ -106,4 +106,16 @@ export class CreateGuardrailVersionCommand extends $Command
   .f(CreateGuardrailVersionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateGuardrailVersionCommand)
   .de(de_CreateGuardrailVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGuardrailVersionRequest;
+      output: CreateGuardrailVersionResponse;
+    };
+    sdk: {
+      input: CreateGuardrailVersionCommandInput;
+      output: CreateGuardrailVersionCommandOutput;
+    };
+  };
+}

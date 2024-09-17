@@ -91,4 +91,16 @@ export class AttachInternetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachInternetGatewayCommand)
   .de(de_AttachInternetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachInternetGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachInternetGatewayCommandInput;
+      output: AttachInternetGatewayCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class GetEulaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEulaCommand)
   .de(de_GetEulaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEulaRequest;
+      output: GetEulaResponse;
+    };
+    sdk: {
+      input: GetEulaCommandInput;
+      output: GetEulaCommandOutput;
+    };
+  };
+}

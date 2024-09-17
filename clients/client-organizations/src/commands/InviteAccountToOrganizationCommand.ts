@@ -607,4 +607,16 @@ export class InviteAccountToOrganizationCommand extends $Command
   .f(InviteAccountToOrganizationRequestFilterSensitiveLog, InviteAccountToOrganizationResponseFilterSensitiveLog)
   .ser(se_InviteAccountToOrganizationCommand)
   .de(de_InviteAccountToOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InviteAccountToOrganizationRequest;
+      output: InviteAccountToOrganizationResponse;
+    };
+    sdk: {
+      input: InviteAccountToOrganizationCommandInput;
+      output: InviteAccountToOrganizationCommandOutput;
+    };
+  };
+}

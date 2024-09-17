@@ -94,4 +94,16 @@ export class CreateTestGridUrlCommand extends $Command
   .f(void 0, CreateTestGridUrlResultFilterSensitiveLog)
   .ser(se_CreateTestGridUrlCommand)
   .de(de_CreateTestGridUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestGridUrlRequest;
+      output: CreateTestGridUrlResult;
+    };
+    sdk: {
+      input: CreateTestGridUrlCommandInput;
+      output: CreateTestGridUrlCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ListHubsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubsCommand)
   .de(de_ListHubsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubsRequest;
+      output: ListHubsResponse;
+    };
+    sdk: {
+      input: ListHubsCommandInput;
+      output: ListHubsCommandOutput;
+    };
+  };
+}

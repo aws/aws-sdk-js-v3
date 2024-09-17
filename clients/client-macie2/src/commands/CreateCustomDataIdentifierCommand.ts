@@ -117,4 +117,16 @@ export class CreateCustomDataIdentifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomDataIdentifierCommand)
   .de(de_CreateCustomDataIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomDataIdentifierRequest;
+      output: CreateCustomDataIdentifierResponse;
+    };
+    sdk: {
+      input: CreateCustomDataIdentifierCommandInput;
+      output: CreateCustomDataIdentifierCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class ListHostedZonesByVPCCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostedZonesByVPCCommand)
   .de(de_ListHostedZonesByVPCCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostedZonesByVPCRequest;
+      output: ListHostedZonesByVPCResponse;
+    };
+    sdk: {
+      input: ListHostedZonesByVPCCommandInput;
+      output: ListHostedZonesByVPCCommandOutput;
+    };
+  };
+}

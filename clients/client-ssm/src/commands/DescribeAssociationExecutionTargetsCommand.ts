@@ -122,4 +122,16 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssociationExecutionTargetsCommand)
   .de(de_DescribeAssociationExecutionTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssociationExecutionTargetsRequest;
+      output: DescribeAssociationExecutionTargetsResult;
+    };
+    sdk: {
+      input: DescribeAssociationExecutionTargetsCommandInput;
+      output: DescribeAssociationExecutionTargetsCommandOutput;
+    };
+  };
+}

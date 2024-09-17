@@ -192,4 +192,16 @@ export class UpdateRegexPatternSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRegexPatternSetCommand)
   .de(de_UpdateRegexPatternSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRegexPatternSetRequest;
+      output: UpdateRegexPatternSetResponse;
+    };
+    sdk: {
+      input: UpdateRegexPatternSetCommandInput;
+      output: UpdateRegexPatternSetCommandOutput;
+    };
+  };
+}

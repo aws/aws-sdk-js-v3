@@ -112,4 +112,16 @@ export class DescribeApplicationOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationOperationCommand)
   .de(de_DescribeApplicationOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationOperationRequest;
+      output: DescribeApplicationOperationResponse;
+    };
+    sdk: {
+      input: DescribeApplicationOperationCommandInput;
+      output: DescribeApplicationOperationCommandOutput;
+    };
+  };
+}

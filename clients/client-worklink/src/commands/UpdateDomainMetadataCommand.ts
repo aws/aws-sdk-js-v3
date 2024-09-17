@@ -94,4 +94,16 @@ export class UpdateDomainMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainMetadataCommand)
   .de(de_UpdateDomainMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDomainMetadataCommandInput;
+      output: UpdateDomainMetadataCommandOutput;
+    };
+  };
+}

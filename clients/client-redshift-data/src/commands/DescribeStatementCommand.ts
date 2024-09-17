@@ -129,4 +129,16 @@ export class DescribeStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStatementCommand)
   .de(de_DescribeStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStatementRequest;
+      output: DescribeStatementResponse;
+    };
+    sdk: {
+      input: DescribeStatementCommandInput;
+      output: DescribeStatementCommandOutput;
+    };
+  };
+}

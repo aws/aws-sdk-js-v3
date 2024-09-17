@@ -102,4 +102,16 @@ export class DeleteAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAliasCommand)
   .de(de_DeleteAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAliasInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAliasCommandInput;
+      output: DeleteAliasCommandOutput;
+    };
+  };
+}

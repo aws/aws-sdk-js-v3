@@ -126,4 +126,16 @@ export class UpdateReportGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReportGroupCommand)
   .de(de_UpdateReportGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReportGroupInput;
+      output: UpdateReportGroupOutput;
+    };
+    sdk: {
+      input: UpdateReportGroupCommandInput;
+      output: UpdateReportGroupCommandOutput;
+    };
+  };
+}

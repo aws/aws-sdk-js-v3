@@ -243,4 +243,16 @@ export class GetAgreementTermsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgreementTermsCommand)
   .de(de_GetAgreementTermsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgreementTermsInput;
+      output: GetAgreementTermsOutput;
+    };
+    sdk: {
+      input: GetAgreementTermsCommandInput;
+      output: GetAgreementTermsCommandOutput;
+    };
+  };
+}

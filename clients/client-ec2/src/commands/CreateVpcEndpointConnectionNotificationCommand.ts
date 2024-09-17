@@ -108,4 +108,16 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcEndpointConnectionNotificationCommand)
   .de(de_CreateVpcEndpointConnectionNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcEndpointConnectionNotificationRequest;
+      output: CreateVpcEndpointConnectionNotificationResult;
+    };
+    sdk: {
+      input: CreateVpcEndpointConnectionNotificationCommandInput;
+      output: CreateVpcEndpointConnectionNotificationCommandOutput;
+    };
+  };
+}

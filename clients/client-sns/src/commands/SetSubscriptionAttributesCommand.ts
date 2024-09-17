@@ -99,4 +99,16 @@ export class SetSubscriptionAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSubscriptionAttributesCommand)
   .de(de_SetSubscriptionAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSubscriptionAttributesInput;
+      output: {};
+    };
+    sdk: {
+      input: SetSubscriptionAttributesCommandInput;
+      output: SetSubscriptionAttributesCommandOutput;
+    };
+  };
+}

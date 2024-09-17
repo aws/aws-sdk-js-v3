@@ -113,4 +113,16 @@ export class UpdateStorageProfileCommand extends $Command
   .f(UpdateStorageProfileRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateStorageProfileCommand)
   .de(de_UpdateStorageProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStorageProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStorageProfileCommandInput;
+      output: UpdateStorageProfileCommandOutput;
+    };
+  };
+}

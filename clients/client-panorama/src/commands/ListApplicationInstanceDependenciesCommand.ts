@@ -100,4 +100,16 @@ export class ListApplicationInstanceDependenciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationInstanceDependenciesCommand)
   .de(de_ListApplicationInstanceDependenciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationInstanceDependenciesRequest;
+      output: ListApplicationInstanceDependenciesResponse;
+    };
+    sdk: {
+      input: ListApplicationInstanceDependenciesCommandInput;
+      output: ListApplicationInstanceDependenciesCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class UpgradeLensReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpgradeLensReviewCommand)
   .de(de_UpgradeLensReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpgradeLensReviewInput;
+      output: {};
+    };
+    sdk: {
+      input: UpgradeLensReviewCommandInput;
+      output: UpgradeLensReviewCommandOutput;
+    };
+  };
+}

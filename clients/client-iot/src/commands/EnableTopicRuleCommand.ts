@@ -92,4 +92,16 @@ export class EnableTopicRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableTopicRuleCommand)
   .de(de_EnableTopicRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableTopicRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableTopicRuleCommandInput;
+      output: EnableTopicRuleCommandOutput;
+    };
+  };
+}

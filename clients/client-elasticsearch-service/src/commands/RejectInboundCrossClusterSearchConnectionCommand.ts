@@ -112,4 +112,16 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectInboundCrossClusterSearchConnectionCommand)
   .de(de_RejectInboundCrossClusterSearchConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectInboundCrossClusterSearchConnectionRequest;
+      output: RejectInboundCrossClusterSearchConnectionResponse;
+    };
+    sdk: {
+      input: RejectInboundCrossClusterSearchConnectionCommandInput;
+      output: RejectInboundCrossClusterSearchConnectionCommandOutput;
+    };
+  };
+}

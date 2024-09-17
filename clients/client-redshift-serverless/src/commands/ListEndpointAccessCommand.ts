@@ -130,4 +130,16 @@ export class ListEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEndpointAccessCommand)
   .de(de_ListEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEndpointAccessRequest;
+      output: ListEndpointAccessResponse;
+    };
+    sdk: {
+      input: ListEndpointAccessCommandInput;
+      output: ListEndpointAccessCommandOutput;
+    };
+  };
+}

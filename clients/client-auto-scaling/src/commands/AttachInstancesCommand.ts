@@ -108,4 +108,16 @@ export class AttachInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachInstancesCommand)
   .de(de_AttachInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachInstancesQuery;
+      output: {};
+    };
+    sdk: {
+      input: AttachInstancesCommandInput;
+      output: AttachInstancesCommandOutput;
+    };
+  };
+}

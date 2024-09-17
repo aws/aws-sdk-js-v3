@@ -127,4 +127,16 @@ export class ListBucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBucketsCommand)
   .de(de_ListBucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBucketsRequest;
+      output: ListBucketsOutput;
+    };
+    sdk: {
+      input: ListBucketsCommandInput;
+      output: ListBucketsCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class ListGroupsForEntityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsForEntityCommand)
   .de(de_ListGroupsForEntityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsForEntityRequest;
+      output: ListGroupsForEntityResponse;
+    };
+    sdk: {
+      input: ListGroupsForEntityCommandInput;
+      output: ListGroupsForEntityCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class CancelAnnotationImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelAnnotationImportJobCommand)
   .de(de_CancelAnnotationImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelAnnotationImportRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelAnnotationImportJobCommandInput;
+      output: CancelAnnotationImportJobCommandOutput;
+    };
+  };
+}

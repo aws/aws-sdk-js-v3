@@ -111,4 +111,16 @@ export class GetBlockCommand extends $Command
   .f(GetBlockRequestFilterSensitiveLog, GetBlockResponseFilterSensitiveLog)
   .ser(se_GetBlockCommand)
   .de(de_GetBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBlockRequest;
+      output: GetBlockResponse;
+    };
+    sdk: {
+      input: GetBlockCommandInput;
+      output: GetBlockCommandOutput;
+    };
+  };
+}

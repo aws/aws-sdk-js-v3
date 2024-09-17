@@ -96,4 +96,16 @@ export class AssociateMacSecKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateMacSecKeyCommand)
   .de(de_AssociateMacSecKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateMacSecKeyRequest;
+      output: AssociateMacSecKeyResponse;
+    };
+    sdk: {
+      input: AssociateMacSecKeyCommandInput;
+      output: AssociateMacSecKeyCommandOutput;
+    };
+  };
+}

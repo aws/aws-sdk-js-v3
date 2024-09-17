@@ -100,4 +100,16 @@ export class DescribePublisherCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePublisherCommand)
   .de(de_DescribePublisherCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePublisherInput;
+      output: DescribePublisherOutput;
+    };
+    sdk: {
+      input: DescribePublisherCommandInput;
+      output: DescribePublisherCommandOutput;
+    };
+  };
+}

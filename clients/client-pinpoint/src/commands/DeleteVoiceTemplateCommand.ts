@@ -102,4 +102,16 @@ export class DeleteVoiceTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceTemplateCommand)
   .de(de_DeleteVoiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceTemplateRequest;
+      output: DeleteVoiceTemplateResponse;
+    };
+    sdk: {
+      input: DeleteVoiceTemplateCommandInput;
+      output: DeleteVoiceTemplateCommandOutput;
+    };
+  };
+}

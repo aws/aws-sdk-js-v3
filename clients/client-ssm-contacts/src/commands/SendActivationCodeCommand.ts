@@ -99,4 +99,16 @@ export class SendActivationCodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendActivationCodeCommand)
   .de(de_SendActivationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendActivationCodeRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendActivationCodeCommandInput;
+      output: SendActivationCodeCommandOutput;
+    };
+  };
+}

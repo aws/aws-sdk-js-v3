@@ -82,4 +82,16 @@ export class SignalResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SignalResourceCommand)
   .de(de_SignalResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignalResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: SignalResourceCommandInput;
+      output: SignalResourceCommandOutput;
+    };
+  };
+}

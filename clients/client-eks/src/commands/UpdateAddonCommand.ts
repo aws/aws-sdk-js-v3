@@ -133,4 +133,16 @@ export class UpdateAddonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAddonCommand)
   .de(de_UpdateAddonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAddonRequest;
+      output: UpdateAddonResponse;
+    };
+    sdk: {
+      input: UpdateAddonCommandInput;
+      output: UpdateAddonCommandOutput;
+    };
+  };
+}

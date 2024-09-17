@@ -90,4 +90,16 @@ export class BatchDeleteBuildsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteBuildsCommand)
   .de(de_BatchDeleteBuildsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteBuildsInput;
+      output: BatchDeleteBuildsOutput;
+    };
+    sdk: {
+      input: BatchDeleteBuildsCommandInput;
+      output: BatchDeleteBuildsCommandOutput;
+    };
+  };
+}

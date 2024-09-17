@@ -135,4 +135,16 @@ export class DescribeStateMachineForExecutionCommand extends $Command
   .f(void 0, DescribeStateMachineForExecutionOutputFilterSensitiveLog)
   .ser(se_DescribeStateMachineForExecutionCommand)
   .de(de_DescribeStateMachineForExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStateMachineForExecutionInput;
+      output: DescribeStateMachineForExecutionOutput;
+    };
+    sdk: {
+      input: DescribeStateMachineForExecutionCommandInput;
+      output: DescribeStateMachineForExecutionCommandOutput;
+    };
+  };
+}

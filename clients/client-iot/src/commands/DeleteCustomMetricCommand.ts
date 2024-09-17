@@ -95,4 +95,16 @@ export class DeleteCustomMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomMetricCommand)
   .de(de_DeleteCustomMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomMetricRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomMetricCommandInput;
+      output: DeleteCustomMetricCommandOutput;
+    };
+  };
+}

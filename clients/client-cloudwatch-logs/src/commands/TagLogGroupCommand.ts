@@ -99,4 +99,16 @@ export class TagLogGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagLogGroupCommand)
   .de(de_TagLogGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagLogGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagLogGroupCommandInput;
+      output: TagLogGroupCommandOutput;
+    };
+  };
+}

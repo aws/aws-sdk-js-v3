@@ -92,4 +92,16 @@ export class StopWorkspacesPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopWorkspacesPoolCommand)
   .de(de_StopWorkspacesPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopWorkspacesPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopWorkspacesPoolCommandInput;
+      output: StopWorkspacesPoolCommandOutput;
+    };
+  };
+}

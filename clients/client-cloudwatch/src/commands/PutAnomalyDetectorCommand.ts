@@ -149,4 +149,16 @@ export class PutAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAnomalyDetectorCommand)
   .de(de_PutAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAnomalyDetectorInput;
+      output: {};
+    };
+    sdk: {
+      input: PutAnomalyDetectorCommandInput;
+      output: PutAnomalyDetectorCommandOutput;
+    };
+  };
+}

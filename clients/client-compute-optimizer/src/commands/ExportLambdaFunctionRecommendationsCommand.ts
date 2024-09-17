@@ -139,4 +139,16 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportLambdaFunctionRecommendationsCommand)
   .de(de_ExportLambdaFunctionRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportLambdaFunctionRecommendationsRequest;
+      output: ExportLambdaFunctionRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportLambdaFunctionRecommendationsCommandInput;
+      output: ExportLambdaFunctionRecommendationsCommandOutput;
+    };
+  };
+}

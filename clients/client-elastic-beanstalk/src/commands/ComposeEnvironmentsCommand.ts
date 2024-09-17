@@ -138,4 +138,16 @@ export class ComposeEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ComposeEnvironmentsCommand)
   .de(de_ComposeEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ComposeEnvironmentsMessage;
+      output: EnvironmentDescriptionsMessage;
+    };
+    sdk: {
+      input: ComposeEnvironmentsCommandInput;
+      output: ComposeEnvironmentsCommandOutput;
+    };
+  };
+}

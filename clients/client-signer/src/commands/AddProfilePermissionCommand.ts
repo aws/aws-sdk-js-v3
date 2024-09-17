@@ -104,4 +104,16 @@ export class AddProfilePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddProfilePermissionCommand)
   .de(de_AddProfilePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddProfilePermissionRequest;
+      output: AddProfilePermissionResponse;
+    };
+    sdk: {
+      input: AddProfilePermissionCommandInput;
+      output: AddProfilePermissionCommandOutput;
+    };
+  };
+}

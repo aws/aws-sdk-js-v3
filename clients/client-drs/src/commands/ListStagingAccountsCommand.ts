@@ -98,4 +98,16 @@ export class ListStagingAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStagingAccountsCommand)
   .de(de_ListStagingAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStagingAccountsRequest;
+      output: ListStagingAccountsResponse;
+    };
+    sdk: {
+      input: ListStagingAccountsCommandInput;
+      output: ListStagingAccountsCommandOutput;
+    };
+  };
+}

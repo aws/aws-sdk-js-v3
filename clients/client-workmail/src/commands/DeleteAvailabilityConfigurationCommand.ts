@@ -89,4 +89,16 @@ export class DeleteAvailabilityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAvailabilityConfigurationCommand)
   .de(de_DeleteAvailabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAvailabilityConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAvailabilityConfigurationCommandInput;
+      output: DeleteAvailabilityConfigurationCommandOutput;
+    };
+  };
+}

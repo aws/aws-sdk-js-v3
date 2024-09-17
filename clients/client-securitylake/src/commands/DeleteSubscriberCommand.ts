@@ -103,4 +103,16 @@ export class DeleteSubscriberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriberCommand)
   .de(de_DeleteSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriberCommandInput;
+      output: DeleteSubscriberCommandOutput;
+    };
+  };
+}

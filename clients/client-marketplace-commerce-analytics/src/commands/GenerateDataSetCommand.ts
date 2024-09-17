@@ -99,4 +99,16 @@ export class GenerateDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateDataSetCommand)
   .de(de_GenerateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataSetRequest;
+      output: GenerateDataSetResult;
+    };
+    sdk: {
+      input: GenerateDataSetCommandInput;
+      output: GenerateDataSetCommandOutput;
+    };
+  };
+}

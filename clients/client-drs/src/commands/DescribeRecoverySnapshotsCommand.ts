@@ -110,4 +110,16 @@ export class DescribeRecoverySnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecoverySnapshotsCommand)
   .de(de_DescribeRecoverySnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecoverySnapshotsRequest;
+      output: DescribeRecoverySnapshotsResponse;
+    };
+    sdk: {
+      input: DescribeRecoverySnapshotsCommandInput;
+      output: DescribeRecoverySnapshotsCommandOutput;
+    };
+  };
+}

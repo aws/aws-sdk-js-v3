@@ -123,4 +123,16 @@ export class DescribeInstanceConnectEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceConnectEndpointsCommand)
   .de(de_DescribeInstanceConnectEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceConnectEndpointsRequest;
+      output: DescribeInstanceConnectEndpointsResult;
+    };
+    sdk: {
+      input: DescribeInstanceConnectEndpointsCommandInput;
+      output: DescribeInstanceConnectEndpointsCommandOutput;
+    };
+  };
+}

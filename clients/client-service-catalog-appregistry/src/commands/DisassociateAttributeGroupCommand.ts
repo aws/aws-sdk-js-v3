@@ -92,4 +92,16 @@ export class DisassociateAttributeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAttributeGroupCommand)
   .de(de_DisassociateAttributeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAttributeGroupRequest;
+      output: DisassociateAttributeGroupResponse;
+    };
+    sdk: {
+      input: DisassociateAttributeGroupCommandInput;
+      output: DisassociateAttributeGroupCommandOutput;
+    };
+  };
+}

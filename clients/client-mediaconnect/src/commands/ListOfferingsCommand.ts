@@ -105,4 +105,16 @@ export class ListOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOfferingsCommand)
   .de(de_ListOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOfferingsRequest;
+      output: ListOfferingsResponse;
+    };
+    sdk: {
+      input: ListOfferingsCommandInput;
+      output: ListOfferingsCommandOutput;
+    };
+  };
+}

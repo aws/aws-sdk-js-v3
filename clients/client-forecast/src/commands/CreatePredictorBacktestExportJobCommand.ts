@@ -132,4 +132,16 @@ export class CreatePredictorBacktestExportJobCommand extends $Command
   .f(CreatePredictorBacktestExportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePredictorBacktestExportJobCommand)
   .de(de_CreatePredictorBacktestExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePredictorBacktestExportJobRequest;
+      output: CreatePredictorBacktestExportJobResponse;
+    };
+    sdk: {
+      input: CreatePredictorBacktestExportJobCommandInput;
+      output: CreatePredictorBacktestExportJobCommandOutput;
+    };
+  };
+}

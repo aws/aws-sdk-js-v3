@@ -92,4 +92,16 @@ export class CreateTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTokenCommand)
   .de(de_CreateTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTokenRequest;
+      output: CreateTokenResponse;
+    };
+    sdk: {
+      input: CreateTokenCommandInput;
+      output: CreateTokenCommandOutput;
+    };
+  };
+}

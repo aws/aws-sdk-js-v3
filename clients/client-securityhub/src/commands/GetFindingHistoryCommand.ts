@@ -165,4 +165,16 @@ export class GetFindingHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingHistoryCommand)
   .de(de_GetFindingHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingHistoryRequest;
+      output: GetFindingHistoryResponse;
+    };
+    sdk: {
+      input: GetFindingHistoryCommandInput;
+      output: GetFindingHistoryCommandOutput;
+    };
+  };
+}

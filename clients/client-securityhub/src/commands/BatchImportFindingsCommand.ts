@@ -4402,4 +4402,16 @@ export class BatchImportFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchImportFindingsCommand)
   .de(de_BatchImportFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchImportFindingsRequest;
+      output: BatchImportFindingsResponse;
+    };
+    sdk: {
+      input: BatchImportFindingsCommandInput;
+      output: BatchImportFindingsCommandOutput;
+    };
+  };
+}

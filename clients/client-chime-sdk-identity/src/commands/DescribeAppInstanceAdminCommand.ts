@@ -107,4 +107,16 @@ export class DescribeAppInstanceAdminCommand extends $Command
   .f(void 0, DescribeAppInstanceAdminResponseFilterSensitiveLog)
   .ser(se_DescribeAppInstanceAdminCommand)
   .de(de_DescribeAppInstanceAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppInstanceAdminRequest;
+      output: DescribeAppInstanceAdminResponse;
+    };
+    sdk: {
+      input: DescribeAppInstanceAdminCommandInput;
+      output: DescribeAppInstanceAdminCommandOutput;
+    };
+  };
+}

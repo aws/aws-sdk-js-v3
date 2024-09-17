@@ -152,4 +152,16 @@ export class CreateAdapterVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAdapterVersionCommand)
   .de(de_CreateAdapterVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAdapterVersionRequest;
+      output: CreateAdapterVersionResponse;
+    };
+    sdk: {
+      input: CreateAdapterVersionCommandInput;
+      output: CreateAdapterVersionCommandOutput;
+    };
+  };
+}

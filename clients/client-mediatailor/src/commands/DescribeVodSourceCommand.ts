@@ -97,4 +97,16 @@ export class DescribeVodSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVodSourceCommand)
   .de(de_DescribeVodSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVodSourceRequest;
+      output: DescribeVodSourceResponse;
+    };
+    sdk: {
+      input: DescribeVodSourceCommandInput;
+      output: DescribeVodSourceCommandOutput;
+    };
+  };
+}

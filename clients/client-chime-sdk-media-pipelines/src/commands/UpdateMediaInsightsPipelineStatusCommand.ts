@@ -108,4 +108,16 @@ export class UpdateMediaInsightsPipelineStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMediaInsightsPipelineStatusCommand)
   .de(de_UpdateMediaInsightsPipelineStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMediaInsightsPipelineStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMediaInsightsPipelineStatusCommandInput;
+      output: UpdateMediaInsightsPipelineStatusCommandOutput;
+    };
+  };
+}

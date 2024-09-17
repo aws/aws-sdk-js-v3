@@ -162,4 +162,16 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrafficMirrorFilterNetworkServicesCommand)
   .de(de_ModifyTrafficMirrorFilterNetworkServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrafficMirrorFilterNetworkServicesRequest;
+      output: ModifyTrafficMirrorFilterNetworkServicesResult;
+    };
+    sdk: {
+      input: ModifyTrafficMirrorFilterNetworkServicesCommandInput;
+      output: ModifyTrafficMirrorFilterNetworkServicesCommandOutput;
+    };
+  };
+}

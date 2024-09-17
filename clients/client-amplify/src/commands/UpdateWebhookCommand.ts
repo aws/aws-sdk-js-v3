@@ -102,4 +102,16 @@ export class UpdateWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWebhookCommand)
   .de(de_UpdateWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWebhookRequest;
+      output: UpdateWebhookResult;
+    };
+    sdk: {
+      input: UpdateWebhookCommandInput;
+      output: UpdateWebhookCommandOutput;
+    };
+  };
+}

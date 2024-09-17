@@ -110,4 +110,16 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDirectConnectGatewayAttachmentsCommand)
   .de(de_DescribeDirectConnectGatewayAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectConnectGatewayAttachmentsRequest;
+      output: DescribeDirectConnectGatewayAttachmentsResult;
+    };
+    sdk: {
+      input: DescribeDirectConnectGatewayAttachmentsCommandInput;
+      output: DescribeDirectConnectGatewayAttachmentsCommandOutput;
+    };
+  };
+}

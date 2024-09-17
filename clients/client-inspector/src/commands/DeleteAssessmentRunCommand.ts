@@ -108,4 +108,16 @@ export class DeleteAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssessmentRunCommand)
   .de(de_DeleteAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssessmentRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssessmentRunCommandInput;
+      output: DeleteAssessmentRunCommandOutput;
+    };
+  };
+}

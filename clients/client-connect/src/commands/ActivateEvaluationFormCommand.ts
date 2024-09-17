@@ -97,4 +97,16 @@ export class ActivateEvaluationFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateEvaluationFormCommand)
   .de(de_ActivateEvaluationFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateEvaluationFormRequest;
+      output: ActivateEvaluationFormResponse;
+    };
+    sdk: {
+      input: ActivateEvaluationFormCommandInput;
+      output: ActivateEvaluationFormCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class DeleteVirtualServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVirtualServiceCommand)
   .de(de_DeleteVirtualServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVirtualServiceInput;
+      output: DeleteVirtualServiceOutput;
+    };
+    sdk: {
+      input: DeleteVirtualServiceCommandInput;
+      output: DeleteVirtualServiceCommandOutput;
+    };
+  };
+}

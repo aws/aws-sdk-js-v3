@@ -119,4 +119,16 @@ export class ListMetricValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMetricValuesCommand)
   .de(de_ListMetricValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMetricValuesRequest;
+      output: ListMetricValuesResponse;
+    };
+    sdk: {
+      input: ListMetricValuesCommandInput;
+      output: ListMetricValuesCommandOutput;
+    };
+  };
+}

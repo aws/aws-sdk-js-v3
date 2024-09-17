@@ -145,4 +145,16 @@ export class UpdateUserCommand extends $Command
   .f(UpdateUserRequestFilterSensitiveLog, UpdateUserResponseFilterSensitiveLog)
   .ser(se_UpdateUserCommand)
   .de(de_UpdateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserRequest;
+      output: UpdateUserResponse;
+    };
+    sdk: {
+      input: UpdateUserCommandInput;
+      output: UpdateUserCommandOutput;
+    };
+  };
+}

@@ -151,4 +151,16 @@ export class CreateEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventDestinationCommand)
   .de(de_CreateEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventDestinationRequest;
+      output: CreateEventDestinationResult;
+    };
+    sdk: {
+      input: CreateEventDestinationCommandInput;
+      output: CreateEventDestinationCommandOutput;
+    };
+  };
+}

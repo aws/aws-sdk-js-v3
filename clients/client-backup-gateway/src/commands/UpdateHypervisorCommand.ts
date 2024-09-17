@@ -107,4 +107,16 @@ export class UpdateHypervisorCommand extends $Command
   .f(UpdateHypervisorInputFilterSensitiveLog, void 0)
   .ser(se_UpdateHypervisorCommand)
   .de(de_UpdateHypervisorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHypervisorInput;
+      output: UpdateHypervisorOutput;
+    };
+    sdk: {
+      input: UpdateHypervisorCommandInput;
+      output: UpdateHypervisorCommandOutput;
+    };
+  };
+}

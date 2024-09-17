@@ -246,4 +246,16 @@ export class ListPartsCommand extends $Command
   .f(ListPartsRequestFilterSensitiveLog, void 0)
   .ser(se_ListPartsCommand)
   .de(de_ListPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartsRequest;
+      output: ListPartsOutput;
+    };
+    sdk: {
+      input: ListPartsCommandInput;
+      output: ListPartsCommandOutput;
+    };
+  };
+}

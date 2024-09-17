@@ -139,4 +139,16 @@ export class StartProjectVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartProjectVersionCommand)
   .de(de_StartProjectVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartProjectVersionRequest;
+      output: StartProjectVersionResponse;
+    };
+    sdk: {
+      input: StartProjectVersionCommandInput;
+      output: StartProjectVersionCommandOutput;
+    };
+  };
+}

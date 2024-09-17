@@ -115,4 +115,16 @@ export class GetTemplateStepGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateStepGroupCommand)
   .de(de_GetTemplateStepGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateStepGroupRequest;
+      output: GetTemplateStepGroupResponse;
+    };
+    sdk: {
+      input: GetTemplateStepGroupCommandInput;
+      output: GetTemplateStepGroupCommandOutput;
+    };
+  };
+}

@@ -84,4 +84,16 @@ export class DeleteUsageReportSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUsageReportSubscriptionCommand)
   .de(de_DeleteUsageReportSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteUsageReportSubscriptionCommandInput;
+      output: DeleteUsageReportSubscriptionCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class CreateTrialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrialCommand)
   .de(de_CreateTrialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrialRequest;
+      output: CreateTrialResponse;
+    };
+    sdk: {
+      input: CreateTrialCommandInput;
+      output: CreateTrialCommandOutput;
+    };
+  };
+}

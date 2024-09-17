@@ -97,4 +97,16 @@ export class UpdatePartnerStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePartnerStatusCommand)
   .de(de_UpdatePartnerStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePartnerStatusInputMessage;
+      output: PartnerIntegrationOutputMessage;
+    };
+    sdk: {
+      input: UpdatePartnerStatusCommandInput;
+      output: UpdatePartnerStatusCommandOutput;
+    };
+  };
+}

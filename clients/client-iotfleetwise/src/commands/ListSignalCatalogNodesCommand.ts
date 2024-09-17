@@ -170,4 +170,16 @@ export class ListSignalCatalogNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSignalCatalogNodesCommand)
   .de(de_ListSignalCatalogNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSignalCatalogNodesRequest;
+      output: ListSignalCatalogNodesResponse;
+    };
+    sdk: {
+      input: ListSignalCatalogNodesCommandInput;
+      output: ListSignalCatalogNodesCommandOutput;
+    };
+  };
+}

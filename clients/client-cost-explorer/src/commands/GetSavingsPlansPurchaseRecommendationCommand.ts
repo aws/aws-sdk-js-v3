@@ -218,4 +218,16 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSavingsPlansPurchaseRecommendationCommand)
   .de(de_GetSavingsPlansPurchaseRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSavingsPlansPurchaseRecommendationRequest;
+      output: GetSavingsPlansPurchaseRecommendationResponse;
+    };
+    sdk: {
+      input: GetSavingsPlansPurchaseRecommendationCommandInput;
+      output: GetSavingsPlansPurchaseRecommendationCommandOutput;
+    };
+  };
+}

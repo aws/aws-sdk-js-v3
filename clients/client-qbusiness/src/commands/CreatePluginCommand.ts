@@ -138,4 +138,16 @@ export class CreatePluginCommand extends $Command
   .f(CreatePluginRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePluginCommand)
   .de(de_CreatePluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePluginRequest;
+      output: CreatePluginResponse;
+    };
+    sdk: {
+      input: CreatePluginCommandInput;
+      output: CreatePluginCommandOutput;
+    };
+  };
+}

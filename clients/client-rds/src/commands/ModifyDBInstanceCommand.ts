@@ -507,4 +507,16 @@ export class ModifyDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBInstanceCommand)
   .de(de_ModifyDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBInstanceMessage;
+      output: ModifyDBInstanceResult;
+    };
+    sdk: {
+      input: ModifyDBInstanceCommandInput;
+      output: ModifyDBInstanceCommandOutput;
+    };
+  };
+}

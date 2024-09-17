@@ -97,4 +97,16 @@ export class DeleteSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSAMLProviderCommand)
   .de(de_DeleteSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSAMLProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSAMLProviderCommandInput;
+      output: DeleteSAMLProviderCommandOutput;
+    };
+  };
+}

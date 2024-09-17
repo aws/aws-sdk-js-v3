@@ -95,4 +95,16 @@ export class RegisterMailDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterMailDomainCommand)
   .de(de_RegisterMailDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterMailDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterMailDomainCommandInput;
+      output: RegisterMailDomainCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class CreateDiscovererCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDiscovererCommand)
   .de(de_CreateDiscovererCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDiscovererRequest;
+      output: CreateDiscovererResponse;
+    };
+    sdk: {
+      input: CreateDiscovererCommandInput;
+      output: CreateDiscovererCommandOutput;
+    };
+  };
+}

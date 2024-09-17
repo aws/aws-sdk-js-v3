@@ -178,4 +178,16 @@ export class UpdateWorkforceCommand extends $Command
   .f(UpdateWorkforceRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateWorkforceCommand)
   .de(de_UpdateWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkforceRequest;
+      output: UpdateWorkforceResponse;
+    };
+    sdk: {
+      input: UpdateWorkforceCommandInput;
+      output: UpdateWorkforceCommandOutput;
+    };
+  };
+}

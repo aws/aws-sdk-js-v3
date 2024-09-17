@@ -107,4 +107,16 @@ export class PreviewPrivacyImpactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PreviewPrivacyImpactCommand)
   .de(de_PreviewPrivacyImpactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PreviewPrivacyImpactInput;
+      output: PreviewPrivacyImpactOutput;
+    };
+    sdk: {
+      input: PreviewPrivacyImpactCommandInput;
+      output: PreviewPrivacyImpactCommandOutput;
+    };
+  };
+}

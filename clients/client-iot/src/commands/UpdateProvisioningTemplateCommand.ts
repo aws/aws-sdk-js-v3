@@ -101,4 +101,16 @@ export class UpdateProvisioningTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisioningTemplateCommand)
   .de(de_UpdateProvisioningTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisioningTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateProvisioningTemplateCommandInput;
+      output: UpdateProvisioningTemplateCommandOutput;
+    };
+  };
+}

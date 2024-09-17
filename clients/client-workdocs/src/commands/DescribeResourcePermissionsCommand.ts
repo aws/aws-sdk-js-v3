@@ -119,4 +119,16 @@ export class DescribeResourcePermissionsCommand extends $Command
   .f(DescribeResourcePermissionsRequestFilterSensitiveLog, void 0)
   .ser(se_DescribeResourcePermissionsCommand)
   .de(de_DescribeResourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourcePermissionsRequest;
+      output: DescribeResourcePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeResourcePermissionsCommandInput;
+      output: DescribeResourcePermissionsCommandOutput;
+    };
+  };
+}

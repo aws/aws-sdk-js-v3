@@ -107,4 +107,16 @@ export class CreateSourceNetworkCommand extends $Command
   .f(CreateSourceNetworkRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSourceNetworkCommand)
   .de(de_CreateSourceNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSourceNetworkRequest;
+      output: CreateSourceNetworkResponse;
+    };
+    sdk: {
+      input: CreateSourceNetworkCommandInput;
+      output: CreateSourceNetworkCommandOutput;
+    };
+  };
+}

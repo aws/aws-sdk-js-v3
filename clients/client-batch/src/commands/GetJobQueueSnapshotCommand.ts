@@ -93,4 +93,16 @@ export class GetJobQueueSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobQueueSnapshotCommand)
   .de(de_GetJobQueueSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobQueueSnapshotRequest;
+      output: GetJobQueueSnapshotResponse;
+    };
+    sdk: {
+      input: GetJobQueueSnapshotCommandInput;
+      output: GetJobQueueSnapshotCommandOutput;
+    };
+  };
+}

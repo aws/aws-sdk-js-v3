@@ -147,4 +147,16 @@ export class GetAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppCommand)
   .de(de_GetAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppRequest;
+      output: GetAppResponse;
+    };
+    sdk: {
+      input: GetAppCommandInput;
+      output: GetAppCommandOutput;
+    };
+  };
+}

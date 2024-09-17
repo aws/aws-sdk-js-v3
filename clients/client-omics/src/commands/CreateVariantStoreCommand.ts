@@ -115,4 +115,16 @@ export class CreateVariantStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVariantStoreCommand)
   .de(de_CreateVariantStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVariantStoreRequest;
+      output: CreateVariantStoreResponse;
+    };
+    sdk: {
+      input: CreateVariantStoreCommandInput;
+      output: CreateVariantStoreCommandOutput;
+    };
+  };
+}

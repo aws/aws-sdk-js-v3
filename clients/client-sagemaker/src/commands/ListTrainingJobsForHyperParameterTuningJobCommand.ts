@@ -117,4 +117,16 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrainingJobsForHyperParameterTuningJobCommand)
   .de(de_ListTrainingJobsForHyperParameterTuningJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrainingJobsForHyperParameterTuningJobRequest;
+      output: ListTrainingJobsForHyperParameterTuningJobResponse;
+    };
+    sdk: {
+      input: ListTrainingJobsForHyperParameterTuningJobCommandInput;
+      output: ListTrainingJobsForHyperParameterTuningJobCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class DeleteLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLandingZoneCommand)
   .de(de_DeleteLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLandingZoneInput;
+      output: DeleteLandingZoneOutput;
+    };
+    sdk: {
+      input: DeleteLandingZoneCommandInput;
+      output: DeleteLandingZoneCommandOutput;
+    };
+  };
+}

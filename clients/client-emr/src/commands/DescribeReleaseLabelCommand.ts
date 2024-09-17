@@ -100,4 +100,16 @@ export class DescribeReleaseLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReleaseLabelCommand)
   .de(de_DescribeReleaseLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReleaseLabelInput;
+      output: DescribeReleaseLabelOutput;
+    };
+    sdk: {
+      input: DescribeReleaseLabelCommandInput;
+      output: DescribeReleaseLabelCommandOutput;
+    };
+  };
+}

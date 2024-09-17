@@ -105,4 +105,16 @@ export class CancelRetrievalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelRetrievalCommand)
   .de(de_CancelRetrievalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelRetrievalInput;
+      output: CancelRetrievalOutput;
+    };
+    sdk: {
+      input: CancelRetrievalCommandInput;
+      output: CancelRetrievalCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class ListEventStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventStreamsCommand)
   .de(de_ListEventStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventStreamsRequest;
+      output: ListEventStreamsResponse;
+    };
+    sdk: {
+      input: ListEventStreamsCommandInput;
+      output: ListEventStreamsCommandOutput;
+    };
+  };
+}

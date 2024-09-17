@@ -123,4 +123,16 @@ export class CreateRoomCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRoomCommand)
   .de(de_CreateRoomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRoomRequest;
+      output: CreateRoomResponse;
+    };
+    sdk: {
+      input: CreateRoomCommandInput;
+      output: CreateRoomCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DeleteBatchPredictionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBatchPredictionJobCommand)
   .de(de_DeleteBatchPredictionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBatchPredictionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBatchPredictionJobCommandInput;
+      output: DeleteBatchPredictionJobCommandOutput;
+    };
+  };
+}

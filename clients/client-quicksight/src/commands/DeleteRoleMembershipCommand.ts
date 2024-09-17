@@ -105,4 +105,16 @@ export class DeleteRoleMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoleMembershipCommand)
   .de(de_DeleteRoleMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoleMembershipRequest;
+      output: DeleteRoleMembershipResponse;
+    };
+    sdk: {
+      input: DeleteRoleMembershipCommandInput;
+      output: DeleteRoleMembershipCommandOutput;
+    };
+  };
+}

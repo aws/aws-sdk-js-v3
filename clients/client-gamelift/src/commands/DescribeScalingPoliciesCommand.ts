@@ -124,4 +124,16 @@ export class DescribeScalingPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingPoliciesCommand)
   .de(de_DescribeScalingPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingPoliciesInput;
+      output: DescribeScalingPoliciesOutput;
+    };
+    sdk: {
+      input: DescribeScalingPoliciesCommandInput;
+      output: DescribeScalingPoliciesCommandOutput;
+    };
+  };
+}

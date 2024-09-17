@@ -154,4 +154,16 @@ export class DescribeBudgetActionsForAccountCommand extends $Command
   .f(void 0, DescribeBudgetActionsForAccountResponseFilterSensitiveLog)
   .ser(se_DescribeBudgetActionsForAccountCommand)
   .de(de_DescribeBudgetActionsForAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetActionsForAccountRequest;
+      output: DescribeBudgetActionsForAccountResponse;
+    };
+    sdk: {
+      input: DescribeBudgetActionsForAccountCommandInput;
+      output: DescribeBudgetActionsForAccountCommandOutput;
+    };
+  };
+}

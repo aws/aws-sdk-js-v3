@@ -81,4 +81,16 @@ export class DeleteClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClassifierCommand)
   .de(de_DeleteClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteClassifierCommandInput;
+      output: DeleteClassifierCommandOutput;
+    };
+  };
+}

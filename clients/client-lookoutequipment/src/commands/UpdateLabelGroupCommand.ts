@@ -101,4 +101,16 @@ export class UpdateLabelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLabelGroupCommand)
   .de(de_UpdateLabelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLabelGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLabelGroupCommandInput;
+      output: UpdateLabelGroupCommandOutput;
+    };
+  };
+}

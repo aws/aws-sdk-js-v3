@@ -126,4 +126,16 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteCustomVocabularyItemCommand)
   .de(de_BatchDeleteCustomVocabularyItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteCustomVocabularyItemRequest;
+      output: BatchDeleteCustomVocabularyItemResponse;
+    };
+    sdk: {
+      input: BatchDeleteCustomVocabularyItemCommandInput;
+      output: BatchDeleteCustomVocabularyItemCommandOutput;
+    };
+  };
+}

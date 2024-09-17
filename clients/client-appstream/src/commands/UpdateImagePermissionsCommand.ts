@@ -89,4 +89,16 @@ export class UpdateImagePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateImagePermissionsCommand)
   .de(de_UpdateImagePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImagePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateImagePermissionsCommandInput;
+      output: UpdateImagePermissionsCommandOutput;
+    };
+  };
+}

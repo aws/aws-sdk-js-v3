@@ -113,4 +113,16 @@ export class ListLanguageModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLanguageModelsCommand)
   .de(de_ListLanguageModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLanguageModelsRequest;
+      output: ListLanguageModelsResponse;
+    };
+    sdk: {
+      input: ListLanguageModelsCommandInput;
+      output: ListLanguageModelsCommandOutput;
+    };
+  };
+}

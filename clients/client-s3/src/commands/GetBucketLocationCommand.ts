@@ -128,4 +128,16 @@ export class GetBucketLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketLocationCommand)
   .de(de_GetBucketLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketLocationRequest;
+      output: GetBucketLocationOutput;
+    };
+    sdk: {
+      input: GetBucketLocationCommandInput;
+      output: GetBucketLocationCommandOutput;
+    };
+  };
+}

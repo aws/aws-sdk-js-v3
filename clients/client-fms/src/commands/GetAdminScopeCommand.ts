@@ -128,4 +128,16 @@ export class GetAdminScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdminScopeCommand)
   .de(de_GetAdminScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdminScopeRequest;
+      output: GetAdminScopeResponse;
+    };
+    sdk: {
+      input: GetAdminScopeCommandInput;
+      output: GetAdminScopeCommandOutput;
+    };
+  };
+}

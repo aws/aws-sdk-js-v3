@@ -104,4 +104,16 @@ export class UpdateMissionProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMissionProfileCommand)
   .de(de_UpdateMissionProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMissionProfileRequest;
+      output: MissionProfileIdResponse;
+    };
+    sdk: {
+      input: UpdateMissionProfileCommandInput;
+      output: UpdateMissionProfileCommandOutput;
+    };
+  };
+}

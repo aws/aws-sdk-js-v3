@@ -104,4 +104,16 @@ export class GetRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRouteCommand)
   .de(de_GetRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRouteRequest;
+      output: GetRouteResult;
+    };
+    sdk: {
+      input: GetRouteCommandInput;
+      output: GetRouteCommandOutput;
+    };
+  };
+}

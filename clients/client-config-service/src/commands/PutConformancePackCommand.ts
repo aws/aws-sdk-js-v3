@@ -163,4 +163,16 @@ export class PutConformancePackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConformancePackCommand)
   .de(de_PutConformancePackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConformancePackRequest;
+      output: PutConformancePackResponse;
+    };
+    sdk: {
+      input: PutConformancePackCommandInput;
+      output: PutConformancePackCommandOutput;
+    };
+  };
+}

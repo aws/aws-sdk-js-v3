@@ -139,4 +139,16 @@ export class DescribeAttackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAttackCommand)
   .de(de_DescribeAttackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAttackRequest;
+      output: DescribeAttackResponse;
+    };
+    sdk: {
+      input: DescribeAttackCommandInput;
+      output: DescribeAttackCommandOutput;
+    };
+  };
+}

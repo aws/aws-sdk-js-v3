@@ -145,4 +145,16 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEffectivePatchesForPatchBaselineCommand)
   .de(de_DescribeEffectivePatchesForPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEffectivePatchesForPatchBaselineRequest;
+      output: DescribeEffectivePatchesForPatchBaselineResult;
+    };
+    sdk: {
+      input: DescribeEffectivePatchesForPatchBaselineCommandInput;
+      output: DescribeEffectivePatchesForPatchBaselineCommandOutput;
+    };
+  };
+}

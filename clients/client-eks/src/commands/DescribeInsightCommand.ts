@@ -137,4 +137,16 @@ export class DescribeInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInsightCommand)
   .de(de_DescribeInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInsightRequest;
+      output: DescribeInsightResponse;
+    };
+    sdk: {
+      input: DescribeInsightCommandInput;
+      output: DescribeInsightCommandOutput;
+    };
+  };
+}

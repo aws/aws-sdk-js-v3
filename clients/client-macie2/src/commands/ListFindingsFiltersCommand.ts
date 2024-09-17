@@ -110,4 +110,16 @@ export class ListFindingsFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingsFiltersCommand)
   .de(de_ListFindingsFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingsFiltersRequest;
+      output: ListFindingsFiltersResponse;
+    };
+    sdk: {
+      input: ListFindingsFiltersCommandInput;
+      output: ListFindingsFiltersCommandOutput;
+    };
+  };
+}

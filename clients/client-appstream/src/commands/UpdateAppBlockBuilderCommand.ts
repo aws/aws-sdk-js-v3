@@ -170,4 +170,16 @@ export class UpdateAppBlockBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppBlockBuilderCommand)
   .de(de_UpdateAppBlockBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppBlockBuilderRequest;
+      output: UpdateAppBlockBuilderResult;
+    };
+    sdk: {
+      input: UpdateAppBlockBuilderCommandInput;
+      output: UpdateAppBlockBuilderCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class GetKeyspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyspaceCommand)
   .de(de_GetKeyspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyspaceRequest;
+      output: GetKeyspaceResponse;
+    };
+    sdk: {
+      input: GetKeyspaceCommandInput;
+      output: GetKeyspaceCommandOutput;
+    };
+  };
+}

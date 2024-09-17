@@ -86,4 +86,16 @@ export class ModifyVpcTenancyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcTenancyCommand)
   .de(de_ModifyVpcTenancyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcTenancyRequest;
+      output: ModifyVpcTenancyResult;
+    };
+    sdk: {
+      input: ModifyVpcTenancyCommandInput;
+      output: ModifyVpcTenancyCommandOutput;
+    };
+  };
+}

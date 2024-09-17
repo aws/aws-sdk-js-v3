@@ -119,4 +119,16 @@ export class DeleteRegistrationFieldValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegistrationFieldValueCommand)
   .de(de_DeleteRegistrationFieldValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRegistrationFieldValueRequest;
+      output: DeleteRegistrationFieldValueResult;
+    };
+    sdk: {
+      input: DeleteRegistrationFieldValueCommandInput;
+      output: DeleteRegistrationFieldValueCommandOutput;
+    };
+  };
+}

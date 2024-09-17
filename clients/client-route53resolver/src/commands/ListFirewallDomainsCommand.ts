@@ -101,4 +101,16 @@ export class ListFirewallDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallDomainsCommand)
   .de(de_ListFirewallDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallDomainsRequest;
+      output: ListFirewallDomainsResponse;
+    };
+    sdk: {
+      input: ListFirewallDomainsCommandInput;
+      output: ListFirewallDomainsCommandOutput;
+    };
+  };
+}

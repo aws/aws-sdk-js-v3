@@ -110,4 +110,16 @@ export class DisableTrustAnchorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableTrustAnchorCommand)
   .de(de_DisableTrustAnchorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarTrustAnchorRequest;
+      output: TrustAnchorDetailResponse;
+    };
+    sdk: {
+      input: DisableTrustAnchorCommandInput;
+      output: DisableTrustAnchorCommandOutput;
+    };
+  };
+}

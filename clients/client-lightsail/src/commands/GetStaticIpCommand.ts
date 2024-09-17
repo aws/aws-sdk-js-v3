@@ -120,4 +120,16 @@ export class GetStaticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStaticIpCommand)
   .de(de_GetStaticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStaticIpRequest;
+      output: GetStaticIpResult;
+    };
+    sdk: {
+      input: GetStaticIpCommandInput;
+      output: GetStaticIpCommandOutput;
+    };
+  };
+}

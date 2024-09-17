@@ -138,4 +138,16 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationConfigRuleStatusesCommand)
   .de(de_DescribeOrganizationConfigRuleStatusesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationConfigRuleStatusesRequest;
+      output: DescribeOrganizationConfigRuleStatusesResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationConfigRuleStatusesCommandInput;
+      output: DescribeOrganizationConfigRuleStatusesCommandOutput;
+    };
+  };
+}

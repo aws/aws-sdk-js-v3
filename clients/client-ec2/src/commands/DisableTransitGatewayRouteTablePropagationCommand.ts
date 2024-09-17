@@ -97,4 +97,16 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableTransitGatewayRouteTablePropagationCommand)
   .de(de_DisableTransitGatewayRouteTablePropagationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableTransitGatewayRouteTablePropagationRequest;
+      output: DisableTransitGatewayRouteTablePropagationResult;
+    };
+    sdk: {
+      input: DisableTransitGatewayRouteTablePropagationCommandInput;
+      output: DisableTransitGatewayRouteTablePropagationCommandOutput;
+    };
+  };
+}

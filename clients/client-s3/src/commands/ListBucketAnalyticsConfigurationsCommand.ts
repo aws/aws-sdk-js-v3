@@ -164,4 +164,16 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBucketAnalyticsConfigurationsCommand)
   .de(de_ListBucketAnalyticsConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBucketAnalyticsConfigurationsRequest;
+      output: ListBucketAnalyticsConfigurationsOutput;
+    };
+    sdk: {
+      input: ListBucketAnalyticsConfigurationsCommandInput;
+      output: ListBucketAnalyticsConfigurationsCommandOutput;
+    };
+  };
+}

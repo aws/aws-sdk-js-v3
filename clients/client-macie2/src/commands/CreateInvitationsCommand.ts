@@ -108,4 +108,16 @@ export class CreateInvitationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInvitationsCommand)
   .de(de_CreateInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInvitationsRequest;
+      output: CreateInvitationsResponse;
+    };
+    sdk: {
+      input: CreateInvitationsCommandInput;
+      output: CreateInvitationsCommandOutput;
+    };
+  };
+}

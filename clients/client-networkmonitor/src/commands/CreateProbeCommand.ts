@@ -127,4 +127,16 @@ export class CreateProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProbeCommand)
   .de(de_CreateProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProbeInput;
+      output: CreateProbeOutput;
+    };
+    sdk: {
+      input: CreateProbeCommandInput;
+      output: CreateProbeCommandOutput;
+    };
+  };
+}

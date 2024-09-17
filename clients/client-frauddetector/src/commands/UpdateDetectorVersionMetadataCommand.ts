@@ -98,4 +98,16 @@ export class UpdateDetectorVersionMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDetectorVersionMetadataCommand)
   .de(de_UpdateDetectorVersionMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDetectorVersionMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDetectorVersionMetadataCommandInput;
+      output: UpdateDetectorVersionMetadataCommandOutput;
+    };
+  };
+}

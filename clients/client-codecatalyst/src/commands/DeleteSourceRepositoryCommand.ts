@@ -101,4 +101,16 @@ export class DeleteSourceRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSourceRepositoryCommand)
   .de(de_DeleteSourceRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSourceRepositoryRequest;
+      output: DeleteSourceRepositoryResponse;
+    };
+    sdk: {
+      input: DeleteSourceRepositoryCommandInput;
+      output: DeleteSourceRepositoryCommandOutput;
+    };
+  };
+}

@@ -187,4 +187,16 @@ export class GetBucketLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketLifecycleConfigurationCommand)
   .de(de_GetBucketLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketLifecycleConfigurationRequest;
+      output: GetBucketLifecycleConfigurationResult;
+    };
+    sdk: {
+      input: GetBucketLifecycleConfigurationCommandInput;
+      output: GetBucketLifecycleConfigurationCommandOutput;
+    };
+  };
+}

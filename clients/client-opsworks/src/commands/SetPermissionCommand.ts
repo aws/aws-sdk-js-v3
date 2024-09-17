@@ -92,4 +92,16 @@ export class SetPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetPermissionCommand)
   .de(de_SetPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetPermissionCommandInput;
+      output: SetPermissionCommandOutput;
+    };
+  };
+}

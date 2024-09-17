@@ -109,4 +109,16 @@ export class ListSourceRepositoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSourceRepositoriesCommand)
   .de(de_ListSourceRepositoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSourceRepositoriesRequest;
+      output: ListSourceRepositoriesResponse;
+    };
+    sdk: {
+      input: ListSourceRepositoriesCommandInput;
+      output: ListSourceRepositoriesCommandOutput;
+    };
+  };
+}

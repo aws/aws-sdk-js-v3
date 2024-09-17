@@ -128,4 +128,16 @@ export class GetApisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApisCommand)
   .de(de_GetApisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApisRequest;
+      output: GetApisResponse;
+    };
+    sdk: {
+      input: GetApisCommandInput;
+      output: GetApisCommandOutput;
+    };
+  };
+}

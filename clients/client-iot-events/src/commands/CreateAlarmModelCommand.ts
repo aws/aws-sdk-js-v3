@@ -256,4 +256,16 @@ export class CreateAlarmModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAlarmModelCommand)
   .de(de_CreateAlarmModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAlarmModelRequest;
+      output: CreateAlarmModelResponse;
+    };
+    sdk: {
+      input: CreateAlarmModelCommandInput;
+      output: CreateAlarmModelCommandOutput;
+    };
+  };
+}

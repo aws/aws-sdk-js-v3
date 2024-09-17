@@ -78,4 +78,16 @@ export class DeleteResourceDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceDefinitionCommand)
   .de(de_DeleteResourceDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourceDefinitionCommandInput;
+      output: DeleteResourceDefinitionCommandOutput;
+    };
+  };
+}

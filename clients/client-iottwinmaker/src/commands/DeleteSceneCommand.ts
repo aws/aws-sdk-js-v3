@@ -91,4 +91,16 @@ export class DeleteSceneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSceneCommand)
   .de(de_DeleteSceneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSceneRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSceneCommandInput;
+      output: DeleteSceneCommandOutput;
+    };
+  };
+}

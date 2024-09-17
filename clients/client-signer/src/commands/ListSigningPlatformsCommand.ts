@@ -131,4 +131,16 @@ export class ListSigningPlatformsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSigningPlatformsCommand)
   .de(de_ListSigningPlatformsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSigningPlatformsRequest;
+      output: ListSigningPlatformsResponse;
+    };
+    sdk: {
+      input: ListSigningPlatformsCommandInput;
+      output: ListSigningPlatformsCommandOutput;
+    };
+  };
+}

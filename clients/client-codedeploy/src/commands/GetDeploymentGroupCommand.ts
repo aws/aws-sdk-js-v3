@@ -264,4 +264,16 @@ export class GetDeploymentGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentGroupCommand)
   .de(de_GetDeploymentGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentGroupInput;
+      output: GetDeploymentGroupOutput;
+    };
+    sdk: {
+      input: GetDeploymentGroupCommandInput;
+      output: GetDeploymentGroupCommandOutput;
+    };
+  };
+}

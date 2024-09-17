@@ -130,4 +130,16 @@ export class CreateUserCommand extends $Command
   .f(CreateUserRequestFilterSensitiveLog, void 0)
   .ser(se_CreateUserCommand)
   .de(de_CreateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserRequest;
+      output: CreateUserResponse;
+    };
+    sdk: {
+      input: CreateUserCommandInput;
+      output: CreateUserCommandOutput;
+    };
+  };
+}

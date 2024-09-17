@@ -100,4 +100,16 @@ export class DeleteDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainCommand)
   .de(de_DeleteDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDomainCommandInput;
+      output: DeleteDomainCommandOutput;
+    };
+  };
+}

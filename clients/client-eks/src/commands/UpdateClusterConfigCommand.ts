@@ -181,4 +181,16 @@ export class UpdateClusterConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClusterConfigCommand)
   .de(de_UpdateClusterConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterConfigRequest;
+      output: UpdateClusterConfigResponse;
+    };
+    sdk: {
+      input: UpdateClusterConfigCommandInput;
+      output: UpdateClusterConfigCommandOutput;
+    };
+  };
+}

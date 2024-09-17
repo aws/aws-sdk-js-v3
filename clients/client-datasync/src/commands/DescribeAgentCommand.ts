@@ -103,4 +103,16 @@ export class DescribeAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAgentCommand)
   .de(de_DescribeAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgentRequest;
+      output: DescribeAgentResponse;
+    };
+    sdk: {
+      input: DescribeAgentCommandInput;
+      output: DescribeAgentCommandOutput;
+    };
+  };
+}

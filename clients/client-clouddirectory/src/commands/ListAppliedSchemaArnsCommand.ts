@@ -108,4 +108,16 @@ export class ListAppliedSchemaArnsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppliedSchemaArnsCommand)
   .de(de_ListAppliedSchemaArnsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppliedSchemaArnsRequest;
+      output: ListAppliedSchemaArnsResponse;
+    };
+    sdk: {
+      input: ListAppliedSchemaArnsCommandInput;
+      output: ListAppliedSchemaArnsCommandOutput;
+    };
+  };
+}

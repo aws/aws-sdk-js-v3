@@ -120,4 +120,16 @@ export class UpdateVoiceConnectorGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVoiceConnectorGroupCommand)
   .de(de_UpdateVoiceConnectorGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceConnectorGroupRequest;
+      output: UpdateVoiceConnectorGroupResponse;
+    };
+    sdk: {
+      input: UpdateVoiceConnectorGroupCommandInput;
+      output: UpdateVoiceConnectorGroupCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class ModifyClientVpnEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClientVpnEndpointCommand)
   .de(de_ModifyClientVpnEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClientVpnEndpointRequest;
+      output: ModifyClientVpnEndpointResult;
+    };
+    sdk: {
+      input: ModifyClientVpnEndpointCommandInput;
+      output: ModifyClientVpnEndpointCommandOutput;
+    };
+  };
+}

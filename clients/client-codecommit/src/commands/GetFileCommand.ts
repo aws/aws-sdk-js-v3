@@ -133,4 +133,16 @@ export class GetFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFileCommand)
   .de(de_GetFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFileInput;
+      output: GetFileOutput;
+    };
+    sdk: {
+      input: GetFileCommandInput;
+      output: GetFileCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class SetLocalConsolePasswordCommand extends $Command
   .f(SetLocalConsolePasswordInputFilterSensitiveLog, void 0)
   .ser(se_SetLocalConsolePasswordCommand)
   .de(de_SetLocalConsolePasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLocalConsolePasswordInput;
+      output: SetLocalConsolePasswordOutput;
+    };
+    sdk: {
+      input: SetLocalConsolePasswordCommandInput;
+      output: SetLocalConsolePasswordCommandOutput;
+    };
+  };
+}

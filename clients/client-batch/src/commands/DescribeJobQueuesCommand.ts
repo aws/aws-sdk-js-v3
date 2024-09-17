@@ -150,4 +150,16 @@ export class DescribeJobQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJobQueuesCommand)
   .de(de_DescribeJobQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobQueuesRequest;
+      output: DescribeJobQueuesResponse;
+    };
+    sdk: {
+      input: DescribeJobQueuesCommandInput;
+      output: DescribeJobQueuesCommandOutput;
+    };
+  };
+}

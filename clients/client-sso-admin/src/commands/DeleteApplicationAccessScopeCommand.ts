@@ -102,4 +102,16 @@ export class DeleteApplicationAccessScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationAccessScopeCommand)
   .de(de_DeleteApplicationAccessScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationAccessScopeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationAccessScopeCommandInput;
+      output: DeleteApplicationAccessScopeCommandOutput;
+    };
+  };
+}

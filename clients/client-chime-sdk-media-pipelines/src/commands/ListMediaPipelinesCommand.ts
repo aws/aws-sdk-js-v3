@@ -109,4 +109,16 @@ export class ListMediaPipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMediaPipelinesCommand)
   .de(de_ListMediaPipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMediaPipelinesRequest;
+      output: ListMediaPipelinesResponse;
+    };
+    sdk: {
+      input: ListMediaPipelinesCommandInput;
+      output: ListMediaPipelinesCommandOutput;
+    };
+  };
+}

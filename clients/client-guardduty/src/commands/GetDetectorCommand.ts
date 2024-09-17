@@ -135,4 +135,16 @@ export class GetDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDetectorCommand)
   .de(de_GetDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDetectorRequest;
+      output: GetDetectorResponse;
+    };
+    sdk: {
+      input: GetDetectorCommandInput;
+      output: GetDetectorCommandOutput;
+    };
+  };
+}

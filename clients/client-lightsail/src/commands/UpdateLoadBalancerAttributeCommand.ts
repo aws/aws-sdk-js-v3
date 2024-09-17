@@ -131,4 +131,16 @@ export class UpdateLoadBalancerAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLoadBalancerAttributeCommand)
   .de(de_UpdateLoadBalancerAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLoadBalancerAttributeRequest;
+      output: UpdateLoadBalancerAttributeResult;
+    };
+    sdk: {
+      input: UpdateLoadBalancerAttributeCommandInput;
+      output: UpdateLoadBalancerAttributeCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class VerifySoftwareTokenCommand extends $Command
   .f(VerifySoftwareTokenRequestFilterSensitiveLog, VerifySoftwareTokenResponseFilterSensitiveLog)
   .ser(se_VerifySoftwareTokenCommand)
   .de(de_VerifySoftwareTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifySoftwareTokenRequest;
+      output: VerifySoftwareTokenResponse;
+    };
+    sdk: {
+      input: VerifySoftwareTokenCommandInput;
+      output: VerifySoftwareTokenCommandOutput;
+    };
+  };
+}

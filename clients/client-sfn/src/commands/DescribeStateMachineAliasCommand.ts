@@ -125,4 +125,16 @@ export class DescribeStateMachineAliasCommand extends $Command
   .f(void 0, DescribeStateMachineAliasOutputFilterSensitiveLog)
   .ser(se_DescribeStateMachineAliasCommand)
   .de(de_DescribeStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStateMachineAliasInput;
+      output: DescribeStateMachineAliasOutput;
+    };
+    sdk: {
+      input: DescribeStateMachineAliasCommandInput;
+      output: DescribeStateMachineAliasCommandOutput;
+    };
+  };
+}

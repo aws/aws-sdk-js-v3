@@ -103,4 +103,16 @@ export class ListBotReplicasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotReplicasCommand)
   .de(de_ListBotReplicasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotReplicasRequest;
+      output: ListBotReplicasResponse;
+    };
+    sdk: {
+      input: ListBotReplicasCommandInput;
+      output: ListBotReplicasCommandOutput;
+    };
+  };
+}

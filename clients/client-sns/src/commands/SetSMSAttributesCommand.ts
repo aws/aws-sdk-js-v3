@@ -100,4 +100,16 @@ export class SetSMSAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSMSAttributesCommand)
   .de(de_SetSMSAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSMSAttributesInput;
+      output: {};
+    };
+    sdk: {
+      input: SetSMSAttributesCommandInput;
+      output: SetSMSAttributesCommandOutput;
+    };
+  };
+}

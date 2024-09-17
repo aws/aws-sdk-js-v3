@@ -102,4 +102,16 @@ export class UpdateWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkloadCommand)
   .de(de_UpdateWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkloadRequest;
+      output: UpdateWorkloadResponse;
+    };
+    sdk: {
+      input: UpdateWorkloadCommandInput;
+      output: UpdateWorkloadCommandOutput;
+    };
+  };
+}

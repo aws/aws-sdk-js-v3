@@ -107,4 +107,16 @@ export class UpdateRequestValidatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRequestValidatorCommand)
   .de(de_UpdateRequestValidatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRequestValidatorRequest;
+      output: RequestValidator;
+    };
+    sdk: {
+      input: UpdateRequestValidatorCommandInput;
+      output: UpdateRequestValidatorCommandOutput;
+    };
+  };
+}

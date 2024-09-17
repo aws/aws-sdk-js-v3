@@ -250,4 +250,16 @@ export class PutBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketReplicationCommand)
   .de(de_PutBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketReplicationCommandInput;
+      output: PutBucketReplicationCommandOutput;
+    };
+  };
+}

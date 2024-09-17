@@ -92,4 +92,16 @@ export class DeleteLocalGatewayRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLocalGatewayRouteCommand)
   .de(de_DeleteLocalGatewayRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLocalGatewayRouteRequest;
+      output: DeleteLocalGatewayRouteResult;
+    };
+    sdk: {
+      input: DeleteLocalGatewayRouteCommandInput;
+      output: DeleteLocalGatewayRouteCommandOutput;
+    };
+  };
+}

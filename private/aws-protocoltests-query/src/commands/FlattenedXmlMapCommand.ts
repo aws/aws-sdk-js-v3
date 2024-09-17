@@ -71,4 +71,16 @@ export class FlattenedXmlMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FlattenedXmlMapCommand)
   .de(de_FlattenedXmlMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: FlattenedXmlMapOutput;
+    };
+    sdk: {
+      input: FlattenedXmlMapCommandInput;
+      output: FlattenedXmlMapCommandOutput;
+    };
+  };
+}

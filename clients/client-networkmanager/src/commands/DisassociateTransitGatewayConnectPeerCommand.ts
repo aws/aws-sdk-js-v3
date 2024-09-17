@@ -112,4 +112,16 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTransitGatewayConnectPeerCommand)
   .de(de_DisassociateTransitGatewayConnectPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTransitGatewayConnectPeerRequest;
+      output: DisassociateTransitGatewayConnectPeerResponse;
+    };
+    sdk: {
+      input: DisassociateTransitGatewayConnectPeerCommandInput;
+      output: DisassociateTransitGatewayConnectPeerCommandOutput;
+    };
+  };
+}

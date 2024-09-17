@@ -157,4 +157,16 @@ export class UpdateConfigurationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationTemplateCommand)
   .de(de_UpdateConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationTemplateMessage;
+      output: ConfigurationSettingsDescription;
+    };
+    sdk: {
+      input: UpdateConfigurationTemplateCommandInput;
+      output: UpdateConfigurationTemplateCommandOutput;
+    };
+  };
+}

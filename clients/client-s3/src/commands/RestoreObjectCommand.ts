@@ -404,4 +404,16 @@ export class RestoreObjectCommand extends $Command
   .f(RestoreObjectRequestFilterSensitiveLog, void 0)
   .ser(se_RestoreObjectCommand)
   .de(de_RestoreObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreObjectRequest;
+      output: RestoreObjectOutput;
+    };
+    sdk: {
+      input: RestoreObjectCommandInput;
+      output: RestoreObjectCommandOutput;
+    };
+  };
+}

@@ -199,4 +199,16 @@ export class StartMatchBackfillCommand extends $Command
   .f(StartMatchBackfillInputFilterSensitiveLog, StartMatchBackfillOutputFilterSensitiveLog)
   .ser(se_StartMatchBackfillCommand)
   .de(de_StartMatchBackfillCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMatchBackfillInput;
+      output: StartMatchBackfillOutput;
+    };
+    sdk: {
+      input: StartMatchBackfillCommandInput;
+      output: StartMatchBackfillCommandOutput;
+    };
+  };
+}

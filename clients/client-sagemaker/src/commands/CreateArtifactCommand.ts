@@ -110,4 +110,16 @@ export class CreateArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateArtifactCommand)
   .de(de_CreateArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateArtifactRequest;
+      output: CreateArtifactResponse;
+    };
+    sdk: {
+      input: CreateArtifactCommandInput;
+      output: CreateArtifactCommandOutput;
+    };
+  };
+}

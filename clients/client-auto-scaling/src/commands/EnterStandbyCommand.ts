@@ -140,4 +140,16 @@ export class EnterStandbyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnterStandbyCommand)
   .de(de_EnterStandbyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnterStandbyQuery;
+      output: EnterStandbyAnswer;
+    };
+    sdk: {
+      input: EnterStandbyCommandInput;
+      output: EnterStandbyCommandOutput;
+    };
+  };
+}

@@ -166,4 +166,16 @@ export class SearchQuickConnectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchQuickConnectsCommand)
   .de(de_SearchQuickConnectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchQuickConnectsRequest;
+      output: SearchQuickConnectsResponse;
+    };
+    sdk: {
+      input: SearchQuickConnectsCommandInput;
+      output: SearchQuickConnectsCommandOutput;
+    };
+  };
+}

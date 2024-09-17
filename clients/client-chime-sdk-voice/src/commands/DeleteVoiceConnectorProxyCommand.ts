@@ -96,4 +96,16 @@ export class DeleteVoiceConnectorProxyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceConnectorProxyCommand)
   .de(de_DeleteVoiceConnectorProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceConnectorProxyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceConnectorProxyCommandInput;
+      output: DeleteVoiceConnectorProxyCommandOutput;
+    };
+  };
+}

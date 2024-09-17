@@ -139,4 +139,16 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePendingMaintenanceActionsCommand)
   .de(de_DescribePendingMaintenanceActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePendingMaintenanceActionsMessage;
+      output: PendingMaintenanceActionsMessage;
+    };
+    sdk: {
+      input: DescribePendingMaintenanceActionsCommandInput;
+      output: DescribePendingMaintenanceActionsCommandOutput;
+    };
+  };
+}

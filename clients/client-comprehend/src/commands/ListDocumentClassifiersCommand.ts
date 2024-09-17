@@ -178,4 +178,16 @@ export class ListDocumentClassifiersCommand extends $Command
   .f(void 0, ListDocumentClassifiersResponseFilterSensitiveLog)
   .ser(se_ListDocumentClassifiersCommand)
   .de(de_ListDocumentClassifiersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDocumentClassifiersRequest;
+      output: ListDocumentClassifiersResponse;
+    };
+    sdk: {
+      input: ListDocumentClassifiersCommandInput;
+      output: ListDocumentClassifiersCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command
   .f(void 0, DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog)
   .ser(se_DescribeVerifiedAccessTrustProvidersCommand)
   .de(de_DescribeVerifiedAccessTrustProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessTrustProvidersRequest;
+      output: DescribeVerifiedAccessTrustProvidersResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessTrustProvidersCommandInput;
+      output: DescribeVerifiedAccessTrustProvidersCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class CancelChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelChangeSetCommand)
   .de(de_CancelChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelChangeSetRequest;
+      output: CancelChangeSetResponse;
+    };
+    sdk: {
+      input: CancelChangeSetCommandInput;
+      output: CancelChangeSetCommandOutput;
+    };
+  };
+}

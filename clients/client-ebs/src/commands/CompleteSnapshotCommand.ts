@@ -108,4 +108,16 @@ export class CompleteSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteSnapshotCommand)
   .de(de_CompleteSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteSnapshotRequest;
+      output: CompleteSnapshotResponse;
+    };
+    sdk: {
+      input: CompleteSnapshotCommandInput;
+      output: CompleteSnapshotCommandOutput;
+    };
+  };
+}

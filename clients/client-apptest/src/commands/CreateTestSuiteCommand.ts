@@ -278,4 +278,16 @@ export class CreateTestSuiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestSuiteCommand)
   .de(de_CreateTestSuiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestSuiteRequest;
+      output: CreateTestSuiteResponse;
+    };
+    sdk: {
+      input: CreateTestSuiteCommandInput;
+      output: CreateTestSuiteCommandOutput;
+    };
+  };
+}

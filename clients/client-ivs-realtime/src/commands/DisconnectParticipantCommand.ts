@@ -91,4 +91,16 @@ export class DisconnectParticipantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisconnectParticipantCommand)
   .de(de_DisconnectParticipantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectParticipantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectParticipantCommandInput;
+      output: DisconnectParticipantCommandOutput;
+    };
+  };
+}

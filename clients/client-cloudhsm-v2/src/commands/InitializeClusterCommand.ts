@@ -103,4 +103,16 @@ export class InitializeClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitializeClusterCommand)
   .de(de_InitializeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitializeClusterRequest;
+      output: InitializeClusterResponse;
+    };
+    sdk: {
+      input: InitializeClusterCommandInput;
+      output: InitializeClusterCommandOutput;
+    };
+  };
+}

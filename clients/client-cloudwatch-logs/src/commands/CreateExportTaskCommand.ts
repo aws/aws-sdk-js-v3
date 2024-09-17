@@ -120,4 +120,16 @@ export class CreateExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExportTaskCommand)
   .de(de_CreateExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExportTaskRequest;
+      output: CreateExportTaskResponse;
+    };
+    sdk: {
+      input: CreateExportTaskCommandInput;
+      output: CreateExportTaskCommandOutput;
+    };
+  };
+}

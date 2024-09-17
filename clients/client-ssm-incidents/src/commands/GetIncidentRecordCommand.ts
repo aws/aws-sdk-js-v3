@@ -127,4 +127,16 @@ export class GetIncidentRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIncidentRecordCommand)
   .de(de_GetIncidentRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIncidentRecordInput;
+      output: GetIncidentRecordOutput;
+    };
+    sdk: {
+      input: GetIncidentRecordCommandInput;
+      output: GetIncidentRecordCommandOutput;
+    };
+  };
+}

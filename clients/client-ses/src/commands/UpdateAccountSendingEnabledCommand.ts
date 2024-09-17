@@ -91,4 +91,16 @@ export class UpdateAccountSendingEnabledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountSendingEnabledCommand)
   .de(de_UpdateAccountSendingEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountSendingEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccountSendingEnabledCommandInput;
+      output: UpdateAccountSendingEnabledCommandOutput;
+    };
+  };
+}

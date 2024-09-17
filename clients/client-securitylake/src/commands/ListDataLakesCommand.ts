@@ -140,4 +140,16 @@ export class ListDataLakesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataLakesCommand)
   .de(de_ListDataLakesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataLakesRequest;
+      output: ListDataLakesResponse;
+    };
+    sdk: {
+      input: ListDataLakesCommandInput;
+      output: ListDataLakesCommandOutput;
+    };
+  };
+}

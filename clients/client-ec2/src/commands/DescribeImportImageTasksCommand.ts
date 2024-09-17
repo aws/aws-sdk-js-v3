@@ -140,4 +140,16 @@ export class DescribeImportImageTasksCommand extends $Command
   .f(void 0, DescribeImportImageTasksResultFilterSensitiveLog)
   .ser(se_DescribeImportImageTasksCommand)
   .de(de_DescribeImportImageTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportImageTasksRequest;
+      output: DescribeImportImageTasksResult;
+    };
+    sdk: {
+      input: DescribeImportImageTasksCommandInput;
+      output: DescribeImportImageTasksCommandOutput;
+    };
+  };
+}

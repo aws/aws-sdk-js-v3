@@ -110,4 +110,16 @@ export class ListWorldGenerationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorldGenerationJobsCommand)
   .de(de_ListWorldGenerationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorldGenerationJobsRequest;
+      output: ListWorldGenerationJobsResponse;
+    };
+    sdk: {
+      input: ListWorldGenerationJobsCommandInput;
+      output: ListWorldGenerationJobsCommandOutput;
+    };
+  };
+}

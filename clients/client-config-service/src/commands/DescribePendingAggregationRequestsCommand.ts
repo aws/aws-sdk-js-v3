@@ -104,4 +104,16 @@ export class DescribePendingAggregationRequestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePendingAggregationRequestsCommand)
   .de(de_DescribePendingAggregationRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePendingAggregationRequestsRequest;
+      output: DescribePendingAggregationRequestsResponse;
+    };
+    sdk: {
+      input: DescribePendingAggregationRequestsCommandInput;
+      output: DescribePendingAggregationRequestsCommandOutput;
+    };
+  };
+}

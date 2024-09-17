@@ -96,4 +96,16 @@ export class GetNetworkCommand extends $Command
   .f(void 0, GetNetworkResponseFilterSensitiveLog)
   .ser(se_GetNetworkCommand)
   .de(de_GetNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkRequest;
+      output: GetNetworkResponse;
+    };
+    sdk: {
+      input: GetNetworkCommandInput;
+      output: GetNetworkCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationMaintenanceConfigurationCommand)
   .de(de_UpdateApplicationMaintenanceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationMaintenanceConfigurationRequest;
+      output: UpdateApplicationMaintenanceConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateApplicationMaintenanceConfigurationCommandInput;
+      output: UpdateApplicationMaintenanceConfigurationCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class StartRemediationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRemediationExecutionCommand)
   .de(de_StartRemediationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRemediationExecutionRequest;
+      output: StartRemediationExecutionResponse;
+    };
+    sdk: {
+      input: StartRemediationExecutionCommandInput;
+      output: StartRemediationExecutionCommandOutput;
+    };
+  };
+}

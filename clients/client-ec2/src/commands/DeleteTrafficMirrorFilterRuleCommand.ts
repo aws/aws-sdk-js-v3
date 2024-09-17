@@ -80,4 +80,16 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrafficMirrorFilterRuleCommand)
   .de(de_DeleteTrafficMirrorFilterRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrafficMirrorFilterRuleRequest;
+      output: DeleteTrafficMirrorFilterRuleResult;
+    };
+    sdk: {
+      input: DeleteTrafficMirrorFilterRuleCommandInput;
+      output: DeleteTrafficMirrorFilterRuleCommandOutput;
+    };
+  };
+}

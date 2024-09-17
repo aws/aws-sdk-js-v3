@@ -110,4 +110,16 @@ export class DeleteVPCConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVPCConnectionCommand)
   .de(de_DeleteVPCConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVPCConnectionRequest;
+      output: DeleteVPCConnectionResponse;
+    };
+    sdk: {
+      input: DeleteVPCConnectionCommandInput;
+      output: DeleteVPCConnectionCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class GetProposalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProposalCommand)
   .de(de_GetProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProposalInput;
+      output: GetProposalOutput;
+    };
+    sdk: {
+      input: GetProposalCommandInput;
+      output: GetProposalCommandOutput;
+    };
+  };
+}

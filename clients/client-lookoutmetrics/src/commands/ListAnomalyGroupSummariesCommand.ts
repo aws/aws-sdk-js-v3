@@ -115,4 +115,16 @@ export class ListAnomalyGroupSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomalyGroupSummariesCommand)
   .de(de_ListAnomalyGroupSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomalyGroupSummariesRequest;
+      output: ListAnomalyGroupSummariesResponse;
+    };
+    sdk: {
+      input: ListAnomalyGroupSummariesCommandInput;
+      output: ListAnomalyGroupSummariesCommandOutput;
+    };
+  };
+}

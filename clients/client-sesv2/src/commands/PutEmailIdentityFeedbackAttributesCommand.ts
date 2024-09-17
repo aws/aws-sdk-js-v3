@@ -102,4 +102,16 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityFeedbackAttributesCommand)
   .de(de_PutEmailIdentityFeedbackAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityFeedbackAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityFeedbackAttributesCommandInput;
+      output: PutEmailIdentityFeedbackAttributesCommandOutput;
+    };
+  };
+}

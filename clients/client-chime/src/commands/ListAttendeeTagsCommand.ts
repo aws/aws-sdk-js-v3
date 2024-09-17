@@ -113,4 +113,16 @@ export class ListAttendeeTagsCommand extends $Command
   .f(void 0, ListAttendeeTagsResponseFilterSensitiveLog)
   .ser(se_ListAttendeeTagsCommand)
   .de(de_ListAttendeeTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttendeeTagsRequest;
+      output: ListAttendeeTagsResponse;
+    };
+    sdk: {
+      input: ListAttendeeTagsCommandInput;
+      output: ListAttendeeTagsCommandOutput;
+    };
+  };
+}

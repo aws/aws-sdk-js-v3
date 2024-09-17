@@ -115,4 +115,16 @@ export class ListModelPackagingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelPackagingJobsCommand)
   .de(de_ListModelPackagingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelPackagingJobsRequest;
+      output: ListModelPackagingJobsResponse;
+    };
+    sdk: {
+      input: ListModelPackagingJobsCommandInput;
+      output: ListModelPackagingJobsCommandOutput;
+    };
+  };
+}

@@ -72,4 +72,16 @@ export class MalformedTimestampBodyDateTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampBodyDateTimeCommand)
   .de(de_MalformedTimestampBodyDateTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampBodyDateTimeInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampBodyDateTimeCommandInput;
+      output: MalformedTimestampBodyDateTimeCommandOutput;
+    };
+  };
+}

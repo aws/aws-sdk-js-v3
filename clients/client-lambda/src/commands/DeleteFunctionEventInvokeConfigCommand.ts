@@ -95,4 +95,16 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFunctionEventInvokeConfigCommand)
   .de(de_DeleteFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFunctionEventInvokeConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFunctionEventInvokeConfigCommandInput;
+      output: DeleteFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class AssociateBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateBotCommand)
   .de(de_AssociateBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateBotRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateBotCommandInput;
+      output: AssociateBotCommandOutput;
+    };
+  };
+}

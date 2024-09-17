@@ -109,4 +109,16 @@ export class ListJobRunAttemptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobRunAttemptsCommand)
   .de(de_ListJobRunAttemptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobRunAttemptsRequest;
+      output: ListJobRunAttemptsResponse;
+    };
+    sdk: {
+      input: ListJobRunAttemptsCommandInput;
+      output: ListJobRunAttemptsCommandOutput;
+    };
+  };
+}

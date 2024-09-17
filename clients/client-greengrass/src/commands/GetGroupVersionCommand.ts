@@ -93,4 +93,16 @@ export class GetGroupVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupVersionCommand)
   .de(de_GetGroupVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupVersionRequest;
+      output: GetGroupVersionResponse;
+    };
+    sdk: {
+      input: GetGroupVersionCommandInput;
+      output: GetGroupVersionCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class GetReadinessCheckStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReadinessCheckStatusCommand)
   .de(de_GetReadinessCheckStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReadinessCheckStatusRequest;
+      output: GetReadinessCheckStatusResponse;
+    };
+    sdk: {
+      input: GetReadinessCheckStatusCommandInput;
+      output: GetReadinessCheckStatusCommandOutput;
+    };
+  };
+}

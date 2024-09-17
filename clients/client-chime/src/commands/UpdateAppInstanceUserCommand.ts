@@ -114,4 +114,16 @@ export class UpdateAppInstanceUserCommand extends $Command
   .f(UpdateAppInstanceUserRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppInstanceUserCommand)
   .de(de_UpdateAppInstanceUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppInstanceUserRequest;
+      output: UpdateAppInstanceUserResponse;
+    };
+    sdk: {
+      input: UpdateAppInstanceUserCommandInput;
+      output: UpdateAppInstanceUserCommandOutput;
+    };
+  };
+}

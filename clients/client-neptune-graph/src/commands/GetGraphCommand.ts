@@ -108,4 +108,16 @@ export class GetGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGraphCommand)
   .de(de_GetGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGraphInput;
+      output: GetGraphOutput;
+    };
+    sdk: {
+      input: GetGraphCommandInput;
+      output: GetGraphCommandOutput;
+    };
+  };
+}

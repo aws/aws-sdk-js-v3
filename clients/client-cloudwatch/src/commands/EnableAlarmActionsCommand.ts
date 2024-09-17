@@ -77,4 +77,16 @@ export class EnableAlarmActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableAlarmActionsCommand)
   .de(de_EnableAlarmActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableAlarmActionsInput;
+      output: {};
+    };
+    sdk: {
+      input: EnableAlarmActionsCommandInput;
+      output: EnableAlarmActionsCommandOutput;
+    };
+  };
+}

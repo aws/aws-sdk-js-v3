@@ -96,4 +96,16 @@ export class DeletePricingRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePricingRuleCommand)
   .de(de_DeletePricingRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePricingRuleInput;
+      output: DeletePricingRuleOutput;
+    };
+    sdk: {
+      input: DeletePricingRuleCommandInput;
+      output: DeletePricingRuleCommandOutput;
+    };
+  };
+}

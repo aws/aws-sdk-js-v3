@@ -84,4 +84,16 @@ export class GetModelTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelTemplateCommand)
   .de(de_GetModelTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelTemplateRequest;
+      output: GetModelTemplateResponse;
+    };
+    sdk: {
+      input: GetModelTemplateCommandInput;
+      output: GetModelTemplateCommandOutput;
+    };
+  };
+}

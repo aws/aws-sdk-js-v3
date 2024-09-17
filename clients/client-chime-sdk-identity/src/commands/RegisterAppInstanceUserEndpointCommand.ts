@@ -121,4 +121,16 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command
   .f(RegisterAppInstanceUserEndpointRequestFilterSensitiveLog, void 0)
   .ser(se_RegisterAppInstanceUserEndpointCommand)
   .de(de_RegisterAppInstanceUserEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterAppInstanceUserEndpointRequest;
+      output: RegisterAppInstanceUserEndpointResponse;
+    };
+    sdk: {
+      input: RegisterAppInstanceUserEndpointCommandInput;
+      output: RegisterAppInstanceUserEndpointCommandOutput;
+    };
+  };
+}

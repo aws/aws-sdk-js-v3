@@ -93,4 +93,16 @@ export class DeleteTestSuiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTestSuiteCommand)
   .de(de_DeleteTestSuiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTestSuiteRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTestSuiteCommandInput;
+      output: DeleteTestSuiteCommandOutput;
+    };
+  };
+}

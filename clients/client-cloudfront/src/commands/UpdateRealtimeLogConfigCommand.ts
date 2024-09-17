@@ -136,4 +136,16 @@ export class UpdateRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRealtimeLogConfigCommand)
   .de(de_UpdateRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRealtimeLogConfigRequest;
+      output: UpdateRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: UpdateRealtimeLogConfigCommandInput;
+      output: UpdateRealtimeLogConfigCommandOutput;
+    };
+  };
+}

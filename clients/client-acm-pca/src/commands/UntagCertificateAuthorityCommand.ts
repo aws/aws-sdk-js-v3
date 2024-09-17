@@ -100,4 +100,16 @@ export class UntagCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagCertificateAuthorityCommand)
   .de(de_UntagCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagCertificateAuthorityCommandInput;
+      output: UntagCertificateAuthorityCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class DetachVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachVolumeCommand)
   .de(de_DetachVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachVolumeRequest;
+      output: VolumeAttachment;
+    };
+    sdk: {
+      input: DetachVolumeCommandInput;
+      output: DetachVolumeCommandOutput;
+    };
+  };
+}

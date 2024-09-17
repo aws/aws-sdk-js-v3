@@ -120,4 +120,16 @@ export class UpdateLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLaunchConfigurationCommand)
   .de(de_UpdateLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLaunchConfigurationRequest;
+      output: LaunchConfiguration;
+    };
+    sdk: {
+      input: UpdateLaunchConfigurationCommandInput;
+      output: UpdateLaunchConfigurationCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class CreateBotReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBotReplicaCommand)
   .de(de_CreateBotReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBotReplicaRequest;
+      output: CreateBotReplicaResponse;
+    };
+    sdk: {
+      input: CreateBotReplicaCommandInput;
+      output: CreateBotReplicaCommandOutput;
+    };
+  };
+}

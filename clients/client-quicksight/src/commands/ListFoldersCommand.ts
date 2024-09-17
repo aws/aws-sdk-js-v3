@@ -119,4 +119,16 @@ export class ListFoldersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFoldersCommand)
   .de(de_ListFoldersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFoldersRequest;
+      output: ListFoldersResponse;
+    };
+    sdk: {
+      input: ListFoldersCommandInput;
+      output: ListFoldersCommandOutput;
+    };
+  };
+}

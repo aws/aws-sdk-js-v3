@@ -124,4 +124,16 @@ export class ListWorkflowStepExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowStepExecutionsCommand)
   .de(de_ListWorkflowStepExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkflowStepExecutionsRequest;
+      output: ListWorkflowStepExecutionsResponse;
+    };
+    sdk: {
+      input: ListWorkflowStepExecutionsCommandInput;
+      output: ListWorkflowStepExecutionsCommandOutput;
+    };
+  };
+}

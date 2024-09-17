@@ -296,4 +296,16 @@ export class GetTestRunStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestRunStepCommand)
   .de(de_GetTestRunStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestRunStepRequest;
+      output: GetTestRunStepResponse;
+    };
+    sdk: {
+      input: GetTestRunStepCommandInput;
+      output: GetTestRunStepCommandOutput;
+    };
+  };
+}

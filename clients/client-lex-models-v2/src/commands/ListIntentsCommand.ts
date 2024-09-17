@@ -133,4 +133,16 @@ export class ListIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIntentsCommand)
   .de(de_ListIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIntentsRequest;
+      output: ListIntentsResponse;
+    };
+    sdk: {
+      input: ListIntentsCommandInput;
+      output: ListIntentsCommandOutput;
+    };
+  };
+}

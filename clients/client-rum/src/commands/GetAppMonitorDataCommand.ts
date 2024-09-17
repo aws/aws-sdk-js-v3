@@ -110,4 +110,16 @@ export class GetAppMonitorDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppMonitorDataCommand)
   .de(de_GetAppMonitorDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppMonitorDataRequest;
+      output: GetAppMonitorDataResponse;
+    };
+    sdk: {
+      input: GetAppMonitorDataCommandInput;
+      output: GetAppMonitorDataCommandOutput;
+    };
+  };
+}

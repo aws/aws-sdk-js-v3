@@ -110,4 +110,16 @@ export class DescribeAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppCommand)
   .de(de_DescribeAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppInput;
+      output: DescribeAppOutput;
+    };
+    sdk: {
+      input: DescribeAppCommandInput;
+      output: DescribeAppCommandOutput;
+    };
+  };
+}

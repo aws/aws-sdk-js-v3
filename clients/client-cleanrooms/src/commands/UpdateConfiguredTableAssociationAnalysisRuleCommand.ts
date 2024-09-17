@@ -171,4 +171,16 @@ export class UpdateConfiguredTableAssociationAnalysisRuleCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_UpdateConfiguredTableAssociationAnalysisRuleCommand)
   .de(de_UpdateConfiguredTableAssociationAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfiguredTableAssociationAnalysisRuleInput;
+      output: UpdateConfiguredTableAssociationAnalysisRuleOutput;
+    };
+    sdk: {
+      input: UpdateConfiguredTableAssociationAnalysisRuleCommandInput;
+      output: UpdateConfiguredTableAssociationAnalysisRuleCommandOutput;
+    };
+  };
+}

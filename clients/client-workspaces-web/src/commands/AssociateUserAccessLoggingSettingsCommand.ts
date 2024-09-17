@@ -105,4 +105,16 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateUserAccessLoggingSettingsCommand)
   .de(de_AssociateUserAccessLoggingSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateUserAccessLoggingSettingsRequest;
+      output: AssociateUserAccessLoggingSettingsResponse;
+    };
+    sdk: {
+      input: AssociateUserAccessLoggingSettingsCommandInput;
+      output: AssociateUserAccessLoggingSettingsCommandOutput;
+    };
+  };
+}

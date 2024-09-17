@@ -112,4 +112,16 @@ export class DescribeProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectCommand)
   .de(de_DescribeProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectRequest;
+      output: DescribeProjectResponse;
+    };
+    sdk: {
+      input: DescribeProjectCommandInput;
+      output: DescribeProjectCommandOutput;
+    };
+  };
+}

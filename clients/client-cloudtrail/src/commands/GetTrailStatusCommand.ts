@@ -140,4 +140,16 @@ export class GetTrailStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrailStatusCommand)
   .de(de_GetTrailStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrailStatusRequest;
+      output: GetTrailStatusResponse;
+    };
+    sdk: {
+      input: GetTrailStatusCommandInput;
+      output: GetTrailStatusCommandOutput;
+    };
+  };
+}

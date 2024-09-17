@@ -151,4 +151,16 @@ export class DescribeDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDhcpOptionsCommand)
   .de(de_DescribeDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDhcpOptionsRequest;
+      output: DescribeDhcpOptionsResult;
+    };
+    sdk: {
+      input: DescribeDhcpOptionsCommandInput;
+      output: DescribeDhcpOptionsCommandOutput;
+    };
+  };
+}

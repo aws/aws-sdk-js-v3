@@ -239,4 +239,16 @@ export class UpdateUserPoolClientCommand extends $Command
   .f(UpdateUserPoolClientRequestFilterSensitiveLog, UpdateUserPoolClientResponseFilterSensitiveLog)
   .ser(se_UpdateUserPoolClientCommand)
   .de(de_UpdateUserPoolClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserPoolClientRequest;
+      output: UpdateUserPoolClientResponse;
+    };
+    sdk: {
+      input: UpdateUserPoolClientCommandInput;
+      output: UpdateUserPoolClientCommandOutput;
+    };
+  };
+}

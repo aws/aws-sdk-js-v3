@@ -113,4 +113,16 @@ export class DescribeSnapshotSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotSchedulesCommand)
   .de(de_DescribeSnapshotSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotSchedulesMessage;
+      output: DescribeSnapshotSchedulesOutputMessage;
+    };
+    sdk: {
+      input: DescribeSnapshotSchedulesCommandInput;
+      output: DescribeSnapshotSchedulesCommandOutput;
+    };
+  };
+}

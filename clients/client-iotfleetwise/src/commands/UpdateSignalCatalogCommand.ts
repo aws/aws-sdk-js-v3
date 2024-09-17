@@ -247,4 +247,16 @@ export class UpdateSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSignalCatalogCommand)
   .de(de_UpdateSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSignalCatalogRequest;
+      output: UpdateSignalCatalogResponse;
+    };
+    sdk: {
+      input: UpdateSignalCatalogCommandInput;
+      output: UpdateSignalCatalogCommandOutput;
+    };
+  };
+}

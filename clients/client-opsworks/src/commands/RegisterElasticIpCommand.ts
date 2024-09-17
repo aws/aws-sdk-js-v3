@@ -91,4 +91,16 @@ export class RegisterElasticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterElasticIpCommand)
   .de(de_RegisterElasticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterElasticIpRequest;
+      output: RegisterElasticIpResult;
+    };
+    sdk: {
+      input: RegisterElasticIpCommandInput;
+      output: RegisterElasticIpCommandOutput;
+    };
+  };
+}

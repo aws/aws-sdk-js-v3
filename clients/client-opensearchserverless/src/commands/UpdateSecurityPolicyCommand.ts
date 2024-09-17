@@ -114,4 +114,16 @@ export class UpdateSecurityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityPolicyCommand)
   .de(de_UpdateSecurityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityPolicyRequest;
+      output: UpdateSecurityPolicyResponse;
+    };
+    sdk: {
+      input: UpdateSecurityPolicyCommandInput;
+      output: UpdateSecurityPolicyCommandOutput;
+    };
+  };
+}

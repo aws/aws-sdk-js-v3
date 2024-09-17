@@ -94,4 +94,16 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTransitGatewayPolicyTableCommand)
   .de(de_DisassociateTransitGatewayPolicyTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTransitGatewayPolicyTableRequest;
+      output: DisassociateTransitGatewayPolicyTableResult;
+    };
+    sdk: {
+      input: DisassociateTransitGatewayPolicyTableCommandInput;
+      output: DisassociateTransitGatewayPolicyTableCommandOutput;
+    };
+  };
+}

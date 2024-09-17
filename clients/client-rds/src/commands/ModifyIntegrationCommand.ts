@@ -143,4 +143,16 @@ export class ModifyIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIntegrationCommand)
   .de(de_ModifyIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIntegrationMessage;
+      output: Integration;
+    };
+    sdk: {
+      input: ModifyIntegrationCommandInput;
+      output: ModifyIntegrationCommandOutput;
+    };
+  };
+}

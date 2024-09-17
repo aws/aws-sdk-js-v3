@@ -146,4 +146,16 @@ export class UpdateCoreNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCoreNetworkCommand)
   .de(de_UpdateCoreNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCoreNetworkRequest;
+      output: UpdateCoreNetworkResponse;
+    };
+    sdk: {
+      input: UpdateCoreNetworkCommandInput;
+      output: UpdateCoreNetworkCommandOutput;
+    };
+  };
+}

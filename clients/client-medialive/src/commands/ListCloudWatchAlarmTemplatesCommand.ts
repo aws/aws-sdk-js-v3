@@ -124,4 +124,16 @@ export class ListCloudWatchAlarmTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCloudWatchAlarmTemplatesCommand)
   .de(de_ListCloudWatchAlarmTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCloudWatchAlarmTemplatesRequest;
+      output: ListCloudWatchAlarmTemplatesResponse;
+    };
+    sdk: {
+      input: ListCloudWatchAlarmTemplatesCommandInput;
+      output: ListCloudWatchAlarmTemplatesCommandOutput;
+    };
+  };
+}

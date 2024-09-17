@@ -135,4 +135,16 @@ export class GetAnalysisTemplateCommand extends $Command
   .f(void 0, GetAnalysisTemplateOutputFilterSensitiveLog)
   .ser(se_GetAnalysisTemplateCommand)
   .de(de_GetAnalysisTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnalysisTemplateInput;
+      output: GetAnalysisTemplateOutput;
+    };
+    sdk: {
+      input: GetAnalysisTemplateCommandInput;
+      output: GetAnalysisTemplateCommandOutput;
+    };
+  };
+}

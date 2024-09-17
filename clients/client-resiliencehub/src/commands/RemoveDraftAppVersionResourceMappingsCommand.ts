@@ -129,4 +129,16 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveDraftAppVersionResourceMappingsCommand)
   .de(de_RemoveDraftAppVersionResourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveDraftAppVersionResourceMappingsRequest;
+      output: RemoveDraftAppVersionResourceMappingsResponse;
+    };
+    sdk: {
+      input: RemoveDraftAppVersionResourceMappingsCommandInput;
+      output: RemoveDraftAppVersionResourceMappingsCommandOutput;
+    };
+  };
+}

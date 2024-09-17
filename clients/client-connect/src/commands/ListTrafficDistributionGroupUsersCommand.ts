@@ -107,4 +107,16 @@ export class ListTrafficDistributionGroupUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficDistributionGroupUsersCommand)
   .de(de_ListTrafficDistributionGroupUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficDistributionGroupUsersRequest;
+      output: ListTrafficDistributionGroupUsersResponse;
+    };
+    sdk: {
+      input: ListTrafficDistributionGroupUsersCommandInput;
+      output: ListTrafficDistributionGroupUsersCommandOutput;
+    };
+  };
+}

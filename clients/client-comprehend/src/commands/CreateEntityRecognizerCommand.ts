@@ -163,4 +163,16 @@ export class CreateEntityRecognizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEntityRecognizerCommand)
   .de(de_CreateEntityRecognizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEntityRecognizerRequest;
+      output: CreateEntityRecognizerResponse;
+    };
+    sdk: {
+      input: CreateEntityRecognizerCommandInput;
+      output: CreateEntityRecognizerCommandOutput;
+    };
+  };
+}

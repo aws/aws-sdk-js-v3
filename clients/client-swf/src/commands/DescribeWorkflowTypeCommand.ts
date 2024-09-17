@@ -144,4 +144,16 @@ export class DescribeWorkflowTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkflowTypeCommand)
   .de(de_DescribeWorkflowTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkflowTypeInput;
+      output: WorkflowTypeDetail;
+    };
+    sdk: {
+      input: DescribeWorkflowTypeCommandInput;
+      output: DescribeWorkflowTypeCommandOutput;
+    };
+  };
+}

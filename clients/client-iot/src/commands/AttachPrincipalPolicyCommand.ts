@@ -104,4 +104,16 @@ export class AttachPrincipalPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachPrincipalPolicyCommand)
   .de(de_AttachPrincipalPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachPrincipalPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachPrincipalPolicyCommandInput;
+      output: AttachPrincipalPolicyCommandOutput;
+    };
+  };
+}

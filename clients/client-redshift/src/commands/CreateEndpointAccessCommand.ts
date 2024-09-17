@@ -141,4 +141,16 @@ export class CreateEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEndpointAccessCommand)
   .de(de_CreateEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEndpointAccessMessage;
+      output: EndpointAccess;
+    };
+    sdk: {
+      input: CreateEndpointAccessCommandInput;
+      output: CreateEndpointAccessCommandOutput;
+    };
+  };
+}

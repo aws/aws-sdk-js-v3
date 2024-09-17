@@ -136,4 +136,16 @@ export class DescribeConfigRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigRulesCommand)
   .de(de_DescribeConfigRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigRulesRequest;
+      output: DescribeConfigRulesResponse;
+    };
+    sdk: {
+      input: DescribeConfigRulesCommandInput;
+      output: DescribeConfigRulesCommandOutput;
+    };
+  };
+}

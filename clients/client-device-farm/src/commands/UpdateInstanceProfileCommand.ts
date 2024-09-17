@@ -105,4 +105,16 @@ export class UpdateInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInstanceProfileCommand)
   .de(de_UpdateInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceProfileRequest;
+      output: UpdateInstanceProfileResult;
+    };
+    sdk: {
+      input: UpdateInstanceProfileCommandInput;
+      output: UpdateInstanceProfileCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ListRolePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRolePoliciesCommand)
   .de(de_ListRolePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRolePoliciesRequest;
+      output: ListRolePoliciesResponse;
+    };
+    sdk: {
+      input: ListRolePoliciesCommandInput;
+      output: ListRolePoliciesCommandOutput;
+    };
+  };
+}

@@ -151,4 +151,16 @@ export class DescribeScalableTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalableTargetsCommand)
   .de(de_DescribeScalableTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalableTargetsRequest;
+      output: DescribeScalableTargetsResponse;
+    };
+    sdk: {
+      input: DescribeScalableTargetsCommandInput;
+      output: DescribeScalableTargetsCommandOutput;
+    };
+  };
+}

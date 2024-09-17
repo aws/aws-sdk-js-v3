@@ -103,4 +103,16 @@ export class AddProfileKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddProfileKeyCommand)
   .de(de_AddProfileKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddProfileKeyRequest;
+      output: AddProfileKeyResponse;
+    };
+    sdk: {
+      input: AddProfileKeyCommandInput;
+      output: AddProfileKeyCommandOutput;
+    };
+  };
+}

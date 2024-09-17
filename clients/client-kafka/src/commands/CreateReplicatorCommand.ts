@@ -157,4 +157,16 @@ export class CreateReplicatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicatorCommand)
   .de(de_CreateReplicatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicatorRequest;
+      output: CreateReplicatorResponse;
+    };
+    sdk: {
+      input: CreateReplicatorCommandInput;
+      output: CreateReplicatorCommandOutput;
+    };
+  };
+}

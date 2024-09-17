@@ -97,4 +97,16 @@ export class GetComponentPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentPolicyCommand)
   .de(de_GetComponentPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentPolicyRequest;
+      output: GetComponentPolicyResponse;
+    };
+    sdk: {
+      input: GetComponentPolicyCommandInput;
+      output: GetComponentPolicyCommandOutput;
+    };
+  };
+}

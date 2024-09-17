@@ -110,4 +110,16 @@ export class AssociateAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAccountsCommand)
   .de(de_AssociateAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAccountsInput;
+      output: AssociateAccountsOutput;
+    };
+    sdk: {
+      input: AssociateAccountsCommandInput;
+      output: AssociateAccountsCommandOutput;
+    };
+  };
+}

@@ -153,4 +153,16 @@ export class PutTraceSegmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutTraceSegmentsCommand)
   .de(de_PutTraceSegmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTraceSegmentsRequest;
+      output: PutTraceSegmentsResult;
+    };
+    sdk: {
+      input: PutTraceSegmentsCommandInput;
+      output: PutTraceSegmentsCommandOutput;
+    };
+  };
+}

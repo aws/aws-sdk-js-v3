@@ -176,4 +176,16 @@ export class ListSubscriptionsCommand extends $Command
   .f(void 0, ListSubscriptionsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionsCommand)
   .de(de_ListSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionsInput;
+      output: ListSubscriptionsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionsCommandInput;
+      output: ListSubscriptionsCommandOutput;
+    };
+  };
+}

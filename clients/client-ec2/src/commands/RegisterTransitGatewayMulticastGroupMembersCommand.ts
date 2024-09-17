@@ -102,4 +102,16 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTransitGatewayMulticastGroupMembersCommand)
   .de(de_RegisterTransitGatewayMulticastGroupMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTransitGatewayMulticastGroupMembersRequest;
+      output: RegisterTransitGatewayMulticastGroupMembersResult;
+    };
+    sdk: {
+      input: RegisterTransitGatewayMulticastGroupMembersCommandInput;
+      output: RegisterTransitGatewayMulticastGroupMembersCommandOutput;
+    };
+  };
+}

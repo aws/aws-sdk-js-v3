@@ -97,4 +97,16 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVpcEndpointConnectionNotificationsCommand)
   .de(de_DeleteVpcEndpointConnectionNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVpcEndpointConnectionNotificationsRequest;
+      output: DeleteVpcEndpointConnectionNotificationsResult;
+    };
+    sdk: {
+      input: DeleteVpcEndpointConnectionNotificationsCommandInput;
+      output: DeleteVpcEndpointConnectionNotificationsCommandOutput;
+    };
+  };
+}

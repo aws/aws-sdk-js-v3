@@ -103,4 +103,16 @@ export class PutObjectLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutObjectLegalHoldCommand)
   .de(de_PutObjectLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutObjectLegalHoldRequest;
+      output: PutObjectLegalHoldOutput;
+    };
+    sdk: {
+      input: PutObjectLegalHoldCommandInput;
+      output: PutObjectLegalHoldCommandOutput;
+    };
+  };
+}

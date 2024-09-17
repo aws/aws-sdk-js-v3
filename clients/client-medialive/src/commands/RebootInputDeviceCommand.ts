@@ -100,4 +100,16 @@ export class RebootInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootInputDeviceCommand)
   .de(de_RebootInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootInputDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RebootInputDeviceCommandInput;
+      output: RebootInputDeviceCommandOutput;
+    };
+  };
+}

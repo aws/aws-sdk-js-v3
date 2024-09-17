@@ -139,4 +139,16 @@ export class ListAccessKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessKeysCommand)
   .de(de_ListAccessKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessKeysRequest;
+      output: ListAccessKeysResponse;
+    };
+    sdk: {
+      input: ListAccessKeysCommandInput;
+      output: ListAccessKeysCommandOutput;
+    };
+  };
+}

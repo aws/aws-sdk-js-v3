@@ -108,4 +108,16 @@ export class ResolveAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveAliasCommand)
   .de(de_ResolveAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveAliasInput;
+      output: ResolveAliasOutput;
+    };
+    sdk: {
+      input: ResolveAliasCommandInput;
+      output: ResolveAliasCommandOutput;
+    };
+  };
+}

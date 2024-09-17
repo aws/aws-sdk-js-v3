@@ -107,4 +107,16 @@ export class SparseJsonMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SparseJsonMapsCommand)
   .de(de_SparseJsonMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SparseJsonMapsInputOutput;
+      output: SparseJsonMapsInputOutput;
+    };
+    sdk: {
+      input: SparseJsonMapsCommandInput;
+      output: SparseJsonMapsCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class PopulateIdMappingTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PopulateIdMappingTableCommand)
   .de(de_PopulateIdMappingTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PopulateIdMappingTableInput;
+      output: PopulateIdMappingTableOutput;
+    };
+    sdk: {
+      input: PopulateIdMappingTableCommandInput;
+      output: PopulateIdMappingTableCommandOutput;
+    };
+  };
+}

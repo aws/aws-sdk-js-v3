@@ -117,4 +117,16 @@ export class ListFunctionUrlConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionUrlConfigsCommand)
   .de(de_ListFunctionUrlConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionUrlConfigsRequest;
+      output: ListFunctionUrlConfigsResponse;
+    };
+    sdk: {
+      input: ListFunctionUrlConfigsCommandInput;
+      output: ListFunctionUrlConfigsCommandOutput;
+    };
+  };
+}

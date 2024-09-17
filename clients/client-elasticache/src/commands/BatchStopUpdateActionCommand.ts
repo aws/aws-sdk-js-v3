@@ -107,4 +107,16 @@ export class BatchStopUpdateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStopUpdateActionCommand)
   .de(de_BatchStopUpdateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStopUpdateActionMessage;
+      output: UpdateActionResultsMessage;
+    };
+    sdk: {
+      input: BatchStopUpdateActionCommandInput;
+      output: BatchStopUpdateActionCommandOutput;
+    };
+  };
+}

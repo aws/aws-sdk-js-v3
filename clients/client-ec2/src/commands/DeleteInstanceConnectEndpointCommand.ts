@@ -105,4 +105,16 @@ export class DeleteInstanceConnectEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceConnectEndpointCommand)
   .de(de_DeleteInstanceConnectEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceConnectEndpointRequest;
+      output: DeleteInstanceConnectEndpointResult;
+    };
+    sdk: {
+      input: DeleteInstanceConnectEndpointCommandInput;
+      output: DeleteInstanceConnectEndpointCommandOutput;
+    };
+  };
+}

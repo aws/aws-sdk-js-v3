@@ -101,4 +101,16 @@ export class AllowCustomRoutingTrafficCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllowCustomRoutingTrafficCommand)
   .de(de_AllowCustomRoutingTrafficCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllowCustomRoutingTrafficRequest;
+      output: {};
+    };
+    sdk: {
+      input: AllowCustomRoutingTrafficCommandInput;
+      output: AllowCustomRoutingTrafficCommandOutput;
+    };
+  };
+}

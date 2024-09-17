@@ -125,4 +125,16 @@ export class AdminEnableUserCommand extends $Command
   .f(AdminEnableUserRequestFilterSensitiveLog, void 0)
   .ser(se_AdminEnableUserCommand)
   .de(de_AdminEnableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminEnableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminEnableUserCommandInput;
+      output: AdminEnableUserCommandOutput;
+    };
+  };
+}

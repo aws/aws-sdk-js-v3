@@ -144,4 +144,16 @@ export class VerifyUserAttributeCommand extends $Command
   .f(VerifyUserAttributeRequestFilterSensitiveLog, void 0)
   .ser(se_VerifyUserAttributeCommand)
   .de(de_VerifyUserAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyUserAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: VerifyUserAttributeCommandInput;
+      output: VerifyUserAttributeCommandOutput;
+    };
+  };
+}

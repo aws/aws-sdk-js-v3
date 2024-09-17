@@ -123,4 +123,16 @@ export class ShutdownGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ShutdownGatewayCommand)
   .de(de_ShutdownGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ShutdownGatewayInput;
+      output: ShutdownGatewayOutput;
+    };
+    sdk: {
+      input: ShutdownGatewayCommandInput;
+      output: ShutdownGatewayCommandOutput;
+    };
+  };
+}

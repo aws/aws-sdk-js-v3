@@ -127,4 +127,16 @@ export class DescribeFargateProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFargateProfileCommand)
   .de(de_DescribeFargateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFargateProfileRequest;
+      output: DescribeFargateProfileResponse;
+    };
+    sdk: {
+      input: DescribeFargateProfileCommandInput;
+      output: DescribeFargateProfileCommandOutput;
+    };
+  };
+}

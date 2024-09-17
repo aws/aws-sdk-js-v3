@@ -141,4 +141,16 @@ export class GetInstanceAccessCommand extends $Command
   .f(void 0, GetInstanceAccessOutputFilterSensitiveLog)
   .ser(se_GetInstanceAccessCommand)
   .de(de_GetInstanceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceAccessInput;
+      output: GetInstanceAccessOutput;
+    };
+    sdk: {
+      input: GetInstanceAccessCommandInput;
+      output: GetInstanceAccessCommandOutput;
+    };
+  };
+}

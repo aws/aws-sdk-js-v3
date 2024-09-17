@@ -120,4 +120,16 @@ export class NotifyApplicationStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyApplicationStateCommand)
   .de(de_NotifyApplicationStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyApplicationStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: NotifyApplicationStateCommandInput;
+      output: NotifyApplicationStateCommandOutput;
+    };
+  };
+}

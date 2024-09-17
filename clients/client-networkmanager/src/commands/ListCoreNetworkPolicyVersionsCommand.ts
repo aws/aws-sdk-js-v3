@@ -109,4 +109,16 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreNetworkPolicyVersionsCommand)
   .de(de_ListCoreNetworkPolicyVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreNetworkPolicyVersionsRequest;
+      output: ListCoreNetworkPolicyVersionsResponse;
+    };
+    sdk: {
+      input: ListCoreNetworkPolicyVersionsCommandInput;
+      output: ListCoreNetworkPolicyVersionsCommandOutput;
+    };
+  };
+}

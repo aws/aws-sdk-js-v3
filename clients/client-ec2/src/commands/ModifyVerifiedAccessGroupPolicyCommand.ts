@@ -95,4 +95,16 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessGroupPolicyCommand)
   .de(de_ModifyVerifiedAccessGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessGroupPolicyRequest;
+      output: ModifyVerifiedAccessGroupPolicyResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessGroupPolicyCommandInput;
+      output: ModifyVerifiedAccessGroupPolicyCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class UpdateResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourcePolicyCommand)
   .de(de_UpdateResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourcePolicyRequest;
+      output: UpdateResourcePolicyResponse;
+    };
+    sdk: {
+      input: UpdateResourcePolicyCommandInput;
+      output: UpdateResourcePolicyCommandOutput;
+    };
+  };
+}

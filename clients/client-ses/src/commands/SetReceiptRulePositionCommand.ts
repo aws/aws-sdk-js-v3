@@ -99,4 +99,16 @@ export class SetReceiptRulePositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetReceiptRulePositionCommand)
   .de(de_SetReceiptRulePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetReceiptRulePositionRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetReceiptRulePositionCommandInput;
+      output: SetReceiptRulePositionCommandOutput;
+    };
+  };
+}

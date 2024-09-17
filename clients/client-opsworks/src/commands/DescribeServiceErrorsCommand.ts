@@ -102,4 +102,16 @@ export class DescribeServiceErrorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceErrorsCommand)
   .de(de_DescribeServiceErrorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceErrorsRequest;
+      output: DescribeServiceErrorsResult;
+    };
+    sdk: {
+      input: DescribeServiceErrorsCommandInput;
+      output: DescribeServiceErrorsCommandOutput;
+    };
+  };
+}

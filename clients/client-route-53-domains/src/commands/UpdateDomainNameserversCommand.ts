@@ -114,4 +114,16 @@ export class UpdateDomainNameserversCommand extends $Command
   .f(UpdateDomainNameserversRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDomainNameserversCommand)
   .de(de_UpdateDomainNameserversCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainNameserversRequest;
+      output: UpdateDomainNameserversResponse;
+    };
+    sdk: {
+      input: UpdateDomainNameserversCommandInput;
+      output: UpdateDomainNameserversCommandOutput;
+    };
+  };
+}

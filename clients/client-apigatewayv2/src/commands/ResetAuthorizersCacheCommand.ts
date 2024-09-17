@@ -82,4 +82,16 @@ export class ResetAuthorizersCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetAuthorizersCacheCommand)
   .de(de_ResetAuthorizersCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetAuthorizersCacheRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetAuthorizersCacheCommandInput;
+      output: ResetAuthorizersCacheCommandOutput;
+    };
+  };
+}

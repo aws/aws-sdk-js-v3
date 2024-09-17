@@ -110,4 +110,16 @@ export class DeleteServiceTemplateCommand extends $Command
   .f(void 0, DeleteServiceTemplateOutputFilterSensitiveLog)
   .ser(se_DeleteServiceTemplateCommand)
   .de(de_DeleteServiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceTemplateInput;
+      output: DeleteServiceTemplateOutput;
+    };
+    sdk: {
+      input: DeleteServiceTemplateCommandInput;
+      output: DeleteServiceTemplateCommandOutput;
+    };
+  };
+}

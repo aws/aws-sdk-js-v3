@@ -94,4 +94,16 @@ export class DeleteSolFunctionPackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSolFunctionPackageCommand)
   .de(de_DeleteSolFunctionPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSolFunctionPackageInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSolFunctionPackageCommandInput;
+      output: DeleteSolFunctionPackageCommandOutput;
+    };
+  };
+}

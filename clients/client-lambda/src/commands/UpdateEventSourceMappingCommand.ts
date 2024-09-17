@@ -323,4 +323,16 @@ export class UpdateEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventSourceMappingCommand)
   .de(de_UpdateEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: UpdateEventSourceMappingCommandInput;
+      output: UpdateEventSourceMappingCommandOutput;
+    };
+  };
+}

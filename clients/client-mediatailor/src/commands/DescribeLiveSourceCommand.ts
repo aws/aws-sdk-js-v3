@@ -92,4 +92,16 @@ export class DescribeLiveSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLiveSourceCommand)
   .de(de_DescribeLiveSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLiveSourceRequest;
+      output: DescribeLiveSourceResponse;
+    };
+    sdk: {
+      input: DescribeLiveSourceCommandInput;
+      output: DescribeLiveSourceCommandOutput;
+    };
+  };
+}

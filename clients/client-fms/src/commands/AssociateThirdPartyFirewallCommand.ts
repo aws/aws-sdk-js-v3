@@ -96,4 +96,16 @@ export class AssociateThirdPartyFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateThirdPartyFirewallCommand)
   .de(de_AssociateThirdPartyFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateThirdPartyFirewallRequest;
+      output: AssociateThirdPartyFirewallResponse;
+    };
+    sdk: {
+      input: AssociateThirdPartyFirewallCommandInput;
+      output: AssociateThirdPartyFirewallCommandOutput;
+    };
+  };
+}

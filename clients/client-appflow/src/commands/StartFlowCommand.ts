@@ -97,4 +97,16 @@ export class StartFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFlowCommand)
   .de(de_StartFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFlowRequest;
+      output: StartFlowResponse;
+    };
+    sdk: {
+      input: StartFlowCommandInput;
+      output: StartFlowCommandOutput;
+    };
+  };
+}

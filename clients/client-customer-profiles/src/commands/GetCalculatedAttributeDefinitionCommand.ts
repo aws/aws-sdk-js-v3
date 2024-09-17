@@ -130,4 +130,16 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command
   .f(void 0, GetCalculatedAttributeDefinitionResponseFilterSensitiveLog)
   .ser(se_GetCalculatedAttributeDefinitionCommand)
   .de(de_GetCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCalculatedAttributeDefinitionRequest;
+      output: GetCalculatedAttributeDefinitionResponse;
+    };
+    sdk: {
+      input: GetCalculatedAttributeDefinitionCommandInput;
+      output: GetCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class UpdateEnvironmentProfileCommand extends $Command
   .f(UpdateEnvironmentProfileInputFilterSensitiveLog, UpdateEnvironmentProfileOutputFilterSensitiveLog)
   .ser(se_UpdateEnvironmentProfileCommand)
   .de(de_UpdateEnvironmentProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentProfileInput;
+      output: UpdateEnvironmentProfileOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentProfileCommandInput;
+      output: UpdateEnvironmentProfileCommandOutput;
+    };
+  };
+}

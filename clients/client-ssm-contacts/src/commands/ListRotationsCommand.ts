@@ -142,4 +142,16 @@ export class ListRotationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRotationsCommand)
   .de(de_ListRotationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRotationsRequest;
+      output: ListRotationsResult;
+    };
+    sdk: {
+      input: ListRotationsCommandInput;
+      output: ListRotationsCommandOutput;
+    };
+  };
+}

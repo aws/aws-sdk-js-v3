@@ -128,4 +128,16 @@ export class DisassociateCreatedArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateCreatedArtifactCommand)
   .de(de_DisassociateCreatedArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateCreatedArtifactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateCreatedArtifactCommandInput;
+      output: DisassociateCreatedArtifactCommandOutput;
+    };
+  };
+}

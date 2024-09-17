@@ -121,4 +121,16 @@ export class ListManagedRuleSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedRuleSetsCommand)
   .de(de_ListManagedRuleSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedRuleSetsRequest;
+      output: ListManagedRuleSetsResponse;
+    };
+    sdk: {
+      input: ListManagedRuleSetsCommandInput;
+      output: ListManagedRuleSetsCommandOutput;
+    };
+  };
+}

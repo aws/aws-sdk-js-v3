@@ -185,4 +185,16 @@ export class GetDimensionValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDimensionValuesCommand)
   .de(de_GetDimensionValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDimensionValuesRequest;
+      output: GetDimensionValuesResponse;
+    };
+    sdk: {
+      input: GetDimensionValuesCommandInput;
+      output: GetDimensionValuesCommandOutput;
+    };
+  };
+}

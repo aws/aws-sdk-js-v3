@@ -137,4 +137,16 @@ export class UpdateTargetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTargetGroupCommand)
   .de(de_UpdateTargetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTargetGroupRequest;
+      output: UpdateTargetGroupResponse;
+    };
+    sdk: {
+      input: UpdateTargetGroupCommandInput;
+      output: UpdateTargetGroupCommandOutput;
+    };
+  };
+}

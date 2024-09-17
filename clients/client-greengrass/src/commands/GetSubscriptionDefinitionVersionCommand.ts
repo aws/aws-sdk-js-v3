@@ -101,4 +101,16 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubscriptionDefinitionVersionCommand)
   .de(de_GetSubscriptionDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionDefinitionVersionRequest;
+      output: GetSubscriptionDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetSubscriptionDefinitionVersionCommandInput;
+      output: GetSubscriptionDefinitionVersionCommandOutput;
+    };
+  };
+}

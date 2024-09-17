@@ -93,4 +93,16 @@ export class UpdateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationCommand)
   .de(de_UpdateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateApplicationCommandInput;
+      output: UpdateApplicationCommandOutput;
+    };
+  };
+}

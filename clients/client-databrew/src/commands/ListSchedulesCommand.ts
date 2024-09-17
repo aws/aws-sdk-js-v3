@@ -100,4 +100,16 @@ export class ListSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSchedulesCommand)
   .de(de_ListSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSchedulesRequest;
+      output: ListSchedulesResponse;
+    };
+    sdk: {
+      input: ListSchedulesCommandInput;
+      output: ListSchedulesCommandOutput;
+    };
+  };
+}

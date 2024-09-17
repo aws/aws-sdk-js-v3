@@ -108,4 +108,16 @@ export class UnlinkIdentityCommand extends $Command
   .f(UnlinkIdentityInputFilterSensitiveLog, void 0)
   .ser(se_UnlinkIdentityCommand)
   .de(de_UnlinkIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnlinkIdentityInput;
+      output: {};
+    };
+    sdk: {
+      input: UnlinkIdentityCommandInput;
+      output: UnlinkIdentityCommandOutput;
+    };
+  };
+}

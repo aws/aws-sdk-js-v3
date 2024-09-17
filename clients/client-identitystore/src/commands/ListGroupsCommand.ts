@@ -125,4 +125,16 @@ export class ListGroupsCommand extends $Command
   .f(ListGroupsRequestFilterSensitiveLog, ListGroupsResponseFilterSensitiveLog)
   .ser(se_ListGroupsCommand)
   .de(de_ListGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsRequest;
+      output: ListGroupsResponse;
+    };
+    sdk: {
+      input: ListGroupsCommandInput;
+      output: ListGroupsCommandOutput;
+    };
+  };
+}

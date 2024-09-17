@@ -116,4 +116,16 @@ export class CreateActionTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActionTargetCommand)
   .de(de_CreateActionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActionTargetRequest;
+      output: CreateActionTargetResponse;
+    };
+    sdk: {
+      input: CreateActionTargetCommandInput;
+      output: CreateActionTargetCommandOutput;
+    };
+  };
+}

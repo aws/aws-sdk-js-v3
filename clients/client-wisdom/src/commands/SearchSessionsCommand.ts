@@ -105,4 +105,16 @@ export class SearchSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchSessionsCommand)
   .de(de_SearchSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchSessionsRequest;
+      output: SearchSessionsResponse;
+    };
+    sdk: {
+      input: SearchSessionsCommandInput;
+      output: SearchSessionsCommandOutput;
+    };
+  };
+}

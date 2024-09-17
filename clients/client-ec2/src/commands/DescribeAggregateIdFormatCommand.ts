@@ -100,4 +100,16 @@ export class DescribeAggregateIdFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAggregateIdFormatCommand)
   .de(de_DescribeAggregateIdFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAggregateIdFormatRequest;
+      output: DescribeAggregateIdFormatResult;
+    };
+    sdk: {
+      input: DescribeAggregateIdFormatCommandInput;
+      output: DescribeAggregateIdFormatCommandOutput;
+    };
+  };
+}

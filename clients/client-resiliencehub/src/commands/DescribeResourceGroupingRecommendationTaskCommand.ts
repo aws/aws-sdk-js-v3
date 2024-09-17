@@ -107,4 +107,16 @@ export class DescribeResourceGroupingRecommendationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceGroupingRecommendationTaskCommand)
   .de(de_DescribeResourceGroupingRecommendationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceGroupingRecommendationTaskRequest;
+      output: DescribeResourceGroupingRecommendationTaskResponse;
+    };
+    sdk: {
+      input: DescribeResourceGroupingRecommendationTaskCommandInput;
+      output: DescribeResourceGroupingRecommendationTaskCommandOutput;
+    };
+  };
+}

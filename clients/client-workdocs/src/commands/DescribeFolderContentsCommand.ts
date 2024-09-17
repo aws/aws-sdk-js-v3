@@ -163,4 +163,16 @@ export class DescribeFolderContentsCommand extends $Command
   .f(DescribeFolderContentsRequestFilterSensitiveLog, DescribeFolderContentsResponseFilterSensitiveLog)
   .ser(se_DescribeFolderContentsCommand)
   .de(de_DescribeFolderContentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFolderContentsRequest;
+      output: DescribeFolderContentsResponse;
+    };
+    sdk: {
+      input: DescribeFolderContentsCommandInput;
+      output: DescribeFolderContentsCommandOutput;
+    };
+  };
+}

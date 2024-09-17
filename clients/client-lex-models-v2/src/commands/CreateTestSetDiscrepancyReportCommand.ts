@@ -122,4 +122,16 @@ export class CreateTestSetDiscrepancyReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestSetDiscrepancyReportCommand)
   .de(de_CreateTestSetDiscrepancyReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestSetDiscrepancyReportRequest;
+      output: CreateTestSetDiscrepancyReportResponse;
+    };
+    sdk: {
+      input: CreateTestSetDiscrepancyReportCommandInput;
+      output: CreateTestSetDiscrepancyReportCommandOutput;
+    };
+  };
+}

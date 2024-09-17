@@ -137,4 +137,16 @@ export class UpdateRoutingControlStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingControlStateCommand)
   .de(de_UpdateRoutingControlStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingControlStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingControlStateCommandInput;
+      output: UpdateRoutingControlStateCommandOutput;
+    };
+  };
+}

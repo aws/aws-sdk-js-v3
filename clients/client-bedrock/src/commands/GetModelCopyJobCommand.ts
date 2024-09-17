@@ -107,4 +107,16 @@ export class GetModelCopyJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelCopyJobCommand)
   .de(de_GetModelCopyJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelCopyJobRequest;
+      output: GetModelCopyJobResponse;
+    };
+    sdk: {
+      input: GetModelCopyJobCommandInput;
+      output: GetModelCopyJobCommandOutput;
+    };
+  };
+}

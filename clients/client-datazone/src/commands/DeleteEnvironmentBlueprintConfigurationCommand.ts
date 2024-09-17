@@ -98,4 +98,16 @@ export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentBlueprintConfigurationCommand)
   .de(de_DeleteEnvironmentBlueprintConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentBlueprintConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentBlueprintConfigurationCommandInput;
+      output: DeleteEnvironmentBlueprintConfigurationCommandOutput;
+    };
+  };
+}

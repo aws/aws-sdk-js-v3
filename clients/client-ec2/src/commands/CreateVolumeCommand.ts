@@ -195,4 +195,16 @@ export class CreateVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVolumeCommand)
   .de(de_CreateVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVolumeRequest;
+      output: Volume;
+    };
+    sdk: {
+      input: CreateVolumeCommandInput;
+      output: CreateVolumeCommandOutput;
+    };
+  };
+}

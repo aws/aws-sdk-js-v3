@@ -99,4 +99,16 @@ export class ListFormsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFormsCommand)
   .de(de_ListFormsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFormsRequest;
+      output: ListFormsResponse;
+    };
+    sdk: {
+      input: ListFormsCommandInput;
+      output: ListFormsCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class CreateWorkspaceApiKeyCommand extends $Command
   .f(void 0, CreateWorkspaceApiKeyResponseFilterSensitiveLog)
   .ser(se_CreateWorkspaceApiKeyCommand)
   .de(de_CreateWorkspaceApiKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceApiKeyRequest;
+      output: CreateWorkspaceApiKeyResponse;
+    };
+    sdk: {
+      input: CreateWorkspaceApiKeyCommandInput;
+      output: CreateWorkspaceApiKeyCommandOutput;
+    };
+  };
+}

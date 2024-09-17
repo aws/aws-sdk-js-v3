@@ -104,4 +104,16 @@ export class ActivateDeviceIdentifierCommand extends $Command
   .f(void 0, ActivateDeviceIdentifierResponseFilterSensitiveLog)
   .ser(se_ActivateDeviceIdentifierCommand)
   .de(de_ActivateDeviceIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateDeviceIdentifierRequest;
+      output: ActivateDeviceIdentifierResponse;
+    };
+    sdk: {
+      input: ActivateDeviceIdentifierCommandInput;
+      output: ActivateDeviceIdentifierCommandOutput;
+    };
+  };
+}

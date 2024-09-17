@@ -108,4 +108,16 @@ export class PurchaseProvisionedCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseProvisionedCapacityCommand)
   .de(de_PurchaseProvisionedCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseProvisionedCapacityInput;
+      output: PurchaseProvisionedCapacityOutput;
+    };
+    sdk: {
+      input: PurchaseProvisionedCapacityCommandInput;
+      output: PurchaseProvisionedCapacityCommandOutput;
+    };
+  };
+}

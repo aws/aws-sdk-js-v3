@@ -95,4 +95,16 @@ export class ViewBillingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ViewBillingCommand)
   .de(de_ViewBillingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ViewBillingRequest;
+      output: ViewBillingResponse;
+    };
+    sdk: {
+      input: ViewBillingCommandInput;
+      output: ViewBillingCommandOutput;
+    };
+  };
+}

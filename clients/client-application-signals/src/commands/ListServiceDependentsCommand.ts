@@ -118,4 +118,16 @@ export class ListServiceDependentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceDependentsCommand)
   .de(de_ListServiceDependentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceDependentsInput;
+      output: ListServiceDependentsOutput;
+    };
+    sdk: {
+      input: ListServiceDependentsCommandInput;
+      output: ListServiceDependentsCommandOutput;
+    };
+  };
+}

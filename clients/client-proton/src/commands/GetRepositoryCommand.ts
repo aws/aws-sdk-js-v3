@@ -99,4 +99,16 @@ export class GetRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRepositoryCommand)
   .de(de_GetRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRepositoryInput;
+      output: GetRepositoryOutput;
+    };
+    sdk: {
+      input: GetRepositoryCommandInput;
+      output: GetRepositoryCommandOutput;
+    };
+  };
+}

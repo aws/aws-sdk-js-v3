@@ -136,4 +136,16 @@ export class DescribeLaunchTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLaunchTemplatesCommand)
   .de(de_DescribeLaunchTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLaunchTemplatesRequest;
+      output: DescribeLaunchTemplatesResult;
+    };
+    sdk: {
+      input: DescribeLaunchTemplatesCommandInput;
+      output: DescribeLaunchTemplatesCommandOutput;
+    };
+  };
+}

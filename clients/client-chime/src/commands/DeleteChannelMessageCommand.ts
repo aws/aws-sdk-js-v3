@@ -111,4 +111,16 @@ export class DeleteChannelMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelMessageCommand)
   .de(de_DeleteChannelMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelMessageRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelMessageCommandInput;
+      output: DeleteChannelMessageCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class GetWorkspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkspaceCommand)
   .de(de_GetWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkspaceRequest;
+      output: GetWorkspaceResponse;
+    };
+    sdk: {
+      input: GetWorkspaceCommandInput;
+      output: GetWorkspaceCommandOutput;
+    };
+  };
+}

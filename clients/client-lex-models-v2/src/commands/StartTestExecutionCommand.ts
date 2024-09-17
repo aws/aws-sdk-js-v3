@@ -121,4 +121,16 @@ export class StartTestExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTestExecutionCommand)
   .de(de_StartTestExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTestExecutionRequest;
+      output: StartTestExecutionResponse;
+    };
+    sdk: {
+      input: StartTestExecutionCommandInput;
+      output: StartTestExecutionCommandOutput;
+    };
+  };
+}

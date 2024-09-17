@@ -87,4 +87,16 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAWSOrganizationsAccessStatusCommand)
   .de(de_GetAWSOrganizationsAccessStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAWSOrganizationsAccessStatusOutput;
+    };
+    sdk: {
+      input: GetAWSOrganizationsAccessStatusCommandInput;
+      output: GetAWSOrganizationsAccessStatusCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class UpdateResolverEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResolverEndpointCommand)
   .de(de_UpdateResolverEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResolverEndpointRequest;
+      output: UpdateResolverEndpointResponse;
+    };
+    sdk: {
+      input: UpdateResolverEndpointCommandInput;
+      output: UpdateResolverEndpointCommandOutput;
+    };
+  };
+}

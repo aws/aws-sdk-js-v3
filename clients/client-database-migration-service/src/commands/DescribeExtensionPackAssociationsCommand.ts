@@ -151,4 +151,16 @@ export class DescribeExtensionPackAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExtensionPackAssociationsCommand)
   .de(de_DescribeExtensionPackAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExtensionPackAssociationsMessage;
+      output: DescribeExtensionPackAssociationsResponse;
+    };
+    sdk: {
+      input: DescribeExtensionPackAssociationsCommandInput;
+      output: DescribeExtensionPackAssociationsCommandOutput;
+    };
+  };
+}

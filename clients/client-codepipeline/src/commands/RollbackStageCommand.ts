@@ -105,4 +105,16 @@ export class RollbackStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackStageCommand)
   .de(de_RollbackStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackStageInput;
+      output: RollbackStageOutput;
+    };
+    sdk: {
+      input: RollbackStageCommandInput;
+      output: RollbackStageCommandOutput;
+    };
+  };
+}

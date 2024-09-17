@@ -131,4 +131,16 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApprovalRuleTemplateWithRepositoryCommand)
   .de(de_AssociateApprovalRuleTemplateWithRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApprovalRuleTemplateWithRepositoryInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateApprovalRuleTemplateWithRepositoryCommandInput;
+      output: AssociateApprovalRuleTemplateWithRepositoryCommandOutput;
+    };
+  };
+}

@@ -138,4 +138,16 @@ export class CreateStackInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStackInstancesCommand)
   .de(de_CreateStackInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStackInstancesInput;
+      output: CreateStackInstancesOutput;
+    };
+    sdk: {
+      input: CreateStackInstancesCommandInput;
+      output: CreateStackInstancesCommandOutput;
+    };
+  };
+}

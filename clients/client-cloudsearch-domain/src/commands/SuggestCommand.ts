@@ -103,4 +103,16 @@ export class SuggestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuggestCommand)
   .de(de_SuggestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SuggestRequest;
+      output: SuggestResponse;
+    };
+    sdk: {
+      input: SuggestCommandInput;
+      output: SuggestCommandOutput;
+    };
+  };
+}

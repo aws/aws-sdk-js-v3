@@ -108,4 +108,16 @@ export class CreateNodeFromTemplateJobCommand extends $Command
   .f(CreateNodeFromTemplateJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateNodeFromTemplateJobCommand)
   .de(de_CreateNodeFromTemplateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNodeFromTemplateJobRequest;
+      output: CreateNodeFromTemplateJobResponse;
+    };
+    sdk: {
+      input: CreateNodeFromTemplateJobCommandInput;
+      output: CreateNodeFromTemplateJobCommandOutput;
+    };
+  };
+}

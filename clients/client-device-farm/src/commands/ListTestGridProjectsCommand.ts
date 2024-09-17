@@ -102,4 +102,16 @@ export class ListTestGridProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestGridProjectsCommand)
   .de(de_ListTestGridProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestGridProjectsRequest;
+      output: ListTestGridProjectsResult;
+    };
+    sdk: {
+      input: ListTestGridProjectsCommandInput;
+      output: ListTestGridProjectsCommandOutput;
+    };
+  };
+}

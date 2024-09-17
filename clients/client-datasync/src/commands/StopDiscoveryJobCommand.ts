@@ -85,4 +85,16 @@ export class StopDiscoveryJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDiscoveryJobCommand)
   .de(de_StopDiscoveryJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDiscoveryJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopDiscoveryJobCommandInput;
+      output: StopDiscoveryJobCommandOutput;
+    };
+  };
+}

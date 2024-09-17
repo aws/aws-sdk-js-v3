@@ -268,4 +268,16 @@ export class ScanSbomCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScanSbomCommand)
   .de(de_ScanSbomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScanSbomRequest;
+      output: ScanSbomResponse;
+    };
+    sdk: {
+      input: ScanSbomCommandInput;
+      output: ScanSbomCommandOutput;
+    };
+  };
+}

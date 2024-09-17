@@ -134,4 +134,16 @@ export class ListOrdersCommand extends $Command
   .f(void 0, ListOrdersResponseFilterSensitiveLog)
   .ser(se_ListOrdersCommand)
   .de(de_ListOrdersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrdersRequest;
+      output: ListOrdersResponse;
+    };
+    sdk: {
+      input: ListOrdersCommandInput;
+      output: ListOrdersCommandOutput;
+    };
+  };
+}

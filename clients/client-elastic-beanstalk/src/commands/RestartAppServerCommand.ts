@@ -88,4 +88,16 @@ export class RestartAppServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestartAppServerCommand)
   .de(de_RestartAppServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestartAppServerMessage;
+      output: {};
+    };
+    sdk: {
+      input: RestartAppServerCommandInput;
+      output: RestartAppServerCommandOutput;
+    };
+  };
+}

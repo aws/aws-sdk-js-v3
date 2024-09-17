@@ -108,4 +108,16 @@ export class BatchAssociateScramSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchAssociateScramSecretCommand)
   .de(de_BatchAssociateScramSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateScramSecretRequest;
+      output: BatchAssociateScramSecretResponse;
+    };
+    sdk: {
+      input: BatchAssociateScramSecretCommandInput;
+      output: BatchAssociateScramSecretCommandOutput;
+    };
+  };
+}

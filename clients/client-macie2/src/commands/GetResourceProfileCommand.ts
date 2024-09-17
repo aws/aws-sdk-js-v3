@@ -108,4 +108,16 @@ export class GetResourceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceProfileCommand)
   .de(de_GetResourceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceProfileRequest;
+      output: GetResourceProfileResponse;
+    };
+    sdk: {
+      input: GetResourceProfileCommandInput;
+      output: GetResourceProfileCommandOutput;
+    };
+  };
+}

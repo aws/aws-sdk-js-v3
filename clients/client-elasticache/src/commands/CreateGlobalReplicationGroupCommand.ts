@@ -138,4 +138,16 @@ export class CreateGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGlobalReplicationGroupCommand)
   .de(de_CreateGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlobalReplicationGroupMessage;
+      output: CreateGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: CreateGlobalReplicationGroupCommandInput;
+      output: CreateGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

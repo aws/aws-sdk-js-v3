@@ -208,4 +208,16 @@ export class DescribeMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMonitoringScheduleCommand)
   .de(de_DescribeMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMonitoringScheduleRequest;
+      output: DescribeMonitoringScheduleResponse;
+    };
+    sdk: {
+      input: DescribeMonitoringScheduleCommandInput;
+      output: DescribeMonitoringScheduleCommandOutput;
+    };
+  };
+}

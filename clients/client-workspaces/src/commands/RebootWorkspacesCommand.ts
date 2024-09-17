@@ -94,4 +94,16 @@ export class RebootWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootWorkspacesCommand)
   .de(de_RebootWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootWorkspacesRequest;
+      output: RebootWorkspacesResult;
+    };
+    sdk: {
+      input: RebootWorkspacesCommandInput;
+      output: RebootWorkspacesCommandOutput;
+    };
+  };
+}

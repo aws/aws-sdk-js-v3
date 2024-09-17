@@ -95,4 +95,16 @@ export class GetReportGroupTrendCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReportGroupTrendCommand)
   .de(de_GetReportGroupTrendCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReportGroupTrendInput;
+      output: GetReportGroupTrendOutput;
+    };
+    sdk: {
+      input: GetReportGroupTrendCommandInput;
+      output: GetReportGroupTrendCommandOutput;
+    };
+  };
+}

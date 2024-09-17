@@ -197,4 +197,16 @@ export class SimulateCustomPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SimulateCustomPolicyCommand)
   .de(de_SimulateCustomPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SimulateCustomPolicyRequest;
+      output: SimulatePolicyResponse;
+    };
+    sdk: {
+      input: SimulateCustomPolicyCommandInput;
+      output: SimulateCustomPolicyCommandOutput;
+    };
+  };
+}

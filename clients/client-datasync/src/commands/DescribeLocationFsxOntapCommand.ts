@@ -114,4 +114,16 @@ export class DescribeLocationFsxOntapCommand extends $Command
   .f(void 0, DescribeLocationFsxOntapResponseFilterSensitiveLog)
   .ser(se_DescribeLocationFsxOntapCommand)
   .de(de_DescribeLocationFsxOntapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationFsxOntapRequest;
+      output: DescribeLocationFsxOntapResponse;
+    };
+    sdk: {
+      input: DescribeLocationFsxOntapCommandInput;
+      output: DescribeLocationFsxOntapCommandOutput;
+    };
+  };
+}

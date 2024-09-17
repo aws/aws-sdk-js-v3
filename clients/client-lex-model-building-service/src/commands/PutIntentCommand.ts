@@ -632,4 +632,16 @@ export class PutIntentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutIntentCommand)
   .de(de_PutIntentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIntentRequest;
+      output: PutIntentResponse;
+    };
+    sdk: {
+      input: PutIntentCommandInput;
+      output: PutIntentCommandOutput;
+    };
+  };
+}

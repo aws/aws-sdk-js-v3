@@ -97,4 +97,16 @@ export class UpdateAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountSettingsCommand)
   .de(de_UpdateAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountSettingsRequest;
+      output: UpdateAccountSettingsResponse;
+    };
+    sdk: {
+      input: UpdateAccountSettingsCommandInput;
+      output: UpdateAccountSettingsCommandOutput;
+    };
+  };
+}

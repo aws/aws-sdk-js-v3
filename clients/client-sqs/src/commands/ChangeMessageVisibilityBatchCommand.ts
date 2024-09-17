@@ -155,4 +155,16 @@ export class ChangeMessageVisibilityBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ChangeMessageVisibilityBatchCommand)
   .de(de_ChangeMessageVisibilityBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangeMessageVisibilityBatchRequest;
+      output: ChangeMessageVisibilityBatchResult;
+    };
+    sdk: {
+      input: ChangeMessageVisibilityBatchCommandInput;
+      output: ChangeMessageVisibilityBatchCommandOutput;
+    };
+  };
+}

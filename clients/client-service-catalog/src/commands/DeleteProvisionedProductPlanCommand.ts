@@ -88,4 +88,16 @@ export class DeleteProvisionedProductPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisionedProductPlanCommand)
   .de(de_DeleteProvisionedProductPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisionedProductPlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisionedProductPlanCommandInput;
+      output: DeleteProvisionedProductPlanCommandOutput;
+    };
+  };
+}

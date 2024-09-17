@@ -140,4 +140,16 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQuerySuggestionsBlockListCommand)
   .de(de_CreateQuerySuggestionsBlockListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQuerySuggestionsBlockListRequest;
+      output: CreateQuerySuggestionsBlockListResponse;
+    };
+    sdk: {
+      input: CreateQuerySuggestionsBlockListCommandInput;
+      output: CreateQuerySuggestionsBlockListCommandOutput;
+    };
+  };
+}

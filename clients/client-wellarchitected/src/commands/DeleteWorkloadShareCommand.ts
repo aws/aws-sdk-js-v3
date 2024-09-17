@@ -95,4 +95,16 @@ export class DeleteWorkloadShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkloadShareCommand)
   .de(de_DeleteWorkloadShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkloadShareInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkloadShareCommandInput;
+      output: DeleteWorkloadShareCommandOutput;
+    };
+  };
+}

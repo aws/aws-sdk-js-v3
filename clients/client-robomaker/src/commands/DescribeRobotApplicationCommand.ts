@@ -114,4 +114,16 @@ export class DescribeRobotApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRobotApplicationCommand)
   .de(de_DescribeRobotApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRobotApplicationRequest;
+      output: DescribeRobotApplicationResponse;
+    };
+    sdk: {
+      input: DescribeRobotApplicationCommandInput;
+      output: DescribeRobotApplicationCommandOutput;
+    };
+  };
+}

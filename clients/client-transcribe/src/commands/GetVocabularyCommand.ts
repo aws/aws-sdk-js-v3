@@ -106,4 +106,16 @@ export class GetVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVocabularyCommand)
   .de(de_GetVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVocabularyRequest;
+      output: GetVocabularyResponse;
+    };
+    sdk: {
+      input: GetVocabularyCommandInput;
+      output: GetVocabularyCommandOutput;
+    };
+  };
+}

@@ -302,4 +302,16 @@ export class UpdateQAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQAppCommand)
   .de(de_UpdateQAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQAppInput;
+      output: UpdateQAppOutput;
+    };
+    sdk: {
+      input: UpdateQAppCommandInput;
+      output: UpdateQAppCommandOutput;
+    };
+  };
+}

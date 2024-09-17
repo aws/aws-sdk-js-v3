@@ -75,4 +75,16 @@ export class XmlMapWithXmlNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlMapWithXmlNamespaceCommand)
   .de(de_XmlMapWithXmlNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlMapWithXmlNamespaceRequest;
+      output: XmlMapWithXmlNamespaceResponse;
+    };
+    sdk: {
+      input: XmlMapWithXmlNamespaceCommandInput;
+      output: XmlMapWithXmlNamespaceCommandOutput;
+    };
+  };
+}

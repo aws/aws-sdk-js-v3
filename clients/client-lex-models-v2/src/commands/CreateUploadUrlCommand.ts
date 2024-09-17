@@ -98,4 +98,16 @@ export class CreateUploadUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUploadUrlCommand)
   .de(de_CreateUploadUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CreateUploadUrlResponse;
+    };
+    sdk: {
+      input: CreateUploadUrlCommandInput;
+      output: CreateUploadUrlCommandOutput;
+    };
+  };
+}

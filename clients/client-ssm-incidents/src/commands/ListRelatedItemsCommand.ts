@@ -112,4 +112,16 @@ export class ListRelatedItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRelatedItemsCommand)
   .de(de_ListRelatedItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRelatedItemsInput;
+      output: ListRelatedItemsOutput;
+    };
+    sdk: {
+      input: ListRelatedItemsCommandInput;
+      output: ListRelatedItemsCommandOutput;
+    };
+  };
+}

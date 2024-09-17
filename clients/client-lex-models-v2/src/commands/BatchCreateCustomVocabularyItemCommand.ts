@@ -128,4 +128,16 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateCustomVocabularyItemCommand)
   .de(de_BatchCreateCustomVocabularyItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateCustomVocabularyItemRequest;
+      output: BatchCreateCustomVocabularyItemResponse;
+    };
+    sdk: {
+      input: BatchCreateCustomVocabularyItemCommandInput;
+      output: BatchCreateCustomVocabularyItemCommandOutput;
+    };
+  };
+}

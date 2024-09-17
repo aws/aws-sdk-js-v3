@@ -175,4 +175,16 @@ export class DescribeTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTaskCommand)
   .de(de_DescribeTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTaskRequest;
+      output: DescribeTaskResponse;
+    };
+    sdk: {
+      input: DescribeTaskCommandInput;
+      output: DescribeTaskCommandOutput;
+    };
+  };
+}

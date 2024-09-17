@@ -97,4 +97,16 @@ export class GetFunctionCommand extends $Command
   .f(void 0, GetFunctionResultFilterSensitiveLog)
   .ser(se_GetFunctionCommand)
   .de(de_GetFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionRequest;
+      output: GetFunctionResult;
+    };
+    sdk: {
+      input: GetFunctionCommandInput;
+      output: GetFunctionCommandOutput;
+    };
+  };
+}

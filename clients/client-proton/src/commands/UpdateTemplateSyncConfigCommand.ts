@@ -109,4 +109,16 @@ export class UpdateTemplateSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTemplateSyncConfigCommand)
   .de(de_UpdateTemplateSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplateSyncConfigInput;
+      output: UpdateTemplateSyncConfigOutput;
+    };
+    sdk: {
+      input: UpdateTemplateSyncConfigCommandInput;
+      output: UpdateTemplateSyncConfigCommandOutput;
+    };
+  };
+}

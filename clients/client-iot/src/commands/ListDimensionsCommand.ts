@@ -91,4 +91,16 @@ export class ListDimensionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDimensionsCommand)
   .de(de_ListDimensionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDimensionsRequest;
+      output: ListDimensionsResponse;
+    };
+    sdk: {
+      input: ListDimensionsCommandInput;
+      output: ListDimensionsCommandOutput;
+    };
+  };
+}

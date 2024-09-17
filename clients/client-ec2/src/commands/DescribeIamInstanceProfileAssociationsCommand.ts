@@ -138,4 +138,16 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIamInstanceProfileAssociationsCommand)
   .de(de_DescribeIamInstanceProfileAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIamInstanceProfileAssociationsRequest;
+      output: DescribeIamInstanceProfileAssociationsResult;
+    };
+    sdk: {
+      input: DescribeIamInstanceProfileAssociationsCommandInput;
+      output: DescribeIamInstanceProfileAssociationsCommandOutput;
+    };
+  };
+}

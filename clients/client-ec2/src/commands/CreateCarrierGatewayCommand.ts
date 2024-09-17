@@ -101,4 +101,16 @@ export class CreateCarrierGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCarrierGatewayCommand)
   .de(de_CreateCarrierGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCarrierGatewayRequest;
+      output: CreateCarrierGatewayResult;
+    };
+    sdk: {
+      input: CreateCarrierGatewayCommandInput;
+      output: CreateCarrierGatewayCommandOutput;
+    };
+  };
+}

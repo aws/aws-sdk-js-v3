@@ -97,4 +97,16 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHealthCheckLastFailureReasonCommand)
   .de(de_GetHealthCheckLastFailureReasonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHealthCheckLastFailureReasonRequest;
+      output: GetHealthCheckLastFailureReasonResponse;
+    };
+    sdk: {
+      input: GetHealthCheckLastFailureReasonCommandInput;
+      output: GetHealthCheckLastFailureReasonCommandOutput;
+    };
+  };
+}

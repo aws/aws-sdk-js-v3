@@ -167,4 +167,16 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFieldLevelEncryptionProfileCommand)
   .de(de_UpdateFieldLevelEncryptionProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFieldLevelEncryptionProfileRequest;
+      output: UpdateFieldLevelEncryptionProfileResult;
+    };
+    sdk: {
+      input: UpdateFieldLevelEncryptionProfileCommandInput;
+      output: UpdateFieldLevelEncryptionProfileCommandOutput;
+    };
+  };
+}

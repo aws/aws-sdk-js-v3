@@ -121,4 +121,16 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcPeeringConnectionsCommand)
   .de(de_DescribeVpcPeeringConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcPeeringConnectionsInput;
+      output: DescribeVpcPeeringConnectionsOutput;
+    };
+    sdk: {
+      input: DescribeVpcPeeringConnectionsCommandInput;
+      output: DescribeVpcPeeringConnectionsCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCustomRoutingAcceleratorCommand)
   .de(de_UpdateCustomRoutingAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomRoutingAcceleratorRequest;
+      output: UpdateCustomRoutingAcceleratorResponse;
+    };
+    sdk: {
+      input: UpdateCustomRoutingAcceleratorCommandInput;
+      output: UpdateCustomRoutingAcceleratorCommandOutput;
+    };
+  };
+}

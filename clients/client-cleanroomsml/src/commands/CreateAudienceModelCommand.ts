@@ -100,4 +100,16 @@ export class CreateAudienceModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAudienceModelCommand)
   .de(de_CreateAudienceModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAudienceModelRequest;
+      output: CreateAudienceModelResponse;
+    };
+    sdk: {
+      input: CreateAudienceModelCommandInput;
+      output: CreateAudienceModelCommandOutput;
+    };
+  };
+}

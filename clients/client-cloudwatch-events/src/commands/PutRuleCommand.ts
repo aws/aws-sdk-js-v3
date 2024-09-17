@@ -152,4 +152,16 @@ export class PutRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRuleCommand)
   .de(de_PutRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRuleRequest;
+      output: PutRuleResponse;
+    };
+    sdk: {
+      input: PutRuleCommandInput;
+      output: PutRuleCommandOutput;
+    };
+  };
+}

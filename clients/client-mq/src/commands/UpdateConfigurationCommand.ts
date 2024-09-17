@@ -109,4 +109,16 @@ export class UpdateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationCommand)
   .de(de_UpdateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationRequest;
+      output: UpdateConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateConfigurationCommandInput;
+      output: UpdateConfigurationCommandOutput;
+    };
+  };
+}

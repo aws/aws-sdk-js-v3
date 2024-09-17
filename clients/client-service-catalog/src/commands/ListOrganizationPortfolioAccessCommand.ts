@@ -104,4 +104,16 @@ export class ListOrganizationPortfolioAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationPortfolioAccessCommand)
   .de(de_ListOrganizationPortfolioAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationPortfolioAccessInput;
+      output: ListOrganizationPortfolioAccessOutput;
+    };
+    sdk: {
+      input: ListOrganizationPortfolioAccessCommandInput;
+      output: ListOrganizationPortfolioAccessCommandOutput;
+    };
+  };
+}

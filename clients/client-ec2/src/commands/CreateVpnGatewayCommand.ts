@@ -113,4 +113,16 @@ export class CreateVpnGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpnGatewayCommand)
   .de(de_CreateVpnGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpnGatewayRequest;
+      output: CreateVpnGatewayResult;
+    };
+    sdk: {
+      input: CreateVpnGatewayCommandInput;
+      output: CreateVpnGatewayCommandOutput;
+    };
+  };
+}

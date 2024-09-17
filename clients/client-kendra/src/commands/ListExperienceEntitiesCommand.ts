@@ -120,4 +120,16 @@ export class ListExperienceEntitiesCommand extends $Command
   .f(void 0, ListExperienceEntitiesResponseFilterSensitiveLog)
   .ser(se_ListExperienceEntitiesCommand)
   .de(de_ListExperienceEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperienceEntitiesRequest;
+      output: ListExperienceEntitiesResponse;
+    };
+    sdk: {
+      input: ListExperienceEntitiesCommandInput;
+      output: ListExperienceEntitiesCommandOutput;
+    };
+  };
+}

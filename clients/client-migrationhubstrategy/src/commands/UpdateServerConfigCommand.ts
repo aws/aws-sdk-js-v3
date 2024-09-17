@@ -97,4 +97,16 @@ export class UpdateServerConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServerConfigCommand)
   .de(de_UpdateServerConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServerConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateServerConfigCommandInput;
+      output: UpdateServerConfigCommandOutput;
+    };
+  };
+}

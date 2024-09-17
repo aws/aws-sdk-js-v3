@@ -199,4 +199,16 @@ export class CalculateRouteMatrixCommand extends $Command
   .f(CalculateRouteMatrixRequestFilterSensitiveLog, CalculateRouteMatrixResponseFilterSensitiveLog)
   .ser(se_CalculateRouteMatrixCommand)
   .de(de_CalculateRouteMatrixCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CalculateRouteMatrixRequest;
+      output: CalculateRouteMatrixResponse;
+    };
+    sdk: {
+      input: CalculateRouteMatrixCommandInput;
+      output: CalculateRouteMatrixCommandOutput;
+    };
+  };
+}

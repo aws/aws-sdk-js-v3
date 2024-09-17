@@ -84,4 +84,16 @@ export class StopCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCompilationJobCommand)
   .de(de_StopCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCompilationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCompilationJobCommandInput;
+      output: StopCompilationJobCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class ListIndexesForMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndexesForMembersCommand)
   .de(de_ListIndexesForMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndexesForMembersInput;
+      output: ListIndexesForMembersOutput;
+    };
+    sdk: {
+      input: ListIndexesForMembersCommandInput;
+      output: ListIndexesForMembersCommandOutput;
+    };
+  };
+}

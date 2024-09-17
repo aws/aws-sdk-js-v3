@@ -84,4 +84,16 @@ export class DeregisterOnPremisesInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterOnPremisesInstanceCommand)
   .de(de_DeregisterOnPremisesInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterOnPremisesInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterOnPremisesInstanceCommandInput;
+      output: DeregisterOnPremisesInstanceCommandOutput;
+    };
+  };
+}

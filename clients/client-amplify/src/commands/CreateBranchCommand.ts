@@ -163,4 +163,16 @@ export class CreateBranchCommand extends $Command
   .f(CreateBranchRequestFilterSensitiveLog, CreateBranchResultFilterSensitiveLog)
   .ser(se_CreateBranchCommand)
   .de(de_CreateBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBranchRequest;
+      output: CreateBranchResult;
+    };
+    sdk: {
+      input: CreateBranchCommandInput;
+      output: CreateBranchCommandOutput;
+    };
+  };
+}

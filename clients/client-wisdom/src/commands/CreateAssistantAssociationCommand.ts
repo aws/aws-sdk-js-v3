@@ -121,4 +121,16 @@ export class CreateAssistantAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssistantAssociationCommand)
   .de(de_CreateAssistantAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssistantAssociationRequest;
+      output: CreateAssistantAssociationResponse;
+    };
+    sdk: {
+      input: CreateAssistantAssociationCommandInput;
+      output: CreateAssistantAssociationCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class GetChallengePasswordCommand extends $Command
   .f(void 0, GetChallengePasswordResponseFilterSensitiveLog)
   .ser(se_GetChallengePasswordCommand)
   .de(de_GetChallengePasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChallengePasswordRequest;
+      output: GetChallengePasswordResponse;
+    };
+    sdk: {
+      input: GetChallengePasswordCommandInput;
+      output: GetChallengePasswordCommandOutput;
+    };
+  };
+}

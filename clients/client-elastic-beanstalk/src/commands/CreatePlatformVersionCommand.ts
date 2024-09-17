@@ -127,4 +127,16 @@ export class CreatePlatformVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlatformVersionCommand)
   .de(de_CreatePlatformVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlatformVersionRequest;
+      output: CreatePlatformVersionResult;
+    };
+    sdk: {
+      input: CreatePlatformVersionCommandInput;
+      output: CreatePlatformVersionCommandOutput;
+    };
+  };
+}

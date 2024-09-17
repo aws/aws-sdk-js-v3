@@ -127,4 +127,16 @@ export class BatchCreateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateVehicleCommand)
   .de(de_BatchCreateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateVehicleRequest;
+      output: BatchCreateVehicleResponse;
+    };
+    sdk: {
+      input: BatchCreateVehicleCommandInput;
+      output: BatchCreateVehicleCommandOutput;
+    };
+  };
+}

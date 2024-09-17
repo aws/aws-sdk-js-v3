@@ -124,4 +124,16 @@ export class PostCommentReplyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostCommentReplyCommand)
   .de(de_PostCommentReplyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostCommentReplyInput;
+      output: PostCommentReplyOutput;
+    };
+    sdk: {
+      input: PostCommentReplyCommandInput;
+      output: PostCommentReplyCommandOutput;
+    };
+  };
+}

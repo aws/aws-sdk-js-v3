@@ -169,4 +169,16 @@ export class ListModelManifestNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelManifestNodesCommand)
   .de(de_ListModelManifestNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelManifestNodesRequest;
+      output: ListModelManifestNodesResponse;
+    };
+    sdk: {
+      input: ListModelManifestNodesCommandInput;
+      output: ListModelManifestNodesCommandOutput;
+    };
+  };
+}

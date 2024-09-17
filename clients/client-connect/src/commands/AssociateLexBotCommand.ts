@@ -102,4 +102,16 @@ export class AssociateLexBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLexBotCommand)
   .de(de_AssociateLexBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLexBotRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateLexBotCommandInput;
+      output: AssociateLexBotCommandOutput;
+    };
+  };
+}

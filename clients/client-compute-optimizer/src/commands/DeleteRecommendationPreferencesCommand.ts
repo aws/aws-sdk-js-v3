@@ -115,4 +115,16 @@ export class DeleteRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecommendationPreferencesCommand)
   .de(de_DeleteRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecommendationPreferencesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRecommendationPreferencesCommandInput;
+      output: DeleteRecommendationPreferencesCommandOutput;
+    };
+  };
+}

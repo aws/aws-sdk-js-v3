@@ -99,4 +99,16 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayPrefixListReferenceCommand)
   .de(de_DeleteTransitGatewayPrefixListReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayPrefixListReferenceRequest;
+      output: DeleteTransitGatewayPrefixListReferenceResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayPrefixListReferenceCommandInput;
+      output: DeleteTransitGatewayPrefixListReferenceCommandOutput;
+    };
+  };
+}

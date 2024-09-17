@@ -282,4 +282,16 @@ export class FailoverPrimaryComputeCommand extends $Command
   .f(void 0, FailoverPrimaryComputeResultFilterSensitiveLog)
   .ser(se_FailoverPrimaryComputeCommand)
   .de(de_FailoverPrimaryComputeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverPrimaryComputeInputMessage;
+      output: FailoverPrimaryComputeResult;
+    };
+    sdk: {
+      input: FailoverPrimaryComputeCommandInput;
+      output: FailoverPrimaryComputeCommandOutput;
+    };
+  };
+}

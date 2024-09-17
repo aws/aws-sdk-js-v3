@@ -92,4 +92,16 @@ export class DeleteArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArchiveRuleCommand)
   .de(de_DeleteArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArchiveRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteArchiveRuleCommandInput;
+      output: DeleteArchiveRuleCommandOutput;
+    };
+  };
+}

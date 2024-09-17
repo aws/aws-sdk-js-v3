@@ -105,4 +105,16 @@ export class GetPipelineBlueprintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPipelineBlueprintCommand)
   .de(de_GetPipelineBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPipelineBlueprintRequest;
+      output: GetPipelineBlueprintResponse;
+    };
+    sdk: {
+      input: GetPipelineBlueprintCommandInput;
+      output: GetPipelineBlueprintCommandOutput;
+    };
+  };
+}

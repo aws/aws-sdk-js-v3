@@ -111,4 +111,16 @@ export class DescribeSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotAttributeCommand)
   .de(de_DescribeSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotAttributeRequest;
+      output: DescribeSnapshotAttributeResult;
+    };
+    sdk: {
+      input: DescribeSnapshotAttributeCommandInput;
+      output: DescribeSnapshotAttributeCommandOutput;
+    };
+  };
+}

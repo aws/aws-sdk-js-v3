@@ -115,4 +115,16 @@ export class UpdateHttpNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHttpNamespaceCommand)
   .de(de_UpdateHttpNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHttpNamespaceRequest;
+      output: UpdateHttpNamespaceResponse;
+    };
+    sdk: {
+      input: UpdateHttpNamespaceCommandInput;
+      output: UpdateHttpNamespaceCommandOutput;
+    };
+  };
+}

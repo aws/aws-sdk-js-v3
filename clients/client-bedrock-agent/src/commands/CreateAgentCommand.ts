@@ -225,4 +225,16 @@ export class CreateAgentCommand extends $Command
   .f(CreateAgentRequestFilterSensitiveLog, CreateAgentResponseFilterSensitiveLog)
   .ser(se_CreateAgentCommand)
   .de(de_CreateAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAgentRequest;
+      output: CreateAgentResponse;
+    };
+    sdk: {
+      input: CreateAgentCommandInput;
+      output: CreateAgentCommandOutput;
+    };
+  };
+}

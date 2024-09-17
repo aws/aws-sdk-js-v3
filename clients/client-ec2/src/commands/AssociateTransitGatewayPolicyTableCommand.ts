@@ -93,4 +93,16 @@ export class AssociateTransitGatewayPolicyTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTransitGatewayPolicyTableCommand)
   .de(de_AssociateTransitGatewayPolicyTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTransitGatewayPolicyTableRequest;
+      output: AssociateTransitGatewayPolicyTableResult;
+    };
+    sdk: {
+      input: AssociateTransitGatewayPolicyTableCommandInput;
+      output: AssociateTransitGatewayPolicyTableCommandOutput;
+    };
+  };
+}

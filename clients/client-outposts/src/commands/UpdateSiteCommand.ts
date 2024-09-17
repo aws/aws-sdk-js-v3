@@ -119,4 +119,16 @@ export class UpdateSiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSiteCommand)
   .de(de_UpdateSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSiteInput;
+      output: UpdateSiteOutput;
+    };
+    sdk: {
+      input: UpdateSiteCommandInput;
+      output: UpdateSiteCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class DescribeTestSetGenerationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestSetGenerationCommand)
   .de(de_DescribeTestSetGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestSetGenerationRequest;
+      output: DescribeTestSetGenerationResponse;
+    };
+    sdk: {
+      input: DescribeTestSetGenerationCommandInput;
+      output: DescribeTestSetGenerationCommandOutput;
+    };
+  };
+}

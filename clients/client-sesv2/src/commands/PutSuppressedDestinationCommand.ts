@@ -82,4 +82,16 @@ export class PutSuppressedDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSuppressedDestinationCommand)
   .de(de_PutSuppressedDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSuppressedDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutSuppressedDestinationCommandInput;
+      output: PutSuppressedDestinationCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class AttachVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachVolumeCommand)
   .de(de_AttachVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachVolumeInput;
+      output: AttachVolumeOutput;
+    };
+    sdk: {
+      input: AttachVolumeCommandInput;
+      output: AttachVolumeCommandOutput;
+    };
+  };
+}

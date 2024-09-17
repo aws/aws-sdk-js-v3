@@ -101,4 +101,16 @@ export class CreateServiceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceActionCommand)
   .de(de_CreateServiceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceActionInput;
+      output: CreateServiceActionOutput;
+    };
+    sdk: {
+      input: CreateServiceActionCommandInput;
+      output: CreateServiceActionCommandOutput;
+    };
+  };
+}

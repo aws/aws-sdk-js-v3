@@ -127,4 +127,16 @@ export class ListCustomRoutingPortMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomRoutingPortMappingsCommand)
   .de(de_ListCustomRoutingPortMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomRoutingPortMappingsRequest;
+      output: ListCustomRoutingPortMappingsResponse;
+    };
+    sdk: {
+      input: ListCustomRoutingPortMappingsCommandInput;
+      output: ListCustomRoutingPortMappingsCommandOutput;
+    };
+  };
+}

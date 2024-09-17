@@ -94,4 +94,16 @@ export class UpdateDatasetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDatasetGroupCommand)
   .de(de_UpdateDatasetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDatasetGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDatasetGroupCommandInput;
+      output: UpdateDatasetGroupCommandOutput;
+    };
+  };
+}

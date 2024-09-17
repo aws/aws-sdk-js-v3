@@ -125,4 +125,16 @@ export class DescribeVirtualServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualServiceCommand)
   .de(de_DescribeVirtualServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualServiceInput;
+      output: DescribeVirtualServiceOutput;
+    };
+    sdk: {
+      input: DescribeVirtualServiceCommandInput;
+      output: DescribeVirtualServiceCommandOutput;
+    };
+  };
+}

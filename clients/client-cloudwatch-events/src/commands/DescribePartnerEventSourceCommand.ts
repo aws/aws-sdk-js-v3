@@ -90,4 +90,16 @@ export class DescribePartnerEventSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePartnerEventSourceCommand)
   .de(de_DescribePartnerEventSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePartnerEventSourceRequest;
+      output: DescribePartnerEventSourceResponse;
+    };
+    sdk: {
+      input: DescribePartnerEventSourceCommandInput;
+      output: DescribePartnerEventSourceCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class ListHealthChecksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHealthChecksCommand)
   .de(de_ListHealthChecksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHealthChecksRequest;
+      output: ListHealthChecksResponse;
+    };
+    sdk: {
+      input: ListHealthChecksCommandInput;
+      output: ListHealthChecksCommandOutput;
+    };
+  };
+}

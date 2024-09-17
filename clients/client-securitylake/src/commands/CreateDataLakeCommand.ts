@@ -181,4 +181,16 @@ export class CreateDataLakeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataLakeCommand)
   .de(de_CreateDataLakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataLakeRequest;
+      output: CreateDataLakeResponse;
+    };
+    sdk: {
+      input: CreateDataLakeCommandInput;
+      output: CreateDataLakeCommandOutput;
+    };
+  };
+}

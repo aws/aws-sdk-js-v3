@@ -208,4 +208,16 @@ export class UpdateChatControlsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateChatControlsConfigurationCommand)
   .de(de_UpdateChatControlsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChatControlsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateChatControlsConfigurationCommandInput;
+      output: UpdateChatControlsConfigurationCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class GetIndexingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIndexingConfigurationCommand)
   .de(de_GetIndexingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetIndexingConfigurationResponse;
+    };
+    sdk: {
+      input: GetIndexingConfigurationCommandInput;
+      output: GetIndexingConfigurationCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class BatchGetCustomEntityTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCustomEntityTypesCommand)
   .de(de_BatchGetCustomEntityTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCustomEntityTypesRequest;
+      output: BatchGetCustomEntityTypesResponse;
+    };
+    sdk: {
+      input: BatchGetCustomEntityTypesCommandInput;
+      output: BatchGetCustomEntityTypesCommandOutput;
+    };
+  };
+}

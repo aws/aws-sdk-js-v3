@@ -126,4 +126,16 @@ export class PutRawMessageContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRawMessageContentCommand)
   .de(de_PutRawMessageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRawMessageContentRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRawMessageContentCommandInput;
+      output: PutRawMessageContentCommandOutput;
+    };
+  };
+}

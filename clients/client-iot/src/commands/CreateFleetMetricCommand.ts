@@ -131,4 +131,16 @@ export class CreateFleetMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFleetMetricCommand)
   .de(de_CreateFleetMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetMetricRequest;
+      output: CreateFleetMetricResponse;
+    };
+    sdk: {
+      input: CreateFleetMetricCommandInput;
+      output: CreateFleetMetricCommandOutput;
+    };
+  };
+}

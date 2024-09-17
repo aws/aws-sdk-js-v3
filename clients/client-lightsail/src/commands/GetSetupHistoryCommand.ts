@@ -136,4 +136,16 @@ export class GetSetupHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSetupHistoryCommand)
   .de(de_GetSetupHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSetupHistoryRequest;
+      output: GetSetupHistoryResult;
+    };
+    sdk: {
+      input: GetSetupHistoryCommandInput;
+      output: GetSetupHistoryCommandOutput;
+    };
+  };
+}

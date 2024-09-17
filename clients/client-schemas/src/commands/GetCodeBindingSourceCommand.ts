@@ -100,4 +100,16 @@ export class GetCodeBindingSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCodeBindingSourceCommand)
   .de(de_GetCodeBindingSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCodeBindingSourceRequest;
+      output: GetCodeBindingSourceResponse;
+    };
+    sdk: {
+      input: GetCodeBindingSourceCommandInput;
+      output: GetCodeBindingSourceCommandOutput;
+    };
+  };
+}

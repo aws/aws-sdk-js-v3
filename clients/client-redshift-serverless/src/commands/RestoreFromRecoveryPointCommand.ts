@@ -118,4 +118,16 @@ export class RestoreFromRecoveryPointCommand extends $Command
   .f(void 0, RestoreFromRecoveryPointResponseFilterSensitiveLog)
   .ser(se_RestoreFromRecoveryPointCommand)
   .de(de_RestoreFromRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreFromRecoveryPointRequest;
+      output: RestoreFromRecoveryPointResponse;
+    };
+    sdk: {
+      input: RestoreFromRecoveryPointCommandInput;
+      output: RestoreFromRecoveryPointCommandOutput;
+    };
+  };
+}

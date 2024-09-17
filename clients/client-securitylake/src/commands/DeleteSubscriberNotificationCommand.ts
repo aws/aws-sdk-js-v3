@@ -106,4 +106,16 @@ export class DeleteSubscriberNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriberNotificationCommand)
   .de(de_DeleteSubscriberNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriberNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriberNotificationCommandInput;
+      output: DeleteSubscriberNotificationCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class GetKxDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKxDatabaseCommand)
   .de(de_GetKxDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKxDatabaseRequest;
+      output: GetKxDatabaseResponse;
+    };
+    sdk: {
+      input: GetKxDatabaseCommandInput;
+      output: GetKxDatabaseCommandOutput;
+    };
+  };
+}

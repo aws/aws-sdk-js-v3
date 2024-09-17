@@ -574,4 +574,16 @@ export class UpdateVirtualNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVirtualNodeCommand)
   .de(de_UpdateVirtualNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVirtualNodeInput;
+      output: UpdateVirtualNodeOutput;
+    };
+    sdk: {
+      input: UpdateVirtualNodeCommandInput;
+      output: UpdateVirtualNodeCommandOutput;
+    };
+  };
+}

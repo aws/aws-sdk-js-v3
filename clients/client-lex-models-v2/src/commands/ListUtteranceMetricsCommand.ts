@@ -189,4 +189,16 @@ export class ListUtteranceMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUtteranceMetricsCommand)
   .de(de_ListUtteranceMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUtteranceMetricsRequest;
+      output: ListUtteranceMetricsResponse;
+    };
+    sdk: {
+      input: ListUtteranceMetricsCommandInput;
+      output: ListUtteranceMetricsCommandOutput;
+    };
+  };
+}

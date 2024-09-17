@@ -141,4 +141,16 @@ export class CreateOptimizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOptimizationJobCommand)
   .de(de_CreateOptimizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOptimizationJobRequest;
+      output: CreateOptimizationJobResponse;
+    };
+    sdk: {
+      input: CreateOptimizationJobCommandInput;
+      output: CreateOptimizationJobCommandOutput;
+    };
+  };
+}

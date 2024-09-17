@@ -158,4 +158,16 @@ export class ActivateNetworkSiteCommand extends $Command
   .f(ActivateNetworkSiteRequestFilterSensitiveLog, void 0)
   .ser(se_ActivateNetworkSiteCommand)
   .de(de_ActivateNetworkSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateNetworkSiteRequest;
+      output: ActivateNetworkSiteResponse;
+    };
+    sdk: {
+      input: ActivateNetworkSiteCommandInput;
+      output: ActivateNetworkSiteCommandOutput;
+    };
+  };
+}

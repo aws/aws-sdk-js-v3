@@ -96,4 +96,16 @@ export class ListLegalHoldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLegalHoldsCommand)
   .de(de_ListLegalHoldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLegalHoldsInput;
+      output: ListLegalHoldsOutput;
+    };
+    sdk: {
+      input: ListLegalHoldsCommandInput;
+      output: ListLegalHoldsCommandOutput;
+    };
+  };
+}

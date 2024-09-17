@@ -107,4 +107,16 @@ export class ListRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoutingProfileQueuesCommand)
   .de(de_ListRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutingProfileQueuesRequest;
+      output: ListRoutingProfileQueuesResponse;
+    };
+    sdk: {
+      input: ListRoutingProfileQueuesCommandInput;
+      output: ListRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

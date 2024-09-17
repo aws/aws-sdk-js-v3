@@ -144,4 +144,16 @@ export class ListComputeCommand extends $Command
   .f(void 0, ListComputeOutputFilterSensitiveLog)
   .ser(se_ListComputeCommand)
   .de(de_ListComputeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComputeInput;
+      output: ListComputeOutput;
+    };
+    sdk: {
+      input: ListComputeCommandInput;
+      output: ListComputeCommandOutput;
+    };
+  };
+}

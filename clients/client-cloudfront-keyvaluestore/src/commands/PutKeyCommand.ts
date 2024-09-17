@@ -107,4 +107,16 @@ export class PutKeyCommand extends $Command
   .f(PutKeyRequestFilterSensitiveLog, void 0)
   .ser(se_PutKeyCommand)
   .de(de_PutKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutKeyRequest;
+      output: PutKeyResponse;
+    };
+    sdk: {
+      input: PutKeyCommandInput;
+      output: PutKeyCommandOutput;
+    };
+  };
+}

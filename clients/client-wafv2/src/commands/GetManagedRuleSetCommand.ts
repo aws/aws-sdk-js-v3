@@ -135,4 +135,16 @@ export class GetManagedRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetManagedRuleSetCommand)
   .de(de_GetManagedRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetManagedRuleSetRequest;
+      output: GetManagedRuleSetResponse;
+    };
+    sdk: {
+      input: GetManagedRuleSetCommandInput;
+      output: GetManagedRuleSetCommandOutput;
+    };
+  };
+}

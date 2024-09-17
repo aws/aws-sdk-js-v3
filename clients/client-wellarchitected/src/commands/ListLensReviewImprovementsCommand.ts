@@ -122,4 +122,16 @@ export class ListLensReviewImprovementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLensReviewImprovementsCommand)
   .de(de_ListLensReviewImprovementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLensReviewImprovementsInput;
+      output: ListLensReviewImprovementsOutput;
+    };
+    sdk: {
+      input: ListLensReviewImprovementsCommandInput;
+      output: ListLensReviewImprovementsCommandOutput;
+    };
+  };
+}

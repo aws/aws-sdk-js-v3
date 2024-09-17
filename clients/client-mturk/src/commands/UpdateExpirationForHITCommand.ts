@@ -85,4 +85,16 @@ export class UpdateExpirationForHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExpirationForHITCommand)
   .de(de_UpdateExpirationForHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExpirationForHITRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateExpirationForHITCommandInput;
+      output: UpdateExpirationForHITCommandOutput;
+    };
+  };
+}

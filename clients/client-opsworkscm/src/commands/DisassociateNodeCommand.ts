@@ -107,4 +107,16 @@ export class DisassociateNodeCommand extends $Command
   .f(DisassociateNodeRequestFilterSensitiveLog, void 0)
   .ser(se_DisassociateNodeCommand)
   .de(de_DisassociateNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateNodeRequest;
+      output: DisassociateNodeResponse;
+    };
+    sdk: {
+      input: DisassociateNodeCommandInput;
+      output: DisassociateNodeCommandOutput;
+    };
+  };
+}

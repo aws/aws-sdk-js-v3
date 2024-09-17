@@ -100,4 +100,16 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDefaultCreditSpecificationCommand)
   .de(de_ModifyDefaultCreditSpecificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDefaultCreditSpecificationRequest;
+      output: ModifyDefaultCreditSpecificationResult;
+    };
+    sdk: {
+      input: ModifyDefaultCreditSpecificationCommandInput;
+      output: ModifyDefaultCreditSpecificationCommandOutput;
+    };
+  };
+}

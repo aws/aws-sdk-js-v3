@@ -115,4 +115,16 @@ export class IsMemberInGroupsCommand extends $Command
   .f(void 0, IsMemberInGroupsResponseFilterSensitiveLog)
   .ser(se_IsMemberInGroupsCommand)
   .de(de_IsMemberInGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsMemberInGroupsRequest;
+      output: IsMemberInGroupsResponse;
+    };
+    sdk: {
+      input: IsMemberInGroupsCommandInput;
+      output: IsMemberInGroupsCommandOutput;
+    };
+  };
+}

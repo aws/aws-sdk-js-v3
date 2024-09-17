@@ -205,4 +205,16 @@ export class PostCommentForPullRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostCommentForPullRequestCommand)
   .de(de_PostCommentForPullRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostCommentForPullRequestInput;
+      output: PostCommentForPullRequestOutput;
+    };
+    sdk: {
+      input: PostCommentForPullRequestCommandInput;
+      output: PostCommentForPullRequestCommandOutput;
+    };
+  };
+}

@@ -212,4 +212,16 @@ export class UpdateBotLocaleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBotLocaleCommand)
   .de(de_UpdateBotLocaleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotLocaleRequest;
+      output: UpdateBotLocaleResponse;
+    };
+    sdk: {
+      input: UpdateBotLocaleCommandInput;
+      output: UpdateBotLocaleCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class CreateAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAuthenticationProfileCommand)
   .de(de_CreateAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAuthenticationProfileMessage;
+      output: CreateAuthenticationProfileResult;
+    };
+    sdk: {
+      input: CreateAuthenticationProfileCommandInput;
+      output: CreateAuthenticationProfileCommandOutput;
+    };
+  };
+}

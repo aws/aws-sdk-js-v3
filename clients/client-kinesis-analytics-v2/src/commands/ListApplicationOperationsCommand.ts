@@ -104,4 +104,16 @@ export class ListApplicationOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationOperationsCommand)
   .de(de_ListApplicationOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationOperationsRequest;
+      output: ListApplicationOperationsResponse;
+    };
+    sdk: {
+      input: ListApplicationOperationsCommandInput;
+      output: ListApplicationOperationsCommandOutput;
+    };
+  };
+}

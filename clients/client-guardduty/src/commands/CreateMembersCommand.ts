@@ -117,4 +117,16 @@ export class CreateMembersCommand extends $Command
   .f(CreateMembersRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMembersCommand)
   .de(de_CreateMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMembersRequest;
+      output: CreateMembersResponse;
+    };
+    sdk: {
+      input: CreateMembersCommandInput;
+      output: CreateMembersCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DeleteImpersonationRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImpersonationRoleCommand)
   .de(de_DeleteImpersonationRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImpersonationRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImpersonationRoleCommandInput;
+      output: DeleteImpersonationRoleCommandOutput;
+    };
+  };
+}

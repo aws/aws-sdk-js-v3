@@ -124,4 +124,16 @@ export class UpdateWorkGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkGroupCommand)
   .de(de_UpdateWorkGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkGroupInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkGroupCommandInput;
+      output: UpdateWorkGroupCommandOutput;
+    };
+  };
+}

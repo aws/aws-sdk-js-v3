@@ -102,4 +102,16 @@ export class ListVocabularyFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVocabularyFiltersCommand)
   .de(de_ListVocabularyFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVocabularyFiltersRequest;
+      output: ListVocabularyFiltersResponse;
+    };
+    sdk: {
+      input: ListVocabularyFiltersCommandInput;
+      output: ListVocabularyFiltersCommandOutput;
+    };
+  };
+}

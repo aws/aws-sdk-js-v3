@@ -93,4 +93,16 @@ export class DeleteMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMembershipCommand)
   .de(de_DeleteMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMembershipInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMembershipCommandInput;
+      output: DeleteMembershipCommandOutput;
+    };
+  };
+}

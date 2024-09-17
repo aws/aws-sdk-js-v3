@@ -128,4 +128,16 @@ export class AssociateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateUserCommand)
   .de(de_AssociateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateUserRequest;
+      output: AssociateUserResponse;
+    };
+    sdk: {
+      input: AssociateUserCommandInput;
+      output: AssociateUserCommandOutput;
+    };
+  };
+}

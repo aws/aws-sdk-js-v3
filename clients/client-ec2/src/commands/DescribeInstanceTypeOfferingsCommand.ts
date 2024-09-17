@@ -99,4 +99,16 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceTypeOfferingsCommand)
   .de(de_DescribeInstanceTypeOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceTypeOfferingsRequest;
+      output: DescribeInstanceTypeOfferingsResult;
+    };
+    sdk: {
+      input: DescribeInstanceTypeOfferingsCommandInput;
+      output: DescribeInstanceTypeOfferingsCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class ListThemeVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThemeVersionsCommand)
   .de(de_ListThemeVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThemeVersionsRequest;
+      output: ListThemeVersionsResponse;
+    };
+    sdk: {
+      input: ListThemeVersionsCommandInput;
+      output: ListThemeVersionsCommandOutput;
+    };
+  };
+}

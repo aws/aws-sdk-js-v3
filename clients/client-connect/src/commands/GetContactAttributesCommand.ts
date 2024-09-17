@@ -89,4 +89,16 @@ export class GetContactAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContactAttributesCommand)
   .de(de_GetContactAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactAttributesRequest;
+      output: GetContactAttributesResponse;
+    };
+    sdk: {
+      input: GetContactAttributesCommandInput;
+      output: GetContactAttributesCommandOutput;
+    };
+  };
+}

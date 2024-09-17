@@ -111,4 +111,16 @@ export class UpdateDynamicThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDynamicThingGroupCommand)
   .de(de_UpdateDynamicThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDynamicThingGroupRequest;
+      output: UpdateDynamicThingGroupResponse;
+    };
+    sdk: {
+      input: UpdateDynamicThingGroupCommandInput;
+      output: UpdateDynamicThingGroupCommandOutput;
+    };
+  };
+}

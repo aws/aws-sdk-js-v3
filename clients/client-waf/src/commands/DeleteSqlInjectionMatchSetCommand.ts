@@ -160,4 +160,16 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSqlInjectionMatchSetCommand)
   .de(de_DeleteSqlInjectionMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSqlInjectionMatchSetRequest;
+      output: DeleteSqlInjectionMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteSqlInjectionMatchSetCommandInput;
+      output: DeleteSqlInjectionMatchSetCommandOutput;
+    };
+  };
+}

@@ -241,4 +241,16 @@ export class CreateMediaCapturePipelineCommand extends $Command
   .f(CreateMediaCapturePipelineRequestFilterSensitiveLog, CreateMediaCapturePipelineResponseFilterSensitiveLog)
   .ser(se_CreateMediaCapturePipelineCommand)
   .de(de_CreateMediaCapturePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaCapturePipelineRequest;
+      output: CreateMediaCapturePipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaCapturePipelineCommandInput;
+      output: CreateMediaCapturePipelineCommandOutput;
+    };
+  };
+}

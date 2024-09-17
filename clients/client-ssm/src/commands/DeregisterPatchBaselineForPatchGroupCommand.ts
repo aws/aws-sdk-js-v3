@@ -93,4 +93,16 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterPatchBaselineForPatchGroupCommand)
   .de(de_DeregisterPatchBaselineForPatchGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterPatchBaselineForPatchGroupRequest;
+      output: DeregisterPatchBaselineForPatchGroupResult;
+    };
+    sdk: {
+      input: DeregisterPatchBaselineForPatchGroupCommandInput;
+      output: DeregisterPatchBaselineForPatchGroupCommandOutput;
+    };
+  };
+}

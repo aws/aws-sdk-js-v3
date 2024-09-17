@@ -136,4 +136,16 @@ export class TagPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagPolicyCommand)
   .de(de_TagPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagPolicyCommandInput;
+      output: TagPolicyCommandOutput;
+    };
+  };
+}

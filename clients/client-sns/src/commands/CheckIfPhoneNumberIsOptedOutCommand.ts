@@ -100,4 +100,16 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
   .f(CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog, void 0)
   .ser(se_CheckIfPhoneNumberIsOptedOutCommand)
   .de(de_CheckIfPhoneNumberIsOptedOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckIfPhoneNumberIsOptedOutInput;
+      output: CheckIfPhoneNumberIsOptedOutResponse;
+    };
+    sdk: {
+      input: CheckIfPhoneNumberIsOptedOutCommandInput;
+      output: CheckIfPhoneNumberIsOptedOutCommandOutput;
+    };
+  };
+}

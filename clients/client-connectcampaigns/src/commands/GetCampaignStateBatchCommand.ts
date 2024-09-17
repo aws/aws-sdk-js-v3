@@ -102,4 +102,16 @@ export class GetCampaignStateBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignStateBatchCommand)
   .de(de_GetCampaignStateBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignStateBatchRequest;
+      output: GetCampaignStateBatchResponse;
+    };
+    sdk: {
+      input: GetCampaignStateBatchCommandInput;
+      output: GetCampaignStateBatchCommandOutput;
+    };
+  };
+}

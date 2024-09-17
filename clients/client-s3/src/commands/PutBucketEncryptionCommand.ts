@@ -136,4 +136,16 @@ export class PutBucketEncryptionCommand extends $Command
   .f(PutBucketEncryptionRequestFilterSensitiveLog, void 0)
   .ser(se_PutBucketEncryptionCommand)
   .de(de_PutBucketEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketEncryptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketEncryptionCommandInput;
+      output: PutBucketEncryptionCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class CancelArchivalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelArchivalCommand)
   .de(de_CancelArchivalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelArchivalInput;
+      output: CancelArchivalOutput;
+    };
+    sdk: {
+      input: CancelArchivalCommandInput;
+      output: CancelArchivalCommandOutput;
+    };
+  };
+}

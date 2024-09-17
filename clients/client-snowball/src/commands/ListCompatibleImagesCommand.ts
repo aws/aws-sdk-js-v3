@@ -96,4 +96,16 @@ export class ListCompatibleImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompatibleImagesCommand)
   .de(de_ListCompatibleImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompatibleImagesRequest;
+      output: ListCompatibleImagesResult;
+    };
+    sdk: {
+      input: ListCompatibleImagesCommandInput;
+      output: ListCompatibleImagesCommandOutput;
+    };
+  };
+}

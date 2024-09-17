@@ -113,4 +113,16 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocalGatewayRouteTableVpcAssociationCommand)
   .de(de_CreateLocalGatewayRouteTableVpcAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocalGatewayRouteTableVpcAssociationRequest;
+      output: CreateLocalGatewayRouteTableVpcAssociationResult;
+    };
+    sdk: {
+      input: CreateLocalGatewayRouteTableVpcAssociationCommandInput;
+      output: CreateLocalGatewayRouteTableVpcAssociationCommandOutput;
+    };
+  };
+}

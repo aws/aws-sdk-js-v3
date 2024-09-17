@@ -114,4 +114,16 @@ export class ListImagePackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagePackagesCommand)
   .de(de_ListImagePackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagePackagesRequest;
+      output: ListImagePackagesResponse;
+    };
+    sdk: {
+      input: ListImagePackagesCommandInput;
+      output: ListImagePackagesCommandOutput;
+    };
+  };
+}

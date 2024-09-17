@@ -99,4 +99,16 @@ export class ListWorkGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkGroupsCommand)
   .de(de_ListWorkGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkGroupsInput;
+      output: ListWorkGroupsOutput;
+    };
+    sdk: {
+      input: ListWorkGroupsCommandInput;
+      output: ListWorkGroupsCommandOutput;
+    };
+  };
+}

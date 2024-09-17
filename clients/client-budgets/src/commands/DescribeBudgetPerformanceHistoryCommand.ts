@@ -150,4 +150,16 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBudgetPerformanceHistoryCommand)
   .de(de_DescribeBudgetPerformanceHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetPerformanceHistoryRequest;
+      output: DescribeBudgetPerformanceHistoryResponse;
+    };
+    sdk: {
+      input: DescribeBudgetPerformanceHistoryCommandInput;
+      output: DescribeBudgetPerformanceHistoryCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class DeleteObjectsOnCancelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteObjectsOnCancelCommand)
   .de(de_DeleteObjectsOnCancelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteObjectsOnCancelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteObjectsOnCancelCommandInput;
+      output: DeleteObjectsOnCancelCommandOutput;
+    };
+  };
+}

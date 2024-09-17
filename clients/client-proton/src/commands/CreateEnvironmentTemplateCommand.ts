@@ -135,4 +135,16 @@ export class CreateEnvironmentTemplateCommand extends $Command
   .f(CreateEnvironmentTemplateInputFilterSensitiveLog, CreateEnvironmentTemplateOutputFilterSensitiveLog)
   .ser(se_CreateEnvironmentTemplateCommand)
   .de(de_CreateEnvironmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentTemplateInput;
+      output: CreateEnvironmentTemplateOutput;
+    };
+    sdk: {
+      input: CreateEnvironmentTemplateCommandInput;
+      output: CreateEnvironmentTemplateCommandOutput;
+    };
+  };
+}

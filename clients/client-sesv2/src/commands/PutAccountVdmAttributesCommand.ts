@@ -90,4 +90,16 @@ export class PutAccountVdmAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountVdmAttributesCommand)
   .de(de_PutAccountVdmAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountVdmAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccountVdmAttributesCommandInput;
+      output: PutAccountVdmAttributesCommandOutput;
+    };
+  };
+}

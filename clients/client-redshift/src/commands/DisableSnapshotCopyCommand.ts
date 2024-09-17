@@ -289,4 +289,16 @@ export class DisableSnapshotCopyCommand extends $Command
   .f(void 0, DisableSnapshotCopyResultFilterSensitiveLog)
   .ser(se_DisableSnapshotCopyCommand)
   .de(de_DisableSnapshotCopyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableSnapshotCopyMessage;
+      output: DisableSnapshotCopyResult;
+    };
+    sdk: {
+      input: DisableSnapshotCopyCommandInput;
+      output: DisableSnapshotCopyCommandOutput;
+    };
+  };
+}

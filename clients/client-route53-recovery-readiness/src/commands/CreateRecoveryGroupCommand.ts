@@ -109,4 +109,16 @@ export class CreateRecoveryGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRecoveryGroupCommand)
   .de(de_CreateRecoveryGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRecoveryGroupRequest;
+      output: CreateRecoveryGroupResponse;
+    };
+    sdk: {
+      input: CreateRecoveryGroupCommandInput;
+      output: CreateRecoveryGroupCommandOutput;
+    };
+  };
+}

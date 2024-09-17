@@ -206,4 +206,16 @@ export class CreateModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelCommand)
   .de(de_CreateModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelInput;
+      output: CreateModelOutput;
+    };
+    sdk: {
+      input: CreateModelCommandInput;
+      output: CreateModelCommandOutput;
+    };
+  };
+}

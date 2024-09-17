@@ -233,4 +233,16 @@ export class CreateAssetModelCompositeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssetModelCompositeModelCommand)
   .de(de_CreateAssetModelCompositeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetModelCompositeModelRequest;
+      output: CreateAssetModelCompositeModelResponse;
+    };
+    sdk: {
+      input: CreateAssetModelCompositeModelCommandInput;
+      output: CreateAssetModelCompositeModelCommandOutput;
+    };
+  };
+}

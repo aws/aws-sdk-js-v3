@@ -202,4 +202,16 @@ export class UpdateModelPackageCommand extends $Command
   .f(UpdateModelPackageInputFilterSensitiveLog, void 0)
   .ser(se_UpdateModelPackageCommand)
   .de(de_UpdateModelPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelPackageInput;
+      output: UpdateModelPackageOutput;
+    };
+    sdk: {
+      input: UpdateModelPackageCommandInput;
+      output: UpdateModelPackageCommandOutput;
+    };
+  };
+}

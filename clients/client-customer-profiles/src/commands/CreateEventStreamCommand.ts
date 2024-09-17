@@ -103,4 +103,16 @@ export class CreateEventStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventStreamCommand)
   .de(de_CreateEventStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventStreamRequest;
+      output: CreateEventStreamResponse;
+    };
+    sdk: {
+      input: CreateEventStreamCommandInput;
+      output: CreateEventStreamCommandOutput;
+    };
+  };
+}

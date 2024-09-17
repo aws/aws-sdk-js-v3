@@ -87,4 +87,16 @@ export class RestoreSnapshotTierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreSnapshotTierCommand)
   .de(de_RestoreSnapshotTierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreSnapshotTierRequest;
+      output: RestoreSnapshotTierResult;
+    };
+    sdk: {
+      input: RestoreSnapshotTierCommandInput;
+      output: RestoreSnapshotTierCommandOutput;
+    };
+  };
+}

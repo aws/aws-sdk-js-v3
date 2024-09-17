@@ -120,4 +120,16 @@ export class StartClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartClusterCommand)
   .de(de_StartClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartClusterInput;
+      output: StartClusterOutput;
+    };
+    sdk: {
+      input: StartClusterCommandInput;
+      output: StartClusterCommandOutput;
+    };
+  };
+}

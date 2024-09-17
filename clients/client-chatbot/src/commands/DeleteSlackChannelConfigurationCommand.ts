@@ -92,4 +92,16 @@ export class DeleteSlackChannelConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSlackChannelConfigurationCommand)
   .de(de_DeleteSlackChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSlackChannelConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSlackChannelConfigurationCommandInput;
+      output: DeleteSlackChannelConfigurationCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class ListExperiencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExperiencesCommand)
   .de(de_ListExperiencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperiencesRequest;
+      output: ListExperiencesResponse;
+    };
+    sdk: {
+      input: ListExperiencesCommandInput;
+      output: ListExperiencesCommandOutput;
+    };
+  };
+}

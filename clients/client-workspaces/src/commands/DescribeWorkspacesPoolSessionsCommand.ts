@@ -110,4 +110,16 @@ export class DescribeWorkspacesPoolSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspacesPoolSessionsCommand)
   .de(de_DescribeWorkspacesPoolSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspacesPoolSessionsRequest;
+      output: DescribeWorkspacesPoolSessionsResult;
+    };
+    sdk: {
+      input: DescribeWorkspacesPoolSessionsCommandInput;
+      output: DescribeWorkspacesPoolSessionsCommandOutput;
+    };
+  };
+}

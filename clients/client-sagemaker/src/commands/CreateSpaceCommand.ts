@@ -182,4 +182,16 @@ export class CreateSpaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSpaceCommand)
   .de(de_CreateSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSpaceRequest;
+      output: CreateSpaceResponse;
+    };
+    sdk: {
+      input: CreateSpaceCommandInput;
+      output: CreateSpaceCommandOutput;
+    };
+  };
+}

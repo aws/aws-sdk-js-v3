@@ -689,4 +689,16 @@ export class GetRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationCommand)
   .de(de_GetRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationRequest;
+      output: GetRecommendationResponse;
+    };
+    sdk: {
+      input: GetRecommendationCommandInput;
+      output: GetRecommendationCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class DescribeLogGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLogGroupsCommand)
   .de(de_DescribeLogGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLogGroupsRequest;
+      output: DescribeLogGroupsResponse;
+    };
+    sdk: {
+      input: DescribeLogGroupsCommandInput;
+      output: DescribeLogGroupsCommandOutput;
+    };
+  };
+}

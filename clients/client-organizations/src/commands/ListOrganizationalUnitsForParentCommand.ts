@@ -255,4 +255,16 @@ export class ListOrganizationalUnitsForParentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationalUnitsForParentCommand)
   .de(de_ListOrganizationalUnitsForParentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationalUnitsForParentRequest;
+      output: ListOrganizationalUnitsForParentResponse;
+    };
+    sdk: {
+      input: ListOrganizationalUnitsForParentCommandInput;
+      output: ListOrganizationalUnitsForParentCommandOutput;
+    };
+  };
+}

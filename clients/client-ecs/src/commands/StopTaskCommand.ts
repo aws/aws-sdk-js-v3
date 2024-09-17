@@ -278,4 +278,16 @@ export class StopTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTaskCommand)
   .de(de_StopTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTaskRequest;
+      output: StopTaskResponse;
+    };
+    sdk: {
+      input: StopTaskCommandInput;
+      output: StopTaskCommandOutput;
+    };
+  };
+}

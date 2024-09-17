@@ -103,4 +103,16 @@ export class GetCSVHeaderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCSVHeaderCommand)
   .de(de_GetCSVHeaderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCSVHeaderRequest;
+      output: GetCSVHeaderResponse;
+    };
+    sdk: {
+      input: GetCSVHeaderCommandInput;
+      output: GetCSVHeaderCommandOutput;
+    };
+  };
+}

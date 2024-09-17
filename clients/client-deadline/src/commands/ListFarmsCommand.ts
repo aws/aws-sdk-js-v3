@@ -103,4 +103,16 @@ export class ListFarmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFarmsCommand)
   .de(de_ListFarmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFarmsRequest;
+      output: ListFarmsResponse;
+    };
+    sdk: {
+      input: ListFarmsCommandInput;
+      output: ListFarmsCommandOutput;
+    };
+  };
+}

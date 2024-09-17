@@ -397,4 +397,16 @@ export class StartEarthObservationJobCommand extends $Command
   .f(StartEarthObservationJobInputFilterSensitiveLog, StartEarthObservationJobOutputFilterSensitiveLog)
   .ser(se_StartEarthObservationJobCommand)
   .de(de_StartEarthObservationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEarthObservationJobInput;
+      output: StartEarthObservationJobOutput;
+    };
+    sdk: {
+      input: StartEarthObservationJobCommandInput;
+      output: StartEarthObservationJobCommandOutput;
+    };
+  };
+}

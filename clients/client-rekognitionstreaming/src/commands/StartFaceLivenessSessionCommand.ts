@@ -251,4 +251,16 @@ export class StartFaceLivenessSessionCommand extends $Command
   .f(StartFaceLivenessSessionRequestFilterSensitiveLog, StartFaceLivenessSessionResponseFilterSensitiveLog)
   .ser(se_StartFaceLivenessSessionCommand)
   .de(de_StartFaceLivenessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFaceLivenessSessionRequest;
+      output: StartFaceLivenessSessionResponse;
+    };
+    sdk: {
+      input: StartFaceLivenessSessionCommandInput;
+      output: StartFaceLivenessSessionCommandOutput;
+    };
+  };
+}

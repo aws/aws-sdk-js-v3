@@ -157,4 +157,16 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityGroupRuleDescriptionsEgressCommand)
   .de(de_UpdateSecurityGroupRuleDescriptionsEgressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityGroupRuleDescriptionsEgressRequest;
+      output: UpdateSecurityGroupRuleDescriptionsEgressResult;
+    };
+    sdk: {
+      input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput;
+      output: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput;
+    };
+  };
+}

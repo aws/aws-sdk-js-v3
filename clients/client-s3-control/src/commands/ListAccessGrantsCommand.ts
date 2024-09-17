@@ -116,4 +116,16 @@ export class ListAccessGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessGrantsCommand)
   .de(de_ListAccessGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessGrantsRequest;
+      output: ListAccessGrantsResult;
+    };
+    sdk: {
+      input: ListAccessGrantsCommandInput;
+      output: ListAccessGrantsCommandOutput;
+    };
+  };
+}

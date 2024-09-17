@@ -115,4 +115,16 @@ export class UpdateRoomCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoomCommand)
   .de(de_UpdateRoomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoomRequest;
+      output: UpdateRoomResponse;
+    };
+    sdk: {
+      input: UpdateRoomCommandInput;
+      output: UpdateRoomCommandOutput;
+    };
+  };
+}

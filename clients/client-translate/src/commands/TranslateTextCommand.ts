@@ -140,4 +140,16 @@ export class TranslateTextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TranslateTextCommand)
   .de(de_TranslateTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TranslateTextRequest;
+      output: TranslateTextResponse;
+    };
+    sdk: {
+      input: TranslateTextCommandInput;
+      output: TranslateTextCommandOutput;
+    };
+  };
+}

@@ -234,4 +234,16 @@ export class UpdateInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInputCommand)
   .de(de_UpdateInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInputRequest;
+      output: UpdateInputResponse;
+    };
+    sdk: {
+      input: UpdateInputCommandInput;
+      output: UpdateInputCommandOutput;
+    };
+  };
+}

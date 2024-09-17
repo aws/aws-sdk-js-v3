@@ -168,4 +168,16 @@ export class StartLabelDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartLabelDetectionCommand)
   .de(de_StartLabelDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLabelDetectionRequest;
+      output: StartLabelDetectionResponse;
+    };
+    sdk: {
+      input: StartLabelDetectionCommandInput;
+      output: StartLabelDetectionCommandOutput;
+    };
+  };
+}

@@ -174,4 +174,16 @@ export class CreateAssetRevisionCommand extends $Command
   .f(CreateAssetRevisionInputFilterSensitiveLog, CreateAssetRevisionOutputFilterSensitiveLog)
   .ser(se_CreateAssetRevisionCommand)
   .de(de_CreateAssetRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetRevisionInput;
+      output: CreateAssetRevisionOutput;
+    };
+    sdk: {
+      input: CreateAssetRevisionCommandInput;
+      output: CreateAssetRevisionCommandOutput;
+    };
+  };
+}

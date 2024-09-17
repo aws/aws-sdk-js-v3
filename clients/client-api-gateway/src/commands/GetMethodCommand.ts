@@ -142,4 +142,16 @@ export class GetMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMethodCommand)
   .de(de_GetMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMethodRequest;
+      output: Method;
+    };
+    sdk: {
+      input: GetMethodCommandInput;
+      output: GetMethodCommandOutput;
+    };
+  };
+}

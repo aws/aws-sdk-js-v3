@@ -103,4 +103,16 @@ export class ListReviewTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReviewTemplatesCommand)
   .de(de_ListReviewTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReviewTemplatesInput;
+      output: ListReviewTemplatesOutput;
+    };
+    sdk: {
+      input: ListReviewTemplatesCommandInput;
+      output: ListReviewTemplatesCommandOutput;
+    };
+  };
+}

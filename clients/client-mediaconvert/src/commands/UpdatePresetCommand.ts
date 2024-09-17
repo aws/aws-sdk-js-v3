@@ -1725,4 +1725,16 @@ export class UpdatePresetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePresetCommand)
   .de(de_UpdatePresetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePresetRequest;
+      output: UpdatePresetResponse;
+    };
+    sdk: {
+      input: UpdatePresetCommandInput;
+      output: UpdatePresetCommandOutput;
+    };
+  };
+}

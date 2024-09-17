@@ -110,4 +110,16 @@ export class UpdateKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKeyCommand)
   .de(de_UpdateKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeyRequest;
+      output: UpdateKeyResponse;
+    };
+    sdk: {
+      input: UpdateKeyCommandInput;
+      output: UpdateKeyCommandOutput;
+    };
+  };
+}

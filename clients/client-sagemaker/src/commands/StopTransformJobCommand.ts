@@ -83,4 +83,16 @@ export class StopTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTransformJobCommand)
   .de(de_StopTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTransformJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTransformJobCommandInput;
+      output: StopTransformJobCommandOutput;
+    };
+  };
+}

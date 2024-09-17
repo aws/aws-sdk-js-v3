@@ -473,4 +473,16 @@ export class DeleteEndpointCommand extends $Command
   .f(void 0, DeleteEndpointResponseFilterSensitiveLog)
   .ser(se_DeleteEndpointCommand)
   .de(de_DeleteEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEndpointMessage;
+      output: DeleteEndpointResponse;
+    };
+    sdk: {
+      input: DeleteEndpointCommandInput;
+      output: DeleteEndpointCommandOutput;
+    };
+  };
+}

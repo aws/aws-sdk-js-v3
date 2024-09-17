@@ -69,4 +69,16 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryIdempotencyTokenAutoFillCommand)
   .de(de_QueryIdempotencyTokenAutoFillCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryIdempotencyTokenAutoFillInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryIdempotencyTokenAutoFillCommandInput;
+      output: QueryIdempotencyTokenAutoFillCommandOutput;
+    };
+  };
+}

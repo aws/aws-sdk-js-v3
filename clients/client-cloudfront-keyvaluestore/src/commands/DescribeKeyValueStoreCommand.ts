@@ -103,4 +103,16 @@ export class DescribeKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyValueStoreCommand)
   .de(de_DescribeKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyValueStoreRequest;
+      output: DescribeKeyValueStoreResponse;
+    };
+    sdk: {
+      input: DescribeKeyValueStoreCommandInput;
+      output: DescribeKeyValueStoreCommandOutput;
+    };
+  };
+}

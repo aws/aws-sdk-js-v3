@@ -89,4 +89,16 @@ export class DeletePlaybackKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlaybackKeyPairCommand)
   .de(de_DeletePlaybackKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlaybackKeyPairRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlaybackKeyPairCommandInput;
+      output: DeletePlaybackKeyPairCommandOutput;
+    };
+  };
+}

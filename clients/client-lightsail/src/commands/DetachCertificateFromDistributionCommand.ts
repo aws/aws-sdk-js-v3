@@ -127,4 +127,16 @@ export class DetachCertificateFromDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachCertificateFromDistributionCommand)
   .de(de_DetachCertificateFromDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachCertificateFromDistributionRequest;
+      output: DetachCertificateFromDistributionResult;
+    };
+    sdk: {
+      input: DetachCertificateFromDistributionCommandInput;
+      output: DetachCertificateFromDistributionCommandOutput;
+    };
+  };
+}

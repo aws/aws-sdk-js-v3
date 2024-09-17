@@ -98,4 +98,16 @@ export class DeleteFlywheelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFlywheelCommand)
   .de(de_DeleteFlywheelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFlywheelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFlywheelCommandInput;
+      output: DeleteFlywheelCommandOutput;
+    };
+  };
+}

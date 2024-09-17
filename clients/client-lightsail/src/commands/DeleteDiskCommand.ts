@@ -133,4 +133,16 @@ export class DeleteDiskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDiskCommand)
   .de(de_DeleteDiskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDiskRequest;
+      output: DeleteDiskResult;
+    };
+    sdk: {
+      input: DeleteDiskCommandInput;
+      output: DeleteDiskCommandOutput;
+    };
+  };
+}

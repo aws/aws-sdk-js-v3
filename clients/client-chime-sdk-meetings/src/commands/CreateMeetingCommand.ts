@@ -178,4 +178,16 @@ export class CreateMeetingCommand extends $Command
   .f(CreateMeetingRequestFilterSensitiveLog, CreateMeetingResponseFilterSensitiveLog)
   .ser(se_CreateMeetingCommand)
   .de(de_CreateMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMeetingRequest;
+      output: CreateMeetingResponse;
+    };
+    sdk: {
+      input: CreateMeetingCommandInput;
+      output: CreateMeetingCommandOutput;
+    };
+  };
+}

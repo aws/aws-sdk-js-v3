@@ -92,4 +92,16 @@ export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInferenceComponentRuntimeConfigCommand)
   .de(de_UpdateInferenceComponentRuntimeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInferenceComponentRuntimeConfigInput;
+      output: UpdateInferenceComponentRuntimeConfigOutput;
+    };
+    sdk: {
+      input: UpdateInferenceComponentRuntimeConfigCommandInput;
+      output: UpdateInferenceComponentRuntimeConfigCommandOutput;
+    };
+  };
+}

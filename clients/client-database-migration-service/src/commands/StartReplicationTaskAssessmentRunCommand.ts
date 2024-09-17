@@ -161,4 +161,16 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplicationTaskAssessmentRunCommand)
   .de(de_StartReplicationTaskAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationTaskAssessmentRunMessage;
+      output: StartReplicationTaskAssessmentRunResponse;
+    };
+    sdk: {
+      input: StartReplicationTaskAssessmentRunCommandInput;
+      output: StartReplicationTaskAssessmentRunCommandOutput;
+    };
+  };
+}

@@ -146,4 +146,16 @@ export class DescribeClientBrandingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientBrandingCommand)
   .de(de_DescribeClientBrandingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientBrandingRequest;
+      output: DescribeClientBrandingResult;
+    };
+    sdk: {
+      input: DescribeClientBrandingCommandInput;
+      output: DescribeClientBrandingCommandOutput;
+    };
+  };
+}

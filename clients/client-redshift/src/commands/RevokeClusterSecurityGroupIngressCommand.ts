@@ -134,4 +134,16 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeClusterSecurityGroupIngressCommand)
   .de(de_RevokeClusterSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeClusterSecurityGroupIngressMessage;
+      output: RevokeClusterSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: RevokeClusterSecurityGroupIngressCommandInput;
+      output: RevokeClusterSecurityGroupIngressCommandOutput;
+    };
+  };
+}

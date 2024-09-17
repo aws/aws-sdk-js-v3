@@ -98,4 +98,16 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelDetectMitigationActionsTaskCommand)
   .de(de_CancelDetectMitigationActionsTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelDetectMitigationActionsTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelDetectMitigationActionsTaskCommandInput;
+      output: CancelDetectMitigationActionsTaskCommandOutput;
+    };
+  };
+}

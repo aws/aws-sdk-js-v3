@@ -104,4 +104,16 @@ export class DescribeInboundIntegrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInboundIntegrationsCommand)
   .de(de_DescribeInboundIntegrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInboundIntegrationsMessage;
+      output: InboundIntegrationsMessage;
+    };
+    sdk: {
+      input: DescribeInboundIntegrationsCommandInput;
+      output: DescribeInboundIntegrationsCommandOutput;
+    };
+  };
+}

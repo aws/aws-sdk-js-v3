@@ -133,4 +133,16 @@ export class UpdateFlowEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowEntitlementCommand)
   .de(de_UpdateFlowEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowEntitlementRequest;
+      output: UpdateFlowEntitlementResponse;
+    };
+    sdk: {
+      input: UpdateFlowEntitlementCommandInput;
+      output: UpdateFlowEntitlementCommandOutput;
+    };
+  };
+}

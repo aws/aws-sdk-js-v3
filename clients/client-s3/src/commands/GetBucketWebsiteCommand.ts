@@ -151,4 +151,16 @@ export class GetBucketWebsiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketWebsiteCommand)
   .de(de_GetBucketWebsiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketWebsiteRequest;
+      output: GetBucketWebsiteOutput;
+    };
+    sdk: {
+      input: GetBucketWebsiteCommandInput;
+      output: GetBucketWebsiteCommandOutput;
+    };
+  };
+}

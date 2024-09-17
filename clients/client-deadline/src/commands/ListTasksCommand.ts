@@ -121,4 +121,16 @@ export class ListTasksCommand extends $Command
   .f(void 0, ListTasksResponseFilterSensitiveLog)
   .ser(se_ListTasksCommand)
   .de(de_ListTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTasksRequest;
+      output: ListTasksResponse;
+    };
+    sdk: {
+      input: ListTasksCommandInput;
+      output: ListTasksCommandOutput;
+    };
+  };
+}

@@ -164,4 +164,16 @@ export class ListActiveViolationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActiveViolationsCommand)
   .de(de_ListActiveViolationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActiveViolationsRequest;
+      output: ListActiveViolationsResponse;
+    };
+    sdk: {
+      input: ListActiveViolationsCommandInput;
+      output: ListActiveViolationsCommandOutput;
+    };
+  };
+}

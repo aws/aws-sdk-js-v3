@@ -116,4 +116,16 @@ export class UpdateKeysCommand extends $Command
   .f(UpdateKeysRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateKeysCommand)
   .de(de_UpdateKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeysRequest;
+      output: UpdateKeysResponse;
+    };
+    sdk: {
+      input: UpdateKeysCommandInput;
+      output: UpdateKeysCommandOutput;
+    };
+  };
+}

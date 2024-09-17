@@ -138,4 +138,16 @@ export class ListAuditSuppressionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuditSuppressionsCommand)
   .de(de_ListAuditSuppressionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuditSuppressionsRequest;
+      output: ListAuditSuppressionsResponse;
+    };
+    sdk: {
+      input: ListAuditSuppressionsCommandInput;
+      output: ListAuditSuppressionsCommandOutput;
+    };
+  };
+}

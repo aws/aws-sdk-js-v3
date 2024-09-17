@@ -118,4 +118,16 @@ export class ListNetworksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworksCommand)
   .de(de_ListNetworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworksRequest;
+      output: ListNetworksResponse;
+    };
+    sdk: {
+      input: ListNetworksCommandInput;
+      output: ListNetworksCommandOutput;
+    };
+  };
+}

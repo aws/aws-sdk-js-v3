@@ -99,4 +99,16 @@ export class ListBaselinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBaselinesCommand)
   .de(de_ListBaselinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBaselinesInput;
+      output: ListBaselinesOutput;
+    };
+    sdk: {
+      input: ListBaselinesCommandInput;
+      output: ListBaselinesCommandOutput;
+    };
+  };
+}

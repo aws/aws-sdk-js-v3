@@ -127,4 +127,16 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DescribeAggregateComplianceByConformancePacksCommand)
   .de(de_DescribeAggregateComplianceByConformancePacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAggregateComplianceByConformancePacksRequest;
+      output: DescribeAggregateComplianceByConformancePacksResponse;
+    };
+    sdk: {
+      input: DescribeAggregateComplianceByConformancePacksCommandInput;
+      output: DescribeAggregateComplianceByConformancePacksCommandOutput;
+    };
+  };
+}

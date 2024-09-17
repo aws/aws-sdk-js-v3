@@ -117,4 +117,16 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewayVirtualInterfacesCommand)
   .de(de_DescribeLocalGatewayVirtualInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewayVirtualInterfacesRequest;
+      output: DescribeLocalGatewayVirtualInterfacesResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewayVirtualInterfacesCommandInput;
+      output: DescribeLocalGatewayVirtualInterfacesCommandOutput;
+    };
+  };
+}

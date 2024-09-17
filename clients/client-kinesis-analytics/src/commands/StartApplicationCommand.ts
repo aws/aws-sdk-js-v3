@@ -109,4 +109,16 @@ export class StartApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartApplicationCommand)
   .de(de_StartApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartApplicationCommandInput;
+      output: StartApplicationCommandOutput;
+    };
+  };
+}

@@ -167,4 +167,16 @@ export class UpdateThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThemeCommand)
   .de(de_UpdateThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThemeRequest;
+      output: UpdateThemeResponse;
+    };
+    sdk: {
+      input: UpdateThemeCommandInput;
+      output: UpdateThemeCommandOutput;
+    };
+  };
+}

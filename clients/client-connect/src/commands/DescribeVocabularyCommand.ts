@@ -105,4 +105,16 @@ export class DescribeVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVocabularyCommand)
   .de(de_DescribeVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVocabularyRequest;
+      output: DescribeVocabularyResponse;
+    };
+    sdk: {
+      input: DescribeVocabularyCommandInput;
+      output: DescribeVocabularyCommandOutput;
+    };
+  };
+}

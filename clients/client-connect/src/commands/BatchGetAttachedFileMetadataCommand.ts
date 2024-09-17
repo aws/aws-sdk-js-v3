@@ -128,4 +128,16 @@ export class BatchGetAttachedFileMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAttachedFileMetadataCommand)
   .de(de_BatchGetAttachedFileMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAttachedFileMetadataRequest;
+      output: BatchGetAttachedFileMetadataResponse;
+    };
+    sdk: {
+      input: BatchGetAttachedFileMetadataCommandInput;
+      output: BatchGetAttachedFileMetadataCommandOutput;
+    };
+  };
+}

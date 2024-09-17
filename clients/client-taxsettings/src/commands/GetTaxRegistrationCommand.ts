@@ -180,4 +180,16 @@ export class GetTaxRegistrationCommand extends $Command
   .f(void 0, GetTaxRegistrationResponseFilterSensitiveLog)
   .ser(se_GetTaxRegistrationCommand)
   .de(de_GetTaxRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaxRegistrationRequest;
+      output: GetTaxRegistrationResponse;
+    };
+    sdk: {
+      input: GetTaxRegistrationCommandInput;
+      output: GetTaxRegistrationCommandOutput;
+    };
+  };
+}

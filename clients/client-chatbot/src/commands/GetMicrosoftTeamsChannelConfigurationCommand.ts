@@ -118,4 +118,16 @@ export class GetMicrosoftTeamsChannelConfigurationCommand extends $Command
   .f(void 0, GetTeamsChannelConfigurationResultFilterSensitiveLog)
   .ser(se_GetMicrosoftTeamsChannelConfigurationCommand)
   .de(de_GetMicrosoftTeamsChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTeamsChannelConfigurationRequest;
+      output: GetTeamsChannelConfigurationResult;
+    };
+    sdk: {
+      input: GetMicrosoftTeamsChannelConfigurationCommandInput;
+      output: GetMicrosoftTeamsChannelConfigurationCommandOutput;
+    };
+  };
+}

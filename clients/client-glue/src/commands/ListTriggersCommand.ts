@@ -100,4 +100,16 @@ export class ListTriggersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTriggersCommand)
   .de(de_ListTriggersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTriggersRequest;
+      output: ListTriggersResponse;
+    };
+    sdk: {
+      input: ListTriggersCommandInput;
+      output: ListTriggersCommandOutput;
+    };
+  };
+}

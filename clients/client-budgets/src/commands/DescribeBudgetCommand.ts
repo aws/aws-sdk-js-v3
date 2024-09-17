@@ -152,4 +152,16 @@ export class DescribeBudgetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBudgetCommand)
   .de(de_DescribeBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetRequest;
+      output: DescribeBudgetResponse;
+    };
+    sdk: {
+      input: DescribeBudgetCommandInput;
+      output: DescribeBudgetCommandOutput;
+    };
+  };
+}

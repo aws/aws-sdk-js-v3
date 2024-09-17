@@ -252,4 +252,16 @@ export class PutOrganizationConfigRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOrganizationConfigRuleCommand)
   .de(de_PutOrganizationConfigRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOrganizationConfigRuleRequest;
+      output: PutOrganizationConfigRuleResponse;
+    };
+    sdk: {
+      input: PutOrganizationConfigRuleCommandInput;
+      output: PutOrganizationConfigRuleCommandOutput;
+    };
+  };
+}

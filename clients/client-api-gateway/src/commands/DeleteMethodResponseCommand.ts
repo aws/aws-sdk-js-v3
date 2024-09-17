@@ -93,4 +93,16 @@ export class DeleteMethodResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMethodResponseCommand)
   .de(de_DeleteMethodResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMethodResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMethodResponseCommandInput;
+      output: DeleteMethodResponseCommandOutput;
+    };
+  };
+}

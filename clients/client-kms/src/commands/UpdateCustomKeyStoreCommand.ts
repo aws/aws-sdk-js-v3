@@ -418,4 +418,16 @@ export class UpdateCustomKeyStoreCommand extends $Command
   .f(UpdateCustomKeyStoreRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateCustomKeyStoreCommand)
   .de(de_UpdateCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCustomKeyStoreCommandInput;
+      output: UpdateCustomKeyStoreCommandOutput;
+    };
+  };
+}

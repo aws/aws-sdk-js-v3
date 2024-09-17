@@ -107,4 +107,16 @@ export class ListPolicyPrincipalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPolicyPrincipalsCommand)
   .de(de_ListPolicyPrincipalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyPrincipalsRequest;
+      output: ListPolicyPrincipalsResponse;
+    };
+    sdk: {
+      input: ListPolicyPrincipalsCommandInput;
+      output: ListPolicyPrincipalsCommandOutput;
+    };
+  };
+}

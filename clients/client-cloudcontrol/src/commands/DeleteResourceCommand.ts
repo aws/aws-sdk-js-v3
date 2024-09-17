@@ -169,4 +169,16 @@ export class DeleteResourceCommand extends $Command
   .f(void 0, DeleteResourceOutputFilterSensitiveLog)
   .ser(se_DeleteResourceCommand)
   .de(de_DeleteResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceInput;
+      output: DeleteResourceOutput;
+    };
+    sdk: {
+      input: DeleteResourceCommandInput;
+      output: DeleteResourceCommandOutput;
+    };
+  };
+}

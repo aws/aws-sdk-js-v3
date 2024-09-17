@@ -119,4 +119,16 @@ export class ListSizeConstraintSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSizeConstraintSetsCommand)
   .de(de_ListSizeConstraintSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSizeConstraintSetsRequest;
+      output: ListSizeConstraintSetsResponse;
+    };
+    sdk: {
+      input: ListSizeConstraintSetsCommandInput;
+      output: ListSizeConstraintSetsCommandOutput;
+    };
+  };
+}

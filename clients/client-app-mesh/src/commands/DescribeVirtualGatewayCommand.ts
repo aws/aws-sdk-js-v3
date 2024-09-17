@@ -235,4 +235,16 @@ export class DescribeVirtualGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualGatewayCommand)
   .de(de_DescribeVirtualGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualGatewayInput;
+      output: DescribeVirtualGatewayOutput;
+    };
+    sdk: {
+      input: DescribeVirtualGatewayCommandInput;
+      output: DescribeVirtualGatewayCommandOutput;
+    };
+  };
+}

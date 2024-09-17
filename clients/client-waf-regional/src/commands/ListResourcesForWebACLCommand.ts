@@ -137,4 +137,16 @@ export class ListResourcesForWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcesForWebACLCommand)
   .de(de_ListResourcesForWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesForWebACLRequest;
+      output: ListResourcesForWebACLResponse;
+    };
+    sdk: {
+      input: ListResourcesForWebACLCommandInput;
+      output: ListResourcesForWebACLCommandOutput;
+    };
+  };
+}

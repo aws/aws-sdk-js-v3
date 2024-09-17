@@ -153,4 +153,16 @@ export class PutAppValidationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAppValidationConfigurationCommand)
   .de(de_PutAppValidationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAppValidationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAppValidationConfigurationCommandInput;
+      output: PutAppValidationConfigurationCommandOutput;
+    };
+  };
+}

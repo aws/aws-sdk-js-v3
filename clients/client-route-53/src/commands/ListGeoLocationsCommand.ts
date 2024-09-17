@@ -105,4 +105,16 @@ export class ListGeoLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGeoLocationsCommand)
   .de(de_ListGeoLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGeoLocationsRequest;
+      output: ListGeoLocationsResponse;
+    };
+    sdk: {
+      input: ListGeoLocationsCommandInput;
+      output: ListGeoLocationsCommandOutput;
+    };
+  };
+}

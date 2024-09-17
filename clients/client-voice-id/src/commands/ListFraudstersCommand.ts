@@ -111,4 +111,16 @@ export class ListFraudstersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFraudstersCommand)
   .de(de_ListFraudstersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFraudstersRequest;
+      output: ListFraudstersResponse;
+    };
+    sdk: {
+      input: ListFraudstersCommandInput;
+      output: ListFraudstersCommandOutput;
+    };
+  };
+}

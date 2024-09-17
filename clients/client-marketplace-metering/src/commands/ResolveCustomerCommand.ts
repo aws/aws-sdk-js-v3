@@ -116,4 +116,16 @@ export class ResolveCustomerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveCustomerCommand)
   .de(de_ResolveCustomerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveCustomerRequest;
+      output: ResolveCustomerResult;
+    };
+    sdk: {
+      input: ResolveCustomerCommandInput;
+      output: ResolveCustomerCommandOutput;
+    };
+  };
+}

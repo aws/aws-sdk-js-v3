@@ -106,4 +106,16 @@ export class ModifyIpamResourceCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamResourceCidrCommand)
   .de(de_ModifyIpamResourceCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamResourceCidrRequest;
+      output: ModifyIpamResourceCidrResult;
+    };
+    sdk: {
+      input: ModifyIpamResourceCidrCommandInput;
+      output: ModifyIpamResourceCidrCommandOutput;
+    };
+  };
+}

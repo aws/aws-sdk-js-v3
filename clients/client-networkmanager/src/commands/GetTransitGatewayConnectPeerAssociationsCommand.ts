@@ -119,4 +119,16 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayConnectPeerAssociationsCommand)
   .de(de_GetTransitGatewayConnectPeerAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayConnectPeerAssociationsRequest;
+      output: GetTransitGatewayConnectPeerAssociationsResponse;
+    };
+    sdk: {
+      input: GetTransitGatewayConnectPeerAssociationsCommandInput;
+      output: GetTransitGatewayConnectPeerAssociationsCommandOutput;
+    };
+  };
+}

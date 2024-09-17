@@ -131,4 +131,16 @@ export class DescribeConfigurationAggregatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationAggregatorsCommand)
   .de(de_DescribeConfigurationAggregatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationAggregatorsRequest;
+      output: DescribeConfigurationAggregatorsResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationAggregatorsCommandInput;
+      output: DescribeConfigurationAggregatorsCommandOutput;
+    };
+  };
+}

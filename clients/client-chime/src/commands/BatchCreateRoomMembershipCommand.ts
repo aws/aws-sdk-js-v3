@@ -112,4 +112,16 @@ export class BatchCreateRoomMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateRoomMembershipCommand)
   .de(de_BatchCreateRoomMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateRoomMembershipRequest;
+      output: BatchCreateRoomMembershipResponse;
+    };
+    sdk: {
+      input: BatchCreateRoomMembershipCommandInput;
+      output: BatchCreateRoomMembershipCommandOutput;
+    };
+  };
+}

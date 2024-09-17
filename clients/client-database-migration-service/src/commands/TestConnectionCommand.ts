@@ -122,4 +122,16 @@ export class TestConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestConnectionCommand)
   .de(de_TestConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestConnectionMessage;
+      output: TestConnectionResponse;
+    };
+    sdk: {
+      input: TestConnectionCommandInput;
+      output: TestConnectionCommandOutput;
+    };
+  };
+}

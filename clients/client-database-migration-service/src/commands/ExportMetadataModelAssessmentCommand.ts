@@ -130,4 +130,16 @@ export class ExportMetadataModelAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportMetadataModelAssessmentCommand)
   .de(de_ExportMetadataModelAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportMetadataModelAssessmentMessage;
+      output: ExportMetadataModelAssessmentResponse;
+    };
+    sdk: {
+      input: ExportMetadataModelAssessmentCommandInput;
+      output: ExportMetadataModelAssessmentCommandOutput;
+    };
+  };
+}

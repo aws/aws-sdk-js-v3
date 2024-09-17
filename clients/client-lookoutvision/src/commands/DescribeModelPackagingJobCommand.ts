@@ -140,4 +140,16 @@ export class DescribeModelPackagingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeModelPackagingJobCommand)
   .de(de_DescribeModelPackagingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelPackagingJobRequest;
+      output: DescribeModelPackagingJobResponse;
+    };
+    sdk: {
+      input: DescribeModelPackagingJobCommandInput;
+      output: DescribeModelPackagingJobCommandOutput;
+    };
+  };
+}

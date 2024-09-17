@@ -130,4 +130,16 @@ export class CreateLicenseManagerReportGeneratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLicenseManagerReportGeneratorCommand)
   .de(de_CreateLicenseManagerReportGeneratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLicenseManagerReportGeneratorRequest;
+      output: CreateLicenseManagerReportGeneratorResponse;
+    };
+    sdk: {
+      input: CreateLicenseManagerReportGeneratorCommandInput;
+      output: CreateLicenseManagerReportGeneratorCommandOutput;
+    };
+  };
+}

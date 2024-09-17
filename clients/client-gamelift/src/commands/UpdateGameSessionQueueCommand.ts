@@ -158,4 +158,16 @@ export class UpdateGameSessionQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGameSessionQueueCommand)
   .de(de_UpdateGameSessionQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGameSessionQueueInput;
+      output: UpdateGameSessionQueueOutput;
+    };
+    sdk: {
+      input: UpdateGameSessionQueueCommandInput;
+      output: UpdateGameSessionQueueCommandOutput;
+    };
+  };
+}

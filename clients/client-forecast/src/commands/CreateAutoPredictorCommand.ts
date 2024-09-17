@@ -197,4 +197,16 @@ export class CreateAutoPredictorCommand extends $Command
   .f(CreateAutoPredictorRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAutoPredictorCommand)
   .de(de_CreateAutoPredictorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutoPredictorRequest;
+      output: CreateAutoPredictorResponse;
+    };
+    sdk: {
+      input: CreateAutoPredictorCommandInput;
+      output: CreateAutoPredictorCommandOutput;
+    };
+  };
+}

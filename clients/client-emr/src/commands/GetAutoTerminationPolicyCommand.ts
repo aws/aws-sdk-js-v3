@@ -79,4 +79,16 @@ export class GetAutoTerminationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoTerminationPolicyCommand)
   .de(de_GetAutoTerminationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoTerminationPolicyInput;
+      output: GetAutoTerminationPolicyOutput;
+    };
+    sdk: {
+      input: GetAutoTerminationPolicyCommandInput;
+      output: GetAutoTerminationPolicyCommandOutput;
+    };
+  };
+}

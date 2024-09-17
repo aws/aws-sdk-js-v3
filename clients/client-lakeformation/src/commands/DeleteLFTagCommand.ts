@@ -91,4 +91,16 @@ export class DeleteLFTagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLFTagCommand)
   .de(de_DeleteLFTagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLFTagRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLFTagCommandInput;
+      output: DeleteLFTagCommandOutput;
+    };
+  };
+}

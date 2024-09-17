@@ -116,4 +116,16 @@ export class EnableFastSnapshotRestoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableFastSnapshotRestoresCommand)
   .de(de_EnableFastSnapshotRestoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableFastSnapshotRestoresRequest;
+      output: EnableFastSnapshotRestoresResult;
+    };
+    sdk: {
+      input: EnableFastSnapshotRestoresCommandInput;
+      output: EnableFastSnapshotRestoresCommandOutput;
+    };
+  };
+}

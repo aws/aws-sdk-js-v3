@@ -102,4 +102,16 @@ export class ListStorageProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageProfilesCommand)
   .de(de_ListStorageProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageProfilesRequest;
+      output: ListStorageProfilesResponse;
+    };
+    sdk: {
+      input: ListStorageProfilesCommandInput;
+      output: ListStorageProfilesCommandOutput;
+    };
+  };
+}

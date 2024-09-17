@@ -93,4 +93,16 @@ export class DeleteDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDistributionCommand)
   .de(de_DeleteDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDistributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDistributionCommandInput;
+      output: DeleteDistributionCommandOutput;
+    };
+  };
+}

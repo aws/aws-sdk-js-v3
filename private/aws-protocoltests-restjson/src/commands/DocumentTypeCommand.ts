@@ -73,4 +73,16 @@ export class DocumentTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DocumentTypeCommand)
   .de(de_DocumentTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DocumentTypeInputOutput;
+      output: DocumentTypeInputOutput;
+    };
+    sdk: {
+      input: DocumentTypeCommandInput;
+      output: DocumentTypeCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListMeteredProductsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMeteredProductsCommand)
   .de(de_ListMeteredProductsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMeteredProductsRequest;
+      output: ListMeteredProductsResponse;
+    };
+    sdk: {
+      input: ListMeteredProductsCommandInput;
+      output: ListMeteredProductsCommandOutput;
+    };
+  };
+}

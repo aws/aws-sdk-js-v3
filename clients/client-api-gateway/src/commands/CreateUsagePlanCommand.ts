@@ -147,4 +147,16 @@ export class CreateUsagePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUsagePlanCommand)
   .de(de_CreateUsagePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUsagePlanRequest;
+      output: UsagePlan;
+    };
+    sdk: {
+      input: CreateUsagePlanCommandInput;
+      output: CreateUsagePlanCommandOutput;
+    };
+  };
+}

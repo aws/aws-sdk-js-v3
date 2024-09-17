@@ -102,4 +102,16 @@ export class GetAccessGrantsInstanceForPrefixCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessGrantsInstanceForPrefixCommand)
   .de(de_GetAccessGrantsInstanceForPrefixCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessGrantsInstanceForPrefixRequest;
+      output: GetAccessGrantsInstanceForPrefixResult;
+    };
+    sdk: {
+      input: GetAccessGrantsInstanceForPrefixCommandInput;
+      output: GetAccessGrantsInstanceForPrefixCommandOutput;
+    };
+  };
+}

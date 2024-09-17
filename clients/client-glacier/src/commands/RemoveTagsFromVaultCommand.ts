@@ -111,4 +111,16 @@ export class RemoveTagsFromVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromVaultCommand)
   .de(de_RemoveTagsFromVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromVaultInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromVaultCommandInput;
+      output: RemoveTagsFromVaultCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class ListServiceInstanceOutputsCommand extends $Command
   .f(void 0, ListServiceInstanceOutputsOutputFilterSensitiveLog)
   .ser(se_ListServiceInstanceOutputsCommand)
   .de(de_ListServiceInstanceOutputsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceInstanceOutputsInput;
+      output: ListServiceInstanceOutputsOutput;
+    };
+    sdk: {
+      input: ListServiceInstanceOutputsCommandInput;
+      output: ListServiceInstanceOutputsCommandOutput;
+    };
+  };
+}

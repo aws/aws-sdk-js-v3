@@ -108,4 +108,16 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateWebsiteAuthorizationProviderCommand)
   .de(de_AssociateWebsiteAuthorizationProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateWebsiteAuthorizationProviderRequest;
+      output: AssociateWebsiteAuthorizationProviderResponse;
+    };
+    sdk: {
+      input: AssociateWebsiteAuthorizationProviderCommandInput;
+      output: AssociateWebsiteAuthorizationProviderCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class CreateRequestValidatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRequestValidatorCommand)
   .de(de_CreateRequestValidatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRequestValidatorRequest;
+      output: RequestValidator;
+    };
+    sdk: {
+      input: CreateRequestValidatorCommandInput;
+      output: CreateRequestValidatorCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class DeleteTransitGatewayConnectPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayConnectPeerCommand)
   .de(de_DeleteTransitGatewayConnectPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayConnectPeerRequest;
+      output: DeleteTransitGatewayConnectPeerResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayConnectPeerCommandInput;
+      output: DeleteTransitGatewayConnectPeerCommandOutput;
+    };
+  };
+}

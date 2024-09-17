@@ -117,4 +117,16 @@ export class GetTrafficDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrafficDistributionCommand)
   .de(de_GetTrafficDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrafficDistributionRequest;
+      output: GetTrafficDistributionResponse;
+    };
+    sdk: {
+      input: GetTrafficDistributionCommandInput;
+      output: GetTrafficDistributionCommandOutput;
+    };
+  };
+}

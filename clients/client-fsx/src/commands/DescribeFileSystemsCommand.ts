@@ -733,4 +733,16 @@ export class DescribeFileSystemsCommand extends $Command
   .f(void 0, DescribeFileSystemsResponseFilterSensitiveLog)
   .ser(se_DescribeFileSystemsCommand)
   .de(de_DescribeFileSystemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFileSystemsRequest;
+      output: DescribeFileSystemsResponse;
+    };
+    sdk: {
+      input: DescribeFileSystemsCommandInput;
+      output: DescribeFileSystemsCommandOutput;
+    };
+  };
+}

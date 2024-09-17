@@ -99,4 +99,16 @@ export class PostToConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostToConnectionCommand)
   .de(de_PostToConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostToConnectionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PostToConnectionCommandInput;
+      output: PostToConnectionCommandOutput;
+    };
+  };
+}

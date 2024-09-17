@@ -165,4 +165,16 @@ export class UpdateTriggerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTriggerCommand)
   .de(de_UpdateTriggerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTriggerRequest;
+      output: UpdateTriggerResponse;
+    };
+    sdk: {
+      input: UpdateTriggerCommandInput;
+      output: UpdateTriggerCommandOutput;
+    };
+  };
+}

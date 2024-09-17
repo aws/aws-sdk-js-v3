@@ -72,4 +72,16 @@ export class HttpRequestWithRegexLiteralCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpRequestWithRegexLiteralCommand)
   .de(de_HttpRequestWithRegexLiteralCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithRegexLiteralInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithRegexLiteralCommandInput;
+      output: HttpRequestWithRegexLiteralCommandOutput;
+    };
+  };
+}

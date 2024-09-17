@@ -105,4 +105,16 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppInstanceRetentionSettingsCommand)
   .de(de_GetAppInstanceRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppInstanceRetentionSettingsRequest;
+      output: GetAppInstanceRetentionSettingsResponse;
+    };
+    sdk: {
+      input: GetAppInstanceRetentionSettingsCommandInput;
+      output: GetAppInstanceRetentionSettingsCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class UpdateStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStepCommand)
   .de(de_UpdateStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStepRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStepCommandInput;
+      output: UpdateStepCommandOutput;
+    };
+  };
+}

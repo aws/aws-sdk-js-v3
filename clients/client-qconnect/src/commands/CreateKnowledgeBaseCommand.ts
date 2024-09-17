@@ -161,4 +161,16 @@ export class CreateKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKnowledgeBaseCommand)
   .de(de_CreateKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKnowledgeBaseRequest;
+      output: CreateKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: CreateKnowledgeBaseCommandInput;
+      output: CreateKnowledgeBaseCommandOutput;
+    };
+  };
+}

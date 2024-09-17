@@ -132,4 +132,16 @@ export class UpdateFolderPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFolderPermissionsCommand)
   .de(de_UpdateFolderPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFolderPermissionsRequest;
+      output: UpdateFolderPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateFolderPermissionsCommandInput;
+      output: UpdateFolderPermissionsCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class DeleteStreamingDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStreamingDistributionCommand)
   .de(de_DeleteStreamingDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStreamingDistributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStreamingDistributionCommandInput;
+      output: DeleteStreamingDistributionCommandOutput;
+    };
+  };
+}

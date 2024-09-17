@@ -102,4 +102,16 @@ export class DetachRolePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachRolePolicyCommand)
   .de(de_DetachRolePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachRolePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachRolePolicyCommandInput;
+      output: DetachRolePolicyCommandOutput;
+    };
+  };
+}

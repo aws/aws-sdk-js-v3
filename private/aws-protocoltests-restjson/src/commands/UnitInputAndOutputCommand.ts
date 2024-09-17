@@ -66,4 +66,16 @@ export class UnitInputAndOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnitInputAndOutputCommand)
   .de(de_UnitInputAndOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: UnitInputAndOutputCommandInput;
+      output: UnitInputAndOutputCommandOutput;
+    };
+  };
+}

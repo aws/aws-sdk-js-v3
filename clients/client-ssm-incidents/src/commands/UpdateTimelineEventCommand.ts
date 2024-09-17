@@ -106,4 +106,16 @@ export class UpdateTimelineEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTimelineEventCommand)
   .de(de_UpdateTimelineEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTimelineEventInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTimelineEventCommandInput;
+      output: UpdateTimelineEventCommandOutput;
+    };
+  };
+}

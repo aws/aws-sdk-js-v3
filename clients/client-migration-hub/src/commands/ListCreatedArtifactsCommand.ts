@@ -126,4 +126,16 @@ export class ListCreatedArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCreatedArtifactsCommand)
   .de(de_ListCreatedArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCreatedArtifactsRequest;
+      output: ListCreatedArtifactsResult;
+    };
+    sdk: {
+      input: ListCreatedArtifactsCommandInput;
+      output: ListCreatedArtifactsCommandOutput;
+    };
+  };
+}

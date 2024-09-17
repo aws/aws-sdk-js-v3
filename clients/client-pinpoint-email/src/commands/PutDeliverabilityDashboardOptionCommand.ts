@@ -113,4 +113,16 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliverabilityDashboardOptionCommand)
   .de(de_PutDeliverabilityDashboardOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliverabilityDashboardOptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDeliverabilityDashboardOptionCommandInput;
+      output: PutDeliverabilityDashboardOptionCommandOutput;
+    };
+  };
+}

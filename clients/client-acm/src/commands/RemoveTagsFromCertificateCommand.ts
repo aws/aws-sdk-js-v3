@@ -106,4 +106,16 @@ export class RemoveTagsFromCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromCertificateCommand)
   .de(de_RemoveTagsFromCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromCertificateCommandInput;
+      output: RemoveTagsFromCertificateCommandOutput;
+    };
+  };
+}

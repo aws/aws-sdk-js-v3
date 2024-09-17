@@ -131,4 +131,16 @@ export class DeprecateWorkflowTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeprecateWorkflowTypeCommand)
   .de(de_DeprecateWorkflowTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeprecateWorkflowTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeprecateWorkflowTypeCommandInput;
+      output: DeprecateWorkflowTypeCommandOutput;
+    };
+  };
+}

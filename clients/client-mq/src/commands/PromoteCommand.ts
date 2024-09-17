@@ -90,4 +90,16 @@ export class PromoteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteCommand)
   .de(de_PromoteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteRequest;
+      output: PromoteResponse;
+    };
+    sdk: {
+      input: PromoteCommandInput;
+      output: PromoteCommandOutput;
+    };
+  };
+}

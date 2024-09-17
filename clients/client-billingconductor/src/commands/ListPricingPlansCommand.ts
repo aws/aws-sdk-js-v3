@@ -115,4 +115,16 @@ export class ListPricingPlansCommand extends $Command
   .f(void 0, ListPricingPlansOutputFilterSensitiveLog)
   .ser(se_ListPricingPlansCommand)
   .de(de_ListPricingPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPricingPlansInput;
+      output: ListPricingPlansOutput;
+    };
+    sdk: {
+      input: ListPricingPlansCommandInput;
+      output: ListPricingPlansCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedRoute53HealthChecksCommand)
   .de(de_ListAssociatedRoute53HealthChecksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedRoute53HealthChecksRequest;
+      output: ListAssociatedRoute53HealthChecksResponse;
+    };
+    sdk: {
+      input: ListAssociatedRoute53HealthChecksCommandInput;
+      output: ListAssociatedRoute53HealthChecksCommandOutput;
+    };
+  };
+}

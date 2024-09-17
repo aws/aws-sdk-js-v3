@@ -90,4 +90,16 @@ export class ContinueUpdateRollbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContinueUpdateRollbackCommand)
   .de(de_ContinueUpdateRollbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContinueUpdateRollbackInput;
+      output: {};
+    };
+    sdk: {
+      input: ContinueUpdateRollbackCommandInput;
+      output: ContinueUpdateRollbackCommandOutput;
+    };
+  };
+}

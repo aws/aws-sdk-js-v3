@@ -159,4 +159,16 @@ export class StartReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplicationTaskCommand)
   .de(de_StartReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationTaskMessage;
+      output: StartReplicationTaskResponse;
+    };
+    sdk: {
+      input: StartReplicationTaskCommandInput;
+      output: StartReplicationTaskCommandOutput;
+    };
+  };
+}

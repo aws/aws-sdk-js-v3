@@ -95,4 +95,16 @@ export class ListThingRegistrationTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThingRegistrationTasksCommand)
   .de(de_ListThingRegistrationTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThingRegistrationTasksRequest;
+      output: ListThingRegistrationTasksResponse;
+    };
+    sdk: {
+      input: ListThingRegistrationTasksCommandInput;
+      output: ListThingRegistrationTasksCommandOutput;
+    };
+  };
+}

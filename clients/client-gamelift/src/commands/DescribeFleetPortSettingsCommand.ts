@@ -136,4 +136,16 @@ export class DescribeFleetPortSettingsCommand extends $Command
   .f(void 0, DescribeFleetPortSettingsOutputFilterSensitiveLog)
   .ser(se_DescribeFleetPortSettingsCommand)
   .de(de_DescribeFleetPortSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetPortSettingsInput;
+      output: DescribeFleetPortSettingsOutput;
+    };
+    sdk: {
+      input: DescribeFleetPortSettingsCommandInput;
+      output: DescribeFleetPortSettingsCommandOutput;
+    };
+  };
+}

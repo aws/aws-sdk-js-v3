@@ -105,4 +105,16 @@ export class AssociateUserToPermissionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateUserToPermissionGroupCommand)
   .de(de_AssociateUserToPermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateUserToPermissionGroupRequest;
+      output: AssociateUserToPermissionGroupResponse;
+    };
+    sdk: {
+      input: AssociateUserToPermissionGroupCommandInput;
+      output: AssociateUserToPermissionGroupCommandOutput;
+    };
+  };
+}

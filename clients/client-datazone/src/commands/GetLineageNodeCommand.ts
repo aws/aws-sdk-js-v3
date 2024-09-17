@@ -128,4 +128,16 @@ export class GetLineageNodeCommand extends $Command
   .f(void 0, GetLineageNodeOutputFilterSensitiveLog)
   .ser(se_GetLineageNodeCommand)
   .de(de_GetLineageNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLineageNodeInput;
+      output: GetLineageNodeOutput;
+    };
+    sdk: {
+      input: GetLineageNodeCommandInput;
+      output: GetLineageNodeCommandOutput;
+    };
+  };
+}

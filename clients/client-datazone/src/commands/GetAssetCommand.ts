@@ -142,4 +142,16 @@ export class GetAssetCommand extends $Command
   .f(void 0, GetAssetOutputFilterSensitiveLog)
   .ser(se_GetAssetCommand)
   .de(de_GetAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetInput;
+      output: GetAssetOutput;
+    };
+    sdk: {
+      input: GetAssetCommandInput;
+      output: GetAssetCommandOutput;
+    };
+  };
+}

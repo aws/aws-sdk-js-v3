@@ -93,4 +93,16 @@ export class GetTargetAccountConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTargetAccountConfigurationCommand)
   .de(de_GetTargetAccountConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTargetAccountConfigurationRequest;
+      output: GetTargetAccountConfigurationResponse;
+    };
+    sdk: {
+      input: GetTargetAccountConfigurationCommandInput;
+      output: GetTargetAccountConfigurationCommandOutput;
+    };
+  };
+}

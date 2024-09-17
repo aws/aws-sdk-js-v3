@@ -145,4 +145,16 @@ export class DeleteClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterCommand)
   .de(de_DeleteClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterRequest;
+      output: DeleteClusterResponse;
+    };
+    sdk: {
+      input: DeleteClusterCommandInput;
+      output: DeleteClusterCommandOutput;
+    };
+  };
+}

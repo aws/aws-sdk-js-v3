@@ -145,4 +145,16 @@ export class CreateIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIntegrationCommand)
   .de(de_CreateIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIntegrationRequest;
+      output: CreateIntegrationResult;
+    };
+    sdk: {
+      input: CreateIntegrationCommandInput;
+      output: CreateIntegrationCommandOutput;
+    };
+  };
+}

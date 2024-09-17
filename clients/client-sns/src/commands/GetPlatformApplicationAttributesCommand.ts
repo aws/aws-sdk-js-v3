@@ -99,4 +99,16 @@ export class GetPlatformApplicationAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlatformApplicationAttributesCommand)
   .de(de_GetPlatformApplicationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlatformApplicationAttributesInput;
+      output: GetPlatformApplicationAttributesResponse;
+    };
+    sdk: {
+      input: GetPlatformApplicationAttributesCommandInput;
+      output: GetPlatformApplicationAttributesCommandOutput;
+    };
+  };
+}

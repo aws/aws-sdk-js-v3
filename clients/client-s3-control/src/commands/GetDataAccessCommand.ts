@@ -106,4 +106,16 @@ export class GetDataAccessCommand extends $Command
   .f(void 0, GetDataAccessResultFilterSensitiveLog)
   .ser(se_GetDataAccessCommand)
   .de(de_GetDataAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataAccessRequest;
+      output: GetDataAccessResult;
+    };
+    sdk: {
+      input: GetDataAccessCommandInput;
+      output: GetDataAccessCommandOutput;
+    };
+  };
+}

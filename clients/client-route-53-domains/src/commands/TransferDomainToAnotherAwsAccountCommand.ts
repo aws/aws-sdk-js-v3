@@ -128,4 +128,16 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command
   .f(void 0, TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog)
   .ser(se_TransferDomainToAnotherAwsAccountCommand)
   .de(de_TransferDomainToAnotherAwsAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferDomainToAnotherAwsAccountRequest;
+      output: TransferDomainToAnotherAwsAccountResponse;
+    };
+    sdk: {
+      input: TransferDomainToAnotherAwsAccountCommandInput;
+      output: TransferDomainToAnotherAwsAccountCommandOutput;
+    };
+  };
+}

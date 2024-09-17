@@ -132,4 +132,16 @@ export class BatchUpdateRecommendationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateRecommendationStatusCommand)
   .de(de_BatchUpdateRecommendationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateRecommendationStatusRequest;
+      output: BatchUpdateRecommendationStatusResponse;
+    };
+    sdk: {
+      input: BatchUpdateRecommendationStatusCommandInput;
+      output: BatchUpdateRecommendationStatusCommandOutput;
+    };
+  };
+}

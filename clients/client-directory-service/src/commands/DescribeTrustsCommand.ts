@@ -117,4 +117,16 @@ export class DescribeTrustsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustsCommand)
   .de(de_DescribeTrustsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustsRequest;
+      output: DescribeTrustsResult;
+    };
+    sdk: {
+      input: DescribeTrustsCommandInput;
+      output: DescribeTrustsCommandOutput;
+    };
+  };
+}

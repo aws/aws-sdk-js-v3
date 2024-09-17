@@ -102,4 +102,16 @@ export class GetSegmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentCommand)
   .de(de_GetSegmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentRequest;
+      output: GetSegmentResponse;
+    };
+    sdk: {
+      input: GetSegmentCommandInput;
+      output: GetSegmentCommandOutput;
+    };
+  };
+}

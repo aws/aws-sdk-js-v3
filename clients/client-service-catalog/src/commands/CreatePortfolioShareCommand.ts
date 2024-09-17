@@ -120,4 +120,16 @@ export class CreatePortfolioShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePortfolioShareCommand)
   .de(de_CreatePortfolioShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePortfolioShareInput;
+      output: CreatePortfolioShareOutput;
+    };
+    sdk: {
+      input: CreatePortfolioShareCommandInput;
+      output: CreatePortfolioShareCommandOutput;
+    };
+  };
+}

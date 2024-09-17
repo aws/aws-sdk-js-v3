@@ -120,4 +120,16 @@ export class GetDataViewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataViewCommand)
   .de(de_GetDataViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataViewRequest;
+      output: GetDataViewResponse;
+    };
+    sdk: {
+      input: GetDataViewCommandInput;
+      output: GetDataViewCommandOutput;
+    };
+  };
+}

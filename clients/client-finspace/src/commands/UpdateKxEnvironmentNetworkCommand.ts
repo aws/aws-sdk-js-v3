@@ -165,4 +165,16 @@ export class UpdateKxEnvironmentNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxEnvironmentNetworkCommand)
   .de(de_UpdateKxEnvironmentNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxEnvironmentNetworkRequest;
+      output: UpdateKxEnvironmentNetworkResponse;
+    };
+    sdk: {
+      input: UpdateKxEnvironmentNetworkCommandInput;
+      output: UpdateKxEnvironmentNetworkCommandOutput;
+    };
+  };
+}

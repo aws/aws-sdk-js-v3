@@ -112,4 +112,16 @@ export class ListOutpostResolversCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOutpostResolversCommand)
   .de(de_ListOutpostResolversCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOutpostResolversRequest;
+      output: ListOutpostResolversResponse;
+    };
+    sdk: {
+      input: ListOutpostResolversCommandInput;
+      output: ListOutpostResolversCommandOutput;
+    };
+  };
+}

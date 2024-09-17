@@ -119,4 +119,16 @@ export class RegisterConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterConnectorCommand)
   .de(de_RegisterConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterConnectorRequest;
+      output: RegisterConnectorResponse;
+    };
+    sdk: {
+      input: RegisterConnectorCommandInput;
+      output: RegisterConnectorCommandOutput;
+    };
+  };
+}

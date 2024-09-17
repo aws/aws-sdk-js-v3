@@ -168,4 +168,16 @@ export class AddInstanceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddInstanceFleetCommand)
   .de(de_AddInstanceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddInstanceFleetInput;
+      output: AddInstanceFleetOutput;
+    };
+    sdk: {
+      input: AddInstanceFleetCommandInput;
+      output: AddInstanceFleetCommandOutput;
+    };
+  };
+}

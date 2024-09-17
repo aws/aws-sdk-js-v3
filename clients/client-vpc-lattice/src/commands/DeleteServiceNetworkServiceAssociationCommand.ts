@@ -109,4 +109,16 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceNetworkServiceAssociationCommand)
   .de(de_DeleteServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceNetworkServiceAssociationRequest;
+      output: DeleteServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: DeleteServiceNetworkServiceAssociationCommandInput;
+      output: DeleteServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

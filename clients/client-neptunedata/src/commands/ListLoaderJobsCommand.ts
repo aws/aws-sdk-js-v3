@@ -124,4 +124,16 @@ export class ListLoaderJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLoaderJobsCommand)
   .de(de_ListLoaderJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLoaderJobsInput;
+      output: ListLoaderJobsOutput;
+    };
+    sdk: {
+      input: ListLoaderJobsCommandInput;
+      output: ListLoaderJobsCommandOutput;
+    };
+  };
+}

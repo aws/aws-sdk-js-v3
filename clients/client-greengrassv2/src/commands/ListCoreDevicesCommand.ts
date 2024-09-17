@@ -128,4 +128,16 @@ export class ListCoreDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreDevicesCommand)
   .de(de_ListCoreDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreDevicesRequest;
+      output: ListCoreDevicesResponse;
+    };
+    sdk: {
+      input: ListCoreDevicesCommandInput;
+      output: ListCoreDevicesCommandOutput;
+    };
+  };
+}

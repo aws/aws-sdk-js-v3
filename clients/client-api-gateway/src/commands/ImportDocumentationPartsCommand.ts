@@ -110,4 +110,16 @@ export class ImportDocumentationPartsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDocumentationPartsCommand)
   .de(de_ImportDocumentationPartsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDocumentationPartsRequest;
+      output: DocumentationPartIds;
+    };
+    sdk: {
+      input: ImportDocumentationPartsCommandInput;
+      output: ImportDocumentationPartsCommandOutput;
+    };
+  };
+}

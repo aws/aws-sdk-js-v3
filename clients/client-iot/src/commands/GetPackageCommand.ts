@@ -96,4 +96,16 @@ export class GetPackageCommand extends $Command
   .f(void 0, GetPackageResponseFilterSensitiveLog)
   .ser(se_GetPackageCommand)
   .de(de_GetPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageRequest;
+      output: GetPackageResponse;
+    };
+    sdk: {
+      input: GetPackageCommandInput;
+      output: GetPackageCommandOutput;
+    };
+  };
+}

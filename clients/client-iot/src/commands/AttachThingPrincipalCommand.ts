@@ -96,4 +96,16 @@ export class AttachThingPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachThingPrincipalCommand)
   .de(de_AttachThingPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachThingPrincipalRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachThingPrincipalCommandInput;
+      output: AttachThingPrincipalCommandOutput;
+    };
+  };
+}

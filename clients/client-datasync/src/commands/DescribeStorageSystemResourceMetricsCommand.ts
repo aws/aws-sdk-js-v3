@@ -131,4 +131,16 @@ export class DescribeStorageSystemResourceMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStorageSystemResourceMetricsCommand)
   .de(de_DescribeStorageSystemResourceMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStorageSystemResourceMetricsRequest;
+      output: DescribeStorageSystemResourceMetricsResponse;
+    };
+    sdk: {
+      input: DescribeStorageSystemResourceMetricsCommandInput;
+      output: DescribeStorageSystemResourceMetricsCommandOutput;
+    };
+  };
+}

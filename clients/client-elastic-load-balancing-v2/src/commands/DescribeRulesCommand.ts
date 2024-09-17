@@ -241,4 +241,16 @@ export class DescribeRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRulesCommand)
   .de(de_DescribeRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRulesInput;
+      output: DescribeRulesOutput;
+    };
+    sdk: {
+      input: DescribeRulesCommandInput;
+      output: DescribeRulesCommandOutput;
+    };
+  };
+}

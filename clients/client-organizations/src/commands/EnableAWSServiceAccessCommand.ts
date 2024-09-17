@@ -420,4 +420,16 @@ export class EnableAWSServiceAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableAWSServiceAccessCommand)
   .de(de_EnableAWSServiceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableAWSServiceAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableAWSServiceAccessCommandInput;
+      output: EnableAWSServiceAccessCommandOutput;
+    };
+  };
+}

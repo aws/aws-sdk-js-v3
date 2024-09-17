@@ -118,4 +118,16 @@ export class ListAssetContractsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetContractsCommand)
   .de(de_ListAssetContractsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetContractsInput;
+      output: ListAssetContractsOutput;
+    };
+    sdk: {
+      input: ListAssetContractsCommandInput;
+      output: ListAssetContractsCommandOutput;
+    };
+  };
+}

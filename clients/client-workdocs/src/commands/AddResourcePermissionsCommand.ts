@@ -122,4 +122,16 @@ export class AddResourcePermissionsCommand extends $Command
   .f(AddResourcePermissionsRequestFilterSensitiveLog, AddResourcePermissionsResponseFilterSensitiveLog)
   .ser(se_AddResourcePermissionsCommand)
   .de(de_AddResourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddResourcePermissionsRequest;
+      output: AddResourcePermissionsResponse;
+    };
+    sdk: {
+      input: AddResourcePermissionsCommandInput;
+      output: AddResourcePermissionsCommandOutput;
+    };
+  };
+}

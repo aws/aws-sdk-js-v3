@@ -96,4 +96,16 @@ export class PutEmailMonitoringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailMonitoringConfigurationCommand)
   .de(de_PutEmailMonitoringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailMonitoringConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailMonitoringConfigurationCommandInput;
+      output: PutEmailMonitoringConfigurationCommandOutput;
+    };
+  };
+}

@@ -719,4 +719,16 @@ export class RegisterJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterJobDefinitionCommand)
   .de(de_RegisterJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterJobDefinitionRequest;
+      output: RegisterJobDefinitionResponse;
+    };
+    sdk: {
+      input: RegisterJobDefinitionCommandInput;
+      output: RegisterJobDefinitionCommandOutput;
+    };
+  };
+}

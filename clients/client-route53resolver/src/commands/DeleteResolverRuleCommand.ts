@@ -116,4 +116,16 @@ export class DeleteResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResolverRuleCommand)
   .de(de_DeleteResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResolverRuleRequest;
+      output: DeleteResolverRuleResponse;
+    };
+    sdk: {
+      input: DeleteResolverRuleCommandInput;
+      output: DeleteResolverRuleCommandOutput;
+    };
+  };
+}

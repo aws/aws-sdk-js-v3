@@ -112,4 +112,16 @@ export class RetrieveTapeRecoveryPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetrieveTapeRecoveryPointCommand)
   .de(de_RetrieveTapeRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveTapeRecoveryPointInput;
+      output: RetrieveTapeRecoveryPointOutput;
+    };
+    sdk: {
+      input: RetrieveTapeRecoveryPointCommandInput;
+      output: RetrieveTapeRecoveryPointCommandOutput;
+    };
+  };
+}

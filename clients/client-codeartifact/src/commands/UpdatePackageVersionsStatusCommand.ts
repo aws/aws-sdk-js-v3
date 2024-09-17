@@ -137,4 +137,16 @@ export class UpdatePackageVersionsStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageVersionsStatusCommand)
   .de(de_UpdatePackageVersionsStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageVersionsStatusRequest;
+      output: UpdatePackageVersionsStatusResult;
+    };
+    sdk: {
+      input: UpdatePackageVersionsStatusCommandInput;
+      output: UpdatePackageVersionsStatusCommandOutput;
+    };
+  };
+}

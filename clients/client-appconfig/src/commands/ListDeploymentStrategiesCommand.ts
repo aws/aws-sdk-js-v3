@@ -120,4 +120,16 @@ export class ListDeploymentStrategiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentStrategiesCommand)
   .de(de_ListDeploymentStrategiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentStrategiesRequest;
+      output: DeploymentStrategies;
+    };
+    sdk: {
+      input: ListDeploymentStrategiesCommandInput;
+      output: ListDeploymentStrategiesCommandOutput;
+    };
+  };
+}

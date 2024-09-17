@@ -107,4 +107,16 @@ export class ListPagesByContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPagesByContactCommand)
   .de(de_ListPagesByContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPagesByContactRequest;
+      output: ListPagesByContactResult;
+    };
+    sdk: {
+      input: ListPagesByContactCommandInput;
+      output: ListPagesByContactCommandOutput;
+    };
+  };
+}

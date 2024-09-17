@@ -92,4 +92,16 @@ export class GetAccountLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountLimitCommand)
   .de(de_GetAccountLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccountLimitRequest;
+      output: GetAccountLimitResponse;
+    };
+    sdk: {
+      input: GetAccountLimitCommandInput;
+      output: GetAccountLimitCommandOutput;
+    };
+  };
+}

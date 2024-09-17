@@ -170,4 +170,16 @@ export class DescribeInstanceInformationCommand extends $Command
   .f(void 0, DescribeInstanceInformationResultFilterSensitiveLog)
   .ser(se_DescribeInstanceInformationCommand)
   .de(de_DescribeInstanceInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceInformationRequest;
+      output: DescribeInstanceInformationResult;
+    };
+    sdk: {
+      input: DescribeInstanceInformationCommandInput;
+      output: DescribeInstanceInformationCommandOutput;
+    };
+  };
+}

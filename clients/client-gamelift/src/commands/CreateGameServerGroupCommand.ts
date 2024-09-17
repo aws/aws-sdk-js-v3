@@ -190,4 +190,16 @@ export class CreateGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGameServerGroupCommand)
   .de(de_CreateGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGameServerGroupInput;
+      output: CreateGameServerGroupOutput;
+    };
+    sdk: {
+      input: CreateGameServerGroupCommandInput;
+      output: CreateGameServerGroupCommandOutput;
+    };
+  };
+}

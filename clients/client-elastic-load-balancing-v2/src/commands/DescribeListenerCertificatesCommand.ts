@@ -101,4 +101,16 @@ export class DescribeListenerCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeListenerCertificatesCommand)
   .de(de_DescribeListenerCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeListenerCertificatesInput;
+      output: DescribeListenerCertificatesOutput;
+    };
+    sdk: {
+      input: DescribeListenerCertificatesCommandInput;
+      output: DescribeListenerCertificatesCommandOutput;
+    };
+  };
+}

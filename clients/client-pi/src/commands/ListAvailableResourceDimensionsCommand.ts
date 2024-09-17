@@ -115,4 +115,16 @@ export class ListAvailableResourceDimensionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableResourceDimensionsCommand)
   .de(de_ListAvailableResourceDimensionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableResourceDimensionsRequest;
+      output: ListAvailableResourceDimensionsResponse;
+    };
+    sdk: {
+      input: ListAvailableResourceDimensionsCommandInput;
+      output: ListAvailableResourceDimensionsCommandOutput;
+    };
+  };
+}

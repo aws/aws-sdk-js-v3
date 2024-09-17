@@ -90,4 +90,16 @@ export class UploadArchiveCommand extends $Command
   .f(UploadArchiveInputFilterSensitiveLog, void 0)
   .ser(se_UploadArchiveCommand)
   .de(de_UploadArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadArchiveInput;
+      output: ArchiveCreationOutput;
+    };
+    sdk: {
+      input: UploadArchiveCommandInput;
+      output: UploadArchiveCommandOutput;
+    };
+  };
+}

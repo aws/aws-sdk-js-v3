@@ -192,4 +192,16 @@ export class UpdateDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentCommand)
   .de(de_UpdateDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentRequest;
+      output: UpdateDocumentResult;
+    };
+    sdk: {
+      input: UpdateDocumentCommandInput;
+      output: UpdateDocumentCommandOutput;
+    };
+  };
+}

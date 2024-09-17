@@ -78,4 +78,16 @@ export class DeleteConnectorDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectorDefinitionCommand)
   .de(de_DeleteConnectorDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectorDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConnectorDefinitionCommandInput;
+      output: DeleteConnectorDefinitionCommandOutput;
+    };
+  };
+}

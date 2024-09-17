@@ -157,4 +157,16 @@ export class UpdateBranchCommand extends $Command
   .f(UpdateBranchRequestFilterSensitiveLog, UpdateBranchResultFilterSensitiveLog)
   .ser(se_UpdateBranchCommand)
   .de(de_UpdateBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBranchRequest;
+      output: UpdateBranchResult;
+    };
+    sdk: {
+      input: UpdateBranchCommandInput;
+      output: UpdateBranchCommandOutput;
+    };
+  };
+}

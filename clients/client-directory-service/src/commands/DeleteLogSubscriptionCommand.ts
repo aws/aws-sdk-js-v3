@@ -87,4 +87,16 @@ export class DeleteLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLogSubscriptionCommand)
   .de(de_DeleteLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLogSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLogSubscriptionCommandInput;
+      output: DeleteLogSubscriptionCommandOutput;
+    };
+  };
+}

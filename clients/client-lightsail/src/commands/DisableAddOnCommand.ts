@@ -122,4 +122,16 @@ export class DisableAddOnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAddOnCommand)
   .de(de_DisableAddOnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAddOnRequest;
+      output: DisableAddOnResult;
+    };
+    sdk: {
+      input: DisableAddOnCommandInput;
+      output: DisableAddOnCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class DeleteRoomMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoomMembershipCommand)
   .de(de_DeleteRoomMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoomMembershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoomMembershipCommandInput;
+      output: DeleteRoomMembershipCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class PutRestoreValidationResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRestoreValidationResultCommand)
   .de(de_PutRestoreValidationResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRestoreValidationResultInput;
+      output: {};
+    };
+    sdk: {
+      input: PutRestoreValidationResultCommandInput;
+      output: PutRestoreValidationResultCommandOutput;
+    };
+  };
+}

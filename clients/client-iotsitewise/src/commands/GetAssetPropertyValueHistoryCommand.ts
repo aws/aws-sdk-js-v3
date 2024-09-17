@@ -137,4 +137,16 @@ export class GetAssetPropertyValueHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssetPropertyValueHistoryCommand)
   .de(de_GetAssetPropertyValueHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetPropertyValueHistoryRequest;
+      output: GetAssetPropertyValueHistoryResponse;
+    };
+    sdk: {
+      input: GetAssetPropertyValueHistoryCommandInput;
+      output: GetAssetPropertyValueHistoryCommandOutput;
+    };
+  };
+}

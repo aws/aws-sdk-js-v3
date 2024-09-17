@@ -116,4 +116,16 @@ export class UpdateEnvironmentActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentActionCommand)
   .de(de_UpdateEnvironmentActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentActionInput;
+      output: UpdateEnvironmentActionOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentActionCommandInput;
+      output: UpdateEnvironmentActionCommandOutput;
+    };
+  };
+}

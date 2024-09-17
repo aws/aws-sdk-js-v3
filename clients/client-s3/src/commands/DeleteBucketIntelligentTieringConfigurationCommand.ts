@@ -108,4 +108,16 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketIntelligentTieringConfigurationCommand)
   .de(de_DeleteBucketIntelligentTieringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketIntelligentTieringConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketIntelligentTieringConfigurationCommandInput;
+      output: DeleteBucketIntelligentTieringConfigurationCommandOutput;
+    };
+  };
+}

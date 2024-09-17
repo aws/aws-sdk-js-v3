@@ -106,4 +106,16 @@ export class AbortDocumentVersionUploadCommand extends $Command
   .f(AbortDocumentVersionUploadRequestFilterSensitiveLog, void 0)
   .ser(se_AbortDocumentVersionUploadCommand)
   .de(de_AbortDocumentVersionUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortDocumentVersionUploadRequest;
+      output: {};
+    };
+    sdk: {
+      input: AbortDocumentVersionUploadCommandInput;
+      output: AbortDocumentVersionUploadCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class ListResourceGroupingRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceGroupingRecommendationsCommand)
   .de(de_ListResourceGroupingRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceGroupingRecommendationsRequest;
+      output: ListResourceGroupingRecommendationsResponse;
+    };
+    sdk: {
+      input: ListResourceGroupingRecommendationsCommandInput;
+      output: ListResourceGroupingRecommendationsCommandOutput;
+    };
+  };
+}

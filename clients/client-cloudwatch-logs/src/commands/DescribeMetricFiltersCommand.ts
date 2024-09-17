@@ -113,4 +113,16 @@ export class DescribeMetricFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetricFiltersCommand)
   .de(de_DescribeMetricFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetricFiltersRequest;
+      output: DescribeMetricFiltersResponse;
+    };
+    sdk: {
+      input: DescribeMetricFiltersCommandInput;
+      output: DescribeMetricFiltersCommandOutput;
+    };
+  };
+}

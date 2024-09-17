@@ -96,4 +96,16 @@ export class GetPasswordDataCommand extends $Command
   .f(void 0, GetPasswordDataResultFilterSensitiveLog)
   .ser(se_GetPasswordDataCommand)
   .de(de_GetPasswordDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPasswordDataRequest;
+      output: GetPasswordDataResult;
+    };
+    sdk: {
+      input: GetPasswordDataCommandInput;
+      output: GetPasswordDataCommandOutput;
+    };
+  };
+}

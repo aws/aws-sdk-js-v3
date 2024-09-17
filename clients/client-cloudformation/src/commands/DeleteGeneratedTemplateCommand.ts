@@ -94,4 +94,16 @@ export class DeleteGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGeneratedTemplateCommand)
   .de(de_DeleteGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGeneratedTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGeneratedTemplateCommandInput;
+      output: DeleteGeneratedTemplateCommandOutput;
+    };
+  };
+}

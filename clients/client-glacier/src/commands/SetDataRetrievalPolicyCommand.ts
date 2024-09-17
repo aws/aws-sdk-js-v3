@@ -116,4 +116,16 @@ export class SetDataRetrievalPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDataRetrievalPolicyCommand)
   .de(de_SetDataRetrievalPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDataRetrievalPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: SetDataRetrievalPolicyCommandInput;
+      output: SetDataRetrievalPolicyCommandOutput;
+    };
+  };
+}

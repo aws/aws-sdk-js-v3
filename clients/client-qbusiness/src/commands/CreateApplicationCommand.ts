@@ -142,4 +142,16 @@ export class CreateApplicationCommand extends $Command
   .f(CreateApplicationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: CreateApplicationResponse;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

@@ -278,4 +278,16 @@ export class UpdateDataSourceCommand extends $Command
   .f(UpdateDataSourceInputFilterSensitiveLog, UpdateDataSourceOutputFilterSensitiveLog)
   .ser(se_UpdateDataSourceCommand)
   .de(de_UpdateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSourceInput;
+      output: UpdateDataSourceOutput;
+    };
+    sdk: {
+      input: UpdateDataSourceCommandInput;
+      output: UpdateDataSourceCommandOutput;
+    };
+  };
+}

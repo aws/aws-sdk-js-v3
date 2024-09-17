@@ -84,4 +84,16 @@ export class UpdateCodeRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCodeRepositoryCommand)
   .de(de_UpdateCodeRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCodeRepositoryInput;
+      output: UpdateCodeRepositoryOutput;
+    };
+    sdk: {
+      input: UpdateCodeRepositoryCommandInput;
+      output: UpdateCodeRepositoryCommandOutput;
+    };
+  };
+}

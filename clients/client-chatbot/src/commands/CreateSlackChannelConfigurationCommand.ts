@@ -142,4 +142,16 @@ export class CreateSlackChannelConfigurationCommand extends $Command
   .f(CreateSlackChannelConfigurationRequestFilterSensitiveLog, CreateSlackChannelConfigurationResultFilterSensitiveLog)
   .ser(se_CreateSlackChannelConfigurationCommand)
   .de(de_CreateSlackChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlackChannelConfigurationRequest;
+      output: CreateSlackChannelConfigurationResult;
+    };
+    sdk: {
+      input: CreateSlackChannelConfigurationCommandInput;
+      output: CreateSlackChannelConfigurationCommandOutput;
+    };
+  };
+}

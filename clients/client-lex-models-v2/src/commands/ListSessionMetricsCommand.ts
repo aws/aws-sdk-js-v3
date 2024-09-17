@@ -173,4 +173,16 @@ export class ListSessionMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSessionMetricsCommand)
   .de(de_ListSessionMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSessionMetricsRequest;
+      output: ListSessionMetricsResponse;
+    };
+    sdk: {
+      input: ListSessionMetricsCommandInput;
+      output: ListSessionMetricsCommandOutput;
+    };
+  };
+}

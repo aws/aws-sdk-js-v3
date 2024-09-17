@@ -136,4 +136,16 @@ export class CreateTypedLinkFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTypedLinkFacetCommand)
   .de(de_CreateTypedLinkFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTypedLinkFacetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateTypedLinkFacetCommandInput;
+      output: CreateTypedLinkFacetCommandOutput;
+    };
+  };
+}

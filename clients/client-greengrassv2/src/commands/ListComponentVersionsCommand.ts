@@ -104,4 +104,16 @@ export class ListComponentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComponentVersionsCommand)
   .de(de_ListComponentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentVersionsRequest;
+      output: ListComponentVersionsResponse;
+    };
+    sdk: {
+      input: ListComponentVersionsCommandInput;
+      output: ListComponentVersionsCommandOutput;
+    };
+  };
+}

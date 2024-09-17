@@ -124,4 +124,16 @@ export class SetTaskStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTaskStatusCommand)
   .de(de_SetTaskStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTaskStatusInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTaskStatusCommandInput;
+      output: SetTaskStatusCommandOutput;
+    };
+  };
+}

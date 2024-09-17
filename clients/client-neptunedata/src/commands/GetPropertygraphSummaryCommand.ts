@@ -169,4 +169,16 @@ export class GetPropertygraphSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPropertygraphSummaryCommand)
   .de(de_GetPropertygraphSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPropertygraphSummaryInput;
+      output: GetPropertygraphSummaryOutput;
+    };
+    sdk: {
+      input: GetPropertygraphSummaryCommandInput;
+      output: GetPropertygraphSummaryCommandOutput;
+    };
+  };
+}

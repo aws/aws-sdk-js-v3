@@ -101,4 +101,16 @@ export class GetDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDirectoryCommand)
   .de(de_GetDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDirectoryRequest;
+      output: GetDirectoryResponse;
+    };
+    sdk: {
+      input: GetDirectoryCommandInput;
+      output: GetDirectoryCommandOutput;
+    };
+  };
+}

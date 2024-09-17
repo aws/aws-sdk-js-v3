@@ -126,4 +126,16 @@ export class GetDomainStatisticsReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainStatisticsReportCommand)
   .de(de_GetDomainStatisticsReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainStatisticsReportRequest;
+      output: GetDomainStatisticsReportResponse;
+    };
+    sdk: {
+      input: GetDomainStatisticsReportCommandInput;
+      output: GetDomainStatisticsReportCommandOutput;
+    };
+  };
+}

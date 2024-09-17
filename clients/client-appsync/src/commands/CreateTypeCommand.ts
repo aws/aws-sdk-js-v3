@@ -102,4 +102,16 @@ export class CreateTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTypeCommand)
   .de(de_CreateTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTypeRequest;
+      output: CreateTypeResponse;
+    };
+    sdk: {
+      input: CreateTypeCommandInput;
+      output: CreateTypeCommandOutput;
+    };
+  };
+}

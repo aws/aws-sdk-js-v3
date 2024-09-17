@@ -113,4 +113,16 @@ export class RespondActivityTaskFailedCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RespondActivityTaskFailedCommand)
   .de(de_RespondActivityTaskFailedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RespondActivityTaskFailedInput;
+      output: {};
+    };
+    sdk: {
+      input: RespondActivityTaskFailedCommandInput;
+      output: RespondActivityTaskFailedCommandOutput;
+    };
+  };
+}

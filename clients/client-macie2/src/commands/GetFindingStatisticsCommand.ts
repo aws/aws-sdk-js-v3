@@ -127,4 +127,16 @@ export class GetFindingStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingStatisticsCommand)
   .de(de_GetFindingStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingStatisticsRequest;
+      output: GetFindingStatisticsResponse;
+    };
+    sdk: {
+      input: GetFindingStatisticsCommandInput;
+      output: GetFindingStatisticsCommandOutput;
+    };
+  };
+}

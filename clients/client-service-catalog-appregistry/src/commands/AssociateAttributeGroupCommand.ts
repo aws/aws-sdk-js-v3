@@ -104,4 +104,16 @@ export class AssociateAttributeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAttributeGroupCommand)
   .de(de_AssociateAttributeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAttributeGroupRequest;
+      output: AssociateAttributeGroupResponse;
+    };
+    sdk: {
+      input: AssociateAttributeGroupCommandInput;
+      output: AssociateAttributeGroupCommandOutput;
+    };
+  };
+}

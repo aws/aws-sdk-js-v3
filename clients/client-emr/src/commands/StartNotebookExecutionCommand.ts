@@ -113,4 +113,16 @@ export class StartNotebookExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartNotebookExecutionCommand)
   .de(de_StartNotebookExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartNotebookExecutionInput;
+      output: StartNotebookExecutionOutput;
+    };
+    sdk: {
+      input: StartNotebookExecutionCommandInput;
+      output: StartNotebookExecutionCommandOutput;
+    };
+  };
+}

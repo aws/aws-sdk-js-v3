@@ -161,4 +161,16 @@ export class ListGroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupResourcesCommand)
   .de(de_ListGroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupResourcesInput;
+      output: ListGroupResourcesOutput;
+    };
+    sdk: {
+      input: ListGroupResourcesCommandInput;
+      output: ListGroupResourcesCommandOutput;
+    };
+  };
+}

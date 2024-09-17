@@ -112,4 +112,16 @@ export class ListPredictorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPredictorsCommand)
   .de(de_ListPredictorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPredictorsRequest;
+      output: ListPredictorsResponse;
+    };
+    sdk: {
+      input: ListPredictorsCommandInput;
+      output: ListPredictorsCommandOutput;
+    };
+  };
+}

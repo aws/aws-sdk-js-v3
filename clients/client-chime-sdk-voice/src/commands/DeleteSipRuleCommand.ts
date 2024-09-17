@@ -99,4 +99,16 @@ export class DeleteSipRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSipRuleCommand)
   .de(de_DeleteSipRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSipRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSipRuleCommandInput;
+      output: DeleteSipRuleCommandOutput;
+    };
+  };
+}

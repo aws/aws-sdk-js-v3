@@ -219,4 +219,16 @@ export class CreateRouteCommand extends $Command
   .f(CreateRouteRequestFilterSensitiveLog, CreateRouteResponseFilterSensitiveLog)
   .ser(se_CreateRouteCommand)
   .de(de_CreateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteRequest;
+      output: CreateRouteResponse;
+    };
+    sdk: {
+      input: CreateRouteCommandInput;
+      output: CreateRouteCommandOutput;
+    };
+  };
+}

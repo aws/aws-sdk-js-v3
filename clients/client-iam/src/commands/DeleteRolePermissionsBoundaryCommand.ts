@@ -98,4 +98,16 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRolePermissionsBoundaryCommand)
   .de(de_DeleteRolePermissionsBoundaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRolePermissionsBoundaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRolePermissionsBoundaryCommandInput;
+      output: DeleteRolePermissionsBoundaryCommandOutput;
+    };
+  };
+}

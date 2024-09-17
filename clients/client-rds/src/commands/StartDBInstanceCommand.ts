@@ -368,4 +368,16 @@ export class StartDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBInstanceCommand)
   .de(de_StartDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBInstanceMessage;
+      output: StartDBInstanceResult;
+    };
+    sdk: {
+      input: StartDBInstanceCommandInput;
+      output: StartDBInstanceCommandOutput;
+    };
+  };
+}

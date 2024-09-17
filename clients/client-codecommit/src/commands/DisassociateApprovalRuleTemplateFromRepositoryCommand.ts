@@ -124,4 +124,16 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_DisassociateApprovalRuleTemplateFromRepositoryCommand)
   .de(de_DisassociateApprovalRuleTemplateFromRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateApprovalRuleTemplateFromRepositoryInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput;
+      output: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput;
+    };
+  };
+}

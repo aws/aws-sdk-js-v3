@@ -163,4 +163,16 @@ export class ModifyInstanceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceAttributeCommand)
   .de(de_ModifyInstanceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceAttributeCommandInput;
+      output: ModifyInstanceAttributeCommandOutput;
+    };
+  };
+}

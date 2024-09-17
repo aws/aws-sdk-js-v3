@@ -100,4 +100,16 @@ export class DeleteComputeEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteComputeEnvironmentCommand)
   .de(de_DeleteComputeEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComputeEnvironmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteComputeEnvironmentCommandInput;
+      output: DeleteComputeEnvironmentCommandOutput;
+    };
+  };
+}

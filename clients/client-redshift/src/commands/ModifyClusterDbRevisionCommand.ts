@@ -284,4 +284,16 @@ export class ModifyClusterDbRevisionCommand extends $Command
   .f(void 0, ModifyClusterDbRevisionResultFilterSensitiveLog)
   .ser(se_ModifyClusterDbRevisionCommand)
   .de(de_ModifyClusterDbRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterDbRevisionMessage;
+      output: ModifyClusterDbRevisionResult;
+    };
+    sdk: {
+      input: ModifyClusterDbRevisionCommandInput;
+      output: ModifyClusterDbRevisionCommandOutput;
+    };
+  };
+}

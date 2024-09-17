@@ -111,4 +111,16 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelElasticsearchServiceSoftwareUpdateCommand)
   .de(de_CancelElasticsearchServiceSoftwareUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelElasticsearchServiceSoftwareUpdateRequest;
+      output: CancelElasticsearchServiceSoftwareUpdateResponse;
+    };
+    sdk: {
+      input: CancelElasticsearchServiceSoftwareUpdateCommandInput;
+      output: CancelElasticsearchServiceSoftwareUpdateCommandOutput;
+    };
+  };
+}

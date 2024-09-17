@@ -145,4 +145,16 @@ export class BatchDescribeModelPackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDescribeModelPackageCommand)
   .de(de_BatchDescribeModelPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDescribeModelPackageInput;
+      output: BatchDescribeModelPackageOutput;
+    };
+    sdk: {
+      input: BatchDescribeModelPackageCommandInput;
+      output: BatchDescribeModelPackageCommandOutput;
+    };
+  };
+}

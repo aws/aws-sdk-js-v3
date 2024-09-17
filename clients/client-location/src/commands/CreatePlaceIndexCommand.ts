@@ -118,4 +118,16 @@ export class CreatePlaceIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlaceIndexCommand)
   .de(de_CreatePlaceIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlaceIndexRequest;
+      output: CreatePlaceIndexResponse;
+    };
+    sdk: {
+      input: CreatePlaceIndexCommandInput;
+      output: CreatePlaceIndexCommandOutput;
+    };
+  };
+}

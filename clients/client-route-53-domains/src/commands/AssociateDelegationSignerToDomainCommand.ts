@@ -121,4 +121,16 @@ export class AssociateDelegationSignerToDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDelegationSignerToDomainCommand)
   .de(de_AssociateDelegationSignerToDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDelegationSignerToDomainRequest;
+      output: AssociateDelegationSignerToDomainResponse;
+    };
+    sdk: {
+      input: AssociateDelegationSignerToDomainCommandInput;
+      output: AssociateDelegationSignerToDomainCommandOutput;
+    };
+  };
+}

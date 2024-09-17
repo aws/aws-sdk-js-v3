@@ -129,4 +129,16 @@ export class ListPHIDetectionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPHIDetectionJobsCommand)
   .de(de_ListPHIDetectionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPHIDetectionJobsRequest;
+      output: ListPHIDetectionJobsResponse;
+    };
+    sdk: {
+      input: ListPHIDetectionJobsCommandInput;
+      output: ListPHIDetectionJobsCommandOutput;
+    };
+  };
+}

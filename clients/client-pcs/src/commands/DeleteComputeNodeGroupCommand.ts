@@ -155,4 +155,16 @@ export class DeleteComputeNodeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteComputeNodeGroupCommand)
   .de(de_DeleteComputeNodeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComputeNodeGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteComputeNodeGroupCommandInput;
+      output: DeleteComputeNodeGroupCommandOutput;
+    };
+  };
+}

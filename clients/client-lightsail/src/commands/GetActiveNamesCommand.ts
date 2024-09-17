@@ -110,4 +110,16 @@ export class GetActiveNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetActiveNamesCommand)
   .de(de_GetActiveNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActiveNamesRequest;
+      output: GetActiveNamesResult;
+    };
+    sdk: {
+      input: GetActiveNamesCommandInput;
+      output: GetActiveNamesCommandOutput;
+    };
+  };
+}

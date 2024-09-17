@@ -95,4 +95,16 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSlackWorkspaceConfigurationsCommand)
   .de(de_ListSlackWorkspaceConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSlackWorkspaceConfigurationsRequest;
+      output: ListSlackWorkspaceConfigurationsResult;
+    };
+    sdk: {
+      input: ListSlackWorkspaceConfigurationsCommandInput;
+      output: ListSlackWorkspaceConfigurationsCommandOutput;
+    };
+  };
+}

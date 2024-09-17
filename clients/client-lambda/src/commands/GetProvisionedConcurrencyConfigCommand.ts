@@ -103,4 +103,16 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProvisionedConcurrencyConfigCommand)
   .de(de_GetProvisionedConcurrencyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProvisionedConcurrencyConfigRequest;
+      output: GetProvisionedConcurrencyConfigResponse;
+    };
+    sdk: {
+      input: GetProvisionedConcurrencyConfigCommandInput;
+      output: GetProvisionedConcurrencyConfigCommandOutput;
+    };
+  };
+}

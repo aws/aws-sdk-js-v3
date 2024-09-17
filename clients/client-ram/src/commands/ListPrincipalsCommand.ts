@@ -119,4 +119,16 @@ export class ListPrincipalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrincipalsCommand)
   .de(de_ListPrincipalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrincipalsRequest;
+      output: ListPrincipalsResponse;
+    };
+    sdk: {
+      input: ListPrincipalsCommandInput;
+      output: ListPrincipalsCommandOutput;
+    };
+  };
+}

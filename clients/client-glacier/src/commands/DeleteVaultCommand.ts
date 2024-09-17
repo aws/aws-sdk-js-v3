@@ -120,4 +120,16 @@ export class DeleteVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVaultCommand)
   .de(de_DeleteVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVaultInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVaultCommandInput;
+      output: DeleteVaultCommandOutput;
+    };
+  };
+}

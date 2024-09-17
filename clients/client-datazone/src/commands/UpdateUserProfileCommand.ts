@@ -115,4 +115,16 @@ export class UpdateUserProfileCommand extends $Command
   .f(void 0, UpdateUserProfileOutputFilterSensitiveLog)
   .ser(se_UpdateUserProfileCommand)
   .de(de_UpdateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserProfileInput;
+      output: UpdateUserProfileOutput;
+    };
+    sdk: {
+      input: UpdateUserProfileCommandInput;
+      output: UpdateUserProfileCommandOutput;
+    };
+  };
+}

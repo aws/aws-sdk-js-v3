@@ -268,4 +268,16 @@ export class StartStreamTranscriptionCommand extends $Command
   .f(StartStreamTranscriptionRequestFilterSensitiveLog, StartStreamTranscriptionResponseFilterSensitiveLog)
   .ser(se_StartStreamTranscriptionCommand)
   .de(de_StartStreamTranscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartStreamTranscriptionRequest;
+      output: StartStreamTranscriptionResponse;
+    };
+    sdk: {
+      input: StartStreamTranscriptionCommandInput;
+      output: StartStreamTranscriptionCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendSerialConsoleSSHPublicKeyCommand)
   .de(de_SendSerialConsoleSSHPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendSerialConsoleSSHPublicKeyRequest;
+      output: SendSerialConsoleSSHPublicKeyResponse;
+    };
+    sdk: {
+      input: SendSerialConsoleSSHPublicKeyCommandInput;
+      output: SendSerialConsoleSSHPublicKeyCommandOutput;
+    };
+  };
+}

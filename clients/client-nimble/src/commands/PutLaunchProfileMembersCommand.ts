@@ -108,4 +108,16 @@ export class PutLaunchProfileMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLaunchProfileMembersCommand)
   .de(de_PutLaunchProfileMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLaunchProfileMembersRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutLaunchProfileMembersCommandInput;
+      output: PutLaunchProfileMembersCommandOutput;
+    };
+  };
+}

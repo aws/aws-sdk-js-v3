@@ -115,4 +115,16 @@ export class ListStudioMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStudioMembersCommand)
   .de(de_ListStudioMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStudioMembersRequest;
+      output: ListStudioMembersResponse;
+    };
+    sdk: {
+      input: ListStudioMembersCommandInput;
+      output: ListStudioMembersCommandOutput;
+    };
+  };
+}

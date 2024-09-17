@@ -134,4 +134,16 @@ export class UpdateScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateScriptCommand)
   .de(de_UpdateScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateScriptInput;
+      output: UpdateScriptOutput;
+    };
+    sdk: {
+      input: UpdateScriptCommandInput;
+      output: UpdateScriptCommandOutput;
+    };
+  };
+}

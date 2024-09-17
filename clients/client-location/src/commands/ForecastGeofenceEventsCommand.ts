@@ -132,4 +132,16 @@ export class ForecastGeofenceEventsCommand extends $Command
   .f(ForecastGeofenceEventsRequestFilterSensitiveLog, ForecastGeofenceEventsResponseFilterSensitiveLog)
   .ser(se_ForecastGeofenceEventsCommand)
   .de(de_ForecastGeofenceEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ForecastGeofenceEventsRequest;
+      output: ForecastGeofenceEventsResponse;
+    };
+    sdk: {
+      input: ForecastGeofenceEventsCommandInput;
+      output: ForecastGeofenceEventsCommandOutput;
+    };
+  };
+}

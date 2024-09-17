@@ -160,4 +160,16 @@ export class CreateResolverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResolverCommand)
   .de(de_CreateResolverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResolverRequest;
+      output: CreateResolverResponse;
+    };
+    sdk: {
+      input: CreateResolverCommandInput;
+      output: CreateResolverCommandOutput;
+    };
+  };
+}

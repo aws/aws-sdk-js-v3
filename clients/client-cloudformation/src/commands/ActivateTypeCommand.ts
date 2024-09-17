@@ -100,4 +100,16 @@ export class ActivateTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateTypeCommand)
   .de(de_ActivateTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateTypeInput;
+      output: ActivateTypeOutput;
+    };
+    sdk: {
+      input: ActivateTypeCommandInput;
+      output: ActivateTypeCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class UpdatePullRequestDescriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePullRequestDescriptionCommand)
   .de(de_UpdatePullRequestDescriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePullRequestDescriptionInput;
+      output: UpdatePullRequestDescriptionOutput;
+    };
+    sdk: {
+      input: UpdatePullRequestDescriptionCommandInput;
+      output: UpdatePullRequestDescriptionCommandOutput;
+    };
+  };
+}

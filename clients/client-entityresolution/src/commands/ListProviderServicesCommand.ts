@@ -102,4 +102,16 @@ export class ListProviderServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProviderServicesCommand)
   .de(de_ListProviderServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProviderServicesInput;
+      output: ListProviderServicesOutput;
+    };
+    sdk: {
+      input: ListProviderServicesCommandInput;
+      output: ListProviderServicesCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class DeleteBranchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBranchCommand)
   .de(de_DeleteBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBranchInput;
+      output: DeleteBranchOutput;
+    };
+    sdk: {
+      input: DeleteBranchCommandInput;
+      output: DeleteBranchCommandOutput;
+    };
+  };
+}

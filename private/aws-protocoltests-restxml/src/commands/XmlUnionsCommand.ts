@@ -151,4 +151,16 @@ export class XmlUnionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlUnionsCommand)
   .de(de_XmlUnionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlUnionsRequest;
+      output: XmlUnionsResponse;
+    };
+    sdk: {
+      input: XmlUnionsCommandInput;
+      output: XmlUnionsCommandOutput;
+    };
+  };
+}

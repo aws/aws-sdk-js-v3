@@ -125,4 +125,16 @@ export class ListLabelingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLabelingJobsCommand)
   .de(de_ListLabelingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLabelingJobsRequest;
+      output: ListLabelingJobsResponse;
+    };
+    sdk: {
+      input: ListLabelingJobsCommandInput;
+      output: ListLabelingJobsCommandOutput;
+    };
+  };
+}

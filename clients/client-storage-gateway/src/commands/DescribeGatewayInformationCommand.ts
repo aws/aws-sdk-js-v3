@@ -153,4 +153,16 @@ export class DescribeGatewayInformationCommand extends $Command
   .f(void 0, DescribeGatewayInformationOutputFilterSensitiveLog)
   .ser(se_DescribeGatewayInformationCommand)
   .de(de_DescribeGatewayInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGatewayInformationInput;
+      output: DescribeGatewayInformationOutput;
+    };
+    sdk: {
+      input: DescribeGatewayInformationCommandInput;
+      output: DescribeGatewayInformationCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class ListClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClustersCommand)
   .de(de_ListClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClustersRequest;
+      output: ListClustersResponse;
+    };
+    sdk: {
+      input: ListClustersCommandInput;
+      output: ListClustersCommandOutput;
+    };
+  };
+}

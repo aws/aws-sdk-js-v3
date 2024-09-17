@@ -94,4 +94,16 @@ export class UpdateDefaultMailDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDefaultMailDomainCommand)
   .de(de_UpdateDefaultMailDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDefaultMailDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDefaultMailDomainCommandInput;
+      output: UpdateDefaultMailDomainCommandOutput;
+    };
+  };
+}

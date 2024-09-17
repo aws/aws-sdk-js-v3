@@ -119,4 +119,16 @@ export class DisassociateOriginationIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateOriginationIdentityCommand)
   .de(de_DisassociateOriginationIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateOriginationIdentityRequest;
+      output: DisassociateOriginationIdentityResult;
+    };
+    sdk: {
+      input: DisassociateOriginationIdentityCommandInput;
+      output: DisassociateOriginationIdentityCommandOutput;
+    };
+  };
+}

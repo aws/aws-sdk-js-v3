@@ -96,4 +96,16 @@ export class PutResolverRulePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResolverRulePolicyCommand)
   .de(de_PutResolverRulePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResolverRulePolicyRequest;
+      output: PutResolverRulePolicyResponse;
+    };
+    sdk: {
+      input: PutResolverRulePolicyCommandInput;
+      output: PutResolverRulePolicyCommandOutput;
+    };
+  };
+}

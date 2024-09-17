@@ -94,4 +94,16 @@ export class DeleteRecoveryGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecoveryGroupCommand)
   .de(de_DeleteRecoveryGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecoveryGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRecoveryGroupCommandInput;
+      output: DeleteRecoveryGroupCommandOutput;
+    };
+  };
+}

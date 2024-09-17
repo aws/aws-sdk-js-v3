@@ -96,4 +96,16 @@ export class DisassociateMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMemberCommand)
   .de(de_DisassociateMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMemberCommandInput;
+      output: DisassociateMemberCommandOutput;
+    };
+  };
+}

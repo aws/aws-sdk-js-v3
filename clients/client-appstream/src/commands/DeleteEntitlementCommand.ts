@@ -88,4 +88,16 @@ export class DeleteEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEntitlementCommand)
   .de(de_DeleteEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEntitlementRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEntitlementCommandInput;
+      output: DeleteEntitlementCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetQueryStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryStatisticsCommand)
   .de(de_GetQueryStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryStatisticsRequest;
+      output: GetQueryStatisticsResponse;
+    };
+    sdk: {
+      input: GetQueryStatisticsCommandInput;
+      output: GetQueryStatisticsCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class ListContactReferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContactReferencesCommand)
   .de(de_ListContactReferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContactReferencesRequest;
+      output: ListContactReferencesResponse;
+    };
+    sdk: {
+      input: ListContactReferencesCommandInput;
+      output: ListContactReferencesCommandOutput;
+    };
+  };
+}

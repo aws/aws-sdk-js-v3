@@ -115,4 +115,16 @@ export class PutExternalModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutExternalModelCommand)
   .de(de_PutExternalModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutExternalModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutExternalModelCommandInput;
+      output: PutExternalModelCommandOutput;
+    };
+  };
+}

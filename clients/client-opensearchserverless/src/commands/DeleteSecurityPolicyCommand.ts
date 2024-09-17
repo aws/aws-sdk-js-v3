@@ -96,4 +96,16 @@ export class DeleteSecurityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecurityPolicyCommand)
   .de(de_DeleteSecurityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecurityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSecurityPolicyCommandInput;
+      output: DeleteSecurityPolicyCommandOutput;
+    };
+  };
+}

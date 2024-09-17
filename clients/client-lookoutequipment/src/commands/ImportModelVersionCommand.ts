@@ -126,4 +126,16 @@ export class ImportModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportModelVersionCommand)
   .de(de_ImportModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportModelVersionRequest;
+      output: ImportModelVersionResponse;
+    };
+    sdk: {
+      input: ImportModelVersionCommandInput;
+      output: ImportModelVersionCommandOutput;
+    };
+  };
+}

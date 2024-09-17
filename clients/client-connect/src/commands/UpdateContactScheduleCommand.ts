@@ -95,4 +95,16 @@ export class UpdateContactScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactScheduleCommand)
   .de(de_UpdateContactScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactScheduleCommandInput;
+      output: UpdateContactScheduleCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class AttachLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachLoadBalancersCommand)
   .de(de_AttachLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachLoadBalancersType;
+      output: {};
+    };
+    sdk: {
+      input: AttachLoadBalancersCommandInput;
+      output: AttachLoadBalancersCommandOutput;
+    };
+  };
+}

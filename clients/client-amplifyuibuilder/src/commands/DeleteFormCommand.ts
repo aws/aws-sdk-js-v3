@@ -86,4 +86,16 @@ export class DeleteFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFormCommand)
   .de(de_DeleteFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFormRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFormCommandInput;
+      output: DeleteFormCommandOutput;
+    };
+  };
+}

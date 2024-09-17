@@ -118,4 +118,16 @@ export class CreateIngestConfigurationCommand extends $Command
   .f(void 0, CreateIngestConfigurationResponseFilterSensitiveLog)
   .ser(se_CreateIngestConfigurationCommand)
   .de(de_CreateIngestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIngestConfigurationRequest;
+      output: CreateIngestConfigurationResponse;
+    };
+    sdk: {
+      input: CreateIngestConfigurationCommandInput;
+      output: CreateIngestConfigurationCommandOutput;
+    };
+  };
+}

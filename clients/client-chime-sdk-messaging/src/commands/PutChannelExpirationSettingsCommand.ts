@@ -134,4 +134,16 @@ export class PutChannelExpirationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutChannelExpirationSettingsCommand)
   .de(de_PutChannelExpirationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutChannelExpirationSettingsRequest;
+      output: PutChannelExpirationSettingsResponse;
+    };
+    sdk: {
+      input: PutChannelExpirationSettingsCommandInput;
+      output: PutChannelExpirationSettingsCommandOutput;
+    };
+  };
+}

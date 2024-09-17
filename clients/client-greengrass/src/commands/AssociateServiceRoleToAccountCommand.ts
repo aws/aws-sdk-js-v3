@@ -88,4 +88,16 @@ export class AssociateServiceRoleToAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateServiceRoleToAccountCommand)
   .de(de_AssociateServiceRoleToAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateServiceRoleToAccountRequest;
+      output: AssociateServiceRoleToAccountResponse;
+    };
+    sdk: {
+      input: AssociateServiceRoleToAccountCommandInput;
+      output: AssociateServiceRoleToAccountCommandOutput;
+    };
+  };
+}

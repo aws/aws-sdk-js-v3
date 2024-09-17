@@ -357,4 +357,16 @@ export class UpdateTopicCommand extends $Command
   .f(UpdateTopicRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateTopicCommand)
   .de(de_UpdateTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTopicRequest;
+      output: UpdateTopicResponse;
+    };
+    sdk: {
+      input: UpdateTopicCommandInput;
+      output: UpdateTopicCommandOutput;
+    };
+  };
+}

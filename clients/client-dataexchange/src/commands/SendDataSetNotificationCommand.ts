@@ -142,4 +142,16 @@ export class SendDataSetNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDataSetNotificationCommand)
   .de(de_SendDataSetNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDataSetNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendDataSetNotificationCommandInput;
+      output: SendDataSetNotificationCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetSamplingRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSamplingRulesCommand)
   .de(de_GetSamplingRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSamplingRulesRequest;
+      output: GetSamplingRulesResult;
+    };
+    sdk: {
+      input: GetSamplingRulesCommandInput;
+      output: GetSamplingRulesCommandOutput;
+    };
+  };
+}

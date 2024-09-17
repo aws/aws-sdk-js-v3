@@ -104,4 +104,16 @@ export class BatchGetTracesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetTracesCommand)
   .de(de_BatchGetTracesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetTracesRequest;
+      output: BatchGetTracesResult;
+    };
+    sdk: {
+      input: BatchGetTracesCommandInput;
+      output: BatchGetTracesCommandOutput;
+    };
+  };
+}

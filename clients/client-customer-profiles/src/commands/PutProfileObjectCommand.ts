@@ -107,4 +107,16 @@ export class PutProfileObjectCommand extends $Command
   .f(PutProfileObjectRequestFilterSensitiveLog, void 0)
   .ser(se_PutProfileObjectCommand)
   .de(de_PutProfileObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutProfileObjectRequest;
+      output: PutProfileObjectResponse;
+    };
+    sdk: {
+      input: PutProfileObjectCommandInput;
+      output: PutProfileObjectCommandOutput;
+    };
+  };
+}

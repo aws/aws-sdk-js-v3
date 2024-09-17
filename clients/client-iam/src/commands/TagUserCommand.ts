@@ -165,4 +165,16 @@ export class TagUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagUserCommand)
   .de(de_TagUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagUserCommandInput;
+      output: TagUserCommandOutput;
+    };
+  };
+}

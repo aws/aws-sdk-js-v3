@@ -325,4 +325,16 @@ export class PutObjectAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutObjectAclCommand)
   .de(de_PutObjectAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutObjectAclRequest;
+      output: PutObjectAclOutput;
+    };
+    sdk: {
+      input: PutObjectAclCommandInput;
+      output: PutObjectAclCommandOutput;
+    };
+  };
+}

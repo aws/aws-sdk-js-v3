@@ -102,4 +102,16 @@ export class ListDatasourcePackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasourcePackagesCommand)
   .de(de_ListDatasourcePackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasourcePackagesRequest;
+      output: ListDatasourcePackagesResponse;
+    };
+    sdk: {
+      input: ListDatasourcePackagesCommandInput;
+      output: ListDatasourcePackagesCommandOutput;
+    };
+  };
+}

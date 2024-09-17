@@ -388,4 +388,16 @@ export class UpdateInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInsightCommand)
   .de(de_UpdateInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInsightRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInsightCommandInput;
+      output: UpdateInsightCommandOutput;
+    };
+  };
+}

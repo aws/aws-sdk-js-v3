@@ -119,4 +119,16 @@ export class CreateInferenceComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInferenceComponentCommand)
   .de(de_CreateInferenceComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInferenceComponentInput;
+      output: CreateInferenceComponentOutput;
+    };
+    sdk: {
+      input: CreateInferenceComponentCommandInput;
+      output: CreateInferenceComponentCommandOutput;
+    };
+  };
+}

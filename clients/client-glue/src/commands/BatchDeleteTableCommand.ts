@@ -118,4 +118,16 @@ export class BatchDeleteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteTableCommand)
   .de(de_BatchDeleteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteTableRequest;
+      output: BatchDeleteTableResponse;
+    };
+    sdk: {
+      input: BatchDeleteTableCommandInput;
+      output: BatchDeleteTableCommandOutput;
+    };
+  };
+}

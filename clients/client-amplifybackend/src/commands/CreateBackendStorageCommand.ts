@@ -106,4 +106,16 @@ export class CreateBackendStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackendStorageCommand)
   .de(de_CreateBackendStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendStorageRequest;
+      output: CreateBackendStorageResponse;
+    };
+    sdk: {
+      input: CreateBackendStorageCommandInput;
+      output: CreateBackendStorageCommandOutput;
+    };
+  };
+}

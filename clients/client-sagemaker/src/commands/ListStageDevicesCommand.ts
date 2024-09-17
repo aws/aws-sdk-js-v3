@@ -97,4 +97,16 @@ export class ListStageDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStageDevicesCommand)
   .de(de_ListStageDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStageDevicesRequest;
+      output: ListStageDevicesResponse;
+    };
+    sdk: {
+      input: ListStageDevicesCommandInput;
+      output: ListStageDevicesCommandOutput;
+    };
+  };
+}

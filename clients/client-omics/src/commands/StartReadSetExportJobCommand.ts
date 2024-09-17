@@ -110,4 +110,16 @@ export class StartReadSetExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReadSetExportJobCommand)
   .de(de_StartReadSetExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReadSetExportJobRequest;
+      output: StartReadSetExportJobResponse;
+    };
+    sdk: {
+      input: StartReadSetExportJobCommandInput;
+      output: StartReadSetExportJobCommandOutput;
+    };
+  };
+}

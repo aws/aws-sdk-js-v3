@@ -132,4 +132,16 @@ export class ListAssessmentTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssessmentTemplatesCommand)
   .de(de_ListAssessmentTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentTemplatesRequest;
+      output: ListAssessmentTemplatesResponse;
+    };
+    sdk: {
+      input: ListAssessmentTemplatesCommandInput;
+      output: ListAssessmentTemplatesCommandOutput;
+    };
+  };
+}

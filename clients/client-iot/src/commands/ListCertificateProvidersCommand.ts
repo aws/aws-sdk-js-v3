@@ -101,4 +101,16 @@ export class ListCertificateProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCertificateProvidersCommand)
   .de(de_ListCertificateProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCertificateProvidersRequest;
+      output: ListCertificateProvidersResponse;
+    };
+    sdk: {
+      input: ListCertificateProvidersCommandInput;
+      output: ListCertificateProvidersCommandOutput;
+    };
+  };
+}

@@ -217,4 +217,16 @@ export class GetSavingsPlansCoverageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSavingsPlansCoverageCommand)
   .de(de_GetSavingsPlansCoverageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSavingsPlansCoverageRequest;
+      output: GetSavingsPlansCoverageResponse;
+    };
+    sdk: {
+      input: GetSavingsPlansCoverageCommandInput;
+      output: GetSavingsPlansCoverageCommandOutput;
+    };
+  };
+}

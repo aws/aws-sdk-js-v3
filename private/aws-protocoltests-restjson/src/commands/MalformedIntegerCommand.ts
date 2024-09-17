@@ -72,4 +72,16 @@ export class MalformedIntegerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedIntegerCommand)
   .de(de_MalformedIntegerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedIntegerInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedIntegerCommandInput;
+      output: MalformedIntegerCommandOutput;
+    };
+  };
+}

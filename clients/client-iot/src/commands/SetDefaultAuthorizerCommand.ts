@@ -101,4 +101,16 @@ export class SetDefaultAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDefaultAuthorizerCommand)
   .de(de_SetDefaultAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDefaultAuthorizerRequest;
+      output: SetDefaultAuthorizerResponse;
+    };
+    sdk: {
+      input: SetDefaultAuthorizerCommandInput;
+      output: SetDefaultAuthorizerCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class CheckoutBorrowLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckoutBorrowLicenseCommand)
   .de(de_CheckoutBorrowLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckoutBorrowLicenseRequest;
+      output: CheckoutBorrowLicenseResponse;
+    };
+    sdk: {
+      input: CheckoutBorrowLicenseCommandInput;
+      output: CheckoutBorrowLicenseCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
   .f(void 0, void 0)
   .ser(se_BatchAssociateServiceActionWithProvisioningArtifactCommand)
   .de(de_BatchAssociateServiceActionWithProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateServiceActionWithProvisioningArtifactInput;
+      output: BatchAssociateServiceActionWithProvisioningArtifactOutput;
+    };
+    sdk: {
+      input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput;
+      output: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput;
+    };
+  };
+}

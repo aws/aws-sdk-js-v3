@@ -99,4 +99,16 @@ export class ListApplicationSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationSnapshotsCommand)
   .de(de_ListApplicationSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationSnapshotsRequest;
+      output: ListApplicationSnapshotsResponse;
+    };
+    sdk: {
+      input: ListApplicationSnapshotsCommandInput;
+      output: ListApplicationSnapshotsCommandOutput;
+    };
+  };
+}

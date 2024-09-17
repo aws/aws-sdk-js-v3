@@ -132,4 +132,16 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAggregateConfigRuleComplianceSummaryCommand)
   .de(de_GetAggregateConfigRuleComplianceSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAggregateConfigRuleComplianceSummaryRequest;
+      output: GetAggregateConfigRuleComplianceSummaryResponse;
+    };
+    sdk: {
+      input: GetAggregateConfigRuleComplianceSummaryCommandInput;
+      output: GetAggregateConfigRuleComplianceSummaryCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetOutpostSupportedInstanceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOutpostSupportedInstanceTypesCommand)
   .de(de_GetOutpostSupportedInstanceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOutpostSupportedInstanceTypesInput;
+      output: GetOutpostSupportedInstanceTypesOutput;
+    };
+    sdk: {
+      input: GetOutpostSupportedInstanceTypesCommandInput;
+      output: GetOutpostSupportedInstanceTypesCommandOutput;
+    };
+  };
+}

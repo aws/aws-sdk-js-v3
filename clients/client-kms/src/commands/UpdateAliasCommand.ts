@@ -189,4 +189,16 @@ export class UpdateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAliasCommand)
   .de(de_UpdateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAliasCommandInput;
+      output: UpdateAliasCommandOutput;
+    };
+  };
+}

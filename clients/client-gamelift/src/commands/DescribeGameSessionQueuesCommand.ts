@@ -138,4 +138,16 @@ export class DescribeGameSessionQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGameSessionQueuesCommand)
   .de(de_DescribeGameSessionQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionQueuesInput;
+      output: DescribeGameSessionQueuesOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionQueuesCommandInput;
+      output: DescribeGameSessionQueuesCommandOutput;
+    };
+  };
+}

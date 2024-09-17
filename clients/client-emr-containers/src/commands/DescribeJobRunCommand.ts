@@ -161,4 +161,16 @@ export class DescribeJobRunCommand extends $Command
   .f(void 0, DescribeJobRunResponseFilterSensitiveLog)
   .ser(se_DescribeJobRunCommand)
   .de(de_DescribeJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobRunRequest;
+      output: DescribeJobRunResponse;
+    };
+    sdk: {
+      input: DescribeJobRunCommandInput;
+      output: DescribeJobRunCommandOutput;
+    };
+  };
+}

@@ -499,4 +499,16 @@ export class GetCampaignVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignVersionsCommand)
   .de(de_GetCampaignVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignVersionsRequest;
+      output: GetCampaignVersionsResponse;
+    };
+    sdk: {
+      input: GetCampaignVersionsCommandInput;
+      output: GetCampaignVersionsCommandOutput;
+    };
+  };
+}

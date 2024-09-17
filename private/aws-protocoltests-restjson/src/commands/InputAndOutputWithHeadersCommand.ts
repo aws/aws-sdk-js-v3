@@ -134,4 +134,16 @@ export class InputAndOutputWithHeadersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InputAndOutputWithHeadersCommand)
   .de(de_InputAndOutputWithHeadersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InputAndOutputWithHeadersIO;
+      output: InputAndOutputWithHeadersIO;
+    };
+    sdk: {
+      input: InputAndOutputWithHeadersCommandInput;
+      output: InputAndOutputWithHeadersCommandOutput;
+    };
+  };
+}

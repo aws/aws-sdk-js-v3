@@ -122,4 +122,16 @@ export class DeleteAutoSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAutoSnapshotCommand)
   .de(de_DeleteAutoSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAutoSnapshotRequest;
+      output: DeleteAutoSnapshotResult;
+    };
+    sdk: {
+      input: DeleteAutoSnapshotCommandInput;
+      output: DeleteAutoSnapshotCommandOutput;
+    };
+  };
+}

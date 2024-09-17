@@ -206,4 +206,16 @@ export class UpdateSourceServerCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_UpdateSourceServerCommand)
   .de(de_UpdateSourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSourceServerRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: UpdateSourceServerCommandInput;
+      output: UpdateSourceServerCommandOutput;
+    };
+  };
+}

@@ -76,4 +76,16 @@ export class RemoveAutoScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveAutoScalingPolicyCommand)
   .de(de_RemoveAutoScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAutoScalingPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveAutoScalingPolicyCommandInput;
+      output: RemoveAutoScalingPolicyCommandOutput;
+    };
+  };
+}

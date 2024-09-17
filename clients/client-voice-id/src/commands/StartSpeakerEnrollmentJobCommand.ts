@@ -162,4 +162,16 @@ export class StartSpeakerEnrollmentJobCommand extends $Command
   .f(StartSpeakerEnrollmentJobRequestFilterSensitiveLog, StartSpeakerEnrollmentJobResponseFilterSensitiveLog)
   .ser(se_StartSpeakerEnrollmentJobCommand)
   .de(de_StartSpeakerEnrollmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSpeakerEnrollmentJobRequest;
+      output: StartSpeakerEnrollmentJobResponse;
+    };
+    sdk: {
+      input: StartSpeakerEnrollmentJobCommandInput;
+      output: StartSpeakerEnrollmentJobCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class DescribeComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeComponentCommand)
   .de(de_DescribeComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComponentRequest;
+      output: DescribeComponentResponse;
+    };
+    sdk: {
+      input: DescribeComponentCommandInput;
+      output: DescribeComponentCommandOutput;
+    };
+  };
+}

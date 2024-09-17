@@ -97,4 +97,16 @@ export class UpdateSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSAMLProviderCommand)
   .de(de_UpdateSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSAMLProviderRequest;
+      output: UpdateSAMLProviderResponse;
+    };
+    sdk: {
+      input: UpdateSAMLProviderCommandInput;
+      output: UpdateSAMLProviderCommandOutput;
+    };
+  };
+}

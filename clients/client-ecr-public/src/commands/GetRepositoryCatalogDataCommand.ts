@@ -108,4 +108,16 @@ export class GetRepositoryCatalogDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRepositoryCatalogDataCommand)
   .de(de_GetRepositoryCatalogDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRepositoryCatalogDataRequest;
+      output: GetRepositoryCatalogDataResponse;
+    };
+    sdk: {
+      input: GetRepositoryCatalogDataCommandInput;
+      output: GetRepositoryCatalogDataCommandOutput;
+    };
+  };
+}

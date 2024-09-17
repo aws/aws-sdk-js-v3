@@ -102,4 +102,16 @@ export class EnableUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableUserCommand)
   .de(de_EnableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableUserRequest;
+      output: EnableUserResponse;
+    };
+    sdk: {
+      input: EnableUserCommandInput;
+      output: EnableUserCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command
   .f(RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog, void 0)
   .ser(se_RegisterTargetWithMaintenanceWindowCommand)
   .de(de_RegisterTargetWithMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTargetWithMaintenanceWindowRequest;
+      output: RegisterTargetWithMaintenanceWindowResult;
+    };
+    sdk: {
+      input: RegisterTargetWithMaintenanceWindowCommandInput;
+      output: RegisterTargetWithMaintenanceWindowCommandOutput;
+    };
+  };
+}

@@ -158,4 +158,16 @@ export class DescribeOrganizationConformancePacksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationConformancePacksCommand)
   .de(de_DescribeOrganizationConformancePacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationConformancePacksRequest;
+      output: DescribeOrganizationConformancePacksResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationConformancePacksCommandInput;
+      output: DescribeOrganizationConformancePacksCommandOutput;
+    };
+  };
+}

@@ -189,4 +189,16 @@ export class AdminUpdateUserAttributesCommand extends $Command
   .f(AdminUpdateUserAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_AdminUpdateUserAttributesCommand)
   .de(de_AdminUpdateUserAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminUpdateUserAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminUpdateUserAttributesCommandInput;
+      output: AdminUpdateUserAttributesCommandOutput;
+    };
+  };
+}

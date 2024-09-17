@@ -467,4 +467,16 @@ export class StartAssetBundleImportJobCommand extends $Command
   .f(StartAssetBundleImportJobRequestFilterSensitiveLog, void 0)
   .ser(se_StartAssetBundleImportJobCommand)
   .de(de_StartAssetBundleImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAssetBundleImportJobRequest;
+      output: StartAssetBundleImportJobResponse;
+    };
+    sdk: {
+      input: StartAssetBundleImportJobCommandInput;
+      output: StartAssetBundleImportJobCommandOutput;
+    };
+  };
+}

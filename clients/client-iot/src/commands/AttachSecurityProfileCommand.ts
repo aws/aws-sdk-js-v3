@@ -98,4 +98,16 @@ export class AttachSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachSecurityProfileCommand)
   .de(de_AttachSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachSecurityProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachSecurityProfileCommandInput;
+      output: AttachSecurityProfileCommandOutput;
+    };
+  };
+}

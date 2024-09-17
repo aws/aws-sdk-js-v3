@@ -95,4 +95,16 @@ export class GetSMSAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSMSAttributesCommand)
   .de(de_GetSMSAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSMSAttributesInput;
+      output: GetSMSAttributesResponse;
+    };
+    sdk: {
+      input: GetSMSAttributesCommandInput;
+      output: GetSMSAttributesCommandOutput;
+    };
+  };
+}

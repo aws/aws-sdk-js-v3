@@ -100,4 +100,16 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateRoutingProfileQueuesCommand)
   .de(de_DisassociateRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateRoutingProfileQueuesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateRoutingProfileQueuesCommandInput;
+      output: DisassociateRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

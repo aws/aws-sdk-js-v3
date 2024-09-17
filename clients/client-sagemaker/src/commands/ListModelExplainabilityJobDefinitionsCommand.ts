@@ -101,4 +101,16 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelExplainabilityJobDefinitionsCommand)
   .de(de_ListModelExplainabilityJobDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelExplainabilityJobDefinitionsRequest;
+      output: ListModelExplainabilityJobDefinitionsResponse;
+    };
+    sdk: {
+      input: ListModelExplainabilityJobDefinitionsCommandInput;
+      output: ListModelExplainabilityJobDefinitionsCommandOutput;
+    };
+  };
+}

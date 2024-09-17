@@ -89,4 +89,16 @@ export class DeleteSuppressedDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSuppressedDestinationCommand)
   .de(de_DeleteSuppressedDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSuppressedDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSuppressedDestinationCommandInput;
+      output: DeleteSuppressedDestinationCommandOutput;
+    };
+  };
+}

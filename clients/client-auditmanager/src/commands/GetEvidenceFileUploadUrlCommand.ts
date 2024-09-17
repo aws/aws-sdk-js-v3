@@ -114,4 +114,16 @@ export class GetEvidenceFileUploadUrlCommand extends $Command
   .f(GetEvidenceFileUploadUrlRequestFilterSensitiveLog, GetEvidenceFileUploadUrlResponseFilterSensitiveLog)
   .ser(se_GetEvidenceFileUploadUrlCommand)
   .de(de_GetEvidenceFileUploadUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEvidenceFileUploadUrlRequest;
+      output: GetEvidenceFileUploadUrlResponse;
+    };
+    sdk: {
+      input: GetEvidenceFileUploadUrlCommandInput;
+      output: GetEvidenceFileUploadUrlCommandOutput;
+    };
+  };
+}

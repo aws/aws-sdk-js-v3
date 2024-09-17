@@ -121,4 +121,16 @@ export class StartIngestionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartIngestionJobCommand)
   .de(de_StartIngestionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartIngestionJobRequest;
+      output: StartIngestionJobResponse;
+    };
+    sdk: {
+      input: StartIngestionJobCommandInput;
+      output: StartIngestionJobCommandOutput;
+    };
+  };
+}

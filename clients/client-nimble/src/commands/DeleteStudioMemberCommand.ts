@@ -101,4 +101,16 @@ export class DeleteStudioMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStudioMemberCommand)
   .de(de_DeleteStudioMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStudioMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStudioMemberCommandInput;
+      output: DeleteStudioMemberCommandOutput;
+    };
+  };
+}

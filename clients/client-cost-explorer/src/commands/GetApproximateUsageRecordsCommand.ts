@@ -95,4 +95,16 @@ export class GetApproximateUsageRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApproximateUsageRecordsCommand)
   .de(de_GetApproximateUsageRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApproximateUsageRecordsRequest;
+      output: GetApproximateUsageRecordsResponse;
+    };
+    sdk: {
+      input: GetApproximateUsageRecordsCommandInput;
+      output: GetApproximateUsageRecordsCommandOutput;
+    };
+  };
+}

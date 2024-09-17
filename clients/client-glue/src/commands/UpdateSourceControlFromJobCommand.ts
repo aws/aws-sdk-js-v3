@@ -107,4 +107,16 @@ export class UpdateSourceControlFromJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSourceControlFromJobCommand)
   .de(de_UpdateSourceControlFromJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSourceControlFromJobRequest;
+      output: UpdateSourceControlFromJobResponse;
+    };
+    sdk: {
+      input: UpdateSourceControlFromJobCommandInput;
+      output: UpdateSourceControlFromJobCommandOutput;
+    };
+  };
+}

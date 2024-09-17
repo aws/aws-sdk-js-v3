@@ -142,4 +142,16 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancerPolicyTypesCommand)
   .de(de_DescribeLoadBalancerPolicyTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoadBalancerPolicyTypesInput;
+      output: DescribeLoadBalancerPolicyTypesOutput;
+    };
+    sdk: {
+      input: DescribeLoadBalancerPolicyTypesCommandInput;
+      output: DescribeLoadBalancerPolicyTypesCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficPolicyInstancesByHostedZoneCommand)
   .de(de_ListTrafficPolicyInstancesByHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficPolicyInstancesByHostedZoneRequest;
+      output: ListTrafficPolicyInstancesByHostedZoneResponse;
+    };
+    sdk: {
+      input: ListTrafficPolicyInstancesByHostedZoneCommandInput;
+      output: ListTrafficPolicyInstancesByHostedZoneCommandOutput;
+    };
+  };
+}

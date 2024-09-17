@@ -92,4 +92,16 @@ export class DeleteProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProductCommand)
   .de(de_DeleteProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProductInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProductCommandInput;
+      output: DeleteProductCommandOutput;
+    };
+  };
+}

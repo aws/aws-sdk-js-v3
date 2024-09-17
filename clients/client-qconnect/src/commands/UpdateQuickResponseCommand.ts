@@ -158,4 +158,16 @@ export class UpdateQuickResponseCommand extends $Command
   .f(UpdateQuickResponseRequestFilterSensitiveLog, UpdateQuickResponseResponseFilterSensitiveLog)
   .ser(se_UpdateQuickResponseCommand)
   .de(de_UpdateQuickResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQuickResponseRequest;
+      output: UpdateQuickResponseResponse;
+    };
+    sdk: {
+      input: UpdateQuickResponseCommandInput;
+      output: UpdateQuickResponseCommandOutput;
+    };
+  };
+}

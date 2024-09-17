@@ -81,4 +81,16 @@ export class TestPayloadStructureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestPayloadStructureCommand)
   .de(de_TestPayloadStructureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestPayloadStructureInputOutput;
+      output: TestPayloadStructureInputOutput;
+    };
+    sdk: {
+      input: TestPayloadStructureCommandInput;
+      output: TestPayloadStructureCommandOutput;
+    };
+  };
+}

@@ -291,4 +291,16 @@ export class KitchenSinkOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_KitchenSinkOperationCommand)
   .de(de_KitchenSinkOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: KitchenSink;
+      output: KitchenSink;
+    };
+    sdk: {
+      input: KitchenSinkOperationCommandInput;
+      output: KitchenSinkOperationCommandOutput;
+    };
+  };
+}

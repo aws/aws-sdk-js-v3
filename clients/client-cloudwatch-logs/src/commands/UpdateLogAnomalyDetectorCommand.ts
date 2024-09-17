@@ -91,4 +91,16 @@ export class UpdateLogAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLogAnomalyDetectorCommand)
   .de(de_UpdateLogAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLogAnomalyDetectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLogAnomalyDetectorCommandInput;
+      output: UpdateLogAnomalyDetectorCommandOutput;
+    };
+  };
+}

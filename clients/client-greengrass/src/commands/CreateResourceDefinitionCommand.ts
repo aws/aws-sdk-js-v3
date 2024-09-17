@@ -137,4 +137,16 @@ export class CreateResourceDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceDefinitionCommand)
   .de(de_CreateResourceDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceDefinitionRequest;
+      output: CreateResourceDefinitionResponse;
+    };
+    sdk: {
+      input: CreateResourceDefinitionCommandInput;
+      output: CreateResourceDefinitionCommandOutput;
+    };
+  };
+}

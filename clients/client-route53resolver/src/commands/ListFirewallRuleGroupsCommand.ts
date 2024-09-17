@@ -104,4 +104,16 @@ export class ListFirewallRuleGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallRuleGroupsCommand)
   .de(de_ListFirewallRuleGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallRuleGroupsRequest;
+      output: ListFirewallRuleGroupsResponse;
+    };
+    sdk: {
+      input: ListFirewallRuleGroupsCommandInput;
+      output: ListFirewallRuleGroupsCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSignalCatalogCommand)
   .de(de_GetSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSignalCatalogRequest;
+      output: GetSignalCatalogResponse;
+    };
+    sdk: {
+      input: GetSignalCatalogCommandInput;
+      output: GetSignalCatalogCommandOutput;
+    };
+  };
+}

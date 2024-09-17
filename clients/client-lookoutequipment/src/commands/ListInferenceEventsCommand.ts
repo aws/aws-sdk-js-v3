@@ -111,4 +111,16 @@ export class ListInferenceEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceEventsCommand)
   .de(de_ListInferenceEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceEventsRequest;
+      output: ListInferenceEventsResponse;
+    };
+    sdk: {
+      input: ListInferenceEventsCommandInput;
+      output: ListInferenceEventsCommandOutput;
+    };
+  };
+}

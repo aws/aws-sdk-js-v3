@@ -120,4 +120,16 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQuerySuggestionsBlockListCommand)
   .de(de_UpdateQuerySuggestionsBlockListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQuerySuggestionsBlockListRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQuerySuggestionsBlockListCommandInput;
+      output: UpdateQuerySuggestionsBlockListCommandOutput;
+    };
+  };
+}

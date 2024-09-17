@@ -169,4 +169,16 @@ export class DescribePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePipelineCommand)
   .de(de_DescribePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePipelineRequest;
+      output: DescribePipelineResponse;
+    };
+    sdk: {
+      input: DescribePipelineCommandInput;
+      output: DescribePipelineCommandOutput;
+    };
+  };
+}

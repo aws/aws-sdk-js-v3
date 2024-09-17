@@ -116,4 +116,16 @@ export class DescribePlacementGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePlacementGroupsCommand)
   .de(de_DescribePlacementGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePlacementGroupsRequest;
+      output: DescribePlacementGroupsResult;
+    };
+    sdk: {
+      input: DescribePlacementGroupsCommandInput;
+      output: DescribePlacementGroupsCommandOutput;
+    };
+  };
+}

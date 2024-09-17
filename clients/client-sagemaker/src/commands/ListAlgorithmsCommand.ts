@@ -92,4 +92,16 @@ export class ListAlgorithmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAlgorithmsCommand)
   .de(de_ListAlgorithmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAlgorithmsInput;
+      output: ListAlgorithmsOutput;
+    };
+    sdk: {
+      input: ListAlgorithmsCommandInput;
+      output: ListAlgorithmsCommandOutput;
+    };
+  };
+}

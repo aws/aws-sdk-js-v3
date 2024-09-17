@@ -112,4 +112,16 @@ export class ListAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociationsCommand)
   .de(de_ListAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociationsRequest;
+      output: ListAssociationsResponse;
+    };
+    sdk: {
+      input: ListAssociationsCommandInput;
+      output: ListAssociationsCommandOutput;
+    };
+  };
+}

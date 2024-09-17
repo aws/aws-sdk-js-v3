@@ -100,4 +100,16 @@ export class DeregisterManagedInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterManagedInstanceCommand)
   .de(de_DeregisterManagedInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterManagedInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterManagedInstanceCommandInput;
+      output: DeregisterManagedInstanceCommandOutput;
+    };
+  };
+}

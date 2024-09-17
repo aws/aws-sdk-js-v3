@@ -109,4 +109,16 @@ export class ListSourceLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSourceLocationsCommand)
   .de(de_ListSourceLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSourceLocationsRequest;
+      output: ListSourceLocationsResponse;
+    };
+    sdk: {
+      input: ListSourceLocationsCommandInput;
+      output: ListSourceLocationsCommandOutput;
+    };
+  };
+}

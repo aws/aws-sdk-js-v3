@@ -69,4 +69,16 @@ export class MalformedStringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedStringCommand)
   .de(de_MalformedStringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedStringInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedStringCommandInput;
+      output: MalformedStringCommandOutput;
+    };
+  };
+}

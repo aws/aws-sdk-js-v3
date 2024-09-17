@@ -101,4 +101,16 @@ export class CreateSystemTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSystemTemplateCommand)
   .de(de_CreateSystemTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSystemTemplateRequest;
+      output: CreateSystemTemplateResponse;
+    };
+    sdk: {
+      input: CreateSystemTemplateCommandInput;
+      output: CreateSystemTemplateCommandOutput;
+    };
+  };
+}

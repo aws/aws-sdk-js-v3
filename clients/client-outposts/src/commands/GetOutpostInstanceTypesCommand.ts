@@ -99,4 +99,16 @@ export class GetOutpostInstanceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOutpostInstanceTypesCommand)
   .de(de_GetOutpostInstanceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOutpostInstanceTypesInput;
+      output: GetOutpostInstanceTypesOutput;
+    };
+    sdk: {
+      input: GetOutpostInstanceTypesCommandInput;
+      output: GetOutpostInstanceTypesCommandOutput;
+    };
+  };
+}

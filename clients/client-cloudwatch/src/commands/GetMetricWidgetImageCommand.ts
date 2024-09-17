@@ -93,4 +93,16 @@ export class GetMetricWidgetImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricWidgetImageCommand)
   .de(de_GetMetricWidgetImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricWidgetImageInput;
+      output: GetMetricWidgetImageOutput;
+    };
+    sdk: {
+      input: GetMetricWidgetImageCommandInput;
+      output: GetMetricWidgetImageCommandOutput;
+    };
+  };
+}

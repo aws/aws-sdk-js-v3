@@ -96,4 +96,16 @@ export class UntagContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagContactCommand)
   .de(de_UntagContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagContactCommandInput;
+      output: UntagContactCommandOutput;
+    };
+  };
+}

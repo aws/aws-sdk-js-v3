@@ -170,4 +170,16 @@ export class CreateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCommand)
   .de(de_CreateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupInput;
+      output: CreateGroupOutput;
+    };
+    sdk: {
+      input: CreateGroupCommandInput;
+      output: CreateGroupCommandOutput;
+    };
+  };
+}

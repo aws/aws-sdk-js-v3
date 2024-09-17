@@ -97,4 +97,16 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssociatedEnclaveCertificateIamRolesCommand)
   .de(de_GetAssociatedEnclaveCertificateIamRolesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssociatedEnclaveCertificateIamRolesRequest;
+      output: GetAssociatedEnclaveCertificateIamRolesResult;
+    };
+    sdk: {
+      input: GetAssociatedEnclaveCertificateIamRolesCommandInput;
+      output: GetAssociatedEnclaveCertificateIamRolesCommandOutput;
+    };
+  };
+}

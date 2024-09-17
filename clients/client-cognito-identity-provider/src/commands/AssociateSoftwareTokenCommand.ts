@@ -136,4 +136,16 @@ export class AssociateSoftwareTokenCommand extends $Command
   .f(AssociateSoftwareTokenRequestFilterSensitiveLog, AssociateSoftwareTokenResponseFilterSensitiveLog)
   .ser(se_AssociateSoftwareTokenCommand)
   .de(de_AssociateSoftwareTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSoftwareTokenRequest;
+      output: AssociateSoftwareTokenResponse;
+    };
+    sdk: {
+      input: AssociateSoftwareTokenCommandInput;
+      output: AssociateSoftwareTokenCommandOutput;
+    };
+  };
+}

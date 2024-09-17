@@ -111,4 +111,16 @@ export class ImportWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportWorkspaceImageCommand)
   .de(de_ImportWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportWorkspaceImageRequest;
+      output: ImportWorkspaceImageResult;
+    };
+    sdk: {
+      input: ImportWorkspaceImageCommandInput;
+      output: ImportWorkspaceImageCommandOutput;
+    };
+  };
+}

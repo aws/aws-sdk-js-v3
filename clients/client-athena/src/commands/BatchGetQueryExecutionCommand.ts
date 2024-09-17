@@ -165,4 +165,16 @@ export class BatchGetQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetQueryExecutionCommand)
   .de(de_BatchGetQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetQueryExecutionInput;
+      output: BatchGetQueryExecutionOutput;
+    };
+    sdk: {
+      input: BatchGetQueryExecutionCommandInput;
+      output: BatchGetQueryExecutionCommandOutput;
+    };
+  };
+}

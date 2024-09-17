@@ -148,4 +148,16 @@ export class GetLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLaunchCommand)
   .de(de_GetLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchRequest;
+      output: GetLaunchResponse;
+    };
+    sdk: {
+      input: GetLaunchCommandInput;
+      output: GetLaunchCommandOutput;
+    };
+  };
+}

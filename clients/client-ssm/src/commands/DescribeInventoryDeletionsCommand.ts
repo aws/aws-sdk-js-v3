@@ -110,4 +110,16 @@ export class DescribeInventoryDeletionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInventoryDeletionsCommand)
   .de(de_DescribeInventoryDeletionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInventoryDeletionsRequest;
+      output: DescribeInventoryDeletionsResult;
+    };
+    sdk: {
+      input: DescribeInventoryDeletionsCommandInput;
+      output: DescribeInventoryDeletionsCommandOutput;
+    };
+  };
+}

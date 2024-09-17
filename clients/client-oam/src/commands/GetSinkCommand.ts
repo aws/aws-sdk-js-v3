@@ -95,4 +95,16 @@ export class GetSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSinkCommand)
   .de(de_GetSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSinkInput;
+      output: GetSinkOutput;
+    };
+    sdk: {
+      input: GetSinkCommandInput;
+      output: GetSinkCommandOutput;
+    };
+  };
+}

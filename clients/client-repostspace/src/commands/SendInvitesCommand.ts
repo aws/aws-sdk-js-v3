@@ -95,4 +95,16 @@ export class SendInvitesCommand extends $Command
   .f(SendInvitesInputFilterSensitiveLog, void 0)
   .ser(se_SendInvitesCommand)
   .de(de_SendInvitesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendInvitesInput;
+      output: {};
+    };
+    sdk: {
+      input: SendInvitesCommandInput;
+      output: SendInvitesCommandOutput;
+    };
+  };
+}

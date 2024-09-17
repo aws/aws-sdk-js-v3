@@ -102,4 +102,16 @@ export class CreateBatchPredictionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBatchPredictionJobCommand)
   .de(de_CreateBatchPredictionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchPredictionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateBatchPredictionJobCommandInput;
+      output: CreateBatchPredictionJobCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetCellReadinessSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCellReadinessSummaryCommand)
   .de(de_GetCellReadinessSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCellReadinessSummaryRequest;
+      output: GetCellReadinessSummaryResponse;
+    };
+    sdk: {
+      input: GetCellReadinessSummaryCommandInput;
+      output: GetCellReadinessSummaryCommandOutput;
+    };
+  };
+}

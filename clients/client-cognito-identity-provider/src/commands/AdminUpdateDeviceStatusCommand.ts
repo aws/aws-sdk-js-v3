@@ -130,4 +130,16 @@ export class AdminUpdateDeviceStatusCommand extends $Command
   .f(AdminUpdateDeviceStatusRequestFilterSensitiveLog, void 0)
   .ser(se_AdminUpdateDeviceStatusCommand)
   .de(de_AdminUpdateDeviceStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminUpdateDeviceStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminUpdateDeviceStatusCommandInput;
+      output: AdminUpdateDeviceStatusCommandOutput;
+    };
+  };
+}

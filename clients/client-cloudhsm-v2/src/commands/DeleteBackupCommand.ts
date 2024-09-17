@@ -119,4 +119,16 @@ export class DeleteBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupCommand)
   .de(de_DeleteBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupRequest;
+      output: DeleteBackupResponse;
+    };
+    sdk: {
+      input: DeleteBackupCommandInput;
+      output: DeleteBackupCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DeleteAttendeeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAttendeeCommand)
   .de(de_DeleteAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAttendeeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAttendeeCommandInput;
+      output: DeleteAttendeeCommandOutput;
+    };
+  };
+}

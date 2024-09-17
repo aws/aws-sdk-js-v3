@@ -108,4 +108,16 @@ export class ListContactEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContactEvaluationsCommand)
   .de(de_ListContactEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContactEvaluationsRequest;
+      output: ListContactEvaluationsResponse;
+    };
+    sdk: {
+      input: ListContactEvaluationsCommandInput;
+      output: ListContactEvaluationsCommandOutput;
+    };
+  };
+}

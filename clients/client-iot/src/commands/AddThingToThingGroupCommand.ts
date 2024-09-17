@@ -92,4 +92,16 @@ export class AddThingToThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddThingToThingGroupCommand)
   .de(de_AddThingToThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddThingToThingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddThingToThingGroupCommandInput;
+      output: AddThingToThingGroupCommandOutput;
+    };
+  };
+}

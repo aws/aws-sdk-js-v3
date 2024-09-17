@@ -140,4 +140,16 @@ export class CancelServiceInstanceDeploymentCommand extends $Command
   .f(void 0, CancelServiceInstanceDeploymentOutputFilterSensitiveLog)
   .ser(se_CancelServiceInstanceDeploymentCommand)
   .de(de_CancelServiceInstanceDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelServiceInstanceDeploymentInput;
+      output: CancelServiceInstanceDeploymentOutput;
+    };
+    sdk: {
+      input: CancelServiceInstanceDeploymentCommandInput;
+      output: CancelServiceInstanceDeploymentCommandOutput;
+    };
+  };
+}

@@ -89,4 +89,16 @@ export class UpdateFeatureMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFeatureMetadataCommand)
   .de(de_UpdateFeatureMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFeatureMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFeatureMetadataCommandInput;
+      output: UpdateFeatureMetadataCommandOutput;
+    };
+  };
+}

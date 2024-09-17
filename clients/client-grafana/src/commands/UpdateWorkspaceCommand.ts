@@ -192,4 +192,16 @@ export class UpdateWorkspaceCommand extends $Command
   .f(UpdateWorkspaceRequestFilterSensitiveLog, UpdateWorkspaceResponseFilterSensitiveLog)
   .ser(se_UpdateWorkspaceCommand)
   .de(de_UpdateWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceRequest;
+      output: UpdateWorkspaceResponse;
+    };
+    sdk: {
+      input: UpdateWorkspaceCommandInput;
+      output: UpdateWorkspaceCommandOutput;
+    };
+  };
+}

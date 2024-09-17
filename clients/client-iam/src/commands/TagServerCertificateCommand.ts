@@ -148,4 +148,16 @@ export class TagServerCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagServerCertificateCommand)
   .de(de_TagServerCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagServerCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagServerCertificateCommandInput;
+      output: TagServerCertificateCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class CreateNFSFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNFSFileShareCommand)
   .de(de_CreateNFSFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNFSFileShareInput;
+      output: CreateNFSFileShareOutput;
+    };
+    sdk: {
+      input: CreateNFSFileShareCommandInput;
+      output: CreateNFSFileShareCommandOutput;
+    };
+  };
+}

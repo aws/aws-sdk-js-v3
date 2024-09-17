@@ -103,4 +103,16 @@ export class GetDatasetContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatasetContentCommand)
   .de(de_GetDatasetContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatasetContentRequest;
+      output: GetDatasetContentResponse;
+    };
+    sdk: {
+      input: GetDatasetContentCommandInput;
+      output: GetDatasetContentCommandOutput;
+    };
+  };
+}

@@ -158,4 +158,16 @@ export class UpdateScalingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateScalingPlanCommand)
   .de(de_UpdateScalingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateScalingPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateScalingPlanCommandInput;
+      output: UpdateScalingPlanCommandOutput;
+    };
+  };
+}

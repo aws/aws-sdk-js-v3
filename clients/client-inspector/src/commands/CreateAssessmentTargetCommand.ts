@@ -127,4 +127,16 @@ export class CreateAssessmentTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssessmentTargetCommand)
   .de(de_CreateAssessmentTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentTargetRequest;
+      output: CreateAssessmentTargetResponse;
+    };
+    sdk: {
+      input: CreateAssessmentTargetCommandInput;
+      output: CreateAssessmentTargetCommandOutput;
+    };
+  };
+}

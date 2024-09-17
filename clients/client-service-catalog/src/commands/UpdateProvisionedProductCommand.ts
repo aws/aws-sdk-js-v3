@@ -147,4 +147,16 @@ export class UpdateProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisionedProductCommand)
   .de(de_UpdateProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisionedProductInput;
+      output: UpdateProvisionedProductOutput;
+    };
+    sdk: {
+      input: UpdateProvisionedProductCommandInput;
+      output: UpdateProvisionedProductCommandOutput;
+    };
+  };
+}

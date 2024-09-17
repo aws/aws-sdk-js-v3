@@ -145,4 +145,16 @@ export class GetReviewTemplateAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReviewTemplateAnswerCommand)
   .de(de_GetReviewTemplateAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReviewTemplateAnswerInput;
+      output: GetReviewTemplateAnswerOutput;
+    };
+    sdk: {
+      input: GetReviewTemplateAnswerCommandInput;
+      output: GetReviewTemplateAnswerCommandOutput;
+    };
+  };
+}

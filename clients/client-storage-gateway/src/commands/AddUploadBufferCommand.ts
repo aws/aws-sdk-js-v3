@@ -113,4 +113,16 @@ export class AddUploadBufferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddUploadBufferCommand)
   .de(de_AddUploadBufferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddUploadBufferInput;
+      output: AddUploadBufferOutput;
+    };
+    sdk: {
+      input: AddUploadBufferCommandInput;
+      output: AddUploadBufferCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class ListLiveSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLiveSourcesCommand)
   .de(de_ListLiveSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLiveSourcesRequest;
+      output: ListLiveSourcesResponse;
+    };
+    sdk: {
+      input: ListLiveSourcesCommandInput;
+      output: ListLiveSourcesCommandOutput;
+    };
+  };
+}

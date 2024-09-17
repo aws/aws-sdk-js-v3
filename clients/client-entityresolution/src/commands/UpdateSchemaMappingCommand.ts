@@ -125,4 +125,16 @@ export class UpdateSchemaMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSchemaMappingCommand)
   .de(de_UpdateSchemaMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSchemaMappingInput;
+      output: UpdateSchemaMappingOutput;
+    };
+    sdk: {
+      input: UpdateSchemaMappingCommandInput;
+      output: UpdateSchemaMappingCommandOutput;
+    };
+  };
+}

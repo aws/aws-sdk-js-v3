@@ -128,4 +128,16 @@ export class ModifyInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceEventWindowCommand)
   .de(de_ModifyInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceEventWindowRequest;
+      output: ModifyInstanceEventWindowResult;
+    };
+    sdk: {
+      input: ModifyInstanceEventWindowCommandInput;
+      output: ModifyInstanceEventWindowCommandOutput;
+    };
+  };
+}

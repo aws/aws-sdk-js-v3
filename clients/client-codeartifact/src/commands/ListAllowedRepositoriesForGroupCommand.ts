@@ -120,4 +120,16 @@ export class ListAllowedRepositoriesForGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAllowedRepositoriesForGroupCommand)
   .de(de_ListAllowedRepositoriesForGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAllowedRepositoriesForGroupRequest;
+      output: ListAllowedRepositoriesForGroupResult;
+    };
+    sdk: {
+      input: ListAllowedRepositoriesForGroupCommandInput;
+      output: ListAllowedRepositoriesForGroupCommandOutput;
+    };
+  };
+}

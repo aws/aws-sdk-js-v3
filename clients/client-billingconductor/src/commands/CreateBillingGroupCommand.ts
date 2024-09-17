@@ -121,4 +121,16 @@ export class CreateBillingGroupCommand extends $Command
   .f(CreateBillingGroupInputFilterSensitiveLog, void 0)
   .ser(se_CreateBillingGroupCommand)
   .de(de_CreateBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBillingGroupInput;
+      output: CreateBillingGroupOutput;
+    };
+    sdk: {
+      input: CreateBillingGroupCommandInput;
+      output: CreateBillingGroupCommandOutput;
+    };
+  };
+}

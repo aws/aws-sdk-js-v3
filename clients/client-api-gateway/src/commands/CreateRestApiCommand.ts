@@ -139,4 +139,16 @@ export class CreateRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRestApiCommand)
   .de(de_CreateRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: CreateRestApiCommandInput;
+      output: CreateRestApiCommandOutput;
+    };
+  };
+}

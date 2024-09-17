@@ -118,4 +118,16 @@ export class DisassociateLibraryItemReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLibraryItemReviewCommand)
   .de(de_DisassociateLibraryItemReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLibraryItemReviewInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLibraryItemReviewCommandInput;
+      output: DisassociateLibraryItemReviewCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class CreateGeofenceCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGeofenceCollectionCommand)
   .de(de_CreateGeofenceCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGeofenceCollectionRequest;
+      output: CreateGeofenceCollectionResponse;
+    };
+    sdk: {
+      input: CreateGeofenceCollectionCommandInput;
+      output: CreateGeofenceCollectionCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class ListSigningProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSigningProfilesCommand)
   .de(de_ListSigningProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSigningProfilesRequest;
+      output: ListSigningProfilesResponse;
+    };
+    sdk: {
+      input: ListSigningProfilesCommandInput;
+      output: ListSigningProfilesCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAWSDefaultServiceQuotaCommand)
   .de(de_GetAWSDefaultServiceQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAWSDefaultServiceQuotaRequest;
+      output: GetAWSDefaultServiceQuotaResponse;
+    };
+    sdk: {
+      input: GetAWSDefaultServiceQuotaCommandInput;
+      output: GetAWSDefaultServiceQuotaCommandOutput;
+    };
+  };
+}

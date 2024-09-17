@@ -130,4 +130,16 @@ export class CreateRescoreExecutionPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRescoreExecutionPlanCommand)
   .de(de_CreateRescoreExecutionPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRescoreExecutionPlanRequest;
+      output: CreateRescoreExecutionPlanResponse;
+    };
+    sdk: {
+      input: CreateRescoreExecutionPlanCommandInput;
+      output: CreateRescoreExecutionPlanCommandOutput;
+    };
+  };
+}

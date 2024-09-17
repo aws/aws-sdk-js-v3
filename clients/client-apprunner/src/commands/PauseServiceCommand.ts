@@ -185,4 +185,16 @@ export class PauseServiceCommand extends $Command
   .f(void 0, PauseServiceResponseFilterSensitiveLog)
   .ser(se_PauseServiceCommand)
   .de(de_PauseServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PauseServiceRequest;
+      output: PauseServiceResponse;
+    };
+    sdk: {
+      input: PauseServiceCommandInput;
+      output: PauseServiceCommandOutput;
+    };
+  };
+}

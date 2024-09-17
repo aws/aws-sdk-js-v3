@@ -109,4 +109,16 @@ export class DeleteEnvironmentMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentMembershipCommand)
   .de(de_DeleteEnvironmentMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentMembershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentMembershipCommandInput;
+      output: DeleteEnvironmentMembershipCommandOutput;
+    };
+  };
+}

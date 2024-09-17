@@ -98,4 +98,16 @@ export class DeleteRoleAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoleAliasCommand)
   .de(de_DeleteRoleAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoleAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoleAliasCommandInput;
+      output: DeleteRoleAliasCommandOutput;
+    };
+  };
+}

@@ -151,4 +151,16 @@ export class CreateBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackupCommand)
   .de(de_CreateBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackupInput;
+      output: CreateBackupOutput;
+    };
+    sdk: {
+      input: CreateBackupCommandInput;
+      output: CreateBackupCommandOutput;
+    };
+  };
+}

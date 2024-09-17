@@ -203,4 +203,16 @@ export class UpdatePolicyTemplateCommand extends $Command
   .f(UpdatePolicyTemplateInputFilterSensitiveLog, void 0)
   .ser(se_UpdatePolicyTemplateCommand)
   .de(de_UpdatePolicyTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePolicyTemplateInput;
+      output: UpdatePolicyTemplateOutput;
+    };
+    sdk: {
+      input: UpdatePolicyTemplateCommandInput;
+      output: UpdatePolicyTemplateCommandOutput;
+    };
+  };
+}

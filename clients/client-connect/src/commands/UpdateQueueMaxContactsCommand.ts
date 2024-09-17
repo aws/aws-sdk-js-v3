@@ -94,4 +94,16 @@ export class UpdateQueueMaxContactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQueueMaxContactsCommand)
   .de(de_UpdateQueueMaxContactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQueueMaxContactsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQueueMaxContactsCommandInput;
+      output: UpdateQueueMaxContactsCommandOutput;
+    };
+  };
+}

@@ -210,4 +210,16 @@ export class DescribeBucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBucketsCommand)
   .de(de_DescribeBucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBucketsRequest;
+      output: DescribeBucketsResponse;
+    };
+    sdk: {
+      input: DescribeBucketsCommandInput;
+      output: DescribeBucketsCommandOutput;
+    };
+  };
+}

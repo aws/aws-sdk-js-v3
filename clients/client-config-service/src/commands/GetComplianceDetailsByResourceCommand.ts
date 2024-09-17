@@ -114,4 +114,16 @@ export class GetComplianceDetailsByResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComplianceDetailsByResourceCommand)
   .de(de_GetComplianceDetailsByResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComplianceDetailsByResourceRequest;
+      output: GetComplianceDetailsByResourceResponse;
+    };
+    sdk: {
+      input: GetComplianceDetailsByResourceCommandInput;
+      output: GetComplianceDetailsByResourceCommandOutput;
+    };
+  };
+}

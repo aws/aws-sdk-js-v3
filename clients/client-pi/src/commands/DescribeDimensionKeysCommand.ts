@@ -141,4 +141,16 @@ export class DescribeDimensionKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDimensionKeysCommand)
   .de(de_DescribeDimensionKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDimensionKeysRequest;
+      output: DescribeDimensionKeysResponse;
+    };
+    sdk: {
+      input: DescribeDimensionKeysCommandInput;
+      output: DescribeDimensionKeysCommandOutput;
+    };
+  };
+}

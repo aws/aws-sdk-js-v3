@@ -115,4 +115,16 @@ export class RevokeTokenCommand extends $Command
   .f(RevokeTokenRequestFilterSensitiveLog, void 0)
   .ser(se_RevokeTokenCommand)
   .de(de_RevokeTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeTokenRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeTokenCommandInput;
+      output: RevokeTokenCommandOutput;
+    };
+  };
+}

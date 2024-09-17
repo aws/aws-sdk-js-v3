@@ -107,4 +107,16 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWirelessGatewayFirmwareInformationCommand)
   .de(de_GetWirelessGatewayFirmwareInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWirelessGatewayFirmwareInformationRequest;
+      output: GetWirelessGatewayFirmwareInformationResponse;
+    };
+    sdk: {
+      input: GetWirelessGatewayFirmwareInformationCommandInput;
+      output: GetWirelessGatewayFirmwareInformationCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class DescribeDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDetectorCommand)
   .de(de_DescribeDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDetectorRequest;
+      output: DescribeDetectorResponse;
+    };
+    sdk: {
+      input: DescribeDetectorCommandInput;
+      output: DescribeDetectorCommandOutput;
+    };
+  };
+}

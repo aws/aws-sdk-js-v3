@@ -89,4 +89,16 @@ export class DeletePredictorBacktestExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePredictorBacktestExportJobCommand)
   .de(de_DeletePredictorBacktestExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePredictorBacktestExportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePredictorBacktestExportJobCommandInput;
+      output: DeletePredictorBacktestExportJobCommandOutput;
+    };
+  };
+}

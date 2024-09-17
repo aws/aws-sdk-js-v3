@@ -159,4 +159,16 @@ export class ListStandardsControlAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStandardsControlAssociationsCommand)
   .de(de_ListStandardsControlAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStandardsControlAssociationsRequest;
+      output: ListStandardsControlAssociationsResponse;
+    };
+    sdk: {
+      input: ListStandardsControlAssociationsCommandInput;
+      output: ListStandardsControlAssociationsCommandOutput;
+    };
+  };
+}

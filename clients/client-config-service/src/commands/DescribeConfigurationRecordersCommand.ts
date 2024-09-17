@@ -126,4 +126,16 @@ export class DescribeConfigurationRecordersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationRecordersCommand)
   .de(de_DescribeConfigurationRecordersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationRecordersRequest;
+      output: DescribeConfigurationRecordersResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationRecordersCommandInput;
+      output: DescribeConfigurationRecordersCommandOutput;
+    };
+  };
+}

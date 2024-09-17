@@ -100,4 +100,16 @@ export class ModifySelfservicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySelfservicePermissionsCommand)
   .de(de_ModifySelfservicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySelfservicePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySelfservicePermissionsCommandInput;
+      output: ModifySelfservicePermissionsCommandOutput;
+    };
+  };
+}

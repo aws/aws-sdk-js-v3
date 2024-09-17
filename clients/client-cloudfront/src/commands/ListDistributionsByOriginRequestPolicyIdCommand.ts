@@ -112,4 +112,16 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDistributionsByOriginRequestPolicyIdCommand)
   .de(de_ListDistributionsByOriginRequestPolicyIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByOriginRequestPolicyIdRequest;
+      output: ListDistributionsByOriginRequestPolicyIdResult;
+    };
+    sdk: {
+      input: ListDistributionsByOriginRequestPolicyIdCommandInput;
+      output: ListDistributionsByOriginRequestPolicyIdCommandOutput;
+    };
+  };
+}

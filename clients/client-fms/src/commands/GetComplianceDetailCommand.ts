@@ -116,4 +116,16 @@ export class GetComplianceDetailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComplianceDetailCommand)
   .de(de_GetComplianceDetailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComplianceDetailRequest;
+      output: GetComplianceDetailResponse;
+    };
+    sdk: {
+      input: GetComplianceDetailCommandInput;
+      output: GetComplianceDetailCommandOutput;
+    };
+  };
+}

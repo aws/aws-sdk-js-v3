@@ -117,4 +117,16 @@ export class ListDataCellsFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataCellsFilterCommand)
   .de(de_ListDataCellsFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataCellsFilterRequest;
+      output: ListDataCellsFilterResponse;
+    };
+    sdk: {
+      input: ListDataCellsFilterCommandInput;
+      output: ListDataCellsFilterCommandOutput;
+    };
+  };
+}

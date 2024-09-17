@@ -100,4 +100,16 @@ export class ListVehiclesInFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVehiclesInFleetCommand)
   .de(de_ListVehiclesInFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVehiclesInFleetRequest;
+      output: ListVehiclesInFleetResponse;
+    };
+    sdk: {
+      input: ListVehiclesInFleetCommandInput;
+      output: ListVehiclesInFleetCommandOutput;
+    };
+  };
+}

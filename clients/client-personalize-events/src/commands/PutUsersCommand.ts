@@ -95,4 +95,16 @@ export class PutUsersCommand extends $Command
   .f(PutUsersRequestFilterSensitiveLog, void 0)
   .ser(se_PutUsersCommand)
   .de(de_PutUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutUsersRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutUsersCommandInput;
+      output: PutUsersCommandOutput;
+    };
+  };
+}

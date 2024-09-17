@@ -133,4 +133,16 @@ export class CreateChannelCommand extends $Command
   .f(void 0, CreateChannelResponseFilterSensitiveLog)
   .ser(se_CreateChannelCommand)
   .de(de_CreateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelRequest;
+      output: CreateChannelResponse;
+    };
+    sdk: {
+      input: CreateChannelCommandInput;
+      output: CreateChannelCommandOutput;
+    };
+  };
+}

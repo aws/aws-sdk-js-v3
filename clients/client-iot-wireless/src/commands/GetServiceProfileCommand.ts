@@ -115,4 +115,16 @@ export class GetServiceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceProfileCommand)
   .de(de_GetServiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceProfileRequest;
+      output: GetServiceProfileResponse;
+    };
+    sdk: {
+      input: GetServiceProfileCommandInput;
+      output: GetServiceProfileCommandOutput;
+    };
+  };
+}

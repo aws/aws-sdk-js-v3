@@ -120,4 +120,16 @@ export class DescribeNotebookExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotebookExecutionCommand)
   .de(de_DescribeNotebookExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotebookExecutionInput;
+      output: DescribeNotebookExecutionOutput;
+    };
+    sdk: {
+      input: DescribeNotebookExecutionCommandInput;
+      output: DescribeNotebookExecutionCommandOutput;
+    };
+  };
+}

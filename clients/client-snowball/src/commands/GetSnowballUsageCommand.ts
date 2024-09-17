@@ -96,4 +96,16 @@ export class GetSnowballUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSnowballUsageCommand)
   .de(de_GetSnowballUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSnowballUsageResult;
+    };
+    sdk: {
+      input: GetSnowballUsageCommandInput;
+      output: GetSnowballUsageCommandOutput;
+    };
+  };
+}

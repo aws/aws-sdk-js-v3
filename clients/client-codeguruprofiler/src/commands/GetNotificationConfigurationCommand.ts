@@ -104,4 +104,16 @@ export class GetNotificationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNotificationConfigurationCommand)
   .de(de_GetNotificationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNotificationConfigurationRequest;
+      output: GetNotificationConfigurationResponse;
+    };
+    sdk: {
+      input: GetNotificationConfigurationCommandInput;
+      output: GetNotificationConfigurationCommandOutput;
+    };
+  };
+}

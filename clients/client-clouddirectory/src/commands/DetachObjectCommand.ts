@@ -111,4 +111,16 @@ export class DetachObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachObjectCommand)
   .de(de_DetachObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachObjectRequest;
+      output: DetachObjectResponse;
+    };
+    sdk: {
+      input: DetachObjectCommandInput;
+      output: DetachObjectCommandOutput;
+    };
+  };
+}

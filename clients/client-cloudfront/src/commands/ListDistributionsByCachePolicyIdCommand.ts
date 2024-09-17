@@ -108,4 +108,16 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDistributionsByCachePolicyIdCommand)
   .de(de_ListDistributionsByCachePolicyIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByCachePolicyIdRequest;
+      output: ListDistributionsByCachePolicyIdResult;
+    };
+    sdk: {
+      input: ListDistributionsByCachePolicyIdCommandInput;
+      output: ListDistributionsByCachePolicyIdCommandOutput;
+    };
+  };
+}

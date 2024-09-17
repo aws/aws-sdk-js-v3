@@ -108,4 +108,16 @@ export class DeleteFindingAggregatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFindingAggregatorCommand)
   .de(de_DeleteFindingAggregatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFindingAggregatorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFindingAggregatorCommandInput;
+      output: DeleteFindingAggregatorCommandOutput;
+    };
+  };
+}

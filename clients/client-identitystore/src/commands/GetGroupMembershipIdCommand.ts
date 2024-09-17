@@ -102,4 +102,16 @@ export class GetGroupMembershipIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupMembershipIdCommand)
   .de(de_GetGroupMembershipIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupMembershipIdRequest;
+      output: GetGroupMembershipIdResponse;
+    };
+    sdk: {
+      input: GetGroupMembershipIdCommandInput;
+      output: GetGroupMembershipIdCommandOutput;
+    };
+  };
+}

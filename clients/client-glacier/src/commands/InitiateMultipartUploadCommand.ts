@@ -146,4 +146,16 @@ export class InitiateMultipartUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateMultipartUploadCommand)
   .de(de_InitiateMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateMultipartUploadInput;
+      output: InitiateMultipartUploadOutput;
+    };
+    sdk: {
+      input: InitiateMultipartUploadCommandInput;
+      output: InitiateMultipartUploadCommandOutput;
+    };
+  };
+}

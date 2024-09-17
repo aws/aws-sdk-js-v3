@@ -122,4 +122,16 @@ export class GetBucketLoggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketLoggingCommand)
   .de(de_GetBucketLoggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketLoggingRequest;
+      output: GetBucketLoggingOutput;
+    };
+    sdk: {
+      input: GetBucketLoggingCommandInput;
+      output: GetBucketLoggingCommandOutput;
+    };
+  };
+}

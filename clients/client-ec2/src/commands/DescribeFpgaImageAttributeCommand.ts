@@ -95,4 +95,16 @@ export class DescribeFpgaImageAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFpgaImageAttributeCommand)
   .de(de_DescribeFpgaImageAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFpgaImageAttributeRequest;
+      output: DescribeFpgaImageAttributeResult;
+    };
+    sdk: {
+      input: DescribeFpgaImageAttributeCommandInput;
+      output: DescribeFpgaImageAttributeCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class ListProfilingGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfilingGroupsCommand)
   .de(de_ListProfilingGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfilingGroupsRequest;
+      output: ListProfilingGroupsResponse;
+    };
+    sdk: {
+      input: ListProfilingGroupsCommandInput;
+      output: ListProfilingGroupsCommandOutput;
+    };
+  };
+}

@@ -168,4 +168,16 @@ export class GetOrganizationsAccessReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOrganizationsAccessReportCommand)
   .de(de_GetOrganizationsAccessReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOrganizationsAccessReportRequest;
+      output: GetOrganizationsAccessReportResponse;
+    };
+    sdk: {
+      input: GetOrganizationsAccessReportCommandInput;
+      output: GetOrganizationsAccessReportCommandOutput;
+    };
+  };
+}

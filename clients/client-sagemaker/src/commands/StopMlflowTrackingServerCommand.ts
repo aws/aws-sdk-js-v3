@@ -84,4 +84,16 @@ export class StopMlflowTrackingServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopMlflowTrackingServerCommand)
   .de(de_StopMlflowTrackingServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopMlflowTrackingServerRequest;
+      output: StopMlflowTrackingServerResponse;
+    };
+    sdk: {
+      input: StopMlflowTrackingServerCommandInput;
+      output: StopMlflowTrackingServerCommandOutput;
+    };
+  };
+}

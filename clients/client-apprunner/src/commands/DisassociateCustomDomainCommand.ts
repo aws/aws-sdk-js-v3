@@ -114,4 +114,16 @@ export class DisassociateCustomDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateCustomDomainCommand)
   .de(de_DisassociateCustomDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateCustomDomainRequest;
+      output: DisassociateCustomDomainResponse;
+    };
+    sdk: {
+      input: DisassociateCustomDomainCommandInput;
+      output: DisassociateCustomDomainCommandOutput;
+    };
+  };
+}

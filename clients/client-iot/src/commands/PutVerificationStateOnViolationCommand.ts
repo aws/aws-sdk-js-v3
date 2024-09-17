@@ -91,4 +91,16 @@ export class PutVerificationStateOnViolationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutVerificationStateOnViolationCommand)
   .de(de_PutVerificationStateOnViolationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVerificationStateOnViolationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutVerificationStateOnViolationCommandInput;
+      output: PutVerificationStateOnViolationCommandOutput;
+    };
+  };
+}

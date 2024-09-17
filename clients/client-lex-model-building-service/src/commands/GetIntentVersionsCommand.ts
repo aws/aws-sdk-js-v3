@@ -117,4 +117,16 @@ export class GetIntentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntentVersionsCommand)
   .de(de_GetIntentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntentVersionsRequest;
+      output: GetIntentVersionsResponse;
+    };
+    sdk: {
+      input: GetIntentVersionsCommandInput;
+      output: GetIntentVersionsCommandOutput;
+    };
+  };
+}

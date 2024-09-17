@@ -123,4 +123,16 @@ export class DescribeManagedProductsByVendorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeManagedProductsByVendorCommand)
   .de(de_DescribeManagedProductsByVendorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeManagedProductsByVendorRequest;
+      output: DescribeManagedProductsByVendorResponse;
+    };
+    sdk: {
+      input: DescribeManagedProductsByVendorCommandInput;
+      output: DescribeManagedProductsByVendorCommandOutput;
+    };
+  };
+}

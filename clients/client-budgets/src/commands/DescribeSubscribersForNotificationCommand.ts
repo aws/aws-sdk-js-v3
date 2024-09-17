@@ -124,4 +124,16 @@ export class DescribeSubscribersForNotificationCommand extends $Command
   .f(void 0, DescribeSubscribersForNotificationResponseFilterSensitiveLog)
   .ser(se_DescribeSubscribersForNotificationCommand)
   .de(de_DescribeSubscribersForNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubscribersForNotificationRequest;
+      output: DescribeSubscribersForNotificationResponse;
+    };
+    sdk: {
+      input: DescribeSubscribersForNotificationCommandInput;
+      output: DescribeSubscribersForNotificationCommandOutput;
+    };
+  };
+}

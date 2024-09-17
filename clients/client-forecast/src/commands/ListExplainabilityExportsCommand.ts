@@ -112,4 +112,16 @@ export class ListExplainabilityExportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExplainabilityExportsCommand)
   .de(de_ListExplainabilityExportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExplainabilityExportsRequest;
+      output: ListExplainabilityExportsResponse;
+    };
+    sdk: {
+      input: ListExplainabilityExportsCommandInput;
+      output: ListExplainabilityExportsCommandOutput;
+    };
+  };
+}

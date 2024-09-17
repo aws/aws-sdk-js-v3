@@ -110,4 +110,16 @@ export class GetDownloadUrlForLayerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDownloadUrlForLayerCommand)
   .de(de_GetDownloadUrlForLayerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDownloadUrlForLayerRequest;
+      output: GetDownloadUrlForLayerResponse;
+    };
+    sdk: {
+      input: GetDownloadUrlForLayerCommandInput;
+      output: GetDownloadUrlForLayerCommandOutput;
+    };
+  };
+}

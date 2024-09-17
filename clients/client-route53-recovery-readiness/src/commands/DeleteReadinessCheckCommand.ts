@@ -94,4 +94,16 @@ export class DeleteReadinessCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReadinessCheckCommand)
   .de(de_DeleteReadinessCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReadinessCheckRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReadinessCheckCommandInput;
+      output: DeleteReadinessCheckCommandOutput;
+    };
+  };
+}

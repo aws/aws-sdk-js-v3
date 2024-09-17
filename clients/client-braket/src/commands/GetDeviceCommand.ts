@@ -114,4 +114,16 @@ export class GetDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeviceCommand)
   .de(de_GetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceRequest;
+      output: GetDeviceResponse;
+    };
+    sdk: {
+      input: GetDeviceCommandInput;
+      output: GetDeviceCommandOutput;
+    };
+  };
+}

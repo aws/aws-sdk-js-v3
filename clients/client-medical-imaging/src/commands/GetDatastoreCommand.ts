@@ -100,4 +100,16 @@ export class GetDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatastoreCommand)
   .de(de_GetDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatastoreRequest;
+      output: GetDatastoreResponse;
+    };
+    sdk: {
+      input: GetDatastoreCommandInput;
+      output: GetDatastoreCommandOutput;
+    };
+  };
+}

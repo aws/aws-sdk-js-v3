@@ -114,4 +114,16 @@ export class CreateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAliasCommand)
   .de(de_CreateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAliasRequest;
+      output: AliasConfiguration;
+    };
+    sdk: {
+      input: CreateAliasCommandInput;
+      output: CreateAliasCommandOutput;
+    };
+  };
+}

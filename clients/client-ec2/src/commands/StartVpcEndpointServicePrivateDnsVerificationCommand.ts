@@ -90,4 +90,16 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_StartVpcEndpointServicePrivateDnsVerificationCommand)
   .de(de_StartVpcEndpointServicePrivateDnsVerificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartVpcEndpointServicePrivateDnsVerificationRequest;
+      output: StartVpcEndpointServicePrivateDnsVerificationResult;
+    };
+    sdk: {
+      input: StartVpcEndpointServicePrivateDnsVerificationCommandInput;
+      output: StartVpcEndpointServicePrivateDnsVerificationCommandOutput;
+    };
+  };
+}

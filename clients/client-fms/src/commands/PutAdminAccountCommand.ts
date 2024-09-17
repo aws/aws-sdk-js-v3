@@ -124,4 +124,16 @@ export class PutAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAdminAccountCommand)
   .de(de_PutAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAdminAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAdminAccountCommandInput;
+      output: PutAdminAccountCommandOutput;
+    };
+  };
+}

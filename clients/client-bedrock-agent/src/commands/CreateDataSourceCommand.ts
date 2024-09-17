@@ -440,4 +440,16 @@ export class CreateDataSourceCommand extends $Command
   .f(CreateDataSourceRequestFilterSensitiveLog, CreateDataSourceResponseFilterSensitiveLog)
   .ser(se_CreateDataSourceCommand)
   .de(de_CreateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceRequest;
+      output: CreateDataSourceResponse;
+    };
+    sdk: {
+      input: CreateDataSourceCommandInput;
+      output: CreateDataSourceCommandOutput;
+    };
+  };
+}

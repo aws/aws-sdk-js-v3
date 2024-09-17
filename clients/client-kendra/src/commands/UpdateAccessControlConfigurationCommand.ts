@@ -151,4 +151,16 @@ export class UpdateAccessControlConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessControlConfigurationCommand)
   .de(de_UpdateAccessControlConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessControlConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccessControlConfigurationCommandInput;
+      output: UpdateAccessControlConfigurationCommandOutput;
+    };
+  };
+}

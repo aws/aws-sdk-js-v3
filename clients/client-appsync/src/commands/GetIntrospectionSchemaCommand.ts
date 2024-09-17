@@ -101,4 +101,16 @@ export class GetIntrospectionSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntrospectionSchemaCommand)
   .de(de_GetIntrospectionSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntrospectionSchemaRequest;
+      output: GetIntrospectionSchemaResponse;
+    };
+    sdk: {
+      input: GetIntrospectionSchemaCommandInput;
+      output: GetIntrospectionSchemaCommandOutput;
+    };
+  };
+}

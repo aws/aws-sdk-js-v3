@@ -101,4 +101,16 @@ export class CreatePerformanceAnalysisReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePerformanceAnalysisReportCommand)
   .de(de_CreatePerformanceAnalysisReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePerformanceAnalysisReportRequest;
+      output: CreatePerformanceAnalysisReportResponse;
+    };
+    sdk: {
+      input: CreatePerformanceAnalysisReportCommandInput;
+      output: CreatePerformanceAnalysisReportCommandOutput;
+    };
+  };
+}

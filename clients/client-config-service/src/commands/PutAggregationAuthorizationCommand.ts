@@ -101,4 +101,16 @@ export class PutAggregationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAggregationAuthorizationCommand)
   .de(de_PutAggregationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAggregationAuthorizationRequest;
+      output: PutAggregationAuthorizationResponse;
+    };
+    sdk: {
+      input: PutAggregationAuthorizationCommandInput;
+      output: PutAggregationAuthorizationCommandOutput;
+    };
+  };
+}

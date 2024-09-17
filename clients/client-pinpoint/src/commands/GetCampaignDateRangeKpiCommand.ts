@@ -131,4 +131,16 @@ export class GetCampaignDateRangeKpiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignDateRangeKpiCommand)
   .de(de_GetCampaignDateRangeKpiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignDateRangeKpiRequest;
+      output: GetCampaignDateRangeKpiResponse;
+    };
+    sdk: {
+      input: GetCampaignDateRangeKpiCommandInput;
+      output: GetCampaignDateRangeKpiCommandOutput;
+    };
+  };
+}

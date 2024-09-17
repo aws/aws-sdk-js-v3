@@ -88,4 +88,16 @@ export class DisableOrganizationAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableOrganizationAdminAccountCommand)
   .de(de_DisableOrganizationAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableOrganizationAdminAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableOrganizationAdminAccountCommandInput;
+      output: DisableOrganizationAdminAccountCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class PutDeploymentParameterCommand extends $Command
   .f(PutDeploymentParameterRequestFilterSensitiveLog, void 0)
   .ser(se_PutDeploymentParameterCommand)
   .de(de_PutDeploymentParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeploymentParameterRequest;
+      output: PutDeploymentParameterResponse;
+    };
+    sdk: {
+      input: PutDeploymentParameterCommandInput;
+      output: PutDeploymentParameterCommandOutput;
+    };
+  };
+}

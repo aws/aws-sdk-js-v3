@@ -184,4 +184,16 @@ export class CreateModelBiasJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelBiasJobDefinitionCommand)
   .de(de_CreateModelBiasJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelBiasJobDefinitionRequest;
+      output: CreateModelBiasJobDefinitionResponse;
+    };
+    sdk: {
+      input: CreateModelBiasJobDefinitionCommandInput;
+      output: CreateModelBiasJobDefinitionCommandOutput;
+    };
+  };
+}

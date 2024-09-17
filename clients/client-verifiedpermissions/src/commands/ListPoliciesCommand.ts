@@ -242,4 +242,16 @@ export class ListPoliciesCommand extends $Command
   .f(ListPoliciesInputFilterSensitiveLog, ListPoliciesOutputFilterSensitiveLog)
   .ser(se_ListPoliciesCommand)
   .de(de_ListPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesInput;
+      output: ListPoliciesOutput;
+    };
+    sdk: {
+      input: ListPoliciesCommandInput;
+      output: ListPoliciesCommandOutput;
+    };
+  };
+}

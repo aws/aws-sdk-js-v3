@@ -124,4 +124,16 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMobileDeviceAccessRuleCommand)
   .de(de_CreateMobileDeviceAccessRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMobileDeviceAccessRuleRequest;
+      output: CreateMobileDeviceAccessRuleResponse;
+    };
+    sdk: {
+      input: CreateMobileDeviceAccessRuleCommandInput;
+      output: CreateMobileDeviceAccessRuleCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class DescribeEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEvaluationsCommand)
   .de(de_DescribeEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEvaluationsInput;
+      output: DescribeEvaluationsOutput;
+    };
+    sdk: {
+      input: DescribeEvaluationsCommandInput;
+      output: DescribeEvaluationsCommandOutput;
+    };
+  };
+}

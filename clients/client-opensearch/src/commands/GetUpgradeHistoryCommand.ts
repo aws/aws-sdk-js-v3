@@ -112,4 +112,16 @@ export class GetUpgradeHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUpgradeHistoryCommand)
   .de(de_GetUpgradeHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUpgradeHistoryRequest;
+      output: GetUpgradeHistoryResponse;
+    };
+    sdk: {
+      input: GetUpgradeHistoryCommandInput;
+      output: GetUpgradeHistoryCommandOutput;
+    };
+  };
+}

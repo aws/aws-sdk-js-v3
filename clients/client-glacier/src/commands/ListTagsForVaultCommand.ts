@@ -115,4 +115,16 @@ export class ListTagsForVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForVaultCommand)
   .de(de_ListTagsForVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForVaultInput;
+      output: ListTagsForVaultOutput;
+    };
+    sdk: {
+      input: ListTagsForVaultCommandInput;
+      output: ListTagsForVaultCommandOutput;
+    };
+  };
+}

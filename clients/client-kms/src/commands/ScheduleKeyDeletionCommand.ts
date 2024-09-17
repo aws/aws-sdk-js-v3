@@ -194,4 +194,16 @@ export class ScheduleKeyDeletionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScheduleKeyDeletionCommand)
   .de(de_ScheduleKeyDeletionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScheduleKeyDeletionRequest;
+      output: ScheduleKeyDeletionResponse;
+    };
+    sdk: {
+      input: ScheduleKeyDeletionCommandInput;
+      output: ScheduleKeyDeletionCommandOutput;
+    };
+  };
+}

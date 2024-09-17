@@ -119,4 +119,16 @@ export class ListAnnotationStoreVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnnotationStoreVersionsCommand)
   .de(de_ListAnnotationStoreVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnnotationStoreVersionsRequest;
+      output: ListAnnotationStoreVersionsResponse;
+    };
+    sdk: {
+      input: ListAnnotationStoreVersionsCommandInput;
+      output: ListAnnotationStoreVersionsCommandOutput;
+    };
+  };
+}

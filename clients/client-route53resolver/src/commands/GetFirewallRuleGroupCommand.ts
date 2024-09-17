@@ -103,4 +103,16 @@ export class GetFirewallRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFirewallRuleGroupCommand)
   .de(de_GetFirewallRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFirewallRuleGroupRequest;
+      output: GetFirewallRuleGroupResponse;
+    };
+    sdk: {
+      input: GetFirewallRuleGroupCommandInput;
+      output: GetFirewallRuleGroupCommandOutput;
+    };
+  };
+}

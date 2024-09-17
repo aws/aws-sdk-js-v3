@@ -106,4 +106,16 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoScalingNotificationTypesCommand)
   .de(de_DescribeAutoScalingNotificationTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAutoScalingNotificationTypesAnswer;
+    };
+    sdk: {
+      input: DescribeAutoScalingNotificationTypesCommandInput;
+      output: DescribeAutoScalingNotificationTypesCommandOutput;
+    };
+  };
+}

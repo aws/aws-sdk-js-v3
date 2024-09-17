@@ -168,4 +168,16 @@ export class GetCapabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCapabilityCommand)
   .de(de_GetCapabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCapabilityRequest;
+      output: GetCapabilityResponse;
+    };
+    sdk: {
+      input: GetCapabilityCommandInput;
+      output: GetCapabilityCommandOutput;
+    };
+  };
+}

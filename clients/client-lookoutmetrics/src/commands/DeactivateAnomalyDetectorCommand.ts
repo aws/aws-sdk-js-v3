@@ -94,4 +94,16 @@ export class DeactivateAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateAnomalyDetectorCommand)
   .de(de_DeactivateAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateAnomalyDetectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateAnomalyDetectorCommandInput;
+      output: DeactivateAnomalyDetectorCommandOutput;
+    };
+  };
+}

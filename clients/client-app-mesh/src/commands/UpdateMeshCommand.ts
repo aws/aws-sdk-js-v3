@@ -133,4 +133,16 @@ export class UpdateMeshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMeshCommand)
   .de(de_UpdateMeshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMeshInput;
+      output: UpdateMeshOutput;
+    };
+    sdk: {
+      input: UpdateMeshCommandInput;
+      output: UpdateMeshCommandOutput;
+    };
+  };
+}

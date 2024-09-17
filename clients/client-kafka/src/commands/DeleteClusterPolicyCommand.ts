@@ -87,4 +87,16 @@ export class DeleteClusterPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterPolicyCommand)
   .de(de_DeleteClusterPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteClusterPolicyCommandInput;
+      output: DeleteClusterPolicyCommandOutput;
+    };
+  };
+}

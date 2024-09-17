@@ -123,4 +123,16 @@ export class ListTableMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTableMetadataCommand)
   .de(de_ListTableMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTableMetadataInput;
+      output: ListTableMetadataOutput;
+    };
+    sdk: {
+      input: ListTableMetadataCommandInput;
+      output: ListTableMetadataCommandOutput;
+    };
+  };
+}

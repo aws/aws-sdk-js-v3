@@ -112,4 +112,16 @@ export class ListBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupsCommand)
   .de(de_ListBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupsInput;
+      output: ListBackupsOutput;
+    };
+    sdk: {
+      input: ListBackupsCommandInput;
+      output: ListBackupsCommandOutput;
+    };
+  };
+}

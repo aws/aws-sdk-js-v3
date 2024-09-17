@@ -102,4 +102,16 @@ export class ListDocumentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDocumentVersionsCommand)
   .de(de_ListDocumentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDocumentVersionsRequest;
+      output: ListDocumentVersionsResult;
+    };
+    sdk: {
+      input: ListDocumentVersionsCommandInput;
+      output: ListDocumentVersionsCommandOutput;
+    };
+  };
+}

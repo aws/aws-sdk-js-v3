@@ -126,4 +126,16 @@ export class UpdateBillingGroupCommand extends $Command
   .f(UpdateBillingGroupInputFilterSensitiveLog, UpdateBillingGroupOutputFilterSensitiveLog)
   .ser(se_UpdateBillingGroupCommand)
   .de(de_UpdateBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBillingGroupInput;
+      output: UpdateBillingGroupOutput;
+    };
+    sdk: {
+      input: UpdateBillingGroupCommandInput;
+      output: UpdateBillingGroupCommandOutput;
+    };
+  };
+}

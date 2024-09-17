@@ -104,4 +104,16 @@ export class StopInferenceSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopInferenceSchedulerCommand)
   .de(de_StopInferenceSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopInferenceSchedulerRequest;
+      output: StopInferenceSchedulerResponse;
+    };
+    sdk: {
+      input: StopInferenceSchedulerCommandInput;
+      output: StopInferenceSchedulerCommandOutput;
+    };
+  };
+}

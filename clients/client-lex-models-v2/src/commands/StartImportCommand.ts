@@ -205,4 +205,16 @@ export class StartImportCommand extends $Command
   .f(StartImportRequestFilterSensitiveLog, void 0)
   .ser(se_StartImportCommand)
   .de(de_StartImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportRequest;
+      output: StartImportResponse;
+    };
+    sdk: {
+      input: StartImportCommandInput;
+      output: StartImportCommandOutput;
+    };
+  };
+}

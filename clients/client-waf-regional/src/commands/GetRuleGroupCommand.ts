@@ -96,4 +96,16 @@ export class GetRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleGroupCommand)
   .de(de_GetRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleGroupRequest;
+      output: GetRuleGroupResponse;
+    };
+    sdk: {
+      input: GetRuleGroupCommandInput;
+      output: GetRuleGroupCommandOutput;
+    };
+  };
+}

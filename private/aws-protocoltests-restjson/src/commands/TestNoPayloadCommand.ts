@@ -76,4 +76,16 @@ export class TestNoPayloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestNoPayloadCommand)
   .de(de_TestNoPayloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestNoPayloadInputOutput;
+      output: TestNoPayloadInputOutput;
+    };
+    sdk: {
+      input: TestNoPayloadCommandInput;
+      output: TestNoPayloadCommandOutput;
+    };
+  };
+}

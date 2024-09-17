@@ -152,4 +152,16 @@ export class EnableFederationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableFederationCommand)
   .de(de_EnableFederationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableFederationRequest;
+      output: EnableFederationResponse;
+    };
+    sdk: {
+      input: EnableFederationCommandInput;
+      output: EnableFederationCommandOutput;
+    };
+  };
+}

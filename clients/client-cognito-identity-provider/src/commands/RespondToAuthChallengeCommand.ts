@@ -229,4 +229,16 @@ export class RespondToAuthChallengeCommand extends $Command
   .f(RespondToAuthChallengeRequestFilterSensitiveLog, RespondToAuthChallengeResponseFilterSensitiveLog)
   .ser(se_RespondToAuthChallengeCommand)
   .de(de_RespondToAuthChallengeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RespondToAuthChallengeRequest;
+      output: RespondToAuthChallengeResponse;
+    };
+    sdk: {
+      input: RespondToAuthChallengeCommandInput;
+      output: RespondToAuthChallengeCommandOutput;
+    };
+  };
+}

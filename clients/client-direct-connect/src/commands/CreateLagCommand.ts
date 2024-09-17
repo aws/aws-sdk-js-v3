@@ -194,4 +194,16 @@ export class CreateLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLagCommand)
   .de(de_CreateLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLagRequest;
+      output: Lag;
+    };
+    sdk: {
+      input: CreateLagCommandInput;
+      output: CreateLagCommandOutput;
+    };
+  };
+}

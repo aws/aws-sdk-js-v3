@@ -71,4 +71,16 @@ export class MalformedMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedMapCommand)
   .de(de_MalformedMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedMapInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedMapCommandInput;
+      output: MalformedMapCommandOutput;
+    };
+  };
+}

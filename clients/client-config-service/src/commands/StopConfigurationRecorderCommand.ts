@@ -79,4 +79,16 @@ export class StopConfigurationRecorderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopConfigurationRecorderCommand)
   .de(de_StopConfigurationRecorderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopConfigurationRecorderRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopConfigurationRecorderCommandInput;
+      output: StopConfigurationRecorderCommandOutput;
+    };
+  };
+}

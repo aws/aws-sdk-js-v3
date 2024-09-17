@@ -127,4 +127,16 @@ export class DescribeConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationsCommand)
   .de(de_DescribeConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationsRequest;
+      output: DescribeConfigurationsResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationsCommandInput;
+      output: DescribeConfigurationsCommandOutput;
+    };
+  };
+}

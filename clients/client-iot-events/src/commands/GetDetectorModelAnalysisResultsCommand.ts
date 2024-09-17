@@ -114,4 +114,16 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDetectorModelAnalysisResultsCommand)
   .de(de_GetDetectorModelAnalysisResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDetectorModelAnalysisResultsRequest;
+      output: GetDetectorModelAnalysisResultsResponse;
+    };
+    sdk: {
+      input: GetDetectorModelAnalysisResultsCommandInput;
+      output: GetDetectorModelAnalysisResultsCommandOutput;
+    };
+  };
+}

@@ -245,4 +245,16 @@ export class GetLabelDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLabelDetectionCommand)
   .de(de_GetLabelDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLabelDetectionRequest;
+      output: GetLabelDetectionResponse;
+    };
+    sdk: {
+      input: GetLabelDetectionCommandInput;
+      output: GetLabelDetectionCommandOutput;
+    };
+  };
+}

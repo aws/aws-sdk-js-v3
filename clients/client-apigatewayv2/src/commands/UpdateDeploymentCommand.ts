@@ -96,4 +96,16 @@ export class UpdateDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeploymentCommand)
   .de(de_UpdateDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeploymentRequest;
+      output: UpdateDeploymentResponse;
+    };
+    sdk: {
+      input: UpdateDeploymentCommandInput;
+      output: UpdateDeploymentCommandOutput;
+    };
+  };
+}

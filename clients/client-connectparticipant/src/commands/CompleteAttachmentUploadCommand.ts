@@ -111,4 +111,16 @@ export class CompleteAttachmentUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteAttachmentUploadCommand)
   .de(de_CompleteAttachmentUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteAttachmentUploadRequest;
+      output: {};
+    };
+    sdk: {
+      input: CompleteAttachmentUploadCommandInput;
+      output: CompleteAttachmentUploadCommandOutput;
+    };
+  };
+}

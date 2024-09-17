@@ -129,4 +129,16 @@ export class RegisterIdentityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterIdentityProviderCommand)
   .de(de_RegisterIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterIdentityProviderRequest;
+      output: RegisterIdentityProviderResponse;
+    };
+    sdk: {
+      input: RegisterIdentityProviderCommandInput;
+      output: RegisterIdentityProviderCommandOutput;
+    };
+  };
+}

@@ -376,4 +376,16 @@ export class UpdateAssetFilterCommand extends $Command
   .f(UpdateAssetFilterInputFilterSensitiveLog, UpdateAssetFilterOutputFilterSensitiveLog)
   .ser(se_UpdateAssetFilterCommand)
   .de(de_UpdateAssetFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssetFilterInput;
+      output: UpdateAssetFilterOutput;
+    };
+    sdk: {
+      input: UpdateAssetFilterCommandInput;
+      output: UpdateAssetFilterCommandOutput;
+    };
+  };
+}

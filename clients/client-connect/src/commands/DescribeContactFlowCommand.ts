@@ -119,4 +119,16 @@ export class DescribeContactFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContactFlowCommand)
   .de(de_DescribeContactFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactFlowRequest;
+      output: DescribeContactFlowResponse;
+    };
+    sdk: {
+      input: DescribeContactFlowCommandInput;
+      output: DescribeContactFlowCommandOutput;
+    };
+  };
+}

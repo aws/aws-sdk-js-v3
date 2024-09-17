@@ -96,4 +96,16 @@ export class DeleteSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSyncJobCommand)
   .de(de_DeleteSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSyncJobRequest;
+      output: DeleteSyncJobResponse;
+    };
+    sdk: {
+      input: DeleteSyncJobCommandInput;
+      output: DeleteSyncJobCommandOutput;
+    };
+  };
+}

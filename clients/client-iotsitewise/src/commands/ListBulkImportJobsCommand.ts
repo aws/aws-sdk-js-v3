@@ -103,4 +103,16 @@ export class ListBulkImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBulkImportJobsCommand)
   .de(de_ListBulkImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBulkImportJobsRequest;
+      output: ListBulkImportJobsResponse;
+    };
+    sdk: {
+      input: ListBulkImportJobsCommandInput;
+      output: ListBulkImportJobsCommandOutput;
+    };
+  };
+}

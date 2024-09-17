@@ -126,4 +126,16 @@ export class ListRegistrationAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRegistrationAssociationsCommand)
   .de(de_ListRegistrationAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRegistrationAssociationsRequest;
+      output: ListRegistrationAssociationsResult;
+    };
+    sdk: {
+      input: ListRegistrationAssociationsCommandInput;
+      output: ListRegistrationAssociationsCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class RemoveRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRegionCommand)
   .de(de_RemoveRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRegionCommandInput;
+      output: RemoveRegionCommandOutput;
+    };
+  };
+}

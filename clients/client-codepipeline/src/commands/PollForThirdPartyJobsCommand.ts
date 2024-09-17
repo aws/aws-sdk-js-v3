@@ -100,4 +100,16 @@ export class PollForThirdPartyJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PollForThirdPartyJobsCommand)
   .de(de_PollForThirdPartyJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PollForThirdPartyJobsInput;
+      output: PollForThirdPartyJobsOutput;
+    };
+    sdk: {
+      input: PollForThirdPartyJobsCommandInput;
+      output: PollForThirdPartyJobsCommandOutput;
+    };
+  };
+}

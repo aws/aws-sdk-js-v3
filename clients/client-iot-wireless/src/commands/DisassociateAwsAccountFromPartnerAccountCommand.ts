@@ -99,4 +99,16 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAwsAccountFromPartnerAccountCommand)
   .de(de_DisassociateAwsAccountFromPartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAwsAccountFromPartnerAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAwsAccountFromPartnerAccountCommandInput;
+      output: DisassociateAwsAccountFromPartnerAccountCommandOutput;
+    };
+  };
+}

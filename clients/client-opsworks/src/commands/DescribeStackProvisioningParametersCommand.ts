@@ -99,4 +99,16 @@ export class DescribeStackProvisioningParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackProvisioningParametersCommand)
   .de(de_DescribeStackProvisioningParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackProvisioningParametersRequest;
+      output: DescribeStackProvisioningParametersResult;
+    };
+    sdk: {
+      input: DescribeStackProvisioningParametersCommandInput;
+      output: DescribeStackProvisioningParametersCommandOutput;
+    };
+  };
+}

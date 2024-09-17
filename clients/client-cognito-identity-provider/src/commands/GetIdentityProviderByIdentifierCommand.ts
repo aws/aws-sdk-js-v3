@@ -120,4 +120,16 @@ export class GetIdentityProviderByIdentifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityProviderByIdentifierCommand)
   .de(de_GetIdentityProviderByIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityProviderByIdentifierRequest;
+      output: GetIdentityProviderByIdentifierResponse;
+    };
+    sdk: {
+      input: GetIdentityProviderByIdentifierCommandInput;
+      output: GetIdentityProviderByIdentifierCommandOutput;
+    };
+  };
+}

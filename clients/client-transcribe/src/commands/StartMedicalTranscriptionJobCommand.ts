@@ -212,4 +212,16 @@ export class StartMedicalTranscriptionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMedicalTranscriptionJobCommand)
   .de(de_StartMedicalTranscriptionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMedicalTranscriptionJobRequest;
+      output: StartMedicalTranscriptionJobResponse;
+    };
+    sdk: {
+      input: StartMedicalTranscriptionJobCommandInput;
+      output: StartMedicalTranscriptionJobCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListCostAllocationTagBackfillHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCostAllocationTagBackfillHistoryCommand)
   .de(de_ListCostAllocationTagBackfillHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCostAllocationTagBackfillHistoryRequest;
+      output: ListCostAllocationTagBackfillHistoryResponse;
+    };
+    sdk: {
+      input: ListCostAllocationTagBackfillHistoryCommandInput;
+      output: ListCostAllocationTagBackfillHistoryCommandOutput;
+    };
+  };
+}

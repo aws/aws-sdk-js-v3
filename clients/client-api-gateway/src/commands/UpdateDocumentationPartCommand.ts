@@ -112,4 +112,16 @@ export class UpdateDocumentationPartCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentationPartCommand)
   .de(de_UpdateDocumentationPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentationPartRequest;
+      output: DocumentationPart;
+    };
+    sdk: {
+      input: UpdateDocumentationPartCommandInput;
+      output: UpdateDocumentationPartCommandOutput;
+    };
+  };
+}

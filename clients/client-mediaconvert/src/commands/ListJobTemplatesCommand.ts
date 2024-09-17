@@ -1575,4 +1575,16 @@ export class ListJobTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobTemplatesCommand)
   .de(de_ListJobTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobTemplatesRequest;
+      output: ListJobTemplatesResponse;
+    };
+    sdk: {
+      input: ListJobTemplatesCommandInput;
+      output: ListJobTemplatesCommandOutput;
+    };
+  };
+}

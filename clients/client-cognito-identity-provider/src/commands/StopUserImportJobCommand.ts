@@ -117,4 +117,16 @@ export class StopUserImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopUserImportJobCommand)
   .de(de_StopUserImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopUserImportJobRequest;
+      output: StopUserImportJobResponse;
+    };
+    sdk: {
+      input: StopUserImportJobCommandInput;
+      output: StopUserImportJobCommandOutput;
+    };
+  };
+}

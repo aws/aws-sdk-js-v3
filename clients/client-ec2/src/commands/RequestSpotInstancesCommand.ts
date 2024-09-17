@@ -400,4 +400,16 @@ export class RequestSpotInstancesCommand extends $Command
   .f(RequestSpotInstancesRequestFilterSensitiveLog, RequestSpotInstancesResultFilterSensitiveLog)
   .ser(se_RequestSpotInstancesCommand)
   .de(de_RequestSpotInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestSpotInstancesRequest;
+      output: RequestSpotInstancesResult;
+    };
+    sdk: {
+      input: RequestSpotInstancesCommandInput;
+      output: RequestSpotInstancesCommandOutput;
+    };
+  };
+}

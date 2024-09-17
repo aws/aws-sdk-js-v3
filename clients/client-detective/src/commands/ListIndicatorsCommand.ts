@@ -148,4 +148,16 @@ export class ListIndicatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndicatorsCommand)
   .de(de_ListIndicatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndicatorsRequest;
+      output: ListIndicatorsResponse;
+    };
+    sdk: {
+      input: ListIndicatorsCommandInput;
+      output: ListIndicatorsCommandOutput;
+    };
+  };
+}

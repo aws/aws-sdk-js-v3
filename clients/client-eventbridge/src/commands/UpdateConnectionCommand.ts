@@ -164,4 +164,16 @@ export class UpdateConnectionCommand extends $Command
   .f(UpdateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateConnectionCommand)
   .de(de_UpdateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectionRequest;
+      output: UpdateConnectionResponse;
+    };
+    sdk: {
+      input: UpdateConnectionCommandInput;
+      output: UpdateConnectionCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class ReplaceNetworkAclAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceNetworkAclAssociationCommand)
   .de(de_ReplaceNetworkAclAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceNetworkAclAssociationRequest;
+      output: ReplaceNetworkAclAssociationResult;
+    };
+    sdk: {
+      input: ReplaceNetworkAclAssociationCommandInput;
+      output: ReplaceNetworkAclAssociationCommandOutput;
+    };
+  };
+}

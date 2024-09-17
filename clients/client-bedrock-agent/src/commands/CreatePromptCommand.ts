@@ -183,4 +183,16 @@ export class CreatePromptCommand extends $Command
   .f(CreatePromptRequestFilterSensitiveLog, CreatePromptResponseFilterSensitiveLog)
   .ser(se_CreatePromptCommand)
   .de(de_CreatePromptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePromptRequest;
+      output: CreatePromptResponse;
+    };
+    sdk: {
+      input: CreatePromptCommandInput;
+      output: CreatePromptCommandOutput;
+    };
+  };
+}

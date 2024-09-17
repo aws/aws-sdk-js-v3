@@ -153,4 +153,16 @@ export class ValidateResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateResourcePolicyCommand)
   .de(de_ValidateResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateResourcePolicyRequest;
+      output: ValidateResourcePolicyResponse;
+    };
+    sdk: {
+      input: ValidateResourcePolicyCommandInput;
+      output: ValidateResourcePolicyCommandOutput;
+    };
+  };
+}

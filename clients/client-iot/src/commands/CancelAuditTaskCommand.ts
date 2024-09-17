@@ -88,4 +88,16 @@ export class CancelAuditTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelAuditTaskCommand)
   .de(de_CancelAuditTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelAuditTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelAuditTaskCommandInput;
+      output: CancelAuditTaskCommandOutput;
+    };
+  };
+}

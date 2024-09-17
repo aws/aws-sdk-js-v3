@@ -106,4 +106,16 @@ export class DescribeInterconnectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInterconnectsCommand)
   .de(de_DescribeInterconnectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInterconnectsRequest;
+      output: Interconnects;
+    };
+    sdk: {
+      input: DescribeInterconnectsCommandInput;
+      output: DescribeInterconnectsCommandOutput;
+    };
+  };
+}

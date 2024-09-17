@@ -126,4 +126,16 @@ export class GetDistributionMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDistributionMetricDataCommand)
   .de(de_GetDistributionMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDistributionMetricDataRequest;
+      output: GetDistributionMetricDataResult;
+    };
+    sdk: {
+      input: GetDistributionMetricDataCommandInput;
+      output: GetDistributionMetricDataCommandOutput;
+    };
+  };
+}

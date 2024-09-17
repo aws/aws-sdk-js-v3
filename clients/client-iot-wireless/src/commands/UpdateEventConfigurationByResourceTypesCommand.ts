@@ -120,4 +120,16 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventConfigurationByResourceTypesCommand)
   .de(de_UpdateEventConfigurationByResourceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventConfigurationByResourceTypesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEventConfigurationByResourceTypesCommandInput;
+      output: UpdateEventConfigurationByResourceTypesCommandOutput;
+    };
+  };
+}

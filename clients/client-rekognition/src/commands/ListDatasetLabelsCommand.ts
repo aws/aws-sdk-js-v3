@@ -164,4 +164,16 @@ export class ListDatasetLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasetLabelsCommand)
   .de(de_ListDatasetLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasetLabelsRequest;
+      output: ListDatasetLabelsResponse;
+    };
+    sdk: {
+      input: ListDatasetLabelsCommandInput;
+      output: ListDatasetLabelsCommandOutput;
+    };
+  };
+}

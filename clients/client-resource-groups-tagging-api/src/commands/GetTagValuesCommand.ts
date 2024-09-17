@@ -126,4 +126,16 @@ export class GetTagValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTagValuesCommand)
   .de(de_GetTagValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTagValuesInput;
+      output: GetTagValuesOutput;
+    };
+    sdk: {
+      input: GetTagValuesCommandInput;
+      output: GetTagValuesCommandOutput;
+    };
+  };
+}

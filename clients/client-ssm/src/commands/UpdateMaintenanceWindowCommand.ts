@@ -122,4 +122,16 @@ export class UpdateMaintenanceWindowCommand extends $Command
   .f(UpdateMaintenanceWindowRequestFilterSensitiveLog, UpdateMaintenanceWindowResultFilterSensitiveLog)
   .ser(se_UpdateMaintenanceWindowCommand)
   .de(de_UpdateMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMaintenanceWindowRequest;
+      output: UpdateMaintenanceWindowResult;
+    };
+    sdk: {
+      input: UpdateMaintenanceWindowCommandInput;
+      output: UpdateMaintenanceWindowCommandOutput;
+    };
+  };
+}

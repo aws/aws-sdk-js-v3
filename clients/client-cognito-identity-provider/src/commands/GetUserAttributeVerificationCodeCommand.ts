@@ -188,4 +188,16 @@ export class GetUserAttributeVerificationCodeCommand extends $Command
   .f(GetUserAttributeVerificationCodeRequestFilterSensitiveLog, void 0)
   .ser(se_GetUserAttributeVerificationCodeCommand)
   .de(de_GetUserAttributeVerificationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserAttributeVerificationCodeRequest;
+      output: GetUserAttributeVerificationCodeResponse;
+    };
+    sdk: {
+      input: GetUserAttributeVerificationCodeCommandInput;
+      output: GetUserAttributeVerificationCodeCommandOutput;
+    };
+  };
+}

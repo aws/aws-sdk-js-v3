@@ -103,4 +103,16 @@ export class SearchLocalGatewayRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchLocalGatewayRoutesCommand)
   .de(de_SearchLocalGatewayRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchLocalGatewayRoutesRequest;
+      output: SearchLocalGatewayRoutesResult;
+    };
+    sdk: {
+      input: SearchLocalGatewayRoutesCommandInput;
+      output: SearchLocalGatewayRoutesCommandOutput;
+    };
+  };
+}

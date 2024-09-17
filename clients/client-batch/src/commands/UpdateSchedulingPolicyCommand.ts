@@ -93,4 +93,16 @@ export class UpdateSchedulingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSchedulingPolicyCommand)
   .de(de_UpdateSchedulingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSchedulingPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSchedulingPolicyCommandInput;
+      output: UpdateSchedulingPolicyCommandOutput;
+    };
+  };
+}

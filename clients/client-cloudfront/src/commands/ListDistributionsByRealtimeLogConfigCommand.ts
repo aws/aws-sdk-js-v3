@@ -398,4 +398,16 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   .f(void 0, ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog)
   .ser(se_ListDistributionsByRealtimeLogConfigCommand)
   .de(de_ListDistributionsByRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByRealtimeLogConfigRequest;
+      output: ListDistributionsByRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: ListDistributionsByRealtimeLogConfigCommandInput;
+      output: ListDistributionsByRealtimeLogConfigCommandOutput;
+    };
+  };
+}

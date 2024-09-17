@@ -124,4 +124,16 @@ export class PutUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutUserPolicyCommand)
   .de(de_PutUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutUserPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutUserPolicyCommandInput;
+      output: PutUserPolicyCommandOutput;
+    };
+  };
+}

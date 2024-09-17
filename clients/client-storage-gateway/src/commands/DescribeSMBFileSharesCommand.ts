@@ -134,4 +134,16 @@ export class DescribeSMBFileSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSMBFileSharesCommand)
   .de(de_DescribeSMBFileSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSMBFileSharesInput;
+      output: DescribeSMBFileSharesOutput;
+    };
+    sdk: {
+      input: DescribeSMBFileSharesCommandInput;
+      output: DescribeSMBFileSharesCommandOutput;
+    };
+  };
+}

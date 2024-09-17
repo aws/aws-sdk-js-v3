@@ -103,4 +103,16 @@ export class ResendContactReachabilityEmailCommand extends $Command
   .f(void 0, ResendContactReachabilityEmailResponseFilterSensitiveLog)
   .ser(se_ResendContactReachabilityEmailCommand)
   .de(de_ResendContactReachabilityEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResendContactReachabilityEmailRequest;
+      output: ResendContactReachabilityEmailResponse;
+    };
+    sdk: {
+      input: ResendContactReachabilityEmailCommandInput;
+      output: ResendContactReachabilityEmailCommandOutput;
+    };
+  };
+}

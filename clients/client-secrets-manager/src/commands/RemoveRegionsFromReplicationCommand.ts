@@ -128,4 +128,16 @@ export class RemoveRegionsFromReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRegionsFromReplicationCommand)
   .de(de_RemoveRegionsFromReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRegionsFromReplicationRequest;
+      output: RemoveRegionsFromReplicationResponse;
+    };
+    sdk: {
+      input: RemoveRegionsFromReplicationCommandInput;
+      output: RemoveRegionsFromReplicationCommandOutput;
+    };
+  };
+}

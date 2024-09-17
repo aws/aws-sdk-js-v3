@@ -108,4 +108,16 @@ export class ClearQuerySuggestionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ClearQuerySuggestionsCommand)
   .de(de_ClearQuerySuggestionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ClearQuerySuggestionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: ClearQuerySuggestionsCommandInput;
+      output: ClearQuerySuggestionsCommandOutput;
+    };
+  };
+}

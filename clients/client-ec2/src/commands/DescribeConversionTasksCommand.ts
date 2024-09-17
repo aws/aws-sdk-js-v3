@@ -138,4 +138,16 @@ export class DescribeConversionTasksCommand extends $Command
   .f(void 0, DescribeConversionTasksResultFilterSensitiveLog)
   .ser(se_DescribeConversionTasksCommand)
   .de(de_DescribeConversionTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConversionTasksRequest;
+      output: DescribeConversionTasksResult;
+    };
+    sdk: {
+      input: DescribeConversionTasksCommandInput;
+      output: DescribeConversionTasksCommandOutput;
+    };
+  };
+}

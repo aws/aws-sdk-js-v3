@@ -114,4 +114,16 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrunkInterfaceAssociationsCommand)
   .de(de_DescribeTrunkInterfaceAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrunkInterfaceAssociationsRequest;
+      output: DescribeTrunkInterfaceAssociationsResult;
+    };
+    sdk: {
+      input: DescribeTrunkInterfaceAssociationsCommandInput;
+      output: DescribeTrunkInterfaceAssociationsCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class DescribeLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLedgerCommand)
   .de(de_DescribeLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLedgerRequest;
+      output: DescribeLedgerResponse;
+    };
+    sdk: {
+      input: DescribeLedgerCommandInput;
+      output: DescribeLedgerCommandOutput;
+    };
+  };
+}

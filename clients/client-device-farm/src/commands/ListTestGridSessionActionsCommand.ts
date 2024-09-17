@@ -98,4 +98,16 @@ export class ListTestGridSessionActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestGridSessionActionsCommand)
   .de(de_ListTestGridSessionActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestGridSessionActionsRequest;
+      output: ListTestGridSessionActionsResult;
+    };
+    sdk: {
+      input: ListTestGridSessionActionsCommandInput;
+      output: ListTestGridSessionActionsCommandOutput;
+    };
+  };
+}

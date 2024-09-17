@@ -109,4 +109,16 @@ export class CreatePersistentContactAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePersistentContactAssociationCommand)
   .de(de_CreatePersistentContactAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePersistentContactAssociationRequest;
+      output: CreatePersistentContactAssociationResponse;
+    };
+    sdk: {
+      input: CreatePersistentContactAssociationCommandInput;
+      output: CreatePersistentContactAssociationCommandOutput;
+    };
+  };
+}

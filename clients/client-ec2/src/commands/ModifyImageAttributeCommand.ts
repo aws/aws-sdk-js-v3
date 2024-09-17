@@ -159,4 +159,16 @@ export class ModifyImageAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyImageAttributeCommand)
   .de(de_ModifyImageAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyImageAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyImageAttributeCommandInput;
+      output: ModifyImageAttributeCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRequestedServiceQuotaChangeCommand)
   .de(de_GetRequestedServiceQuotaChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRequestedServiceQuotaChangeRequest;
+      output: GetRequestedServiceQuotaChangeResponse;
+    };
+    sdk: {
+      input: GetRequestedServiceQuotaChangeCommandInput;
+      output: GetRequestedServiceQuotaChangeCommandOutput;
+    };
+  };
+}

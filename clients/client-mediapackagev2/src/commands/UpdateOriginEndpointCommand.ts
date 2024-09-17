@@ -512,4 +512,16 @@ export class UpdateOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOriginEndpointCommand)
   .de(de_UpdateOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOriginEndpointRequest;
+      output: UpdateOriginEndpointResponse;
+    };
+    sdk: {
+      input: UpdateOriginEndpointCommandInput;
+      output: UpdateOriginEndpointCommandOutput;
+    };
+  };
+}

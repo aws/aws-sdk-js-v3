@@ -106,4 +106,16 @@ export class GetControlOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetControlOperationCommand)
   .de(de_GetControlOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetControlOperationInput;
+      output: GetControlOperationOutput;
+    };
+    sdk: {
+      input: GetControlOperationCommandInput;
+      output: GetControlOperationCommandOutput;
+    };
+  };
+}

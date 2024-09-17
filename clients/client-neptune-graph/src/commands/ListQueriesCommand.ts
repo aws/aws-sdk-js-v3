@@ -102,4 +102,16 @@ export class ListQueriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueriesCommand)
   .de(de_ListQueriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueriesInput;
+      output: ListQueriesOutput;
+    };
+    sdk: {
+      input: ListQueriesCommandInput;
+      output: ListQueriesCommandOutput;
+    };
+  };
+}

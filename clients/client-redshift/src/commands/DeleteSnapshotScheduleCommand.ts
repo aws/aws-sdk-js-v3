@@ -81,4 +81,16 @@ export class DeleteSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSnapshotScheduleCommand)
   .de(de_DeleteSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSnapshotScheduleMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSnapshotScheduleCommandInput;
+      output: DeleteSnapshotScheduleCommandOutput;
+    };
+  };
+}

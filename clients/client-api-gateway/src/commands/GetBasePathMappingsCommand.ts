@@ -98,4 +98,16 @@ export class GetBasePathMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBasePathMappingsCommand)
   .de(de_GetBasePathMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBasePathMappingsRequest;
+      output: BasePathMappings;
+    };
+    sdk: {
+      input: GetBasePathMappingsCommandInput;
+      output: GetBasePathMappingsCommandOutput;
+    };
+  };
+}

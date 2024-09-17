@@ -97,4 +97,16 @@ export class GetHostedZoneLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostedZoneLimitCommand)
   .de(de_GetHostedZoneLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostedZoneLimitRequest;
+      output: GetHostedZoneLimitResponse;
+    };
+    sdk: {
+      input: GetHostedZoneLimitCommandInput;
+      output: GetHostedZoneLimitCommandOutput;
+    };
+  };
+}

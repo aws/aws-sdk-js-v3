@@ -181,4 +181,16 @@ export class DescribeNetworkAclsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkAclsCommand)
   .de(de_DescribeNetworkAclsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkAclsRequest;
+      output: DescribeNetworkAclsResult;
+    };
+    sdk: {
+      input: DescribeNetworkAclsCommandInput;
+      output: DescribeNetworkAclsCommandOutput;
+    };
+  };
+}

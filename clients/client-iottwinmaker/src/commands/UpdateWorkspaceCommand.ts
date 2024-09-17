@@ -98,4 +98,16 @@ export class UpdateWorkspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceCommand)
   .de(de_UpdateWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceRequest;
+      output: UpdateWorkspaceResponse;
+    };
+    sdk: {
+      input: UpdateWorkspaceCommandInput;
+      output: UpdateWorkspaceCommandOutput;
+    };
+  };
+}

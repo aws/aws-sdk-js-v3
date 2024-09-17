@@ -112,4 +112,16 @@ export class DescribeAccountSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountSubscriptionCommand)
   .de(de_DescribeAccountSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountSubscriptionRequest;
+      output: DescribeAccountSubscriptionResponse;
+    };
+    sdk: {
+      input: DescribeAccountSubscriptionCommandInput;
+      output: DescribeAccountSubscriptionCommandOutput;
+    };
+  };
+}

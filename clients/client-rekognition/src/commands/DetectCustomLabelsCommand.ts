@@ -219,4 +219,16 @@ export class DetectCustomLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectCustomLabelsCommand)
   .de(de_DetectCustomLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectCustomLabelsRequest;
+      output: DetectCustomLabelsResponse;
+    };
+    sdk: {
+      input: DetectCustomLabelsCommandInput;
+      output: DetectCustomLabelsCommandOutput;
+    };
+  };
+}

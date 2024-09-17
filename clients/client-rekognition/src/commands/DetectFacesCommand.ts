@@ -280,4 +280,16 @@ export class DetectFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectFacesCommand)
   .de(de_DetectFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectFacesRequest;
+      output: DetectFacesResponse;
+    };
+    sdk: {
+      input: DetectFacesCommandInput;
+      output: DetectFacesCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class CreateFpgaImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFpgaImageCommand)
   .de(de_CreateFpgaImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFpgaImageRequest;
+      output: CreateFpgaImageResult;
+    };
+    sdk: {
+      input: CreateFpgaImageCommandInput;
+      output: CreateFpgaImageCommandOutput;
+    };
+  };
+}

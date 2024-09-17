@@ -273,4 +273,16 @@ export class GetDevicePoolCompatibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDevicePoolCompatibilityCommand)
   .de(de_GetDevicePoolCompatibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePoolCompatibilityRequest;
+      output: GetDevicePoolCompatibilityResult;
+    };
+    sdk: {
+      input: GetDevicePoolCompatibilityCommandInput;
+      output: GetDevicePoolCompatibilityCommandOutput;
+    };
+  };
+}

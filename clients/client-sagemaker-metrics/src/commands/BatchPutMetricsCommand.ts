@@ -92,4 +92,16 @@ export class BatchPutMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutMetricsCommand)
   .de(de_BatchPutMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutMetricsRequest;
+      output: BatchPutMetricsResponse;
+    };
+    sdk: {
+      input: BatchPutMetricsCommandInput;
+      output: BatchPutMetricsCommandOutput;
+    };
+  };
+}

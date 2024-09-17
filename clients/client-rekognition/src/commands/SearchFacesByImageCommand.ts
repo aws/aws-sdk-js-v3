@@ -228,4 +228,16 @@ export class SearchFacesByImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchFacesByImageCommand)
   .de(de_SearchFacesByImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchFacesByImageRequest;
+      output: SearchFacesByImageResponse;
+    };
+    sdk: {
+      input: SearchFacesByImageCommandInput;
+      output: SearchFacesByImageCommandOutput;
+    };
+  };
+}

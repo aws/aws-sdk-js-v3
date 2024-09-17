@@ -110,4 +110,16 @@ export class InvokeEndpointAsyncCommand extends $Command
   .f(InvokeEndpointAsyncInputFilterSensitiveLog, void 0)
   .ser(se_InvokeEndpointAsyncCommand)
   .de(de_InvokeEndpointAsyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeEndpointAsyncInput;
+      output: InvokeEndpointAsyncOutput;
+    };
+    sdk: {
+      input: InvokeEndpointAsyncCommandInput;
+      output: InvokeEndpointAsyncCommandOutput;
+    };
+  };
+}

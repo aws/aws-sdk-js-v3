@@ -98,4 +98,16 @@ export class GetNetworkResourceCountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkResourceCountsCommand)
   .de(de_GetNetworkResourceCountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkResourceCountsRequest;
+      output: GetNetworkResourceCountsResponse;
+    };
+    sdk: {
+      input: GetNetworkResourceCountsCommandInput;
+      output: GetNetworkResourceCountsCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class CreateScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScanCommand)
   .de(de_CreateScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScanRequest;
+      output: CreateScanResponse;
+    };
+    sdk: {
+      input: CreateScanCommandInput;
+      output: CreateScanCommandOutput;
+    };
+  };
+}

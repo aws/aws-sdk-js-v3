@@ -94,4 +94,16 @@ export class AssociateApplicationToEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApplicationToEntitlementCommand)
   .de(de_AssociateApplicationToEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApplicationToEntitlementRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateApplicationToEntitlementCommandInput;
+      output: AssociateApplicationToEntitlementCommandOutput;
+    };
+  };
+}

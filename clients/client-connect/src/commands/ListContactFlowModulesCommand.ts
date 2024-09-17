@@ -107,4 +107,16 @@ export class ListContactFlowModulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContactFlowModulesCommand)
   .de(de_ListContactFlowModulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContactFlowModulesRequest;
+      output: ListContactFlowModulesResponse;
+    };
+    sdk: {
+      input: ListContactFlowModulesCommandInput;
+      output: ListContactFlowModulesCommandOutput;
+    };
+  };
+}

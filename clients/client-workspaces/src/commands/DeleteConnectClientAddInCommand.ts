@@ -86,4 +86,16 @@ export class DeleteConnectClientAddInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectClientAddInCommand)
   .de(de_DeleteConnectClientAddInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectClientAddInRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConnectClientAddInCommandInput;
+      output: DeleteConnectClientAddInCommandOutput;
+    };
+  };
+}

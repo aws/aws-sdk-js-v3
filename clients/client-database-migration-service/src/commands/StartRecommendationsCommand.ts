@@ -95,4 +95,16 @@ export class StartRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRecommendationsCommand)
   .de(de_StartRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRecommendationsRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartRecommendationsCommandInput;
+      output: StartRecommendationsCommandOutput;
+    };
+  };
+}

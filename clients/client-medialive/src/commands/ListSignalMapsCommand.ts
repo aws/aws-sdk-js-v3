@@ -110,4 +110,16 @@ export class ListSignalMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSignalMapsCommand)
   .de(de_ListSignalMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSignalMapsRequest;
+      output: ListSignalMapsResponse;
+    };
+    sdk: {
+      input: ListSignalMapsCommandInput;
+      output: ListSignalMapsCommandOutput;
+    };
+  };
+}

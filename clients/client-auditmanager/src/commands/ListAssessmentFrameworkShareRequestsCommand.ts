@@ -118,4 +118,16 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command
   .f(void 0, ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog)
   .ser(se_ListAssessmentFrameworkShareRequestsCommand)
   .de(de_ListAssessmentFrameworkShareRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentFrameworkShareRequestsRequest;
+      output: ListAssessmentFrameworkShareRequestsResponse;
+    };
+    sdk: {
+      input: ListAssessmentFrameworkShareRequestsCommandInput;
+      output: ListAssessmentFrameworkShareRequestsCommandOutput;
+    };
+  };
+}

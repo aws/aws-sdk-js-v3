@@ -92,4 +92,16 @@ export class AssociateGatewayToServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateGatewayToServerCommand)
   .de(de_AssociateGatewayToServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateGatewayToServerInput;
+      output: AssociateGatewayToServerOutput;
+    };
+    sdk: {
+      input: AssociateGatewayToServerCommandInput;
+      output: AssociateGatewayToServerCommandOutput;
+    };
+  };
+}

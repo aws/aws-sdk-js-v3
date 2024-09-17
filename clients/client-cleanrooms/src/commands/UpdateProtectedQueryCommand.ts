@@ -153,4 +153,16 @@ export class UpdateProtectedQueryCommand extends $Command
   .f(void 0, UpdateProtectedQueryOutputFilterSensitiveLog)
   .ser(se_UpdateProtectedQueryCommand)
   .de(de_UpdateProtectedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProtectedQueryInput;
+      output: UpdateProtectedQueryOutput;
+    };
+    sdk: {
+      input: UpdateProtectedQueryCommandInput;
+      output: UpdateProtectedQueryCommandOutput;
+    };
+  };
+}

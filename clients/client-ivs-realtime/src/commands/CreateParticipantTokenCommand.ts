@@ -120,4 +120,16 @@ export class CreateParticipantTokenCommand extends $Command
   .f(void 0, CreateParticipantTokenResponseFilterSensitiveLog)
   .ser(se_CreateParticipantTokenCommand)
   .de(de_CreateParticipantTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateParticipantTokenRequest;
+      output: CreateParticipantTokenResponse;
+    };
+    sdk: {
+      input: CreateParticipantTokenCommandInput;
+      output: CreateParticipantTokenCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class CreateHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHubCommand)
   .de(de_CreateHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHubRequest;
+      output: CreateHubResponse;
+    };
+    sdk: {
+      input: CreateHubCommandInput;
+      output: CreateHubCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class DiscoverInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DiscoverInstancesCommand)
   .de(de_DiscoverInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DiscoverInstancesRequest;
+      output: DiscoverInstancesResponse;
+    };
+    sdk: {
+      input: DiscoverInstancesCommandInput;
+      output: DiscoverInstancesCommandOutput;
+    };
+  };
+}

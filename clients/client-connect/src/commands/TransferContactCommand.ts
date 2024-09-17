@@ -127,4 +127,16 @@ export class TransferContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransferContactCommand)
   .de(de_TransferContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferContactRequest;
+      output: TransferContactResponse;
+    };
+    sdk: {
+      input: TransferContactCommandInput;
+      output: TransferContactCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListSourceApiAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSourceApiAssociationsCommand)
   .de(de_ListSourceApiAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSourceApiAssociationsRequest;
+      output: ListSourceApiAssociationsResponse;
+    };
+    sdk: {
+      input: ListSourceApiAssociationsCommandInput;
+      output: ListSourceApiAssociationsCommandOutput;
+    };
+  };
+}

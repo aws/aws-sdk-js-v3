@@ -107,4 +107,16 @@ export class DescribeACLsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeACLsCommand)
   .de(de_DescribeACLsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeACLsRequest;
+      output: DescribeACLsResponse;
+    };
+    sdk: {
+      input: DescribeACLsCommandInput;
+      output: DescribeACLsCommandOutput;
+    };
+  };
+}

@@ -332,4 +332,16 @@ export class DecryptCommand extends $Command
   .f(void 0, DecryptResponseFilterSensitiveLog)
   .ser(se_DecryptCommand)
   .de(de_DecryptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DecryptRequest;
+      output: DecryptResponse;
+    };
+    sdk: {
+      input: DecryptCommandInput;
+      output: DecryptCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class AssociateProductWithPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateProductWithPortfolioCommand)
   .de(de_AssociateProductWithPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateProductWithPortfolioInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateProductWithPortfolioCommandInput;
+      output: AssociateProductWithPortfolioCommandOutput;
+    };
+  };
+}

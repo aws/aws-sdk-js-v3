@@ -433,4 +433,16 @@ export class ConverseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConverseCommand)
   .de(de_ConverseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConverseRequest;
+      output: ConverseResponse;
+    };
+    sdk: {
+      input: ConverseCommandInput;
+      output: ConverseCommandOutput;
+    };
+  };
+}

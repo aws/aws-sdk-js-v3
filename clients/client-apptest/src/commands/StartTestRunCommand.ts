@@ -104,4 +104,16 @@ export class StartTestRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTestRunCommand)
   .de(de_StartTestRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTestRunRequest;
+      output: StartTestRunResponse;
+    };
+    sdk: {
+      input: StartTestRunCommandInput;
+      output: StartTestRunCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class StartResourceScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartResourceScanCommand)
   .de(de_StartResourceScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartResourceScanInput;
+      output: StartResourceScanOutput;
+    };
+    sdk: {
+      input: StartResourceScanCommandInput;
+      output: StartResourceScanCommandOutput;
+    };
+  };
+}

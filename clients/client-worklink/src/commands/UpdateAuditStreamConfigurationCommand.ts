@@ -98,4 +98,16 @@ export class UpdateAuditStreamConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAuditStreamConfigurationCommand)
   .de(de_UpdateAuditStreamConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAuditStreamConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAuditStreamConfigurationCommandInput;
+      output: UpdateAuditStreamConfigurationCommandOutput;
+    };
+  };
+}

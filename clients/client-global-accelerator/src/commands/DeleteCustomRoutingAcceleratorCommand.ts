@@ -114,4 +114,16 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomRoutingAcceleratorCommand)
   .de(de_DeleteCustomRoutingAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomRoutingAcceleratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomRoutingAcceleratorCommandInput;
+      output: DeleteCustomRoutingAcceleratorCommandOutput;
+    };
+  };
+}

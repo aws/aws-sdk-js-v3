@@ -252,4 +252,16 @@ export class RebootCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootCacheClusterCommand)
   .de(de_RebootCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootCacheClusterMessage;
+      output: RebootCacheClusterResult;
+    };
+    sdk: {
+      input: RebootCacheClusterCommandInput;
+      output: RebootCacheClusterCommandOutput;
+    };
+  };
+}

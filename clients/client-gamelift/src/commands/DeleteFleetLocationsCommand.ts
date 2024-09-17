@@ -117,4 +117,16 @@ export class DeleteFleetLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetLocationsCommand)
   .de(de_DeleteFleetLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetLocationsInput;
+      output: DeleteFleetLocationsOutput;
+    };
+    sdk: {
+      input: DeleteFleetLocationsCommandInput;
+      output: DeleteFleetLocationsCommandOutput;
+    };
+  };
+}

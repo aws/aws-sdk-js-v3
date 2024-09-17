@@ -104,4 +104,16 @@ export class DescribeEdgePackagingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEdgePackagingJobCommand)
   .de(de_DescribeEdgePackagingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEdgePackagingJobRequest;
+      output: DescribeEdgePackagingJobResponse;
+    };
+    sdk: {
+      input: DescribeEdgePackagingJobCommandInput;
+      output: DescribeEdgePackagingJobCommandOutput;
+    };
+  };
+}

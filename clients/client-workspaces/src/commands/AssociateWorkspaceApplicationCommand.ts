@@ -124,4 +124,16 @@ export class AssociateWorkspaceApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateWorkspaceApplicationCommand)
   .de(de_AssociateWorkspaceApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateWorkspaceApplicationRequest;
+      output: AssociateWorkspaceApplicationResult;
+    };
+    sdk: {
+      input: AssociateWorkspaceApplicationCommandInput;
+      output: AssociateWorkspaceApplicationCommandOutput;
+    };
+  };
+}

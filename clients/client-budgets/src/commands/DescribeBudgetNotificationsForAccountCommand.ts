@@ -124,4 +124,16 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBudgetNotificationsForAccountCommand)
   .de(de_DescribeBudgetNotificationsForAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetNotificationsForAccountRequest;
+      output: DescribeBudgetNotificationsForAccountResponse;
+    };
+    sdk: {
+      input: DescribeBudgetNotificationsForAccountCommandInput;
+      output: DescribeBudgetNotificationsForAccountCommandOutput;
+    };
+  };
+}

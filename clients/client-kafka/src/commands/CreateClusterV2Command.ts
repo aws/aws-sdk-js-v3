@@ -228,4 +228,16 @@ export class CreateClusterV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterV2Command)
   .de(de_CreateClusterV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterV2Request;
+      output: CreateClusterV2Response;
+    };
+    sdk: {
+      input: CreateClusterV2CommandInput;
+      output: CreateClusterV2CommandOutput;
+    };
+  };
+}

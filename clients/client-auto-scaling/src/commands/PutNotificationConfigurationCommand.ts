@@ -115,4 +115,16 @@ export class PutNotificationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutNotificationConfigurationCommand)
   .de(de_PutNotificationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutNotificationConfigurationType;
+      output: {};
+    };
+    sdk: {
+      input: PutNotificationConfigurationCommandInput;
+      output: PutNotificationConfigurationCommandOutput;
+    };
+  };
+}

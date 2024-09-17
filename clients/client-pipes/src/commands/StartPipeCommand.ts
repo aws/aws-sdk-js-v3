@@ -97,4 +97,16 @@ export class StartPipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipeCommand)
   .de(de_StartPipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipeRequest;
+      output: StartPipeResponse;
+    };
+    sdk: {
+      input: StartPipeCommandInput;
+      output: StartPipeCommandOutput;
+    };
+  };
+}

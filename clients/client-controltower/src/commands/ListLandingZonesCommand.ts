@@ -97,4 +97,16 @@ export class ListLandingZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLandingZonesCommand)
   .de(de_ListLandingZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLandingZonesInput;
+      output: ListLandingZonesOutput;
+    };
+    sdk: {
+      input: ListLandingZonesCommandInput;
+      output: ListLandingZonesCommandOutput;
+    };
+  };
+}

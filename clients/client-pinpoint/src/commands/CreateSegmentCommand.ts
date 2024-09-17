@@ -386,4 +386,16 @@ export class CreateSegmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSegmentCommand)
   .de(de_CreateSegmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSegmentRequest;
+      output: CreateSegmentResponse;
+    };
+    sdk: {
+      input: CreateSegmentCommandInput;
+      output: CreateSegmentCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class GetAccessPointPolicyStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointPolicyStatusCommand)
   .de(de_GetAccessPointPolicyStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointPolicyStatusRequest;
+      output: GetAccessPointPolicyStatusResult;
+    };
+    sdk: {
+      input: GetAccessPointPolicyStatusCommandInput;
+      output: GetAccessPointPolicyStatusCommandOutput;
+    };
+  };
+}

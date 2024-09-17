@@ -88,4 +88,16 @@ export class CancelTaskExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelTaskExecutionCommand)
   .de(de_CancelTaskExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelTaskExecutionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelTaskExecutionCommandInput;
+      output: CancelTaskExecutionCommandOutput;
+    };
+  };
+}

@@ -366,4 +366,16 @@ export class BatchWriteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchWriteCommand)
   .de(de_BatchWriteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchWriteRequest;
+      output: BatchWriteResponse;
+    };
+    sdk: {
+      input: BatchWriteCommandInput;
+      output: BatchWriteCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class GetBucketsAggregationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketsAggregationCommand)
   .de(de_GetBucketsAggregationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketsAggregationRequest;
+      output: GetBucketsAggregationResponse;
+    };
+    sdk: {
+      input: GetBucketsAggregationCommandInput;
+      output: GetBucketsAggregationCommandOutput;
+    };
+  };
+}

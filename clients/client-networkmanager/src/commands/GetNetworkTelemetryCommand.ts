@@ -117,4 +117,16 @@ export class GetNetworkTelemetryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkTelemetryCommand)
   .de(de_GetNetworkTelemetryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkTelemetryRequest;
+      output: GetNetworkTelemetryResponse;
+    };
+    sdk: {
+      input: GetNetworkTelemetryCommandInput;
+      output: GetNetworkTelemetryCommandOutput;
+    };
+  };
+}

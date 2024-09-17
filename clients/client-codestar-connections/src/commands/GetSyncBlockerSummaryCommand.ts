@@ -117,4 +117,16 @@ export class GetSyncBlockerSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSyncBlockerSummaryCommand)
   .de(de_GetSyncBlockerSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSyncBlockerSummaryInput;
+      output: GetSyncBlockerSummaryOutput;
+    };
+    sdk: {
+      input: GetSyncBlockerSummaryCommandInput;
+      output: GetSyncBlockerSummaryCommandOutput;
+    };
+  };
+}

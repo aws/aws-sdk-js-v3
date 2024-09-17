@@ -130,4 +130,16 @@ export class UpdateResourceEventConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourceEventConfigurationCommand)
   .de(de_UpdateResourceEventConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceEventConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResourceEventConfigurationCommandInput;
+      output: UpdateResourceEventConfigurationCommandOutput;
+    };
+  };
+}

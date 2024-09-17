@@ -125,4 +125,16 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedAccessEndpointCommand)
   .de(de_DeleteVerifiedAccessEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedAccessEndpointRequest;
+      output: DeleteVerifiedAccessEndpointResult;
+    };
+    sdk: {
+      input: DeleteVerifiedAccessEndpointCommandInput;
+      output: DeleteVerifiedAccessEndpointCommandOutput;
+    };
+  };
+}

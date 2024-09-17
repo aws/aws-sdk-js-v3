@@ -121,4 +121,16 @@ export class DescribeChapCredentialsCommand extends $Command
   .f(void 0, DescribeChapCredentialsOutputFilterSensitiveLog)
   .ser(se_DescribeChapCredentialsCommand)
   .de(de_DescribeChapCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChapCredentialsInput;
+      output: DescribeChapCredentialsOutput;
+    };
+    sdk: {
+      input: DescribeChapCredentialsCommandInput;
+      output: DescribeChapCredentialsCommandOutput;
+    };
+  };
+}

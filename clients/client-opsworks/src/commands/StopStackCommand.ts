@@ -86,4 +86,16 @@ export class StopStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopStackCommand)
   .de(de_StopStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopStackRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopStackCommandInput;
+      output: StopStackCommandOutput;
+    };
+  };
+}

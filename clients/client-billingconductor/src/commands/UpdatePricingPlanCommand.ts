@@ -112,4 +112,16 @@ export class UpdatePricingPlanCommand extends $Command
   .f(UpdatePricingPlanInputFilterSensitiveLog, UpdatePricingPlanOutputFilterSensitiveLog)
   .ser(se_UpdatePricingPlanCommand)
   .de(de_UpdatePricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePricingPlanInput;
+      output: UpdatePricingPlanOutput;
+    };
+    sdk: {
+      input: UpdatePricingPlanCommandInput;
+      output: UpdatePricingPlanCommandOutput;
+    };
+  };
+}

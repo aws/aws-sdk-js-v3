@@ -91,4 +91,16 @@ export class GetDataProtectionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataProtectionPolicyCommand)
   .de(de_GetDataProtectionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataProtectionPolicyRequest;
+      output: GetDataProtectionPolicyResponse;
+    };
+    sdk: {
+      input: GetDataProtectionPolicyCommandInput;
+      output: GetDataProtectionPolicyCommandOutput;
+    };
+  };
+}

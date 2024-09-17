@@ -141,4 +141,16 @@ export class DescribeMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMonitorCommand)
   .de(de_DescribeMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMonitorRequest;
+      output: DescribeMonitorResponse;
+    };
+    sdk: {
+      input: DescribeMonitorCommandInput;
+      output: DescribeMonitorCommandOutput;
+    };
+  };
+}

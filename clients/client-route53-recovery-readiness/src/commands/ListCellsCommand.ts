@@ -109,4 +109,16 @@ export class ListCellsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCellsCommand)
   .de(de_ListCellsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCellsRequest;
+      output: ListCellsResponse;
+    };
+    sdk: {
+      input: ListCellsCommandInput;
+      output: ListCellsCommandOutput;
+    };
+  };
+}

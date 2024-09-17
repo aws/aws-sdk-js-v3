@@ -103,4 +103,16 @@ export class ListThingPrincipalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThingPrincipalsCommand)
   .de(de_ListThingPrincipalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThingPrincipalsRequest;
+      output: ListThingPrincipalsResponse;
+    };
+    sdk: {
+      input: ListThingPrincipalsCommandInput;
+      output: ListThingPrincipalsCommandOutput;
+    };
+  };
+}

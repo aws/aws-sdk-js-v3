@@ -92,4 +92,16 @@ export class DeleteOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOpenIDConnectProviderCommand)
   .de(de_DeleteOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOpenIDConnectProviderCommandInput;
+      output: DeleteOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

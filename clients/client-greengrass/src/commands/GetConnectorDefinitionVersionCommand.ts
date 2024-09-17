@@ -102,4 +102,16 @@ export class GetConnectorDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectorDefinitionVersionCommand)
   .de(de_GetConnectorDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectorDefinitionVersionRequest;
+      output: GetConnectorDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetConnectorDefinitionVersionCommandInput;
+      output: GetConnectorDefinitionVersionCommandOutput;
+    };
+  };
+}

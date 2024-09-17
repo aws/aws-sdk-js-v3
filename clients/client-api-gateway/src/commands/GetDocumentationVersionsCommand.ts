@@ -98,4 +98,16 @@ export class GetDocumentationVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDocumentationVersionsCommand)
   .de(de_GetDocumentationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentationVersionsRequest;
+      output: DocumentationVersions;
+    };
+    sdk: {
+      input: GetDocumentationVersionsCommandInput;
+      output: GetDocumentationVersionsCommandOutput;
+    };
+  };
+}

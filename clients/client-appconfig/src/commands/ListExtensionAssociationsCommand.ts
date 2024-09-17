@@ -96,4 +96,16 @@ export class ListExtensionAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExtensionAssociationsCommand)
   .de(de_ListExtensionAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExtensionAssociationsRequest;
+      output: ExtensionAssociations;
+    };
+    sdk: {
+      input: ListExtensionAssociationsCommandInput;
+      output: ListExtensionAssociationsCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DisassociateTrafficDistributionGroupUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTrafficDistributionGroupUserCommand)
   .de(de_DisassociateTrafficDistributionGroupUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTrafficDistributionGroupUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateTrafficDistributionGroupUserCommandInput;
+      output: DisassociateTrafficDistributionGroupUserCommandOutput;
+    };
+  };
+}

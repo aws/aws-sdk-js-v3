@@ -283,4 +283,16 @@ export class SelectObjectContentCommand extends $Command
   .f(SelectObjectContentRequestFilterSensitiveLog, SelectObjectContentOutputFilterSensitiveLog)
   .ser(se_SelectObjectContentCommand)
   .de(de_SelectObjectContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SelectObjectContentRequest;
+      output: SelectObjectContentOutput;
+    };
+    sdk: {
+      input: SelectObjectContentCommandInput;
+      output: SelectObjectContentCommandOutput;
+    };
+  };
+}

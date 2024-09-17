@@ -92,4 +92,16 @@ export class StopAppReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopAppReplicationCommand)
   .de(de_StopAppReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopAppReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopAppReplicationCommandInput;
+      output: StopAppReplicationCommandOutput;
+    };
+  };
+}

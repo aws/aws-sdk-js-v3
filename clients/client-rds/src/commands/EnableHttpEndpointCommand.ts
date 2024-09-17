@@ -94,4 +94,16 @@ export class EnableHttpEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableHttpEndpointCommand)
   .de(de_EnableHttpEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableHttpEndpointRequest;
+      output: EnableHttpEndpointResponse;
+    };
+    sdk: {
+      input: EnableHttpEndpointCommandInput;
+      output: EnableHttpEndpointCommandOutput;
+    };
+  };
+}

@@ -182,4 +182,16 @@ export class UpdateResourceCommand extends $Command
   .f(UpdateResourceInputFilterSensitiveLog, UpdateResourceOutputFilterSensitiveLog)
   .ser(se_UpdateResourceCommand)
   .de(de_UpdateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceInput;
+      output: UpdateResourceOutput;
+    };
+    sdk: {
+      input: UpdateResourceCommandInput;
+      output: UpdateResourceCommandOutput;
+    };
+  };
+}

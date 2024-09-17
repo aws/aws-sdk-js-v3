@@ -321,4 +321,16 @@ export class CreateFunctionCommand extends $Command
   .f(CreateFunctionRequestFilterSensitiveLog, FunctionConfigurationFilterSensitiveLog)
   .ser(se_CreateFunctionCommand)
   .de(de_CreateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: CreateFunctionCommandInput;
+      output: CreateFunctionCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class DeleteDashboardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDashboardsCommand)
   .de(de_DeleteDashboardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDashboardsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDashboardsCommandInput;
+      output: DeleteDashboardsCommandOutput;
+    };
+  };
+}

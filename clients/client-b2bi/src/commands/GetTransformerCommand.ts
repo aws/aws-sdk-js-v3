@@ -138,4 +138,16 @@ export class GetTransformerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransformerCommand)
   .de(de_GetTransformerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransformerRequest;
+      output: GetTransformerResponse;
+    };
+    sdk: {
+      input: GetTransformerCommandInput;
+      output: GetTransformerCommandOutput;
+    };
+  };
+}

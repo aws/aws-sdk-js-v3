@@ -107,4 +107,16 @@ export class GetImageSetMetadataCommand extends $Command
   .f(void 0, GetImageSetMetadataResponseFilterSensitiveLog)
   .ser(se_GetImageSetMetadataCommand)
   .de(de_GetImageSetMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageSetMetadataRequest;
+      output: GetImageSetMetadataResponse;
+    };
+    sdk: {
+      input: GetImageSetMetadataCommandInput;
+      output: GetImageSetMetadataCommandOutput;
+    };
+  };
+}

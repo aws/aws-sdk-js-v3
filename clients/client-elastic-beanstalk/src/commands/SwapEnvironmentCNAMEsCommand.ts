@@ -90,4 +90,16 @@ export class SwapEnvironmentCNAMEsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwapEnvironmentCNAMEsCommand)
   .de(de_SwapEnvironmentCNAMEsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwapEnvironmentCNAMEsMessage;
+      output: {};
+    };
+    sdk: {
+      input: SwapEnvironmentCNAMEsCommandInput;
+      output: SwapEnvironmentCNAMEsCommandOutput;
+    };
+  };
+}

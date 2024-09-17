@@ -119,4 +119,16 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDefaultEncryptionConfigurationCommand)
   .de(de_PutDefaultEncryptionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDefaultEncryptionConfigurationRequest;
+      output: PutDefaultEncryptionConfigurationResponse;
+    };
+    sdk: {
+      input: PutDefaultEncryptionConfigurationCommandInput;
+      output: PutDefaultEncryptionConfigurationCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class ListWorkflowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowsCommand)
   .de(de_ListWorkflowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMigrationWorkflowsRequest;
+      output: ListMigrationWorkflowsResponse;
+    };
+    sdk: {
+      input: ListWorkflowsCommandInput;
+      output: ListWorkflowsCommandOutput;
+    };
+  };
+}

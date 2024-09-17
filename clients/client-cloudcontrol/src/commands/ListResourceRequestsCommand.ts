@@ -109,4 +109,16 @@ export class ListResourceRequestsCommand extends $Command
   .f(void 0, ListResourceRequestsOutputFilterSensitiveLog)
   .ser(se_ListResourceRequestsCommand)
   .de(de_ListResourceRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceRequestsInput;
+      output: ListResourceRequestsOutput;
+    };
+    sdk: {
+      input: ListResourceRequestsCommandInput;
+      output: ListResourceRequestsCommandOutput;
+    };
+  };
+}

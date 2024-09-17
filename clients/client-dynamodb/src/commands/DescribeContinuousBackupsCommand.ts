@@ -104,4 +104,16 @@ export class DescribeContinuousBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContinuousBackupsCommand)
   .de(de_DescribeContinuousBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContinuousBackupsInput;
+      output: DescribeContinuousBackupsOutput;
+    };
+    sdk: {
+      input: DescribeContinuousBackupsCommandInput;
+      output: DescribeContinuousBackupsCommandOutput;
+    };
+  };
+}

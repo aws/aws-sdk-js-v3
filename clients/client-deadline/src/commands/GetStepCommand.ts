@@ -147,4 +147,16 @@ export class GetStepCommand extends $Command
   .f(void 0, GetStepResponseFilterSensitiveLog)
   .ser(se_GetStepCommand)
   .de(de_GetStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStepRequest;
+      output: GetStepResponse;
+    };
+    sdk: {
+      input: GetStepCommandInput;
+      output: GetStepCommandOutput;
+    };
+  };
+}

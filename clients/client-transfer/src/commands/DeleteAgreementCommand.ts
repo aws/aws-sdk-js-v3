@@ -89,4 +89,16 @@ export class DeleteAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAgreementCommand)
   .de(de_DeleteAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAgreementRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAgreementCommandInput;
+      output: DeleteAgreementCommandOutput;
+    };
+  };
+}

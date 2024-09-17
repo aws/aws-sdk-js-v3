@@ -128,4 +128,16 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateGlobalReplicationGroupCommand)
   .de(de_DisassociateGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateGlobalReplicationGroupMessage;
+      output: DisassociateGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: DisassociateGlobalReplicationGroupCommandInput;
+      output: DisassociateGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

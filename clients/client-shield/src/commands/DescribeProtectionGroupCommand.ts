@@ -92,4 +92,16 @@ export class DescribeProtectionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProtectionGroupCommand)
   .de(de_DescribeProtectionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProtectionGroupRequest;
+      output: DescribeProtectionGroupResponse;
+    };
+    sdk: {
+      input: DescribeProtectionGroupCommandInput;
+      output: DescribeProtectionGroupCommandOutput;
+    };
+  };
+}

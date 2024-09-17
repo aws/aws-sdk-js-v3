@@ -98,4 +98,16 @@ export class DeleteUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUploadCommand)
   .de(de_DeleteUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUploadRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUploadCommandInput;
+      output: DeleteUploadCommandOutput;
+    };
+  };
+}

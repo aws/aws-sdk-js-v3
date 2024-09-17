@@ -76,4 +76,16 @@ export class DeleteVodSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVodSourceCommand)
   .de(de_DeleteVodSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVodSourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVodSourceCommandInput;
+      output: DeleteVodSourceCommandOutput;
+    };
+  };
+}

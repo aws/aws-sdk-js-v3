@@ -93,4 +93,16 @@ export class DeleteDeviceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeviceProfileCommand)
   .de(de_DeleteDeviceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeviceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeviceProfileCommandInput;
+      output: DeleteDeviceProfileCommandOutput;
+    };
+  };
+}

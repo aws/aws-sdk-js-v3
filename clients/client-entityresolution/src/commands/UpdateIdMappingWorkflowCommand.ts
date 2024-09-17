@@ -173,4 +173,16 @@ export class UpdateIdMappingWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdMappingWorkflowCommand)
   .de(de_UpdateIdMappingWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdMappingWorkflowInput;
+      output: UpdateIdMappingWorkflowOutput;
+    };
+    sdk: {
+      input: UpdateIdMappingWorkflowCommandInput;
+      output: UpdateIdMappingWorkflowCommandOutput;
+    };
+  };
+}

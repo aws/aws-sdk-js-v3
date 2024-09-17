@@ -113,4 +113,16 @@ export class CreateInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInputCommand)
   .de(de_CreateInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInputRequest;
+      output: CreateInputResponse;
+    };
+    sdk: {
+      input: CreateInputCommandInput;
+      output: CreateInputCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMobileDeviceAccessOverrideCommand)
   .de(de_DeleteMobileDeviceAccessOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMobileDeviceAccessOverrideRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMobileDeviceAccessOverrideCommandInput;
+      output: DeleteMobileDeviceAccessOverrideCommandOutput;
+    };
+  };
+}

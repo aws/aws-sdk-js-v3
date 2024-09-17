@@ -109,4 +109,16 @@ export class CreateReceiptFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReceiptFilterCommand)
   .de(de_CreateReceiptFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReceiptFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateReceiptFilterCommandInput;
+      output: CreateReceiptFilterCommandOutput;
+    };
+  };
+}

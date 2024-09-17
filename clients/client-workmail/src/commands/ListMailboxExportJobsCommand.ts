@@ -104,4 +104,16 @@ export class ListMailboxExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMailboxExportJobsCommand)
   .de(de_ListMailboxExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMailboxExportJobsRequest;
+      output: ListMailboxExportJobsResponse;
+    };
+    sdk: {
+      input: ListMailboxExportJobsCommandInput;
+      output: ListMailboxExportJobsCommandOutput;
+    };
+  };
+}

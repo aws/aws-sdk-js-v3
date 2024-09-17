@@ -245,4 +245,16 @@ export class DescribeSourceRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSourceRegionsCommand)
   .de(de_DescribeSourceRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSourceRegionsMessage;
+      output: SourceRegionMessage;
+    };
+    sdk: {
+      input: DescribeSourceRegionsCommandInput;
+      output: DescribeSourceRegionsCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class RestoreCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreCertificateAuthorityCommand)
   .de(de_RestoreCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestoreCertificateAuthorityCommandInput;
+      output: RestoreCertificateAuthorityCommandOutput;
+    };
+  };
+}

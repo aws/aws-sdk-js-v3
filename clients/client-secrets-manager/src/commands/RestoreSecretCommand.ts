@@ -130,4 +130,16 @@ export class RestoreSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreSecretCommand)
   .de(de_RestoreSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreSecretRequest;
+      output: RestoreSecretResponse;
+    };
+    sdk: {
+      input: RestoreSecretCommandInput;
+      output: RestoreSecretCommandOutput;
+    };
+  };
+}

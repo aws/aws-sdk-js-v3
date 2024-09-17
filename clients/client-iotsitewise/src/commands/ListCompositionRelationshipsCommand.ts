@@ -108,4 +108,16 @@ export class ListCompositionRelationshipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompositionRelationshipsCommand)
   .de(de_ListCompositionRelationshipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompositionRelationshipsRequest;
+      output: ListCompositionRelationshipsResponse;
+    };
+    sdk: {
+      input: ListCompositionRelationshipsCommandInput;
+      output: ListCompositionRelationshipsCommandOutput;
+    };
+  };
+}

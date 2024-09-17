@@ -115,4 +115,16 @@ export class StopEventDataStoreIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopEventDataStoreIngestionCommand)
   .de(de_StopEventDataStoreIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopEventDataStoreIngestionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopEventDataStoreIngestionCommandInput;
+      output: StopEventDataStoreIngestionCommandOutput;
+    };
+  };
+}

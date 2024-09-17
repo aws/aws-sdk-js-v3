@@ -84,4 +84,16 @@ export class DeleteThemeForStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteThemeForStackCommand)
   .de(de_DeleteThemeForStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteThemeForStackRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteThemeForStackCommandInput;
+      output: DeleteThemeForStackCommandOutput;
+    };
+  };
+}

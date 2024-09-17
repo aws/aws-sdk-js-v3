@@ -171,4 +171,16 @@ export class ListDecoderManifestSignalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDecoderManifestSignalsCommand)
   .de(de_ListDecoderManifestSignalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDecoderManifestSignalsRequest;
+      output: ListDecoderManifestSignalsResponse;
+    };
+    sdk: {
+      input: ListDecoderManifestSignalsCommandInput;
+      output: ListDecoderManifestSignalsCommandOutput;
+    };
+  };
+}

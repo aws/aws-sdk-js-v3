@@ -105,4 +105,16 @@ export class CreateSmsTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSmsTemplateCommand)
   .de(de_CreateSmsTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSmsTemplateRequest;
+      output: CreateSmsTemplateResponse;
+    };
+    sdk: {
+      input: CreateSmsTemplateCommandInput;
+      output: CreateSmsTemplateCommandOutput;
+    };
+  };
+}

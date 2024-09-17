@@ -107,4 +107,16 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command
   .f(void 0, GetProgrammaticAccessCredentialsResponseFilterSensitiveLog)
   .ser(se_GetProgrammaticAccessCredentialsCommand)
   .de(de_GetProgrammaticAccessCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProgrammaticAccessCredentialsRequest;
+      output: GetProgrammaticAccessCredentialsResponse;
+    };
+    sdk: {
+      input: GetProgrammaticAccessCredentialsCommandInput;
+      output: GetProgrammaticAccessCredentialsCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class ListConfiguredAudienceModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfiguredAudienceModelsCommand)
   .de(de_ListConfiguredAudienceModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfiguredAudienceModelsRequest;
+      output: ListConfiguredAudienceModelsResponse;
+    };
+    sdk: {
+      input: ListConfiguredAudienceModelsCommandInput;
+      output: ListConfiguredAudienceModelsCommandOutput;
+    };
+  };
+}

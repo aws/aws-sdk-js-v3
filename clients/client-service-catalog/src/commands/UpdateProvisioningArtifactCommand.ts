@@ -103,4 +103,16 @@ export class UpdateProvisioningArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisioningArtifactCommand)
   .de(de_UpdateProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisioningArtifactInput;
+      output: UpdateProvisioningArtifactOutput;
+    };
+    sdk: {
+      input: UpdateProvisioningArtifactCommandInput;
+      output: UpdateProvisioningArtifactCommandOutput;
+    };
+  };
+}

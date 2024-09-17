@@ -110,4 +110,16 @@ export class CreateRouteResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRouteResponseCommand)
   .de(de_CreateRouteResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteResponseRequest;
+      output: CreateRouteResponseResponse;
+    };
+    sdk: {
+      input: CreateRouteResponseCommandInput;
+      output: CreateRouteResponseCommandOutput;
+    };
+  };
+}

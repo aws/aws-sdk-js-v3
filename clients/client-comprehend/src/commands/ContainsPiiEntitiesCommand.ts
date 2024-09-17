@@ -99,4 +99,16 @@ export class ContainsPiiEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContainsPiiEntitiesCommand)
   .de(de_ContainsPiiEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContainsPiiEntitiesRequest;
+      output: ContainsPiiEntitiesResponse;
+    };
+    sdk: {
+      input: ContainsPiiEntitiesCommandInput;
+      output: ContainsPiiEntitiesCommandOutput;
+    };
+  };
+}

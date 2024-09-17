@@ -281,4 +281,16 @@ export class RetrieveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetrieveCommand)
   .de(de_RetrieveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveRequest;
+      output: RetrieveResult;
+    };
+    sdk: {
+      input: RetrieveCommandInput;
+      output: RetrieveCommandOutput;
+    };
+  };
+}

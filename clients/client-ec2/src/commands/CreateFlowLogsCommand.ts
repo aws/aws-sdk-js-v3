@@ -129,4 +129,16 @@ export class CreateFlowLogsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFlowLogsCommand)
   .de(de_CreateFlowLogsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFlowLogsRequest;
+      output: CreateFlowLogsResult;
+    };
+    sdk: {
+      input: CreateFlowLogsCommandInput;
+      output: CreateFlowLogsCommandOutput;
+    };
+  };
+}

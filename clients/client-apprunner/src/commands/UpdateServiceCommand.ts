@@ -264,4 +264,16 @@ export class UpdateServiceCommand extends $Command
   .f(UpdateServiceRequestFilterSensitiveLog, UpdateServiceResponseFilterSensitiveLog)
   .ser(se_UpdateServiceCommand)
   .de(de_UpdateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceRequest;
+      output: UpdateServiceResponse;
+    };
+    sdk: {
+      input: UpdateServiceCommandInput;
+      output: UpdateServiceCommandOutput;
+    };
+  };
+}

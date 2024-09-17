@@ -91,4 +91,16 @@ export class DeleteBasePathMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBasePathMappingCommand)
   .de(de_DeleteBasePathMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBasePathMappingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBasePathMappingCommandInput;
+      output: DeleteBasePathMappingCommandOutput;
+    };
+  };
+}

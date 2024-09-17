@@ -143,4 +143,16 @@ export class CreateNotebookInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNotebookInstanceCommand)
   .de(de_CreateNotebookInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNotebookInstanceInput;
+      output: CreateNotebookInstanceOutput;
+    };
+    sdk: {
+      input: CreateNotebookInstanceCommandInput;
+      output: CreateNotebookInstanceCommandOutput;
+    };
+  };
+}

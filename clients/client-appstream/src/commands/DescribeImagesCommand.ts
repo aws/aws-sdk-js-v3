@@ -157,4 +157,16 @@ export class DescribeImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImagesCommand)
   .de(de_DescribeImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImagesRequest;
+      output: DescribeImagesResult;
+    };
+    sdk: {
+      input: DescribeImagesCommandInput;
+      output: DescribeImagesCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class UpdateReplicationInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReplicationInfoCommand)
   .de(de_UpdateReplicationInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationInfoRequest;
+      output: UpdateReplicationInfoResponse;
+    };
+    sdk: {
+      input: UpdateReplicationInfoCommandInput;
+      output: UpdateReplicationInfoCommandOutput;
+    };
+  };
+}

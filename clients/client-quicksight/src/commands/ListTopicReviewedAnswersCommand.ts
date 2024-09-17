@@ -577,4 +577,16 @@ export class ListTopicReviewedAnswersCommand extends $Command
   .f(void 0, ListTopicReviewedAnswersResponseFilterSensitiveLog)
   .ser(se_ListTopicReviewedAnswersCommand)
   .de(de_ListTopicReviewedAnswersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTopicReviewedAnswersRequest;
+      output: ListTopicReviewedAnswersResponse;
+    };
+    sdk: {
+      input: ListTopicReviewedAnswersCommandInput;
+      output: ListTopicReviewedAnswersCommandOutput;
+    };
+  };
+}

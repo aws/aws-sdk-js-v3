@@ -153,4 +153,16 @@ export class CreateInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceEventWindowCommand)
   .de(de_CreateInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceEventWindowRequest;
+      output: CreateInstanceEventWindowResult;
+    };
+    sdk: {
+      input: CreateInstanceEventWindowCommandInput;
+      output: CreateInstanceEventWindowCommandOutput;
+    };
+  };
+}

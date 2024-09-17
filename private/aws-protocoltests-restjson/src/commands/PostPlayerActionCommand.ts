@@ -75,4 +75,16 @@ export class PostPlayerActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostPlayerActionCommand)
   .de(de_PostPlayerActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostPlayerActionInput;
+      output: PostPlayerActionOutput;
+    };
+    sdk: {
+      input: PostPlayerActionCommandInput;
+      output: PostPlayerActionCommandOutput;
+    };
+  };
+}

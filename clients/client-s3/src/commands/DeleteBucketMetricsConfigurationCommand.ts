@@ -120,4 +120,16 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketMetricsConfigurationCommand)
   .de(de_DeleteBucketMetricsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketMetricsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketMetricsConfigurationCommandInput;
+      output: DeleteBucketMetricsConfigurationCommandOutput;
+    };
+  };
+}

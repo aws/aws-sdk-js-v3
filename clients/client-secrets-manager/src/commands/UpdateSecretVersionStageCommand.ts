@@ -190,4 +190,16 @@ export class UpdateSecretVersionStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecretVersionStageCommand)
   .de(de_UpdateSecretVersionStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecretVersionStageRequest;
+      output: UpdateSecretVersionStageResponse;
+    };
+    sdk: {
+      input: UpdateSecretVersionStageCommandInput;
+      output: UpdateSecretVersionStageCommandOutput;
+    };
+  };
+}

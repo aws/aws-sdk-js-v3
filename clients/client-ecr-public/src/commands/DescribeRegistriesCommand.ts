@@ -104,4 +104,16 @@ export class DescribeRegistriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegistriesCommand)
   .de(de_DescribeRegistriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegistriesRequest;
+      output: DescribeRegistriesResponse;
+    };
+    sdk: {
+      input: DescribeRegistriesCommandInput;
+      output: DescribeRegistriesCommandOutput;
+    };
+  };
+}

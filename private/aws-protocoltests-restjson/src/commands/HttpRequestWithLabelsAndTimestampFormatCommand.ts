@@ -80,4 +80,16 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpRequestWithLabelsAndTimestampFormatCommand)
   .de(de_HttpRequestWithLabelsAndTimestampFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithLabelsAndTimestampFormatInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithLabelsAndTimestampFormatCommandInput;
+      output: HttpRequestWithLabelsAndTimestampFormatCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class GetRelationalDatabaseMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseMetricDataCommand)
   .de(de_GetRelationalDatabaseMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseMetricDataRequest;
+      output: GetRelationalDatabaseMetricDataResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseMetricDataCommandInput;
+      output: GetRelationalDatabaseMetricDataCommandOutput;
+    };
+  };
+}

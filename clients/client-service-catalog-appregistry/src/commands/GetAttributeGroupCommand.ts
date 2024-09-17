@@ -109,4 +109,16 @@ export class GetAttributeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAttributeGroupCommand)
   .de(de_GetAttributeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttributeGroupRequest;
+      output: GetAttributeGroupResponse;
+    };
+    sdk: {
+      input: GetAttributeGroupCommandInput;
+      output: GetAttributeGroupCommandOutput;
+    };
+  };
+}

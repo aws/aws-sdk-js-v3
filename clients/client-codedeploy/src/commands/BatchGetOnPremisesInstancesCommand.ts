@@ -104,4 +104,16 @@ export class BatchGetOnPremisesInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetOnPremisesInstancesCommand)
   .de(de_BatchGetOnPremisesInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetOnPremisesInstancesInput;
+      output: BatchGetOnPremisesInstancesOutput;
+    };
+    sdk: {
+      input: BatchGetOnPremisesInstancesCommandInput;
+      output: BatchGetOnPremisesInstancesCommandOutput;
+    };
+  };
+}

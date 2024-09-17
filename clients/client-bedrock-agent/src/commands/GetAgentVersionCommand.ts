@@ -148,4 +148,16 @@ export class GetAgentVersionCommand extends $Command
   .f(void 0, GetAgentVersionResponseFilterSensitiveLog)
   .ser(se_GetAgentVersionCommand)
   .de(de_GetAgentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentVersionRequest;
+      output: GetAgentVersionResponse;
+    };
+    sdk: {
+      input: GetAgentVersionCommandInput;
+      output: GetAgentVersionCommandOutput;
+    };
+  };
+}

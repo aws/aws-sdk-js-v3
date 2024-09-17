@@ -129,4 +129,16 @@ export class CreateProjectCommand extends $Command
   .f(CreateProjectInputFilterSensitiveLog, CreateProjectOutputFilterSensitiveLog)
   .ser(se_CreateProjectCommand)
   .de(de_CreateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProjectInput;
+      output: CreateProjectOutput;
+    };
+    sdk: {
+      input: CreateProjectCommandInput;
+      output: CreateProjectCommandOutput;
+    };
+  };
+}

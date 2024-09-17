@@ -79,4 +79,16 @@ export class NullAndEmptyHeadersServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NullAndEmptyHeadersServerCommand)
   .de(de_NullAndEmptyHeadersServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NullAndEmptyHeadersIO;
+      output: NullAndEmptyHeadersIO;
+    };
+    sdk: {
+      input: NullAndEmptyHeadersServerCommandInput;
+      output: NullAndEmptyHeadersServerCommandOutput;
+    };
+  };
+}

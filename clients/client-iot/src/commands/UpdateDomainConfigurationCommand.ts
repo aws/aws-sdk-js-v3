@@ -113,4 +113,16 @@ export class UpdateDomainConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainConfigurationCommand)
   .de(de_UpdateDomainConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainConfigurationRequest;
+      output: UpdateDomainConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateDomainConfigurationCommandInput;
+      output: UpdateDomainConfigurationCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointWeightsAndCapacitiesCommand)
   .de(de_UpdateEndpointWeightsAndCapacitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointWeightsAndCapacitiesInput;
+      output: UpdateEndpointWeightsAndCapacitiesOutput;
+    };
+    sdk: {
+      input: UpdateEndpointWeightsAndCapacitiesCommandInput;
+      output: UpdateEndpointWeightsAndCapacitiesCommandOutput;
+    };
+  };
+}

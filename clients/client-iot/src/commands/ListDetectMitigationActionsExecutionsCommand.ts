@@ -117,4 +117,16 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDetectMitigationActionsExecutionsCommand)
   .de(de_ListDetectMitigationActionsExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDetectMitigationActionsExecutionsRequest;
+      output: ListDetectMitigationActionsExecutionsResponse;
+    };
+    sdk: {
+      input: ListDetectMitigationActionsExecutionsCommandInput;
+      output: ListDetectMitigationActionsExecutionsCommandOutput;
+    };
+  };
+}

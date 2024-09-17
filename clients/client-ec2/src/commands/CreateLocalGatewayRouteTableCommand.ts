@@ -112,4 +112,16 @@ export class CreateLocalGatewayRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocalGatewayRouteTableCommand)
   .de(de_CreateLocalGatewayRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocalGatewayRouteTableRequest;
+      output: CreateLocalGatewayRouteTableResult;
+    };
+    sdk: {
+      input: CreateLocalGatewayRouteTableCommandInput;
+      output: CreateLocalGatewayRouteTableCommandOutput;
+    };
+  };
+}

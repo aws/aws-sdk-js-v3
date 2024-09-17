@@ -104,4 +104,16 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResolverQueryLogConfigPolicyCommand)
   .de(de_PutResolverQueryLogConfigPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResolverQueryLogConfigPolicyRequest;
+      output: PutResolverQueryLogConfigPolicyResponse;
+    };
+    sdk: {
+      input: PutResolverQueryLogConfigPolicyCommandInput;
+      output: PutResolverQueryLogConfigPolicyCommandOutput;
+    };
+  };
+}

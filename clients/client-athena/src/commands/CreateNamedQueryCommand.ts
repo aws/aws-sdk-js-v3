@@ -91,4 +91,16 @@ export class CreateNamedQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNamedQueryCommand)
   .de(de_CreateNamedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNamedQueryInput;
+      output: CreateNamedQueryOutput;
+    };
+    sdk: {
+      input: CreateNamedQueryCommandInput;
+      output: CreateNamedQueryCommandOutput;
+    };
+  };
+}

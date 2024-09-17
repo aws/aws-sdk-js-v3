@@ -116,4 +116,16 @@ export class ListKxScalingGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxScalingGroupsCommand)
   .de(de_ListKxScalingGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxScalingGroupsRequest;
+      output: ListKxScalingGroupsResponse;
+    };
+    sdk: {
+      input: ListKxScalingGroupsCommandInput;
+      output: ListKxScalingGroupsCommandOutput;
+    };
+  };
+}

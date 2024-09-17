@@ -104,4 +104,16 @@ export class GetPriceListFileUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPriceListFileUrlCommand)
   .de(de_GetPriceListFileUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPriceListFileUrlRequest;
+      output: GetPriceListFileUrlResponse;
+    };
+    sdk: {
+      input: GetPriceListFileUrlCommandInput;
+      output: GetPriceListFileUrlCommandOutput;
+    };
+  };
+}

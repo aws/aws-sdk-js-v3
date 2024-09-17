@@ -101,4 +101,16 @@ export class UpdateResourcePositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourcePositionCommand)
   .de(de_UpdateResourcePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourcePositionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResourcePositionCommandInput;
+      output: UpdateResourcePositionCommandOutput;
+    };
+  };
+}

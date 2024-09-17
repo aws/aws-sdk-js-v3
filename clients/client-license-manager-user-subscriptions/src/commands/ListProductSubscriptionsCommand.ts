@@ -133,4 +133,16 @@ export class ListProductSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProductSubscriptionsCommand)
   .de(de_ListProductSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProductSubscriptionsRequest;
+      output: ListProductSubscriptionsResponse;
+    };
+    sdk: {
+      input: ListProductSubscriptionsCommandInput;
+      output: ListProductSubscriptionsCommandOutput;
+    };
+  };
+}

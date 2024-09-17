@@ -245,4 +245,16 @@ export class DescribePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePolicyCommand)
   .de(de_DescribePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePolicyRequest;
+      output: DescribePolicyResponse;
+    };
+    sdk: {
+      input: DescribePolicyCommandInput;
+      output: DescribePolicyCommandOutput;
+    };
+  };
+}

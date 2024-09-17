@@ -91,4 +91,16 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryDestinationPolicyCommand)
   .de(de_DeleteDeliveryDestinationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryDestinationPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryDestinationPolicyCommandInput;
+      output: DeleteDeliveryDestinationPolicyCommandOutput;
+    };
+  };
+}

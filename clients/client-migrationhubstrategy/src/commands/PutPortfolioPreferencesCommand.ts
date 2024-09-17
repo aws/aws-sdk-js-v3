@@ -143,4 +143,16 @@ export class PutPortfolioPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPortfolioPreferencesCommand)
   .de(de_PutPortfolioPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPortfolioPreferencesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPortfolioPreferencesCommandInput;
+      output: PutPortfolioPreferencesCommandOutput;
+    };
+  };
+}

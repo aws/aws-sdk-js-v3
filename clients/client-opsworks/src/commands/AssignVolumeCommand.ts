@@ -91,4 +91,16 @@ export class AssignVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignVolumeCommand)
   .de(de_AssignVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignVolumeRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssignVolumeCommandInput;
+      output: AssignVolumeCommandOutput;
+    };
+  };
+}

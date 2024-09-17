@@ -365,4 +365,16 @@ export class ListAnomaliesForInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomaliesForInsightCommand)
   .de(de_ListAnomaliesForInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomaliesForInsightRequest;
+      output: ListAnomaliesForInsightResponse;
+    };
+    sdk: {
+      input: ListAnomaliesForInsightCommandInput;
+      output: ListAnomaliesForInsightCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class GetDataCellsFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataCellsFilterCommand)
   .de(de_GetDataCellsFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataCellsFilterRequest;
+      output: GetDataCellsFilterResponse;
+    };
+    sdk: {
+      input: GetDataCellsFilterCommandInput;
+      output: GetDataCellsFilterCommandOutput;
+    };
+  };
+}

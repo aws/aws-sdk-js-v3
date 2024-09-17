@@ -110,4 +110,16 @@ export class DescribeTableRestoreStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTableRestoreStatusCommand)
   .de(de_DescribeTableRestoreStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTableRestoreStatusMessage;
+      output: TableRestoreStatusMessage;
+    };
+    sdk: {
+      input: DescribeTableRestoreStatusCommandInput;
+      output: DescribeTableRestoreStatusCommandOutput;
+    };
+  };
+}

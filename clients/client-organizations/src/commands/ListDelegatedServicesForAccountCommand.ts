@@ -423,4 +423,16 @@ export class ListDelegatedServicesForAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDelegatedServicesForAccountCommand)
   .de(de_ListDelegatedServicesForAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDelegatedServicesForAccountRequest;
+      output: ListDelegatedServicesForAccountResponse;
+    };
+    sdk: {
+      input: ListDelegatedServicesForAccountCommandInput;
+      output: ListDelegatedServicesForAccountCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPricingRulesAssociatedToPricingPlanCommand)
   .de(de_ListPricingRulesAssociatedToPricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPricingRulesAssociatedToPricingPlanInput;
+      output: ListPricingRulesAssociatedToPricingPlanOutput;
+    };
+    sdk: {
+      input: ListPricingRulesAssociatedToPricingPlanCommandInput;
+      output: ListPricingRulesAssociatedToPricingPlanCommandOutput;
+    };
+  };
+}

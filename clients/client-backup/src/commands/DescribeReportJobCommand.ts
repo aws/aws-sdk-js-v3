@@ -101,4 +101,16 @@ export class DescribeReportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReportJobCommand)
   .de(de_DescribeReportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReportJobInput;
+      output: DescribeReportJobOutput;
+    };
+    sdk: {
+      input: DescribeReportJobCommandInput;
+      output: DescribeReportJobCommandOutput;
+    };
+  };
+}

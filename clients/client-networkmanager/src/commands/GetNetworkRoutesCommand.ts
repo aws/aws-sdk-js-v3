@@ -157,4 +157,16 @@ export class GetNetworkRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkRoutesCommand)
   .de(de_GetNetworkRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkRoutesRequest;
+      output: GetNetworkRoutesResponse;
+    };
+    sdk: {
+      input: GetNetworkRoutesCommandInput;
+      output: GetNetworkRoutesCommandOutput;
+    };
+  };
+}

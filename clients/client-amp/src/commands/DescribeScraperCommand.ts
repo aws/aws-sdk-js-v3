@@ -127,4 +127,16 @@ export class DescribeScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScraperCommand)
   .de(de_DescribeScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScraperRequest;
+      output: DescribeScraperResponse;
+    };
+    sdk: {
+      input: DescribeScraperCommandInput;
+      output: DescribeScraperCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class UpdatePrivacyBudgetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePrivacyBudgetTemplateCommand)
   .de(de_UpdatePrivacyBudgetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePrivacyBudgetTemplateInput;
+      output: UpdatePrivacyBudgetTemplateOutput;
+    };
+    sdk: {
+      input: UpdatePrivacyBudgetTemplateCommandInput;
+      output: UpdatePrivacyBudgetTemplateCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class CreateCustomPluginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomPluginCommand)
   .de(de_CreateCustomPluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomPluginRequest;
+      output: CreateCustomPluginResponse;
+    };
+    sdk: {
+      input: CreateCustomPluginCommandInput;
+      output: CreateCustomPluginCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class ListFirewallPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallPoliciesCommand)
   .de(de_ListFirewallPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallPoliciesRequest;
+      output: ListFirewallPoliciesResponse;
+    };
+    sdk: {
+      input: ListFirewallPoliciesCommandInput;
+      output: ListFirewallPoliciesCommandOutput;
+    };
+  };
+}

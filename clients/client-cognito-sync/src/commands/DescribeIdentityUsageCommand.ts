@@ -153,4 +153,16 @@ export class DescribeIdentityUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityUsageCommand)
   .de(de_DescribeIdentityUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityUsageRequest;
+      output: DescribeIdentityUsageResponse;
+    };
+    sdk: {
+      input: DescribeIdentityUsageCommandInput;
+      output: DescribeIdentityUsageCommandOutput;
+    };
+  };
+}

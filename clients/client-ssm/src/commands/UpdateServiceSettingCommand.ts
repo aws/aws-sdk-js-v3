@@ -99,4 +99,16 @@ export class UpdateServiceSettingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceSettingCommand)
   .de(de_UpdateServiceSettingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceSettingRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateServiceSettingCommandInput;
+      output: UpdateServiceSettingCommandOutput;
+    };
+  };
+}

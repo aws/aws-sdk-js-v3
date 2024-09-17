@@ -99,4 +99,16 @@ export class DeleteAgentVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAgentVersionCommand)
   .de(de_DeleteAgentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAgentVersionRequest;
+      output: DeleteAgentVersionResponse;
+    };
+    sdk: {
+      input: DeleteAgentVersionCommandInput;
+      output: DeleteAgentVersionCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class ListFunctionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionsCommand)
   .de(de_ListFunctionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionsRequest;
+      output: ListFunctionsResult;
+    };
+    sdk: {
+      input: ListFunctionsCommandInput;
+      output: ListFunctionsCommandOutput;
+    };
+  };
+}

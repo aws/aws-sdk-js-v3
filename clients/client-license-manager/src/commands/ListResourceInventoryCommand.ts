@@ -117,4 +117,16 @@ export class ListResourceInventoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceInventoryCommand)
   .de(de_ListResourceInventoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceInventoryRequest;
+      output: ListResourceInventoryResponse;
+    };
+    sdk: {
+      input: ListResourceInventoryCommandInput;
+      output: ListResourceInventoryCommandOutput;
+    };
+  };
+}

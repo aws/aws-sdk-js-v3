@@ -163,4 +163,16 @@ export class GetFindingsStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsStatisticsCommand)
   .de(de_GetFindingsStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsStatisticsRequest;
+      output: GetFindingsStatisticsResponse;
+    };
+    sdk: {
+      input: GetFindingsStatisticsCommandInput;
+      output: GetFindingsStatisticsCommandOutput;
+    };
+  };
+}

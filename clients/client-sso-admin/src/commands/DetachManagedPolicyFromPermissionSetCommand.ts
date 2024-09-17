@@ -109,4 +109,16 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachManagedPolicyFromPermissionSetCommand)
   .de(de_DetachManagedPolicyFromPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachManagedPolicyFromPermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachManagedPolicyFromPermissionSetCommandInput;
+      output: DetachManagedPolicyFromPermissionSetCommandOutput;
+    };
+  };
+}

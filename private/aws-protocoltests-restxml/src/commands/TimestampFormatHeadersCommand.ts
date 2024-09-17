@@ -83,4 +83,16 @@ export class TimestampFormatHeadersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TimestampFormatHeadersCommand)
   .de(de_TimestampFormatHeadersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TimestampFormatHeadersIO;
+      output: TimestampFormatHeadersIO;
+    };
+    sdk: {
+      input: TimestampFormatHeadersCommandInput;
+      output: TimestampFormatHeadersCommandOutput;
+    };
+  };
+}

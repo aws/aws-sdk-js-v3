@@ -112,4 +112,16 @@ export class ListReadSetImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReadSetImportJobsCommand)
   .de(de_ListReadSetImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReadSetImportJobsRequest;
+      output: ListReadSetImportJobsResponse;
+    };
+    sdk: {
+      input: ListReadSetImportJobsCommandInput;
+      output: ListReadSetImportJobsCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class GetIdMappingTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdMappingTableCommand)
   .de(de_GetIdMappingTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdMappingTableInput;
+      output: GetIdMappingTableOutput;
+    };
+    sdk: {
+      input: GetIdMappingTableCommandInput;
+      output: GetIdMappingTableCommandOutput;
+    };
+  };
+}

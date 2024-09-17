@@ -103,4 +103,16 @@ export class DescribeSubscriptionFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSubscriptionFiltersCommand)
   .de(de_DescribeSubscriptionFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubscriptionFiltersRequest;
+      output: DescribeSubscriptionFiltersResponse;
+    };
+    sdk: {
+      input: DescribeSubscriptionFiltersCommandInput;
+      output: DescribeSubscriptionFiltersCommandOutput;
+    };
+  };
+}

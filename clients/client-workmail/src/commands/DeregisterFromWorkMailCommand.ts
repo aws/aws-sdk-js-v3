@@ -98,4 +98,16 @@ export class DeregisterFromWorkMailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterFromWorkMailCommand)
   .de(de_DeregisterFromWorkMailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterFromWorkMailRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterFromWorkMailCommandInput;
+      output: DeregisterFromWorkMailCommandOutput;
+    };
+  };
+}

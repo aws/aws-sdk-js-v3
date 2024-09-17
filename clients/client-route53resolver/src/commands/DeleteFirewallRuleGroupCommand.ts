@@ -112,4 +112,16 @@ export class DeleteFirewallRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFirewallRuleGroupCommand)
   .de(de_DeleteFirewallRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFirewallRuleGroupRequest;
+      output: DeleteFirewallRuleGroupResponse;
+    };
+    sdk: {
+      input: DeleteFirewallRuleGroupCommandInput;
+      output: DeleteFirewallRuleGroupCommandOutput;
+    };
+  };
+}

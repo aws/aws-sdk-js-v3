@@ -72,4 +72,16 @@ export class MalformedByteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedByteCommand)
   .de(de_MalformedByteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedByteInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedByteCommandInput;
+      output: MalformedByteCommandOutput;
+    };
+  };
+}

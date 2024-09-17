@@ -140,4 +140,16 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRelationalDatabaseSnapshotCommand)
   .de(de_CreateRelationalDatabaseSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelationalDatabaseSnapshotRequest;
+      output: CreateRelationalDatabaseSnapshotResult;
+    };
+    sdk: {
+      input: CreateRelationalDatabaseSnapshotCommandInput;
+      output: CreateRelationalDatabaseSnapshotCommandOutput;
+    };
+  };
+}

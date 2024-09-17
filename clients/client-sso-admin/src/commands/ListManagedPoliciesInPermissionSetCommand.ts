@@ -111,4 +111,16 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedPoliciesInPermissionSetCommand)
   .de(de_ListManagedPoliciesInPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedPoliciesInPermissionSetRequest;
+      output: ListManagedPoliciesInPermissionSetResponse;
+    };
+    sdk: {
+      input: ListManagedPoliciesInPermissionSetCommandInput;
+      output: ListManagedPoliciesInPermissionSetCommandOutput;
+    };
+  };
+}

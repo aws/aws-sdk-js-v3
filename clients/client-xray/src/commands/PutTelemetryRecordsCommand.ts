@@ -100,4 +100,16 @@ export class PutTelemetryRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutTelemetryRecordsCommand)
   .de(de_PutTelemetryRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTelemetryRecordsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutTelemetryRecordsCommandInput;
+      output: PutTelemetryRecordsCommandOutput;
+    };
+  };
+}

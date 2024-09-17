@@ -147,4 +147,16 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSavingsPlansOfferingsCommand)
   .de(de_DescribeSavingsPlansOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSavingsPlansOfferingsRequest;
+      output: DescribeSavingsPlansOfferingsResponse;
+    };
+    sdk: {
+      input: DescribeSavingsPlansOfferingsCommandInput;
+      output: DescribeSavingsPlansOfferingsCommandOutput;
+    };
+  };
+}

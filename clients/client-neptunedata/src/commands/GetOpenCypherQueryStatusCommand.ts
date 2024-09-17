@@ -144,4 +144,16 @@ export class GetOpenCypherQueryStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOpenCypherQueryStatusCommand)
   .de(de_GetOpenCypherQueryStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOpenCypherQueryStatusInput;
+      output: GetOpenCypherQueryStatusOutput;
+    };
+    sdk: {
+      input: GetOpenCypherQueryStatusCommandInput;
+      output: GetOpenCypherQueryStatusCommandOutput;
+    };
+  };
+}

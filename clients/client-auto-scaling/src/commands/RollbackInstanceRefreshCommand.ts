@@ -119,4 +119,16 @@ export class RollbackInstanceRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackInstanceRefreshCommand)
   .de(de_RollbackInstanceRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackInstanceRefreshType;
+      output: RollbackInstanceRefreshAnswer;
+    };
+    sdk: {
+      input: RollbackInstanceRefreshCommandInput;
+      output: RollbackInstanceRefreshCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class ListManagedInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedInsightRulesCommand)
   .de(de_ListManagedInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedInsightRulesInput;
+      output: ListManagedInsightRulesOutput;
+    };
+    sdk: {
+      input: ListManagedInsightRulesCommandInput;
+      output: ListManagedInsightRulesCommandOutput;
+    };
+  };
+}

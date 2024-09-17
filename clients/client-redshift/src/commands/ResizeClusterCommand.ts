@@ -354,4 +354,16 @@ export class ResizeClusterCommand extends $Command
   .f(void 0, ResizeClusterResultFilterSensitiveLog)
   .ser(se_ResizeClusterCommand)
   .de(de_ResizeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResizeClusterMessage;
+      output: ResizeClusterResult;
+    };
+    sdk: {
+      input: ResizeClusterCommandInput;
+      output: ResizeClusterCommandOutput;
+    };
+  };
+}

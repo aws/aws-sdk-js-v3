@@ -108,4 +108,16 @@ export class DescribeHumanLoopCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHumanLoopCommand)
   .de(de_DescribeHumanLoopCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHumanLoopRequest;
+      output: DescribeHumanLoopResponse;
+    };
+    sdk: {
+      input: DescribeHumanLoopCommandInput;
+      output: DescribeHumanLoopCommandOutput;
+    };
+  };
+}

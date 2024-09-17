@@ -115,4 +115,16 @@ export class DescribeModelCardCommand extends $Command
   .f(void 0, DescribeModelCardResponseFilterSensitiveLog)
   .ser(se_DescribeModelCardCommand)
   .de(de_DescribeModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelCardRequest;
+      output: DescribeModelCardResponse;
+    };
+    sdk: {
+      input: DescribeModelCardCommandInput;
+      output: DescribeModelCardCommandOutput;
+    };
+  };
+}

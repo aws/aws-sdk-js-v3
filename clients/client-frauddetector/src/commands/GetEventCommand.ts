@@ -108,4 +108,16 @@ export class GetEventCommand extends $Command
   .f(void 0, GetEventResultFilterSensitiveLog)
   .ser(se_GetEventCommand)
   .de(de_GetEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventRequest;
+      output: GetEventResult;
+    };
+    sdk: {
+      input: GetEventCommandInput;
+      output: GetEventCommandOutput;
+    };
+  };
+}

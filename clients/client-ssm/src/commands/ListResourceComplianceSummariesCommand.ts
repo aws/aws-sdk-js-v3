@@ -139,4 +139,16 @@ export class ListResourceComplianceSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceComplianceSummariesCommand)
   .de(de_ListResourceComplianceSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceComplianceSummariesRequest;
+      output: ListResourceComplianceSummariesResult;
+    };
+    sdk: {
+      input: ListResourceComplianceSummariesCommandInput;
+      output: ListResourceComplianceSummariesCommandOutput;
+    };
+  };
+}

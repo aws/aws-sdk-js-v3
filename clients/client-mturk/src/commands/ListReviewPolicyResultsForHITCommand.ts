@@ -188,4 +188,16 @@ export class ListReviewPolicyResultsForHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReviewPolicyResultsForHITCommand)
   .de(de_ListReviewPolicyResultsForHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReviewPolicyResultsForHITRequest;
+      output: ListReviewPolicyResultsForHITResponse;
+    };
+    sdk: {
+      input: ListReviewPolicyResultsForHITCommandInput;
+      output: ListReviewPolicyResultsForHITCommandOutput;
+    };
+  };
+}

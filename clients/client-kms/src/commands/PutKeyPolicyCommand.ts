@@ -154,4 +154,16 @@ export class PutKeyPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutKeyPolicyCommand)
   .de(de_PutKeyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutKeyPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutKeyPolicyCommandInput;
+      output: PutKeyPolicyCommandOutput;
+    };
+  };
+}

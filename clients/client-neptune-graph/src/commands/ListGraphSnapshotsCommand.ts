@@ -105,4 +105,16 @@ export class ListGraphSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGraphSnapshotsCommand)
   .de(de_ListGraphSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGraphSnapshotsInput;
+      output: ListGraphSnapshotsOutput;
+    };
+    sdk: {
+      input: ListGraphSnapshotsCommandInput;
+      output: ListGraphSnapshotsCommandOutput;
+    };
+  };
+}

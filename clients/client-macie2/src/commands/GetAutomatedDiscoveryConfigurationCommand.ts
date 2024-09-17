@@ -101,4 +101,16 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutomatedDiscoveryConfigurationCommand)
   .de(de_GetAutomatedDiscoveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAutomatedDiscoveryConfigurationResponse;
+    };
+    sdk: {
+      input: GetAutomatedDiscoveryConfigurationCommandInput;
+      output: GetAutomatedDiscoveryConfigurationCommandOutput;
+    };
+  };
+}

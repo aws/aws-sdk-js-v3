@@ -125,4 +125,16 @@ export class PostTimeSeriesDataPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostTimeSeriesDataPointsCommand)
   .de(de_PostTimeSeriesDataPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostTimeSeriesDataPointsInput;
+      output: PostTimeSeriesDataPointsOutput;
+    };
+    sdk: {
+      input: PostTimeSeriesDataPointsCommandInput;
+      output: PostTimeSeriesDataPointsCommandOutput;
+    };
+  };
+}

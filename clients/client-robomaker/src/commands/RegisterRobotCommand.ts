@@ -101,4 +101,16 @@ export class RegisterRobotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterRobotCommand)
   .de(de_RegisterRobotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterRobotRequest;
+      output: RegisterRobotResponse;
+    };
+    sdk: {
+      input: RegisterRobotCommandInput;
+      output: RegisterRobotCommandOutput;
+    };
+  };
+}

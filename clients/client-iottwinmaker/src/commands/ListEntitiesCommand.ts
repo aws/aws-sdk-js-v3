@@ -117,4 +117,16 @@ export class ListEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitiesCommand)
   .de(de_ListEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitiesRequest;
+      output: ListEntitiesResponse;
+    };
+    sdk: {
+      input: ListEntitiesCommandInput;
+      output: ListEntitiesCommandOutput;
+    };
+  };
+}

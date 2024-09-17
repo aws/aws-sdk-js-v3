@@ -129,4 +129,16 @@ export class DeleteServiceCommand extends $Command
   .f(void 0, DeleteServiceOutputFilterSensitiveLog)
   .ser(se_DeleteServiceCommand)
   .de(de_DeleteServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceInput;
+      output: DeleteServiceOutput;
+    };
+    sdk: {
+      input: DeleteServiceCommandInput;
+      output: DeleteServiceCommandOutput;
+    };
+  };
+}

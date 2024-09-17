@@ -87,4 +87,16 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSpotDatafeedSubscriptionCommand)
   .de(de_DeleteSpotDatafeedSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSpotDatafeedSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSpotDatafeedSubscriptionCommandInput;
+      output: DeleteSpotDatafeedSubscriptionCommandOutput;
+    };
+  };
+}

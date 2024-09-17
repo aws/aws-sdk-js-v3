@@ -100,4 +100,16 @@ export class DeregisterGatewayInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterGatewayInstanceCommand)
   .de(de_DeregisterGatewayInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterGatewayInstanceRequest;
+      output: DeregisterGatewayInstanceResponse;
+    };
+    sdk: {
+      input: DeregisterGatewayInstanceCommandInput;
+      output: DeregisterGatewayInstanceCommandOutput;
+    };
+  };
+}

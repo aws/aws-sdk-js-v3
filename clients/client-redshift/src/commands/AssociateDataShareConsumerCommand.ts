@@ -103,4 +103,16 @@ export class AssociateDataShareConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDataShareConsumerCommand)
   .de(de_AssociateDataShareConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDataShareConsumerMessage;
+      output: DataShare;
+    };
+    sdk: {
+      input: AssociateDataShareConsumerCommandInput;
+      output: AssociateDataShareConsumerCommandOutput;
+    };
+  };
+}

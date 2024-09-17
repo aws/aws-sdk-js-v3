@@ -88,4 +88,16 @@ export class PutAccountSuppressionAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountSuppressionAttributesCommand)
   .de(de_PutAccountSuppressionAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountSuppressionAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccountSuppressionAttributesCommandInput;
+      output: PutAccountSuppressionAttributesCommandOutput;
+    };
+  };
+}

@@ -446,4 +446,16 @@ export class DescribePipeCommand extends $Command
   .f(void 0, DescribePipeResponseFilterSensitiveLog)
   .ser(se_DescribePipeCommand)
   .de(de_DescribePipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePipeRequest;
+      output: DescribePipeResponse;
+    };
+    sdk: {
+      input: DescribePipeCommandInput;
+      output: DescribePipeCommandOutput;
+    };
+  };
+}

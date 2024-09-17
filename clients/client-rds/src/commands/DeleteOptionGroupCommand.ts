@@ -92,4 +92,16 @@ export class DeleteOptionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOptionGroupCommand)
   .de(de_DeleteOptionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOptionGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOptionGroupCommandInput;
+      output: DeleteOptionGroupCommandOutput;
+    };
+  };
+}

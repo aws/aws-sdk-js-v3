@@ -191,4 +191,16 @@ export class DescribeTargetHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetHealthCommand)
   .de(de_DescribeTargetHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetHealthInput;
+      output: DescribeTargetHealthOutput;
+    };
+    sdk: {
+      input: DescribeTargetHealthCommandInput;
+      output: DescribeTargetHealthCommandOutput;
+    };
+  };
+}

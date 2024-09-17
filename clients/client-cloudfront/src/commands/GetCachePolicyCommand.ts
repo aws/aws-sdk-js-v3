@@ -138,4 +138,16 @@ export class GetCachePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCachePolicyCommand)
   .de(de_GetCachePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCachePolicyRequest;
+      output: GetCachePolicyResult;
+    };
+    sdk: {
+      input: GetCachePolicyCommandInput;
+      output: GetCachePolicyCommandOutput;
+    };
+  };
+}

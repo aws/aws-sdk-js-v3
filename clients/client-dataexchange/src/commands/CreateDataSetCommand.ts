@@ -111,4 +111,16 @@ export class CreateDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataSetCommand)
   .de(de_CreateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSetRequest;
+      output: CreateDataSetResponse;
+    };
+    sdk: {
+      input: CreateDataSetCommandInput;
+      output: CreateDataSetCommandOutput;
+    };
+  };
+}

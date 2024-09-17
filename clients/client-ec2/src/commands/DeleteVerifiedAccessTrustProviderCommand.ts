@@ -120,4 +120,16 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command
   .f(void 0, DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog)
   .ser(se_DeleteVerifiedAccessTrustProviderCommand)
   .de(de_DeleteVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedAccessTrustProviderRequest;
+      output: DeleteVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: DeleteVerifiedAccessTrustProviderCommandInput;
+      output: DeleteVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class CreateDatasetImportJobCommand extends $Command
   .f(CreateDatasetImportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDatasetImportJobCommand)
   .de(de_CreateDatasetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatasetImportJobRequest;
+      output: CreateDatasetImportJobResponse;
+    };
+    sdk: {
+      input: CreateDatasetImportJobCommandInput;
+      output: CreateDatasetImportJobCommandOutput;
+    };
+  };
+}

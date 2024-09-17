@@ -97,4 +97,16 @@ export class AssociateNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateNetworkSettingsCommand)
   .de(de_AssociateNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateNetworkSettingsRequest;
+      output: AssociateNetworkSettingsResponse;
+    };
+    sdk: {
+      input: AssociateNetworkSettingsCommandInput;
+      output: AssociateNetworkSettingsCommandOutput;
+    };
+  };
+}

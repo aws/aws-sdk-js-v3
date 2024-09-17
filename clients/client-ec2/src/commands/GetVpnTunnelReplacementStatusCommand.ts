@@ -90,4 +90,16 @@ export class GetVpnTunnelReplacementStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVpnTunnelReplacementStatusCommand)
   .de(de_GetVpnTunnelReplacementStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVpnTunnelReplacementStatusRequest;
+      output: GetVpnTunnelReplacementStatusResult;
+    };
+    sdk: {
+      input: GetVpnTunnelReplacementStatusCommandInput;
+      output: GetVpnTunnelReplacementStatusCommandOutput;
+    };
+  };
+}

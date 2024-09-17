@@ -86,4 +86,16 @@ export class DeleteExtensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExtensionCommand)
   .de(de_DeleteExtensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExtensionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteExtensionCommandInput;
+      output: DeleteExtensionCommandOutput;
+    };
+  };
+}

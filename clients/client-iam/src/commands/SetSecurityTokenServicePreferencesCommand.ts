@@ -111,4 +111,16 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSecurityTokenServicePreferencesCommand)
   .de(de_SetSecurityTokenServicePreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSecurityTokenServicePreferencesRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetSecurityTokenServicePreferencesCommandInput;
+      output: SetSecurityTokenServicePreferencesCommandOutput;
+    };
+  };
+}

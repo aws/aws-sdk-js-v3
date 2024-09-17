@@ -98,4 +98,16 @@ export class DeleteViewVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteViewVersionCommand)
   .de(de_DeleteViewVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteViewVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteViewVersionCommandInput;
+      output: DeleteViewVersionCommandOutput;
+    };
+  };
+}

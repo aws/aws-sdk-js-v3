@@ -91,4 +91,16 @@ export class ListSnapshotsInRecycleBinCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSnapshotsInRecycleBinCommand)
   .de(de_ListSnapshotsInRecycleBinCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSnapshotsInRecycleBinRequest;
+      output: ListSnapshotsInRecycleBinResult;
+    };
+    sdk: {
+      input: ListSnapshotsInRecycleBinCommandInput;
+      output: ListSnapshotsInRecycleBinCommandOutput;
+    };
+  };
+}

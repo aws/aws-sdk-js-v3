@@ -105,4 +105,16 @@ export class DescribeImageAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImageAssociationsCommand)
   .de(de_DescribeImageAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImageAssociationsRequest;
+      output: DescribeImageAssociationsResult;
+    };
+    sdk: {
+      input: DescribeImageAssociationsCommandInput;
+      output: DescribeImageAssociationsCommandOutput;
+    };
+  };
+}

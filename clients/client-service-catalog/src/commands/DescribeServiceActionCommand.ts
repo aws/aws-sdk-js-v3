@@ -91,4 +91,16 @@ export class DescribeServiceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceActionCommand)
   .de(de_DescribeServiceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceActionInput;
+      output: DescribeServiceActionOutput;
+    };
+    sdk: {
+      input: DescribeServiceActionCommandInput;
+      output: DescribeServiceActionCommandOutput;
+    };
+  };
+}

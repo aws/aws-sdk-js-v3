@@ -125,4 +125,16 @@ export class DescribeActionTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeActionTargetsCommand)
   .de(de_DescribeActionTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActionTargetsRequest;
+      output: DescribeActionTargetsResponse;
+    };
+    sdk: {
+      input: DescribeActionTargetsCommandInput;
+      output: DescribeActionTargetsCommandOutput;
+    };
+  };
+}

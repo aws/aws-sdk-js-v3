@@ -95,4 +95,16 @@ export class GetConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectionCommand)
   .de(de_GetConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectionRequest;
+      output: GetConnectionResponse;
+    };
+    sdk: {
+      input: GetConnectionCommandInput;
+      output: GetConnectionCommandOutput;
+    };
+  };
+}

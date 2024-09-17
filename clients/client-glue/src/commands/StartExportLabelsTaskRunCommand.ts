@@ -98,4 +98,16 @@ export class StartExportLabelsTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExportLabelsTaskRunCommand)
   .de(de_StartExportLabelsTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExportLabelsTaskRunRequest;
+      output: StartExportLabelsTaskRunResponse;
+    };
+    sdk: {
+      input: StartExportLabelsTaskRunCommandInput;
+      output: StartExportLabelsTaskRunCommandOutput;
+    };
+  };
+}

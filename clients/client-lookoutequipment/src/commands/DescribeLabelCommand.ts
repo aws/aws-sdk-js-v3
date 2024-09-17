@@ -106,4 +106,16 @@ export class DescribeLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLabelCommand)
   .de(de_DescribeLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLabelRequest;
+      output: DescribeLabelResponse;
+    };
+    sdk: {
+      input: DescribeLabelCommandInput;
+      output: DescribeLabelCommandOutput;
+    };
+  };
+}

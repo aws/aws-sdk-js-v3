@@ -138,4 +138,16 @@ export class AddCustomAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddCustomAttributesCommand)
   .de(de_AddCustomAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddCustomAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddCustomAttributesCommandInput;
+      output: AddCustomAttributesCommandOutput;
+    };
+  };
+}

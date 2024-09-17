@@ -175,4 +175,16 @@ export class RegisterComputeCommand extends $Command
   .f(RegisterComputeInputFilterSensitiveLog, RegisterComputeOutputFilterSensitiveLog)
   .ser(se_RegisterComputeCommand)
   .de(de_RegisterComputeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterComputeInput;
+      output: RegisterComputeOutput;
+    };
+    sdk: {
+      input: RegisterComputeCommandInput;
+      output: RegisterComputeCommandOutput;
+    };
+  };
+}

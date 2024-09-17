@@ -180,4 +180,16 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataRepositoryAssociationsCommand)
   .de(de_DescribeDataRepositoryAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataRepositoryAssociationsRequest;
+      output: DescribeDataRepositoryAssociationsResponse;
+    };
+    sdk: {
+      input: DescribeDataRepositoryAssociationsCommandInput;
+      output: DescribeDataRepositoryAssociationsCommandOutput;
+    };
+  };
+}

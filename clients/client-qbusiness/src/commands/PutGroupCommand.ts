@@ -126,4 +126,16 @@ export class PutGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutGroupCommand)
   .de(de_PutGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutGroupCommandInput;
+      output: PutGroupCommandOutput;
+    };
+  };
+}

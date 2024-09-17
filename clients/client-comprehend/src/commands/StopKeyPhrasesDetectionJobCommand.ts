@@ -96,4 +96,16 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopKeyPhrasesDetectionJobCommand)
   .de(de_StopKeyPhrasesDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopKeyPhrasesDetectionJobRequest;
+      output: StopKeyPhrasesDetectionJobResponse;
+    };
+    sdk: {
+      input: StopKeyPhrasesDetectionJobCommandInput;
+      output: StopKeyPhrasesDetectionJobCommandOutput;
+    };
+  };
+}

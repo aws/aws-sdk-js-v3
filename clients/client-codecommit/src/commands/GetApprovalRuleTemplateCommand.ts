@@ -98,4 +98,16 @@ export class GetApprovalRuleTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApprovalRuleTemplateCommand)
   .de(de_GetApprovalRuleTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApprovalRuleTemplateInput;
+      output: GetApprovalRuleTemplateOutput;
+    };
+    sdk: {
+      input: GetApprovalRuleTemplateCommandInput;
+      output: GetApprovalRuleTemplateCommandOutput;
+    };
+  };
+}

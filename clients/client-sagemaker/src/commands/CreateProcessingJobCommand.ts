@@ -192,4 +192,16 @@ export class CreateProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProcessingJobCommand)
   .de(de_CreateProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProcessingJobRequest;
+      output: CreateProcessingJobResponse;
+    };
+    sdk: {
+      input: CreateProcessingJobCommandInput;
+      output: CreateProcessingJobCommandOutput;
+    };
+  };
+}

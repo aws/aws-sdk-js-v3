@@ -99,4 +99,16 @@ export class DeleteApplicationGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationGrantCommand)
   .de(de_DeleteApplicationGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationGrantCommandInput;
+      output: DeleteApplicationGrantCommandOutput;
+    };
+  };
+}

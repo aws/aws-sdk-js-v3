@@ -264,4 +264,16 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwitchoverBlueGreenDeploymentCommand)
   .de(de_SwitchoverBlueGreenDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwitchoverBlueGreenDeploymentRequest;
+      output: SwitchoverBlueGreenDeploymentResponse;
+    };
+    sdk: {
+      input: SwitchoverBlueGreenDeploymentCommandInput;
+      output: SwitchoverBlueGreenDeploymentCommandOutput;
+    };
+  };
+}

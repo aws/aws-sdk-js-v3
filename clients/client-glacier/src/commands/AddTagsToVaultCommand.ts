@@ -116,4 +116,16 @@ export class AddTagsToVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToVaultCommand)
   .de(de_AddTagsToVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToVaultInput;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsToVaultCommandInput;
+      output: AddTagsToVaultCommandOutput;
+    };
+  };
+}

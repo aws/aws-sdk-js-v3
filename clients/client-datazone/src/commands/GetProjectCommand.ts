@@ -113,4 +113,16 @@ export class GetProjectCommand extends $Command
   .f(void 0, GetProjectOutputFilterSensitiveLog)
   .ser(se_GetProjectCommand)
   .de(de_GetProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProjectInput;
+      output: GetProjectOutput;
+    };
+    sdk: {
+      input: GetProjectCommandInput;
+      output: GetProjectCommandOutput;
+    };
+  };
+}

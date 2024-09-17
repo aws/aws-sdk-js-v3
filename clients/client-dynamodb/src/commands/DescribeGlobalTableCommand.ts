@@ -125,4 +125,16 @@ export class DescribeGlobalTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGlobalTableCommand)
   .de(de_DescribeGlobalTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGlobalTableInput;
+      output: DescribeGlobalTableOutput;
+    };
+    sdk: {
+      input: DescribeGlobalTableCommandInput;
+      output: DescribeGlobalTableCommandOutput;
+    };
+  };
+}

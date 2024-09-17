@@ -161,4 +161,16 @@ export class GetInsightRuleReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightRuleReportCommand)
   .de(de_GetInsightRuleReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightRuleReportInput;
+      output: GetInsightRuleReportOutput;
+    };
+    sdk: {
+      input: GetInsightRuleReportCommandInput;
+      output: GetInsightRuleReportCommandOutput;
+    };
+  };
+}

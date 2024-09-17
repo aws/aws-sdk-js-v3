@@ -192,4 +192,16 @@ export class ListResponseHeadersPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResponseHeadersPoliciesCommand)
   .de(de_ListResponseHeadersPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResponseHeadersPoliciesRequest;
+      output: ListResponseHeadersPoliciesResult;
+    };
+    sdk: {
+      input: ListResponseHeadersPoliciesCommandInput;
+      output: ListResponseHeadersPoliciesCommandOutput;
+    };
+  };
+}

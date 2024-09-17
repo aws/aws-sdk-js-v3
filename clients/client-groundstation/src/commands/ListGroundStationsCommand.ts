@@ -95,4 +95,16 @@ export class ListGroundStationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroundStationsCommand)
   .de(de_ListGroundStationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroundStationsRequest;
+      output: ListGroundStationsResponse;
+    };
+    sdk: {
+      input: ListGroundStationsCommandInput;
+      output: ListGroundStationsCommandOutput;
+    };
+  };
+}

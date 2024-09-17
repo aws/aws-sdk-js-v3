@@ -132,4 +132,16 @@ export class UpdatePricingRuleCommand extends $Command
   .f(UpdatePricingRuleInputFilterSensitiveLog, UpdatePricingRuleOutputFilterSensitiveLog)
   .ser(se_UpdatePricingRuleCommand)
   .de(de_UpdatePricingRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePricingRuleInput;
+      output: UpdatePricingRuleOutput;
+    };
+    sdk: {
+      input: UpdatePricingRuleCommandInput;
+      output: UpdatePricingRuleCommandOutput;
+    };
+  };
+}

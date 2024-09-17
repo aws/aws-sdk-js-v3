@@ -119,4 +119,16 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAggregateDiscoveredResourcesCommand)
   .de(de_ListAggregateDiscoveredResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAggregateDiscoveredResourcesRequest;
+      output: ListAggregateDiscoveredResourcesResponse;
+    };
+    sdk: {
+      input: ListAggregateDiscoveredResourcesCommandInput;
+      output: ListAggregateDiscoveredResourcesCommandOutput;
+    };
+  };
+}

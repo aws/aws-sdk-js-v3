@@ -103,4 +103,16 @@ export class GetAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAttachmentCommand)
   .de(de_GetAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttachmentRequest;
+      output: GetAttachmentResponse;
+    };
+    sdk: {
+      input: GetAttachmentCommandInput;
+      output: GetAttachmentCommandOutput;
+    };
+  };
+}
