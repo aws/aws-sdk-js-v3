@@ -265,7 +265,7 @@ export interface StartSessionResponse {
 
 /**
  * <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
- *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Setting up
  *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
  *    attempt to start a session on a managed node that is located in a different account or
  *    Region</p>
@@ -1341,7 +1341,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -1524,7 +1524,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -1620,9 +1620,8 @@ export interface UpdateManagedInstanceRoleRequest {
   /**
    * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
    *    the managed node. This IAM role must provide AssumeRole permissions for the
-   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
-   *      IAM service role for a hybrid and multicloud environment</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html">Create the IAM service role required for Systems Manager in hybrid and multicloud
+   *     environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>You can't specify an IAM service-linked role for this parameter. You must
    *     create a unique role.</p>
@@ -1701,8 +1700,7 @@ export interface UpdateOpsItemRequest {
   RelatedOpsItems?: RelatedOpsItem[];
 
   /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * <p>The OpsItem status. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   Status?: OpsItemStatus;
@@ -1857,8 +1855,8 @@ export interface UpdatePatchBaselineRequest {
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   ApprovedPatches?: string[];
@@ -1880,8 +1878,8 @@ export interface UpdatePatchBaselineRequest {
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   RejectedPatches?: string[];

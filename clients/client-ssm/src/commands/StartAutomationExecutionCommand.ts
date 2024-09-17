@@ -82,6 +82,20 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *           },
  *         ],
  *       },
+ *       IncludeChildOrganizationUnits: true || false,
+ *       ExcludeAccounts: [ // ExcludeAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *       Targets: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetsMaxConcurrency: "STRING_VALUE",
+ *       TargetsMaxErrors: "STRING_VALUE",
  *     },
  *   ],
  *   Tags: [ // TagList
@@ -98,6 +112,7 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *       },
  *     ],
  *   },
+ *   TargetLocationsURL: "STRING_VALUE",
  * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);

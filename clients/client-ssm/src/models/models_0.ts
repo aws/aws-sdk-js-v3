@@ -761,9 +761,8 @@ export interface CreateActivationRequest {
   /**
    * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
    *    the managed node. This IAM role must provide AssumeRole permissions for the
-   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
-   *      IAM service role for a hybrid and multicloud environment</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html">Create the IAM service role required for Systems Manager in a hybrid and multicloud
+   *     environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>You can't specify an IAM service-linked role for this parameter. You must
    *     create a unique role.</p>
@@ -781,7 +780,7 @@ export interface CreateActivationRequest {
 
   /**
    * <p>The date by which this activation request should expire, in timestamp format, such as
-   *    "2021-07-07T00:00:00". You can specify a date up to 30 days in advance. If you don't provide an
+   *    "2024-07-07T00:00:00". You can specify a date up to 30 days in advance. If you don't provide an
    *    expiration date, the activation code expires in 24 hours.</p>
    * @public
    */
@@ -978,53 +977,6 @@ export const AssociationSyncCompliance = {
 export type AssociationSyncCompliance = (typeof AssociationSyncCompliance)[keyof typeof AssociationSyncCompliance];
 
 /**
- * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Automation
- *    execution.</p>
- * @public
- */
-export interface TargetLocation {
-  /**
-   * <p>The Amazon Web Services accounts targeted by the current Automation execution.</p>
-   * @public
-   */
-  Accounts?: string[];
-
-  /**
-   * <p>The Amazon Web Services Regions targeted by the current Automation execution.</p>
-   * @public
-   */
-  Regions?: string[];
-
-  /**
-   * <p>The maximum number of Amazon Web Services Regions and Amazon Web Services accounts allowed to run the Automation
-   *    concurrently.</p>
-   * @public
-   */
-  TargetLocationMaxConcurrency?: string;
-
-  /**
-   * <p>The maximum number of errors allowed before the system stops queueing additional Automation
-   *    executions for the currently running Automation.</p>
-   * @public
-   */
-  TargetLocationMaxErrors?: string;
-
-  /**
-   * <p>The Automation execution role used by the currently running Automation. If not specified,
-   *    the default value is <code>AWS-SystemsManager-AutomationExecutionRole</code>.</p>
-   * @public
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or
-   *    command.</p>
-   * @public
-   */
-  TargetLocationAlarmConfiguration?: AlarmConfiguration;
-}
-
-/**
  * <p>An array of search criteria that targets managed nodes using a key-value pair that you
  *    specify.</p>
  *          <note>
@@ -1160,6 +1112,91 @@ export interface Target {
 }
 
 /**
+ * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Automation
+ *    execution.</p>
+ * @public
+ */
+export interface TargetLocation {
+  /**
+   * <p>The Amazon Web Services accounts targeted by the current Automation execution.</p>
+   * @public
+   */
+  Accounts?: string[];
+
+  /**
+   * <p>The Amazon Web Services Regions targeted by the current Automation execution.</p>
+   * @public
+   */
+  Regions?: string[];
+
+  /**
+   * <p>The maximum number of Amazon Web Services Regions and Amazon Web Services accounts allowed to run the Automation
+   *    concurrently.</p>
+   * @public
+   */
+  TargetLocationMaxConcurrency?: string;
+
+  /**
+   * <p>The maximum number of errors allowed before the system stops queueing additional Automation
+   *    executions for the currently running Automation.</p>
+   * @public
+   */
+  TargetLocationMaxErrors?: string;
+
+  /**
+   * <p>The Automation execution role used by the currently running Automation. If not specified,
+   *    the default value is <code>AWS-SystemsManager-AutomationExecutionRole</code>.</p>
+   * @public
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
+   * @public
+   */
+  TargetLocationAlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>Indicates whether to include child organizational units (OUs) that are children of the
+   *    targeted OUs. The default is <code>false</code>.</p>
+   * @public
+   */
+  IncludeChildOrganizationUnits?: boolean;
+
+  /**
+   * <p>Amazon Web Services accounts or organizational units to exclude as expanded targets.</p>
+   * @public
+   */
+  ExcludeAccounts?: string[];
+
+  /**
+   * <p>A list of key-value mappings to target resources. If you specify values for this data type,
+   *    you must also specify a value for <code>TargetParameterName</code>.</p>
+   *          <p>This <code>Targets</code> parameter takes precedence over the
+   *     <code>StartAutomationExecution:Targets</code> parameter if both are supplied.</p>
+   * @public
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The maximum number of targets allowed to run this task in parallel. This
+   *     <code>TargetsMaxConcurrency</code> takes precedence over the
+   *     <code>StartAutomationExecution:MaxConcurrency</code> parameter if both are supplied.</p>
+   * @public
+   */
+  TargetsMaxConcurrency?: string;
+
+  /**
+   * <p>The maximum number of errors that are allowed before the system stops running the automation
+   *    on additional targets. This <code>TargetsMaxErrors</code> parameter takes precedence over the
+   *     <code>StartAutomationExecution:MaxErrors</code> parameter if both are supplied.</p>
+   * @public
+   */
+  TargetsMaxErrors?: string;
+}
+
+/**
  * @public
  */
 export interface CreateAssociationRequest {
@@ -1226,7 +1263,7 @@ export interface CreateAssociationRequest {
    * <p>The targets for the association. You can target managed nodes by using tags, Amazon Web Services resource
    *    groups, all managed nodes in an Amazon Web Services account, or individual managed node IDs. You can target all
    *    managed nodes in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
-   *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">About targets and rate controls in State Manager associations</a> in the
+   *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Understanding targets and rate controls in State Manager associations</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -2182,14 +2219,14 @@ export interface AttachmentsSource {
    *                <p>For the key <i>SourceUrl</i>, the value is an S3 bucket location. For
    *      example:</p>
    *                <p>
-   *                   <code>"Values": [ "s3://doc-example-bucket/my-folder" ]</code>
+   *                   <code>"Values": [ "s3://amzn-s3-demo-bucket/my-prefix" ]</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>For the key <i>S3FileUrl</i>, the value is a file in an S3 bucket. For
    *      example:</p>
    *                <p>
-   *                   <code>"Values": [ "s3://doc-example-bucket/my-folder/my-file.py" ]</code>
+   *                   <code>"Values": [ "s3://amzn-s3-demo-bucket/my-prefix/my-file.py" ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3665,11 +3702,16 @@ export interface PatchRule {
    * <p>The number of days after the release date of each patch matched by the rule that the patch
    *    is marked as approved in the patch baseline. For example, a value of <code>7</code> means that
    *    patches are approved seven days after they are released.</p>
-   *          <note>
-   *             <p>This parameter is marked as not required, but your request must include a value
-   *     for either <code>ApproveAfterDays</code> or <code>ApproveUntilDate</code>.</p>
-   *          </note>
-   *          <p> Not supported for Debian Server or Ubuntu Server.</p>
+   *          <p>This parameter is marked as <code>Required: No</code>, but your request must include a value
+   *    for either <code>ApproveAfterDays</code> or <code>ApproveUntilDate</code>.</p>
+   *          <p>Not supported for Debian Server or Ubuntu Server.</p>
+   *          <important>
+   *             <p>Use caution when setting this value for Windows Server patch baselines. Because patch
+   *     updates that are replaced by later updates are removed, setting too broad a value for this
+   *     parameter can result in crucial patches not being installed. For more information, see the
+   *      <b>Windows Server</b> tab in the topic <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html">How security
+   *      patches are selected</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          </important>
    * @public
    */
   ApproveAfterDays?: number;
@@ -3678,12 +3720,17 @@ export interface PatchRule {
    * <p>The cutoff date for auto approval of released patches. Any patches released on or before
    *    this date are installed automatically.</p>
    *          <p>Enter dates in the format <code>YYYY-MM-DD</code>. For example,
-   *    <code>2021-12-31</code>.</p>
-   *          <note>
-   *             <p>This parameter is marked as not required, but your request must include a value
-   *     for either <code>ApproveUntilDate</code> or <code>ApproveAfterDays</code>.</p>
-   *          </note>
+   *    <code>2024-12-31</code>.</p>
+   *          <p>This parameter is marked as <code>Required: No</code>, but your request must include a value
+   *    for either <code>ApproveUntilDate</code> or <code>ApproveAfterDays</code>.</p>
    *          <p>Not supported for Debian Server or Ubuntu Server.</p>
+   *          <important>
+   *             <p>Use caution when setting this value for Windows Server patch baselines. Because patch
+   *     updates that are replaced by later updates are removed, setting too broad a value for this
+   *     parameter can result in crucial patches not being installed. For more information, see the
+   *      <b>Windows Server</b> tab in the topic <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html">How security
+   *      patches are selected</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          </important>
    * @public
    */
   ApproveUntilDate?: string;
@@ -3825,8 +3872,8 @@ export interface CreatePatchBaselineRequest {
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   ApprovedPatches?: string[];
@@ -3850,8 +3897,8 @@ export interface CreatePatchBaselineRequest {
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   RejectedPatches?: string[];
@@ -4527,8 +4574,7 @@ export interface DeleteInventoryResult {
   TypeName?: string;
 
   /**
-   * <p>A summary of the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary">Understanding the delete inventory summary</a> in the
-   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * <p>A summary of the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory-summary">Deleting custom inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   DeletionSummary?: InventoryDeletionSummary;
@@ -6079,7 +6125,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or
    *    CrossAccount. CrossAccount is an Automation that runs in multiple Amazon Web Services Regions and
-   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and accounts</a> in the
+   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running automations in multiple Amazon Web Services Regions and accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    * @public
    */
@@ -6096,6 +6142,13 @@ export interface AutomationExecutionMetadata {
    * @public
    */
   TriggeredAlarms?: AlarmStateInformation[];
+
+  /**
+   * <p>A publicly accessible URL for a file that contains the <code>TargetLocations</code> body.
+   *    Currently, only files in presigned Amazon S3 buckets are supported</p>
+   * @public
+   */
+  TargetLocationsURL?: string;
 
   /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
@@ -7742,10 +7795,11 @@ export interface InstanceInformation {
    *    activated as a Systems Manager managed node. The name is specified as the <code>DefaultInstanceName</code>
    *    property using the <a>CreateActivation</a> command. It is applied to the managed node
    *    by specifying the Activation Code and Activation ID when you install SSM Agent on the node, as
-   *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
-   *     hybrid and multicloud environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a
-   *     hybrid and multicloud environment (Windows)</a>. To retrieve the <code>Name</code> tag of an
-   *    EC2 instance, use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
+   *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-ssm-agent-install-linux.html">How to
+   *     install SSM Agent on hybrid Linux nodes</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-ssm-agent-install-windows.html">How to
+   *     install SSM Agent on hybrid Windows Server nodes</a>. To retrieve the <code>Name</code> tag
+   *    of an EC2 instance, use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see
+   *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
    * @public
    */
   Name?: string;
@@ -7889,8 +7943,8 @@ export interface DescribeInstancePatchesRequest {
    *                <p>Sample values: <code>Installed</code> | <code>InstalledOther</code> |
    *       <code>InstalledPendingReboot</code>
    *                </p>
-   *                <p>For lists of all <code>State</code> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Understanding
-   *       patch compliance state values</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                <p>For lists of all <code>State</code> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Patch compliance
+   *       state values</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7964,7 +8018,8 @@ export interface PatchComplianceData {
 
   /**
    * <p>The state of the patch on the managed node, such as INSTALLED or FAILED.</p>
-   *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/compliance-about.html#compliance-monitor-patch">About
+   *     patch compliance</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   State: PatchComplianceDataState | undefined;
@@ -8119,8 +8174,8 @@ export interface InstancePatchState {
    *    patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML
    *    format and specify in the SSM document <code>AWS-RunPatchBaseline</code>, overrides the patches
    *    specified by the default patch baseline.</p>
-   *          <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html">About the
-   *      <code>AWS-RunPatchBaseline SSM document</code>
+   *          <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html">SSM Command
+   *     document for patching: <code>AWS-RunPatchBaseline</code>
    *             </a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
@@ -8857,7 +8912,7 @@ export interface InventoryDeletionStatusItem {
   LastStatusMessage?: string;
 
   /**
-   * <p>Information about the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete">Understanding the delete inventory summary</a> in the
+   * <p>Information about the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory">Understanding the delete inventory summary</a> in the
    *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -8983,7 +9038,7 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
    *             <li>
    *                <p>Values. An array of strings, each between 1 and 256 characters. Supported values are
    *      date/time strings in a valid ISO 8601 date/time format, such as
-   *       <code>2021-11-04T05:00:00Z</code>.</p>
+   *       <code>2024-11-04T05:00:00Z</code>.</p>
    *             </li>
    *          </ul>
    * @public

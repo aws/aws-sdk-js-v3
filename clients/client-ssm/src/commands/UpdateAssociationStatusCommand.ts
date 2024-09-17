@@ -130,6 +130,20 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [ // ExcludeAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),

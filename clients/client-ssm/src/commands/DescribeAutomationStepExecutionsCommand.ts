@@ -126,6 +126,20 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [ // ExcludeAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //       TriggeredAlarms: [ // AlarmStateInformationList
  * //         { // AlarmStateInformation

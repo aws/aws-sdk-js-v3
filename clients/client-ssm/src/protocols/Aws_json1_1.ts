@@ -8295,6 +8295,8 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 
 // se_DocumentReviews omitted.
 
+// se_ExcludeAccounts omitted.
+
 // se_GetAutomationExecutionRequest omitted.
 
 // se_GetCalendarStateRequest omitted.
@@ -9235,6 +9237,7 @@ const de_AutomationExecution = (output: any, context: __SerdeContext): Automatio
     StepExecutionsTruncated: __expectBoolean,
     Target: __expectString,
     TargetLocations: _json,
+    TargetLocationsURL: __expectString,
     TargetMaps: _json,
     TargetParameterName: __expectString,
     Targets: _json,
@@ -9276,6 +9279,7 @@ const de_AutomationExecutionMetadata = (output: any, context: __SerdeContext): A
     Runbooks: _json,
     ScheduledTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Target: __expectString,
+    TargetLocationsURL: __expectString,
     TargetMaps: _json,
     TargetParameterName: __expectString,
     Targets: _json,
@@ -10028,6 +10032,8 @@ const de_EffectivePatchList = (output: any, context: __SerdeContext): EffectiveP
     });
   return retVal;
 };
+
+// de_ExcludeAccounts omitted.
 
 // de_FailedCreateAssociation omitted.
 

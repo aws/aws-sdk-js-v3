@@ -103,6 +103,20 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *           },
  *         ],
  *       },
+ *       IncludeChildOrganizationUnits: true || false,
+ *       ExcludeAccounts: [ // ExcludeAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *       Targets: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetsMaxConcurrency: "STRING_VALUE",
+ *       TargetsMaxErrors: "STRING_VALUE",
  *     },
  *   ],
  *   ScheduleOffset: Number("int"),
@@ -205,6 +219,20 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [ // ExcludeAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
