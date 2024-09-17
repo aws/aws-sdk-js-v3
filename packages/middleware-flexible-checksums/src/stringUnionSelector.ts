@@ -15,7 +15,7 @@ export const stringUnionSelector = (
   key: string,
   union: Record<string, string>,
   type: SelectorType
-) => {
+): (typeof union)[keyof typeof union] | undefined => {
   if (!(key in obj)) return undefined;
 
   const value = obj[key]!.toUpperCase();
