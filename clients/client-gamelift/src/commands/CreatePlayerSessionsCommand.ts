@@ -150,4 +150,16 @@ export class CreatePlayerSessionsCommand extends $Command
   .f(CreatePlayerSessionsInputFilterSensitiveLog, CreatePlayerSessionsOutputFilterSensitiveLog)
   .ser(se_CreatePlayerSessionsCommand)
   .de(de_CreatePlayerSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlayerSessionsInput;
+      output: CreatePlayerSessionsOutput;
+    };
+    sdk: {
+      input: CreatePlayerSessionsCommandInput;
+      output: CreatePlayerSessionsCommandOutput;
+    };
+  };
+}

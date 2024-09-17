@@ -228,4 +228,16 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSavingsPlansUtilizationDetailsCommand)
   .de(de_GetSavingsPlansUtilizationDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSavingsPlansUtilizationDetailsRequest;
+      output: GetSavingsPlansUtilizationDetailsResponse;
+    };
+    sdk: {
+      input: GetSavingsPlansUtilizationDetailsCommandInput;
+      output: GetSavingsPlansUtilizationDetailsCommandOutput;
+    };
+  };
+}

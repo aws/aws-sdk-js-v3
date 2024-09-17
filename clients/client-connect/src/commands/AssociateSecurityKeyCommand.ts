@@ -100,4 +100,16 @@ export class AssociateSecurityKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSecurityKeyCommand)
   .de(de_AssociateSecurityKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSecurityKeyRequest;
+      output: AssociateSecurityKeyResponse;
+    };
+    sdk: {
+      input: AssociateSecurityKeyCommandInput;
+      output: AssociateSecurityKeyCommandOutput;
+    };
+  };
+}

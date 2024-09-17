@@ -129,4 +129,16 @@ export class InstallToRemoteAccessSessionCommand extends $Command
   .f(void 0, InstallToRemoteAccessSessionResultFilterSensitiveLog)
   .ser(se_InstallToRemoteAccessSessionCommand)
   .de(de_InstallToRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InstallToRemoteAccessSessionRequest;
+      output: InstallToRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: InstallToRemoteAccessSessionCommandInput;
+      output: InstallToRemoteAccessSessionCommandOutput;
+    };
+  };
+}

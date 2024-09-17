@@ -103,4 +103,16 @@ export class ListCompilationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompilationJobsCommand)
   .de(de_ListCompilationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompilationJobsRequest;
+      output: ListCompilationJobsResponse;
+    };
+    sdk: {
+      input: ListCompilationJobsCommandInput;
+      output: ListCompilationJobsCommandOutput;
+    };
+  };
+}

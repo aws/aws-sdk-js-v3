@@ -102,4 +102,16 @@ export class ResumeProcessesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeProcessesCommand)
   .de(de_ResumeProcessesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalingProcessQuery;
+      output: {};
+    };
+    sdk: {
+      input: ResumeProcessesCommandInput;
+      output: ResumeProcessesCommandOutput;
+    };
+  };
+}

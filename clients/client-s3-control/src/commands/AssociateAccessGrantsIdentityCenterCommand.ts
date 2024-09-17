@@ -97,4 +97,16 @@ export class AssociateAccessGrantsIdentityCenterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAccessGrantsIdentityCenterCommand)
   .de(de_AssociateAccessGrantsIdentityCenterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAccessGrantsIdentityCenterRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateAccessGrantsIdentityCenterCommandInput;
+      output: AssociateAccessGrantsIdentityCenterCommandOutput;
+    };
+  };
+}

@@ -480,4 +480,16 @@ export class UpdateDomainConfigCommand extends $Command
   .f(UpdateDomainConfigRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDomainConfigCommand)
   .de(de_UpdateDomainConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainConfigRequest;
+      output: UpdateDomainConfigResponse;
+    };
+    sdk: {
+      input: UpdateDomainConfigCommandInput;
+      output: UpdateDomainConfigCommandOutput;
+    };
+  };
+}

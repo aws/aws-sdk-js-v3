@@ -158,4 +158,16 @@ export class UpdateResolverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResolverCommand)
   .de(de_UpdateResolverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResolverRequest;
+      output: UpdateResolverResponse;
+    };
+    sdk: {
+      input: UpdateResolverCommandInput;
+      output: UpdateResolverCommandOutput;
+    };
+  };
+}

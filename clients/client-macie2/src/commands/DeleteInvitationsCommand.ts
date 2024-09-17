@@ -106,4 +106,16 @@ export class DeleteInvitationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInvitationsCommand)
   .de(de_DeleteInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInvitationsRequest;
+      output: DeleteInvitationsResponse;
+    };
+    sdk: {
+      input: DeleteInvitationsCommandInput;
+      output: DeleteInvitationsCommandOutput;
+    };
+  };
+}

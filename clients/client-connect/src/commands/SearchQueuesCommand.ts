@@ -162,4 +162,16 @@ export class SearchQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchQueuesCommand)
   .de(de_SearchQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchQueuesRequest;
+      output: SearchQueuesResponse;
+    };
+    sdk: {
+      input: SearchQueuesCommandInput;
+      output: SearchQueuesCommandOutput;
+    };
+  };
+}

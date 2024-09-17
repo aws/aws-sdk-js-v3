@@ -117,4 +117,16 @@ export class DescribeSharedDirectoriesCommand extends $Command
   .f(void 0, DescribeSharedDirectoriesResultFilterSensitiveLog)
   .ser(se_DescribeSharedDirectoriesCommand)
   .de(de_DescribeSharedDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSharedDirectoriesRequest;
+      output: DescribeSharedDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeSharedDirectoriesCommandInput;
+      output: DescribeSharedDirectoriesCommandOutput;
+    };
+  };
+}

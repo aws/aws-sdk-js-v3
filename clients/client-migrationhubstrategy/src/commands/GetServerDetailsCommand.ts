@@ -159,4 +159,16 @@ export class GetServerDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServerDetailsCommand)
   .de(de_GetServerDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServerDetailsRequest;
+      output: GetServerDetailsResponse;
+    };
+    sdk: {
+      input: GetServerDetailsCommandInput;
+      output: GetServerDetailsCommandOutput;
+    };
+  };
+}

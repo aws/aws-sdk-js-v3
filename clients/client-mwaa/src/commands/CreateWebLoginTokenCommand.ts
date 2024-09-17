@@ -96,4 +96,16 @@ export class CreateWebLoginTokenCommand extends $Command
   .f(void 0, CreateWebLoginTokenResponseFilterSensitiveLog)
   .ser(se_CreateWebLoginTokenCommand)
   .de(de_CreateWebLoginTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebLoginTokenRequest;
+      output: CreateWebLoginTokenResponse;
+    };
+    sdk: {
+      input: CreateWebLoginTokenCommandInput;
+      output: CreateWebLoginTokenCommandOutput;
+    };
+  };
+}

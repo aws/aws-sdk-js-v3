@@ -164,4 +164,16 @@ export class CreateRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRoleCommand)
   .de(de_CreateRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRoleRequest;
+      output: CreateRoleResponse;
+    };
+    sdk: {
+      input: CreateRoleCommandInput;
+      output: CreateRoleCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCertificateAuthorityAuditReportCommand)
   .de(de_DescribeCertificateAuthorityAuditReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCertificateAuthorityAuditReportRequest;
+      output: DescribeCertificateAuthorityAuditReportResponse;
+    };
+    sdk: {
+      input: DescribeCertificateAuthorityAuditReportCommandInput;
+      output: DescribeCertificateAuthorityAuditReportCommandOutput;
+    };
+  };
+}

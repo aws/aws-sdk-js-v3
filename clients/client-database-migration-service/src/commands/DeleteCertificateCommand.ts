@@ -114,4 +114,16 @@ export class DeleteCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCertificateCommand)
   .de(de_DeleteCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCertificateMessage;
+      output: DeleteCertificateResponse;
+    };
+    sdk: {
+      input: DeleteCertificateCommandInput;
+      output: DeleteCertificateCommandOutput;
+    };
+  };
+}

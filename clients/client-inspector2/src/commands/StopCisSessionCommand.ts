@@ -120,4 +120,16 @@ export class StopCisSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCisSessionCommand)
   .de(de_StopCisSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCisSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCisSessionCommandInput;
+      output: StopCisSessionCommandOutput;
+    };
+  };
+}

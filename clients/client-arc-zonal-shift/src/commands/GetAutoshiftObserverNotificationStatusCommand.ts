@@ -103,4 +103,16 @@ export class GetAutoshiftObserverNotificationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoshiftObserverNotificationStatusCommand)
   .de(de_GetAutoshiftObserverNotificationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAutoshiftObserverNotificationStatusResponse;
+    };
+    sdk: {
+      input: GetAutoshiftObserverNotificationStatusCommandInput;
+      output: GetAutoshiftObserverNotificationStatusCommandOutput;
+    };
+  };
+}

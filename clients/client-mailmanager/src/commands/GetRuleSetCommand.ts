@@ -239,4 +239,16 @@ export class GetRuleSetCommand extends $Command
   .f(void 0, GetRuleSetResponseFilterSensitiveLog)
   .ser(se_GetRuleSetCommand)
   .de(de_GetRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleSetRequest;
+      output: GetRuleSetResponse;
+    };
+    sdk: {
+      input: GetRuleSetCommandInput;
+      output: GetRuleSetCommandOutput;
+    };
+  };
+}

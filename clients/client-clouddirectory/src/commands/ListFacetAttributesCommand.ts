@@ -137,4 +137,16 @@ export class ListFacetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFacetAttributesCommand)
   .de(de_ListFacetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFacetAttributesRequest;
+      output: ListFacetAttributesResponse;
+    };
+    sdk: {
+      input: ListFacetAttributesCommandInput;
+      output: ListFacetAttributesCommandOutput;
+    };
+  };
+}

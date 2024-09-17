@@ -303,4 +303,16 @@ export class DescribeSpotInstanceRequestsCommand extends $Command
   .f(void 0, DescribeSpotInstanceRequestsResultFilterSensitiveLog)
   .ser(se_DescribeSpotInstanceRequestsCommand)
   .de(de_DescribeSpotInstanceRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotInstanceRequestsRequest;
+      output: DescribeSpotInstanceRequestsResult;
+    };
+    sdk: {
+      input: DescribeSpotInstanceRequestsCommandInput;
+      output: DescribeSpotInstanceRequestsCommandOutput;
+    };
+  };
+}

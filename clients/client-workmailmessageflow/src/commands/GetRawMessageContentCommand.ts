@@ -92,4 +92,16 @@ export class GetRawMessageContentCommand extends $Command
   .f(void 0, GetRawMessageContentResponseFilterSensitiveLog)
   .ser(se_GetRawMessageContentCommand)
   .de(de_GetRawMessageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRawMessageContentRequest;
+      output: GetRawMessageContentResponse;
+    };
+    sdk: {
+      input: GetRawMessageContentCommandInput;
+      output: GetRawMessageContentCommandOutput;
+    };
+  };
+}

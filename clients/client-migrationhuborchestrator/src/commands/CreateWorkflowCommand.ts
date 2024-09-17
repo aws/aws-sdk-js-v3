@@ -144,4 +144,16 @@ export class CreateWorkflowCommand extends $Command
   .f(CreateMigrationWorkflowRequestFilterSensitiveLog, CreateMigrationWorkflowResponseFilterSensitiveLog)
   .ser(se_CreateWorkflowCommand)
   .de(de_CreateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMigrationWorkflowRequest;
+      output: CreateMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: CreateWorkflowCommandInput;
+      output: CreateWorkflowCommandOutput;
+    };
+  };
+}

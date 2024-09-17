@@ -129,4 +129,16 @@ export class GetLoaderJobStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoaderJobStatusCommand)
   .de(de_GetLoaderJobStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoaderJobStatusInput;
+      output: GetLoaderJobStatusOutput;
+    };
+    sdk: {
+      input: GetLoaderJobStatusCommandInput;
+      output: GetLoaderJobStatusCommandOutput;
+    };
+  };
+}

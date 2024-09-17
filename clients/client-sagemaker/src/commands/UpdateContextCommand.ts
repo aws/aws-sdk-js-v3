@@ -91,4 +91,16 @@ export class UpdateContextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContextCommand)
   .de(de_UpdateContextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContextRequest;
+      output: UpdateContextResponse;
+    };
+    sdk: {
+      input: UpdateContextCommandInput;
+      output: UpdateContextCommandOutput;
+    };
+  };
+}

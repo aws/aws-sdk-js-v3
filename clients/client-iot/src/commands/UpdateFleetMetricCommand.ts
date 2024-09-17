@@ -122,4 +122,16 @@ export class UpdateFleetMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetMetricCommand)
   .de(de_UpdateFleetMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetMetricRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFleetMetricCommandInput;
+      output: UpdateFleetMetricCommandOutput;
+    };
+  };
+}

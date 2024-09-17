@@ -104,4 +104,16 @@ export class UpdatePhoneNumberMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePhoneNumberMetadataCommand)
   .de(de_UpdatePhoneNumberMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePhoneNumberMetadataCommandInput;
+      output: UpdatePhoneNumberMetadataCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class DeleteReusableDelegationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReusableDelegationSetCommand)
   .de(de_DeleteReusableDelegationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReusableDelegationSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReusableDelegationSetCommandInput;
+      output: DeleteReusableDelegationSetCommandOutput;
+    };
+  };
+}

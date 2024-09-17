@@ -112,4 +112,16 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointServicePermissionsCommand)
   .de(de_DescribeVpcEndpointServicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointServicePermissionsRequest;
+      output: DescribeVpcEndpointServicePermissionsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointServicePermissionsCommandInput;
+      output: DescribeVpcEndpointServicePermissionsCommandOutput;
+    };
+  };
+}

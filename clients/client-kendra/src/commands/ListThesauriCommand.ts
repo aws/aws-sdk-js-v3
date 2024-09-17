@@ -108,4 +108,16 @@ export class ListThesauriCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThesauriCommand)
   .de(de_ListThesauriCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThesauriRequest;
+      output: ListThesauriResponse;
+    };
+    sdk: {
+      input: ListThesauriCommandInput;
+      output: ListThesauriCommandOutput;
+    };
+  };
+}

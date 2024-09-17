@@ -654,4 +654,16 @@ export class UpdateSnapshotCommand extends $Command
   .f(void 0, UpdateSnapshotResponseFilterSensitiveLog)
   .ser(se_UpdateSnapshotCommand)
   .de(de_UpdateSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSnapshotRequest;
+      output: UpdateSnapshotResponse;
+    };
+    sdk: {
+      input: UpdateSnapshotCommandInput;
+      output: UpdateSnapshotCommandOutput;
+    };
+  };
+}

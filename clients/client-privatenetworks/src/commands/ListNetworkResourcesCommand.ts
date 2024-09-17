@@ -157,4 +157,16 @@ export class ListNetworkResourcesCommand extends $Command
   .f(void 0, ListNetworkResourcesResponseFilterSensitiveLog)
   .ser(se_ListNetworkResourcesCommand)
   .de(de_ListNetworkResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkResourcesRequest;
+      output: ListNetworkResourcesResponse;
+    };
+    sdk: {
+      input: ListNetworkResourcesCommandInput;
+      output: ListNetworkResourcesCommandOutput;
+    };
+  };
+}

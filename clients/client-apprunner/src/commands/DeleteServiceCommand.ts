@@ -192,4 +192,16 @@ export class DeleteServiceCommand extends $Command
   .f(void 0, DeleteServiceResponseFilterSensitiveLog)
   .ser(se_DeleteServiceCommand)
   .de(de_DeleteServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceRequest;
+      output: DeleteServiceResponse;
+    };
+    sdk: {
+      input: DeleteServiceCommandInput;
+      output: DeleteServiceCommandOutput;
+    };
+  };
+}

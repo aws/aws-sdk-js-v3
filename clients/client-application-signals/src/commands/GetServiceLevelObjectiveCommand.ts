@@ -236,4 +236,16 @@ export class GetServiceLevelObjectiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceLevelObjectiveCommand)
   .de(de_GetServiceLevelObjectiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceLevelObjectiveInput;
+      output: GetServiceLevelObjectiveOutput;
+    };
+    sdk: {
+      input: GetServiceLevelObjectiveCommandInput;
+      output: GetServiceLevelObjectiveCommandOutput;
+    };
+  };
+}

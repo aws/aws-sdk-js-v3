@@ -138,4 +138,16 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCurrentDBClusterCapacityCommand)
   .de(de_ModifyCurrentDBClusterCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCurrentDBClusterCapacityMessage;
+      output: DBClusterCapacityInfo;
+    };
+    sdk: {
+      input: ModifyCurrentDBClusterCapacityCommandInput;
+      output: ModifyCurrentDBClusterCapacityCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class UpdateUserSecurityProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserSecurityProfilesCommand)
   .de(de_UpdateUserSecurityProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserSecurityProfilesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserSecurityProfilesCommandInput;
+      output: UpdateUserSecurityProfilesCommandOutput;
+    };
+  };
+}

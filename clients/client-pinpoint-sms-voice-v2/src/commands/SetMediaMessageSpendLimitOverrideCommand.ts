@@ -103,4 +103,16 @@ export class SetMediaMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetMediaMessageSpendLimitOverrideCommand)
   .de(de_SetMediaMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetMediaMessageSpendLimitOverrideRequest;
+      output: SetMediaMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: SetMediaMessageSpendLimitOverrideCommandInput;
+      output: SetMediaMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

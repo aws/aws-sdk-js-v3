@@ -100,4 +100,16 @@ export class CreateBatchImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBatchImportJobCommand)
   .de(de_CreateBatchImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchImportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateBatchImportJobCommandInput;
+      output: CreateBatchImportJobCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class GetIdentityResolutionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityResolutionJobCommand)
   .de(de_GetIdentityResolutionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityResolutionJobRequest;
+      output: GetIdentityResolutionJobResponse;
+    };
+    sdk: {
+      input: GetIdentityResolutionJobCommandInput;
+      output: GetIdentityResolutionJobCommandOutput;
+    };
+  };
+}

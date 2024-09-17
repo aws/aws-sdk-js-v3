@@ -512,4 +512,16 @@ export class GetTopicRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTopicRuleCommand)
   .de(de_GetTopicRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTopicRuleRequest;
+      output: GetTopicRuleResponse;
+    };
+    sdk: {
+      input: GetTopicRuleCommandInput;
+      output: GetTopicRuleCommandOutput;
+    };
+  };
+}

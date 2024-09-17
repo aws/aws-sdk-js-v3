@@ -135,4 +135,16 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustedAdvisorCheckSummariesCommand)
   .de(de_DescribeTrustedAdvisorCheckSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustedAdvisorCheckSummariesRequest;
+      output: DescribeTrustedAdvisorCheckSummariesResponse;
+    };
+    sdk: {
+      input: DescribeTrustedAdvisorCheckSummariesCommandInput;
+      output: DescribeTrustedAdvisorCheckSummariesCommandOutput;
+    };
+  };
+}

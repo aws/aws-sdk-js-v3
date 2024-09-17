@@ -101,4 +101,16 @@ export class RejectGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectGrantCommand)
   .de(de_RejectGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectGrantRequest;
+      output: RejectGrantResponse;
+    };
+    sdk: {
+      input: RejectGrantCommandInput;
+      output: RejectGrantCommandOutput;
+    };
+  };
+}

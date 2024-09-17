@@ -226,4 +226,16 @@ export class BatchGrantPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGrantPermissionsCommand)
   .de(de_BatchGrantPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGrantPermissionsRequest;
+      output: BatchGrantPermissionsResponse;
+    };
+    sdk: {
+      input: BatchGrantPermissionsCommandInput;
+      output: BatchGrantPermissionsCommandOutput;
+    };
+  };
+}

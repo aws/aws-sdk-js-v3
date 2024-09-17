@@ -117,4 +117,16 @@ export class ImportDecoderManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDecoderManifestCommand)
   .de(de_ImportDecoderManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDecoderManifestRequest;
+      output: ImportDecoderManifestResponse;
+    };
+    sdk: {
+      input: ImportDecoderManifestCommandInput;
+      output: ImportDecoderManifestCommandOutput;
+    };
+  };
+}

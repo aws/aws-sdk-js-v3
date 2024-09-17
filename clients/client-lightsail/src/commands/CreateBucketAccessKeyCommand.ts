@@ -144,4 +144,16 @@ export class CreateBucketAccessKeyCommand extends $Command
   .f(void 0, CreateBucketAccessKeyResultFilterSensitiveLog)
   .ser(se_CreateBucketAccessKeyCommand)
   .de(de_CreateBucketAccessKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBucketAccessKeyRequest;
+      output: CreateBucketAccessKeyResult;
+    };
+    sdk: {
+      input: CreateBucketAccessKeyCommandInput;
+      output: CreateBucketAccessKeyCommandOutput;
+    };
+  };
+}

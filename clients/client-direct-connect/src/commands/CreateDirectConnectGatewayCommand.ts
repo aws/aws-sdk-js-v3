@@ -96,4 +96,16 @@ export class CreateDirectConnectGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDirectConnectGatewayCommand)
   .de(de_CreateDirectConnectGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectConnectGatewayRequest;
+      output: CreateDirectConnectGatewayResult;
+    };
+    sdk: {
+      input: CreateDirectConnectGatewayCommandInput;
+      output: CreateDirectConnectGatewayCommandOutput;
+    };
+  };
+}

@@ -159,4 +159,16 @@ export class ListPresetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPresetsCommand)
   .de(de_ListPresetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPresetsRequest;
+      output: ListPresetsResponse;
+    };
+    sdk: {
+      input: ListPresetsCommandInput;
+      output: ListPresetsCommandOutput;
+    };
+  };
+}

@@ -136,4 +136,16 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLaunchTemplateVersionsCommand)
   .de(de_DeleteLaunchTemplateVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchTemplateVersionsRequest;
+      output: DeleteLaunchTemplateVersionsResult;
+    };
+    sdk: {
+      input: DeleteLaunchTemplateVersionsCommandInput;
+      output: DeleteLaunchTemplateVersionsCommandOutput;
+    };
+  };
+}

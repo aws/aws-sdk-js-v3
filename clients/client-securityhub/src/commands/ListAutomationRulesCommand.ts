@@ -149,4 +149,16 @@ export class ListAutomationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutomationRulesCommand)
   .de(de_ListAutomationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutomationRulesRequest;
+      output: ListAutomationRulesResponse;
+    };
+    sdk: {
+      input: ListAutomationRulesCommandInput;
+      output: ListAutomationRulesCommandOutput;
+    };
+  };
+}

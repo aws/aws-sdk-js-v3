@@ -121,4 +121,16 @@ export class PeerVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PeerVpcCommand)
   .de(de_PeerVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: PeerVpcResult;
+    };
+    sdk: {
+      input: PeerVpcCommandInput;
+      output: PeerVpcCommandOutput;
+    };
+  };
+}

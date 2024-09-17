@@ -140,4 +140,16 @@ export class StartArchiveExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartArchiveExportCommand)
   .de(de_StartArchiveExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartArchiveExportRequest;
+      output: StartArchiveExportResponse;
+    };
+    sdk: {
+      input: StartArchiveExportCommandInput;
+      output: StartArchiveExportCommandOutput;
+    };
+  };
+}

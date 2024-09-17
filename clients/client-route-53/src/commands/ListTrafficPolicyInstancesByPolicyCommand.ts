@@ -127,4 +127,16 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficPolicyInstancesByPolicyCommand)
   .de(de_ListTrafficPolicyInstancesByPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficPolicyInstancesByPolicyRequest;
+      output: ListTrafficPolicyInstancesByPolicyResponse;
+    };
+    sdk: {
+      input: ListTrafficPolicyInstancesByPolicyCommandInput;
+      output: ListTrafficPolicyInstancesByPolicyCommandOutput;
+    };
+  };
+}

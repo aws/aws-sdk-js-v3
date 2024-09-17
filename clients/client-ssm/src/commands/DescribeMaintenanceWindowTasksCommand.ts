@@ -154,4 +154,16 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command
   .f(void 0, DescribeMaintenanceWindowTasksResultFilterSensitiveLog)
   .ser(se_DescribeMaintenanceWindowTasksCommand)
   .de(de_DescribeMaintenanceWindowTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMaintenanceWindowTasksRequest;
+      output: DescribeMaintenanceWindowTasksResult;
+    };
+    sdk: {
+      input: DescribeMaintenanceWindowTasksCommandInput;
+      output: DescribeMaintenanceWindowTasksCommandOutput;
+    };
+  };
+}

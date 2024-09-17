@@ -90,4 +90,16 @@ export class DeleteOutpostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOutpostCommand)
   .de(de_DeleteOutpostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOutpostInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOutpostCommandInput;
+      output: DeleteOutpostCommandOutput;
+    };
+  };
+}

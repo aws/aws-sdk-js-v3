@@ -95,4 +95,16 @@ export class CreateLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLogSubscriptionCommand)
   .de(de_CreateLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLogSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLogSubscriptionCommandInput;
+      output: CreateLogSubscriptionCommandOutput;
+    };
+  };
+}

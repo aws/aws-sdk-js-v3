@@ -188,4 +188,16 @@ export class CreateHITWithHITTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHITWithHITTypeCommand)
   .de(de_CreateHITWithHITTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHITWithHITTypeRequest;
+      output: CreateHITWithHITTypeResponse;
+    };
+    sdk: {
+      input: CreateHITWithHITTypeCommandInput;
+      output: CreateHITWithHITTypeCommandOutput;
+    };
+  };
+}

@@ -89,4 +89,16 @@ export class DeleteApprovalRuleTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApprovalRuleTemplateCommand)
   .de(de_DeleteApprovalRuleTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApprovalRuleTemplateInput;
+      output: DeleteApprovalRuleTemplateOutput;
+    };
+    sdk: {
+      input: DeleteApprovalRuleTemplateCommandInput;
+      output: DeleteApprovalRuleTemplateCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class StartRelationalDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRelationalDatabaseCommand)
   .de(de_StartRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRelationalDatabaseRequest;
+      output: StartRelationalDatabaseResult;
+    };
+    sdk: {
+      input: StartRelationalDatabaseCommandInput;
+      output: StartRelationalDatabaseCommandOutput;
+    };
+  };
+}

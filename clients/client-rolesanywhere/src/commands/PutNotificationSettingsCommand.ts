@@ -123,4 +123,16 @@ export class PutNotificationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutNotificationSettingsCommand)
   .de(de_PutNotificationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutNotificationSettingsRequest;
+      output: PutNotificationSettingsResponse;
+    };
+    sdk: {
+      input: PutNotificationSettingsCommandInput;
+      output: PutNotificationSettingsCommandOutput;
+    };
+  };
+}

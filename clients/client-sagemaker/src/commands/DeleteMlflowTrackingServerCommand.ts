@@ -80,4 +80,16 @@ export class DeleteMlflowTrackingServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMlflowTrackingServerCommand)
   .de(de_DeleteMlflowTrackingServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMlflowTrackingServerRequest;
+      output: DeleteMlflowTrackingServerResponse;
+    };
+    sdk: {
+      input: DeleteMlflowTrackingServerCommandInput;
+      output: DeleteMlflowTrackingServerCommandOutput;
+    };
+  };
+}

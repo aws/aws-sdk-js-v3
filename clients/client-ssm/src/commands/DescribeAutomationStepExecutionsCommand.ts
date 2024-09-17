@@ -208,4 +208,16 @@ export class DescribeAutomationStepExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutomationStepExecutionsCommand)
   .de(de_DescribeAutomationStepExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutomationStepExecutionsRequest;
+      output: DescribeAutomationStepExecutionsResult;
+    };
+    sdk: {
+      input: DescribeAutomationStepExecutionsCommandInput;
+      output: DescribeAutomationStepExecutionsCommandOutput;
+    };
+  };
+}

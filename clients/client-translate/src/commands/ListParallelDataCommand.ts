@@ -118,4 +118,16 @@ export class ListParallelDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListParallelDataCommand)
   .de(de_ListParallelDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListParallelDataRequest;
+      output: ListParallelDataResponse;
+    };
+    sdk: {
+      input: ListParallelDataCommandInput;
+      output: ListParallelDataCommandOutput;
+    };
+  };
+}

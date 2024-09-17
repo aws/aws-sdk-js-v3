@@ -127,4 +127,16 @@ export class CreateSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSAMLProviderCommand)
   .de(de_CreateSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSAMLProviderRequest;
+      output: CreateSAMLProviderResponse;
+    };
+    sdk: {
+      input: CreateSAMLProviderCommandInput;
+      output: CreateSAMLProviderCommandOutput;
+    };
+  };
+}

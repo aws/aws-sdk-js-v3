@@ -79,4 +79,16 @@ export class DeleteTrafficMirrorTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrafficMirrorTargetCommand)
   .de(de_DeleteTrafficMirrorTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrafficMirrorTargetRequest;
+      output: DeleteTrafficMirrorTargetResult;
+    };
+    sdk: {
+      input: DeleteTrafficMirrorTargetCommandInput;
+      output: DeleteTrafficMirrorTargetCommandOutput;
+    };
+  };
+}

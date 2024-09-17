@@ -91,4 +91,16 @@ export class GetOperationDetailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOperationDetailCommand)
   .de(de_GetOperationDetailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOperationDetailRequest;
+      output: GetOperationDetailResponse;
+    };
+    sdk: {
+      input: GetOperationDetailCommandInput;
+      output: GetOperationDetailCommandOutput;
+    };
+  };
+}

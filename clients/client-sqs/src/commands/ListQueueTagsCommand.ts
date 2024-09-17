@@ -117,4 +117,16 @@ export class ListQueueTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueueTagsCommand)
   .de(de_ListQueueTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueueTagsRequest;
+      output: ListQueueTagsResult;
+    };
+    sdk: {
+      input: ListQueueTagsCommandInput;
+      output: ListQueueTagsCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   .f(void 0, DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog)
   .ser(se_DescribeChannelMembershipForAppInstanceUserCommand)
   .de(de_DescribeChannelMembershipForAppInstanceUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelMembershipForAppInstanceUserRequest;
+      output: DescribeChannelMembershipForAppInstanceUserResponse;
+    };
+    sdk: {
+      input: DescribeChannelMembershipForAppInstanceUserCommandInput;
+      output: DescribeChannelMembershipForAppInstanceUserCommandOutput;
+    };
+  };
+}

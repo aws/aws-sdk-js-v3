@@ -98,4 +98,16 @@ export class ListCuratedEnvironmentImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCuratedEnvironmentImagesCommand)
   .de(de_ListCuratedEnvironmentImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListCuratedEnvironmentImagesOutput;
+    };
+    sdk: {
+      input: ListCuratedEnvironmentImagesCommandInput;
+      output: ListCuratedEnvironmentImagesCommandOutput;
+    };
+  };
+}

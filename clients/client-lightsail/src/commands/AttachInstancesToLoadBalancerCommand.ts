@@ -138,4 +138,16 @@ export class AttachInstancesToLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachInstancesToLoadBalancerCommand)
   .de(de_AttachInstancesToLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachInstancesToLoadBalancerRequest;
+      output: AttachInstancesToLoadBalancerResult;
+    };
+    sdk: {
+      input: AttachInstancesToLoadBalancerCommandInput;
+      output: AttachInstancesToLoadBalancerCommandOutput;
+    };
+  };
+}

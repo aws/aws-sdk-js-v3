@@ -112,4 +112,16 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketInventoryConfigurationCommand)
   .de(de_DeleteBucketInventoryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketInventoryConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketInventoryConfigurationCommandInput;
+      output: DeleteBucketInventoryConfigurationCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverQueryLogConfigAssociationsCommand)
   .de(de_ListResolverQueryLogConfigAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverQueryLogConfigAssociationsRequest;
+      output: ListResolverQueryLogConfigAssociationsResponse;
+    };
+    sdk: {
+      input: ListResolverQueryLogConfigAssociationsCommandInput;
+      output: ListResolverQueryLogConfigAssociationsCommandOutput;
+    };
+  };
+}

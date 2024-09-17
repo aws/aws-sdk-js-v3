@@ -94,4 +94,16 @@ export class DeleteDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBShardGroupCommand)
   .de(de_DeleteDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: DeleteDBShardGroupCommandInput;
+      output: DeleteDBShardGroupCommandOutput;
+    };
+  };
+}

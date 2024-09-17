@@ -190,4 +190,16 @@ export class StartMatchmakingCommand extends $Command
   .f(StartMatchmakingInputFilterSensitiveLog, StartMatchmakingOutputFilterSensitiveLog)
   .ser(se_StartMatchmakingCommand)
   .de(de_StartMatchmakingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMatchmakingInput;
+      output: StartMatchmakingOutput;
+    };
+    sdk: {
+      input: StartMatchmakingCommandInput;
+      output: StartMatchmakingCommandOutput;
+    };
+  };
+}

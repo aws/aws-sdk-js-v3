@@ -110,4 +110,16 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecoveryGroupReadinessSummaryCommand)
   .de(de_GetRecoveryGroupReadinessSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecoveryGroupReadinessSummaryRequest;
+      output: GetRecoveryGroupReadinessSummaryResponse;
+    };
+    sdk: {
+      input: GetRecoveryGroupReadinessSummaryCommandInput;
+      output: GetRecoveryGroupReadinessSummaryCommandOutput;
+    };
+  };
+}

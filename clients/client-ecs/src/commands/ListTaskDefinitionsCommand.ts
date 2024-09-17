@@ -150,4 +150,16 @@ export class ListTaskDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskDefinitionsCommand)
   .de(de_ListTaskDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskDefinitionsRequest;
+      output: ListTaskDefinitionsResponse;
+    };
+    sdk: {
+      input: ListTaskDefinitionsCommandInput;
+      output: ListTaskDefinitionsCommandOutput;
+    };
+  };
+}

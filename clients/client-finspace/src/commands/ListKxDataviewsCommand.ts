@@ -142,4 +142,16 @@ export class ListKxDataviewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxDataviewsCommand)
   .de(de_ListKxDataviewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxDataviewsRequest;
+      output: ListKxDataviewsResponse;
+    };
+    sdk: {
+      input: ListKxDataviewsCommandInput;
+      output: ListKxDataviewsCommandOutput;
+    };
+  };
+}

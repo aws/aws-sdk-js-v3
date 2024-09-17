@@ -129,4 +129,16 @@ export class ListPoolOriginationIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPoolOriginationIdentitiesCommand)
   .de(de_ListPoolOriginationIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoolOriginationIdentitiesRequest;
+      output: ListPoolOriginationIdentitiesResult;
+    };
+    sdk: {
+      input: ListPoolOriginationIdentitiesCommandInput;
+      output: ListPoolOriginationIdentitiesCommandOutput;
+    };
+  };
+}

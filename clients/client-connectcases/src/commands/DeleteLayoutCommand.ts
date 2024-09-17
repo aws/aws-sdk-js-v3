@@ -112,4 +112,16 @@ export class DeleteLayoutCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLayoutCommand)
   .de(de_DeleteLayoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLayoutRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLayoutCommandInput;
+      output: DeleteLayoutCommandOutput;
+    };
+  };
+}

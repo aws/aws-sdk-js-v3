@@ -97,4 +97,16 @@ export class StopVectorEnrichmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopVectorEnrichmentJobCommand)
   .de(de_StopVectorEnrichmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopVectorEnrichmentJobInput;
+      output: {};
+    };
+    sdk: {
+      input: StopVectorEnrichmentJobCommandInput;
+      output: StopVectorEnrichmentJobCommandOutput;
+    };
+  };
+}

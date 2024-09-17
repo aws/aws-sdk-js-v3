@@ -205,4 +205,16 @@ export class StartAppAssessmentCommand extends $Command
   .f(StartAppAssessmentRequestFilterSensitiveLog, StartAppAssessmentResponseFilterSensitiveLog)
   .ser(se_StartAppAssessmentCommand)
   .de(de_StartAppAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAppAssessmentRequest;
+      output: StartAppAssessmentResponse;
+    };
+    sdk: {
+      input: StartAppAssessmentCommandInput;
+      output: StartAppAssessmentCommandOutput;
+    };
+  };
+}

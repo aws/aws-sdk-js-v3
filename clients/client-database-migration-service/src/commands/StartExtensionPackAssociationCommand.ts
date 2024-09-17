@@ -131,4 +131,16 @@ export class StartExtensionPackAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExtensionPackAssociationCommand)
   .de(de_StartExtensionPackAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExtensionPackAssociationMessage;
+      output: StartExtensionPackAssociationResponse;
+    };
+    sdk: {
+      input: StartExtensionPackAssociationCommandInput;
+      output: StartExtensionPackAssociationCommandOutput;
+    };
+  };
+}

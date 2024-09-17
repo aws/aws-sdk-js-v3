@@ -152,4 +152,16 @@ export class GetResourceCommand extends $Command
   .f(void 0, GetResourceOutputFilterSensitiveLog)
   .ser(se_GetResourceCommand)
   .de(de_GetResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceInput;
+      output: GetResourceOutput;
+    };
+    sdk: {
+      input: GetResourceCommandInput;
+      output: GetResourceCommandOutput;
+    };
+  };
+}

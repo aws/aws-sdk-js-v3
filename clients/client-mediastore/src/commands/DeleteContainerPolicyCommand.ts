@@ -88,4 +88,16 @@ export class DeleteContainerPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContainerPolicyCommand)
   .de(de_DeleteContainerPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContainerPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContainerPolicyCommandInput;
+      output: DeleteContainerPolicyCommandOutput;
+    };
+  };
+}

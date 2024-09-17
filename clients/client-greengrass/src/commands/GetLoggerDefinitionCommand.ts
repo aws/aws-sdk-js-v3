@@ -89,4 +89,16 @@ export class GetLoggerDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggerDefinitionCommand)
   .de(de_GetLoggerDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoggerDefinitionRequest;
+      output: GetLoggerDefinitionResponse;
+    };
+    sdk: {
+      input: GetLoggerDefinitionCommandInput;
+      output: GetLoggerDefinitionCommandOutput;
+    };
+  };
+}

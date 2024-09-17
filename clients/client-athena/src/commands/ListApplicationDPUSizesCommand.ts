@@ -98,4 +98,16 @@ export class ListApplicationDPUSizesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationDPUSizesCommand)
   .de(de_ListApplicationDPUSizesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationDPUSizesInput;
+      output: ListApplicationDPUSizesOutput;
+    };
+    sdk: {
+      input: ListApplicationDPUSizesCommandInput;
+      output: ListApplicationDPUSizesCommandOutput;
+    };
+  };
+}

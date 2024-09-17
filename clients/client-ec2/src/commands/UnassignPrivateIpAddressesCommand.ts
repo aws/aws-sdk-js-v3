@@ -96,4 +96,16 @@ export class UnassignPrivateIpAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignPrivateIpAddressesCommand)
   .de(de_UnassignPrivateIpAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignPrivateIpAddressesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnassignPrivateIpAddressesCommandInput;
+      output: UnassignPrivateIpAddressesCommandOutput;
+    };
+  };
+}

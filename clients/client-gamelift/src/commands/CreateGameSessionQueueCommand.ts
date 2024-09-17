@@ -208,4 +208,16 @@ export class CreateGameSessionQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGameSessionQueueCommand)
   .de(de_CreateGameSessionQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGameSessionQueueInput;
+      output: CreateGameSessionQueueOutput;
+    };
+    sdk: {
+      input: CreateGameSessionQueueCommandInput;
+      output: CreateGameSessionQueueCommandOutput;
+    };
+  };
+}

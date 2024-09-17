@@ -316,4 +316,16 @@ export class UpdateItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateItemCommand)
   .de(de_UpdateItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateItemInput;
+      output: UpdateItemOutput;
+    };
+    sdk: {
+      input: UpdateItemCommandInput;
+      output: UpdateItemCommandOutput;
+    };
+  };
+}

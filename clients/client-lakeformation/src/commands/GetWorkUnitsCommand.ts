@@ -102,4 +102,16 @@ export class GetWorkUnitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkUnitsCommand)
   .de(de_GetWorkUnitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkUnitsRequest;
+      output: GetWorkUnitsResponse;
+    };
+    sdk: {
+      input: GetWorkUnitsCommandInput;
+      output: GetWorkUnitsCommandOutput;
+    };
+  };
+}

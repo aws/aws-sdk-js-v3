@@ -93,4 +93,16 @@ export class DeleteAccessGrantsInstanceResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessGrantsInstanceResourcePolicyCommand)
   .de(de_DeleteAccessGrantsInstanceResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessGrantsInstanceResourcePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessGrantsInstanceResourcePolicyCommandInput;
+      output: DeleteAccessGrantsInstanceResourcePolicyCommandOutput;
+    };
+  };
+}

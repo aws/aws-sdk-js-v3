@@ -89,4 +89,16 @@ export class NestedXmlMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NestedXmlMapsCommand)
   .de(de_NestedXmlMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NestedXmlMapsRequest;
+      output: NestedXmlMapsResponse;
+    };
+    sdk: {
+      input: NestedXmlMapsCommandInput;
+      output: NestedXmlMapsCommandOutput;
+    };
+  };
+}

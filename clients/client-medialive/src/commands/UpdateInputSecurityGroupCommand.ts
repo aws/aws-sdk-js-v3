@@ -121,4 +121,16 @@ export class UpdateInputSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInputSecurityGroupCommand)
   .de(de_UpdateInputSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInputSecurityGroupRequest;
+      output: UpdateInputSecurityGroupResponse;
+    };
+    sdk: {
+      input: UpdateInputSecurityGroupCommandInput;
+      output: UpdateInputSecurityGroupCommandOutput;
+    };
+  };
+}

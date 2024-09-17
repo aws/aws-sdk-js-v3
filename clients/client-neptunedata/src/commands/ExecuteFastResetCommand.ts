@@ -131,4 +131,16 @@ export class ExecuteFastResetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteFastResetCommand)
   .de(de_ExecuteFastResetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteFastResetInput;
+      output: ExecuteFastResetOutput;
+    };
+    sdk: {
+      input: ExecuteFastResetCommandInput;
+      output: ExecuteFastResetCommandOutput;
+    };
+  };
+}

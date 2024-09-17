@@ -94,4 +94,16 @@ export class UpdateTopicRuleDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTopicRuleDestinationCommand)
   .de(de_UpdateTopicRuleDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTopicRuleDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTopicRuleDestinationCommandInput;
+      output: UpdateTopicRuleDestinationCommandOutput;
+    };
+  };
+}

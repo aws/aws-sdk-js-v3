@@ -91,4 +91,16 @@ export class ListResourcePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcePoliciesCommand)
   .de(de_ListResourcePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcePoliciesRequest;
+      output: ListResourcePoliciesResult;
+    };
+    sdk: {
+      input: ListResourcePoliciesCommandInput;
+      output: ListResourcePoliciesCommandOutput;
+    };
+  };
+}

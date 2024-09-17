@@ -137,4 +137,16 @@ export class PutManagedRuleSetVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutManagedRuleSetVersionsCommand)
   .de(de_PutManagedRuleSetVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutManagedRuleSetVersionsRequest;
+      output: PutManagedRuleSetVersionsResponse;
+    };
+    sdk: {
+      input: PutManagedRuleSetVersionsCommandInput;
+      output: PutManagedRuleSetVersionsCommandOutput;
+    };
+  };
+}

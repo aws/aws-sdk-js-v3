@@ -136,4 +136,16 @@ export class CreateCachediSCSIVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCachediSCSIVolumeCommand)
   .de(de_CreateCachediSCSIVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCachediSCSIVolumeInput;
+      output: CreateCachediSCSIVolumeOutput;
+    };
+    sdk: {
+      input: CreateCachediSCSIVolumeCommandInput;
+      output: CreateCachediSCSIVolumeCommandOutput;
+    };
+  };
+}

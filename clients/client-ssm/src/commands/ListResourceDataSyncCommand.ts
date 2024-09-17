@@ -135,4 +135,16 @@ export class ListResourceDataSyncCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceDataSyncCommand)
   .de(de_ListResourceDataSyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceDataSyncRequest;
+      output: ListResourceDataSyncResult;
+    };
+    sdk: {
+      input: ListResourceDataSyncCommandInput;
+      output: ListResourceDataSyncCommandOutput;
+    };
+  };
+}

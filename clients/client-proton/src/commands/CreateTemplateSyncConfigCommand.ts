@@ -112,4 +112,16 @@ export class CreateTemplateSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTemplateSyncConfigCommand)
   .de(de_CreateTemplateSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTemplateSyncConfigInput;
+      output: CreateTemplateSyncConfigOutput;
+    };
+    sdk: {
+      input: CreateTemplateSyncConfigCommandInput;
+      output: CreateTemplateSyncConfigCommandOutput;
+    };
+  };
+}

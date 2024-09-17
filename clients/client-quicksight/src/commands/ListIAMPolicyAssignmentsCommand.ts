@@ -112,4 +112,16 @@ export class ListIAMPolicyAssignmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIAMPolicyAssignmentsCommand)
   .de(de_ListIAMPolicyAssignmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIAMPolicyAssignmentsRequest;
+      output: ListIAMPolicyAssignmentsResponse;
+    };
+    sdk: {
+      input: ListIAMPolicyAssignmentsCommandInput;
+      output: ListIAMPolicyAssignmentsCommandOutput;
+    };
+  };
+}

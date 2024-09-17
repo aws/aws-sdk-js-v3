@@ -197,4 +197,16 @@ export class DeleteCustomKeyStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomKeyStoreCommand)
   .de(de_DeleteCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomKeyStoreCommandInput;
+      output: DeleteCustomKeyStoreCommandOutput;
+    };
+  };
+}

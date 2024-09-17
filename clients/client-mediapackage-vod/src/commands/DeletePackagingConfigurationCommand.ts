@@ -98,4 +98,16 @@ export class DeletePackagingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackagingConfigurationCommand)
   .de(de_DeletePackagingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackagingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePackagingConfigurationCommandInput;
+      output: DeletePackagingConfigurationCommandOutput;
+    };
+  };
+}

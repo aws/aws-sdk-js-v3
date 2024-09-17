@@ -132,4 +132,16 @@ export class CreateFunctionDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFunctionDefinitionVersionCommand)
   .de(de_CreateFunctionDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionDefinitionVersionRequest;
+      output: CreateFunctionDefinitionVersionResponse;
+    };
+    sdk: {
+      input: CreateFunctionDefinitionVersionCommandInput;
+      output: CreateFunctionDefinitionVersionCommandOutput;
+    };
+  };
+}

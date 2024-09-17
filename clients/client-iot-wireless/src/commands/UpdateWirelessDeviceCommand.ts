@@ -118,4 +118,16 @@ export class UpdateWirelessDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWirelessDeviceCommand)
   .de(de_UpdateWirelessDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWirelessDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWirelessDeviceCommandInput;
+      output: UpdateWirelessDeviceCommandOutput;
+    };
+  };
+}

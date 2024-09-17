@@ -135,4 +135,16 @@ export class ChangeCidrCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ChangeCidrCollectionCommand)
   .de(de_ChangeCidrCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangeCidrCollectionRequest;
+      output: ChangeCidrCollectionResponse;
+    };
+    sdk: {
+      input: ChangeCidrCollectionCommandInput;
+      output: ChangeCidrCollectionCommandOutput;
+    };
+  };
+}

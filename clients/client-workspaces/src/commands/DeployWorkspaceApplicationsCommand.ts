@@ -111,4 +111,16 @@ export class DeployWorkspaceApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeployWorkspaceApplicationsCommand)
   .de(de_DeployWorkspaceApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeployWorkspaceApplicationsRequest;
+      output: DeployWorkspaceApplicationsResult;
+    };
+    sdk: {
+      input: DeployWorkspaceApplicationsCommandInput;
+      output: DeployWorkspaceApplicationsCommandOutput;
+    };
+  };
+}

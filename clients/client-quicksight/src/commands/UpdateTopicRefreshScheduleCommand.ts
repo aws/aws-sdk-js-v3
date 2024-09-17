@@ -118,4 +118,16 @@ export class UpdateTopicRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTopicRefreshScheduleCommand)
   .de(de_UpdateTopicRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTopicRefreshScheduleRequest;
+      output: UpdateTopicRefreshScheduleResponse;
+    };
+    sdk: {
+      input: UpdateTopicRefreshScheduleCommandInput;
+      output: UpdateTopicRefreshScheduleCommandOutput;
+    };
+  };
+}

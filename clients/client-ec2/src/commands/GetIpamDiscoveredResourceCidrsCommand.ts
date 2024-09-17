@@ -116,4 +116,16 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamDiscoveredResourceCidrsCommand)
   .de(de_GetIpamDiscoveredResourceCidrsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamDiscoveredResourceCidrsRequest;
+      output: GetIpamDiscoveredResourceCidrsResult;
+    };
+    sdk: {
+      input: GetIpamDiscoveredResourceCidrsCommandInput;
+      output: GetIpamDiscoveredResourceCidrsCommandOutput;
+    };
+  };
+}

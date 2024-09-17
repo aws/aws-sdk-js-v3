@@ -240,4 +240,16 @@ export class CreateUnreferencedMergeCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUnreferencedMergeCommitCommand)
   .de(de_CreateUnreferencedMergeCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUnreferencedMergeCommitInput;
+      output: CreateUnreferencedMergeCommitOutput;
+    };
+    sdk: {
+      input: CreateUnreferencedMergeCommitCommandInput;
+      output: CreateUnreferencedMergeCommitCommandOutput;
+    };
+  };
+}

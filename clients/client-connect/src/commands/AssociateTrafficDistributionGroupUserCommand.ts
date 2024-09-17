@@ -104,4 +104,16 @@ export class AssociateTrafficDistributionGroupUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrafficDistributionGroupUserCommand)
   .de(de_AssociateTrafficDistributionGroupUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrafficDistributionGroupUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateTrafficDistributionGroupUserCommandInput;
+      output: AssociateTrafficDistributionGroupUserCommandOutput;
+    };
+  };
+}

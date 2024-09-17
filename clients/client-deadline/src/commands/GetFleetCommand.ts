@@ -212,4 +212,16 @@ export class GetFleetCommand extends $Command
   .f(void 0, GetFleetResponseFilterSensitiveLog)
   .ser(se_GetFleetCommand)
   .de(de_GetFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFleetRequest;
+      output: GetFleetResponse;
+    };
+    sdk: {
+      input: GetFleetCommandInput;
+      output: GetFleetCommandOutput;
+    };
+  };
+}

@@ -238,4 +238,16 @@ export class ListIdentitySourcesCommand extends $Command
   .f(ListIdentitySourcesInputFilterSensitiveLog, ListIdentitySourcesOutputFilterSensitiveLog)
   .ser(se_ListIdentitySourcesCommand)
   .de(de_ListIdentitySourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentitySourcesInput;
+      output: ListIdentitySourcesOutput;
+    };
+    sdk: {
+      input: ListIdentitySourcesCommandInput;
+      output: ListIdentitySourcesCommandOutput;
+    };
+  };
+}

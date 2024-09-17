@@ -114,4 +114,16 @@ export class ListRecommendedIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendedIntentsCommand)
   .de(de_ListRecommendedIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendedIntentsRequest;
+      output: ListRecommendedIntentsResponse;
+    };
+    sdk: {
+      input: ListRecommendedIntentsCommandInput;
+      output: ListRecommendedIntentsCommandOutput;
+    };
+  };
+}

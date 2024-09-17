@@ -132,4 +132,16 @@ export class CreateBackendAPICommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackendAPICommand)
   .de(de_CreateBackendAPICommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendAPIRequest;
+      output: CreateBackendAPIResponse;
+    };
+    sdk: {
+      input: CreateBackendAPICommandInput;
+      output: CreateBackendAPICommandOutput;
+    };
+  };
+}

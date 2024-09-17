@@ -147,4 +147,16 @@ export class QueryObjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryObjectsCommand)
   .de(de_QueryObjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryObjectsInput;
+      output: QueryObjectsOutput;
+    };
+    sdk: {
+      input: QueryObjectsCommandInput;
+      output: QueryObjectsCommandOutput;
+    };
+  };
+}

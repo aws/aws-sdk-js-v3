@@ -95,4 +95,16 @@ export class ListEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEndpointsCommand)
   .de(de_ListEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEndpointsInput;
+      output: ListEndpointsOutput;
+    };
+    sdk: {
+      input: ListEndpointsCommandInput;
+      output: ListEndpointsCommandOutput;
+    };
+  };
+}

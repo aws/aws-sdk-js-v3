@@ -105,4 +105,16 @@ export class GetBlueprintRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBlueprintRunsCommand)
   .de(de_GetBlueprintRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBlueprintRunsRequest;
+      output: GetBlueprintRunsResponse;
+    };
+    sdk: {
+      input: GetBlueprintRunsCommandInput;
+      output: GetBlueprintRunsCommandOutput;
+    };
+  };
+}

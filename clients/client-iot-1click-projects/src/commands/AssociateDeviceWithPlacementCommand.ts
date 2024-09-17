@@ -99,4 +99,16 @@ export class AssociateDeviceWithPlacementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDeviceWithPlacementCommand)
   .de(de_AssociateDeviceWithPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDeviceWithPlacementRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDeviceWithPlacementCommandInput;
+      output: AssociateDeviceWithPlacementCommandOutput;
+    };
+  };
+}

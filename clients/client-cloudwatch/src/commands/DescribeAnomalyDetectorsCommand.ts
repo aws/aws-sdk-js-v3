@@ -167,4 +167,16 @@ export class DescribeAnomalyDetectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAnomalyDetectorsCommand)
   .de(de_DescribeAnomalyDetectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnomalyDetectorsInput;
+      output: DescribeAnomalyDetectorsOutput;
+    };
+    sdk: {
+      input: DescribeAnomalyDetectorsCommandInput;
+      output: DescribeAnomalyDetectorsCommandOutput;
+    };
+  };
+}

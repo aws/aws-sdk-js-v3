@@ -103,4 +103,16 @@ export class GetRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevisionCommand)
   .de(de_GetRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRevisionRequest;
+      output: GetRevisionResponse;
+    };
+    sdk: {
+      input: GetRevisionCommandInput;
+      output: GetRevisionCommandOutput;
+    };
+  };
+}

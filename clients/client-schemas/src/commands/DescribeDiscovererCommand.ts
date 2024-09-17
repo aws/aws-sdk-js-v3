@@ -97,4 +97,16 @@ export class DescribeDiscovererCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDiscovererCommand)
   .de(de_DescribeDiscovererCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDiscovererRequest;
+      output: DescribeDiscovererResponse;
+    };
+    sdk: {
+      input: DescribeDiscovererCommandInput;
+      output: DescribeDiscovererCommandOutput;
+    };
+  };
+}

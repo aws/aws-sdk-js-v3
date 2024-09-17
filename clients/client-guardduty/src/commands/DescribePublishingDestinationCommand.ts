@@ -97,4 +97,16 @@ export class DescribePublishingDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePublishingDestinationCommand)
   .de(de_DescribePublishingDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePublishingDestinationRequest;
+      output: DescribePublishingDestinationResponse;
+    };
+    sdk: {
+      input: DescribePublishingDestinationCommandInput;
+      output: DescribePublishingDestinationCommandOutput;
+    };
+  };
+}

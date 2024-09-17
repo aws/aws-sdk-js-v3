@@ -102,4 +102,16 @@ export class PutDashboardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDashboardCommand)
   .de(de_PutDashboardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDashboardInput;
+      output: PutDashboardOutput;
+    };
+    sdk: {
+      input: PutDashboardCommandInput;
+      output: PutDashboardCommandOutput;
+    };
+  };
+}

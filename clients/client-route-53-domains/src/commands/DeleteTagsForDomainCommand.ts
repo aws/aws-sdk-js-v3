@@ -93,4 +93,16 @@ export class DeleteTagsForDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsForDomainCommand)
   .de(de_DeleteTagsForDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsForDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsForDomainCommandInput;
+      output: DeleteTagsForDomainCommandOutput;
+    };
+  };
+}

@@ -83,4 +83,16 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEgressOnlyInternetGatewayCommand)
   .de(de_DeleteEgressOnlyInternetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEgressOnlyInternetGatewayRequest;
+      output: DeleteEgressOnlyInternetGatewayResult;
+    };
+    sdk: {
+      input: DeleteEgressOnlyInternetGatewayCommandInput;
+      output: DeleteEgressOnlyInternetGatewayCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class UpdateResolverDnssecConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResolverDnssecConfigCommand)
   .de(de_UpdateResolverDnssecConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResolverDnssecConfigRequest;
+      output: UpdateResolverDnssecConfigResponse;
+    };
+    sdk: {
+      input: UpdateResolverDnssecConfigCommandInput;
+      output: UpdateResolverDnssecConfigCommandOutput;
+    };
+  };
+}

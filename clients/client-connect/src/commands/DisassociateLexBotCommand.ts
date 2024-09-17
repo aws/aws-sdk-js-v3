@@ -94,4 +94,16 @@ export class DisassociateLexBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLexBotCommand)
   .de(de_DisassociateLexBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLexBotRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLexBotCommandInput;
+      output: DisassociateLexBotCommandOutput;
+    };
+  };
+}

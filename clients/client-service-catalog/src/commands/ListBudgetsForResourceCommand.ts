@@ -91,4 +91,16 @@ export class ListBudgetsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBudgetsForResourceCommand)
   .de(de_ListBudgetsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBudgetsForResourceInput;
+      output: ListBudgetsForResourceOutput;
+    };
+    sdk: {
+      input: ListBudgetsForResourceCommandInput;
+      output: ListBudgetsForResourceCommandOutput;
+    };
+  };
+}

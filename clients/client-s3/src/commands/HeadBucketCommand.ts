@@ -151,4 +151,16 @@ export class HeadBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HeadBucketCommand)
   .de(de_HeadBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HeadBucketRequest;
+      output: HeadBucketOutput;
+    };
+    sdk: {
+      input: HeadBucketCommandInput;
+      output: HeadBucketCommandOutput;
+    };
+  };
+}

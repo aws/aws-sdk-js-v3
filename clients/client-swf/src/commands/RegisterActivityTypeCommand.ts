@@ -144,4 +144,16 @@ export class RegisterActivityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterActivityTypeCommand)
   .de(de_RegisterActivityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterActivityTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterActivityTypeCommandInput;
+      output: RegisterActivityTypeCommandOutput;
+    };
+  };
+}

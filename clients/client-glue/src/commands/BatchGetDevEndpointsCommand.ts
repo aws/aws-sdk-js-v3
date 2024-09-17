@@ -131,4 +131,16 @@ export class BatchGetDevEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetDevEndpointsCommand)
   .de(de_BatchGetDevEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDevEndpointsRequest;
+      output: BatchGetDevEndpointsResponse;
+    };
+    sdk: {
+      input: BatchGetDevEndpointsCommandInput;
+      output: BatchGetDevEndpointsCommandOutput;
+    };
+  };
+}

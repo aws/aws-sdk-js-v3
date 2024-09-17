@@ -128,4 +128,16 @@ export class UpdateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLinkCommand)
   .de(de_UpdateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLinkRequest;
+      output: UpdateLinkResponse;
+    };
+    sdk: {
+      input: UpdateLinkCommandInput;
+      output: UpdateLinkCommandOutput;
+    };
+  };
+}

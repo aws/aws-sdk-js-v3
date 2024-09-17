@@ -86,4 +86,16 @@ export class DeleteWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkspaceImageCommand)
   .de(de_DeleteWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkspaceImageRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkspaceImageCommandInput;
+      output: DeleteWorkspaceImageCommandOutput;
+    };
+  };
+}

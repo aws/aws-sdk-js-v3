@@ -116,4 +116,16 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentAccountConnectionsCommand)
   .de(de_ListEnvironmentAccountConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentAccountConnectionsInput;
+      output: ListEnvironmentAccountConnectionsOutput;
+    };
+    sdk: {
+      input: ListEnvironmentAccountConnectionsCommandInput;
+      output: ListEnvironmentAccountConnectionsCommandOutput;
+    };
+  };
+}

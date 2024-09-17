@@ -153,4 +153,16 @@ export class GetFindingV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingV2Command)
   .de(de_GetFindingV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingV2Request;
+      output: GetFindingV2Response;
+    };
+    sdk: {
+      input: GetFindingV2CommandInput;
+      output: GetFindingV2CommandOutput;
+    };
+  };
+}

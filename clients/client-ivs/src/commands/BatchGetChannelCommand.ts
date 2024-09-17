@@ -111,4 +111,16 @@ export class BatchGetChannelCommand extends $Command
   .f(void 0, BatchGetChannelResponseFilterSensitiveLog)
   .ser(se_BatchGetChannelCommand)
   .de(de_BatchGetChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetChannelRequest;
+      output: BatchGetChannelResponse;
+    };
+    sdk: {
+      input: BatchGetChannelCommandInput;
+      output: BatchGetChannelCommandOutput;
+    };
+  };
+}

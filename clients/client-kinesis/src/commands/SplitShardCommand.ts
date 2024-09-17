@@ -152,4 +152,16 @@ export class SplitShardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SplitShardCommand)
   .de(de_SplitShardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SplitShardInput;
+      output: {};
+    };
+    sdk: {
+      input: SplitShardCommandInput;
+      output: SplitShardCommandOutput;
+    };
+  };
+}

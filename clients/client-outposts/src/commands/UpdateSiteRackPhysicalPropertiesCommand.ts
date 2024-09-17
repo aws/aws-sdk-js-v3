@@ -135,4 +135,16 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSiteRackPhysicalPropertiesCommand)
   .de(de_UpdateSiteRackPhysicalPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSiteRackPhysicalPropertiesInput;
+      output: UpdateSiteRackPhysicalPropertiesOutput;
+    };
+    sdk: {
+      input: UpdateSiteRackPhysicalPropertiesCommandInput;
+      output: UpdateSiteRackPhysicalPropertiesCommandOutput;
+    };
+  };
+}

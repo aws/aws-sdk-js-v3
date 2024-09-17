@@ -115,4 +115,16 @@ export class UpgradeDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpgradeDomainCommand)
   .de(de_UpgradeDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpgradeDomainRequest;
+      output: UpgradeDomainResponse;
+    };
+    sdk: {
+      input: UpgradeDomainCommandInput;
+      output: UpgradeDomainCommandOutput;
+    };
+  };
+}

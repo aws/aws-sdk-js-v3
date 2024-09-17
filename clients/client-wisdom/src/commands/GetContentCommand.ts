@@ -106,4 +106,16 @@ export class GetContentCommand extends $Command
   .f(void 0, GetContentResponseFilterSensitiveLog)
   .ser(se_GetContentCommand)
   .de(de_GetContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContentRequest;
+      output: GetContentResponse;
+    };
+    sdk: {
+      input: GetContentCommandInput;
+      output: GetContentCommandOutput;
+    };
+  };
+}

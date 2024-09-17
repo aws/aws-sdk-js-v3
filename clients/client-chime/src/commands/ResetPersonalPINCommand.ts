@@ -121,4 +121,16 @@ export class ResetPersonalPINCommand extends $Command
   .f(void 0, ResetPersonalPINResponseFilterSensitiveLog)
   .ser(se_ResetPersonalPINCommand)
   .de(de_ResetPersonalPINCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetPersonalPINRequest;
+      output: ResetPersonalPINResponse;
+    };
+    sdk: {
+      input: ResetPersonalPINCommandInput;
+      output: ResetPersonalPINCommandOutput;
+    };
+  };
+}

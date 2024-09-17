@@ -93,4 +93,16 @@ export class RevokeDomainAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeDomainAccessCommand)
   .de(de_RevokeDomainAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeDomainAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeDomainAccessCommandInput;
+      output: RevokeDomainAccessCommandOutput;
+    };
+  };
+}

@@ -363,4 +363,16 @@ export class CreateTopicCommand extends $Command
   .f(CreateTopicRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTopicCommand)
   .de(de_CreateTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTopicRequest;
+      output: CreateTopicResponse;
+    };
+    sdk: {
+      input: CreateTopicCommandInput;
+      output: CreateTopicCommandOutput;
+    };
+  };
+}

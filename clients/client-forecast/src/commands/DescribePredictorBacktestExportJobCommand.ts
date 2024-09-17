@@ -131,4 +131,16 @@ export class DescribePredictorBacktestExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePredictorBacktestExportJobCommand)
   .de(de_DescribePredictorBacktestExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePredictorBacktestExportJobRequest;
+      output: DescribePredictorBacktestExportJobResponse;
+    };
+    sdk: {
+      input: DescribePredictorBacktestExportJobCommandInput;
+      output: DescribePredictorBacktestExportJobCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class UpdateDirectoryConfigCommand extends $Command
   .f(UpdateDirectoryConfigRequestFilterSensitiveLog, UpdateDirectoryConfigResultFilterSensitiveLog)
   .ser(se_UpdateDirectoryConfigCommand)
   .de(de_UpdateDirectoryConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDirectoryConfigRequest;
+      output: UpdateDirectoryConfigResult;
+    };
+    sdk: {
+      input: UpdateDirectoryConfigCommandInput;
+      output: UpdateDirectoryConfigCommandOutput;
+    };
+  };
+}

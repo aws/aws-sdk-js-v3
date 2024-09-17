@@ -408,4 +408,16 @@ export class SendDataIntegrationEventCommand extends $Command
   .f(SendDataIntegrationEventRequestFilterSensitiveLog, void 0)
   .ser(se_SendDataIntegrationEventCommand)
   .de(de_SendDataIntegrationEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDataIntegrationEventRequest;
+      output: SendDataIntegrationEventResponse;
+    };
+    sdk: {
+      input: SendDataIntegrationEventCommandInput;
+      output: SendDataIntegrationEventCommandOutput;
+    };
+  };
+}

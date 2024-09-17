@@ -393,4 +393,16 @@ export class DescribeSimulationJobBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSimulationJobBatchCommand)
   .de(de_DescribeSimulationJobBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSimulationJobBatchRequest;
+      output: DescribeSimulationJobBatchResponse;
+    };
+    sdk: {
+      input: DescribeSimulationJobBatchCommandInput;
+      output: DescribeSimulationJobBatchCommandOutput;
+    };
+  };
+}

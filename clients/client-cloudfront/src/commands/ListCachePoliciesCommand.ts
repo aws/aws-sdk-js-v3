@@ -146,4 +146,16 @@ export class ListCachePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCachePoliciesCommand)
   .de(de_ListCachePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCachePoliciesRequest;
+      output: ListCachePoliciesResult;
+    };
+    sdk: {
+      input: ListCachePoliciesCommandInput;
+      output: ListCachePoliciesCommandOutput;
+    };
+  };
+}

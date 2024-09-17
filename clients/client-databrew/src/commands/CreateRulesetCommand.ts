@@ -113,4 +113,16 @@ export class CreateRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRulesetCommand)
   .de(de_CreateRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRulesetRequest;
+      output: CreateRulesetResponse;
+    };
+    sdk: {
+      input: CreateRulesetCommandInput;
+      output: CreateRulesetCommandOutput;
+    };
+  };
+}

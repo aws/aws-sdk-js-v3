@@ -97,4 +97,16 @@ export class ListModelCardVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelCardVersionsCommand)
   .de(de_ListModelCardVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelCardVersionsRequest;
+      output: ListModelCardVersionsResponse;
+    };
+    sdk: {
+      input: ListModelCardVersionsCommandInput;
+      output: ListModelCardVersionsCommandOutput;
+    };
+  };
+}

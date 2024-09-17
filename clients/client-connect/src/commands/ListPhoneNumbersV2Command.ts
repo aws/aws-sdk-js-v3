@@ -132,4 +132,16 @@ export class ListPhoneNumbersV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListPhoneNumbersV2Command)
   .de(de_ListPhoneNumbersV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersV2Request;
+      output: ListPhoneNumbersV2Response;
+    };
+    sdk: {
+      input: ListPhoneNumbersV2CommandInput;
+      output: ListPhoneNumbersV2CommandOutput;
+    };
+  };
+}

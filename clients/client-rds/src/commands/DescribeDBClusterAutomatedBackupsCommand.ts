@@ -133,4 +133,16 @@ export class DescribeDBClusterAutomatedBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterAutomatedBackupsCommand)
   .de(de_DescribeDBClusterAutomatedBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterAutomatedBackupsMessage;
+      output: DBClusterAutomatedBackupMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterAutomatedBackupsCommandInput;
+      output: DescribeDBClusterAutomatedBackupsCommandOutput;
+    };
+  };
+}

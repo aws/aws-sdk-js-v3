@@ -119,4 +119,16 @@ export class DeleteComponentCommand extends $Command
   .f(void 0, DeleteComponentOutputFilterSensitiveLog)
   .ser(se_DeleteComponentCommand)
   .de(de_DeleteComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComponentInput;
+      output: DeleteComponentOutput;
+    };
+    sdk: {
+      input: DeleteComponentCommandInput;
+      output: DeleteComponentCommandOutput;
+    };
+  };
+}

@@ -166,4 +166,16 @@ export class GetGuardrailCommand extends $Command
   .f(void 0, GetGuardrailResponseFilterSensitiveLog)
   .ser(se_GetGuardrailCommand)
   .de(de_GetGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGuardrailRequest;
+      output: GetGuardrailResponse;
+    };
+    sdk: {
+      input: GetGuardrailCommandInput;
+      output: GetGuardrailCommandOutput;
+    };
+  };
+}

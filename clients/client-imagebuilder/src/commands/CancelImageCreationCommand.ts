@@ -110,4 +110,16 @@ export class CancelImageCreationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelImageCreationCommand)
   .de(de_CancelImageCreationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelImageCreationRequest;
+      output: CancelImageCreationResponse;
+    };
+    sdk: {
+      input: CancelImageCreationCommandInput;
+      output: CancelImageCreationCommandOutput;
+    };
+  };
+}

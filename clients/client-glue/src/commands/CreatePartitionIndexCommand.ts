@@ -104,4 +104,16 @@ export class CreatePartitionIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePartitionIndexCommand)
   .de(de_CreatePartitionIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePartitionIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreatePartitionIndexCommandInput;
+      output: CreatePartitionIndexCommandOutput;
+    };
+  };
+}

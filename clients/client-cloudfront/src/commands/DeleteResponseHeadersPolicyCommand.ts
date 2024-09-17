@@ -102,4 +102,16 @@ export class DeleteResponseHeadersPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResponseHeadersPolicyCommand)
   .de(de_DeleteResponseHeadersPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResponseHeadersPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResponseHeadersPolicyCommandInput;
+      output: DeleteResponseHeadersPolicyCommandOutput;
+    };
+  };
+}

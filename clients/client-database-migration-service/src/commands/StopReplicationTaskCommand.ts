@@ -146,4 +146,16 @@ export class StopReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopReplicationTaskCommand)
   .de(de_StopReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopReplicationTaskMessage;
+      output: StopReplicationTaskResponse;
+    };
+    sdk: {
+      input: StopReplicationTaskCommandInput;
+      output: StopReplicationTaskCommandOutput;
+    };
+  };
+}

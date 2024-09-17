@@ -186,4 +186,16 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBInstanceAutomatedBackupsCommand)
   .de(de_DescribeDBInstanceAutomatedBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBInstanceAutomatedBackupsMessage;
+      output: DBInstanceAutomatedBackupMessage;
+    };
+    sdk: {
+      input: DescribeDBInstanceAutomatedBackupsCommandInput;
+      output: DescribeDBInstanceAutomatedBackupsCommandOutput;
+    };
+  };
+}

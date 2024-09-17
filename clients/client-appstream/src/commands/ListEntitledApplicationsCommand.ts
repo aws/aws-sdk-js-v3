@@ -94,4 +94,16 @@ export class ListEntitledApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitledApplicationsCommand)
   .de(de_ListEntitledApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitledApplicationsRequest;
+      output: ListEntitledApplicationsResult;
+    };
+    sdk: {
+      input: ListEntitledApplicationsCommandInput;
+      output: ListEntitledApplicationsCommandOutput;
+    };
+  };
+}

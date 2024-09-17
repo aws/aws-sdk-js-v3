@@ -101,4 +101,16 @@ export class GetDimensionKeyDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDimensionKeyDetailsCommand)
   .de(de_GetDimensionKeyDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDimensionKeyDetailsRequest;
+      output: GetDimensionKeyDetailsResponse;
+    };
+    sdk: {
+      input: GetDimensionKeyDetailsCommandInput;
+      output: GetDimensionKeyDetailsCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class RegisterDefaultPatchBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDefaultPatchBaselineCommand)
   .de(de_RegisterDefaultPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDefaultPatchBaselineRequest;
+      output: RegisterDefaultPatchBaselineResult;
+    };
+    sdk: {
+      input: RegisterDefaultPatchBaselineCommandInput;
+      output: RegisterDefaultPatchBaselineCommandOutput;
+    };
+  };
+}

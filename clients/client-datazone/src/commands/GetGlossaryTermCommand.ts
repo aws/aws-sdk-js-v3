@@ -118,4 +118,16 @@ export class GetGlossaryTermCommand extends $Command
   .f(void 0, GetGlossaryTermOutputFilterSensitiveLog)
   .ser(se_GetGlossaryTermCommand)
   .de(de_GetGlossaryTermCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGlossaryTermInput;
+      output: GetGlossaryTermOutput;
+    };
+    sdk: {
+      input: GetGlossaryTermCommandInput;
+      output: GetGlossaryTermCommandOutput;
+    };
+  };
+}

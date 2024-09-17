@@ -165,4 +165,16 @@ export class GetThirdPartyJobDetailsCommand extends $Command
   .f(void 0, GetThirdPartyJobDetailsOutputFilterSensitiveLog)
   .ser(se_GetThirdPartyJobDetailsCommand)
   .de(de_GetThirdPartyJobDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThirdPartyJobDetailsInput;
+      output: GetThirdPartyJobDetailsOutput;
+    };
+    sdk: {
+      input: GetThirdPartyJobDetailsCommandInput;
+      output: GetThirdPartyJobDetailsCommandOutput;
+    };
+  };
+}

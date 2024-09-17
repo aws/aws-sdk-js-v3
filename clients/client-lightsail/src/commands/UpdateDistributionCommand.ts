@@ -164,4 +164,16 @@ export class UpdateDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDistributionCommand)
   .de(de_UpdateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionRequest;
+      output: UpdateDistributionResult;
+    };
+    sdk: {
+      input: UpdateDistributionCommandInput;
+      output: UpdateDistributionCommandOutput;
+    };
+  };
+}

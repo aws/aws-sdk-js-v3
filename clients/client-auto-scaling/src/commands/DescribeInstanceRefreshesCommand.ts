@@ -318,4 +318,16 @@ export class DescribeInstanceRefreshesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceRefreshesCommand)
   .de(de_DescribeInstanceRefreshesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceRefreshesType;
+      output: DescribeInstanceRefreshesAnswer;
+    };
+    sdk: {
+      input: DescribeInstanceRefreshesCommandInput;
+      output: DescribeInstanceRefreshesCommandOutput;
+    };
+  };
+}

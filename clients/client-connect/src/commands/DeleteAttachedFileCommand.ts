@@ -96,4 +96,16 @@ export class DeleteAttachedFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAttachedFileCommand)
   .de(de_DeleteAttachedFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAttachedFileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAttachedFileCommandInput;
+      output: DeleteAttachedFileCommandOutput;
+    };
+  };
+}

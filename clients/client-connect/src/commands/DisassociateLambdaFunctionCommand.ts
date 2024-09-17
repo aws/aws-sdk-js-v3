@@ -93,4 +93,16 @@ export class DisassociateLambdaFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLambdaFunctionCommand)
   .de(de_DisassociateLambdaFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLambdaFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLambdaFunctionCommandInput;
+      output: DisassociateLambdaFunctionCommandOutput;
+    };
+  };
+}

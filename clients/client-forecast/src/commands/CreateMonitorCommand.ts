@@ -107,4 +107,16 @@ export class CreateMonitorCommand extends $Command
   .f(CreateMonitorRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMonitorCommand)
   .de(de_CreateMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMonitorRequest;
+      output: CreateMonitorResponse;
+    };
+    sdk: {
+      input: CreateMonitorCommandInput;
+      output: CreateMonitorCommandOutput;
+    };
+  };
+}

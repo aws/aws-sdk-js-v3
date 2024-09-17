@@ -105,4 +105,16 @@ export class UpdateConnectorCommand extends $Command
   .f(void 0, ConnectorFilterSensitiveLog)
   .ser(se_UpdateConnectorCommand)
   .de(de_UpdateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectorRequest;
+      output: Connector;
+    };
+    sdk: {
+      input: UpdateConnectorCommandInput;
+      output: UpdateConnectorCommandOutput;
+    };
+  };
+}

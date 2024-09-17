@@ -126,4 +126,16 @@ export class ListChannelModeratorsCommand extends $Command
   .f(ListChannelModeratorsRequestFilterSensitiveLog, ListChannelModeratorsResponseFilterSensitiveLog)
   .ser(se_ListChannelModeratorsCommand)
   .de(de_ListChannelModeratorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelModeratorsRequest;
+      output: ListChannelModeratorsResponse;
+    };
+    sdk: {
+      input: ListChannelModeratorsCommandInput;
+      output: ListChannelModeratorsCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class GetPromptFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPromptFileCommand)
   .de(de_GetPromptFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPromptFileRequest;
+      output: GetPromptFileResponse;
+    };
+    sdk: {
+      input: GetPromptFileCommandInput;
+      output: GetPromptFileCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class GetRunGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRunGroupCommand)
   .de(de_GetRunGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRunGroupRequest;
+      output: GetRunGroupResponse;
+    };
+    sdk: {
+      input: GetRunGroupCommandInput;
+      output: GetRunGroupCommandOutput;
+    };
+  };
+}

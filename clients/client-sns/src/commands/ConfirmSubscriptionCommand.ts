@@ -108,4 +108,16 @@ export class ConfirmSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmSubscriptionCommand)
   .de(de_ConfirmSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmSubscriptionInput;
+      output: ConfirmSubscriptionResponse;
+    };
+    sdk: {
+      input: ConfirmSubscriptionCommandInput;
+      output: ConfirmSubscriptionCommandOutput;
+    };
+  };
+}

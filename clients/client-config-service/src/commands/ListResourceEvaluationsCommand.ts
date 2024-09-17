@@ -106,4 +106,16 @@ export class ListResourceEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceEvaluationsCommand)
   .de(de_ListResourceEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceEvaluationsRequest;
+      output: ListResourceEvaluationsResponse;
+    };
+    sdk: {
+      input: ListResourceEvaluationsCommandInput;
+      output: ListResourceEvaluationsCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class DescribeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGroupCommand)
   .de(de_DescribeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGroupRequest;
+      output: DescribeGroupResponse;
+    };
+    sdk: {
+      input: DescribeGroupCommandInput;
+      output: DescribeGroupCommandOutput;
+    };
+  };
+}

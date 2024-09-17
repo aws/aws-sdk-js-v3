@@ -93,4 +93,16 @@ export class GetDevicesInPlacementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDevicesInPlacementCommand)
   .de(de_GetDevicesInPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicesInPlacementRequest;
+      output: GetDevicesInPlacementResponse;
+    };
+    sdk: {
+      input: GetDevicesInPlacementCommandInput;
+      output: GetDevicesInPlacementCommandOutput;
+    };
+  };
+}

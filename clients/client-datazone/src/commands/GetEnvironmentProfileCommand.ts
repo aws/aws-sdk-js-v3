@@ -120,4 +120,16 @@ export class GetEnvironmentProfileCommand extends $Command
   .f(void 0, GetEnvironmentProfileOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentProfileCommand)
   .de(de_GetEnvironmentProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentProfileInput;
+      output: GetEnvironmentProfileOutput;
+    };
+    sdk: {
+      input: GetEnvironmentProfileCommandInput;
+      output: GetEnvironmentProfileCommandOutput;
+    };
+  };
+}

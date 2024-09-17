@@ -121,4 +121,16 @@ export class CreateHsmConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmConfigurationCommand)
   .de(de_CreateHsmConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmConfigurationMessage;
+      output: CreateHsmConfigurationResult;
+    };
+    sdk: {
+      input: CreateHsmConfigurationCommandInput;
+      output: CreateHsmConfigurationCommandOutput;
+    };
+  };
+}

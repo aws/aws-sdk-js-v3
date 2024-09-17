@@ -105,4 +105,16 @@ export class UntagAttendeeCommand extends $Command
   .f(UntagAttendeeRequestFilterSensitiveLog, void 0)
   .ser(se_UntagAttendeeCommand)
   .de(de_UntagAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagAttendeeRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagAttendeeCommandInput;
+      output: UntagAttendeeCommandOutput;
+    };
+  };
+}

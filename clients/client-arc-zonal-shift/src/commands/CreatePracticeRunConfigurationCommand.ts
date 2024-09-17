@@ -150,4 +150,16 @@ export class CreatePracticeRunConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePracticeRunConfigurationCommand)
   .de(de_CreatePracticeRunConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePracticeRunConfigurationRequest;
+      output: CreatePracticeRunConfigurationResponse;
+    };
+    sdk: {
+      input: CreatePracticeRunConfigurationCommandInput;
+      output: CreatePracticeRunConfigurationCommandOutput;
+    };
+  };
+}

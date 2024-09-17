@@ -103,4 +103,16 @@ export class BatchResetAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchResetAlarmCommand)
   .de(de_BatchResetAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchResetAlarmRequest;
+      output: BatchResetAlarmResponse;
+    };
+    sdk: {
+      input: BatchResetAlarmCommandInput;
+      output: BatchResetAlarmCommandOutput;
+    };
+  };
+}

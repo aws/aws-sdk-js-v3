@@ -214,4 +214,16 @@ export class GetDomainDetailCommand extends $Command
   .f(void 0, GetDomainDetailResponseFilterSensitiveLog)
   .ser(se_GetDomainDetailCommand)
   .de(de_GetDomainDetailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainDetailRequest;
+      output: GetDomainDetailResponse;
+    };
+    sdk: {
+      input: GetDomainDetailCommandInput;
+      output: GetDomainDetailCommandOutput;
+    };
+  };
+}

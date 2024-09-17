@@ -124,4 +124,16 @@ export class PutDialRequestBatchCommand extends $Command
   .f(PutDialRequestBatchRequestFilterSensitiveLog, void 0)
   .ser(se_PutDialRequestBatchCommand)
   .de(de_PutDialRequestBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDialRequestBatchRequest;
+      output: PutDialRequestBatchResponse;
+    };
+    sdk: {
+      input: PutDialRequestBatchCommandInput;
+      output: PutDialRequestBatchCommandOutput;
+    };
+  };
+}

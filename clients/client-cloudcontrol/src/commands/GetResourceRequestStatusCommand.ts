@@ -97,4 +97,16 @@ export class GetResourceRequestStatusCommand extends $Command
   .f(void 0, GetResourceRequestStatusOutputFilterSensitiveLog)
   .ser(se_GetResourceRequestStatusCommand)
   .de(de_GetResourceRequestStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceRequestStatusInput;
+      output: GetResourceRequestStatusOutput;
+    };
+    sdk: {
+      input: GetResourceRequestStatusCommandInput;
+      output: GetResourceRequestStatusCommandOutput;
+    };
+  };
+}

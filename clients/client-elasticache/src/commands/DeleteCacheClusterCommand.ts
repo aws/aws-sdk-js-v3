@@ -289,4 +289,16 @@ export class DeleteCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCacheClusterCommand)
   .de(de_DeleteCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCacheClusterMessage;
+      output: DeleteCacheClusterResult;
+    };
+    sdk: {
+      input: DeleteCacheClusterCommandInput;
+      output: DeleteCacheClusterCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class ListThingsInBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThingsInBillingGroupCommand)
   .de(de_ListThingsInBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThingsInBillingGroupRequest;
+      output: ListThingsInBillingGroupResponse;
+    };
+    sdk: {
+      input: ListThingsInBillingGroupCommandInput;
+      output: ListThingsInBillingGroupCommandOutput;
+    };
+  };
+}

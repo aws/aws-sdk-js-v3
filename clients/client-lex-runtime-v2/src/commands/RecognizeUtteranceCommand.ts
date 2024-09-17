@@ -196,4 +196,16 @@ export class RecognizeUtteranceCommand extends $Command
   .f(RecognizeUtteranceRequestFilterSensitiveLog, RecognizeUtteranceResponseFilterSensitiveLog)
   .ser(se_RecognizeUtteranceCommand)
   .de(de_RecognizeUtteranceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecognizeUtteranceRequest;
+      output: RecognizeUtteranceResponse;
+    };
+    sdk: {
+      input: RecognizeUtteranceCommandInput;
+      output: RecognizeUtteranceCommandOutput;
+    };
+  };
+}

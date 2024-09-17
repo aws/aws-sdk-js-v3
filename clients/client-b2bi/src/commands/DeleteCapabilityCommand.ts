@@ -104,4 +104,16 @@ export class DeleteCapabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCapabilityCommand)
   .de(de_DeleteCapabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCapabilityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCapabilityCommandInput;
+      output: DeleteCapabilityCommandOutput;
+    };
+  };
+}

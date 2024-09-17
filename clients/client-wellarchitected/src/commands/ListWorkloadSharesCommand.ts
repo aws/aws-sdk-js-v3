@@ -106,4 +106,16 @@ export class ListWorkloadSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadSharesCommand)
   .de(de_ListWorkloadSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadSharesInput;
+      output: ListWorkloadSharesOutput;
+    };
+    sdk: {
+      input: ListWorkloadSharesCommandInput;
+      output: ListWorkloadSharesCommandOutput;
+    };
+  };
+}

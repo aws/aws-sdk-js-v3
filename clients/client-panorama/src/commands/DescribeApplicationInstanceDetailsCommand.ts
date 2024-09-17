@@ -111,4 +111,16 @@ export class DescribeApplicationInstanceDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationInstanceDetailsCommand)
   .de(de_DescribeApplicationInstanceDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationInstanceDetailsRequest;
+      output: DescribeApplicationInstanceDetailsResponse;
+    };
+    sdk: {
+      input: DescribeApplicationInstanceDetailsCommandInput;
+      output: DescribeApplicationInstanceDetailsCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class ListScheduledQueriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListScheduledQueriesCommand)
   .de(de_ListScheduledQueriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListScheduledQueriesRequest;
+      output: ListScheduledQueriesResponse;
+    };
+    sdk: {
+      input: ListScheduledQueriesCommandInput;
+      output: ListScheduledQueriesCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class PutEntityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEntityTypeCommand)
   .de(de_PutEntityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEntityTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEntityTypeCommandInput;
+      output: PutEntityTypeCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class CreateHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmCommand)
   .de(de_CreateHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmRequest;
+      output: CreateHsmResponse;
+    };
+    sdk: {
+      input: CreateHsmCommandInput;
+      output: CreateHsmCommandOutput;
+    };
+  };
+}

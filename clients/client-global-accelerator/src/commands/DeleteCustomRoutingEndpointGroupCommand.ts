@@ -91,4 +91,16 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomRoutingEndpointGroupCommand)
   .de(de_DeleteCustomRoutingEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomRoutingEndpointGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomRoutingEndpointGroupCommandInput;
+      output: DeleteCustomRoutingEndpointGroupCommandOutput;
+    };
+  };
+}

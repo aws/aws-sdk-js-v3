@@ -145,4 +145,16 @@ export class ValidateE911AddressCommand extends $Command
   .f(ValidateE911AddressRequestFilterSensitiveLog, ValidateE911AddressResponseFilterSensitiveLog)
   .ser(se_ValidateE911AddressCommand)
   .de(de_ValidateE911AddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateE911AddressRequest;
+      output: ValidateE911AddressResponse;
+    };
+    sdk: {
+      input: ValidateE911AddressCommandInput;
+      output: ValidateE911AddressCommandOutput;
+    };
+  };
+}

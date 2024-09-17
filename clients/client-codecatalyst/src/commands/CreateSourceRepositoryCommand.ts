@@ -104,4 +104,16 @@ export class CreateSourceRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSourceRepositoryCommand)
   .de(de_CreateSourceRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSourceRepositoryRequest;
+      output: CreateSourceRepositoryResponse;
+    };
+    sdk: {
+      input: CreateSourceRepositoryCommandInput;
+      output: CreateSourceRepositoryCommandOutput;
+    };
+  };
+}

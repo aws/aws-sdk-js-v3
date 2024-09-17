@@ -117,4 +117,16 @@ export class ListAssetPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetPropertiesCommand)
   .de(de_ListAssetPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetPropertiesRequest;
+      output: ListAssetPropertiesResponse;
+    };
+    sdk: {
+      input: ListAssetPropertiesCommandInput;
+      output: ListAssetPropertiesCommandOutput;
+    };
+  };
+}

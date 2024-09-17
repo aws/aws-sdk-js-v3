@@ -100,4 +100,16 @@ export class ListLanguagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLanguagesCommand)
   .de(de_ListLanguagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLanguagesRequest;
+      output: ListLanguagesResponse;
+    };
+    sdk: {
+      input: ListLanguagesCommandInput;
+      output: ListLanguagesCommandOutput;
+    };
+  };
+}

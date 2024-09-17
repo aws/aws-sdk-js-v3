@@ -127,4 +127,16 @@ export class DescribeReservedCacheNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedCacheNodesCommand)
   .de(de_DescribeReservedCacheNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedCacheNodesMessage;
+      output: ReservedCacheNodeMessage;
+    };
+    sdk: {
+      input: DescribeReservedCacheNodesCommandInput;
+      output: DescribeReservedCacheNodesCommandOutput;
+    };
+  };
+}

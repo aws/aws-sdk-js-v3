@@ -104,4 +104,16 @@ export class ListApplicationVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationVersionsCommand)
   .de(de_ListApplicationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationVersionsRequest;
+      output: ListApplicationVersionsResponse;
+    };
+    sdk: {
+      input: ListApplicationVersionsCommandInput;
+      output: ListApplicationVersionsCommandOutput;
+    };
+  };
+}

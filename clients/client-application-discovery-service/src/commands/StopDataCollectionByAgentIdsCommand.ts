@@ -111,4 +111,16 @@ export class StopDataCollectionByAgentIdsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDataCollectionByAgentIdsCommand)
   .de(de_StopDataCollectionByAgentIdsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDataCollectionByAgentIdsRequest;
+      output: StopDataCollectionByAgentIdsResponse;
+    };
+    sdk: {
+      input: StopDataCollectionByAgentIdsCommandInput;
+      output: StopDataCollectionByAgentIdsCommandOutput;
+    };
+  };
+}

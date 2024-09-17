@@ -169,4 +169,16 @@ export class StartBotRecommendationCommand extends $Command
   .f(StartBotRecommendationRequestFilterSensitiveLog, StartBotRecommendationResponseFilterSensitiveLog)
   .ser(se_StartBotRecommendationCommand)
   .de(de_StartBotRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBotRecommendationRequest;
+      output: StartBotRecommendationResponse;
+    };
+    sdk: {
+      input: StartBotRecommendationCommandInput;
+      output: StartBotRecommendationCommandOutput;
+    };
+  };
+}

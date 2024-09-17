@@ -99,4 +99,16 @@ export class ConfirmProductInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmProductInstanceCommand)
   .de(de_ConfirmProductInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmProductInstanceRequest;
+      output: ConfirmProductInstanceResult;
+    };
+    sdk: {
+      input: ConfirmProductInstanceCommandInput;
+      output: ConfirmProductInstanceCommandOutput;
+    };
+  };
+}

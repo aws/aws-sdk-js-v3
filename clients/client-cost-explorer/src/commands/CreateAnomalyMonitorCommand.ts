@@ -163,4 +163,16 @@ export class CreateAnomalyMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAnomalyMonitorCommand)
   .de(de_CreateAnomalyMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnomalyMonitorRequest;
+      output: CreateAnomalyMonitorResponse;
+    };
+    sdk: {
+      input: CreateAnomalyMonitorCommandInput;
+      output: CreateAnomalyMonitorCommandOutput;
+    };
+  };
+}

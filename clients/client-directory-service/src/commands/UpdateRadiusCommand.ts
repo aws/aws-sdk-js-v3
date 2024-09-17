@@ -100,4 +100,16 @@ export class UpdateRadiusCommand extends $Command
   .f(UpdateRadiusRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRadiusCommand)
   .de(de_UpdateRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRadiusCommandInput;
+      output: UpdateRadiusCommandOutput;
+    };
+  };
+}

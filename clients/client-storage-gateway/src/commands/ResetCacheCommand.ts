@@ -112,4 +112,16 @@ export class ResetCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetCacheCommand)
   .de(de_ResetCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetCacheInput;
+      output: ResetCacheOutput;
+    };
+    sdk: {
+      input: ResetCacheCommandInput;
+      output: ResetCacheCommandOutput;
+    };
+  };
+}

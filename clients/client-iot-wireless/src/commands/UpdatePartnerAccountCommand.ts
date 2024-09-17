@@ -95,4 +95,16 @@ export class UpdatePartnerAccountCommand extends $Command
   .f(UpdatePartnerAccountRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePartnerAccountCommand)
   .de(de_UpdatePartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePartnerAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePartnerAccountCommandInput;
+      output: UpdatePartnerAccountCommandOutput;
+    };
+  };
+}

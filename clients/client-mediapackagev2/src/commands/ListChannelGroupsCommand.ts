@@ -127,4 +127,16 @@ export class ListChannelGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChannelGroupsCommand)
   .de(de_ListChannelGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelGroupsRequest;
+      output: ListChannelGroupsResponse;
+    };
+    sdk: {
+      input: ListChannelGroupsCommandInput;
+      output: ListChannelGroupsCommandOutput;
+    };
+  };
+}

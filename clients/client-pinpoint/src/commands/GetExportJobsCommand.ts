@@ -126,4 +126,16 @@ export class GetExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExportJobsCommand)
   .de(de_GetExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExportJobsRequest;
+      output: GetExportJobsResponse;
+    };
+    sdk: {
+      input: GetExportJobsCommandInput;
+      output: GetExportJobsCommandOutput;
+    };
+  };
+}

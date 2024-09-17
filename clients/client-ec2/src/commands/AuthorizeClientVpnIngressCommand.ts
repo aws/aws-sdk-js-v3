@@ -88,4 +88,16 @@ export class AuthorizeClientVpnIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeClientVpnIngressCommand)
   .de(de_AuthorizeClientVpnIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeClientVpnIngressRequest;
+      output: AuthorizeClientVpnIngressResult;
+    };
+    sdk: {
+      input: AuthorizeClientVpnIngressCommandInput;
+      output: AuthorizeClientVpnIngressCommandOutput;
+    };
+  };
+}

@@ -239,4 +239,16 @@ export class UpdateBudgetActionCommand extends $Command
   .f(UpdateBudgetActionRequestFilterSensitiveLog, UpdateBudgetActionResponseFilterSensitiveLog)
   .ser(se_UpdateBudgetActionCommand)
   .de(de_UpdateBudgetActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBudgetActionRequest;
+      output: UpdateBudgetActionResponse;
+    };
+    sdk: {
+      input: UpdateBudgetActionCommandInput;
+      output: UpdateBudgetActionCommandOutput;
+    };
+  };
+}

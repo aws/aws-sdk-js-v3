@@ -100,4 +100,16 @@ export class PutWorkflowRunPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWorkflowRunPropertiesCommand)
   .de(de_PutWorkflowRunPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWorkflowRunPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutWorkflowRunPropertiesCommandInput;
+      output: PutWorkflowRunPropertiesCommandOutput;
+    };
+  };
+}

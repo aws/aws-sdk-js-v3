@@ -153,4 +153,16 @@ export class GetLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoadBalancersCommand)
   .de(de_GetLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoadBalancersRequest;
+      output: GetLoadBalancersResult;
+    };
+    sdk: {
+      input: GetLoadBalancersCommandInput;
+      output: GetLoadBalancersCommandOutput;
+    };
+  };
+}

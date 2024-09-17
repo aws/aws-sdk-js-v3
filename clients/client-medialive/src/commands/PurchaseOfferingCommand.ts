@@ -146,4 +146,16 @@ export class PurchaseOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseOfferingCommand)
   .de(de_PurchaseOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseOfferingRequest;
+      output: PurchaseOfferingResponse;
+    };
+    sdk: {
+      input: PurchaseOfferingCommandInput;
+      output: PurchaseOfferingCommandOutput;
+    };
+  };
+}

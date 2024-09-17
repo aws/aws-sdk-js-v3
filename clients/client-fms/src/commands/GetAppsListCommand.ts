@@ -115,4 +115,16 @@ export class GetAppsListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppsListCommand)
   .de(de_GetAppsListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppsListRequest;
+      output: GetAppsListResponse;
+    };
+    sdk: {
+      input: GetAppsListCommandInput;
+      output: GetAppsListCommandOutput;
+    };
+  };
+}

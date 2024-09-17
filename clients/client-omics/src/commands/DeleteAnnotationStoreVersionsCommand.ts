@@ -111,4 +111,16 @@ export class DeleteAnnotationStoreVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnnotationStoreVersionsCommand)
   .de(de_DeleteAnnotationStoreVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnnotationStoreVersionsRequest;
+      output: DeleteAnnotationStoreVersionsResponse;
+    };
+    sdk: {
+      input: DeleteAnnotationStoreVersionsCommandInput;
+      output: DeleteAnnotationStoreVersionsCommandOutput;
+    };
+  };
+}

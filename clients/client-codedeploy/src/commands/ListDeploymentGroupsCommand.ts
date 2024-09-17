@@ -95,4 +95,16 @@ export class ListDeploymentGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentGroupsCommand)
   .de(de_ListDeploymentGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentGroupsInput;
+      output: ListDeploymentGroupsOutput;
+    };
+    sdk: {
+      input: ListDeploymentGroupsCommandInput;
+      output: ListDeploymentGroupsCommandOutput;
+    };
+  };
+}

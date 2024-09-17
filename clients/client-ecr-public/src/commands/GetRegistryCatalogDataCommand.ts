@@ -83,4 +83,16 @@ export class GetRegistryCatalogDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegistryCatalogDataCommand)
   .de(de_GetRegistryCatalogDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRegistryCatalogDataResponse;
+    };
+    sdk: {
+      input: GetRegistryCatalogDataCommandInput;
+      output: GetRegistryCatalogDataCommandOutput;
+    };
+  };
+}

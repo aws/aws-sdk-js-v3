@@ -87,4 +87,16 @@ export class UpdateSSHPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSSHPublicKeyCommand)
   .de(de_UpdateSSHPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSSHPublicKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSSHPublicKeyCommandInput;
+      output: UpdateSSHPublicKeyCommandOutput;
+    };
+  };
+}

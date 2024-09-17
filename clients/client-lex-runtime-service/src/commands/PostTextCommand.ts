@@ -287,4 +287,16 @@ export class PostTextCommand extends $Command
   .f(PostTextRequestFilterSensitiveLog, PostTextResponseFilterSensitiveLog)
   .ser(se_PostTextCommand)
   .de(de_PostTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostTextRequest;
+      output: PostTextResponse;
+    };
+    sdk: {
+      input: PostTextCommandInput;
+      output: PostTextCommandOutput;
+    };
+  };
+}

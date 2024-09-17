@@ -109,4 +109,16 @@ export class ListHubContentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubContentVersionsCommand)
   .de(de_ListHubContentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubContentVersionsRequest;
+      output: ListHubContentVersionsResponse;
+    };
+    sdk: {
+      input: ListHubContentVersionsCommandInput;
+      output: ListHubContentVersionsCommandOutput;
+    };
+  };
+}

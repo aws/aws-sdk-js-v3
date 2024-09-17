@@ -101,4 +101,16 @@ export class CheckInLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckInLicenseCommand)
   .de(de_CheckInLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckInLicenseRequest;
+      output: {};
+    };
+    sdk: {
+      input: CheckInLicenseCommandInput;
+      output: CheckInLicenseCommandOutput;
+    };
+  };
+}

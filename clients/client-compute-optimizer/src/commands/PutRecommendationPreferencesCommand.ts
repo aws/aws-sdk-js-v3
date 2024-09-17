@@ -140,4 +140,16 @@ export class PutRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecommendationPreferencesCommand)
   .de(de_PutRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecommendationPreferencesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRecommendationPreferencesCommandInput;
+      output: PutRecommendationPreferencesCommandOutput;
+    };
+  };
+}

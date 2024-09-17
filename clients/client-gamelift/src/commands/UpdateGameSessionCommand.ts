@@ -147,4 +147,16 @@ export class UpdateGameSessionCommand extends $Command
   .f(void 0, UpdateGameSessionOutputFilterSensitiveLog)
   .ser(se_UpdateGameSessionCommand)
   .de(de_UpdateGameSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGameSessionInput;
+      output: UpdateGameSessionOutput;
+    };
+    sdk: {
+      input: UpdateGameSessionCommandInput;
+      output: UpdateGameSessionCommandOutput;
+    };
+  };
+}

@@ -151,4 +151,16 @@ export class ListKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeysCommand)
   .de(de_ListKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeysInput;
+      output: ListKeysOutput;
+    };
+    sdk: {
+      input: ListKeysCommandInput;
+      output: ListKeysCommandOutput;
+    };
+  };
+}

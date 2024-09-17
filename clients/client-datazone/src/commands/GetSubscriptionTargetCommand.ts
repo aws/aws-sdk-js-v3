@@ -124,4 +124,16 @@ export class GetSubscriptionTargetCommand extends $Command
   .f(void 0, GetSubscriptionTargetOutputFilterSensitiveLog)
   .ser(se_GetSubscriptionTargetCommand)
   .de(de_GetSubscriptionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionTargetInput;
+      output: GetSubscriptionTargetOutput;
+    };
+    sdk: {
+      input: GetSubscriptionTargetCommandInput;
+      output: GetSubscriptionTargetCommandOutput;
+    };
+  };
+}

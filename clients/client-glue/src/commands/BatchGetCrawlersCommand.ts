@@ -213,4 +213,16 @@ export class BatchGetCrawlersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCrawlersCommand)
   .de(de_BatchGetCrawlersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCrawlersRequest;
+      output: BatchGetCrawlersResponse;
+    };
+    sdk: {
+      input: BatchGetCrawlersCommandInput;
+      output: BatchGetCrawlersCommandOutput;
+    };
+  };
+}

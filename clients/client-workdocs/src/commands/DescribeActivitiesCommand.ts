@@ -188,4 +188,16 @@ export class DescribeActivitiesCommand extends $Command
   .f(DescribeActivitiesRequestFilterSensitiveLog, DescribeActivitiesResponseFilterSensitiveLog)
   .ser(se_DescribeActivitiesCommand)
   .de(de_DescribeActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActivitiesRequest;
+      output: DescribeActivitiesResponse;
+    };
+    sdk: {
+      input: DescribeActivitiesCommandInput;
+      output: DescribeActivitiesCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class CreateDBSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBSecurityGroupCommand)
   .de(de_CreateDBSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBSecurityGroupMessage;
+      output: CreateDBSecurityGroupResult;
+    };
+    sdk: {
+      input: CreateDBSecurityGroupCommandInput;
+      output: CreateDBSecurityGroupCommandOutput;
+    };
+  };
+}

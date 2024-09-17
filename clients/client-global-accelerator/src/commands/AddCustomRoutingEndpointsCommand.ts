@@ -123,4 +123,16 @@ export class AddCustomRoutingEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddCustomRoutingEndpointsCommand)
   .de(de_AddCustomRoutingEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddCustomRoutingEndpointsRequest;
+      output: AddCustomRoutingEndpointsResponse;
+    };
+    sdk: {
+      input: AddCustomRoutingEndpointsCommandInput;
+      output: AddCustomRoutingEndpointsCommandOutput;
+    };
+  };
+}

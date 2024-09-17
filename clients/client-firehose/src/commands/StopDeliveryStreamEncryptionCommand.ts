@@ -110,4 +110,16 @@ export class StopDeliveryStreamEncryptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDeliveryStreamEncryptionCommand)
   .de(de_StopDeliveryStreamEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDeliveryStreamEncryptionInput;
+      output: {};
+    };
+    sdk: {
+      input: StopDeliveryStreamEncryptionCommandInput;
+      output: StopDeliveryStreamEncryptionCommandOutput;
+    };
+  };
+}

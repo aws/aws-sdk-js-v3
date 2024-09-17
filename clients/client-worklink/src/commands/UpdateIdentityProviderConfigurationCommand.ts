@@ -102,4 +102,16 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdentityProviderConfigurationCommand)
   .de(de_UpdateIdentityProviderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentityProviderConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateIdentityProviderConfigurationCommandInput;
+      output: UpdateIdentityProviderConfigurationCommandOutput;
+    };
+  };
+}

@@ -1151,4 +1151,16 @@ export class CreateWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebACLCommand)
   .de(de_CreateWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebACLRequest;
+      output: CreateWebACLResponse;
+    };
+    sdk: {
+      input: CreateWebACLCommandInput;
+      output: CreateWebACLCommandOutput;
+    };
+  };
+}

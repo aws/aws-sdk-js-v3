@@ -107,4 +107,16 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCompanyNetworkConfigurationCommand)
   .de(de_UpdateCompanyNetworkConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCompanyNetworkConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCompanyNetworkConfigurationCommandInput;
+      output: UpdateCompanyNetworkConfigurationCommandOutput;
+    };
+  };
+}

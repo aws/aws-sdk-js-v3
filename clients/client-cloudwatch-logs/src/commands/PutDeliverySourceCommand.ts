@@ -146,4 +146,16 @@ export class PutDeliverySourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliverySourceCommand)
   .de(de_PutDeliverySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliverySourceRequest;
+      output: PutDeliverySourceResponse;
+    };
+    sdk: {
+      input: PutDeliverySourceCommandInput;
+      output: PutDeliverySourceCommandOutput;
+    };
+  };
+}

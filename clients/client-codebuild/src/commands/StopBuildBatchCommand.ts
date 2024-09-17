@@ -297,4 +297,16 @@ export class StopBuildBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopBuildBatchCommand)
   .de(de_StopBuildBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopBuildBatchInput;
+      output: StopBuildBatchOutput;
+    };
+    sdk: {
+      input: StopBuildBatchCommandInput;
+      output: StopBuildBatchCommandOutput;
+    };
+  };
+}

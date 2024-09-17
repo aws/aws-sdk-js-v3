@@ -114,4 +114,16 @@ export class ListSubChannelsCommand extends $Command
   .f(ListSubChannelsRequestFilterSensitiveLog, ListSubChannelsResponseFilterSensitiveLog)
   .ser(se_ListSubChannelsCommand)
   .de(de_ListSubChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubChannelsRequest;
+      output: ListSubChannelsResponse;
+    };
+    sdk: {
+      input: ListSubChannelsCommandInput;
+      output: ListSubChannelsCommandOutput;
+    };
+  };
+}

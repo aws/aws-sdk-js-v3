@@ -153,4 +153,16 @@ export class CreateScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduledActionCommand)
   .de(de_CreateScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduledActionMessage;
+      output: ScheduledAction;
+    };
+    sdk: {
+      input: CreateScheduledActionCommandInput;
+      output: CreateScheduledActionCommandOutput;
+    };
+  };
+}

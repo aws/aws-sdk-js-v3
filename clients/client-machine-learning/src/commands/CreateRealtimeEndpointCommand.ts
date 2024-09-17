@@ -92,4 +92,16 @@ export class CreateRealtimeEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRealtimeEndpointCommand)
   .de(de_CreateRealtimeEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRealtimeEndpointInput;
+      output: CreateRealtimeEndpointOutput;
+    };
+    sdk: {
+      input: CreateRealtimeEndpointCommandInput;
+      output: CreateRealtimeEndpointCommandOutput;
+    };
+  };
+}

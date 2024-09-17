@@ -106,4 +106,16 @@ export class BatchAssociateUserStackCommand extends $Command
   .f(BatchAssociateUserStackRequestFilterSensitiveLog, BatchAssociateUserStackResultFilterSensitiveLog)
   .ser(se_BatchAssociateUserStackCommand)
   .de(de_BatchAssociateUserStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateUserStackRequest;
+      output: BatchAssociateUserStackResult;
+    };
+    sdk: {
+      input: BatchAssociateUserStackCommandInput;
+      output: BatchAssociateUserStackCommandOutput;
+    };
+  };
+}

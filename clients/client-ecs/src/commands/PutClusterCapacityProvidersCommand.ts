@@ -207,4 +207,16 @@ export class PutClusterCapacityProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutClusterCapacityProvidersCommand)
   .de(de_PutClusterCapacityProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutClusterCapacityProvidersRequest;
+      output: PutClusterCapacityProvidersResponse;
+    };
+    sdk: {
+      input: PutClusterCapacityProvidersCommandInput;
+      output: PutClusterCapacityProvidersCommandOutput;
+    };
+  };
+}

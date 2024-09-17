@@ -88,4 +88,16 @@ export class DetachNetworkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachNetworkInterfaceCommand)
   .de(de_DetachNetworkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachNetworkInterfaceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachNetworkInterfaceCommandInput;
+      output: DetachNetworkInterfaceCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityMailFromAttributesCommand)
   .de(de_PutEmailIdentityMailFromAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityMailFromAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityMailFromAttributesCommandInput;
+      output: PutEmailIdentityMailFromAttributesCommandOutput;
+    };
+  };
+}

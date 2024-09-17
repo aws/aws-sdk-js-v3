@@ -89,4 +89,16 @@ export class UpdateHITTypeOfHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHITTypeOfHITCommand)
   .de(de_UpdateHITTypeOfHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHITTypeOfHITRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateHITTypeOfHITCommandInput;
+      output: UpdateHITTypeOfHITCommandOutput;
+    };
+  };
+}

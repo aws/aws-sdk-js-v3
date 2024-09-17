@@ -117,4 +117,16 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEgressOnlyInternetGatewaysCommand)
   .de(de_DescribeEgressOnlyInternetGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEgressOnlyInternetGatewaysRequest;
+      output: DescribeEgressOnlyInternetGatewaysResult;
+    };
+    sdk: {
+      input: DescribeEgressOnlyInternetGatewaysCommandInput;
+      output: DescribeEgressOnlyInternetGatewaysCommandOutput;
+    };
+  };
+}

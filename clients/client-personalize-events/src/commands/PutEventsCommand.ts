@@ -102,4 +102,16 @@ export class PutEventsCommand extends $Command
   .f(PutEventsRequestFilterSensitiveLog, void 0)
   .ser(se_PutEventsCommand)
   .de(de_PutEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEventsCommandInput;
+      output: PutEventsCommandOutput;
+    };
+  };
+}

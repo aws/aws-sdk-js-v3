@@ -117,4 +117,16 @@ export class DescribeInstancePatchStatesCommand extends $Command
   .f(void 0, DescribeInstancePatchStatesResultFilterSensitiveLog)
   .ser(se_DescribeInstancePatchStatesCommand)
   .de(de_DescribeInstancePatchStatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancePatchStatesRequest;
+      output: DescribeInstancePatchStatesResult;
+    };
+    sdk: {
+      input: DescribeInstancePatchStatesCommandInput;
+      output: DescribeInstancePatchStatesCommandOutput;
+    };
+  };
+}

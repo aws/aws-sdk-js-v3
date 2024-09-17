@@ -152,4 +152,16 @@ export class SearchPromptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchPromptsCommand)
   .de(de_SearchPromptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchPromptsRequest;
+      output: SearchPromptsResponse;
+    };
+    sdk: {
+      input: SearchPromptsCommandInput;
+      output: SearchPromptsCommandOutput;
+    };
+  };
+}

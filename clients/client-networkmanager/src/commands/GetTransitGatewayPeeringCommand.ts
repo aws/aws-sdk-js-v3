@@ -123,4 +123,16 @@ export class GetTransitGatewayPeeringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPeeringCommand)
   .de(de_GetTransitGatewayPeeringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPeeringRequest;
+      output: GetTransitGatewayPeeringResponse;
+    };
+    sdk: {
+      input: GetTransitGatewayPeeringCommandInput;
+      output: GetTransitGatewayPeeringCommandOutput;
+    };
+  };
+}

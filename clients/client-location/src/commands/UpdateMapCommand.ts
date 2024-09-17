@@ -103,4 +103,16 @@ export class UpdateMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMapCommand)
   .de(de_UpdateMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMapRequest;
+      output: UpdateMapResponse;
+    };
+    sdk: {
+      input: UpdateMapCommandInput;
+      output: UpdateMapCommandOutput;
+    };
+  };
+}

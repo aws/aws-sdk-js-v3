@@ -123,4 +123,16 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command
   .f(void 0, DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog)
   .ser(se_DeleteEnvironmentTemplateVersionCommand)
   .de(de_DeleteEnvironmentTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentTemplateVersionInput;
+      output: DeleteEnvironmentTemplateVersionOutput;
+    };
+    sdk: {
+      input: DeleteEnvironmentTemplateVersionCommandInput;
+      output: DeleteEnvironmentTemplateVersionCommandOutput;
+    };
+  };
+}

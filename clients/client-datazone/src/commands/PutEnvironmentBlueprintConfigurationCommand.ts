@@ -150,4 +150,16 @@ export class PutEnvironmentBlueprintConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEnvironmentBlueprintConfigurationCommand)
   .de(de_PutEnvironmentBlueprintConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEnvironmentBlueprintConfigurationInput;
+      output: PutEnvironmentBlueprintConfigurationOutput;
+    };
+    sdk: {
+      input: PutEnvironmentBlueprintConfigurationCommandInput;
+      output: PutEnvironmentBlueprintConfigurationCommandOutput;
+    };
+  };
+}

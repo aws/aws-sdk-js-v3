@@ -114,4 +114,16 @@ export class DetectStackResourceDriftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectStackResourceDriftCommand)
   .de(de_DetectStackResourceDriftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectStackResourceDriftInput;
+      output: DetectStackResourceDriftOutput;
+    };
+    sdk: {
+      input: DetectStackResourceDriftCommandInput;
+      output: DetectStackResourceDriftCommandOutput;
+    };
+  };
+}

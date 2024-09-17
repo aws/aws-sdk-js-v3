@@ -113,4 +113,16 @@ export class DescribeFleetMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetMetricCommand)
   .de(de_DescribeFleetMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetMetricRequest;
+      output: DescribeFleetMetricResponse;
+    };
+    sdk: {
+      input: DescribeFleetMetricCommandInput;
+      output: DescribeFleetMetricCommandOutput;
+    };
+  };
+}

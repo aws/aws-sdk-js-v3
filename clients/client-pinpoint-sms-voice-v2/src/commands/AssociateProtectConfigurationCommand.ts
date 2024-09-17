@@ -117,4 +117,16 @@ export class AssociateProtectConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateProtectConfigurationCommand)
   .de(de_AssociateProtectConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateProtectConfigurationRequest;
+      output: AssociateProtectConfigurationResult;
+    };
+    sdk: {
+      input: AssociateProtectConfigurationCommandInput;
+      output: AssociateProtectConfigurationCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class UpdateExtensionAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExtensionAssociationCommand)
   .de(de_UpdateExtensionAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExtensionAssociationRequest;
+      output: ExtensionAssociation;
+    };
+    sdk: {
+      input: UpdateExtensionAssociationCommandInput;
+      output: UpdateExtensionAssociationCommandOutput;
+    };
+  };
+}

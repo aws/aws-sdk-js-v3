@@ -95,4 +95,16 @@ export class DeregisterJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterJobDefinitionCommand)
   .de(de_DeregisterJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterJobDefinitionCommandInput;
+      output: DeregisterJobDefinitionCommandOutput;
+    };
+  };
+}

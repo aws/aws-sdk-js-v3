@@ -124,4 +124,16 @@ export class ListPeeringsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPeeringsCommand)
   .de(de_ListPeeringsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPeeringsRequest;
+      output: ListPeeringsResponse;
+    };
+    sdk: {
+      input: ListPeeringsCommandInput;
+      output: ListPeeringsCommandOutput;
+    };
+  };
+}

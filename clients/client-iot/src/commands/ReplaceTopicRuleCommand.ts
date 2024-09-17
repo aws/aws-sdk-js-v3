@@ -517,4 +517,16 @@ export class ReplaceTopicRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceTopicRuleCommand)
   .de(de_ReplaceTopicRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceTopicRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReplaceTopicRuleCommandInput;
+      output: ReplaceTopicRuleCommandOutput;
+    };
+  };
+}

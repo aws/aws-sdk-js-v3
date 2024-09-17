@@ -108,4 +108,16 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamResourceDiscoveryCommand)
   .de(de_ModifyIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamResourceDiscoveryRequest;
+      output: ModifyIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: ModifyIpamResourceDiscoveryCommandInput;
+      output: ModifyIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

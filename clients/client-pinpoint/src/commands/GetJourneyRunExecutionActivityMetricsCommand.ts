@@ -151,4 +151,16 @@ export class GetJourneyRunExecutionActivityMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyRunExecutionActivityMetricsCommand)
   .de(de_GetJourneyRunExecutionActivityMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyRunExecutionActivityMetricsRequest;
+      output: GetJourneyRunExecutionActivityMetricsResponse;
+    };
+    sdk: {
+      input: GetJourneyRunExecutionActivityMetricsCommandInput;
+      output: GetJourneyRunExecutionActivityMetricsCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class CreateProfileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProfileShareCommand)
   .de(de_CreateProfileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProfileShareInput;
+      output: CreateProfileShareOutput;
+    };
+    sdk: {
+      input: CreateProfileShareCommandInput;
+      output: CreateProfileShareCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class SendDataToWirelessDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDataToWirelessDeviceCommand)
   .de(de_SendDataToWirelessDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDataToWirelessDeviceRequest;
+      output: SendDataToWirelessDeviceResponse;
+    };
+    sdk: {
+      input: SendDataToWirelessDeviceCommandInput;
+      output: SendDataToWirelessDeviceCommandOutput;
+    };
+  };
+}

@@ -159,4 +159,16 @@ export class SearchAgentStatusesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchAgentStatusesCommand)
   .de(de_SearchAgentStatusesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchAgentStatusesRequest;
+      output: SearchAgentStatusesResponse;
+    };
+    sdk: {
+      input: SearchAgentStatusesCommandInput;
+      output: SearchAgentStatusesCommandOutput;
+    };
+  };
+}

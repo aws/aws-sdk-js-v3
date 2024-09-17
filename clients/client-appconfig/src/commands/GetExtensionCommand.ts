@@ -108,4 +108,16 @@ export class GetExtensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExtensionCommand)
   .de(de_GetExtensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExtensionRequest;
+      output: Extension;
+    };
+    sdk: {
+      input: GetExtensionCommandInput;
+      output: GetExtensionCommandOutput;
+    };
+  };
+}

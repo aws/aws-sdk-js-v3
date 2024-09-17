@@ -193,4 +193,16 @@ export class CreateDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDocumentCommand)
   .de(de_CreateDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDocumentRequest;
+      output: CreateDocumentResult;
+    };
+    sdk: {
+      input: CreateDocumentCommandInput;
+      output: CreateDocumentCommandOutput;
+    };
+  };
+}

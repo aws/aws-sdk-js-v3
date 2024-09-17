@@ -192,4 +192,16 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
   )
   .ser(se_GenerateEmbedUrlForAnonymousUserCommand)
   .de(de_GenerateEmbedUrlForAnonymousUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateEmbedUrlForAnonymousUserRequest;
+      output: GenerateEmbedUrlForAnonymousUserResponse;
+    };
+    sdk: {
+      input: GenerateEmbedUrlForAnonymousUserCommandInput;
+      output: GenerateEmbedUrlForAnonymousUserCommandOutput;
+    };
+  };
+}

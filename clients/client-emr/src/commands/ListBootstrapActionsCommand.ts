@@ -94,4 +94,16 @@ export class ListBootstrapActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBootstrapActionsCommand)
   .de(de_ListBootstrapActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBootstrapActionsInput;
+      output: ListBootstrapActionsOutput;
+    };
+    sdk: {
+      input: ListBootstrapActionsCommandInput;
+      output: ListBootstrapActionsCommandOutput;
+    };
+  };
+}

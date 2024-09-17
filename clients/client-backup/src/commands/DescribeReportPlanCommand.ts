@@ -121,4 +121,16 @@ export class DescribeReportPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReportPlanCommand)
   .de(de_DescribeReportPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReportPlanInput;
+      output: DescribeReportPlanOutput;
+    };
+    sdk: {
+      input: DescribeReportPlanCommandInput;
+      output: DescribeReportPlanCommandOutput;
+    };
+  };
+}

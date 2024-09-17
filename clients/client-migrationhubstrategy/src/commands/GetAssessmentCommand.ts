@@ -113,4 +113,16 @@ export class GetAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssessmentCommand)
   .de(de_GetAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssessmentRequest;
+      output: GetAssessmentResponse;
+    };
+    sdk: {
+      input: GetAssessmentCommandInput;
+      output: GetAssessmentCommandOutput;
+    };
+  };
+}

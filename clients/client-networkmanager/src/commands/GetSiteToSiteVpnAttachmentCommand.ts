@@ -143,4 +143,16 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSiteToSiteVpnAttachmentCommand)
   .de(de_GetSiteToSiteVpnAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSiteToSiteVpnAttachmentRequest;
+      output: GetSiteToSiteVpnAttachmentResponse;
+    };
+    sdk: {
+      input: GetSiteToSiteVpnAttachmentCommandInput;
+      output: GetSiteToSiteVpnAttachmentCommandOutput;
+    };
+  };
+}

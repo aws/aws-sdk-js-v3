@@ -110,4 +110,16 @@ export class ListFaqsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFaqsCommand)
   .de(de_ListFaqsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFaqsRequest;
+      output: ListFaqsResponse;
+    };
+    sdk: {
+      input: ListFaqsCommandInput;
+      output: ListFaqsCommandOutput;
+    };
+  };
+}

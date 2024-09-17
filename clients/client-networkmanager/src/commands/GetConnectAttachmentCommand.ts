@@ -146,4 +146,16 @@ export class GetConnectAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectAttachmentCommand)
   .de(de_GetConnectAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectAttachmentRequest;
+      output: GetConnectAttachmentResponse;
+    };
+    sdk: {
+      input: GetConnectAttachmentCommandInput;
+      output: GetConnectAttachmentCommandOutput;
+    };
+  };
+}

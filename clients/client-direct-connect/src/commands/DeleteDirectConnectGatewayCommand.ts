@@ -92,4 +92,16 @@ export class DeleteDirectConnectGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectConnectGatewayCommand)
   .de(de_DeleteDirectConnectGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectConnectGatewayRequest;
+      output: DeleteDirectConnectGatewayResult;
+    };
+    sdk: {
+      input: DeleteDirectConnectGatewayCommandInput;
+      output: DeleteDirectConnectGatewayCommandOutput;
+    };
+  };
+}

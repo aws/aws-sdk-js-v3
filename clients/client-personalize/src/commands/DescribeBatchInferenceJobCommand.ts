@@ -119,4 +119,16 @@ export class DescribeBatchInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBatchInferenceJobCommand)
   .de(de_DescribeBatchInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBatchInferenceJobRequest;
+      output: DescribeBatchInferenceJobResponse;
+    };
+    sdk: {
+      input: DescribeBatchInferenceJobCommandInput;
+      output: DescribeBatchInferenceJobCommandOutput;
+    };
+  };
+}

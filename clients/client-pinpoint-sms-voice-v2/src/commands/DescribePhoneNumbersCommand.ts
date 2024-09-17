@@ -141,4 +141,16 @@ export class DescribePhoneNumbersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePhoneNumbersCommand)
   .de(de_DescribePhoneNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePhoneNumbersRequest;
+      output: DescribePhoneNumbersResult;
+    };
+    sdk: {
+      input: DescribePhoneNumbersCommandInput;
+      output: DescribePhoneNumbersCommandOutput;
+    };
+  };
+}

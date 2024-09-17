@@ -95,4 +95,16 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMobileDeviceAccessRuleCommand)
   .de(de_DeleteMobileDeviceAccessRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMobileDeviceAccessRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMobileDeviceAccessRuleCommandInput;
+      output: DeleteMobileDeviceAccessRuleCommandOutput;
+    };
+  };
+}

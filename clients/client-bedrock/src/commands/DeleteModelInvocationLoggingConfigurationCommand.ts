@@ -91,4 +91,16 @@ export class DeleteModelInvocationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelInvocationLoggingConfigurationCommand)
   .de(de_DeleteModelInvocationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelInvocationLoggingConfigurationCommandInput;
+      output: DeleteModelInvocationLoggingConfigurationCommandOutput;
+    };
+  };
+}

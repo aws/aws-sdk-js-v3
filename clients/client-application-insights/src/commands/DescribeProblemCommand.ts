@@ -109,4 +109,16 @@ export class DescribeProblemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProblemCommand)
   .de(de_DescribeProblemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProblemRequest;
+      output: DescribeProblemResponse;
+    };
+    sdk: {
+      input: DescribeProblemCommandInput;
+      output: DescribeProblemCommandOutput;
+    };
+  };
+}

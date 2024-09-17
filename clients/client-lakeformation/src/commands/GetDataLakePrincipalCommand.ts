@@ -84,4 +84,16 @@ export class GetDataLakePrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataLakePrincipalCommand)
   .de(de_GetDataLakePrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDataLakePrincipalResponse;
+    };
+    sdk: {
+      input: GetDataLakePrincipalCommandInput;
+      output: GetDataLakePrincipalCommandOutput;
+    };
+  };
+}

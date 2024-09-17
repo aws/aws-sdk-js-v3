@@ -103,4 +103,16 @@ export class GetWorkUnitResultsCommand extends $Command
   .f(GetWorkUnitResultsRequestFilterSensitiveLog, GetWorkUnitResultsResponseFilterSensitiveLog)
   .ser(se_GetWorkUnitResultsCommand)
   .de(de_GetWorkUnitResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkUnitResultsRequest;
+      output: GetWorkUnitResultsResponse;
+    };
+    sdk: {
+      input: GetWorkUnitResultsCommandInput;
+      output: GetWorkUnitResultsCommandOutput;
+    };
+  };
+}

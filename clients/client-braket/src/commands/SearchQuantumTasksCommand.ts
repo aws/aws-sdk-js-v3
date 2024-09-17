@@ -115,4 +115,16 @@ export class SearchQuantumTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchQuantumTasksCommand)
   .de(de_SearchQuantumTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchQuantumTasksRequest;
+      output: SearchQuantumTasksResponse;
+    };
+    sdk: {
+      input: SearchQuantumTasksCommandInput;
+      output: SearchQuantumTasksCommandOutput;
+    };
+  };
+}

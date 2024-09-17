@@ -100,4 +100,16 @@ export class ModifyVerifiedAccessGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessGroupCommand)
   .de(de_ModifyVerifiedAccessGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessGroupRequest;
+      output: ModifyVerifiedAccessGroupResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessGroupCommandInput;
+      output: ModifyVerifiedAccessGroupCommandOutput;
+    };
+  };
+}

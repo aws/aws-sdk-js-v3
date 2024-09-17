@@ -272,4 +272,16 @@ export class DescribeInstanceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceTypesCommand)
   .de(de_DescribeInstanceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceTypesRequest;
+      output: DescribeInstanceTypesResult;
+    };
+    sdk: {
+      input: DescribeInstanceTypesCommandInput;
+      output: DescribeInstanceTypesCommandOutput;
+    };
+  };
+}

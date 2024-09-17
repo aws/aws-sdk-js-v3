@@ -144,4 +144,16 @@ export class DeleteHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHostedZoneCommand)
   .de(de_DeleteHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHostedZoneRequest;
+      output: DeleteHostedZoneResponse;
+    };
+    sdk: {
+      input: DeleteHostedZoneCommandInput;
+      output: DeleteHostedZoneCommandOutput;
+    };
+  };
+}

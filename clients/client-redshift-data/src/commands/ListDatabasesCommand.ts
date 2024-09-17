@@ -134,4 +134,16 @@ export class ListDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatabasesCommand)
   .de(de_ListDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatabasesRequest;
+      output: ListDatabasesResponse;
+    };
+    sdk: {
+      input: ListDatabasesCommandInput;
+      output: ListDatabasesCommandOutput;
+    };
+  };
+}

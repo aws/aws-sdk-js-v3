@@ -169,4 +169,16 @@ export class DescribeLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLimitsCommand)
   .de(de_DescribeLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeLimitsOutput;
+    };
+    sdk: {
+      input: DescribeLimitsCommandInput;
+      output: DescribeLimitsCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class ListBranchesCommand extends $Command
   .f(void 0, ListBranchesResultFilterSensitiveLog)
   .ser(se_ListBranchesCommand)
   .de(de_ListBranchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBranchesRequest;
+      output: ListBranchesResult;
+    };
+    sdk: {
+      input: ListBranchesCommandInput;
+      output: ListBranchesCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class CreateDeviceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeviceProfileCommand)
   .de(de_CreateDeviceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeviceProfileRequest;
+      output: CreateDeviceProfileResponse;
+    };
+    sdk: {
+      input: CreateDeviceProfileCommandInput;
+      output: CreateDeviceProfileCommandOutput;
+    };
+  };
+}

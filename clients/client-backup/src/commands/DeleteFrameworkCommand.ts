@@ -92,4 +92,16 @@ export class DeleteFrameworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFrameworkCommand)
   .de(de_DeleteFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFrameworkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFrameworkCommandInput;
+      output: DeleteFrameworkCommandOutput;
+    };
+  };
+}

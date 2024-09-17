@@ -185,4 +185,16 @@ export class DescribeRouteTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRouteTablesCommand)
   .de(de_DescribeRouteTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRouteTablesRequest;
+      output: DescribeRouteTablesResult;
+    };
+    sdk: {
+      input: DescribeRouteTablesCommandInput;
+      output: DescribeRouteTablesCommandOutput;
+    };
+  };
+}

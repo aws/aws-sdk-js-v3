@@ -91,4 +91,16 @@ export class GetMFADeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMFADeviceCommand)
   .de(de_GetMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMFADeviceRequest;
+      output: GetMFADeviceResponse;
+    };
+    sdk: {
+      input: GetMFADeviceCommandInput;
+      output: GetMFADeviceCommandOutput;
+    };
+  };
+}

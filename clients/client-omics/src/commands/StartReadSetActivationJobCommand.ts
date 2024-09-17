@@ -108,4 +108,16 @@ export class StartReadSetActivationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReadSetActivationJobCommand)
   .de(de_StartReadSetActivationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReadSetActivationJobRequest;
+      output: StartReadSetActivationJobResponse;
+    };
+    sdk: {
+      input: StartReadSetActivationJobCommandInput;
+      output: StartReadSetActivationJobCommandOutput;
+    };
+  };
+}

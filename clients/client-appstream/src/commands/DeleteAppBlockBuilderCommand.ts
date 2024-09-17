@@ -89,4 +89,16 @@ export class DeleteAppBlockBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppBlockBuilderCommand)
   .de(de_DeleteAppBlockBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppBlockBuilderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppBlockBuilderCommandInput;
+      output: DeleteAppBlockBuilderCommandOutput;
+    };
+  };
+}

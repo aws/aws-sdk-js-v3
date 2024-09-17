@@ -110,4 +110,16 @@ export class DescribeVpnGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpnGatewaysCommand)
   .de(de_DescribeVpnGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpnGatewaysRequest;
+      output: DescribeVpnGatewaysResult;
+    };
+    sdk: {
+      input: DescribeVpnGatewaysCommandInput;
+      output: DescribeVpnGatewaysCommandOutput;
+    };
+  };
+}

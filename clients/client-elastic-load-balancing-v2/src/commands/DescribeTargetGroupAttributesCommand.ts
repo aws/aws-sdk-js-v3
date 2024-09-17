@@ -148,4 +148,16 @@ export class DescribeTargetGroupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetGroupAttributesCommand)
   .de(de_DescribeTargetGroupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetGroupAttributesInput;
+      output: DescribeTargetGroupAttributesOutput;
+    };
+    sdk: {
+      input: DescribeTargetGroupAttributesCommandInput;
+      output: DescribeTargetGroupAttributesCommandOutput;
+    };
+  };
+}

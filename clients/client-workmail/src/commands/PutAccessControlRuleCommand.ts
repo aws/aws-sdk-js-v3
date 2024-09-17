@@ -126,4 +126,16 @@ export class PutAccessControlRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccessControlRuleCommand)
   .de(de_PutAccessControlRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccessControlRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccessControlRuleCommandInput;
+      output: PutAccessControlRuleCommandOutput;
+    };
+  };
+}

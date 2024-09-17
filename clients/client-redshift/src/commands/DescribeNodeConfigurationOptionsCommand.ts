@@ -124,4 +124,16 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNodeConfigurationOptionsCommand)
   .de(de_DescribeNodeConfigurationOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNodeConfigurationOptionsMessage;
+      output: NodeConfigurationOptionsMessage;
+    };
+    sdk: {
+      input: DescribeNodeConfigurationOptionsCommandInput;
+      output: DescribeNodeConfigurationOptionsCommandOutput;
+    };
+  };
+}

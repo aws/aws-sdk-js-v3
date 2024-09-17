@@ -109,4 +109,16 @@ export class ListForecastsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListForecastsCommand)
   .de(de_ListForecastsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListForecastsRequest;
+      output: ListForecastsResponse;
+    };
+    sdk: {
+      input: ListForecastsCommandInput;
+      output: ListForecastsCommandOutput;
+    };
+  };
+}

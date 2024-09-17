@@ -130,4 +130,16 @@ export class ListGroupsForUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsForUserCommand)
   .de(de_ListGroupsForUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsForUserRequest;
+      output: ListGroupsForUserResponse;
+    };
+    sdk: {
+      input: ListGroupsForUserCommandInput;
+      output: ListGroupsForUserCommandOutput;
+    };
+  };
+}

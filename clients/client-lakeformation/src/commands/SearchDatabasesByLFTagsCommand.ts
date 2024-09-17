@@ -122,4 +122,16 @@ export class SearchDatabasesByLFTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchDatabasesByLFTagsCommand)
   .de(de_SearchDatabasesByLFTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchDatabasesByLFTagsRequest;
+      output: SearchDatabasesByLFTagsResponse;
+    };
+    sdk: {
+      input: SearchDatabasesByLFTagsCommandInput;
+      output: SearchDatabasesByLFTagsCommandOutput;
+    };
+  };
+}

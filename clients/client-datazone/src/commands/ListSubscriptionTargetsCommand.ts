@@ -132,4 +132,16 @@ export class ListSubscriptionTargetsCommand extends $Command
   .f(void 0, ListSubscriptionTargetsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionTargetsCommand)
   .de(de_ListSubscriptionTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionTargetsInput;
+      output: ListSubscriptionTargetsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionTargetsCommandInput;
+      output: ListSubscriptionTargetsCommandOutput;
+    };
+  };
+}

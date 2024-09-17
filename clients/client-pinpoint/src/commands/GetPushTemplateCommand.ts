@@ -161,4 +161,16 @@ export class GetPushTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPushTemplateCommand)
   .de(de_GetPushTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPushTemplateRequest;
+      output: GetPushTemplateResponse;
+    };
+    sdk: {
+      input: GetPushTemplateCommandInput;
+      output: GetPushTemplateCommandOutput;
+    };
+  };
+}

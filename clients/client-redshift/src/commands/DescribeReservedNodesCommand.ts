@@ -108,4 +108,16 @@ export class DescribeReservedNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedNodesCommand)
   .de(de_DescribeReservedNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedNodesMessage;
+      output: ReservedNodesMessage;
+    };
+    sdk: {
+      input: DescribeReservedNodesCommandInput;
+      output: DescribeReservedNodesCommandOutput;
+    };
+  };
+}

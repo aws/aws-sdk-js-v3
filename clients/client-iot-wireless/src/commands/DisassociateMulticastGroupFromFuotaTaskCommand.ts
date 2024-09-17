@@ -100,4 +100,16 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMulticastGroupFromFuotaTaskCommand)
   .de(de_DisassociateMulticastGroupFromFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMulticastGroupFromFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMulticastGroupFromFuotaTaskCommandInput;
+      output: DisassociateMulticastGroupFromFuotaTaskCommandOutput;
+    };
+  };
+}

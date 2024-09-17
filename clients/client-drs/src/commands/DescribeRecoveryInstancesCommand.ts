@@ -197,4 +197,16 @@ export class DescribeRecoveryInstancesCommand extends $Command
   .f(void 0, DescribeRecoveryInstancesResponseFilterSensitiveLog)
   .ser(se_DescribeRecoveryInstancesCommand)
   .de(de_DescribeRecoveryInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecoveryInstancesRequest;
+      output: DescribeRecoveryInstancesResponse;
+    };
+    sdk: {
+      input: DescribeRecoveryInstancesCommandInput;
+      output: DescribeRecoveryInstancesCommandOutput;
+    };
+  };
+}

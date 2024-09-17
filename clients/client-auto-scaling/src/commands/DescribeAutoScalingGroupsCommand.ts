@@ -359,4 +359,16 @@ export class DescribeAutoScalingGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoScalingGroupsCommand)
   .de(de_DescribeAutoScalingGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AutoScalingGroupNamesType;
+      output: AutoScalingGroupsType;
+    };
+    sdk: {
+      input: DescribeAutoScalingGroupsCommandInput;
+      output: DescribeAutoScalingGroupsCommandOutput;
+    };
+  };
+}

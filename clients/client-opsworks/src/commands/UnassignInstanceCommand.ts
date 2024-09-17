@@ -89,4 +89,16 @@ export class UnassignInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignInstanceCommand)
   .de(de_UnassignInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnassignInstanceCommandInput;
+      output: UnassignInstanceCommandOutput;
+    };
+  };
+}

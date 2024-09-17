@@ -87,4 +87,16 @@ export class AcceptPortfolioShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptPortfolioShareCommand)
   .de(de_AcceptPortfolioShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptPortfolioShareInput;
+      output: {};
+    };
+    sdk: {
+      input: AcceptPortfolioShareCommandInput;
+      output: AcceptPortfolioShareCommandOutput;
+    };
+  };
+}

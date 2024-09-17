@@ -125,4 +125,16 @@ export class DescribeProtectConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProtectConfigurationsCommand)
   .de(de_DescribeProtectConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProtectConfigurationsRequest;
+      output: DescribeProtectConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeProtectConfigurationsCommandInput;
+      output: DescribeProtectConfigurationsCommandOutput;
+    };
+  };
+}

@@ -142,4 +142,16 @@ export class GetLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLicenseCommand)
   .de(de_GetLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLicenseRequest;
+      output: GetLicenseResponse;
+    };
+    sdk: {
+      input: GetLicenseCommandInput;
+      output: GetLicenseCommandOutput;
+    };
+  };
+}

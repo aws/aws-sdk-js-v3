@@ -112,4 +112,16 @@ export class DeleteDBProxyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBProxyCommand)
   .de(de_DeleteDBProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBProxyRequest;
+      output: DeleteDBProxyResponse;
+    };
+    sdk: {
+      input: DeleteDBProxyCommandInput;
+      output: DeleteDBProxyCommandOutput;
+    };
+  };
+}

@@ -168,4 +168,16 @@ export class DescribeBotLocaleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBotLocaleCommand)
   .de(de_DescribeBotLocaleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotLocaleRequest;
+      output: DescribeBotLocaleResponse;
+    };
+    sdk: {
+      input: DescribeBotLocaleCommandInput;
+      output: DescribeBotLocaleCommandOutput;
+    };
+  };
+}

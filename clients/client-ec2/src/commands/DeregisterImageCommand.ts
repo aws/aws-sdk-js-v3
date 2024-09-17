@@ -87,4 +87,16 @@ export class DeregisterImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterImageCommand)
   .de(de_DeregisterImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterImageRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterImageCommandInput;
+      output: DeregisterImageCommandOutput;
+    };
+  };
+}

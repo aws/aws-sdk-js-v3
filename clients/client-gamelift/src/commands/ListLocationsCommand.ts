@@ -98,4 +98,16 @@ export class ListLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLocationsCommand)
   .de(de_ListLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLocationsInput;
+      output: ListLocationsOutput;
+    };
+    sdk: {
+      input: ListLocationsCommandInput;
+      output: ListLocationsCommandOutput;
+    };
+  };
+}

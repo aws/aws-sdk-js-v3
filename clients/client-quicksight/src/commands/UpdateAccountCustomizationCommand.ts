@@ -118,4 +118,16 @@ export class UpdateAccountCustomizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountCustomizationCommand)
   .de(de_UpdateAccountCustomizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountCustomizationRequest;
+      output: UpdateAccountCustomizationResponse;
+    };
+    sdk: {
+      input: UpdateAccountCustomizationCommandInput;
+      output: UpdateAccountCustomizationCommandOutput;
+    };
+  };
+}

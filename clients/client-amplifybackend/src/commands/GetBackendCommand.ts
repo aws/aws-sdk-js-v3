@@ -98,4 +98,16 @@ export class GetBackendCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackendCommand)
   .de(de_GetBackendCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackendRequest;
+      output: GetBackendResponse;
+    };
+    sdk: {
+      input: GetBackendCommandInput;
+      output: GetBackendCommandOutput;
+    };
+  };
+}

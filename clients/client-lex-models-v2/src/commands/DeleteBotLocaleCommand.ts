@@ -109,4 +109,16 @@ export class DeleteBotLocaleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBotLocaleCommand)
   .de(de_DeleteBotLocaleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBotLocaleRequest;
+      output: DeleteBotLocaleResponse;
+    };
+    sdk: {
+      input: DeleteBotLocaleCommandInput;
+      output: DeleteBotLocaleCommandOutput;
+    };
+  };
+}

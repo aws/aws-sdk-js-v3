@@ -119,4 +119,16 @@ export class ListIPSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIPSetsCommand)
   .de(de_ListIPSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIPSetsRequest;
+      output: ListIPSetsResponse;
+    };
+    sdk: {
+      input: ListIPSetsCommandInput;
+      output: ListIPSetsCommandOutput;
+    };
+  };
+}

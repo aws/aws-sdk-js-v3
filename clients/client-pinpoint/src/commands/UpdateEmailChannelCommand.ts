@@ -123,4 +123,16 @@ export class UpdateEmailChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEmailChannelCommand)
   .de(de_UpdateEmailChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEmailChannelRequest;
+      output: UpdateEmailChannelResponse;
+    };
+    sdk: {
+      input: UpdateEmailChannelCommandInput;
+      output: UpdateEmailChannelCommandOutput;
+    };
+  };
+}

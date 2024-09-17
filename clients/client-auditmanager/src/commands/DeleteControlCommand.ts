@@ -95,4 +95,16 @@ export class DeleteControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteControlCommand)
   .de(de_DeleteControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteControlCommandInput;
+      output: DeleteControlCommandOutput;
+    };
+  };
+}

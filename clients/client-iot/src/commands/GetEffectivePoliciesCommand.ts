@@ -108,4 +108,16 @@ export class GetEffectivePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEffectivePoliciesCommand)
   .de(de_GetEffectivePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEffectivePoliciesRequest;
+      output: GetEffectivePoliciesResponse;
+    };
+    sdk: {
+      input: GetEffectivePoliciesCommandInput;
+      output: GetEffectivePoliciesCommandOutput;
+    };
+  };
+}

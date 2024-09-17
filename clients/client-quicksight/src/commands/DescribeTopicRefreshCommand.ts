@@ -103,4 +103,16 @@ export class DescribeTopicRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicRefreshCommand)
   .de(de_DescribeTopicRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicRefreshRequest;
+      output: DescribeTopicRefreshResponse;
+    };
+    sdk: {
+      input: DescribeTopicRefreshCommandInput;
+      output: DescribeTopicRefreshCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class ListModelCardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelCardsCommand)
   .de(de_ListModelCardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelCardsRequest;
+      output: ListModelCardsResponse;
+    };
+    sdk: {
+      input: ListModelCardsCommandInput;
+      output: ListModelCardsCommandOutput;
+    };
+  };
+}

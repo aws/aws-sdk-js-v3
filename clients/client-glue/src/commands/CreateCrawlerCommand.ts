@@ -197,4 +197,16 @@ export class CreateCrawlerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCrawlerCommand)
   .de(de_CreateCrawlerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCrawlerRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateCrawlerCommandInput;
+      output: CreateCrawlerCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DeleteEventStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventStreamCommand)
   .de(de_DeleteEventStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventStreamRequest;
+      output: DeleteEventStreamResponse;
+    };
+    sdk: {
+      input: DeleteEventStreamCommandInput;
+      output: DeleteEventStreamCommandOutput;
+    };
+  };
+}

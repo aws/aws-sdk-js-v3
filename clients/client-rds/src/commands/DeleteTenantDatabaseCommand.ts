@@ -116,4 +116,16 @@ export class DeleteTenantDatabaseCommand extends $Command
   .f(void 0, DeleteTenantDatabaseResultFilterSensitiveLog)
   .ser(se_DeleteTenantDatabaseCommand)
   .de(de_DeleteTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTenantDatabaseMessage;
+      output: DeleteTenantDatabaseResult;
+    };
+    sdk: {
+      input: DeleteTenantDatabaseCommandInput;
+      output: DeleteTenantDatabaseCommandOutput;
+    };
+  };
+}

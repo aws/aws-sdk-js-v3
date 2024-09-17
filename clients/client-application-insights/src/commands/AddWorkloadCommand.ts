@@ -104,4 +104,16 @@ export class AddWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddWorkloadCommand)
   .de(de_AddWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddWorkloadRequest;
+      output: AddWorkloadResponse;
+    };
+    sdk: {
+      input: AddWorkloadCommandInput;
+      output: AddWorkloadCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class UpdateAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessPolicyCommand)
   .de(de_UpdateAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessPolicyRequest;
+      output: UpdateAccessPolicyResponse;
+    };
+    sdk: {
+      input: UpdateAccessPolicyCommandInput;
+      output: UpdateAccessPolicyCommandOutput;
+    };
+  };
+}

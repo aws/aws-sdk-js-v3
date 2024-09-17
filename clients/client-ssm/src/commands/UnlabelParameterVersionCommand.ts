@@ -99,4 +99,16 @@ export class UnlabelParameterVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnlabelParameterVersionCommand)
   .de(de_UnlabelParameterVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnlabelParameterVersionRequest;
+      output: UnlabelParameterVersionResult;
+    };
+    sdk: {
+      input: UnlabelParameterVersionCommandInput;
+      output: UnlabelParameterVersionCommandOutput;
+    };
+  };
+}

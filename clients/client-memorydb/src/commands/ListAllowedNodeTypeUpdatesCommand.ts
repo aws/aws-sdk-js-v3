@@ -96,4 +96,16 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAllowedNodeTypeUpdatesCommand)
   .de(de_ListAllowedNodeTypeUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAllowedNodeTypeUpdatesRequest;
+      output: ListAllowedNodeTypeUpdatesResponse;
+    };
+    sdk: {
+      input: ListAllowedNodeTypeUpdatesCommandInput;
+      output: ListAllowedNodeTypeUpdatesCommandOutput;
+    };
+  };
+}

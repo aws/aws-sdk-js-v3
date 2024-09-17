@@ -98,4 +98,16 @@ export class StopDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDeploymentCommand)
   .de(de_StopDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDeploymentInput;
+      output: StopDeploymentOutput;
+    };
+    sdk: {
+      input: StopDeploymentCommandInput;
+      output: StopDeploymentCommandOutput;
+    };
+  };
+}

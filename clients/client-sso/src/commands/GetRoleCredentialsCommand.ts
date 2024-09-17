@@ -105,4 +105,16 @@ export class GetRoleCredentialsCommand extends $Command
   .f(GetRoleCredentialsRequestFilterSensitiveLog, GetRoleCredentialsResponseFilterSensitiveLog)
   .ser(se_GetRoleCredentialsCommand)
   .de(de_GetRoleCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRoleCredentialsRequest;
+      output: GetRoleCredentialsResponse;
+    };
+    sdk: {
+      input: GetRoleCredentialsCommandInput;
+      output: GetRoleCredentialsCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentAccountConnectionCommand)
   .de(de_UpdateEnvironmentAccountConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentAccountConnectionInput;
+      output: UpdateEnvironmentAccountConnectionOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentAccountConnectionCommandInput;
+      output: UpdateEnvironmentAccountConnectionCommandOutput;
+    };
+  };
+}

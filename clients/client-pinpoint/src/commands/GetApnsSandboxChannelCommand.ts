@@ -111,4 +111,16 @@ export class GetApnsSandboxChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApnsSandboxChannelCommand)
   .de(de_GetApnsSandboxChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApnsSandboxChannelRequest;
+      output: GetApnsSandboxChannelResponse;
+    };
+    sdk: {
+      input: GetApnsSandboxChannelCommandInput;
+      output: GetApnsSandboxChannelCommandOutput;
+    };
+  };
+}

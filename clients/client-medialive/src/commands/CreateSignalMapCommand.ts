@@ -168,4 +168,16 @@ export class CreateSignalMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSignalMapCommand)
   .de(de_CreateSignalMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSignalMapRequest;
+      output: CreateSignalMapResponse;
+    };
+    sdk: {
+      input: CreateSignalMapCommandInput;
+      output: CreateSignalMapCommandOutput;
+    };
+  };
+}

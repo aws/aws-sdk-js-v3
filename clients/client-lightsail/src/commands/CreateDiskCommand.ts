@@ -148,4 +148,16 @@ export class CreateDiskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDiskCommand)
   .de(de_CreateDiskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDiskRequest;
+      output: CreateDiskResult;
+    };
+    sdk: {
+      input: CreateDiskCommandInput;
+      output: CreateDiskCommandOutput;
+    };
+  };
+}

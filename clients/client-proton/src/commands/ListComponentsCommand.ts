@@ -113,4 +113,16 @@ export class ListComponentsCommand extends $Command
   .f(void 0, ListComponentsOutputFilterSensitiveLog)
   .ser(se_ListComponentsCommand)
   .de(de_ListComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentsInput;
+      output: ListComponentsOutput;
+    };
+    sdk: {
+      input: ListComponentsCommandInput;
+      output: ListComponentsCommandOutput;
+    };
+  };
+}

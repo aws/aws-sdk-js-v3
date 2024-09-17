@@ -109,4 +109,16 @@ export class AssociateAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAssetsCommand)
   .de(de_AssociateAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAssetsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateAssetsCommandInput;
+      output: AssociateAssetsCommandOutput;
+    };
+  };
+}

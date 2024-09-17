@@ -97,4 +97,16 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCallAnalyticsCategoryCommand)
   .de(de_DeleteCallAnalyticsCategoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCallAnalyticsCategoryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCallAnalyticsCategoryCommandInput;
+      output: DeleteCallAnalyticsCategoryCommandOutput;
+    };
+  };
+}

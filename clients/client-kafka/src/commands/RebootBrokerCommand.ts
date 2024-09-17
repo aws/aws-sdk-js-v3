@@ -102,4 +102,16 @@ export class RebootBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootBrokerCommand)
   .de(de_RebootBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootBrokerRequest;
+      output: RebootBrokerResponse;
+    };
+    sdk: {
+      input: RebootBrokerCommandInput;
+      output: RebootBrokerCommandOutput;
+    };
+  };
+}

@@ -89,4 +89,16 @@ export class DeleteRegistryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegistryPolicyCommand)
   .de(de_DeleteRegistryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteRegistryPolicyResponse;
+    };
+    sdk: {
+      input: DeleteRegistryPolicyCommandInput;
+      output: DeleteRegistryPolicyCommandOutput;
+    };
+  };
+}

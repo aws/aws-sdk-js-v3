@@ -128,4 +128,16 @@ export class DescribeChannelCommand extends $Command
   .f(void 0, DescribeChannelResponseFilterSensitiveLog)
   .ser(se_DescribeChannelCommand)
   .de(de_DescribeChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelRequest;
+      output: DescribeChannelResponse;
+    };
+    sdk: {
+      input: DescribeChannelCommandInput;
+      output: DescribeChannelCommandOutput;
+    };
+  };
+}

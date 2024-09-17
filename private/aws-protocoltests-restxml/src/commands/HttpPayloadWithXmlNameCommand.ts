@@ -76,4 +76,16 @@ export class HttpPayloadWithXmlNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPayloadWithXmlNameCommand)
   .de(de_HttpPayloadWithXmlNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPayloadWithXmlNameInputOutput;
+      output: HttpPayloadWithXmlNameInputOutput;
+    };
+    sdk: {
+      input: HttpPayloadWithXmlNameCommandInput;
+      output: HttpPayloadWithXmlNameCommandOutput;
+    };
+  };
+}

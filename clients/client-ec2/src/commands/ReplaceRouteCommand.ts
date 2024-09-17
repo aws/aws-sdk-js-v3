@@ -109,4 +109,16 @@ export class ReplaceRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceRouteCommand)
   .de(de_ReplaceRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceRouteRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReplaceRouteCommandInput;
+      output: ReplaceRouteCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class UpdateDashboardPublishedVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDashboardPublishedVersionCommand)
   .de(de_UpdateDashboardPublishedVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDashboardPublishedVersionRequest;
+      output: UpdateDashboardPublishedVersionResponse;
+    };
+    sdk: {
+      input: UpdateDashboardPublishedVersionCommandInput;
+      output: UpdateDashboardPublishedVersionCommandOutput;
+    };
+  };
+}

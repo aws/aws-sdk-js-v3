@@ -236,4 +236,16 @@ export class InvokeCommand extends $Command
   .f(InvocationRequestFilterSensitiveLog, InvocationResponseFilterSensitiveLog)
   .ser(se_InvokeCommand)
   .de(de_InvokeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvocationRequest;
+      output: InvocationResponse;
+    };
+    sdk: {
+      input: InvokeCommandInput;
+      output: InvokeCommandOutput;
+    };
+  };
+}

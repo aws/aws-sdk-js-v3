@@ -223,4 +223,16 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateColumnStatisticsForPartitionCommand)
   .de(de_UpdateColumnStatisticsForPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateColumnStatisticsForPartitionRequest;
+      output: UpdateColumnStatisticsForPartitionResponse;
+    };
+    sdk: {
+      input: UpdateColumnStatisticsForPartitionCommandInput;
+      output: UpdateColumnStatisticsForPartitionCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class UpdateSamplingRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSamplingRuleCommand)
   .de(de_UpdateSamplingRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSamplingRuleRequest;
+      output: UpdateSamplingRuleResult;
+    };
+    sdk: {
+      input: UpdateSamplingRuleCommandInput;
+      output: UpdateSamplingRuleCommandOutput;
+    };
+  };
+}

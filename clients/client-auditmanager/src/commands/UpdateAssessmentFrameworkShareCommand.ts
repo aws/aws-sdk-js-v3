@@ -124,4 +124,16 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command
   .f(void 0, UpdateAssessmentFrameworkShareResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentFrameworkShareCommand)
   .de(de_UpdateAssessmentFrameworkShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentFrameworkShareRequest;
+      output: UpdateAssessmentFrameworkShareResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentFrameworkShareCommandInput;
+      output: UpdateAssessmentFrameworkShareCommandOutput;
+    };
+  };
+}

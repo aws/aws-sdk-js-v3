@@ -180,4 +180,16 @@ export class ListSubscriptionRequestsCommand extends $Command
   .f(void 0, ListSubscriptionRequestsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionRequestsCommand)
   .de(de_ListSubscriptionRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionRequestsInput;
+      output: ListSubscriptionRequestsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionRequestsCommandInput;
+      output: ListSubscriptionRequestsCommandOutput;
+    };
+  };
+}

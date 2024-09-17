@@ -115,4 +115,16 @@ export class DescribeTunnelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTunnelCommand)
   .de(de_DescribeTunnelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTunnelRequest;
+      output: DescribeTunnelResponse;
+    };
+    sdk: {
+      input: DescribeTunnelCommandInput;
+      output: DescribeTunnelCommandOutput;
+    };
+  };
+}

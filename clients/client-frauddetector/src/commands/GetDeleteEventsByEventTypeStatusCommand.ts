@@ -98,4 +98,16 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeleteEventsByEventTypeStatusCommand)
   .de(de_GetDeleteEventsByEventTypeStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeleteEventsByEventTypeStatusRequest;
+      output: GetDeleteEventsByEventTypeStatusResult;
+    };
+    sdk: {
+      input: GetDeleteEventsByEventTypeStatusCommandInput;
+      output: GetDeleteEventsByEventTypeStatusCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class RegisterInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterInstanceCommand)
   .de(de_RegisterInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterInstanceRequest;
+      output: RegisterInstanceResult;
+    };
+    sdk: {
+      input: RegisterInstanceCommandInput;
+      output: RegisterInstanceCommandOutput;
+    };
+  };
+}

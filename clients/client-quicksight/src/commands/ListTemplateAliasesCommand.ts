@@ -107,4 +107,16 @@ export class ListTemplateAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTemplateAliasesCommand)
   .de(de_ListTemplateAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTemplateAliasesRequest;
+      output: ListTemplateAliasesResponse;
+    };
+    sdk: {
+      input: ListTemplateAliasesCommandInput;
+      output: ListTemplateAliasesCommandOutput;
+    };
+  };
+}

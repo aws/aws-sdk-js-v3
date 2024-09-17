@@ -79,4 +79,16 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyAvailabilityZoneGroupCommand)
   .de(de_ModifyAvailabilityZoneGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyAvailabilityZoneGroupRequest;
+      output: ModifyAvailabilityZoneGroupResult;
+    };
+    sdk: {
+      input: ModifyAvailabilityZoneGroupCommandInput;
+      output: ModifyAvailabilityZoneGroupCommandOutput;
+    };
+  };
+}

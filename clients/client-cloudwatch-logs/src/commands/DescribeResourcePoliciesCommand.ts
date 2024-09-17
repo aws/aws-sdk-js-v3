@@ -91,4 +91,16 @@ export class DescribeResourcePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourcePoliciesCommand)
   .de(de_DescribeResourcePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourcePoliciesRequest;
+      output: DescribeResourcePoliciesResponse;
+    };
+    sdk: {
+      input: DescribeResourcePoliciesCommandInput;
+      output: DescribeResourcePoliciesCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class AddApplicationOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationOutputCommand)
   .de(de_AddApplicationOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationOutputRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddApplicationOutputCommandInput;
+      output: AddApplicationOutputCommandOutput;
+    };
+  };
+}

@@ -155,4 +155,16 @@ export class ListLicenseConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseConfigurationsCommand)
   .de(de_ListLicenseConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseConfigurationsRequest;
+      output: ListLicenseConfigurationsResponse;
+    };
+    sdk: {
+      input: ListLicenseConfigurationsCommandInput;
+      output: ListLicenseConfigurationsCommandOutput;
+    };
+  };
+}

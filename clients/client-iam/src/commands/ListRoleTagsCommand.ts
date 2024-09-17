@@ -122,4 +122,16 @@ export class ListRoleTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoleTagsCommand)
   .de(de_ListRoleTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoleTagsRequest;
+      output: ListRoleTagsResponse;
+    };
+    sdk: {
+      input: ListRoleTagsCommandInput;
+      output: ListRoleTagsCommandOutput;
+    };
+  };
+}

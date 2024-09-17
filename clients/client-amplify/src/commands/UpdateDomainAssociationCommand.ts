@@ -135,4 +135,16 @@ export class UpdateDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainAssociationCommand)
   .de(de_UpdateDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainAssociationRequest;
+      output: UpdateDomainAssociationResult;
+    };
+    sdk: {
+      input: UpdateDomainAssociationCommandInput;
+      output: UpdateDomainAssociationCommandOutput;
+    };
+  };
+}

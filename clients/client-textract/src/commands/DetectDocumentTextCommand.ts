@@ -184,4 +184,16 @@ export class DetectDocumentTextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectDocumentTextCommand)
   .de(de_DetectDocumentTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectDocumentTextRequest;
+      output: DetectDocumentTextResponse;
+    };
+    sdk: {
+      input: DetectDocumentTextCommandInput;
+      output: DetectDocumentTextCommandOutput;
+    };
+  };
+}

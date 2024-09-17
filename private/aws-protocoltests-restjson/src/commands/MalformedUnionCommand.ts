@@ -72,4 +72,16 @@ export class MalformedUnionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedUnionCommand)
   .de(de_MalformedUnionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedUnionInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedUnionCommandInput;
+      output: MalformedUnionCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataCatalogEncryptionSettingsCommand)
   .de(de_GetDataCatalogEncryptionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataCatalogEncryptionSettingsRequest;
+      output: GetDataCatalogEncryptionSettingsResponse;
+    };
+    sdk: {
+      input: GetDataCatalogEncryptionSettingsCommandInput;
+      output: GetDataCatalogEncryptionSettingsCommandOutput;
+    };
+  };
+}

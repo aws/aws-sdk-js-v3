@@ -102,4 +102,16 @@ export class GetTestExecutionArtifactsUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestExecutionArtifactsUrlCommand)
   .de(de_GetTestExecutionArtifactsUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestExecutionArtifactsUrlRequest;
+      output: GetTestExecutionArtifactsUrlResponse;
+    };
+    sdk: {
+      input: GetTestExecutionArtifactsUrlCommandInput;
+      output: GetTestExecutionArtifactsUrlCommandOutput;
+    };
+  };
+}

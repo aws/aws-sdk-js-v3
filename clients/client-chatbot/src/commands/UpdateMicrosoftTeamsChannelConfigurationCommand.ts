@@ -133,4 +133,16 @@ export class UpdateMicrosoftTeamsChannelConfigurationCommand extends $Command
   .f(UpdateTeamsChannelConfigurationRequestFilterSensitiveLog, UpdateTeamsChannelConfigurationResultFilterSensitiveLog)
   .ser(se_UpdateMicrosoftTeamsChannelConfigurationCommand)
   .de(de_UpdateMicrosoftTeamsChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTeamsChannelConfigurationRequest;
+      output: UpdateTeamsChannelConfigurationResult;
+    };
+    sdk: {
+      input: UpdateMicrosoftTeamsChannelConfigurationCommandInput;
+      output: UpdateMicrosoftTeamsChannelConfigurationCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupCertificateAuthoritiesCommand)
   .de(de_ListGroupCertificateAuthoritiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupCertificateAuthoritiesRequest;
+      output: ListGroupCertificateAuthoritiesResponse;
+    };
+    sdk: {
+      input: ListGroupCertificateAuthoritiesCommandInput;
+      output: ListGroupCertificateAuthoritiesCommandOutput;
+    };
+  };
+}

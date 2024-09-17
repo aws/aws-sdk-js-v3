@@ -101,4 +101,16 @@ export class DisassociateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateResolverRuleCommand)
   .de(de_DisassociateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateResolverRuleRequest;
+      output: DisassociateResolverRuleResponse;
+    };
+    sdk: {
+      input: DisassociateResolverRuleCommandInput;
+      output: DisassociateResolverRuleCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ListContainersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContainersCommand)
   .de(de_ListContainersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContainersInput;
+      output: ListContainersOutput;
+    };
+    sdk: {
+      input: ListContainersCommandInput;
+      output: ListContainersCommandOutput;
+    };
+  };
+}

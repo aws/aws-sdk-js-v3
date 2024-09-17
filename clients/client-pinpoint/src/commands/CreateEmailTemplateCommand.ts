@@ -113,4 +113,16 @@ export class CreateEmailTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEmailTemplateCommand)
   .de(de_CreateEmailTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEmailTemplateRequest;
+      output: CreateEmailTemplateResponse;
+    };
+    sdk: {
+      input: CreateEmailTemplateCommandInput;
+      output: CreateEmailTemplateCommandOutput;
+    };
+  };
+}

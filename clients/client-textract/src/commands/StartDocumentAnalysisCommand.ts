@@ -191,4 +191,16 @@ export class StartDocumentAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDocumentAnalysisCommand)
   .de(de_StartDocumentAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDocumentAnalysisRequest;
+      output: StartDocumentAnalysisResponse;
+    };
+    sdk: {
+      input: StartDocumentAnalysisCommandInput;
+      output: StartDocumentAnalysisCommandOutput;
+    };
+  };
+}

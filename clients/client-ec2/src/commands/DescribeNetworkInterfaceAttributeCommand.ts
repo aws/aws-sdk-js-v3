@@ -202,4 +202,16 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkInterfaceAttributeCommand)
   .de(de_DescribeNetworkInterfaceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkInterfaceAttributeRequest;
+      output: DescribeNetworkInterfaceAttributeResult;
+    };
+    sdk: {
+      input: DescribeNetworkInterfaceAttributeCommandInput;
+      output: DescribeNetworkInterfaceAttributeCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class DescribePrincipalMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePrincipalMappingCommand)
   .de(de_DescribePrincipalMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePrincipalMappingRequest;
+      output: DescribePrincipalMappingResponse;
+    };
+    sdk: {
+      input: DescribePrincipalMappingCommandInput;
+      output: DescribePrincipalMappingCommandOutput;
+    };
+  };
+}

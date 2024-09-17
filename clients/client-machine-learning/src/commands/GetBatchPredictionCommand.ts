@@ -103,4 +103,16 @@ export class GetBatchPredictionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBatchPredictionCommand)
   .de(de_GetBatchPredictionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBatchPredictionInput;
+      output: GetBatchPredictionOutput;
+    };
+    sdk: {
+      input: GetBatchPredictionCommandInput;
+      output: GetBatchPredictionCommandOutput;
+    };
+  };
+}

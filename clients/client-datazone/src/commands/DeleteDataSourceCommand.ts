@@ -212,4 +212,16 @@ export class DeleteDataSourceCommand extends $Command
   .f(void 0, DeleteDataSourceOutputFilterSensitiveLog)
   .ser(se_DeleteDataSourceCommand)
   .de(de_DeleteDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSourceInput;
+      output: DeleteDataSourceOutput;
+    };
+    sdk: {
+      input: DeleteDataSourceCommandInput;
+      output: DeleteDataSourceCommandOutput;
+    };
+  };
+}

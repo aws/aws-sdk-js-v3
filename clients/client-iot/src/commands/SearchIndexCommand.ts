@@ -139,4 +139,16 @@ export class SearchIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchIndexCommand)
   .de(de_SearchIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchIndexRequest;
+      output: SearchIndexResponse;
+    };
+    sdk: {
+      input: SearchIndexCommandInput;
+      output: SearchIndexCommandOutput;
+    };
+  };
+}

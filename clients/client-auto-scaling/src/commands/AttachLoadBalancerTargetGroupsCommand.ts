@@ -133,4 +133,16 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachLoadBalancerTargetGroupsCommand)
   .de(de_AttachLoadBalancerTargetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachLoadBalancerTargetGroupsType;
+      output: {};
+    };
+    sdk: {
+      input: AttachLoadBalancerTargetGroupsCommandInput;
+      output: AttachLoadBalancerTargetGroupsCommandOutput;
+    };
+  };
+}

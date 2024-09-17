@@ -111,4 +111,16 @@ export class CreateBackupVaultCommand extends $Command
   .f(CreateBackupVaultInputFilterSensitiveLog, void 0)
   .ser(se_CreateBackupVaultCommand)
   .de(de_CreateBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackupVaultInput;
+      output: CreateBackupVaultOutput;
+    };
+    sdk: {
+      input: CreateBackupVaultCommandInput;
+      output: CreateBackupVaultCommandOutput;
+    };
+  };
+}

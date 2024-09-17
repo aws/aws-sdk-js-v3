@@ -345,4 +345,16 @@ export class CopyObjectCommand extends $Command
   .f(CopyObjectRequestFilterSensitiveLog, CopyObjectOutputFilterSensitiveLog)
   .ser(se_CopyObjectCommand)
   .de(de_CopyObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyObjectRequest;
+      output: CopyObjectOutput;
+    };
+    sdk: {
+      input: CopyObjectCommandInput;
+      output: CopyObjectCommandOutput;
+    };
+  };
+}

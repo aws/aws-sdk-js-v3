@@ -145,4 +145,16 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSubscriptionGrantStatusCommand)
   .de(de_UpdateSubscriptionGrantStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriptionGrantStatusInput;
+      output: UpdateSubscriptionGrantStatusOutput;
+    };
+    sdk: {
+      input: UpdateSubscriptionGrantStatusCommandInput;
+      output: UpdateSubscriptionGrantStatusCommandOutput;
+    };
+  };
+}

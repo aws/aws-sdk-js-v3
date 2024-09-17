@@ -74,4 +74,16 @@ export class HttpPrefixHeadersInResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPrefixHeadersInResponseCommand)
   .de(de_HttpPrefixHeadersInResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: HttpPrefixHeadersInResponseOutput;
+    };
+    sdk: {
+      input: HttpPrefixHeadersInResponseCommandInput;
+      output: HttpPrefixHeadersInResponseCommandOutput;
+    };
+  };
+}

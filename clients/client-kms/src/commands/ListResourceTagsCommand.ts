@@ -168,4 +168,16 @@ export class ListResourceTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceTagsCommand)
   .de(de_ListResourceTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceTagsRequest;
+      output: ListResourceTagsResponse;
+    };
+    sdk: {
+      input: ListResourceTagsCommandInput;
+      output: ListResourceTagsCommandOutput;
+    };
+  };
+}

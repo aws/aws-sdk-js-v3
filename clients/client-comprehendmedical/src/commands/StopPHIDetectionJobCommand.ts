@@ -92,4 +92,16 @@ export class StopPHIDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopPHIDetectionJobCommand)
   .de(de_StopPHIDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopPHIDetectionJobRequest;
+      output: StopPHIDetectionJobResponse;
+    };
+    sdk: {
+      input: StopPHIDetectionJobCommandInput;
+      output: StopPHIDetectionJobCommandOutput;
+    };
+  };
+}

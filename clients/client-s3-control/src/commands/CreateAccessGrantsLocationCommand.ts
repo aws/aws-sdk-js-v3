@@ -123,4 +123,16 @@ export class CreateAccessGrantsLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessGrantsLocationCommand)
   .de(de_CreateAccessGrantsLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessGrantsLocationRequest;
+      output: CreateAccessGrantsLocationResult;
+    };
+    sdk: {
+      input: CreateAccessGrantsLocationCommandInput;
+      output: CreateAccessGrantsLocationCommandOutput;
+    };
+  };
+}

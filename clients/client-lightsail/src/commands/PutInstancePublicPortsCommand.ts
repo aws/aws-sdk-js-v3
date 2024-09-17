@@ -147,4 +147,16 @@ export class PutInstancePublicPortsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInstancePublicPortsCommand)
   .de(de_PutInstancePublicPortsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInstancePublicPortsRequest;
+      output: PutInstancePublicPortsResult;
+    };
+    sdk: {
+      input: PutInstancePublicPortsCommandInput;
+      output: PutInstancePublicPortsCommandOutput;
+    };
+  };
+}

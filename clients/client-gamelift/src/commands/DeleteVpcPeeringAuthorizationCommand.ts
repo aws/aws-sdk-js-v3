@@ -102,4 +102,16 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVpcPeeringAuthorizationCommand)
   .de(de_DeleteVpcPeeringAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVpcPeeringAuthorizationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVpcPeeringAuthorizationCommandInput;
+      output: DeleteVpcPeeringAuthorizationCommandOutput;
+    };
+  };
+}

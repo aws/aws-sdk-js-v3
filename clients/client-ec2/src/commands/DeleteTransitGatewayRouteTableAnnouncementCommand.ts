@@ -104,4 +104,16 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayRouteTableAnnouncementCommand)
   .de(de_DeleteTransitGatewayRouteTableAnnouncementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayRouteTableAnnouncementRequest;
+      output: DeleteTransitGatewayRouteTableAnnouncementResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayRouteTableAnnouncementCommandInput;
+      output: DeleteTransitGatewayRouteTableAnnouncementCommandOutput;
+    };
+  };
+}

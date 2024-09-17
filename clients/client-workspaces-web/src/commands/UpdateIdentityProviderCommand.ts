@@ -110,4 +110,16 @@ export class UpdateIdentityProviderCommand extends $Command
   .f(UpdateIdentityProviderRequestFilterSensitiveLog, UpdateIdentityProviderResponseFilterSensitiveLog)
   .ser(se_UpdateIdentityProviderCommand)
   .de(de_UpdateIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentityProviderRequest;
+      output: UpdateIdentityProviderResponse;
+    };
+    sdk: {
+      input: UpdateIdentityProviderCommandInput;
+      output: UpdateIdentityProviderCommandOutput;
+    };
+  };
+}

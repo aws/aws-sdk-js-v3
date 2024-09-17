@@ -84,4 +84,16 @@ export class DeleteNamedQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNamedQueryCommand)
   .de(de_DeleteNamedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNamedQueryInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNamedQueryCommandInput;
+      output: DeleteNamedQueryCommandOutput;
+    };
+  };
+}

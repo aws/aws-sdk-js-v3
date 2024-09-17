@@ -83,4 +83,16 @@ export class StartTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTransactionCommand)
   .de(de_StartTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTransactionRequest;
+      output: StartTransactionResponse;
+    };
+    sdk: {
+      input: StartTransactionCommandInput;
+      output: StartTransactionCommandOutput;
+    };
+  };
+}

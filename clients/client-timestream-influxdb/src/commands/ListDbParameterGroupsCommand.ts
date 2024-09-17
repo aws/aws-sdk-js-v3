@@ -105,4 +105,16 @@ export class ListDbParameterGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDbParameterGroupsCommand)
   .de(de_ListDbParameterGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDbParameterGroupsInput;
+      output: ListDbParameterGroupsOutput;
+    };
+    sdk: {
+      input: ListDbParameterGroupsCommandInput;
+      output: ListDbParameterGroupsCommandOutput;
+    };
+  };
+}

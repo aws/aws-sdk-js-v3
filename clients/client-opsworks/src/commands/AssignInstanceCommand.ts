@@ -101,4 +101,16 @@ export class AssignInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignInstanceCommand)
   .de(de_AssignInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssignInstanceCommandInput;
+      output: AssignInstanceCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class RequestUploadCredentialsCommand extends $Command
   .f(void 0, RequestUploadCredentialsOutputFilterSensitiveLog)
   .ser(se_RequestUploadCredentialsCommand)
   .de(de_RequestUploadCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestUploadCredentialsInput;
+      output: RequestUploadCredentialsOutput;
+    };
+    sdk: {
+      input: RequestUploadCredentialsCommandInput;
+      output: RequestUploadCredentialsCommandOutput;
+    };
+  };
+}

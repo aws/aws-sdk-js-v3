@@ -122,4 +122,16 @@ export class GetModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelVersionCommand)
   .de(de_GetModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelVersionRequest;
+      output: GetModelVersionResult;
+    };
+    sdk: {
+      input: GetModelVersionCommandInput;
+      output: GetModelVersionCommandOutput;
+    };
+  };
+}

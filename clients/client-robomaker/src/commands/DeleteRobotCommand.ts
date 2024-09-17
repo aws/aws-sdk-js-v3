@@ -90,4 +90,16 @@ export class DeleteRobotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRobotCommand)
   .de(de_DeleteRobotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRobotRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRobotCommandInput;
+      output: DeleteRobotCommandOutput;
+    };
+  };
+}

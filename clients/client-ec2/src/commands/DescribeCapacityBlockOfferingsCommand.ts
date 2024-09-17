@@ -103,4 +103,16 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCapacityBlockOfferingsCommand)
   .de(de_DescribeCapacityBlockOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCapacityBlockOfferingsRequest;
+      output: DescribeCapacityBlockOfferingsResult;
+    };
+    sdk: {
+      input: DescribeCapacityBlockOfferingsCommandInput;
+      output: DescribeCapacityBlockOfferingsCommandOutput;
+    };
+  };
+}

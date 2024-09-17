@@ -156,4 +156,16 @@ export class TestAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestAuthorizationCommand)
   .de(de_TestAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestAuthorizationRequest;
+      output: TestAuthorizationResponse;
+    };
+    sdk: {
+      input: TestAuthorizationCommandInput;
+      output: TestAuthorizationCommandOutput;
+    };
+  };
+}

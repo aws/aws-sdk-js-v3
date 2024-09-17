@@ -190,4 +190,16 @@ export class DeleteTaskSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTaskSetCommand)
   .de(de_DeleteTaskSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTaskSetRequest;
+      output: DeleteTaskSetResponse;
+    };
+    sdk: {
+      input: DeleteTaskSetCommandInput;
+      output: DeleteTaskSetCommandOutput;
+    };
+  };
+}

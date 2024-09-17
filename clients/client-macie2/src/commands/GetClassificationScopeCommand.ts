@@ -100,4 +100,16 @@ export class GetClassificationScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClassificationScopeCommand)
   .de(de_GetClassificationScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClassificationScopeRequest;
+      output: GetClassificationScopeResponse;
+    };
+    sdk: {
+      input: GetClassificationScopeCommandInput;
+      output: GetClassificationScopeCommandOutput;
+    };
+  };
+}

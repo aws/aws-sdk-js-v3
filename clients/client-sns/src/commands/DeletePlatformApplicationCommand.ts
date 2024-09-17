@@ -88,4 +88,16 @@ export class DeletePlatformApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlatformApplicationCommand)
   .de(de_DeletePlatformApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlatformApplicationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlatformApplicationCommandInput;
+      output: DeletePlatformApplicationCommandOutput;
+    };
+  };
+}

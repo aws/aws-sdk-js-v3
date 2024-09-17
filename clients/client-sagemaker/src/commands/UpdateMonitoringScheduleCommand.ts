@@ -193,4 +193,16 @@ export class UpdateMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMonitoringScheduleCommand)
   .de(de_UpdateMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMonitoringScheduleRequest;
+      output: UpdateMonitoringScheduleResponse;
+    };
+    sdk: {
+      input: UpdateMonitoringScheduleCommandInput;
+      output: UpdateMonitoringScheduleCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemporaryGluePartitionCredentialsCommand)
   .de(de_GetTemporaryGluePartitionCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemporaryGluePartitionCredentialsRequest;
+      output: GetTemporaryGluePartitionCredentialsResponse;
+    };
+    sdk: {
+      input: GetTemporaryGluePartitionCredentialsCommandInput;
+      output: GetTemporaryGluePartitionCredentialsCommandOutput;
+    };
+  };
+}

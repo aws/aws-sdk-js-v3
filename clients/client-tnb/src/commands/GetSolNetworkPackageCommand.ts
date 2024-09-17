@@ -123,4 +123,16 @@ export class GetSolNetworkPackageCommand extends $Command
   .f(void 0, GetSolNetworkPackageOutputFilterSensitiveLog)
   .ser(se_GetSolNetworkPackageCommand)
   .de(de_GetSolNetworkPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSolNetworkPackageInput;
+      output: GetSolNetworkPackageOutput;
+    };
+    sdk: {
+      input: GetSolNetworkPackageCommandInput;
+      output: GetSolNetworkPackageCommandOutput;
+    };
+  };
+}

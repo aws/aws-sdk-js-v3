@@ -152,4 +152,16 @@ export class GetCurrentMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCurrentMetricDataCommand)
   .de(de_GetCurrentMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCurrentMetricDataRequest;
+      output: GetCurrentMetricDataResponse;
+    };
+    sdk: {
+      input: GetCurrentMetricDataCommandInput;
+      output: GetCurrentMetricDataCommandOutput;
+    };
+  };
+}

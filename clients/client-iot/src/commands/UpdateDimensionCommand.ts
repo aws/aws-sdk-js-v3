@@ -105,4 +105,16 @@ export class UpdateDimensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDimensionCommand)
   .de(de_UpdateDimensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDimensionRequest;
+      output: UpdateDimensionResponse;
+    };
+    sdk: {
+      input: UpdateDimensionCommandInput;
+      output: UpdateDimensionCommandOutput;
+    };
+  };
+}

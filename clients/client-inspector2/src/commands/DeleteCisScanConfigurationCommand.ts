@@ -96,4 +96,16 @@ export class DeleteCisScanConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCisScanConfigurationCommand)
   .de(de_DeleteCisScanConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCisScanConfigurationRequest;
+      output: DeleteCisScanConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteCisScanConfigurationCommandInput;
+      output: DeleteCisScanConfigurationCommandOutput;
+    };
+  };
+}

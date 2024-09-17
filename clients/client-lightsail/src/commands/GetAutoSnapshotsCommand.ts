@@ -118,4 +118,16 @@ export class GetAutoSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoSnapshotsCommand)
   .de(de_GetAutoSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoSnapshotsRequest;
+      output: GetAutoSnapshotsResult;
+    };
+    sdk: {
+      input: GetAutoSnapshotsCommandInput;
+      output: GetAutoSnapshotsCommandOutput;
+    };
+  };
+}

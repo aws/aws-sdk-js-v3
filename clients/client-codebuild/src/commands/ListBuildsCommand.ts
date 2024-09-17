@@ -84,4 +84,16 @@ export class ListBuildsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBuildsCommand)
   .de(de_ListBuildsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBuildsInput;
+      output: ListBuildsOutput;
+    };
+    sdk: {
+      input: ListBuildsCommandInput;
+      output: ListBuildsCommandOutput;
+    };
+  };
+}

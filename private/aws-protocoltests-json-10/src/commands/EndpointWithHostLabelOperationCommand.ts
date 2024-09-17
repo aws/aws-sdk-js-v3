@@ -72,4 +72,16 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EndpointWithHostLabelOperationCommand)
   .de(de_EndpointWithHostLabelOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EndpointWithHostLabelOperationInput;
+      output: {};
+    };
+    sdk: {
+      input: EndpointWithHostLabelOperationCommandInput;
+      output: EndpointWithHostLabelOperationCommandOutput;
+    };
+  };
+}

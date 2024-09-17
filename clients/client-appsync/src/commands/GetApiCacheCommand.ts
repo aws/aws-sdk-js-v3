@@ -102,4 +102,16 @@ export class GetApiCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApiCacheCommand)
   .de(de_GetApiCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApiCacheRequest;
+      output: GetApiCacheResponse;
+    };
+    sdk: {
+      input: GetApiCacheCommandInput;
+      output: GetApiCacheCommandOutput;
+    };
+  };
+}

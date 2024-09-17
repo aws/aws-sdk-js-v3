@@ -105,4 +105,16 @@ export class CancelCertificateTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelCertificateTransferCommand)
   .de(de_CancelCertificateTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelCertificateTransferRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelCertificateTransferCommandInput;
+      output: CancelCertificateTransferCommandOutput;
+    };
+  };
+}

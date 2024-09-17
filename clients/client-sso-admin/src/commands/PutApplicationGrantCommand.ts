@@ -118,4 +118,16 @@ export class PutApplicationGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutApplicationGrantCommand)
   .de(de_PutApplicationGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutApplicationGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutApplicationGrantCommandInput;
+      output: PutApplicationGrantCommandOutput;
+    };
+  };
+}

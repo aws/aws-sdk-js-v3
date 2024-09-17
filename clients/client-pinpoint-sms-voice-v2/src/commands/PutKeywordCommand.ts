@@ -122,4 +122,16 @@ export class PutKeywordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutKeywordCommand)
   .de(de_PutKeywordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutKeywordRequest;
+      output: PutKeywordResult;
+    };
+    sdk: {
+      input: PutKeywordCommandInput;
+      output: PutKeywordCommandOutput;
+    };
+  };
+}

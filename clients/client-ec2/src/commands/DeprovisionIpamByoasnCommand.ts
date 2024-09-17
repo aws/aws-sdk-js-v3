@@ -85,4 +85,16 @@ export class DeprovisionIpamByoasnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeprovisionIpamByoasnCommand)
   .de(de_DeprovisionIpamByoasnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeprovisionIpamByoasnRequest;
+      output: DeprovisionIpamByoasnResult;
+    };
+    sdk: {
+      input: DeprovisionIpamByoasnCommandInput;
+      output: DeprovisionIpamByoasnCommandOutput;
+    };
+  };
+}

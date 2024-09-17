@@ -85,4 +85,16 @@ export class GetAddonSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAddonSubscriptionCommand)
   .de(de_GetAddonSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAddonSubscriptionRequest;
+      output: GetAddonSubscriptionResponse;
+    };
+    sdk: {
+      input: GetAddonSubscriptionCommandInput;
+      output: GetAddonSubscriptionCommandOutput;
+    };
+  };
+}

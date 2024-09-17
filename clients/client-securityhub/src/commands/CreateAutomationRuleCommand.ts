@@ -350,4 +350,16 @@ export class CreateAutomationRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAutomationRuleCommand)
   .de(de_CreateAutomationRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAutomationRuleRequest;
+      output: CreateAutomationRuleResponse;
+    };
+    sdk: {
+      input: CreateAutomationRuleCommandInput;
+      output: CreateAutomationRuleCommandOutput;
+    };
+  };
+}

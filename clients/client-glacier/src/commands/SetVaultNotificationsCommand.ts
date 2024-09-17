@@ -151,4 +151,16 @@ export class SetVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetVaultNotificationsCommand)
   .de(de_SetVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: SetVaultNotificationsCommandInput;
+      output: SetVaultNotificationsCommandOutput;
+    };
+  };
+}

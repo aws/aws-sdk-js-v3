@@ -112,4 +112,16 @@ export class DescribeBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBuildCommand)
   .de(de_DescribeBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBuildInput;
+      output: DescribeBuildOutput;
+    };
+    sdk: {
+      input: DescribeBuildCommandInput;
+      output: DescribeBuildCommandOutput;
+    };
+  };
+}

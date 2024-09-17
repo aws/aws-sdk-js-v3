@@ -140,4 +140,16 @@ export class CreateInferenceSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInferenceSchedulerCommand)
   .de(de_CreateInferenceSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInferenceSchedulerRequest;
+      output: CreateInferenceSchedulerResponse;
+    };
+    sdk: {
+      input: CreateInferenceSchedulerCommandInput;
+      output: CreateInferenceSchedulerCommandOutput;
+    };
+  };
+}

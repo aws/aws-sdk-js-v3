@@ -140,4 +140,16 @@ export class DetachInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachInstancesCommand)
   .de(de_DetachInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachInstancesQuery;
+      output: DetachInstancesAnswer;
+    };
+    sdk: {
+      input: DetachInstancesCommandInput;
+      output: DetachInstancesCommandOutput;
+    };
+  };
+}

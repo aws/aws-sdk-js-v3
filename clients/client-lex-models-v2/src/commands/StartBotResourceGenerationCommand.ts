@@ -115,4 +115,16 @@ export class StartBotResourceGenerationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBotResourceGenerationCommand)
   .de(de_StartBotResourceGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBotResourceGenerationRequest;
+      output: StartBotResourceGenerationResponse;
+    };
+    sdk: {
+      input: StartBotResourceGenerationCommandInput;
+      output: StartBotResourceGenerationCommandOutput;
+    };
+  };
+}

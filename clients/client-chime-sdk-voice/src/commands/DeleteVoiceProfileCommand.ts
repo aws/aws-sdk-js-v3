@@ -102,4 +102,16 @@ export class DeleteVoiceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceProfileCommand)
   .de(de_DeleteVoiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceProfileCommandInput;
+      output: DeleteVoiceProfileCommandOutput;
+    };
+  };
+}

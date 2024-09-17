@@ -152,4 +152,16 @@ export class AssociateIdentityProviderConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateIdentityProviderConfigCommand)
   .de(de_AssociateIdentityProviderConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateIdentityProviderConfigRequest;
+      output: AssociateIdentityProviderConfigResponse;
+    };
+    sdk: {
+      input: AssociateIdentityProviderConfigCommandInput;
+      output: AssociateIdentityProviderConfigCommandOutput;
+    };
+  };
+}

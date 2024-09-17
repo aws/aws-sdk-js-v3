@@ -124,4 +124,16 @@ export class GetRecommenderConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommenderConfigurationsCommand)
   .de(de_GetRecommenderConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommenderConfigurationsRequest;
+      output: GetRecommenderConfigurationsResponse;
+    };
+    sdk: {
+      input: GetRecommenderConfigurationsCommandInput;
+      output: GetRecommenderConfigurationsCommandOutput;
+    };
+  };
+}

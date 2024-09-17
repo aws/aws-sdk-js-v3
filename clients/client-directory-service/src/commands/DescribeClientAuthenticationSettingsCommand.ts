@@ -114,4 +114,16 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientAuthenticationSettingsCommand)
   .de(de_DescribeClientAuthenticationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientAuthenticationSettingsRequest;
+      output: DescribeClientAuthenticationSettingsResult;
+    };
+    sdk: {
+      input: DescribeClientAuthenticationSettingsCommandInput;
+      output: DescribeClientAuthenticationSettingsCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class GetSatelliteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSatelliteCommand)
   .de(de_GetSatelliteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSatelliteRequest;
+      output: GetSatelliteResponse;
+    };
+    sdk: {
+      input: GetSatelliteCommandInput;
+      output: GetSatelliteCommandOutput;
+    };
+  };
+}

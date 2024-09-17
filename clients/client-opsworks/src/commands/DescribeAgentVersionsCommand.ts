@@ -97,4 +97,16 @@ export class DescribeAgentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAgentVersionsCommand)
   .de(de_DescribeAgentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgentVersionsRequest;
+      output: DescribeAgentVersionsResult;
+    };
+    sdk: {
+      input: DescribeAgentVersionsCommandInput;
+      output: DescribeAgentVersionsCommandOutput;
+    };
+  };
+}

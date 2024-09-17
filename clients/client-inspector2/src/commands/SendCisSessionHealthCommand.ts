@@ -99,4 +99,16 @@ export class SendCisSessionHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendCisSessionHealthCommand)
   .de(de_SendCisSessionHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendCisSessionHealthRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendCisSessionHealthCommandInput;
+      output: SendCisSessionHealthCommandOutput;
+    };
+  };
+}

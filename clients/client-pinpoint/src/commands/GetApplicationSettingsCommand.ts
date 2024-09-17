@@ -125,4 +125,16 @@ export class GetApplicationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApplicationSettingsCommand)
   .de(de_GetApplicationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationSettingsRequest;
+      output: GetApplicationSettingsResponse;
+    };
+    sdk: {
+      input: GetApplicationSettingsCommandInput;
+      output: GetApplicationSettingsCommandOutput;
+    };
+  };
+}

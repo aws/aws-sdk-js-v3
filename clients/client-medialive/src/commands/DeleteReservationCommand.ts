@@ -133,4 +133,16 @@ export class DeleteReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReservationCommand)
   .de(de_DeleteReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReservationRequest;
+      output: DeleteReservationResponse;
+    };
+    sdk: {
+      input: DeleteReservationCommandInput;
+      output: DeleteReservationCommandOutput;
+    };
+  };
+}

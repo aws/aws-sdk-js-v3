@@ -116,4 +116,16 @@ export class GetEnabledControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEnabledControlCommand)
   .de(de_GetEnabledControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnabledControlInput;
+      output: GetEnabledControlOutput;
+    };
+    sdk: {
+      input: GetEnabledControlCommandInput;
+      output: GetEnabledControlCommandOutput;
+    };
+  };
+}

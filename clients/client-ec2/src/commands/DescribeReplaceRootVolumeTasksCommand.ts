@@ -114,4 +114,16 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplaceRootVolumeTasksCommand)
   .de(de_DescribeReplaceRootVolumeTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplaceRootVolumeTasksRequest;
+      output: DescribeReplaceRootVolumeTasksResult;
+    };
+    sdk: {
+      input: DescribeReplaceRootVolumeTasksCommandInput;
+      output: DescribeReplaceRootVolumeTasksCommandOutput;
+    };
+  };
+}

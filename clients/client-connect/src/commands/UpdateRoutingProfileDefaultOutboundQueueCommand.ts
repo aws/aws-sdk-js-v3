@@ -96,4 +96,16 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingProfileDefaultOutboundQueueCommand)
   .de(de_UpdateRoutingProfileDefaultOutboundQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingProfileDefaultOutboundQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingProfileDefaultOutboundQueueCommandInput;
+      output: UpdateRoutingProfileDefaultOutboundQueueCommandOutput;
+    };
+  };
+}

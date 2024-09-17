@@ -86,4 +86,16 @@ export class DeleteClientVpnRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClientVpnRouteCommand)
   .de(de_DeleteClientVpnRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClientVpnRouteRequest;
+      output: DeleteClientVpnRouteResult;
+    };
+    sdk: {
+      input: DeleteClientVpnRouteCommandInput;
+      output: DeleteClientVpnRouteCommandOutput;
+    };
+  };
+}

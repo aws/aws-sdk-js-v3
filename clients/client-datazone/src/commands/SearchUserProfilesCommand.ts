@@ -122,4 +122,16 @@ export class SearchUserProfilesCommand extends $Command
   .f(SearchUserProfilesInputFilterSensitiveLog, SearchUserProfilesOutputFilterSensitiveLog)
   .ser(se_SearchUserProfilesCommand)
   .de(de_SearchUserProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchUserProfilesInput;
+      output: SearchUserProfilesOutput;
+    };
+    sdk: {
+      input: SearchUserProfilesCommandInput;
+      output: SearchUserProfilesCommandOutput;
+    };
+  };
+}

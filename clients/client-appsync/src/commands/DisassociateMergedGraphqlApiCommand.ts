@@ -101,4 +101,16 @@ export class DisassociateMergedGraphqlApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMergedGraphqlApiCommand)
   .de(de_DisassociateMergedGraphqlApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMergedGraphqlApiRequest;
+      output: DisassociateMergedGraphqlApiResponse;
+    };
+    sdk: {
+      input: DisassociateMergedGraphqlApiCommandInput;
+      output: DisassociateMergedGraphqlApiCommandOutput;
+    };
+  };
+}

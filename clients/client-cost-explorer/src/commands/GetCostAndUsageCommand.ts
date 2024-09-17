@@ -222,4 +222,16 @@ export class GetCostAndUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostAndUsageCommand)
   .de(de_GetCostAndUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostAndUsageRequest;
+      output: GetCostAndUsageResponse;
+    };
+    sdk: {
+      input: GetCostAndUsageCommandInput;
+      output: GetCostAndUsageCommandOutput;
+    };
+  };
+}

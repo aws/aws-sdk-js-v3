@@ -85,4 +85,16 @@ export class ConfirmCustomerAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmCustomerAgreementCommand)
   .de(de_ConfirmCustomerAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmCustomerAgreementRequest;
+      output: ConfirmCustomerAgreementResponse;
+    };
+    sdk: {
+      input: ConfirmCustomerAgreementCommandInput;
+      output: ConfirmCustomerAgreementCommandOutput;
+    };
+  };
+}

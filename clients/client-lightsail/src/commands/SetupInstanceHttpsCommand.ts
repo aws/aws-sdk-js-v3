@@ -130,4 +130,16 @@ export class SetupInstanceHttpsCommand extends $Command
   .f(SetupInstanceHttpsRequestFilterSensitiveLog, void 0)
   .ser(se_SetupInstanceHttpsCommand)
   .de(de_SetupInstanceHttpsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetupInstanceHttpsRequest;
+      output: SetupInstanceHttpsResult;
+    };
+    sdk: {
+      input: SetupInstanceHttpsCommandInput;
+      output: SetupInstanceHttpsCommandOutput;
+    };
+  };
+}

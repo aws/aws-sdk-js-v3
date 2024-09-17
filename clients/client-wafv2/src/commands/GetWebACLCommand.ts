@@ -1289,4 +1289,16 @@ export class GetWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLCommand)
   .de(de_GetWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLRequest;
+      output: GetWebACLResponse;
+    };
+    sdk: {
+      input: GetWebACLCommandInput;
+      output: GetWebACLCommandOutput;
+    };
+  };
+}

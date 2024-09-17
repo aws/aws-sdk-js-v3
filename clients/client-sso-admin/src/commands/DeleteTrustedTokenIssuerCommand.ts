@@ -101,4 +101,16 @@ export class DeleteTrustedTokenIssuerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrustedTokenIssuerCommand)
   .de(de_DeleteTrustedTokenIssuerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrustedTokenIssuerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTrustedTokenIssuerCommandInput;
+      output: DeleteTrustedTokenIssuerCommandOutput;
+    };
+  };
+}

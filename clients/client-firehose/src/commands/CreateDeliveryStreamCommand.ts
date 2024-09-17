@@ -658,4 +658,16 @@ export class CreateDeliveryStreamCommand extends $Command
   .f(CreateDeliveryStreamInputFilterSensitiveLog, void 0)
   .ser(se_CreateDeliveryStreamCommand)
   .de(de_CreateDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeliveryStreamInput;
+      output: CreateDeliveryStreamOutput;
+    };
+    sdk: {
+      input: CreateDeliveryStreamCommandInput;
+      output: CreateDeliveryStreamCommandOutput;
+    };
+  };
+}

@@ -208,4 +208,16 @@ export class GetCrawlersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCrawlersCommand)
   .de(de_GetCrawlersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCrawlersRequest;
+      output: GetCrawlersResponse;
+    };
+    sdk: {
+      input: GetCrawlersCommandInput;
+      output: GetCrawlersCommandOutput;
+    };
+  };
+}

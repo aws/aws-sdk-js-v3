@@ -101,4 +101,16 @@ export class CreateCrossAccountAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCrossAccountAuthorizationCommand)
   .de(de_CreateCrossAccountAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCrossAccountAuthorizationRequest;
+      output: CreateCrossAccountAuthorizationResponse;
+    };
+    sdk: {
+      input: CreateCrossAccountAuthorizationCommandInput;
+      output: CreateCrossAccountAuthorizationCommandOutput;
+    };
+  };
+}

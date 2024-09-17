@@ -95,4 +95,16 @@ export class GetCoreDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreDefinitionVersionCommand)
   .de(de_GetCoreDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreDefinitionVersionRequest;
+      output: GetCoreDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetCoreDefinitionVersionCommandInput;
+      output: GetCoreDefinitionVersionCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class AttachObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachObjectCommand)
   .de(de_AttachObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachObjectRequest;
+      output: AttachObjectResponse;
+    };
+    sdk: {
+      input: AttachObjectCommandInput;
+      output: AttachObjectCommandOutput;
+    };
+  };
+}

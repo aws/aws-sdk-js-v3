@@ -127,4 +127,16 @@ export class PutSolNetworkPackageContentCommand extends $Command
   .f(PutSolNetworkPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_PutSolNetworkPackageContentCommand)
   .de(de_PutSolNetworkPackageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSolNetworkPackageContentInput;
+      output: PutSolNetworkPackageContentOutput;
+    };
+    sdk: {
+      input: PutSolNetworkPackageContentCommandInput;
+      output: PutSolNetworkPackageContentCommandOutput;
+    };
+  };
+}

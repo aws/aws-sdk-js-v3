@@ -100,4 +100,16 @@ export class DescribeApplicationSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationSnapshotCommand)
   .de(de_DescribeApplicationSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationSnapshotRequest;
+      output: DescribeApplicationSnapshotResponse;
+    };
+    sdk: {
+      input: DescribeApplicationSnapshotCommandInput;
+      output: DescribeApplicationSnapshotCommandOutput;
+    };
+  };
+}

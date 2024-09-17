@@ -107,4 +107,16 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutStorageLensConfigurationTaggingCommand)
   .de(de_PutStorageLensConfigurationTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutStorageLensConfigurationTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutStorageLensConfigurationTaggingCommandInput;
+      output: PutStorageLensConfigurationTaggingCommandOutput;
+    };
+  };
+}

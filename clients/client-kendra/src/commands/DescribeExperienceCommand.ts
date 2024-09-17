@@ -129,4 +129,16 @@ export class DescribeExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExperienceCommand)
   .de(de_DescribeExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExperienceRequest;
+      output: DescribeExperienceResponse;
+    };
+    sdk: {
+      input: DescribeExperienceCommandInput;
+      output: DescribeExperienceCommandOutput;
+    };
+  };
+}

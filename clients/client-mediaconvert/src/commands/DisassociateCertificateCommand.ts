@@ -93,4 +93,16 @@ export class DisassociateCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateCertificateCommand)
   .de(de_DisassociateCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateCertificateCommandInput;
+      output: DisassociateCertificateCommandOutput;
+    };
+  };
+}

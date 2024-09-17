@@ -89,4 +89,16 @@ export class ResumeResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeResourceCommand)
   .de(de_ResumeResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeResourceCommandInput;
+      output: ResumeResourceCommandOutput;
+    };
+  };
+}

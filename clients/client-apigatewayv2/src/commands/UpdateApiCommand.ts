@@ -151,4 +151,16 @@ export class UpdateApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApiCommand)
   .de(de_UpdateApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApiRequest;
+      output: UpdateApiResponse;
+    };
+    sdk: {
+      input: UpdateApiCommandInput;
+      output: UpdateApiCommandOutput;
+    };
+  };
+}

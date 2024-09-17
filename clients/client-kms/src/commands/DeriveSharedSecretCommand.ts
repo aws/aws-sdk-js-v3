@@ -266,4 +266,16 @@ export class DeriveSharedSecretCommand extends $Command
   .f(void 0, DeriveSharedSecretResponseFilterSensitiveLog)
   .ser(se_DeriveSharedSecretCommand)
   .de(de_DeriveSharedSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeriveSharedSecretRequest;
+      output: DeriveSharedSecretResponse;
+    };
+    sdk: {
+      input: DeriveSharedSecretCommandInput;
+      output: DeriveSharedSecretCommandOutput;
+    };
+  };
+}

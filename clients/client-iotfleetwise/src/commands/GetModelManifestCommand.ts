@@ -98,4 +98,16 @@ export class GetModelManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelManifestCommand)
   .de(de_GetModelManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelManifestRequest;
+      output: GetModelManifestResponse;
+    };
+    sdk: {
+      input: GetModelManifestCommandInput;
+      output: GetModelManifestCommandOutput;
+    };
+  };
+}

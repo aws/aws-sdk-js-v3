@@ -97,4 +97,16 @@ export class DeleteControlPanelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteControlPanelCommand)
   .de(de_DeleteControlPanelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteControlPanelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteControlPanelCommandInput;
+      output: DeleteControlPanelCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class ListTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTargetsCommand)
   .de(de_ListTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTargetsRequest;
+      output: ListTargetsResponse;
+    };
+    sdk: {
+      input: ListTargetsCommandInput;
+      output: ListTargetsCommandOutput;
+    };
+  };
+}

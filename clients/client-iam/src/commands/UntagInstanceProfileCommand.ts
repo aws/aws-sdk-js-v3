@@ -95,4 +95,16 @@ export class UntagInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagInstanceProfileCommand)
   .de(de_UntagInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagInstanceProfileCommandInput;
+      output: UntagInstanceProfileCommandOutput;
+    };
+  };
+}

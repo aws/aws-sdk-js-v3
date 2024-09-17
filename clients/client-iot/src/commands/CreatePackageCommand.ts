@@ -106,4 +106,16 @@ export class CreatePackageCommand extends $Command
   .f(CreatePackageRequestFilterSensitiveLog, CreatePackageResponseFilterSensitiveLog)
   .ser(se_CreatePackageCommand)
   .de(de_CreatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageRequest;
+      output: CreatePackageResponse;
+    };
+    sdk: {
+      input: CreatePackageCommandInput;
+      output: CreatePackageCommandOutput;
+    };
+  };
+}

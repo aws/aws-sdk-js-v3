@@ -94,4 +94,16 @@ export class DeleteReceiptRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReceiptRuleCommand)
   .de(de_DeleteReceiptRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReceiptRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReceiptRuleCommandInput;
+      output: DeleteReceiptRuleCommandOutput;
+    };
+  };
+}

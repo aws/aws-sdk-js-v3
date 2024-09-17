@@ -140,4 +140,16 @@ export class GetCommandInvocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommandInvocationCommand)
   .de(de_GetCommandInvocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommandInvocationRequest;
+      output: GetCommandInvocationResult;
+    };
+    sdk: {
+      input: GetCommandInvocationCommandInput;
+      output: GetCommandInvocationCommandOutput;
+    };
+  };
+}

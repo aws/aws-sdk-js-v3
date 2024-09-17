@@ -120,4 +120,16 @@ export class GetBotAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBotAliasesCommand)
   .de(de_GetBotAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotAliasesRequest;
+      output: GetBotAliasesResponse;
+    };
+    sdk: {
+      input: GetBotAliasesCommandInput;
+      output: GetBotAliasesCommandOutput;
+    };
+  };
+}

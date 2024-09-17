@@ -183,4 +183,16 @@ export class ListImageScanFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageScanFindingsCommand)
   .de(de_ListImageScanFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageScanFindingsRequest;
+      output: ListImageScanFindingsResponse;
+    };
+    sdk: {
+      input: ListImageScanFindingsCommandInput;
+      output: ListImageScanFindingsCommandOutput;
+    };
+  };
+}

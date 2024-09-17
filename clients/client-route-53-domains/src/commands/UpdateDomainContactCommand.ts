@@ -193,4 +193,16 @@ export class UpdateDomainContactCommand extends $Command
   .f(UpdateDomainContactRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDomainContactCommand)
   .de(de_UpdateDomainContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainContactRequest;
+      output: UpdateDomainContactResponse;
+    };
+    sdk: {
+      input: UpdateDomainContactCommandInput;
+      output: UpdateDomainContactCommandOutput;
+    };
+  };
+}

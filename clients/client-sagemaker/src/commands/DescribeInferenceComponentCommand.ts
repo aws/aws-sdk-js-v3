@@ -113,4 +113,16 @@ export class DescribeInferenceComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInferenceComponentCommand)
   .de(de_DescribeInferenceComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInferenceComponentInput;
+      output: DescribeInferenceComponentOutput;
+    };
+    sdk: {
+      input: DescribeInferenceComponentCommandInput;
+      output: DescribeInferenceComponentCommandOutput;
+    };
+  };
+}

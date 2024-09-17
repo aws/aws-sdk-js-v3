@@ -115,4 +115,16 @@ export class CreateVerifiedAccessInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVerifiedAccessInstanceCommand)
   .de(de_CreateVerifiedAccessInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVerifiedAccessInstanceRequest;
+      output: CreateVerifiedAccessInstanceResult;
+    };
+    sdk: {
+      input: CreateVerifiedAccessInstanceCommandInput;
+      output: CreateVerifiedAccessInstanceCommandOutput;
+    };
+  };
+}

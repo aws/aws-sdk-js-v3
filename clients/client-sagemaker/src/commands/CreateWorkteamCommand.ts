@@ -120,4 +120,16 @@ export class CreateWorkteamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkteamCommand)
   .de(de_CreateWorkteamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkteamRequest;
+      output: CreateWorkteamResponse;
+    };
+    sdk: {
+      input: CreateWorkteamCommandInput;
+      output: CreateWorkteamCommandOutput;
+    };
+  };
+}

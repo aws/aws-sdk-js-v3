@@ -89,4 +89,16 @@ export class DeleteDataflowEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataflowEndpointGroupCommand)
   .de(de_DeleteDataflowEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataflowEndpointGroupRequest;
+      output: DataflowEndpointGroupIdResponse;
+    };
+    sdk: {
+      input: DeleteDataflowEndpointGroupCommandInput;
+      output: DeleteDataflowEndpointGroupCommandOutput;
+    };
+  };
+}

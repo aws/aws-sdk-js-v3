@@ -839,4 +839,16 @@ export class ChangeResourceRecordSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ChangeResourceRecordSetsCommand)
   .de(de_ChangeResourceRecordSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangeResourceRecordSetsRequest;
+      output: ChangeResourceRecordSetsResponse;
+    };
+    sdk: {
+      input: ChangeResourceRecordSetsCommandInput;
+      output: ChangeResourceRecordSetsCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class TerminateWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateWorkflowExecutionCommand)
   .de(de_TerminateWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateWorkflowExecutionInput;
+      output: {};
+    };
+    sdk: {
+      input: TerminateWorkflowExecutionCommandInput;
+      output: TerminateWorkflowExecutionCommandOutput;
+    };
+  };
+}

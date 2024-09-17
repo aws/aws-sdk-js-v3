@@ -136,4 +136,16 @@ export class PutTemplateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutTemplateActionCommand)
   .de(de_PutTemplateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTemplateActionRequest;
+      output: TemplateActionDocument;
+    };
+    sdk: {
+      input: PutTemplateActionCommandInput;
+      output: PutTemplateActionCommandOutput;
+    };
+  };
+}

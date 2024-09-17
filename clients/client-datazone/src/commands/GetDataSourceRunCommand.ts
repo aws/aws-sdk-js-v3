@@ -123,4 +123,16 @@ export class GetDataSourceRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSourceRunCommand)
   .de(de_GetDataSourceRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSourceRunInput;
+      output: GetDataSourceRunOutput;
+    };
+    sdk: {
+      input: GetDataSourceRunCommandInput;
+      output: GetDataSourceRunCommandOutput;
+    };
+  };
+}

@@ -176,4 +176,16 @@ export class DescribeLayersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLayersCommand)
   .de(de_DescribeLayersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLayersRequest;
+      output: DescribeLayersResult;
+    };
+    sdk: {
+      input: DescribeLayersCommandInput;
+      output: DescribeLayersCommandOutput;
+    };
+  };
+}

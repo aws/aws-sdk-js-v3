@@ -171,4 +171,16 @@ export class GetInAppTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInAppTemplateCommand)
   .de(de_GetInAppTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInAppTemplateRequest;
+      output: GetInAppTemplateResponse;
+    };
+    sdk: {
+      input: GetInAppTemplateCommandInput;
+      output: GetInAppTemplateCommandOutput;
+    };
+  };
+}

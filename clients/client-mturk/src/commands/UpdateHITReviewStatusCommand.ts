@@ -86,4 +86,16 @@ export class UpdateHITReviewStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHITReviewStatusCommand)
   .de(de_UpdateHITReviewStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHITReviewStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateHITReviewStatusCommandInput;
+      output: UpdateHITReviewStatusCommandOutput;
+    };
+  };
+}

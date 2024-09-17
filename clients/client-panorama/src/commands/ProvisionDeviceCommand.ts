@@ -132,4 +132,16 @@ export class ProvisionDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ProvisionDeviceCommand)
   .de(de_ProvisionDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ProvisionDeviceRequest;
+      output: ProvisionDeviceResponse;
+    };
+    sdk: {
+      input: ProvisionDeviceCommandInput;
+      output: ProvisionDeviceCommandOutput;
+    };
+  };
+}

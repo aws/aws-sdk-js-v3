@@ -133,4 +133,16 @@ export class MoveReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MoveReplicationTaskCommand)
   .de(de_MoveReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MoveReplicationTaskMessage;
+      output: MoveReplicationTaskResponse;
+    };
+    sdk: {
+      input: MoveReplicationTaskCommandInput;
+      output: MoveReplicationTaskCommandOutput;
+    };
+  };
+}

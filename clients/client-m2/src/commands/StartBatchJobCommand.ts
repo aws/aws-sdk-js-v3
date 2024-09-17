@@ -125,4 +125,16 @@ export class StartBatchJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBatchJobCommand)
   .de(de_StartBatchJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBatchJobRequest;
+      output: StartBatchJobResponse;
+    };
+    sdk: {
+      input: StartBatchJobCommandInput;
+      output: StartBatchJobCommandOutput;
+    };
+  };
+}

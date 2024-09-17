@@ -100,4 +100,16 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEmailMonitoringConfigurationCommand)
   .de(de_DescribeEmailMonitoringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEmailMonitoringConfigurationRequest;
+      output: DescribeEmailMonitoringConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeEmailMonitoringConfigurationCommandInput;
+      output: DescribeEmailMonitoringConfigurationCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class ListArchiveExportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArchiveExportsCommand)
   .de(de_ListArchiveExportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArchiveExportsRequest;
+      output: ListArchiveExportsResponse;
+    };
+    sdk: {
+      input: ListArchiveExportsCommandInput;
+      output: ListArchiveExportsCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class SendTaskFailureCommand extends $Command
   .f(SendTaskFailureInputFilterSensitiveLog, void 0)
   .ser(se_SendTaskFailureCommand)
   .de(de_SendTaskFailureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTaskFailureInput;
+      output: {};
+    };
+    sdk: {
+      input: SendTaskFailureCommandInput;
+      output: SendTaskFailureCommandOutput;
+    };
+  };
+}

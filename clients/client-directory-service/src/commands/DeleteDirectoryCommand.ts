@@ -90,4 +90,16 @@ export class DeleteDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectoryCommand)
   .de(de_DeleteDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectoryRequest;
+      output: DeleteDirectoryResult;
+    };
+    sdk: {
+      input: DeleteDirectoryCommandInput;
+      output: DeleteDirectoryCommandOutput;
+    };
+  };
+}

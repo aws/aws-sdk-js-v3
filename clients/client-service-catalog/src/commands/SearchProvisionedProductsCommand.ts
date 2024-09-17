@@ -122,4 +122,16 @@ export class SearchProvisionedProductsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchProvisionedProductsCommand)
   .de(de_SearchProvisionedProductsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchProvisionedProductsInput;
+      output: SearchProvisionedProductsOutput;
+    };
+    sdk: {
+      input: SearchProvisionedProductsCommandInput;
+      output: SearchProvisionedProductsCommandOutput;
+    };
+  };
+}

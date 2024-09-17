@@ -603,4 +603,16 @@ export class CreateVirtualNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVirtualNodeCommand)
   .de(de_CreateVirtualNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVirtualNodeInput;
+      output: CreateVirtualNodeOutput;
+    };
+    sdk: {
+      input: CreateVirtualNodeCommandInput;
+      output: CreateVirtualNodeCommandOutput;
+    };
+  };
+}

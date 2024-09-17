@@ -91,4 +91,16 @@ export class DeleteGatewayResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGatewayResponseCommand)
   .de(de_DeleteGatewayResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGatewayResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGatewayResponseCommandInput;
+      output: DeleteGatewayResponseCommandOutput;
+    };
+  };
+}

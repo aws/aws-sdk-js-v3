@@ -145,4 +145,16 @@ export class UpdateSecurityControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityControlCommand)
   .de(de_UpdateSecurityControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSecurityControlCommandInput;
+      output: UpdateSecurityControlCommandOutput;
+    };
+  };
+}

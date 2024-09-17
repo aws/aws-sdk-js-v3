@@ -94,4 +94,16 @@ export class DeleteTrustCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrustCommand)
   .de(de_DeleteTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrustRequest;
+      output: DeleteTrustResult;
+    };
+    sdk: {
+      input: DeleteTrustCommandInput;
+      output: DeleteTrustCommandOutput;
+    };
+  };
+}

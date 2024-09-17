@@ -98,4 +98,16 @@ export class SetIdentityMailFromDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityMailFromDomainCommand)
   .de(de_SetIdentityMailFromDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityMailFromDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetIdentityMailFromDomainCommandInput;
+      output: SetIdentityMailFromDomainCommandOutput;
+    };
+  };
+}

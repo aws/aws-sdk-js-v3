@@ -141,4 +141,16 @@ export class StartInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInstancesCommand)
   .de(de_StartInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInstancesRequest;
+      output: StartInstancesResult;
+    };
+    sdk: {
+      input: StartInstancesCommandInput;
+      output: StartInstancesCommandOutput;
+    };
+  };
+}

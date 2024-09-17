@@ -125,4 +125,16 @@ export class DeleteResolverEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResolverEndpointCommand)
   .de(de_DeleteResolverEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResolverEndpointRequest;
+      output: DeleteResolverEndpointResponse;
+    };
+    sdk: {
+      input: DeleteResolverEndpointCommandInput;
+      output: DeleteResolverEndpointCommandOutput;
+    };
+  };
+}

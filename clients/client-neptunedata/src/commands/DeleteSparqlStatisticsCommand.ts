@@ -123,4 +123,16 @@ export class DeleteSparqlStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSparqlStatisticsCommand)
   .de(de_DeleteSparqlStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteSparqlStatisticsOutput;
+    };
+    sdk: {
+      input: DeleteSparqlStatisticsCommandInput;
+      output: DeleteSparqlStatisticsCommandOutput;
+    };
+  };
+}

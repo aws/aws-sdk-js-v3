@@ -144,4 +144,16 @@ export class PutVoiceConnectorTerminationCommand extends $Command
   .f(PutVoiceConnectorTerminationRequestFilterSensitiveLog, PutVoiceConnectorTerminationResponseFilterSensitiveLog)
   .ser(se_PutVoiceConnectorTerminationCommand)
   .de(de_PutVoiceConnectorTerminationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorTerminationRequest;
+      output: PutVoiceConnectorTerminationResponse;
+    };
+    sdk: {
+      input: PutVoiceConnectorTerminationCommandInput;
+      output: PutVoiceConnectorTerminationCommandOutput;
+    };
+  };
+}

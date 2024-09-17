@@ -142,4 +142,16 @@ export class DeleteRegexMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegexMatchSetCommand)
   .de(de_DeleteRegexMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRegexMatchSetRequest;
+      output: DeleteRegexMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteRegexMatchSetCommandInput;
+      output: DeleteRegexMatchSetCommandOutput;
+    };
+  };
+}

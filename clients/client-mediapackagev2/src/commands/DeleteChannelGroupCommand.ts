@@ -101,4 +101,16 @@ export class DeleteChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelGroupCommand)
   .de(de_DeleteChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelGroupCommandInput;
+      output: DeleteChannelGroupCommandOutput;
+    };
+  };
+}

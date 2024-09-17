@@ -103,4 +103,16 @@ export class ListAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttributesCommand)
   .de(de_ListAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttributesRequest;
+      output: ListAttributesResponse;
+    };
+    sdk: {
+      input: ListAttributesCommandInput;
+      output: ListAttributesCommandOutput;
+    };
+  };
+}

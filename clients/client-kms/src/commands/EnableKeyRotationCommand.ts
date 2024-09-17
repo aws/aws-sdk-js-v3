@@ -195,4 +195,16 @@ export class EnableKeyRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableKeyRotationCommand)
   .de(de_EnableKeyRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableKeyRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableKeyRotationCommandInput;
+      output: EnableKeyRotationCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class GetConfiguredAudienceModelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfiguredAudienceModelPolicyCommand)
   .de(de_GetConfiguredAudienceModelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfiguredAudienceModelPolicyRequest;
+      output: GetConfiguredAudienceModelPolicyResponse;
+    };
+    sdk: {
+      input: GetConfiguredAudienceModelPolicyCommandInput;
+      output: GetConfiguredAudienceModelPolicyCommandOutput;
+    };
+  };
+}

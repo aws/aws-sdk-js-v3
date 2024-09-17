@@ -316,4 +316,16 @@ export class CreateLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerCommand)
   .de(de_CreateLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessPointInput;
+      output: CreateAccessPointOutput;
+    };
+    sdk: {
+      input: CreateLoadBalancerCommandInput;
+      output: CreateLoadBalancerCommandOutput;
+    };
+  };
+}

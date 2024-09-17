@@ -116,4 +116,16 @@ export class CreateAccessLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessLogSubscriptionCommand)
   .de(de_CreateAccessLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessLogSubscriptionRequest;
+      output: CreateAccessLogSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateAccessLogSubscriptionCommandInput;
+      output: CreateAccessLogSubscriptionCommandOutput;
+    };
+  };
+}

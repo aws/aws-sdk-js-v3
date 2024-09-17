@@ -88,4 +88,16 @@ export class ListRuleSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleSetsCommand)
   .de(de_ListRuleSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleSetsRequest;
+      output: ListRuleSetsResponse;
+    };
+    sdk: {
+      input: ListRuleSetsCommandInput;
+      output: ListRuleSetsCommandOutput;
+    };
+  };
+}

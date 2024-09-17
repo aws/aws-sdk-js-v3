@@ -144,4 +144,16 @@ export class UpdateRelationalDatabaseCommand extends $Command
   .f(UpdateRelationalDatabaseRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRelationalDatabaseCommand)
   .de(de_UpdateRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRelationalDatabaseRequest;
+      output: UpdateRelationalDatabaseResult;
+    };
+    sdk: {
+      input: UpdateRelationalDatabaseCommandInput;
+      output: UpdateRelationalDatabaseCommandOutput;
+    };
+  };
+}

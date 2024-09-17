@@ -189,4 +189,16 @@ export class SearchWorkersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchWorkersCommand)
   .de(de_SearchWorkersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchWorkersRequest;
+      output: SearchWorkersResponse;
+    };
+    sdk: {
+      input: SearchWorkersCommandInput;
+      output: SearchWorkersCommandOutput;
+    };
+  };
+}

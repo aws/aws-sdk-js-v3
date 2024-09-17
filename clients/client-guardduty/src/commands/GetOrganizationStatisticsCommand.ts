@@ -104,4 +104,16 @@ export class GetOrganizationStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOrganizationStatisticsCommand)
   .de(de_GetOrganizationStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetOrganizationStatisticsResponse;
+    };
+    sdk: {
+      input: GetOrganizationStatisticsCommandInput;
+      output: GetOrganizationStatisticsCommandOutput;
+    };
+  };
+}

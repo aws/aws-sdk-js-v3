@@ -92,4 +92,16 @@ export class UpdatePublishingDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePublishingDestinationCommand)
   .de(de_UpdatePublishingDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePublishingDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePublishingDestinationCommandInput;
+      output: UpdatePublishingDestinationCommandOutput;
+    };
+  };
+}

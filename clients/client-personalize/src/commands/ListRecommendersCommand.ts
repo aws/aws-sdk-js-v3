@@ -113,4 +113,16 @@ export class ListRecommendersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendersCommand)
   .de(de_ListRecommendersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendersRequest;
+      output: ListRecommendersResponse;
+    };
+    sdk: {
+      input: ListRecommendersCommandInput;
+      output: ListRecommendersCommandOutput;
+    };
+  };
+}

@@ -5111,4 +5111,16 @@ export class CreateAnalysisCommand extends $Command
   .f(CreateAnalysisRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAnalysisCommand)
   .de(de_CreateAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnalysisRequest;
+      output: CreateAnalysisResponse;
+    };
+    sdk: {
+      input: CreateAnalysisCommandInput;
+      output: CreateAnalysisCommandOutput;
+    };
+  };
+}

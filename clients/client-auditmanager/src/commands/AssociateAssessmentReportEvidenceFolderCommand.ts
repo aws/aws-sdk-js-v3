@@ -100,4 +100,16 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAssessmentReportEvidenceFolderCommand)
   .de(de_AssociateAssessmentReportEvidenceFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAssessmentReportEvidenceFolderRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateAssessmentReportEvidenceFolderCommandInput;
+      output: AssociateAssessmentReportEvidenceFolderCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class UpdateHoursOfOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateHoursOfOperationCommand)
   .de(de_UpdateHoursOfOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHoursOfOperationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateHoursOfOperationCommandInput;
+      output: UpdateHoursOfOperationCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class DescribeGroupsCommand extends $Command
   .f(DescribeGroupsRequestFilterSensitiveLog, void 0)
   .ser(se_DescribeGroupsCommand)
   .de(de_DescribeGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGroupsRequest;
+      output: DescribeGroupsResponse;
+    };
+    sdk: {
+      input: DescribeGroupsCommandInput;
+      output: DescribeGroupsCommandOutput;
+    };
+  };
+}

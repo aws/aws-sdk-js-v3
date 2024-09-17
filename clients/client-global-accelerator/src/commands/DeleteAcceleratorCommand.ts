@@ -111,4 +111,16 @@ export class DeleteAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAcceleratorCommand)
   .de(de_DeleteAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAcceleratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAcceleratorCommandInput;
+      output: DeleteAcceleratorCommandOutput;
+    };
+  };
+}

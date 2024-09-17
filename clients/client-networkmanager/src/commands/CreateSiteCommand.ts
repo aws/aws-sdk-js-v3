@@ -134,4 +134,16 @@ export class CreateSiteCommand extends $Command
   .f(CreateSiteRequestFilterSensitiveLog, CreateSiteResponseFilterSensitiveLog)
   .ser(se_CreateSiteCommand)
   .de(de_CreateSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSiteRequest;
+      output: CreateSiteResponse;
+    };
+    sdk: {
+      input: CreateSiteCommandInput;
+      output: CreateSiteCommandOutput;
+    };
+  };
+}

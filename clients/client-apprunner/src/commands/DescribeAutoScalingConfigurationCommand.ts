@@ -104,4 +104,16 @@ export class DescribeAutoScalingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoScalingConfigurationCommand)
   .de(de_DescribeAutoScalingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoScalingConfigurationRequest;
+      output: DescribeAutoScalingConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeAutoScalingConfigurationCommandInput;
+      output: DescribeAutoScalingConfigurationCommandOutput;
+    };
+  };
+}

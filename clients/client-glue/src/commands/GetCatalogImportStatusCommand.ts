@@ -87,4 +87,16 @@ export class GetCatalogImportStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCatalogImportStatusCommand)
   .de(de_GetCatalogImportStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCatalogImportStatusRequest;
+      output: GetCatalogImportStatusResponse;
+    };
+    sdk: {
+      input: GetCatalogImportStatusCommandInput;
+      output: GetCatalogImportStatusCommandOutput;
+    };
+  };
+}

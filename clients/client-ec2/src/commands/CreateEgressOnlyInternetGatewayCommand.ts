@@ -113,4 +113,16 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEgressOnlyInternetGatewayCommand)
   .de(de_CreateEgressOnlyInternetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEgressOnlyInternetGatewayRequest;
+      output: CreateEgressOnlyInternetGatewayResult;
+    };
+    sdk: {
+      input: CreateEgressOnlyInternetGatewayCommandInput;
+      output: CreateEgressOnlyInternetGatewayCommandOutput;
+    };
+  };
+}

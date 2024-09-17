@@ -136,4 +136,16 @@ export class ListCollectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollectorsCommand)
   .de(de_ListCollectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollectorsRequest;
+      output: ListCollectorsResponse;
+    };
+    sdk: {
+      input: ListCollectorsCommandInput;
+      output: ListCollectorsCommandOutput;
+    };
+  };
+}

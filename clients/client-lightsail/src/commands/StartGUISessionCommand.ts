@@ -120,4 +120,16 @@ export class StartGUISessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartGUISessionCommand)
   .de(de_StartGUISessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartGUISessionRequest;
+      output: StartGUISessionResult;
+    };
+    sdk: {
+      input: StartGUISessionCommandInput;
+      output: StartGUISessionCommandOutput;
+    };
+  };
+}

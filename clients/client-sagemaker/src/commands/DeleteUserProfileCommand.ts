@@ -83,4 +83,16 @@ export class DeleteUserProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserProfileCommand)
   .de(de_DeleteUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserProfileCommandInput;
+      output: DeleteUserProfileCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class GetSiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSiteCommand)
   .de(de_GetSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSiteInput;
+      output: GetSiteOutput;
+    };
+    sdk: {
+      input: GetSiteCommandInput;
+      output: GetSiteCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class DescribeLocationFsxOpenZfsCommand extends $Command
   .f(void 0, DescribeLocationFsxOpenZfsResponseFilterSensitiveLog)
   .ser(se_DescribeLocationFsxOpenZfsCommand)
   .de(de_DescribeLocationFsxOpenZfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationFsxOpenZfsRequest;
+      output: DescribeLocationFsxOpenZfsResponse;
+    };
+    sdk: {
+      input: DescribeLocationFsxOpenZfsCommandInput;
+      output: DescribeLocationFsxOpenZfsCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ResolveCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveCaseCommand)
   .de(de_ResolveCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveCaseRequest;
+      output: ResolveCaseResponse;
+    };
+    sdk: {
+      input: ResolveCaseCommandInput;
+      output: ResolveCaseCommandOutput;
+    };
+  };
+}

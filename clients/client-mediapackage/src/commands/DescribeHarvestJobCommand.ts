@@ -107,4 +107,16 @@ export class DescribeHarvestJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHarvestJobCommand)
   .de(de_DescribeHarvestJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHarvestJobRequest;
+      output: DescribeHarvestJobResponse;
+    };
+    sdk: {
+      input: DescribeHarvestJobCommandInput;
+      output: DescribeHarvestJobCommandOutput;
+    };
+  };
+}

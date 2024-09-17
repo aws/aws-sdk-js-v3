@@ -107,4 +107,16 @@ export class DescribeDBShardGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBShardGroupsCommand)
   .de(de_DescribeDBShardGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBShardGroupsMessage;
+      output: DescribeDBShardGroupsResponse;
+    };
+    sdk: {
+      input: DescribeDBShardGroupsCommandInput;
+      output: DescribeDBShardGroupsCommandOutput;
+    };
+  };
+}

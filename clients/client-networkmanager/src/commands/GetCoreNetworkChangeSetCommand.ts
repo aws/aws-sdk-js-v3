@@ -191,4 +191,16 @@ export class GetCoreNetworkChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkChangeSetCommand)
   .de(de_GetCoreNetworkChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkChangeSetRequest;
+      output: GetCoreNetworkChangeSetResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkChangeSetCommandInput;
+      output: GetCoreNetworkChangeSetCommandOutput;
+    };
+  };
+}

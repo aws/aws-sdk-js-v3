@@ -114,4 +114,16 @@ export class CreateAccessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessorCommand)
   .de(de_CreateAccessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessorInput;
+      output: CreateAccessorOutput;
+    };
+    sdk: {
+      input: CreateAccessorCommandInput;
+      output: CreateAccessorCommandOutput;
+    };
+  };
+}

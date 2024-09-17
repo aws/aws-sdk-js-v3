@@ -101,4 +101,16 @@ export class ListControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlsCommand)
   .de(de_ListControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlsRequest;
+      output: ListControlsResponse;
+    };
+    sdk: {
+      input: ListControlsCommandInput;
+      output: ListControlsCommandOutput;
+    };
+  };
+}

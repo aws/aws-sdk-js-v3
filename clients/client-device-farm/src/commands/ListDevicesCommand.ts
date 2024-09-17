@@ -162,4 +162,16 @@ export class ListDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicesCommand)
   .de(de_ListDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesRequest;
+      output: ListDevicesResult;
+    };
+    sdk: {
+      input: ListDevicesCommandInput;
+      output: ListDevicesCommandOutput;
+    };
+  };
+}

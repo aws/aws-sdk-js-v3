@@ -123,4 +123,16 @@ export class DescribeMLModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMLModelsCommand)
   .de(de_DescribeMLModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMLModelsInput;
+      output: DescribeMLModelsOutput;
+    };
+    sdk: {
+      input: DescribeMLModelsCommandInput;
+      output: DescribeMLModelsCommandOutput;
+    };
+  };
+}

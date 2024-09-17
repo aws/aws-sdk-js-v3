@@ -116,4 +116,16 @@ export class StartAudienceGenerationJobCommand extends $Command
   .f(StartAudienceGenerationJobRequestFilterSensitiveLog, void 0)
   .ser(se_StartAudienceGenerationJobCommand)
   .de(de_StartAudienceGenerationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAudienceGenerationJobRequest;
+      output: StartAudienceGenerationJobResponse;
+    };
+    sdk: {
+      input: StartAudienceGenerationJobCommandInput;
+      output: StartAudienceGenerationJobCommandOutput;
+    };
+  };
+}

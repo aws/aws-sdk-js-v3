@@ -108,4 +108,16 @@ export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_DeleteMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaPipelineKinesisVideoStreamPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

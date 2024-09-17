@@ -111,4 +111,16 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSNOMEDCTInferenceJobCommand)
   .de(de_StartSNOMEDCTInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSNOMEDCTInferenceJobRequest;
+      output: StartSNOMEDCTInferenceJobResponse;
+    };
+    sdk: {
+      input: StartSNOMEDCTInferenceJobCommandInput;
+      output: StartSNOMEDCTInferenceJobCommandOutput;
+    };
+  };
+}

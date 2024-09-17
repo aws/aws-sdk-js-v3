@@ -118,4 +118,16 @@ export class AddWorkingStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddWorkingStorageCommand)
   .de(de_AddWorkingStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddWorkingStorageInput;
+      output: AddWorkingStorageOutput;
+    };
+    sdk: {
+      input: AddWorkingStorageCommandInput;
+      output: AddWorkingStorageCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class DisableDomainTransferLockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableDomainTransferLockCommand)
   .de(de_DisableDomainTransferLockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableDomainTransferLockRequest;
+      output: DisableDomainTransferLockResponse;
+    };
+    sdk: {
+      input: DisableDomainTransferLockCommandInput;
+      output: DisableDomainTransferLockCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class StartOnDemandAppReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartOnDemandAppReplicationCommand)
   .de(de_StartOnDemandAppReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOnDemandAppReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartOnDemandAppReplicationCommandInput;
+      output: StartOnDemandAppReplicationCommandOutput;
+    };
+  };
+}

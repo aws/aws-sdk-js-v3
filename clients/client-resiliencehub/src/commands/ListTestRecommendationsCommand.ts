@@ -130,4 +130,16 @@ export class ListTestRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestRecommendationsCommand)
   .de(de_ListTestRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestRecommendationsRequest;
+      output: ListTestRecommendationsResponse;
+    };
+    sdk: {
+      input: ListTestRecommendationsCommandInput;
+      output: ListTestRecommendationsCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class InitiateLayerUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateLayerUploadCommand)
   .de(de_InitiateLayerUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateLayerUploadRequest;
+      output: InitiateLayerUploadResponse;
+    };
+    sdk: {
+      input: InitiateLayerUploadCommandInput;
+      output: InitiateLayerUploadCommandOutput;
+    };
+  };
+}

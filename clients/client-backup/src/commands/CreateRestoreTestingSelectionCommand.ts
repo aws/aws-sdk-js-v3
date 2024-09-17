@@ -159,4 +159,16 @@ export class CreateRestoreTestingSelectionCommand extends $Command
   .f(CreateRestoreTestingSelectionInputFilterSensitiveLog, void 0)
   .ser(se_CreateRestoreTestingSelectionCommand)
   .de(de_CreateRestoreTestingSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRestoreTestingSelectionInput;
+      output: CreateRestoreTestingSelectionOutput;
+    };
+    sdk: {
+      input: CreateRestoreTestingSelectionCommandInput;
+      output: CreateRestoreTestingSelectionCommandOutput;
+    };
+  };
+}

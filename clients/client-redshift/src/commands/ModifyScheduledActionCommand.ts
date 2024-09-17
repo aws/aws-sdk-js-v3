@@ -150,4 +150,16 @@ export class ModifyScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyScheduledActionCommand)
   .de(de_ModifyScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyScheduledActionMessage;
+      output: ScheduledAction;
+    };
+    sdk: {
+      input: ModifyScheduledActionCommandInput;
+      output: ModifyScheduledActionCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class OptOutSpeakerCommand extends $Command
   .f(OptOutSpeakerRequestFilterSensitiveLog, OptOutSpeakerResponseFilterSensitiveLog)
   .ser(se_OptOutSpeakerCommand)
   .de(de_OptOutSpeakerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OptOutSpeakerRequest;
+      output: OptOutSpeakerResponse;
+    };
+    sdk: {
+      input: OptOutSpeakerCommandInput;
+      output: OptOutSpeakerCommandOutput;
+    };
+  };
+}

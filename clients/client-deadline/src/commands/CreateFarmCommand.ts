@@ -106,4 +106,16 @@ export class CreateFarmCommand extends $Command
   .f(CreateFarmRequestFilterSensitiveLog, void 0)
   .ser(se_CreateFarmCommand)
   .de(de_CreateFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFarmRequest;
+      output: CreateFarmResponse;
+    };
+    sdk: {
+      input: CreateFarmCommandInput;
+      output: CreateFarmCommandOutput;
+    };
+  };
+}

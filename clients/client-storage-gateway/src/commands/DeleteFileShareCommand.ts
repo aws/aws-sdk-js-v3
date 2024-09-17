@@ -87,4 +87,16 @@ export class DeleteFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileShareCommand)
   .de(de_DeleteFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileShareInput;
+      output: DeleteFileShareOutput;
+    };
+    sdk: {
+      input: DeleteFileShareCommandInput;
+      output: DeleteFileShareCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTransitGatewayRouteTableCommand)
   .de(de_AssociateTransitGatewayRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTransitGatewayRouteTableRequest;
+      output: AssociateTransitGatewayRouteTableResult;
+    };
+    sdk: {
+      input: AssociateTransitGatewayRouteTableCommandInput;
+      output: AssociateTransitGatewayRouteTableCommandOutput;
+    };
+  };
+}

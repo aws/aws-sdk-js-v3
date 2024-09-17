@@ -83,4 +83,16 @@ export class DeleteSubscriptionDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriptionDefinitionCommand)
   .de(de_DeleteSubscriptionDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriptionDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriptionDefinitionCommandInput;
+      output: DeleteSubscriptionDefinitionCommandOutput;
+    };
+  };
+}

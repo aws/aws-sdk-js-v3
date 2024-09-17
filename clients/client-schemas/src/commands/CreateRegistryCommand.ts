@@ -98,4 +98,16 @@ export class CreateRegistryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRegistryCommand)
   .de(de_CreateRegistryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRegistryRequest;
+      output: CreateRegistryResponse;
+    };
+    sdk: {
+      input: CreateRegistryCommandInput;
+      output: CreateRegistryCommandOutput;
+    };
+  };
+}

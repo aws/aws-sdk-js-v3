@@ -94,4 +94,16 @@ export class FlushStageAuthorizersCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FlushStageAuthorizersCacheCommand)
   .de(de_FlushStageAuthorizersCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FlushStageAuthorizersCacheRequest;
+      output: {};
+    };
+    sdk: {
+      input: FlushStageAuthorizersCacheCommandInput;
+      output: FlushStageAuthorizersCacheCommandOutput;
+    };
+  };
+}

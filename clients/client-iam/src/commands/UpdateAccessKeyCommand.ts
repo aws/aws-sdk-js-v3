@@ -112,4 +112,16 @@ export class UpdateAccessKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessKeyCommand)
   .de(de_UpdateAccessKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccessKeyCommandInput;
+      output: UpdateAccessKeyCommandOutput;
+    };
+  };
+}

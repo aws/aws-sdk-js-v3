@@ -99,4 +99,16 @@ export class DeleteNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkCommand)
   .de(de_DeleteNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkRequest;
+      output: DeleteNetworkResponse;
+    };
+    sdk: {
+      input: DeleteNetworkCommandInput;
+      output: DeleteNetworkCommandOutput;
+    };
+  };
+}

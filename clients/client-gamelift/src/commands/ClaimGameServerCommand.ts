@@ -163,4 +163,16 @@ export class ClaimGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ClaimGameServerCommand)
   .de(de_ClaimGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ClaimGameServerInput;
+      output: ClaimGameServerOutput;
+    };
+    sdk: {
+      input: ClaimGameServerCommandInput;
+      output: ClaimGameServerCommandOutput;
+    };
+  };
+}

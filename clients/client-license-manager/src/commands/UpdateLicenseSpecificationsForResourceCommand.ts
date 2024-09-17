@@ -123,4 +123,16 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLicenseSpecificationsForResourceCommand)
   .de(de_UpdateLicenseSpecificationsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLicenseSpecificationsForResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLicenseSpecificationsForResourceCommandInput;
+      output: UpdateLicenseSpecificationsForResourceCommandOutput;
+    };
+  };
+}

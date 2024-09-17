@@ -142,4 +142,16 @@ export class DeleteGeoMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGeoMatchSetCommand)
   .de(de_DeleteGeoMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGeoMatchSetRequest;
+      output: DeleteGeoMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteGeoMatchSetCommandInput;
+      output: DeleteGeoMatchSetCommandOutput;
+    };
+  };
+}

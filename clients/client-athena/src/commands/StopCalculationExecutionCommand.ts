@@ -97,4 +97,16 @@ export class StopCalculationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCalculationExecutionCommand)
   .de(de_StopCalculationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCalculationExecutionRequest;
+      output: StopCalculationExecutionResponse;
+    };
+    sdk: {
+      input: StopCalculationExecutionCommandInput;
+      output: StopCalculationExecutionCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class EnableProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableProfileCommand)
   .de(de_EnableProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarProfileRequest;
+      output: ProfileDetailResponse;
+    };
+    sdk: {
+      input: EnableProfileCommandInput;
+      output: EnableProfileCommandOutput;
+    };
+  };
+}

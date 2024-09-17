@@ -126,4 +126,16 @@ export class DescribeAssociationExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssociationExecutionsCommand)
   .de(de_DescribeAssociationExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssociationExecutionsRequest;
+      output: DescribeAssociationExecutionsResult;
+    };
+    sdk: {
+      input: DescribeAssociationExecutionsCommandInput;
+      output: DescribeAssociationExecutionsCommandOutput;
+    };
+  };
+}

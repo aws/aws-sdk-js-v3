@@ -105,4 +105,16 @@ export class GetHostReservationPurchasePreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostReservationPurchasePreviewCommand)
   .de(de_GetHostReservationPurchasePreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostReservationPurchasePreviewRequest;
+      output: GetHostReservationPurchasePreviewResult;
+    };
+    sdk: {
+      input: GetHostReservationPurchasePreviewCommandInput;
+      output: GetHostReservationPurchasePreviewCommandOutput;
+    };
+  };
+}

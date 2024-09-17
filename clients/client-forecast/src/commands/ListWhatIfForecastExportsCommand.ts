@@ -112,4 +112,16 @@ export class ListWhatIfForecastExportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWhatIfForecastExportsCommand)
   .de(de_ListWhatIfForecastExportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWhatIfForecastExportsRequest;
+      output: ListWhatIfForecastExportsResponse;
+    };
+    sdk: {
+      input: ListWhatIfForecastExportsCommandInput;
+      output: ListWhatIfForecastExportsCommandOutput;
+    };
+  };
+}

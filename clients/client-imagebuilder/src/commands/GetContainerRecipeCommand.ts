@@ -153,4 +153,16 @@ export class GetContainerRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerRecipeCommand)
   .de(de_GetContainerRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerRecipeRequest;
+      output: GetContainerRecipeResponse;
+    };
+    sdk: {
+      input: GetContainerRecipeCommandInput;
+      output: GetContainerRecipeCommandOutput;
+    };
+  };
+}

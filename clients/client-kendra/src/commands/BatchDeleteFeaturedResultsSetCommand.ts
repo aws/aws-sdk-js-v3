@@ -113,4 +113,16 @@ export class BatchDeleteFeaturedResultsSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteFeaturedResultsSetCommand)
   .de(de_BatchDeleteFeaturedResultsSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteFeaturedResultsSetRequest;
+      output: BatchDeleteFeaturedResultsSetResponse;
+    };
+    sdk: {
+      input: BatchDeleteFeaturedResultsSetCommandInput;
+      output: BatchDeleteFeaturedResultsSetCommandOutput;
+    };
+  };
+}

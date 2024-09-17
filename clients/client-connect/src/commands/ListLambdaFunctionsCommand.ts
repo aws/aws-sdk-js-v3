@@ -99,4 +99,16 @@ export class ListLambdaFunctionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLambdaFunctionsCommand)
   .de(de_ListLambdaFunctionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLambdaFunctionsRequest;
+      output: ListLambdaFunctionsResponse;
+    };
+    sdk: {
+      input: ListLambdaFunctionsCommandInput;
+      output: ListLambdaFunctionsCommandOutput;
+    };
+  };
+}

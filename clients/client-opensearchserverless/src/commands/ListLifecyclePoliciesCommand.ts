@@ -103,4 +103,16 @@ export class ListLifecyclePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLifecyclePoliciesCommand)
   .de(de_ListLifecyclePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLifecyclePoliciesRequest;
+      output: ListLifecyclePoliciesResponse;
+    };
+    sdk: {
+      input: ListLifecyclePoliciesCommandInput;
+      output: ListLifecyclePoliciesCommandOutput;
+    };
+  };
+}

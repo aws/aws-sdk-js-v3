@@ -118,4 +118,16 @@ export class ListFHIRExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFHIRExportJobsCommand)
   .de(de_ListFHIRExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFHIRExportJobsRequest;
+      output: ListFHIRExportJobsResponse;
+    };
+    sdk: {
+      input: ListFHIRExportJobsCommandInput;
+      output: ListFHIRExportJobsCommandOutput;
+    };
+  };
+}

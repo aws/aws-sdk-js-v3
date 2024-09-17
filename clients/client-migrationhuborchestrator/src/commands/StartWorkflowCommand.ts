@@ -100,4 +100,16 @@ export class StartWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkflowCommand)
   .de(de_StartWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMigrationWorkflowRequest;
+      output: StartMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: StartWorkflowCommandInput;
+      output: StartWorkflowCommandOutput;
+    };
+  };
+}

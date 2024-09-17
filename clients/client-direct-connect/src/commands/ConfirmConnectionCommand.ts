@@ -85,4 +85,16 @@ export class ConfirmConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmConnectionCommand)
   .de(de_ConfirmConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmConnectionRequest;
+      output: ConfirmConnectionResponse;
+    };
+    sdk: {
+      input: ConfirmConnectionCommandInput;
+      output: ConfirmConnectionCommandOutput;
+    };
+  };
+}

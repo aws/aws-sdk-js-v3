@@ -158,4 +158,16 @@ export class RestoreKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreKeyCommand)
   .de(de_RestoreKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreKeyInput;
+      output: RestoreKeyOutput;
+    };
+    sdk: {
+      input: RestoreKeyCommandInput;
+      output: RestoreKeyCommandOutput;
+    };
+  };
+}

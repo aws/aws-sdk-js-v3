@@ -163,4 +163,16 @@ export class DescribeBridgeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBridgeCommand)
   .de(de_DescribeBridgeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBridgeRequest;
+      output: DescribeBridgeResponse;
+    };
+    sdk: {
+      input: DescribeBridgeCommandInput;
+      output: DescribeBridgeCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class DescribeAvailablePatchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAvailablePatchesCommand)
   .de(de_DescribeAvailablePatchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAvailablePatchesRequest;
+      output: DescribeAvailablePatchesResult;
+    };
+    sdk: {
+      input: DescribeAvailablePatchesCommandInput;
+      output: DescribeAvailablePatchesCommandOutput;
+    };
+  };
+}

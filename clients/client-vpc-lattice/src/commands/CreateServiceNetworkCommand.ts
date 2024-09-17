@@ -111,4 +111,16 @@ export class CreateServiceNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceNetworkCommand)
   .de(de_CreateServiceNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceNetworkRequest;
+      output: CreateServiceNetworkResponse;
+    };
+    sdk: {
+      input: CreateServiceNetworkCommandInput;
+      output: CreateServiceNetworkCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class DescribeIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIngestionCommand)
   .de(de_DescribeIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIngestionRequest;
+      output: DescribeIngestionResponse;
+    };
+    sdk: {
+      input: DescribeIngestionCommandInput;
+      output: DescribeIngestionCommandOutput;
+    };
+  };
+}

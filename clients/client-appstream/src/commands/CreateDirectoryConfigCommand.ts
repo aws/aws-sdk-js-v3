@@ -125,4 +125,16 @@ export class CreateDirectoryConfigCommand extends $Command
   .f(CreateDirectoryConfigRequestFilterSensitiveLog, CreateDirectoryConfigResultFilterSensitiveLog)
   .ser(se_CreateDirectoryConfigCommand)
   .de(de_CreateDirectoryConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectoryConfigRequest;
+      output: CreateDirectoryConfigResult;
+    };
+    sdk: {
+      input: CreateDirectoryConfigCommandInput;
+      output: CreateDirectoryConfigCommandOutput;
+    };
+  };
+}

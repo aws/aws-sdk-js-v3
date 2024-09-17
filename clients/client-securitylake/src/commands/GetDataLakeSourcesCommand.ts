@@ -123,4 +123,16 @@ export class GetDataLakeSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataLakeSourcesCommand)
   .de(de_GetDataLakeSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataLakeSourcesRequest;
+      output: GetDataLakeSourcesResponse;
+    };
+    sdk: {
+      input: GetDataLakeSourcesCommandInput;
+      output: GetDataLakeSourcesCommandOutput;
+    };
+  };
+}

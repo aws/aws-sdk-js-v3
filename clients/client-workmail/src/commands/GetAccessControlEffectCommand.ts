@@ -103,4 +103,16 @@ export class GetAccessControlEffectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessControlEffectCommand)
   .de(de_GetAccessControlEffectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessControlEffectRequest;
+      output: GetAccessControlEffectResponse;
+    };
+    sdk: {
+      input: GetAccessControlEffectCommandInput;
+      output: GetAccessControlEffectCommandOutput;
+    };
+  };
+}

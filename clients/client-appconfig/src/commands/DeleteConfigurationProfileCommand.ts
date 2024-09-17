@@ -105,4 +105,16 @@ export class DeleteConfigurationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationProfileCommand)
   .de(de_DeleteConfigurationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationProfileCommandInput;
+      output: DeleteConfigurationProfileCommandOutput;
+    };
+  };
+}

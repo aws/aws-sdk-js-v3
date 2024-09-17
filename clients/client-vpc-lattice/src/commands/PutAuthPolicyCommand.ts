@@ -98,4 +98,16 @@ export class PutAuthPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAuthPolicyCommand)
   .de(de_PutAuthPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAuthPolicyRequest;
+      output: PutAuthPolicyResponse;
+    };
+    sdk: {
+      input: PutAuthPolicyCommandInput;
+      output: PutAuthPolicyCommandOutput;
+    };
+  };
+}

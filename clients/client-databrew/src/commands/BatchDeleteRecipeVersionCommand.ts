@@ -134,4 +134,16 @@ export class BatchDeleteRecipeVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteRecipeVersionCommand)
   .de(de_BatchDeleteRecipeVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteRecipeVersionRequest;
+      output: BatchDeleteRecipeVersionResponse;
+    };
+    sdk: {
+      input: BatchDeleteRecipeVersionCommandInput;
+      output: BatchDeleteRecipeVersionCommandOutput;
+    };
+  };
+}

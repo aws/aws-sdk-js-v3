@@ -92,4 +92,16 @@ export class StartOnDemandAuditTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartOnDemandAuditTaskCommand)
   .de(de_StartOnDemandAuditTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOnDemandAuditTaskRequest;
+      output: StartOnDemandAuditTaskResponse;
+    };
+    sdk: {
+      input: StartOnDemandAuditTaskCommandInput;
+      output: StartOnDemandAuditTaskCommandOutput;
+    };
+  };
+}

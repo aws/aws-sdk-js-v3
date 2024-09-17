@@ -162,4 +162,16 @@ export class CreateDataProductCommand extends $Command
   .f(CreateDataProductInputFilterSensitiveLog, CreateDataProductOutputFilterSensitiveLog)
   .ser(se_CreateDataProductCommand)
   .de(de_CreateDataProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataProductInput;
+      output: CreateDataProductOutput;
+    };
+    sdk: {
+      input: CreateDataProductCommandInput;
+      output: CreateDataProductCommandOutput;
+    };
+  };
+}

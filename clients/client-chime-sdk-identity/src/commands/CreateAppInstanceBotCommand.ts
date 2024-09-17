@@ -128,4 +128,16 @@ export class CreateAppInstanceBotCommand extends $Command
   .f(CreateAppInstanceBotRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAppInstanceBotCommand)
   .de(de_CreateAppInstanceBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppInstanceBotRequest;
+      output: CreateAppInstanceBotResponse;
+    };
+    sdk: {
+      input: CreateAppInstanceBotCommandInput;
+      output: CreateAppInstanceBotCommandOutput;
+    };
+  };
+}

@@ -322,4 +322,16 @@ export class GetOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginEndpointCommand)
   .de(de_GetOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginEndpointRequest;
+      output: GetOriginEndpointResponse;
+    };
+    sdk: {
+      input: GetOriginEndpointCommandInput;
+      output: GetOriginEndpointCommandOutput;
+    };
+  };
+}

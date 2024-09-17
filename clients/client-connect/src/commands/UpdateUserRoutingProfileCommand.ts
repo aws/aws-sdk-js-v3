@@ -92,4 +92,16 @@ export class UpdateUserRoutingProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserRoutingProfileCommand)
   .de(de_UpdateUserRoutingProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserRoutingProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserRoutingProfileCommandInput;
+      output: UpdateUserRoutingProfileCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class JoinStorageSessionAsViewerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JoinStorageSessionAsViewerCommand)
   .de(de_JoinStorageSessionAsViewerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JoinStorageSessionAsViewerInput;
+      output: {};
+    };
+    sdk: {
+      input: JoinStorageSessionAsViewerCommandInput;
+      output: JoinStorageSessionAsViewerCommandOutput;
+    };
+  };
+}

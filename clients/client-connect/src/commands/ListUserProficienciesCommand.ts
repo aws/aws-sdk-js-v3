@@ -104,4 +104,16 @@ export class ListUserProficienciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserProficienciesCommand)
   .de(de_ListUserProficienciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserProficienciesRequest;
+      output: ListUserProficienciesResponse;
+    };
+    sdk: {
+      input: ListUserProficienciesCommandInput;
+      output: ListUserProficienciesCommandOutput;
+    };
+  };
+}

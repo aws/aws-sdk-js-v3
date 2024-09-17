@@ -123,4 +123,16 @@ export class SetSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSecurityGroupsCommand)
   .de(de_SetSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSecurityGroupsInput;
+      output: SetSecurityGroupsOutput;
+    };
+    sdk: {
+      input: SetSecurityGroupsCommandInput;
+      output: SetSecurityGroupsCommandOutput;
+    };
+  };
+}

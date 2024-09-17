@@ -115,4 +115,16 @@ export class GetBotChannelAssociationCommand extends $Command
   .f(void 0, GetBotChannelAssociationResponseFilterSensitiveLog)
   .ser(se_GetBotChannelAssociationCommand)
   .de(de_GetBotChannelAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotChannelAssociationRequest;
+      output: GetBotChannelAssociationResponse;
+    };
+    sdk: {
+      input: GetBotChannelAssociationCommandInput;
+      output: GetBotChannelAssociationCommandOutput;
+    };
+  };
+}

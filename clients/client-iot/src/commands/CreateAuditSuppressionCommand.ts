@@ -116,4 +116,16 @@ export class CreateAuditSuppressionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAuditSuppressionCommand)
   .de(de_CreateAuditSuppressionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAuditSuppressionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAuditSuppressionCommandInput;
+      output: CreateAuditSuppressionCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartOrganizationServiceAccessUpdateCommand)
   .de(de_StartOrganizationServiceAccessUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOrganizationServiceAccessUpdateRequest;
+      output: StartOrganizationServiceAccessUpdateResponse;
+    };
+    sdk: {
+      input: StartOrganizationServiceAccessUpdateCommandInput;
+      output: StartOrganizationServiceAccessUpdateCommandOutput;
+    };
+  };
+}

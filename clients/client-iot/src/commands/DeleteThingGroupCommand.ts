@@ -91,4 +91,16 @@ export class DeleteThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteThingGroupCommand)
   .de(de_DeleteThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteThingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteThingGroupCommandInput;
+      output: DeleteThingGroupCommandOutput;
+    };
+  };
+}

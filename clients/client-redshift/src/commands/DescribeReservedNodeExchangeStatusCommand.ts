@@ -112,4 +112,16 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedNodeExchangeStatusCommand)
   .de(de_DescribeReservedNodeExchangeStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedNodeExchangeStatusInputMessage;
+      output: DescribeReservedNodeExchangeStatusOutputMessage;
+    };
+    sdk: {
+      input: DescribeReservedNodeExchangeStatusCommandInput;
+      output: DescribeReservedNodeExchangeStatusCommandOutput;
+    };
+  };
+}

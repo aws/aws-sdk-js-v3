@@ -134,4 +134,16 @@ export class ListAnomaliesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomaliesCommand)
   .de(de_ListAnomaliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomaliesRequest;
+      output: ListAnomaliesResponse;
+    };
+    sdk: {
+      input: ListAnomaliesCommandInput;
+      output: ListAnomaliesCommandOutput;
+    };
+  };
+}

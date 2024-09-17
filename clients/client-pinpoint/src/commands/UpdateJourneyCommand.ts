@@ -868,4 +868,16 @@ export class UpdateJourneyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJourneyCommand)
   .de(de_UpdateJourneyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJourneyRequest;
+      output: UpdateJourneyResponse;
+    };
+    sdk: {
+      input: UpdateJourneyCommandInput;
+      output: UpdateJourneyCommandOutput;
+    };
+  };
+}

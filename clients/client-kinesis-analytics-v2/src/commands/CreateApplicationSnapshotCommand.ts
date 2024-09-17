@@ -102,4 +102,16 @@ export class CreateApplicationSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationSnapshotCommand)
   .de(de_CreateApplicationSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationSnapshotRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateApplicationSnapshotCommandInput;
+      output: CreateApplicationSnapshotCommandOutput;
+    };
+  };
+}

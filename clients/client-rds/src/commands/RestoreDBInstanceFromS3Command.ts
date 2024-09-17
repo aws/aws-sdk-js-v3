@@ -444,4 +444,16 @@ export class RestoreDBInstanceFromS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBInstanceFromS3Command)
   .de(de_RestoreDBInstanceFromS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBInstanceFromS3Message;
+      output: RestoreDBInstanceFromS3Result;
+    };
+    sdk: {
+      input: RestoreDBInstanceFromS3CommandInput;
+      output: RestoreDBInstanceFromS3CommandOutput;
+    };
+  };
+}

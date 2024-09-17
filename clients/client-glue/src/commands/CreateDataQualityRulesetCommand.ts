@@ -105,4 +105,16 @@ export class CreateDataQualityRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataQualityRulesetCommand)
   .de(de_CreateDataQualityRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataQualityRulesetRequest;
+      output: CreateDataQualityRulesetResponse;
+    };
+    sdk: {
+      input: CreateDataQualityRulesetCommandInput;
+      output: CreateDataQualityRulesetCommandOutput;
+    };
+  };
+}

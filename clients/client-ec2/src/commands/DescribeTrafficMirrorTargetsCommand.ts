@@ -109,4 +109,16 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrafficMirrorTargetsCommand)
   .de(de_DescribeTrafficMirrorTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrafficMirrorTargetsRequest;
+      output: DescribeTrafficMirrorTargetsResult;
+    };
+    sdk: {
+      input: DescribeTrafficMirrorTargetsCommandInput;
+      output: DescribeTrafficMirrorTargetsCommandOutput;
+    };
+  };
+}

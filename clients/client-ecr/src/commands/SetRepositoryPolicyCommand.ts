@@ -95,4 +95,16 @@ export class SetRepositoryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetRepositoryPolicyCommand)
   .de(de_SetRepositoryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetRepositoryPolicyRequest;
+      output: SetRepositoryPolicyResponse;
+    };
+    sdk: {
+      input: SetRepositoryPolicyCommandInput;
+      output: SetRepositoryPolicyCommandOutput;
+    };
+  };
+}

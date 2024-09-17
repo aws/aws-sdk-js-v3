@@ -194,4 +194,16 @@ export class SearchJobsCommand extends $Command
   .f(void 0, SearchJobsResponseFilterSensitiveLog)
   .ser(se_SearchJobsCommand)
   .de(de_SearchJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchJobsRequest;
+      output: SearchJobsResponse;
+    };
+    sdk: {
+      input: SearchJobsCommandInput;
+      output: SearchJobsCommandOutput;
+    };
+  };
+}

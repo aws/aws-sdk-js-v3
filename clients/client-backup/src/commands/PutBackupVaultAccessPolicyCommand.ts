@@ -91,4 +91,16 @@ export class PutBackupVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupVaultAccessPolicyCommand)
   .de(de_PutBackupVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupVaultAccessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBackupVaultAccessPolicyCommandInput;
+      output: PutBackupVaultAccessPolicyCommandOutput;
+    };
+  };
+}

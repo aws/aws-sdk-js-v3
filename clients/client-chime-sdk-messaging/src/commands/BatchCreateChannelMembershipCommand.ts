@@ -141,4 +141,16 @@ export class BatchCreateChannelMembershipCommand extends $Command
   .f(void 0, BatchCreateChannelMembershipResponseFilterSensitiveLog)
   .ser(se_BatchCreateChannelMembershipCommand)
   .de(de_BatchCreateChannelMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateChannelMembershipRequest;
+      output: BatchCreateChannelMembershipResponse;
+    };
+    sdk: {
+      input: BatchCreateChannelMembershipCommandInput;
+      output: BatchCreateChannelMembershipCommandOutput;
+    };
+  };
+}

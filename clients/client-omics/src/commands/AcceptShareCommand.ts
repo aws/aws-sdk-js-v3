@@ -98,4 +98,16 @@ export class AcceptShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptShareCommand)
   .de(de_AcceptShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptShareRequest;
+      output: AcceptShareResponse;
+    };
+    sdk: {
+      input: AcceptShareCommandInput;
+      output: AcceptShareCommandOutput;
+    };
+  };
+}

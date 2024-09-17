@@ -185,4 +185,16 @@ export class PutConfigurationAggregatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationAggregatorCommand)
   .de(de_PutConfigurationAggregatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationAggregatorRequest;
+      output: PutConfigurationAggregatorResponse;
+    };
+    sdk: {
+      input: PutConfigurationAggregatorCommandInput;
+      output: PutConfigurationAggregatorCommandOutput;
+    };
+  };
+}

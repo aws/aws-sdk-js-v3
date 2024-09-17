@@ -105,4 +105,16 @@ export class DescribeDefaultClusterParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDefaultClusterParametersCommand)
   .de(de_DescribeDefaultClusterParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDefaultClusterParametersMessage;
+      output: DescribeDefaultClusterParametersResult;
+    };
+    sdk: {
+      input: DescribeDefaultClusterParametersCommandInput;
+      output: DescribeDefaultClusterParametersCommandOutput;
+    };
+  };
+}

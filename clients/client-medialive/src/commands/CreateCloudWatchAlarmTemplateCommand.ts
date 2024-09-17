@@ -132,4 +132,16 @@ export class CreateCloudWatchAlarmTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudWatchAlarmTemplateCommand)
   .de(de_CreateCloudWatchAlarmTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudWatchAlarmTemplateRequest;
+      output: CreateCloudWatchAlarmTemplateResponse;
+    };
+    sdk: {
+      input: CreateCloudWatchAlarmTemplateCommandInput;
+      output: CreateCloudWatchAlarmTemplateCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class AdminConfirmSignUpCommand extends $Command
   .f(AdminConfirmSignUpRequestFilterSensitiveLog, void 0)
   .ser(se_AdminConfirmSignUpCommand)
   .de(de_AdminConfirmSignUpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminConfirmSignUpRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminConfirmSignUpCommandInput;
+      output: AdminConfirmSignUpCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class CopyProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyProductCommand)
   .de(de_CopyProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyProductInput;
+      output: CopyProductOutput;
+    };
+    sdk: {
+      input: CopyProductCommandInput;
+      output: CopyProductCommandOutput;
+    };
+  };
+}

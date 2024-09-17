@@ -101,4 +101,16 @@ export class CancelResourceRequestCommand extends $Command
   .f(void 0, CancelResourceRequestOutputFilterSensitiveLog)
   .ser(se_CancelResourceRequestCommand)
   .de(de_CancelResourceRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelResourceRequestInput;
+      output: CancelResourceRequestOutput;
+    };
+    sdk: {
+      input: CancelResourceRequestCommandInput;
+      output: CancelResourceRequestCommandOutput;
+    };
+  };
+}

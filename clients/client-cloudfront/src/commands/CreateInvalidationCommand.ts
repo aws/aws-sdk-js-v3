@@ -124,4 +124,16 @@ export class CreateInvalidationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInvalidationCommand)
   .de(de_CreateInvalidationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInvalidationRequest;
+      output: CreateInvalidationResult;
+    };
+    sdk: {
+      input: CreateInvalidationCommandInput;
+      output: CreateInvalidationCommandOutput;
+    };
+  };
+}

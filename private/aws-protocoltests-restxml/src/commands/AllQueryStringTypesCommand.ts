@@ -109,4 +109,16 @@ export class AllQueryStringTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllQueryStringTypesCommand)
   .de(de_AllQueryStringTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllQueryStringTypesInput;
+      output: {};
+    };
+    sdk: {
+      input: AllQueryStringTypesCommandInput;
+      output: AllQueryStringTypesCommandOutput;
+    };
+  };
+}

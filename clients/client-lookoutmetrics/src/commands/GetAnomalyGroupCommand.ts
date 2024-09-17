@@ -119,4 +119,16 @@ export class GetAnomalyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnomalyGroupCommand)
   .de(de_GetAnomalyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnomalyGroupRequest;
+      output: GetAnomalyGroupResponse;
+    };
+    sdk: {
+      input: GetAnomalyGroupCommandInput;
+      output: GetAnomalyGroupCommandOutput;
+    };
+  };
+}

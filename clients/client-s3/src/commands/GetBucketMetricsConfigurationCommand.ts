@@ -145,4 +145,16 @@ export class GetBucketMetricsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketMetricsConfigurationCommand)
   .de(de_GetBucketMetricsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketMetricsConfigurationRequest;
+      output: GetBucketMetricsConfigurationOutput;
+    };
+    sdk: {
+      input: GetBucketMetricsConfigurationCommandInput;
+      output: GetBucketMetricsConfigurationCommandOutput;
+    };
+  };
+}

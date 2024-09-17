@@ -107,4 +107,16 @@ export class ListProposalVotesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProposalVotesCommand)
   .de(de_ListProposalVotesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProposalVotesInput;
+      output: ListProposalVotesOutput;
+    };
+    sdk: {
+      input: ListProposalVotesCommandInput;
+      output: ListProposalVotesCommandOutput;
+    };
+  };
+}

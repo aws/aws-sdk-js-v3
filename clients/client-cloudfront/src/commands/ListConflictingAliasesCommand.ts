@@ -119,4 +119,16 @@ export class ListConflictingAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConflictingAliasesCommand)
   .de(de_ListConflictingAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConflictingAliasesRequest;
+      output: ListConflictingAliasesResult;
+    };
+    sdk: {
+      input: ListConflictingAliasesCommandInput;
+      output: ListConflictingAliasesCommandOutput;
+    };
+  };
+}

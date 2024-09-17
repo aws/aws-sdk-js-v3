@@ -101,4 +101,16 @@ export class GetDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatabaseCommand)
   .de(de_GetDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatabaseInput;
+      output: GetDatabaseOutput;
+    };
+    sdk: {
+      input: GetDatabaseCommandInput;
+      output: GetDatabaseCommandOutput;
+    };
+  };
+}

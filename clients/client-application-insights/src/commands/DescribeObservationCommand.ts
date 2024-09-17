@@ -137,4 +137,16 @@ export class DescribeObservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeObservationCommand)
   .de(de_DescribeObservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeObservationRequest;
+      output: DescribeObservationResponse;
+    };
+    sdk: {
+      input: DescribeObservationCommandInput;
+      output: DescribeObservationCommandOutput;
+    };
+  };
+}

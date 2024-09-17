@@ -112,4 +112,16 @@ export class PutRumEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRumEventsCommand)
   .de(de_PutRumEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRumEventsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRumEventsCommandInput;
+      output: PutRumEventsCommandOutput;
+    };
+  };
+}

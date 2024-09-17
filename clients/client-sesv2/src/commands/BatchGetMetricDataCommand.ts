@@ -119,4 +119,16 @@ export class BatchGetMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetMetricDataCommand)
   .de(de_BatchGetMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetMetricDataRequest;
+      output: BatchGetMetricDataResponse;
+    };
+    sdk: {
+      input: BatchGetMetricDataCommandInput;
+      output: BatchGetMetricDataCommandOutput;
+    };
+  };
+}

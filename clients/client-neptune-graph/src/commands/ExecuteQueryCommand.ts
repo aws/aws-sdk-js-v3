@@ -123,4 +123,16 @@ export class ExecuteQueryCommand extends $Command
   .f(void 0, ExecuteQueryOutputFilterSensitiveLog)
   .ser(se_ExecuteQueryCommand)
   .de(de_ExecuteQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteQueryInput;
+      output: ExecuteQueryOutput;
+    };
+    sdk: {
+      input: ExecuteQueryCommandInput;
+      output: ExecuteQueryCommandOutput;
+    };
+  };
+}

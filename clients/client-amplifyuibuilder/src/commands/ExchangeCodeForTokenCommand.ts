@@ -95,4 +95,16 @@ export class ExchangeCodeForTokenCommand extends $Command
   .f(ExchangeCodeForTokenRequestFilterSensitiveLog, ExchangeCodeForTokenResponseFilterSensitiveLog)
   .ser(se_ExchangeCodeForTokenCommand)
   .de(de_ExchangeCodeForTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExchangeCodeForTokenRequest;
+      output: ExchangeCodeForTokenResponse;
+    };
+    sdk: {
+      input: ExchangeCodeForTokenCommandInput;
+      output: ExchangeCodeForTokenCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class GetSubscriberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubscriberCommand)
   .de(de_GetSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriberRequest;
+      output: GetSubscriberResponse;
+    };
+    sdk: {
+      input: GetSubscriberCommandInput;
+      output: GetSubscriberCommandOutput;
+    };
+  };
+}

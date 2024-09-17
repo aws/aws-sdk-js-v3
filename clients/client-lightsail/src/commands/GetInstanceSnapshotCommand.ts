@@ -170,4 +170,16 @@ export class GetInstanceSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceSnapshotCommand)
   .de(de_GetInstanceSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceSnapshotRequest;
+      output: GetInstanceSnapshotResult;
+    };
+    sdk: {
+      input: GetInstanceSnapshotCommandInput;
+      output: GetInstanceSnapshotCommandOutput;
+    };
+  };
+}

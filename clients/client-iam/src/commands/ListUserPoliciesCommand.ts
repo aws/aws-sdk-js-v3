@@ -98,4 +98,16 @@ export class ListUserPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserPoliciesCommand)
   .de(de_ListUserPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserPoliciesRequest;
+      output: ListUserPoliciesResponse;
+    };
+    sdk: {
+      input: ListUserPoliciesCommandInput;
+      output: ListUserPoliciesCommandOutput;
+    };
+  };
+}

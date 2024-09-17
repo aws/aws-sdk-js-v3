@@ -81,4 +81,16 @@ export class StopFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopFleetCommand)
   .de(de_StopFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopFleetCommandInput;
+      output: StopFleetCommandOutput;
+    };
+  };
+}

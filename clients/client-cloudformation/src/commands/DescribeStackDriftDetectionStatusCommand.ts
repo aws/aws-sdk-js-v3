@@ -96,4 +96,16 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackDriftDetectionStatusCommand)
   .de(de_DescribeStackDriftDetectionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackDriftDetectionStatusInput;
+      output: DescribeStackDriftDetectionStatusOutput;
+    };
+    sdk: {
+      input: DescribeStackDriftDetectionStatusCommandInput;
+      output: DescribeStackDriftDetectionStatusCommandOutput;
+    };
+  };
+}

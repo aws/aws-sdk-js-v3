@@ -116,4 +116,16 @@ export class SetTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTagsForResourceCommand)
   .de(de_SetTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTagsForResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetTagsForResourceCommandInput;
+      output: SetTagsForResourceCommandOutput;
+    };
+  };
+}

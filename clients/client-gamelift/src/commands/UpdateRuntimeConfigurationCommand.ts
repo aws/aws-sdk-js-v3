@@ -142,4 +142,16 @@ export class UpdateRuntimeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuntimeConfigurationCommand)
   .de(de_UpdateRuntimeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuntimeConfigurationInput;
+      output: UpdateRuntimeConfigurationOutput;
+    };
+    sdk: {
+      input: UpdateRuntimeConfigurationCommandInput;
+      output: UpdateRuntimeConfigurationCommandOutput;
+    };
+  };
+}

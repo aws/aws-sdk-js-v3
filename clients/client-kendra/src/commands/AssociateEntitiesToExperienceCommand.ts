@@ -122,4 +122,16 @@ export class AssociateEntitiesToExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateEntitiesToExperienceCommand)
   .de(de_AssociateEntitiesToExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateEntitiesToExperienceRequest;
+      output: AssociateEntitiesToExperienceResponse;
+    };
+    sdk: {
+      input: AssociateEntitiesToExperienceCommandInput;
+      output: AssociateEntitiesToExperienceCommandOutput;
+    };
+  };
+}

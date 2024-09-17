@@ -118,4 +118,16 @@ export class ListMLModelTransformJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLModelTransformJobsCommand)
   .de(de_ListMLModelTransformJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLModelTransformJobsInput;
+      output: ListMLModelTransformJobsOutput;
+    };
+    sdk: {
+      input: ListMLModelTransformJobsCommandInput;
+      output: ListMLModelTransformJobsCommandOutput;
+    };
+  };
+}

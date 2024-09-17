@@ -126,4 +126,16 @@ export class GetExternalModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExternalModelsCommand)
   .de(de_GetExternalModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExternalModelsRequest;
+      output: GetExternalModelsResult;
+    };
+    sdk: {
+      input: GetExternalModelsCommandInput;
+      output: GetExternalModelsCommandOutput;
+    };
+  };
+}

@@ -189,4 +189,16 @@ export class UpdateFleetCommand extends $Command
   .f(UpdateFleetRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFleetCommand)
   .de(de_UpdateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFleetCommandInput;
+      output: UpdateFleetCommandOutput;
+    };
+  };
+}

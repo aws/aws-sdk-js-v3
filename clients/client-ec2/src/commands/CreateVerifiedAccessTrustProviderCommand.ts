@@ -159,4 +159,16 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command
   )
   .ser(se_CreateVerifiedAccessTrustProviderCommand)
   .de(de_CreateVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVerifiedAccessTrustProviderRequest;
+      output: CreateVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: CreateVerifiedAccessTrustProviderCommandInput;
+      output: CreateVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

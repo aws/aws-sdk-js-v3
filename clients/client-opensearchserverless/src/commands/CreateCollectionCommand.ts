@@ -121,4 +121,16 @@ export class CreateCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCollectionCommand)
   .de(de_CreateCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCollectionRequest;
+      output: CreateCollectionResponse;
+    };
+    sdk: {
+      input: CreateCollectionCommandInput;
+      output: CreateCollectionCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class CreateMicrosoftTeamsChannelConfigurationCommand extends $Command
   .f(CreateTeamsChannelConfigurationRequestFilterSensitiveLog, CreateTeamsChannelConfigurationResultFilterSensitiveLog)
   .ser(se_CreateMicrosoftTeamsChannelConfigurationCommand)
   .de(de_CreateMicrosoftTeamsChannelConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTeamsChannelConfigurationRequest;
+      output: CreateTeamsChannelConfigurationResult;
+    };
+    sdk: {
+      input: CreateMicrosoftTeamsChannelConfigurationCommandInput;
+      output: CreateMicrosoftTeamsChannelConfigurationCommandOutput;
+    };
+  };
+}

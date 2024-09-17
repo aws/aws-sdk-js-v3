@@ -95,4 +95,16 @@ export class ListReplicationSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReplicationSetsCommand)
   .de(de_ListReplicationSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReplicationSetsInput;
+      output: ListReplicationSetsOutput;
+    };
+    sdk: {
+      input: ListReplicationSetsCommandInput;
+      output: ListReplicationSetsCommandOutput;
+    };
+  };
+}

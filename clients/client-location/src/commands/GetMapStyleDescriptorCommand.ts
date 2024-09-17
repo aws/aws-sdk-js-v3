@@ -111,4 +111,16 @@ export class GetMapStyleDescriptorCommand extends $Command
   .f(GetMapStyleDescriptorRequestFilterSensitiveLog, void 0)
   .ser(se_GetMapStyleDescriptorCommand)
   .de(de_GetMapStyleDescriptorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMapStyleDescriptorRequest;
+      output: GetMapStyleDescriptorResponse;
+    };
+    sdk: {
+      input: GetMapStyleDescriptorCommandInput;
+      output: GetMapStyleDescriptorCommandOutput;
+    };
+  };
+}

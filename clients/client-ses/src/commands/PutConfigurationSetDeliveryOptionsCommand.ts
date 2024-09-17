@@ -92,4 +92,16 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationSetDeliveryOptionsCommand)
   .de(de_PutConfigurationSetDeliveryOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationSetDeliveryOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationSetDeliveryOptionsCommandInput;
+      output: PutConfigurationSetDeliveryOptionsCommandOutput;
+    };
+  };
+}

@@ -338,4 +338,16 @@ export class ListMultipartUploadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultipartUploadsCommand)
   .de(de_ListMultipartUploadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultipartUploadsRequest;
+      output: ListMultipartUploadsOutput;
+    };
+    sdk: {
+      input: ListMultipartUploadsCommandInput;
+      output: ListMultipartUploadsCommandOutput;
+    };
+  };
+}

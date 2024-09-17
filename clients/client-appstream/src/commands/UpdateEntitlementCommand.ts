@@ -111,4 +111,16 @@ export class UpdateEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEntitlementCommand)
   .de(de_UpdateEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEntitlementRequest;
+      output: UpdateEntitlementResult;
+    };
+    sdk: {
+      input: UpdateEntitlementCommandInput;
+      output: UpdateEntitlementCommandOutput;
+    };
+  };
+}

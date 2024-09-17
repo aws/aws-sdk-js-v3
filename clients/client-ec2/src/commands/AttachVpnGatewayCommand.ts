@@ -85,4 +85,16 @@ export class AttachVpnGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachVpnGatewayCommand)
   .de(de_AttachVpnGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachVpnGatewayRequest;
+      output: AttachVpnGatewayResult;
+    };
+    sdk: {
+      input: AttachVpnGatewayCommandInput;
+      output: AttachVpnGatewayCommandOutput;
+    };
+  };
+}

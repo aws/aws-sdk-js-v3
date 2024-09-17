@@ -151,4 +151,16 @@ export class PutBucketVersioningCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketVersioningCommand)
   .de(de_PutBucketVersioningCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketVersioningRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketVersioningCommandInput;
+      output: PutBucketVersioningCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class ListMemberAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMemberAccountsCommand)
   .de(de_ListMemberAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMemberAccountsRequest;
+      output: ListMemberAccountsResponse;
+    };
+    sdk: {
+      input: ListMemberAccountsCommandInput;
+      output: ListMemberAccountsCommandOutput;
+    };
+  };
+}

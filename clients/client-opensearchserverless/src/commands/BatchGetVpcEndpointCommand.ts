@@ -115,4 +115,16 @@ export class BatchGetVpcEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetVpcEndpointCommand)
   .de(de_BatchGetVpcEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetVpcEndpointRequest;
+      output: BatchGetVpcEndpointResponse;
+    };
+    sdk: {
+      input: BatchGetVpcEndpointCommandInput;
+      output: BatchGetVpcEndpointCommandOutput;
+    };
+  };
+}

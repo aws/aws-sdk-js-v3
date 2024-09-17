@@ -99,4 +99,16 @@ export class DescribeWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkloadCommand)
   .de(de_DescribeWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkloadRequest;
+      output: DescribeWorkloadResponse;
+    };
+    sdk: {
+      input: DescribeWorkloadCommandInput;
+      output: DescribeWorkloadCommandOutput;
+    };
+  };
+}

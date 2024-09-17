@@ -181,4 +181,16 @@ export class GetBackendAuthCommand extends $Command
   .f(void 0, GetBackendAuthResponseFilterSensitiveLog)
   .ser(se_GetBackendAuthCommand)
   .de(de_GetBackendAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackendAuthRequest;
+      output: GetBackendAuthResponse;
+    };
+    sdk: {
+      input: GetBackendAuthCommandInput;
+      output: GetBackendAuthCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class AcceptInvitationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptInvitationCommand)
   .de(de_AcceptInvitationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptInvitationRequest;
+      output: {};
+    };
+    sdk: {
+      input: AcceptInvitationCommandInput;
+      output: AcceptInvitationCommandOutput;
+    };
+  };
+}

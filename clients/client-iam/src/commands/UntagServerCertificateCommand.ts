@@ -103,4 +103,16 @@ export class UntagServerCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagServerCertificateCommand)
   .de(de_UntagServerCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagServerCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagServerCertificateCommandInput;
+      output: UntagServerCertificateCommandOutput;
+    };
+  };
+}

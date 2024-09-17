@@ -103,4 +103,16 @@ export class CreateLogPatternCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLogPatternCommand)
   .de(de_CreateLogPatternCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLogPatternRequest;
+      output: CreateLogPatternResponse;
+    };
+    sdk: {
+      input: CreateLogPatternCommandInput;
+      output: CreateLogPatternCommandOutput;
+    };
+  };
+}

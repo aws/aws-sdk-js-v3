@@ -153,4 +153,16 @@ export class UpdateApplicationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationSettingsCommand)
   .de(de_UpdateApplicationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationSettingsRequest;
+      output: UpdateApplicationSettingsResponse;
+    };
+    sdk: {
+      input: UpdateApplicationSettingsCommandInput;
+      output: UpdateApplicationSettingsCommandOutput;
+    };
+  };
+}

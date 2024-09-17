@@ -99,4 +99,16 @@ export class GetRevocationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevocationStatusCommand)
   .de(de_GetRevocationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRevocationStatusRequest;
+      output: GetRevocationStatusResponse;
+    };
+    sdk: {
+      input: GetRevocationStatusCommandInput;
+      output: GetRevocationStatusCommandOutput;
+    };
+  };
+}

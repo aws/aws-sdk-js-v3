@@ -99,4 +99,16 @@ export class SetTopicAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTopicAttributesCommand)
   .de(de_SetTopicAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTopicAttributesInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTopicAttributesCommandInput;
+      output: SetTopicAttributesCommandOutput;
+    };
+  };
+}

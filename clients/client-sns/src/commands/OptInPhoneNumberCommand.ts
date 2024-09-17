@@ -94,4 +94,16 @@ export class OptInPhoneNumberCommand extends $Command
   .f(OptInPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_OptInPhoneNumberCommand)
   .de(de_OptInPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OptInPhoneNumberInput;
+      output: {};
+    };
+    sdk: {
+      input: OptInPhoneNumberCommandInput;
+      output: OptInPhoneNumberCommandOutput;
+    };
+  };
+}

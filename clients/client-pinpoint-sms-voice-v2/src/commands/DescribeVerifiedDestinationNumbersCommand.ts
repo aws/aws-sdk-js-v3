@@ -131,4 +131,16 @@ export class DescribeVerifiedDestinationNumbersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedDestinationNumbersCommand)
   .de(de_DescribeVerifiedDestinationNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedDestinationNumbersRequest;
+      output: DescribeVerifiedDestinationNumbersResult;
+    };
+    sdk: {
+      input: DescribeVerifiedDestinationNumbersCommandInput;
+      output: DescribeVerifiedDestinationNumbersCommandOutput;
+    };
+  };
+}

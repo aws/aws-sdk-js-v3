@@ -1099,4 +1099,16 @@ export class CheckCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckCapacityCommand)
   .de(de_CheckCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckCapacityRequest;
+      output: CheckCapacityResponse;
+    };
+    sdk: {
+      input: CheckCapacityCommandInput;
+      output: CheckCapacityCommandOutput;
+    };
+  };
+}

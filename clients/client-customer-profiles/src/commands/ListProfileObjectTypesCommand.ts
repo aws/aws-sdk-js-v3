@@ -111,4 +111,16 @@ export class ListProfileObjectTypesCommand extends $Command
   .f(void 0, ListProfileObjectTypesResponseFilterSensitiveLog)
   .ser(se_ListProfileObjectTypesCommand)
   .de(de_ListProfileObjectTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfileObjectTypesRequest;
+      output: ListProfileObjectTypesResponse;
+    };
+    sdk: {
+      input: ListProfileObjectTypesCommandInput;
+      output: ListProfileObjectTypesCommandOutput;
+    };
+  };
+}

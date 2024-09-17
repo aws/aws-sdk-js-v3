@@ -122,4 +122,16 @@ export class CreateCertificateProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCertificateProviderCommand)
   .de(de_CreateCertificateProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCertificateProviderRequest;
+      output: CreateCertificateProviderResponse;
+    };
+    sdk: {
+      input: CreateCertificateProviderCommandInput;
+      output: CreateCertificateProviderCommandOutput;
+    };
+  };
+}

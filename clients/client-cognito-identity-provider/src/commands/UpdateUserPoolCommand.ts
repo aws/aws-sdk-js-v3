@@ -263,4 +263,16 @@ export class UpdateUserPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserPoolCommand)
   .de(de_UpdateUserPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserPoolCommandInput;
+      output: UpdateUserPoolCommandOutput;
+    };
+  };
+}

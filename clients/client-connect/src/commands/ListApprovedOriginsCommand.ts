@@ -98,4 +98,16 @@ export class ListApprovedOriginsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApprovedOriginsCommand)
   .de(de_ListApprovedOriginsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApprovedOriginsRequest;
+      output: ListApprovedOriginsResponse;
+    };
+    sdk: {
+      input: ListApprovedOriginsCommandInput;
+      output: ListApprovedOriginsCommandOutput;
+    };
+  };
+}

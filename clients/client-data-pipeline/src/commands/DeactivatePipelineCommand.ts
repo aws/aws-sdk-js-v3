@@ -91,4 +91,16 @@ export class DeactivatePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivatePipelineCommand)
   .de(de_DeactivatePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivatePipelineInput;
+      output: {};
+    };
+    sdk: {
+      input: DeactivatePipelineCommandInput;
+      output: DeactivatePipelineCommandOutput;
+    };
+  };
+}

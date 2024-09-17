@@ -107,4 +107,16 @@ export class ListChallengeMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChallengeMetadataCommand)
   .de(de_ListChallengeMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChallengeMetadataRequest;
+      output: ListChallengeMetadataResponse;
+    };
+    sdk: {
+      input: ListChallengeMetadataCommandInput;
+      output: ListChallengeMetadataCommandOutput;
+    };
+  };
+}

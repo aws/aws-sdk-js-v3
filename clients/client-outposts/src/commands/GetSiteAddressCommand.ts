@@ -104,4 +104,16 @@ export class GetSiteAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSiteAddressCommand)
   .de(de_GetSiteAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSiteAddressInput;
+      output: GetSiteAddressOutput;
+    };
+    sdk: {
+      input: GetSiteAddressCommandInput;
+      output: GetSiteAddressCommandOutput;
+    };
+  };
+}

@@ -89,4 +89,16 @@ export class UpdatePreparedStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePreparedStatementCommand)
   .de(de_UpdatePreparedStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePreparedStatementInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePreparedStatementCommandInput;
+      output: UpdatePreparedStatementCommandOutput;
+    };
+  };
+}

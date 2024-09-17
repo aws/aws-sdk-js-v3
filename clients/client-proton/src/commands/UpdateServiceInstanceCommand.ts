@@ -132,4 +132,16 @@ export class UpdateServiceInstanceCommand extends $Command
   .f(UpdateServiceInstanceInputFilterSensitiveLog, UpdateServiceInstanceOutputFilterSensitiveLog)
   .ser(se_UpdateServiceInstanceCommand)
   .de(de_UpdateServiceInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceInstanceInput;
+      output: UpdateServiceInstanceOutput;
+    };
+    sdk: {
+      input: UpdateServiceInstanceCommandInput;
+      output: UpdateServiceInstanceCommandOutput;
+    };
+  };
+}

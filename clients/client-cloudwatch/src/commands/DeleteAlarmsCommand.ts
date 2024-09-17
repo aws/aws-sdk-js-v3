@@ -97,4 +97,16 @@ export class DeleteAlarmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAlarmsCommand)
   .de(de_DeleteAlarmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAlarmsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAlarmsCommandInput;
+      output: DeleteAlarmsCommandOutput;
+    };
+  };
+}

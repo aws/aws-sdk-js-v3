@@ -104,4 +104,16 @@ export class UpdateResourceProfileDetectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourceProfileDetectionsCommand)
   .de(de_UpdateResourceProfileDetectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceProfileDetectionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResourceProfileDetectionsCommandInput;
+      output: UpdateResourceProfileDetectionsCommandOutput;
+    };
+  };
+}

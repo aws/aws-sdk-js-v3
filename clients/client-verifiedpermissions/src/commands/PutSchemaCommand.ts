@@ -207,4 +207,16 @@ export class PutSchemaCommand extends $Command
   .f(PutSchemaInputFilterSensitiveLog, PutSchemaOutputFilterSensitiveLog)
   .ser(se_PutSchemaCommand)
   .de(de_PutSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSchemaInput;
+      output: PutSchemaOutput;
+    };
+    sdk: {
+      input: PutSchemaCommandInput;
+      output: PutSchemaCommandOutput;
+    };
+  };
+}

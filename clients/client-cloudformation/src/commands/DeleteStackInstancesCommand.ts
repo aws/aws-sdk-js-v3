@@ -123,4 +123,16 @@ export class DeleteStackInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStackInstancesCommand)
   .de(de_DeleteStackInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStackInstancesInput;
+      output: DeleteStackInstancesOutput;
+    };
+    sdk: {
+      input: DeleteStackInstancesCommandInput;
+      output: DeleteStackInstancesCommandOutput;
+    };
+  };
+}

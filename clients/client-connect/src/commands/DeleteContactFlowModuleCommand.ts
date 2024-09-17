@@ -94,4 +94,16 @@ export class DeleteContactFlowModuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContactFlowModuleCommand)
   .de(de_DeleteContactFlowModuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContactFlowModuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContactFlowModuleCommandInput;
+      output: DeleteContactFlowModuleCommandOutput;
+    };
+  };
+}

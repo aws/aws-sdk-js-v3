@@ -104,4 +104,16 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutThirdPartyJobSuccessResultCommand)
   .de(de_PutThirdPartyJobSuccessResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutThirdPartyJobSuccessResultInput;
+      output: {};
+    };
+    sdk: {
+      input: PutThirdPartyJobSuccessResultCommandInput;
+      output: PutThirdPartyJobSuccessResultCommandOutput;
+    };
+  };
+}

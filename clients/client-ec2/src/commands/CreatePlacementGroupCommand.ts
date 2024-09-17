@@ -127,4 +127,16 @@ export class CreatePlacementGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlacementGroupCommand)
   .de(de_CreatePlacementGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlacementGroupRequest;
+      output: CreatePlacementGroupResult;
+    };
+    sdk: {
+      input: CreatePlacementGroupCommandInput;
+      output: CreatePlacementGroupCommandOutput;
+    };
+  };
+}

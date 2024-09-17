@@ -133,4 +133,16 @@ export class GetAggregateResourceConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAggregateResourceConfigCommand)
   .de(de_GetAggregateResourceConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAggregateResourceConfigRequest;
+      output: GetAggregateResourceConfigResponse;
+    };
+    sdk: {
+      input: GetAggregateResourceConfigCommandInput;
+      output: GetAggregateResourceConfigCommandOutput;
+    };
+  };
+}

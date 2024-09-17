@@ -524,4 +524,16 @@ export class CreateComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateComponentCommand)
   .de(de_CreateComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComponentRequest;
+      output: CreateComponentResponse;
+    };
+    sdk: {
+      input: CreateComponentCommandInput;
+      output: CreateComponentCommandOutput;
+    };
+  };
+}

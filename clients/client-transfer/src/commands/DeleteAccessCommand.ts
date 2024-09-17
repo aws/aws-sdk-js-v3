@@ -90,4 +90,16 @@ export class DeleteAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessCommand)
   .de(de_DeleteAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessCommandInput;
+      output: DeleteAccessCommandOutput;
+    };
+  };
+}

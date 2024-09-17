@@ -83,4 +83,16 @@ export class StopNotebookInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopNotebookInstanceCommand)
   .de(de_StopNotebookInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopNotebookInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: StopNotebookInstanceCommandInput;
+      output: StopNotebookInstanceCommandOutput;
+    };
+  };
+}

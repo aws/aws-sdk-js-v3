@@ -90,4 +90,16 @@ export class DeleteRecoveryInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecoveryInstanceCommand)
   .de(de_DeleteRecoveryInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecoveryInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRecoveryInstanceCommandInput;
+      output: DeleteRecoveryInstanceCommandOutput;
+    };
+  };
+}

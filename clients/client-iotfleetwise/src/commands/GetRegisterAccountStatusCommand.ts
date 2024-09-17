@@ -112,4 +112,16 @@ export class GetRegisterAccountStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegisterAccountStatusCommand)
   .de(de_GetRegisterAccountStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRegisterAccountStatusResponse;
+    };
+    sdk: {
+      input: GetRegisterAccountStatusCommandInput;
+      output: GetRegisterAccountStatusCommandOutput;
+    };
+  };
+}

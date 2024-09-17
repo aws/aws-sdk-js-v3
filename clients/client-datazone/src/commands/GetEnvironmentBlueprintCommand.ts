@@ -127,4 +127,16 @@ export class GetEnvironmentBlueprintCommand extends $Command
   .f(void 0, GetEnvironmentBlueprintOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentBlueprintCommand)
   .de(de_GetEnvironmentBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentBlueprintInput;
+      output: GetEnvironmentBlueprintOutput;
+    };
+    sdk: {
+      input: GetEnvironmentBlueprintCommandInput;
+      output: GetEnvironmentBlueprintCommandOutput;
+    };
+  };
+}

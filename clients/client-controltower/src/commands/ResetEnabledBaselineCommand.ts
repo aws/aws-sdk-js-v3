@@ -100,4 +100,16 @@ export class ResetEnabledBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetEnabledBaselineCommand)
   .de(de_ResetEnabledBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetEnabledBaselineInput;
+      output: ResetEnabledBaselineOutput;
+    };
+    sdk: {
+      input: ResetEnabledBaselineCommandInput;
+      output: ResetEnabledBaselineCommandOutput;
+    };
+  };
+}

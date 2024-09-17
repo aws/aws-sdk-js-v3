@@ -110,4 +110,16 @@ export class ListPerformanceAnalysisReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPerformanceAnalysisReportsCommand)
   .de(de_ListPerformanceAnalysisReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPerformanceAnalysisReportsRequest;
+      output: ListPerformanceAnalysisReportsResponse;
+    };
+    sdk: {
+      input: ListPerformanceAnalysisReportsCommandInput;
+      output: ListPerformanceAnalysisReportsCommandOutput;
+    };
+  };
+}

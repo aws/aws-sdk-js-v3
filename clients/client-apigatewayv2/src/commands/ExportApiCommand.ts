@@ -99,4 +99,16 @@ export class ExportApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportApiCommand)
   .de(de_ExportApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportApiRequest;
+      output: ExportApiResponse;
+    };
+    sdk: {
+      input: ExportApiCommandInput;
+      output: ExportApiCommandOutput;
+    };
+  };
+}

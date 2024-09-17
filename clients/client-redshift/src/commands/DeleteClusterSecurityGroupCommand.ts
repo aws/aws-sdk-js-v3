@@ -90,4 +90,16 @@ export class DeleteClusterSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterSecurityGroupCommand)
   .de(de_DeleteClusterSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterSecurityGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteClusterSecurityGroupCommandInput;
+      output: DeleteClusterSecurityGroupCommandOutput;
+    };
+  };
+}

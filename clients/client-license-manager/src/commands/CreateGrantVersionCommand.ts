@@ -113,4 +113,16 @@ export class CreateGrantVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGrantVersionCommand)
   .de(de_CreateGrantVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGrantVersionRequest;
+      output: CreateGrantVersionResponse;
+    };
+    sdk: {
+      input: CreateGrantVersionCommandInput;
+      output: CreateGrantVersionCommandOutput;
+    };
+  };
+}

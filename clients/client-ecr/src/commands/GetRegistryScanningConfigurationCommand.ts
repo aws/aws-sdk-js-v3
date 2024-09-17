@@ -104,4 +104,16 @@ export class GetRegistryScanningConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegistryScanningConfigurationCommand)
   .de(de_GetRegistryScanningConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRegistryScanningConfigurationResponse;
+    };
+    sdk: {
+      input: GetRegistryScanningConfigurationCommandInput;
+      output: GetRegistryScanningConfigurationCommandOutput;
+    };
+  };
+}

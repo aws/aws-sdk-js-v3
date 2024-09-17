@@ -171,4 +171,16 @@ export class UpdateSubscriberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSubscriberCommand)
   .de(de_UpdateSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriberRequest;
+      output: UpdateSubscriberResponse;
+    };
+    sdk: {
+      input: UpdateSubscriberCommandInput;
+      output: UpdateSubscriberCommandOutput;
+    };
+  };
+}

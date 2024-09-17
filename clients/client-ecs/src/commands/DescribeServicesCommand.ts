@@ -442,4 +442,16 @@ export class DescribeServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServicesCommand)
   .de(de_DescribeServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServicesRequest;
+      output: DescribeServicesResponse;
+    };
+    sdk: {
+      input: DescribeServicesCommandInput;
+      output: DescribeServicesCommandOutput;
+    };
+  };
+}

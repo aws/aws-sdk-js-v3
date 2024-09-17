@@ -106,4 +106,16 @@ export class ListMultiplexProgramsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultiplexProgramsCommand)
   .de(de_ListMultiplexProgramsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultiplexProgramsRequest;
+      output: ListMultiplexProgramsResponse;
+    };
+    sdk: {
+      input: ListMultiplexProgramsCommandInput;
+      output: ListMultiplexProgramsCommandOutput;
+    };
+  };
+}

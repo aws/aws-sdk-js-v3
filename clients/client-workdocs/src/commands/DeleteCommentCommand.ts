@@ -102,4 +102,16 @@ export class DeleteCommentCommand extends $Command
   .f(DeleteCommentRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteCommentCommand)
   .de(de_DeleteCommentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCommentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCommentCommandInput;
+      output: DeleteCommentCommandOutput;
+    };
+  };
+}

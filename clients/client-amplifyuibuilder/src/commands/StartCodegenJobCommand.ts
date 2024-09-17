@@ -311,4 +311,16 @@ export class StartCodegenJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCodegenJobCommand)
   .de(de_StartCodegenJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCodegenJobRequest;
+      output: StartCodegenJobResponse;
+    };
+    sdk: {
+      input: StartCodegenJobCommandInput;
+      output: StartCodegenJobCommandOutput;
+    };
+  };
+}

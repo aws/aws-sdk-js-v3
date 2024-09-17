@@ -97,4 +97,16 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
   )
   .ser(se_StreamingTraitsWithMediaTypeCommand)
   .de(de_StreamingTraitsWithMediaTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsWithMediaTypeInputOutput;
+      output: StreamingTraitsWithMediaTypeInputOutput;
+    };
+    sdk: {
+      input: StreamingTraitsWithMediaTypeCommandInput;
+      output: StreamingTraitsWithMediaTypeCommandOutput;
+    };
+  };
+}

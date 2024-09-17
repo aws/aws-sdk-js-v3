@@ -91,4 +91,16 @@ export class UpdateArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateArtifactCommand)
   .de(de_UpdateArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateArtifactRequest;
+      output: UpdateArtifactResponse;
+    };
+    sdk: {
+      input: UpdateArtifactCommandInput;
+      output: UpdateArtifactCommandOutput;
+    };
+  };
+}

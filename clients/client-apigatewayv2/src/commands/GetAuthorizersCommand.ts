@@ -110,4 +110,16 @@ export class GetAuthorizersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAuthorizersCommand)
   .de(de_GetAuthorizersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAuthorizersRequest;
+      output: GetAuthorizersResponse;
+    };
+    sdk: {
+      input: GetAuthorizersCommandInput;
+      output: GetAuthorizersCommandOutput;
+    };
+  };
+}

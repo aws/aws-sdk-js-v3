@@ -110,4 +110,16 @@ export class DescribeApplicationProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationProviderCommand)
   .de(de_DescribeApplicationProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationProviderRequest;
+      output: DescribeApplicationProviderResponse;
+    };
+    sdk: {
+      input: DescribeApplicationProviderCommandInput;
+      output: DescribeApplicationProviderCommandOutput;
+    };
+  };
+}

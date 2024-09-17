@@ -197,4 +197,16 @@ export class CreateWorkspaceCommand extends $Command
   .f(CreateWorkspaceRequestFilterSensitiveLog, CreateWorkspaceResponseFilterSensitiveLog)
   .ser(se_CreateWorkspaceCommand)
   .de(de_CreateWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceRequest;
+      output: CreateWorkspaceResponse;
+    };
+    sdk: {
+      input: CreateWorkspaceCommandInput;
+      output: CreateWorkspaceCommandOutput;
+    };
+  };
+}

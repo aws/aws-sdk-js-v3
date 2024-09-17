@@ -124,4 +124,16 @@ export class BatchGetDevicePositionCommand extends $Command
   .f(void 0, BatchGetDevicePositionResponseFilterSensitiveLog)
   .ser(se_BatchGetDevicePositionCommand)
   .de(de_BatchGetDevicePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDevicePositionRequest;
+      output: BatchGetDevicePositionResponse;
+    };
+    sdk: {
+      input: BatchGetDevicePositionCommandInput;
+      output: BatchGetDevicePositionCommandOutput;
+    };
+  };
+}

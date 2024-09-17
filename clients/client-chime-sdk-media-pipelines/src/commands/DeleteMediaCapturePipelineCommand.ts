@@ -100,4 +100,16 @@ export class DeleteMediaCapturePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaCapturePipelineCommand)
   .de(de_DeleteMediaCapturePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaCapturePipelineRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaCapturePipelineCommandInput;
+      output: DeleteMediaCapturePipelineCommandOutput;
+    };
+  };
+}

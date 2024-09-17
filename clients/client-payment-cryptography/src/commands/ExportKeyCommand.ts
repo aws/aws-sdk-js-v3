@@ -272,4 +272,16 @@ export class ExportKeyCommand extends $Command
   .f(ExportKeyInputFilterSensitiveLog, ExportKeyOutputFilterSensitiveLog)
   .ser(se_ExportKeyCommand)
   .de(de_ExportKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportKeyInput;
+      output: ExportKeyOutput;
+    };
+    sdk: {
+      input: ExportKeyCommandInput;
+      output: ExportKeyCommandOutput;
+    };
+  };
+}

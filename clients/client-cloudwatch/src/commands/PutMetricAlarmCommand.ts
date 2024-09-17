@@ -191,4 +191,16 @@ export class PutMetricAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricAlarmCommand)
   .de(de_PutMetricAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricAlarmInput;
+      output: {};
+    };
+    sdk: {
+      input: PutMetricAlarmCommandInput;
+      output: PutMetricAlarmCommandOutput;
+    };
+  };
+}

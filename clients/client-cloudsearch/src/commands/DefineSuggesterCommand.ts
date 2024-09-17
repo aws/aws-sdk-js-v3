@@ -120,4 +120,16 @@ export class DefineSuggesterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DefineSuggesterCommand)
   .de(de_DefineSuggesterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DefineSuggesterRequest;
+      output: DefineSuggesterResponse;
+    };
+    sdk: {
+      input: DefineSuggesterCommandInput;
+      output: DefineSuggesterCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class GetUserIdCommand extends $Command
   .f(GetUserIdRequestFilterSensitiveLog, void 0)
   .ser(se_GetUserIdCommand)
   .de(de_GetUserIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserIdRequest;
+      output: GetUserIdResponse;
+    };
+    sdk: {
+      input: GetUserIdCommandInput;
+      output: GetUserIdCommandOutput;
+    };
+  };
+}

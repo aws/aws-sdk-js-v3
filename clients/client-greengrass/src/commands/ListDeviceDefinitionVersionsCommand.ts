@@ -95,4 +95,16 @@ export class ListDeviceDefinitionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeviceDefinitionVersionsCommand)
   .de(de_ListDeviceDefinitionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeviceDefinitionVersionsRequest;
+      output: ListDeviceDefinitionVersionsResponse;
+    };
+    sdk: {
+      input: ListDeviceDefinitionVersionsCommandInput;
+      output: ListDeviceDefinitionVersionsCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class GetOriginEndpointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginEndpointPolicyCommand)
   .de(de_GetOriginEndpointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginEndpointPolicyRequest;
+      output: GetOriginEndpointPolicyResponse;
+    };
+    sdk: {
+      input: GetOriginEndpointPolicyCommandInput;
+      output: GetOriginEndpointPolicyCommandOutput;
+    };
+  };
+}

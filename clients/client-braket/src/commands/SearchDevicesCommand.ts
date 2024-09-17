@@ -108,4 +108,16 @@ export class SearchDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchDevicesCommand)
   .de(de_SearchDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchDevicesRequest;
+      output: SearchDevicesResponse;
+    };
+    sdk: {
+      input: SearchDevicesCommandInput;
+      output: SearchDevicesCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class ListCoreDefinitionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreDefinitionVersionsCommand)
   .de(de_ListCoreDefinitionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreDefinitionVersionsRequest;
+      output: ListCoreDefinitionVersionsResponse;
+    };
+    sdk: {
+      input: ListCoreDefinitionVersionsCommandInput;
+      output: ListCoreDefinitionVersionsCommandOutput;
+    };
+  };
+}

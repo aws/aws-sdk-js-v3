@@ -308,4 +308,16 @@ export class HeadObjectCommand extends $Command
   .f(HeadObjectRequestFilterSensitiveLog, HeadObjectOutputFilterSensitiveLog)
   .ser(se_HeadObjectCommand)
   .de(de_HeadObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HeadObjectRequest;
+      output: HeadObjectOutput;
+    };
+    sdk: {
+      input: HeadObjectCommandInput;
+      output: HeadObjectCommandOutput;
+    };
+  };
+}

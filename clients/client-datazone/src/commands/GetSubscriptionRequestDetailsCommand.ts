@@ -173,4 +173,16 @@ export class GetSubscriptionRequestDetailsCommand extends $Command
   .f(void 0, GetSubscriptionRequestDetailsOutputFilterSensitiveLog)
   .ser(se_GetSubscriptionRequestDetailsCommand)
   .de(de_GetSubscriptionRequestDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionRequestDetailsInput;
+      output: GetSubscriptionRequestDetailsOutput;
+    };
+    sdk: {
+      input: GetSubscriptionRequestDetailsCommandInput;
+      output: GetSubscriptionRequestDetailsCommandOutput;
+    };
+  };
+}

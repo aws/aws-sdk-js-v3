@@ -118,4 +118,16 @@ export class UpdateSmsChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSmsChannelCommand)
   .de(de_UpdateSmsChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSmsChannelRequest;
+      output: UpdateSmsChannelResponse;
+    };
+    sdk: {
+      input: UpdateSmsChannelCommandInput;
+      output: UpdateSmsChannelCommandOutput;
+    };
+  };
+}

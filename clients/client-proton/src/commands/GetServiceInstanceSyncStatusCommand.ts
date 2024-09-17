@@ -158,4 +158,16 @@ export class GetServiceInstanceSyncStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceInstanceSyncStatusCommand)
   .de(de_GetServiceInstanceSyncStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceInstanceSyncStatusInput;
+      output: GetServiceInstanceSyncStatusOutput;
+    };
+    sdk: {
+      input: GetServiceInstanceSyncStatusCommandInput;
+      output: GetServiceInstanceSyncStatusCommandOutput;
+    };
+  };
+}

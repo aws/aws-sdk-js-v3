@@ -165,4 +165,16 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllocatePublicVirtualInterfaceCommand)
   .de(de_AllocatePublicVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllocatePublicVirtualInterfaceRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: AllocatePublicVirtualInterfaceCommandInput;
+      output: AllocatePublicVirtualInterfaceCommandOutput;
+    };
+  };
+}

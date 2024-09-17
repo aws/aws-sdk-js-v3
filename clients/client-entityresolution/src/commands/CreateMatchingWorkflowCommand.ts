@@ -201,4 +201,16 @@ export class CreateMatchingWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMatchingWorkflowCommand)
   .de(de_CreateMatchingWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMatchingWorkflowInput;
+      output: CreateMatchingWorkflowOutput;
+    };
+    sdk: {
+      input: CreateMatchingWorkflowCommandInput;
+      output: CreateMatchingWorkflowCommandOutput;
+    };
+  };
+}

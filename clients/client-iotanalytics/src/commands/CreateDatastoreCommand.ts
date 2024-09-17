@@ -150,4 +150,16 @@ export class CreateDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatastoreCommand)
   .de(de_CreateDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatastoreRequest;
+      output: CreateDatastoreResponse;
+    };
+    sdk: {
+      input: CreateDatastoreCommandInput;
+      output: CreateDatastoreCommandOutput;
+    };
+  };
+}

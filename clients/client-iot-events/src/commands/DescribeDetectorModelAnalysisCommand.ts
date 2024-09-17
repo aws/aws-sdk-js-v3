@@ -100,4 +100,16 @@ export class DescribeDetectorModelAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDetectorModelAnalysisCommand)
   .de(de_DescribeDetectorModelAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDetectorModelAnalysisRequest;
+      output: DescribeDetectorModelAnalysisResponse;
+    };
+    sdk: {
+      input: DescribeDetectorModelAnalysisCommandInput;
+      output: DescribeDetectorModelAnalysisCommandOutput;
+    };
+  };
+}

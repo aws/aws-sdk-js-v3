@@ -97,4 +97,16 @@ export class UpdateEmailIdentityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEmailIdentityPolicyCommand)
   .de(de_UpdateEmailIdentityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEmailIdentityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEmailIdentityPolicyCommandInput;
+      output: UpdateEmailIdentityPolicyCommandOutput;
+    };
+  };
+}

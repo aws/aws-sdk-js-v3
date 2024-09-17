@@ -103,4 +103,16 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomRoutingAcceleratorAttributesCommand)
   .de(de_DescribeCustomRoutingAcceleratorAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomRoutingAcceleratorAttributesRequest;
+      output: DescribeCustomRoutingAcceleratorAttributesResponse;
+    };
+    sdk: {
+      input: DescribeCustomRoutingAcceleratorAttributesCommandInput;
+      output: DescribeCustomRoutingAcceleratorAttributesCommandOutput;
+    };
+  };
+}

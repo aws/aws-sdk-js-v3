@@ -97,4 +97,16 @@ export class ListRecipesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecipesCommand)
   .de(de_ListRecipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecipesRequest;
+      output: ListRecipesResponse;
+    };
+    sdk: {
+      input: ListRecipesCommandInput;
+      output: ListRecipesCommandOutput;
+    };
+  };
+}

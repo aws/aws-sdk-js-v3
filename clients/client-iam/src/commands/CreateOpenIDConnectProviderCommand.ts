@@ -183,4 +183,16 @@ export class CreateOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOpenIDConnectProviderCommand)
   .de(de_CreateOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOpenIDConnectProviderRequest;
+      output: CreateOpenIDConnectProviderResponse;
+    };
+    sdk: {
+      input: CreateOpenIDConnectProviderCommandInput;
+      output: CreateOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

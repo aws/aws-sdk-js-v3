@@ -94,4 +94,16 @@ export class CancelMLTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelMLTaskRunCommand)
   .de(de_CancelMLTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelMLTaskRunRequest;
+      output: CancelMLTaskRunResponse;
+    };
+    sdk: {
+      input: CancelMLTaskRunCommandInput;
+      output: CancelMLTaskRunCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class CreateSoftwareUpdateJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSoftwareUpdateJobCommand)
   .de(de_CreateSoftwareUpdateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSoftwareUpdateJobRequest;
+      output: CreateSoftwareUpdateJobResponse;
+    };
+    sdk: {
+      input: CreateSoftwareUpdateJobCommandInput;
+      output: CreateSoftwareUpdateJobCommandOutput;
+    };
+  };
+}

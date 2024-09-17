@@ -140,4 +140,16 @@ export class CreateMultiplexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMultiplexCommand)
   .de(de_CreateMultiplexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMultiplexRequest;
+      output: CreateMultiplexResponse;
+    };
+    sdk: {
+      input: CreateMultiplexCommandInput;
+      output: CreateMultiplexCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class DetectProfileObjectTypeCommand extends $Command
   .f(DetectProfileObjectTypeRequestFilterSensitiveLog, DetectProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_DetectProfileObjectTypeCommand)
   .de(de_DetectProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectProfileObjectTypeRequest;
+      output: DetectProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: DetectProfileObjectTypeCommandInput;
+      output: DetectProfileObjectTypeCommandOutput;
+    };
+  };
+}

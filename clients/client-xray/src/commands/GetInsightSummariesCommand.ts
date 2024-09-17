@@ -136,4 +136,16 @@ export class GetInsightSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightSummariesCommand)
   .de(de_GetInsightSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightSummariesRequest;
+      output: GetInsightSummariesResult;
+    };
+    sdk: {
+      input: GetInsightSummariesCommandInput;
+      output: GetInsightSummariesCommandOutput;
+    };
+  };
+}

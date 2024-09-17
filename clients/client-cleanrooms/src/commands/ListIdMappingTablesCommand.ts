@@ -112,4 +112,16 @@ export class ListIdMappingTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdMappingTablesCommand)
   .de(de_ListIdMappingTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdMappingTablesInput;
+      output: ListIdMappingTablesOutput;
+    };
+    sdk: {
+      input: ListIdMappingTablesCommandInput;
+      output: ListIdMappingTablesCommandOutput;
+    };
+  };
+}

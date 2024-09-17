@@ -142,4 +142,16 @@ export class CreatePullRequestApprovalRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePullRequestApprovalRuleCommand)
   .de(de_CreatePullRequestApprovalRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePullRequestApprovalRuleInput;
+      output: CreatePullRequestApprovalRuleOutput;
+    };
+    sdk: {
+      input: CreatePullRequestApprovalRuleCommandInput;
+      output: CreatePullRequestApprovalRuleCommandOutput;
+    };
+  };
+}

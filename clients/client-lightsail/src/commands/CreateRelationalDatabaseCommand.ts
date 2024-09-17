@@ -146,4 +146,16 @@ export class CreateRelationalDatabaseCommand extends $Command
   .f(CreateRelationalDatabaseRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRelationalDatabaseCommand)
   .de(de_CreateRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelationalDatabaseRequest;
+      output: CreateRelationalDatabaseResult;
+    };
+    sdk: {
+      input: CreateRelationalDatabaseCommandInput;
+      output: CreateRelationalDatabaseCommandOutput;
+    };
+  };
+}

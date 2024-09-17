@@ -114,4 +114,16 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseLogStreamsCommand)
   .de(de_GetRelationalDatabaseLogStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseLogStreamsRequest;
+      output: GetRelationalDatabaseLogStreamsResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseLogStreamsCommandInput;
+      output: GetRelationalDatabaseLogStreamsCommandOutput;
+    };
+  };
+}

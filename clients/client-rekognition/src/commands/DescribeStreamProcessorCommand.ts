@@ -153,4 +153,16 @@ export class DescribeStreamProcessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStreamProcessorCommand)
   .de(de_DescribeStreamProcessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStreamProcessorRequest;
+      output: DescribeStreamProcessorResponse;
+    };
+    sdk: {
+      input: DescribeStreamProcessorCommandInput;
+      output: DescribeStreamProcessorCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class ReadPipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReadPipelineCommand)
   .de(de_ReadPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReadPipelineRequest;
+      output: ReadPipelineResponse;
+    };
+    sdk: {
+      input: ReadPipelineCommandInput;
+      output: ReadPipelineCommandOutput;
+    };
+  };
+}

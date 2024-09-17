@@ -133,4 +133,16 @@ export class CreateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLinkCommand)
   .de(de_CreateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLinkRequest;
+      output: CreateLinkResponse;
+    };
+    sdk: {
+      input: CreateLinkCommandInput;
+      output: CreateLinkCommandOutput;
+    };
+  };
+}

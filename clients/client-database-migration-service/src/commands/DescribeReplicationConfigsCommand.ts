@@ -120,4 +120,16 @@ export class DescribeReplicationConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationConfigsCommand)
   .de(de_DescribeReplicationConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationConfigsMessage;
+      output: DescribeReplicationConfigsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationConfigsCommandInput;
+      output: DescribeReplicationConfigsCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class ListAnalyzedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzedResourcesCommand)
   .de(de_ListAnalyzedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzedResourcesRequest;
+      output: ListAnalyzedResourcesResponse;
+    };
+    sdk: {
+      input: ListAnalyzedResourcesCommandInput;
+      output: ListAnalyzedResourcesCommandOutput;
+    };
+  };
+}

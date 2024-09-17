@@ -95,4 +95,16 @@ export class DeleteBackendStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackendStorageCommand)
   .de(de_DeleteBackendStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackendStorageRequest;
+      output: DeleteBackendStorageResponse;
+    };
+    sdk: {
+      input: DeleteBackendStorageCommandInput;
+      output: DeleteBackendStorageCommandOutput;
+    };
+  };
+}

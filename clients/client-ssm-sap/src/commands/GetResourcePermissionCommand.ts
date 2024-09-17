@@ -87,4 +87,16 @@ export class GetResourcePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcePermissionCommand)
   .de(de_GetResourcePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcePermissionInput;
+      output: GetResourcePermissionOutput;
+    };
+    sdk: {
+      input: GetResourcePermissionCommandInput;
+      output: GetResourcePermissionCommandOutput;
+    };
+  };
+}

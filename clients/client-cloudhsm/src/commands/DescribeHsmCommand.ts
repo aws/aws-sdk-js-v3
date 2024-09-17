@@ -122,4 +122,16 @@ export class DescribeHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHsmCommand)
   .de(de_DescribeHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHsmRequest;
+      output: DescribeHsmResponse;
+    };
+    sdk: {
+      input: DescribeHsmCommandInput;
+      output: DescribeHsmCommandOutput;
+    };
+  };
+}

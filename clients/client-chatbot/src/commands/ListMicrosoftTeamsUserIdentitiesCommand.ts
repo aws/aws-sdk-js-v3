@@ -104,4 +104,16 @@ export class ListMicrosoftTeamsUserIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMicrosoftTeamsUserIdentitiesCommand)
   .de(de_ListMicrosoftTeamsUserIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMicrosoftTeamsUserIdentitiesRequest;
+      output: ListMicrosoftTeamsUserIdentitiesResult;
+    };
+    sdk: {
+      input: ListMicrosoftTeamsUserIdentitiesCommandInput;
+      output: ListMicrosoftTeamsUserIdentitiesCommandOutput;
+    };
+  };
+}

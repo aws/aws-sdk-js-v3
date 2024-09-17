@@ -91,4 +91,16 @@ export class GetStoredQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStoredQueryCommand)
   .de(de_GetStoredQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStoredQueryRequest;
+      output: GetStoredQueryResponse;
+    };
+    sdk: {
+      input: GetStoredQueryCommandInput;
+      output: GetStoredQueryCommandOutput;
+    };
+  };
+}

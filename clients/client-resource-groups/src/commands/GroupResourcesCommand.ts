@@ -142,4 +142,16 @@ export class GroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GroupResourcesCommand)
   .de(de_GroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GroupResourcesInput;
+      output: GroupResourcesOutput;
+    };
+    sdk: {
+      input: GroupResourcesCommandInput;
+      output: GroupResourcesCommandOutput;
+    };
+  };
+}

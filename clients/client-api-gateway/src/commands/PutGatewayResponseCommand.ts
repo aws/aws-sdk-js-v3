@@ -111,4 +111,16 @@ export class PutGatewayResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutGatewayResponseCommand)
   .de(de_PutGatewayResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGatewayResponseRequest;
+      output: GatewayResponse;
+    };
+    sdk: {
+      input: PutGatewayResponseCommandInput;
+      output: PutGatewayResponseCommandOutput;
+    };
+  };
+}

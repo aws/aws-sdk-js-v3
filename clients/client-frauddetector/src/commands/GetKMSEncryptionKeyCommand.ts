@@ -89,4 +89,16 @@ export class GetKMSEncryptionKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKMSEncryptionKeyCommand)
   .de(de_GetKMSEncryptionKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetKMSEncryptionKeyResult;
+    };
+    sdk: {
+      input: GetKMSEncryptionKeyCommandInput;
+      output: GetKMSEncryptionKeyCommandOutput;
+    };
+  };
+}

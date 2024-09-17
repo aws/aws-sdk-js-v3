@@ -814,4 +814,16 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkInsightsAnalysesCommand)
   .de(de_DescribeNetworkInsightsAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkInsightsAnalysesRequest;
+      output: DescribeNetworkInsightsAnalysesResult;
+    };
+    sdk: {
+      input: DescribeNetworkInsightsAnalysesCommandInput;
+      output: DescribeNetworkInsightsAnalysesCommandOutput;
+    };
+  };
+}

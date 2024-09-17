@@ -101,4 +101,16 @@ export class GetObjectLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectLegalHoldCommand)
   .de(de_GetObjectLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectLegalHoldRequest;
+      output: GetObjectLegalHoldOutput;
+    };
+    sdk: {
+      input: GetObjectLegalHoldCommandInput;
+      output: GetObjectLegalHoldCommandOutput;
+    };
+  };
+}

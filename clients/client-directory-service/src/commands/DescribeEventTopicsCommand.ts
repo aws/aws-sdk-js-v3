@@ -103,4 +103,16 @@ export class DescribeEventTopicsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventTopicsCommand)
   .de(de_DescribeEventTopicsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventTopicsRequest;
+      output: DescribeEventTopicsResult;
+    };
+    sdk: {
+      input: DescribeEventTopicsCommandInput;
+      output: DescribeEventTopicsCommandOutput;
+    };
+  };
+}

@@ -154,4 +154,16 @@ export class CountClosedWorkflowExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CountClosedWorkflowExecutionsCommand)
   .de(de_CountClosedWorkflowExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CountClosedWorkflowExecutionsInput;
+      output: WorkflowExecutionCount;
+    };
+    sdk: {
+      input: CountClosedWorkflowExecutionsCommandInput;
+      output: CountClosedWorkflowExecutionsCommandOutput;
+    };
+  };
+}

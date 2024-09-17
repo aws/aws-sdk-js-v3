@@ -167,4 +167,16 @@ export class StartUpdateSignalMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartUpdateSignalMapCommand)
   .de(de_StartUpdateSignalMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartUpdateSignalMapRequest;
+      output: StartUpdateSignalMapResponse;
+    };
+    sdk: {
+      input: StartUpdateSignalMapCommandInput;
+      output: StartUpdateSignalMapCommandOutput;
+    };
+  };
+}

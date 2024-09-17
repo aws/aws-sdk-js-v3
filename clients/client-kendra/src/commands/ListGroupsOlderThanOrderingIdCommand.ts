@@ -119,4 +119,16 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsOlderThanOrderingIdCommand)
   .de(de_ListGroupsOlderThanOrderingIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsOlderThanOrderingIdRequest;
+      output: ListGroupsOlderThanOrderingIdResponse;
+    };
+    sdk: {
+      input: ListGroupsOlderThanOrderingIdCommandInput;
+      output: ListGroupsOlderThanOrderingIdCommandOutput;
+    };
+  };
+}

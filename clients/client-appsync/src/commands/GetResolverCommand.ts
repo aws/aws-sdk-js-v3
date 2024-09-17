@@ -122,4 +122,16 @@ export class GetResolverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResolverCommand)
   .de(de_GetResolverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResolverRequest;
+      output: GetResolverResponse;
+    };
+    sdk: {
+      input: GetResolverCommandInput;
+      output: GetResolverCommandOutput;
+    };
+  };
+}

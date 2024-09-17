@@ -111,4 +111,16 @@ export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataLakeExceptionSubscriptionCommand)
   .de(de_UpdateDataLakeExceptionSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataLakeExceptionSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDataLakeExceptionSubscriptionCommandInput;
+      output: UpdateDataLakeExceptionSubscriptionCommandOutput;
+    };
+  };
+}

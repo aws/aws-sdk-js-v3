@@ -98,4 +98,16 @@ export class SetTerminationProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTerminationProtectionCommand)
   .de(de_SetTerminationProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTerminationProtectionInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTerminationProtectionCommandInput;
+      output: SetTerminationProtectionCommandOutput;
+    };
+  };
+}

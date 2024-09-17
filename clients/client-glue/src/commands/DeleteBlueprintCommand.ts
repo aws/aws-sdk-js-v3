@@ -86,4 +86,16 @@ export class DeleteBlueprintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBlueprintCommand)
   .de(de_DeleteBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBlueprintRequest;
+      output: DeleteBlueprintResponse;
+    };
+    sdk: {
+      input: DeleteBlueprintCommandInput;
+      output: DeleteBlueprintCommandOutput;
+    };
+  };
+}

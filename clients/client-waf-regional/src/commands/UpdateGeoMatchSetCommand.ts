@@ -234,4 +234,16 @@ export class UpdateGeoMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGeoMatchSetCommand)
   .de(de_UpdateGeoMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGeoMatchSetRequest;
+      output: UpdateGeoMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateGeoMatchSetCommandInput;
+      output: UpdateGeoMatchSetCommandOutput;
+    };
+  };
+}

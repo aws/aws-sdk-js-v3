@@ -126,4 +126,16 @@ export class DescribeProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProductCommand)
   .de(de_DescribeProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProductInput;
+      output: DescribeProductOutput;
+    };
+    sdk: {
+      input: DescribeProductCommandInput;
+      output: DescribeProductCommandOutput;
+    };
+  };
+}

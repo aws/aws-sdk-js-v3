@@ -108,4 +108,16 @@ export class ImportCertificateCommand extends $Command
   .f(ImportCertificateRequestFilterSensitiveLog, void 0)
   .ser(se_ImportCertificateCommand)
   .de(de_ImportCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateRequest;
+      output: ImportCertificateResponse;
+    };
+    sdk: {
+      input: ImportCertificateCommandInput;
+      output: ImportCertificateCommandOutput;
+    };
+  };
+}

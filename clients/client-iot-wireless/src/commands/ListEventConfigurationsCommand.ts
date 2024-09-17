@@ -130,4 +130,16 @@ export class ListEventConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventConfigurationsCommand)
   .de(de_ListEventConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventConfigurationsRequest;
+      output: ListEventConfigurationsResponse;
+    };
+    sdk: {
+      input: ListEventConfigurationsCommandInput;
+      output: ListEventConfigurationsCommandOutput;
+    };
+  };
+}

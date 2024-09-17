@@ -86,4 +86,16 @@ export class EnableStageTransitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableStageTransitionCommand)
   .de(de_EnableStageTransitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableStageTransitionInput;
+      output: {};
+    };
+    sdk: {
+      input: EnableStageTransitionCommandInput;
+      output: EnableStageTransitionCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class UpdateScheduledQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateScheduledQueryCommand)
   .de(de_UpdateScheduledQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateScheduledQueryRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateScheduledQueryCommandInput;
+      output: UpdateScheduledQueryCommandOutput;
+    };
+  };
+}

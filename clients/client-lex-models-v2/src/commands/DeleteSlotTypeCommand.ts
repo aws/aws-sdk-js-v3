@@ -108,4 +108,16 @@ export class DeleteSlotTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSlotTypeCommand)
   .de(de_DeleteSlotTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSlotTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSlotTypeCommandInput;
+      output: DeleteSlotTypeCommandOutput;
+    };
+  };
+}

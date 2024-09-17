@@ -112,4 +112,16 @@ export class TransferCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransferCertificateCommand)
   .de(de_TransferCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferCertificateRequest;
+      output: TransferCertificateResponse;
+    };
+    sdk: {
+      input: TransferCertificateCommandInput;
+      output: TransferCertificateCommandOutput;
+    };
+  };
+}

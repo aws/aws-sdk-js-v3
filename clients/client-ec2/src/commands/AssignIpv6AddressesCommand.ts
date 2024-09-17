@@ -100,4 +100,16 @@ export class AssignIpv6AddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignIpv6AddressesCommand)
   .de(de_AssignIpv6AddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignIpv6AddressesRequest;
+      output: AssignIpv6AddressesResult;
+    };
+    sdk: {
+      input: AssignIpv6AddressesCommandInput;
+      output: AssignIpv6AddressesCommandOutput;
+    };
+  };
+}

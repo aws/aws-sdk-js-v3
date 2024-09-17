@@ -121,4 +121,16 @@ export class ListPrivacyBudgetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrivacyBudgetsCommand)
   .de(de_ListPrivacyBudgetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrivacyBudgetsInput;
+      output: ListPrivacyBudgetsOutput;
+    };
+    sdk: {
+      input: ListPrivacyBudgetsCommandInput;
+      output: ListPrivacyBudgetsCommandOutput;
+    };
+  };
+}

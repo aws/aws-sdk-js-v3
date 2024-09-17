@@ -144,4 +144,16 @@ export class GetSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaCommand)
   .de(de_GetSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaInput;
+      output: GetSchemaOutput;
+    };
+    sdk: {
+      input: GetSchemaCommandInput;
+      output: GetSchemaCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class ListStagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStagesCommand)
   .de(de_ListStagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStagesRequest;
+      output: ListStagesResponse;
+    };
+    sdk: {
+      input: ListStagesCommandInput;
+      output: ListStagesCommandOutput;
+    };
+  };
+}

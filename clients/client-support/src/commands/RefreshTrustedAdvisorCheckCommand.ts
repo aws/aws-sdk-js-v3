@@ -109,4 +109,16 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RefreshTrustedAdvisorCheckCommand)
   .de(de_RefreshTrustedAdvisorCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshTrustedAdvisorCheckRequest;
+      output: RefreshTrustedAdvisorCheckResponse;
+    };
+    sdk: {
+      input: RefreshTrustedAdvisorCheckCommandInput;
+      output: RefreshTrustedAdvisorCheckCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class GetAutoMergingPreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoMergingPreviewCommand)
   .de(de_GetAutoMergingPreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoMergingPreviewRequest;
+      output: GetAutoMergingPreviewResponse;
+    };
+    sdk: {
+      input: GetAutoMergingPreviewCommandInput;
+      output: GetAutoMergingPreviewCommandOutput;
+    };
+  };
+}

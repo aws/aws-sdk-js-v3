@@ -116,4 +116,16 @@ export class AssociateLibraryItemReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLibraryItemReviewCommand)
   .de(de_AssociateLibraryItemReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLibraryItemReviewInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateLibraryItemReviewCommandInput;
+      output: AssociateLibraryItemReviewCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class CreateContactListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContactListCommand)
   .de(de_CreateContactListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContactListRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateContactListCommandInput;
+      output: CreateContactListCommandOutput;
+    };
+  };
+}

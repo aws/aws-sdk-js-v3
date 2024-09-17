@@ -102,4 +102,16 @@ export class UpdateReadinessCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReadinessCheckCommand)
   .de(de_UpdateReadinessCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReadinessCheckRequest;
+      output: UpdateReadinessCheckResponse;
+    };
+    sdk: {
+      input: UpdateReadinessCheckCommandInput;
+      output: UpdateReadinessCheckCommandOutput;
+    };
+  };
+}

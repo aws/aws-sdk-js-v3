@@ -198,4 +198,16 @@ export class UpdateComponentTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateComponentTypeCommand)
   .de(de_UpdateComponentTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateComponentTypeRequest;
+      output: UpdateComponentTypeResponse;
+    };
+    sdk: {
+      input: UpdateComponentTypeCommandInput;
+      output: UpdateComponentTypeCommandOutput;
+    };
+  };
+}

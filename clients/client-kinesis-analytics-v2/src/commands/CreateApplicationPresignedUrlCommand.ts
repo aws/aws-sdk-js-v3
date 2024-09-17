@@ -109,4 +109,16 @@ export class CreateApplicationPresignedUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationPresignedUrlCommand)
   .de(de_CreateApplicationPresignedUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationPresignedUrlRequest;
+      output: CreateApplicationPresignedUrlResponse;
+    };
+    sdk: {
+      input: CreateApplicationPresignedUrlCommandInput;
+      output: CreateApplicationPresignedUrlCommandOutput;
+    };
+  };
+}

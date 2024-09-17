@@ -128,4 +128,16 @@ export class CreateWorkspaceServiceAccountTokenCommand extends $Command
   .f(void 0, CreateWorkspaceServiceAccountTokenResponseFilterSensitiveLog)
   .ser(se_CreateWorkspaceServiceAccountTokenCommand)
   .de(de_CreateWorkspaceServiceAccountTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceServiceAccountTokenRequest;
+      output: CreateWorkspaceServiceAccountTokenResponse;
+    };
+    sdk: {
+      input: CreateWorkspaceServiceAccountTokenCommandInput;
+      output: CreateWorkspaceServiceAccountTokenCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAllowedNodeTypeModificationsCommand)
   .de(de_ListAllowedNodeTypeModificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAllowedNodeTypeModificationsMessage;
+      output: AllowedNodeTypeModificationsMessage;
+    };
+    sdk: {
+      input: ListAllowedNodeTypeModificationsCommandInput;
+      output: ListAllowedNodeTypeModificationsCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class CreatePrivateDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrivateDnsNamespaceCommand)
   .de(de_CreatePrivateDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrivateDnsNamespaceRequest;
+      output: CreatePrivateDnsNamespaceResponse;
+    };
+    sdk: {
+      input: CreatePrivateDnsNamespaceCommandInput;
+      output: CreatePrivateDnsNamespaceCommandOutput;
+    };
+  };
+}

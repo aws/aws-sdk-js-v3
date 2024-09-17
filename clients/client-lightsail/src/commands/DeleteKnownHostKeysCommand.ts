@@ -133,4 +133,16 @@ export class DeleteKnownHostKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKnownHostKeysCommand)
   .de(de_DeleteKnownHostKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKnownHostKeysRequest;
+      output: DeleteKnownHostKeysResult;
+    };
+    sdk: {
+      input: DeleteKnownHostKeysCommandInput;
+      output: DeleteKnownHostKeysCommandOutput;
+    };
+  };
+}

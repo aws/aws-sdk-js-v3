@@ -118,4 +118,16 @@ export class ListAppAssessmentResourceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppAssessmentResourceDriftsCommand)
   .de(de_ListAppAssessmentResourceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppAssessmentResourceDriftsRequest;
+      output: ListAppAssessmentResourceDriftsResponse;
+    };
+    sdk: {
+      input: ListAppAssessmentResourceDriftsCommandInput;
+      output: ListAppAssessmentResourceDriftsCommandOutput;
+    };
+  };
+}

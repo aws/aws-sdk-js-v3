@@ -114,4 +114,16 @@ export class DescribeUserImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserImportJobCommand)
   .de(de_DescribeUserImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserImportJobRequest;
+      output: DescribeUserImportJobResponse;
+    };
+    sdk: {
+      input: DescribeUserImportJobCommandInput;
+      output: DescribeUserImportJobCommandOutput;
+    };
+  };
+}

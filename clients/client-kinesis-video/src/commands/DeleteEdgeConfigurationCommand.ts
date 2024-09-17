@@ -95,4 +95,16 @@ export class DeleteEdgeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEdgeConfigurationCommand)
   .de(de_DeleteEdgeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEdgeConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEdgeConfigurationCommandInput;
+      output: DeleteEdgeConfigurationCommandOutput;
+    };
+  };
+}

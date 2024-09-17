@@ -112,4 +112,16 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppVersionResourcesResolutionStatusCommand)
   .de(de_DescribeAppVersionResourcesResolutionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppVersionResourcesResolutionStatusRequest;
+      output: DescribeAppVersionResourcesResolutionStatusResponse;
+    };
+    sdk: {
+      input: DescribeAppVersionResourcesResolutionStatusCommandInput;
+      output: DescribeAppVersionResourcesResolutionStatusCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class ListCrossAccountAuthorizationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCrossAccountAuthorizationsCommand)
   .de(de_ListCrossAccountAuthorizationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCrossAccountAuthorizationsRequest;
+      output: ListCrossAccountAuthorizationsResponse;
+    };
+    sdk: {
+      input: ListCrossAccountAuthorizationsCommandInput;
+      output: ListCrossAccountAuthorizationsCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class GetDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainCommand)
   .de(de_GetDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainRequest;
+      output: GetDomainResult;
+    };
+    sdk: {
+      input: GetDomainCommandInput;
+      output: GetDomainCommandOutput;
+    };
+  };
+}

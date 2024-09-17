@@ -99,4 +99,16 @@ export class EnableSnapshotBlockPublicAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableSnapshotBlockPublicAccessCommand)
   .de(de_EnableSnapshotBlockPublicAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableSnapshotBlockPublicAccessRequest;
+      output: EnableSnapshotBlockPublicAccessResult;
+    };
+    sdk: {
+      input: EnableSnapshotBlockPublicAccessCommandInput;
+      output: EnableSnapshotBlockPublicAccessCommandOutput;
+    };
+  };
+}

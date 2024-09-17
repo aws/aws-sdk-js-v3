@@ -155,4 +155,16 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAssetPropertyAggregatesCommand)
   .de(de_BatchGetAssetPropertyAggregatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAssetPropertyAggregatesRequest;
+      output: BatchGetAssetPropertyAggregatesResponse;
+    };
+    sdk: {
+      input: BatchGetAssetPropertyAggregatesCommandInput;
+      output: BatchGetAssetPropertyAggregatesCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class DeregisterDBProxyTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterDBProxyTargetsCommand)
   .de(de_DeregisterDBProxyTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterDBProxyTargetsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterDBProxyTargetsCommandInput;
+      output: DeregisterDBProxyTargetsCommandOutput;
+    };
+  };
+}

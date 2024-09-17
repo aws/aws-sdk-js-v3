@@ -106,4 +106,16 @@ export class GetConformancePackComplianceSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConformancePackComplianceSummaryCommand)
   .de(de_GetConformancePackComplianceSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConformancePackComplianceSummaryRequest;
+      output: GetConformancePackComplianceSummaryResponse;
+    };
+    sdk: {
+      input: GetConformancePackComplianceSummaryCommandInput;
+      output: GetConformancePackComplianceSummaryCommandOutput;
+    };
+  };
+}

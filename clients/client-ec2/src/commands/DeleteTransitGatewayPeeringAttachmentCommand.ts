@@ -117,4 +117,16 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayPeeringAttachmentCommand)
   .de(de_DeleteTransitGatewayPeeringAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayPeeringAttachmentRequest;
+      output: DeleteTransitGatewayPeeringAttachmentResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayPeeringAttachmentCommandInput;
+      output: DeleteTransitGatewayPeeringAttachmentCommandOutput;
+    };
+  };
+}

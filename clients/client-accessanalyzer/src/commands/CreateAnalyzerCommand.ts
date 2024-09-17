@@ -124,4 +124,16 @@ export class CreateAnalyzerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAnalyzerCommand)
   .de(de_CreateAnalyzerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnalyzerRequest;
+      output: CreateAnalyzerResponse;
+    };
+    sdk: {
+      input: CreateAnalyzerCommandInput;
+      output: CreateAnalyzerCommandOutput;
+    };
+  };
+}

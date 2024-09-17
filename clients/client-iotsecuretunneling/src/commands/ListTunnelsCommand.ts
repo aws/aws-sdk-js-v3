@@ -95,4 +95,16 @@ export class ListTunnelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTunnelsCommand)
   .de(de_ListTunnelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTunnelsRequest;
+      output: ListTunnelsResponse;
+    };
+    sdk: {
+      input: ListTunnelsCommandInput;
+      output: ListTunnelsCommandOutput;
+    };
+  };
+}

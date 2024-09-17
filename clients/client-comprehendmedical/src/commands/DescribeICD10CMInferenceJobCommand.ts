@@ -121,4 +121,16 @@ export class DescribeICD10CMInferenceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeICD10CMInferenceJobCommand)
   .de(de_DescribeICD10CMInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeICD10CMInferenceJobRequest;
+      output: DescribeICD10CMInferenceJobResponse;
+    };
+    sdk: {
+      input: DescribeICD10CMInferenceJobCommandInput;
+      output: DescribeICD10CMInferenceJobCommandOutput;
+    };
+  };
+}

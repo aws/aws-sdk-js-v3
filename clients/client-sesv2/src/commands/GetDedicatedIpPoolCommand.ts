@@ -89,4 +89,16 @@ export class GetDedicatedIpPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDedicatedIpPoolCommand)
   .de(de_GetDedicatedIpPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDedicatedIpPoolRequest;
+      output: GetDedicatedIpPoolResponse;
+    };
+    sdk: {
+      input: GetDedicatedIpPoolCommandInput;
+      output: GetDedicatedIpPoolCommandOutput;
+    };
+  };
+}

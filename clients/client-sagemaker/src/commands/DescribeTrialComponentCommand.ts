@@ -158,4 +158,16 @@ export class DescribeTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrialComponentCommand)
   .de(de_DescribeTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrialComponentRequest;
+      output: DescribeTrialComponentResponse;
+    };
+    sdk: {
+      input: DescribeTrialComponentCommandInput;
+      output: DescribeTrialComponentCommandOutput;
+    };
+  };
+}

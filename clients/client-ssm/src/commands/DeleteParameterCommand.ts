@@ -82,4 +82,16 @@ export class DeleteParameterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteParameterCommand)
   .de(de_DeleteParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteParameterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteParameterCommandInput;
+      output: DeleteParameterCommandOutput;
+    };
+  };
+}

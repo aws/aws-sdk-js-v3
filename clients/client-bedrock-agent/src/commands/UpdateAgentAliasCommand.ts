@@ -138,4 +138,16 @@ export class UpdateAgentAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentAliasCommand)
   .de(de_UpdateAgentAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentAliasRequest;
+      output: UpdateAgentAliasResponse;
+    };
+    sdk: {
+      input: UpdateAgentAliasCommandInput;
+      output: UpdateAgentAliasCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class UpdateStorageSystemCommand extends $Command
   .f(UpdateStorageSystemRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateStorageSystemCommand)
   .de(de_UpdateStorageSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStorageSystemRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStorageSystemCommandInput;
+      output: UpdateStorageSystemCommandOutput;
+    };
+  };
+}

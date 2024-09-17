@@ -120,4 +120,16 @@ export class GetEvidenceFoldersByAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEvidenceFoldersByAssessmentCommand)
   .de(de_GetEvidenceFoldersByAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEvidenceFoldersByAssessmentRequest;
+      output: GetEvidenceFoldersByAssessmentResponse;
+    };
+    sdk: {
+      input: GetEvidenceFoldersByAssessmentCommandInput;
+      output: GetEvidenceFoldersByAssessmentCommandOutput;
+    };
+  };
+}

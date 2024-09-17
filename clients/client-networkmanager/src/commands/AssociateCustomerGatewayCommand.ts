@@ -116,4 +116,16 @@ export class AssociateCustomerGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateCustomerGatewayCommand)
   .de(de_AssociateCustomerGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateCustomerGatewayRequest;
+      output: AssociateCustomerGatewayResponse;
+    };
+    sdk: {
+      input: AssociateCustomerGatewayCommandInput;
+      output: AssociateCustomerGatewayCommandOutput;
+    };
+  };
+}

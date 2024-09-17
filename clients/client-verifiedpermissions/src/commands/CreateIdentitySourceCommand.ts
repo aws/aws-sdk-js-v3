@@ -262,4 +262,16 @@ export class CreateIdentitySourceCommand extends $Command
   .f(CreateIdentitySourceInputFilterSensitiveLog, void 0)
   .ser(se_CreateIdentitySourceCommand)
   .de(de_CreateIdentitySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdentitySourceInput;
+      output: CreateIdentitySourceOutput;
+    };
+    sdk: {
+      input: CreateIdentitySourceCommandInput;
+      output: CreateIdentitySourceCommandOutput;
+    };
+  };
+}

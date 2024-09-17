@@ -94,4 +94,16 @@ export class DeleteSolNetworkInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSolNetworkInstanceCommand)
   .de(de_DeleteSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSolNetworkInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSolNetworkInstanceCommandInput;
+      output: DeleteSolNetworkInstanceCommandOutput;
+    };
+  };
+}

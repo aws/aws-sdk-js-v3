@@ -98,4 +98,16 @@ export class QueryMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryMapsCommand)
   .de(de_QueryMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryMapsInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryMapsCommandInput;
+      output: QueryMapsCommandOutput;
+    };
+  };
+}

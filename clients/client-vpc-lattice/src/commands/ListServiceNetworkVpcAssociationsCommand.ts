@@ -117,4 +117,16 @@ export class ListServiceNetworkVpcAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceNetworkVpcAssociationsCommand)
   .de(de_ListServiceNetworkVpcAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceNetworkVpcAssociationsRequest;
+      output: ListServiceNetworkVpcAssociationsResponse;
+    };
+    sdk: {
+      input: ListServiceNetworkVpcAssociationsCommandInput;
+      output: ListServiceNetworkVpcAssociationsCommandOutput;
+    };
+  };
+}

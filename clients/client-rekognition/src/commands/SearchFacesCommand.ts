@@ -198,4 +198,16 @@ export class SearchFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchFacesCommand)
   .de(de_SearchFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchFacesRequest;
+      output: SearchFacesResponse;
+    };
+    sdk: {
+      input: SearchFacesCommandInput;
+      output: SearchFacesCommandOutput;
+    };
+  };
+}

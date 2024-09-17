@@ -100,4 +100,16 @@ export class ListAllowListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAllowListsCommand)
   .de(de_ListAllowListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAllowListsRequest;
+      output: ListAllowListsResponse;
+    };
+    sdk: {
+      input: ListAllowListsCommandInput;
+      output: ListAllowListsCommandOutput;
+    };
+  };
+}

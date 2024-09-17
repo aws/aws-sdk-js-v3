@@ -88,4 +88,16 @@ export class DeleteCrawlerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCrawlerCommand)
   .de(de_DeleteCrawlerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCrawlerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCrawlerCommandInput;
+      output: DeleteCrawlerCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class UpdateCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCapacityReservationCommand)
   .de(de_UpdateCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCapacityReservationInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCapacityReservationCommandInput;
+      output: UpdateCapacityReservationCommandOutput;
+    };
+  };
+}

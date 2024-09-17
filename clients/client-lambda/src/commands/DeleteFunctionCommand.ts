@@ -95,4 +95,16 @@ export class DeleteFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFunctionCommand)
   .de(de_DeleteFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFunctionCommandInput;
+      output: DeleteFunctionCommandOutput;
+    };
+  };
+}

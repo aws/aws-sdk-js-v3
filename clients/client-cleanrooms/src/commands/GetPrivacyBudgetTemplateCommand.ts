@@ -110,4 +110,16 @@ export class GetPrivacyBudgetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPrivacyBudgetTemplateCommand)
   .de(de_GetPrivacyBudgetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrivacyBudgetTemplateInput;
+      output: GetPrivacyBudgetTemplateOutput;
+    };
+    sdk: {
+      input: GetPrivacyBudgetTemplateCommandInput;
+      output: GetPrivacyBudgetTemplateCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class ListServicesByNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServicesByNamespaceCommand)
   .de(de_ListServicesByNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServicesByNamespaceRequest;
+      output: ListServicesByNamespaceResponse;
+    };
+    sdk: {
+      input: ListServicesByNamespaceCommandInput;
+      output: ListServicesByNamespaceCommandOutput;
+    };
+  };
+}

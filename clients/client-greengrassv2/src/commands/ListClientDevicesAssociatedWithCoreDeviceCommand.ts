@@ -112,4 +112,16 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClientDevicesAssociatedWithCoreDeviceCommand)
   .de(de_ListClientDevicesAssociatedWithCoreDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClientDevicesAssociatedWithCoreDeviceRequest;
+      output: ListClientDevicesAssociatedWithCoreDeviceResponse;
+    };
+    sdk: {
+      input: ListClientDevicesAssociatedWithCoreDeviceCommandInput;
+      output: ListClientDevicesAssociatedWithCoreDeviceCommandOutput;
+    };
+  };
+}

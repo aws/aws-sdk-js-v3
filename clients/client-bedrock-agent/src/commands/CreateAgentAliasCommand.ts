@@ -141,4 +141,16 @@ export class CreateAgentAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAgentAliasCommand)
   .de(de_CreateAgentAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAgentAliasRequest;
+      output: CreateAgentAliasResponse;
+    };
+    sdk: {
+      input: CreateAgentAliasCommandInput;
+      output: CreateAgentAliasCommandOutput;
+    };
+  };
+}

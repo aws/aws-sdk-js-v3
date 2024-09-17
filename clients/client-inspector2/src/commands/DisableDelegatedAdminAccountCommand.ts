@@ -104,4 +104,16 @@ export class DisableDelegatedAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableDelegatedAdminAccountCommand)
   .de(de_DisableDelegatedAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableDelegatedAdminAccountRequest;
+      output: DisableDelegatedAdminAccountResponse;
+    };
+    sdk: {
+      input: DisableDelegatedAdminAccountCommandInput;
+      output: DisableDelegatedAdminAccountCommandOutput;
+    };
+  };
+}

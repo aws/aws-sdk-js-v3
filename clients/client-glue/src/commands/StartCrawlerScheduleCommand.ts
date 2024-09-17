@@ -92,4 +92,16 @@ export class StartCrawlerScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCrawlerScheduleCommand)
   .de(de_StartCrawlerScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCrawlerScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartCrawlerScheduleCommandInput;
+      output: StartCrawlerScheduleCommandOutput;
+    };
+  };
+}

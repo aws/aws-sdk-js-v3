@@ -120,4 +120,16 @@ export class DeleteBotVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBotVersionCommand)
   .de(de_DeleteBotVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBotVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBotVersionCommandInput;
+      output: DeleteBotVersionCommandOutput;
+    };
+  };
+}

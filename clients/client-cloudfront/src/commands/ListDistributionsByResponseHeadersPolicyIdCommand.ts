@@ -112,4 +112,16 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDistributionsByResponseHeadersPolicyIdCommand)
   .de(de_ListDistributionsByResponseHeadersPolicyIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByResponseHeadersPolicyIdRequest;
+      output: ListDistributionsByResponseHeadersPolicyIdResult;
+    };
+    sdk: {
+      input: ListDistributionsByResponseHeadersPolicyIdCommandInput;
+      output: ListDistributionsByResponseHeadersPolicyIdCommandOutput;
+    };
+  };
+}

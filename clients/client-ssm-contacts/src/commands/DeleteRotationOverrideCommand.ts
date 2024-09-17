@@ -92,4 +92,16 @@ export class DeleteRotationOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRotationOverrideCommand)
   .de(de_DeleteRotationOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRotationOverrideRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRotationOverrideCommandInput;
+      output: DeleteRotationOverrideCommandOutput;
+    };
+  };
+}

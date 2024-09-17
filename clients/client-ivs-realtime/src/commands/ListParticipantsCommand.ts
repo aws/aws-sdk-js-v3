@@ -100,4 +100,16 @@ export class ListParticipantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListParticipantsCommand)
   .de(de_ListParticipantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListParticipantsRequest;
+      output: ListParticipantsResponse;
+    };
+    sdk: {
+      input: ListParticipantsCommandInput;
+      output: ListParticipantsCommandOutput;
+    };
+  };
+}

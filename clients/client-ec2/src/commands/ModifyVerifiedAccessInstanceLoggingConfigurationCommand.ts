@@ -138,4 +138,16 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessInstanceLoggingConfigurationCommand)
   .de(de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessInstanceLoggingConfigurationRequest;
+      output: ModifyVerifiedAccessInstanceLoggingConfigurationResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput;
+      output: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput;
+    };
+  };
+}

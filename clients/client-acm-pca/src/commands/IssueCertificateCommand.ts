@@ -219,4 +219,16 @@ export class IssueCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IssueCertificateCommand)
   .de(de_IssueCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IssueCertificateRequest;
+      output: IssueCertificateResponse;
+    };
+    sdk: {
+      input: IssueCertificateCommandInput;
+      output: IssueCertificateCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class DescribeUsersCommand extends $Command
   .f(DescribeUsersRequestFilterSensitiveLog, DescribeUsersResponseFilterSensitiveLog)
   .ser(se_DescribeUsersCommand)
   .de(de_DescribeUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUsersRequest;
+      output: DescribeUsersResponse;
+    };
+    sdk: {
+      input: DescribeUsersCommandInput;
+      output: DescribeUsersCommandOutput;
+    };
+  };
+}

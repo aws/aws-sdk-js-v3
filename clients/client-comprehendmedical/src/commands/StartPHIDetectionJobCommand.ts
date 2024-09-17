@@ -110,4 +110,16 @@ export class StartPHIDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPHIDetectionJobCommand)
   .de(de_StartPHIDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPHIDetectionJobRequest;
+      output: StartPHIDetectionJobResponse;
+    };
+    sdk: {
+      input: StartPHIDetectionJobCommandInput;
+      output: StartPHIDetectionJobCommandOutput;
+    };
+  };
+}

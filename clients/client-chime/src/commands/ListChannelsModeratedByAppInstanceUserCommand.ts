@@ -138,4 +138,16 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
   )
   .ser(se_ListChannelsModeratedByAppInstanceUserCommand)
   .de(de_ListChannelsModeratedByAppInstanceUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelsModeratedByAppInstanceUserRequest;
+      output: ListChannelsModeratedByAppInstanceUserResponse;
+    };
+    sdk: {
+      input: ListChannelsModeratedByAppInstanceUserCommandInput;
+      output: ListChannelsModeratedByAppInstanceUserCommandOutput;
+    };
+  };
+}

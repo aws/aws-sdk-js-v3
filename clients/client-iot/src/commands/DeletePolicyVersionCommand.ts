@@ -101,4 +101,16 @@ export class DeletePolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyVersionCommand)
   .de(de_DeletePolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyVersionCommandInput;
+      output: DeletePolicyVersionCommandOutput;
+    };
+  };
+}

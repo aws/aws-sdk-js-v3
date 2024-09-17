@@ -95,4 +95,16 @@ export class DeauthorizeDataShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeauthorizeDataShareCommand)
   .de(de_DeauthorizeDataShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeauthorizeDataShareMessage;
+      output: DataShare;
+    };
+    sdk: {
+      input: DeauthorizeDataShareCommandInput;
+      output: DeauthorizeDataShareCommandOutput;
+    };
+  };
+}

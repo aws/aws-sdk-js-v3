@@ -112,4 +112,16 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationInputProcessingConfigurationCommand)
   .de(de_AddApplicationInputProcessingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationInputProcessingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddApplicationInputProcessingConfigurationCommandInput;
+      output: AddApplicationInputProcessingConfigurationCommandOutput;
+    };
+  };
+}

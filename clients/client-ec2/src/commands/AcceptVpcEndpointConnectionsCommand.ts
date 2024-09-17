@@ -91,4 +91,16 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptVpcEndpointConnectionsCommand)
   .de(de_AcceptVpcEndpointConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptVpcEndpointConnectionsRequest;
+      output: AcceptVpcEndpointConnectionsResult;
+    };
+    sdk: {
+      input: AcceptVpcEndpointConnectionsCommandInput;
+      output: AcceptVpcEndpointConnectionsCommandOutput;
+    };
+  };
+}

@@ -133,4 +133,16 @@ export class UpdateSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSafetyRuleCommand)
   .de(de_UpdateSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSafetyRuleRequest;
+      output: UpdateSafetyRuleResponse;
+    };
+    sdk: {
+      input: UpdateSafetyRuleCommandInput;
+      output: UpdateSafetyRuleCommandOutput;
+    };
+  };
+}

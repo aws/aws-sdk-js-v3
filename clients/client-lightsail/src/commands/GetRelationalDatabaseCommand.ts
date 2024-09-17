@@ -159,4 +159,16 @@ export class GetRelationalDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseCommand)
   .de(de_GetRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseRequest;
+      output: GetRelationalDatabaseResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseCommandInput;
+      output: GetRelationalDatabaseCommandOutput;
+    };
+  };
+}

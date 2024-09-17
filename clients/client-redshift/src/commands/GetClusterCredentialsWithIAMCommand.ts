@@ -100,4 +100,16 @@ export class GetClusterCredentialsWithIAMCommand extends $Command
   .f(void 0, ClusterExtendedCredentialsFilterSensitiveLog)
   .ser(se_GetClusterCredentialsWithIAMCommand)
   .de(de_GetClusterCredentialsWithIAMCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterCredentialsWithIAMMessage;
+      output: ClusterExtendedCredentials;
+    };
+    sdk: {
+      input: GetClusterCredentialsWithIAMCommandInput;
+      output: GetClusterCredentialsWithIAMCommandOutput;
+    };
+  };
+}

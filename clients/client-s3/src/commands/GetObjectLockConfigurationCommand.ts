@@ -105,4 +105,16 @@ export class GetObjectLockConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectLockConfigurationCommand)
   .de(de_GetObjectLockConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectLockConfigurationRequest;
+      output: GetObjectLockConfigurationOutput;
+    };
+    sdk: {
+      input: GetObjectLockConfigurationCommandInput;
+      output: GetObjectLockConfigurationCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class GetBillingGroupCostReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBillingGroupCostReportCommand)
   .de(de_GetBillingGroupCostReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBillingGroupCostReportInput;
+      output: GetBillingGroupCostReportOutput;
+    };
+    sdk: {
+      input: GetBillingGroupCostReportCommandInput;
+      output: GetBillingGroupCostReportCommandOutput;
+    };
+  };
+}

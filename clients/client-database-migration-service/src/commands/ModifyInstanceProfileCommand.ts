@@ -163,4 +163,16 @@ export class ModifyInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceProfileCommand)
   .de(de_ModifyInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceProfileMessage;
+      output: ModifyInstanceProfileResponse;
+    };
+    sdk: {
+      input: ModifyInstanceProfileCommandInput;
+      output: ModifyInstanceProfileCommandOutput;
+    };
+  };
+}

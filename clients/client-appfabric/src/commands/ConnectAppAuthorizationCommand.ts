@@ -113,4 +113,16 @@ export class ConnectAppAuthorizationCommand extends $Command
   .f(ConnectAppAuthorizationRequestFilterSensitiveLog, void 0)
   .ser(se_ConnectAppAuthorizationCommand)
   .de(de_ConnectAppAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConnectAppAuthorizationRequest;
+      output: ConnectAppAuthorizationResponse;
+    };
+    sdk: {
+      input: ConnectAppAuthorizationCommandInput;
+      output: ConnectAppAuthorizationCommandOutput;
+    };
+  };
+}

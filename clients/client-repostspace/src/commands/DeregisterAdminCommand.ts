@@ -91,4 +91,16 @@ export class DeregisterAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterAdminCommand)
   .de(de_DeregisterAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterAdminInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterAdminCommandInput;
+      output: DeregisterAdminCommandOutput;
+    };
+  };
+}

@@ -368,4 +368,16 @@ export class CreateModelPackageCommand extends $Command
   .f(CreateModelPackageInputFilterSensitiveLog, void 0)
   .ser(se_CreateModelPackageCommand)
   .de(de_CreateModelPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelPackageInput;
+      output: CreateModelPackageOutput;
+    };
+    sdk: {
+      input: CreateModelPackageCommandInput;
+      output: CreateModelPackageCommandOutput;
+    };
+  };
+}

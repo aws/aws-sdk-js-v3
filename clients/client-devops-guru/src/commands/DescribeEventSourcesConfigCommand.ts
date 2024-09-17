@@ -98,4 +98,16 @@ export class DescribeEventSourcesConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventSourcesConfigCommand)
   .de(de_DescribeEventSourcesConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeEventSourcesConfigResponse;
+    };
+    sdk: {
+      input: DescribeEventSourcesConfigCommandInput;
+      output: DescribeEventSourcesConfigCommandOutput;
+    };
+  };
+}

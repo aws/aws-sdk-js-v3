@@ -157,4 +157,16 @@ export class CreateCoreNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCoreNetworkCommand)
   .de(de_CreateCoreNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCoreNetworkRequest;
+      output: CreateCoreNetworkResponse;
+    };
+    sdk: {
+      input: CreateCoreNetworkCommandInput;
+      output: CreateCoreNetworkCommandOutput;
+    };
+  };
+}

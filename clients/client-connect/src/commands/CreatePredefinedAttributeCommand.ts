@@ -105,4 +105,16 @@ export class CreatePredefinedAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePredefinedAttributeCommand)
   .de(de_CreatePredefinedAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePredefinedAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreatePredefinedAttributeCommandInput;
+      output: CreatePredefinedAttributeCommandOutput;
+    };
+  };
+}

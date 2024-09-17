@@ -118,4 +118,16 @@ export class GetBotVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBotVersionsCommand)
   .de(de_GetBotVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotVersionsRequest;
+      output: GetBotVersionsResponse;
+    };
+    sdk: {
+      input: GetBotVersionsCommandInput;
+      output: GetBotVersionsCommandOutput;
+    };
+  };
+}

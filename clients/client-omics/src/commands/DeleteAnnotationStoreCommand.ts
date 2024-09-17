@@ -96,4 +96,16 @@ export class DeleteAnnotationStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnnotationStoreCommand)
   .de(de_DeleteAnnotationStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnnotationStoreRequest;
+      output: DeleteAnnotationStoreResponse;
+    };
+    sdk: {
+      input: DeleteAnnotationStoreCommandInput;
+      output: DeleteAnnotationStoreCommandOutput;
+    };
+  };
+}

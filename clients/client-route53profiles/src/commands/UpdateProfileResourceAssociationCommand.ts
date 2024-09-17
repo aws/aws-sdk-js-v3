@@ -138,4 +138,16 @@ export class UpdateProfileResourceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProfileResourceAssociationCommand)
   .de(de_UpdateProfileResourceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileResourceAssociationRequest;
+      output: UpdateProfileResourceAssociationResponse;
+    };
+    sdk: {
+      input: UpdateProfileResourceAssociationCommandInput;
+      output: UpdateProfileResourceAssociationCommandOutput;
+    };
+  };
+}

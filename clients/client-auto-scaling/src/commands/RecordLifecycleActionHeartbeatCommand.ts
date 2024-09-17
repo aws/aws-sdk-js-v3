@@ -136,4 +136,16 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RecordLifecycleActionHeartbeatCommand)
   .de(de_RecordLifecycleActionHeartbeatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecordLifecycleActionHeartbeatType;
+      output: {};
+    };
+    sdk: {
+      input: RecordLifecycleActionHeartbeatCommandInput;
+      output: RecordLifecycleActionHeartbeatCommandOutput;
+    };
+  };
+}

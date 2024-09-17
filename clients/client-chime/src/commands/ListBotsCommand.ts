@@ -113,4 +113,16 @@ export class ListBotsCommand extends $Command
   .f(void 0, ListBotsResponseFilterSensitiveLog)
   .ser(se_ListBotsCommand)
   .de(de_ListBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotsRequest;
+      output: ListBotsResponse;
+    };
+    sdk: {
+      input: ListBotsCommandInput;
+      output: ListBotsCommandOutput;
+    };
+  };
+}

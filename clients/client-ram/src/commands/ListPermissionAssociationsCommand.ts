@@ -117,4 +117,16 @@ export class ListPermissionAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionAssociationsCommand)
   .de(de_ListPermissionAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionAssociationsRequest;
+      output: ListPermissionAssociationsResponse;
+    };
+    sdk: {
+      input: ListPermissionAssociationsCommandInput;
+      output: ListPermissionAssociationsCommandOutput;
+    };
+  };
+}

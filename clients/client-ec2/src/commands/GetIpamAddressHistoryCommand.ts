@@ -99,4 +99,16 @@ export class GetIpamAddressHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamAddressHistoryCommand)
   .de(de_GetIpamAddressHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamAddressHistoryRequest;
+      output: GetIpamAddressHistoryResult;
+    };
+    sdk: {
+      input: GetIpamAddressHistoryCommandInput;
+      output: GetIpamAddressHistoryCommandOutput;
+    };
+  };
+}

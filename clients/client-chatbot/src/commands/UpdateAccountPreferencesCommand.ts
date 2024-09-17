@@ -90,4 +90,16 @@ export class UpdateAccountPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountPreferencesCommand)
   .de(de_UpdateAccountPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountPreferencesRequest;
+      output: UpdateAccountPreferencesResult;
+    };
+    sdk: {
+      input: UpdateAccountPreferencesCommandInput;
+      output: UpdateAccountPreferencesCommandOutput;
+    };
+  };
+}

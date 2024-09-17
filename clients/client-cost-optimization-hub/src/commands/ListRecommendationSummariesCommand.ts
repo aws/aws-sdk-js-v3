@@ -154,4 +154,16 @@ export class ListRecommendationSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendationSummariesCommand)
   .de(de_ListRecommendationSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendationSummariesRequest;
+      output: ListRecommendationSummariesResponse;
+    };
+    sdk: {
+      input: ListRecommendationSummariesCommandInput;
+      output: ListRecommendationSummariesCommandOutput;
+    };
+  };
+}

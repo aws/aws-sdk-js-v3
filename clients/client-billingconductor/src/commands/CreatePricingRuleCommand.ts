@@ -123,4 +123,16 @@ export class CreatePricingRuleCommand extends $Command
   .f(CreatePricingRuleInputFilterSensitiveLog, void 0)
   .ser(se_CreatePricingRuleCommand)
   .de(de_CreatePricingRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePricingRuleInput;
+      output: CreatePricingRuleOutput;
+    };
+    sdk: {
+      input: CreatePricingRuleCommandInput;
+      output: CreatePricingRuleCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class UpdateRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRestApiCommand)
   .de(de_UpdateRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: UpdateRestApiCommandInput;
+      output: UpdateRestApiCommandOutput;
+    };
+  };
+}

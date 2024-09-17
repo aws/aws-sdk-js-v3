@@ -103,4 +103,16 @@ export class DeleteApplicationAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationAssignmentCommand)
   .de(de_DeleteApplicationAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationAssignmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationAssignmentCommandInput;
+      output: DeleteApplicationAssignmentCommandOutput;
+    };
+  };
+}

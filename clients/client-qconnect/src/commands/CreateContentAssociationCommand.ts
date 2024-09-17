@@ -145,4 +145,16 @@ export class CreateContentAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContentAssociationCommand)
   .de(de_CreateContentAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContentAssociationRequest;
+      output: CreateContentAssociationResponse;
+    };
+    sdk: {
+      input: CreateContentAssociationCommandInput;
+      output: CreateContentAssociationCommandOutput;
+    };
+  };
+}

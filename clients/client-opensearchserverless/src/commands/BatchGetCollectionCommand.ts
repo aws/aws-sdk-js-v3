@@ -120,4 +120,16 @@ export class BatchGetCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCollectionCommand)
   .de(de_BatchGetCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCollectionRequest;
+      output: BatchGetCollectionResponse;
+    };
+    sdk: {
+      input: BatchGetCollectionCommandInput;
+      output: BatchGetCollectionCommandOutput;
+    };
+  };
+}

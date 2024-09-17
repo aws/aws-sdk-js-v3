@@ -187,4 +187,16 @@ export class PutSecretValueCommand extends $Command
   .f(PutSecretValueRequestFilterSensitiveLog, void 0)
   .ser(se_PutSecretValueCommand)
   .de(de_PutSecretValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSecretValueRequest;
+      output: PutSecretValueResponse;
+    };
+    sdk: {
+      input: PutSecretValueCommandInput;
+      output: PutSecretValueCommandOutput;
+    };
+  };
+}

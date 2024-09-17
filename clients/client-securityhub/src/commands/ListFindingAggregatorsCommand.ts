@@ -118,4 +118,16 @@ export class ListFindingAggregatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingAggregatorsCommand)
   .de(de_ListFindingAggregatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingAggregatorsRequest;
+      output: ListFindingAggregatorsResponse;
+    };
+    sdk: {
+      input: ListFindingAggregatorsCommandInput;
+      output: ListFindingAggregatorsCommandOutput;
+    };
+  };
+}

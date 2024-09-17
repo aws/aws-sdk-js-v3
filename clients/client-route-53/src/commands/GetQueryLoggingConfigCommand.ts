@@ -91,4 +91,16 @@ export class GetQueryLoggingConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryLoggingConfigCommand)
   .de(de_GetQueryLoggingConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryLoggingConfigRequest;
+      output: GetQueryLoggingConfigResponse;
+    };
+    sdk: {
+      input: GetQueryLoggingConfigCommandInput;
+      output: GetQueryLoggingConfigCommandOutput;
+    };
+  };
+}

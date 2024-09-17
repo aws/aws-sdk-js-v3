@@ -109,4 +109,16 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
   .f(void 0, GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog)
   .ser(se_GetMaintenanceWindowExecutionTaskInvocationCommand)
   .de(de_GetMaintenanceWindowExecutionTaskInvocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMaintenanceWindowExecutionTaskInvocationRequest;
+      output: GetMaintenanceWindowExecutionTaskInvocationResult;
+    };
+    sdk: {
+      input: GetMaintenanceWindowExecutionTaskInvocationCommandInput;
+      output: GetMaintenanceWindowExecutionTaskInvocationCommandOutput;
+    };
+  };
+}

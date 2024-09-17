@@ -169,4 +169,16 @@ export class CreateConfiguredTableAssociationAnalysisRuleCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_CreateConfiguredTableAssociationAnalysisRuleCommand)
   .de(de_CreateConfiguredTableAssociationAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfiguredTableAssociationAnalysisRuleInput;
+      output: CreateConfiguredTableAssociationAnalysisRuleOutput;
+    };
+    sdk: {
+      input: CreateConfiguredTableAssociationAnalysisRuleCommandInput;
+      output: CreateConfiguredTableAssociationAnalysisRuleCommandOutput;
+    };
+  };
+}

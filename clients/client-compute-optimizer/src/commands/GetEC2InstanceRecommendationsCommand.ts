@@ -266,4 +266,16 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEC2InstanceRecommendationsCommand)
   .de(de_GetEC2InstanceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEC2InstanceRecommendationsRequest;
+      output: GetEC2InstanceRecommendationsResponse;
+    };
+    sdk: {
+      input: GetEC2InstanceRecommendationsCommandInput;
+      output: GetEC2InstanceRecommendationsCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class RegisterResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterResourceCommand)
   .de(de_RegisterResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterResourceCommandInput;
+      output: RegisterResourceCommandOutput;
+    };
+  };
+}

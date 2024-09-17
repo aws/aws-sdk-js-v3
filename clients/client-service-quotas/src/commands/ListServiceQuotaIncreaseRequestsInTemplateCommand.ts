@@ -127,4 +127,16 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceQuotaIncreaseRequestsInTemplateCommand)
   .de(de_ListServiceQuotaIncreaseRequestsInTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceQuotaIncreaseRequestsInTemplateRequest;
+      output: ListServiceQuotaIncreaseRequestsInTemplateResponse;
+    };
+    sdk: {
+      input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput;
+      output: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput;
+    };
+  };
+}

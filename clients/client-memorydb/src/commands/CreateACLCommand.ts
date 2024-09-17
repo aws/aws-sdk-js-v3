@@ -126,4 +126,16 @@ export class CreateACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateACLCommand)
   .de(de_CreateACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateACLRequest;
+      output: CreateACLResponse;
+    };
+    sdk: {
+      input: CreateACLCommandInput;
+      output: CreateACLCommandOutput;
+    };
+  };
+}

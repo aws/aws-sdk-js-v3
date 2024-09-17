@@ -115,4 +115,16 @@ export class ListBotVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotVersionsCommand)
   .de(de_ListBotVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotVersionsRequest;
+      output: ListBotVersionsResponse;
+    };
+    sdk: {
+      input: ListBotVersionsCommandInput;
+      output: ListBotVersionsCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class AssociateConnectionWithLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateConnectionWithLagCommand)
   .de(de_AssociateConnectionWithLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateConnectionWithLagRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AssociateConnectionWithLagCommandInput;
+      output: AssociateConnectionWithLagCommandOutput;
+    };
+  };
+}

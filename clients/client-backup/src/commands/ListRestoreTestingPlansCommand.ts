@@ -97,4 +97,16 @@ export class ListRestoreTestingPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRestoreTestingPlansCommand)
   .de(de_ListRestoreTestingPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRestoreTestingPlansInput;
+      output: ListRestoreTestingPlansOutput;
+    };
+    sdk: {
+      input: ListRestoreTestingPlansCommandInput;
+      output: ListRestoreTestingPlansCommandOutput;
+    };
+  };
+}

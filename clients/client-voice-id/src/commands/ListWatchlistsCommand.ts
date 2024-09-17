@@ -115,4 +115,16 @@ export class ListWatchlistsCommand extends $Command
   .f(void 0, ListWatchlistsResponseFilterSensitiveLog)
   .ser(se_ListWatchlistsCommand)
   .de(de_ListWatchlistsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWatchlistsRequest;
+      output: ListWatchlistsResponse;
+    };
+    sdk: {
+      input: ListWatchlistsCommandInput;
+      output: ListWatchlistsCommandOutput;
+    };
+  };
+}

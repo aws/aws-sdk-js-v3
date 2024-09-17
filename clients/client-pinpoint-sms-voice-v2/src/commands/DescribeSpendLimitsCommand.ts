@@ -111,4 +111,16 @@ export class DescribeSpendLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpendLimitsCommand)
   .de(de_DescribeSpendLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpendLimitsRequest;
+      output: DescribeSpendLimitsResult;
+    };
+    sdk: {
+      input: DescribeSpendLimitsCommandInput;
+      output: DescribeSpendLimitsCommandOutput;
+    };
+  };
+}

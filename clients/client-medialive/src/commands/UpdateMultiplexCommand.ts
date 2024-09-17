@@ -165,4 +165,16 @@ export class UpdateMultiplexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMultiplexCommand)
   .de(de_UpdateMultiplexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMultiplexRequest;
+      output: UpdateMultiplexResponse;
+    };
+    sdk: {
+      input: UpdateMultiplexCommandInput;
+      output: UpdateMultiplexCommandOutput;
+    };
+  };
+}

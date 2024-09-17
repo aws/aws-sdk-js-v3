@@ -136,4 +136,16 @@ export class UpdateMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMembershipCommand)
   .de(de_UpdateMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMembershipInput;
+      output: UpdateMembershipOutput;
+    };
+    sdk: {
+      input: UpdateMembershipCommandInput;
+      output: UpdateMembershipCommandOutput;
+    };
+  };
+}

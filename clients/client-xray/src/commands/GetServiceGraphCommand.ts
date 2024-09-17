@@ -178,4 +178,16 @@ export class GetServiceGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceGraphCommand)
   .de(de_GetServiceGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceGraphRequest;
+      output: GetServiceGraphResult;
+    };
+    sdk: {
+      input: GetServiceGraphCommandInput;
+      output: GetServiceGraphCommandOutput;
+    };
+  };
+}

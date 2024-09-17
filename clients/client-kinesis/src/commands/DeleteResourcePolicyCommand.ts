@@ -109,4 +109,16 @@ export class DeleteResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePolicyCommand)
   .de(de_DeleteResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
+    };
+  };
+}

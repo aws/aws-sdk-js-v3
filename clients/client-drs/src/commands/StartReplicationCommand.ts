@@ -201,4 +201,16 @@ export class StartReplicationCommand extends $Command
   .f(void 0, StartReplicationResponseFilterSensitiveLog)
   .ser(se_StartReplicationCommand)
   .de(de_StartReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationRequest;
+      output: StartReplicationResponse;
+    };
+    sdk: {
+      input: StartReplicationCommandInput;
+      output: StartReplicationCommandOutput;
+    };
+  };
+}

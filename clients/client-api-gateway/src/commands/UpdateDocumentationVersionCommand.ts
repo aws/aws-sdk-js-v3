@@ -106,4 +106,16 @@ export class UpdateDocumentationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentationVersionCommand)
   .de(de_UpdateDocumentationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentationVersionRequest;
+      output: DocumentationVersion;
+    };
+    sdk: {
+      input: UpdateDocumentationVersionCommandInput;
+      output: UpdateDocumentationVersionCommandOutput;
+    };
+  };
+}

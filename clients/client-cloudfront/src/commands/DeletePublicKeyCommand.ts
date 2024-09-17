@@ -92,4 +92,16 @@ export class DeletePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePublicKeyCommand)
   .de(de_DeletePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePublicKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePublicKeyCommandInput;
+      output: DeletePublicKeyCommandOutput;
+    };
+  };
+}

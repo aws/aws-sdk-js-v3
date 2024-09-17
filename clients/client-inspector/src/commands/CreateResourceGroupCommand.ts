@@ -123,4 +123,16 @@ export class CreateResourceGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceGroupCommand)
   .de(de_CreateResourceGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceGroupRequest;
+      output: CreateResourceGroupResponse;
+    };
+    sdk: {
+      input: CreateResourceGroupCommandInput;
+      output: CreateResourceGroupCommandOutput;
+    };
+  };
+}

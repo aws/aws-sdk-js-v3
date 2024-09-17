@@ -226,4 +226,16 @@ export class PutConfigRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigRuleCommand)
   .de(de_PutConfigRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigRuleCommandInput;
+      output: PutConfigRuleCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCompanyNetworkConfigurationCommand)
   .de(de_DescribeCompanyNetworkConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCompanyNetworkConfigurationRequest;
+      output: DescribeCompanyNetworkConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeCompanyNetworkConfigurationCommandInput;
+      output: DescribeCompanyNetworkConfigurationCommandOutput;
+    };
+  };
+}

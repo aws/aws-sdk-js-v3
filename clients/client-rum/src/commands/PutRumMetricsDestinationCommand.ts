@@ -98,4 +98,16 @@ export class PutRumMetricsDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRumMetricsDestinationCommand)
   .de(de_PutRumMetricsDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRumMetricsDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRumMetricsDestinationCommandInput;
+      output: PutRumMetricsDestinationCommandOutput;
+    };
+  };
+}

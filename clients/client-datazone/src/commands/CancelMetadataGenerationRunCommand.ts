@@ -100,4 +100,16 @@ export class CancelMetadataGenerationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelMetadataGenerationRunCommand)
   .de(de_CancelMetadataGenerationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelMetadataGenerationRunInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelMetadataGenerationRunCommandInput;
+      output: CancelMetadataGenerationRunCommandOutput;
+    };
+  };
+}

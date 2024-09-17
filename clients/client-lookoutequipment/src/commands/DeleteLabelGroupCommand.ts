@@ -98,4 +98,16 @@ export class DeleteLabelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLabelGroupCommand)
   .de(de_DeleteLabelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLabelGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLabelGroupCommandInput;
+      output: DeleteLabelGroupCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class GetMLModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLModelCommand)
   .de(de_GetMLModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLModelInput;
+      output: GetMLModelOutput;
+    };
+    sdk: {
+      input: GetMLModelCommandInput;
+      output: GetMLModelCommandOutput;
+    };
+  };
+}

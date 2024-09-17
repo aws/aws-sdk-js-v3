@@ -99,4 +99,16 @@ export class DescribeVpcConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcConnectorCommand)
   .de(de_DescribeVpcConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcConnectorRequest;
+      output: DescribeVpcConnectorResponse;
+    };
+    sdk: {
+      input: DescribeVpcConnectorCommandInput;
+      output: DescribeVpcConnectorCommandOutput;
+    };
+  };
+}

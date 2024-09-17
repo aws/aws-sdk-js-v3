@@ -103,4 +103,16 @@ export class ListSatellitesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSatellitesCommand)
   .de(de_ListSatellitesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSatellitesRequest;
+      output: ListSatellitesResponse;
+    };
+    sdk: {
+      input: ListSatellitesCommandInput;
+      output: ListSatellitesCommandOutput;
+    };
+  };
+}

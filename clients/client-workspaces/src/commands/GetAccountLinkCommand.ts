@@ -96,4 +96,16 @@ export class GetAccountLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountLinkCommand)
   .de(de_GetAccountLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccountLinkRequest;
+      output: GetAccountLinkResult;
+    };
+    sdk: {
+      input: GetAccountLinkCommandInput;
+      output: GetAccountLinkCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class ListRobotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRobotsCommand)
   .de(de_ListRobotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRobotsRequest;
+      output: ListRobotsResponse;
+    };
+    sdk: {
+      input: ListRobotsCommandInput;
+      output: ListRobotsCommandOutput;
+    };
+  };
+}

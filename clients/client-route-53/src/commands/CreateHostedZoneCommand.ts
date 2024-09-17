@@ -248,4 +248,16 @@ export class CreateHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHostedZoneCommand)
   .de(de_CreateHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHostedZoneRequest;
+      output: CreateHostedZoneResponse;
+    };
+    sdk: {
+      input: CreateHostedZoneCommandInput;
+      output: CreateHostedZoneCommandOutput;
+    };
+  };
+}

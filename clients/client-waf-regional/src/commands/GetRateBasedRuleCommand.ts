@@ -109,4 +109,16 @@ export class GetRateBasedRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRateBasedRuleCommand)
   .de(de_GetRateBasedRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRateBasedRuleRequest;
+      output: GetRateBasedRuleResponse;
+    };
+    sdk: {
+      input: GetRateBasedRuleCommandInput;
+      output: GetRateBasedRuleCommandOutput;
+    };
+  };
+}

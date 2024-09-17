@@ -189,4 +189,16 @@ export class GetMediaAnalysisJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMediaAnalysisJobCommand)
   .de(de_GetMediaAnalysisJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaAnalysisJobRequest;
+      output: GetMediaAnalysisJobResponse;
+    };
+    sdk: {
+      input: GetMediaAnalysisJobCommandInput;
+      output: GetMediaAnalysisJobCommandOutput;
+    };
+  };
+}

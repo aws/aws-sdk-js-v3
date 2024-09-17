@@ -137,4 +137,16 @@ export class AssumeRoleForPodIdentityCommand extends $Command
   .f(AssumeRoleForPodIdentityRequestFilterSensitiveLog, AssumeRoleForPodIdentityResponseFilterSensitiveLog)
   .ser(se_AssumeRoleForPodIdentityCommand)
   .de(de_AssumeRoleForPodIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeRoleForPodIdentityRequest;
+      output: AssumeRoleForPodIdentityResponse;
+    };
+    sdk: {
+      input: AssumeRoleForPodIdentityCommandInput;
+      output: AssumeRoleForPodIdentityCommandOutput;
+    };
+  };
+}

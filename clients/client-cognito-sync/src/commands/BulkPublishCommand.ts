@@ -99,4 +99,16 @@ export class BulkPublishCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BulkPublishCommand)
   .de(de_BulkPublishCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BulkPublishRequest;
+      output: BulkPublishResponse;
+    };
+    sdk: {
+      input: BulkPublishCommandInput;
+      output: BulkPublishCommandOutput;
+    };
+  };
+}

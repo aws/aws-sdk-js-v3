@@ -121,4 +121,16 @@ export class PutAttributeMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAttributeMappingCommand)
   .de(de_PutAttributeMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAttributeMappingRequest;
+      output: PutAttributeMappingResponse;
+    };
+    sdk: {
+      input: PutAttributeMappingCommandInput;
+      output: PutAttributeMappingCommandOutput;
+    };
+  };
+}

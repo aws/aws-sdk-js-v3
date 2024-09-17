@@ -78,4 +78,16 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNotebookInstanceLifecycleConfigCommand)
   .de(de_DeleteNotebookInstanceLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNotebookInstanceLifecycleConfigInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNotebookInstanceLifecycleConfigCommandInput;
+      output: DeleteNotebookInstanceLifecycleConfigCommandOutput;
+    };
+  };
+}

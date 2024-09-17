@@ -106,4 +106,16 @@ export class GetMapGlyphsCommand extends $Command
   .f(GetMapGlyphsRequestFilterSensitiveLog, void 0)
   .ser(se_GetMapGlyphsCommand)
   .de(de_GetMapGlyphsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMapGlyphsRequest;
+      output: GetMapGlyphsResponse;
+    };
+    sdk: {
+      input: GetMapGlyphsCommandInput;
+      output: GetMapGlyphsCommandOutput;
+    };
+  };
+}

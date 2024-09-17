@@ -143,4 +143,16 @@ export class UpdateFileCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFileCacheCommand)
   .de(de_UpdateFileCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileCacheRequest;
+      output: UpdateFileCacheResponse;
+    };
+    sdk: {
+      input: UpdateFileCacheCommandInput;
+      output: UpdateFileCacheCommandOutput;
+    };
+  };
+}

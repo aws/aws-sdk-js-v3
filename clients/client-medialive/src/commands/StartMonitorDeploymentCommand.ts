@@ -158,4 +158,16 @@ export class StartMonitorDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitorDeploymentCommand)
   .de(de_StartMonitorDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitorDeploymentRequest;
+      output: StartMonitorDeploymentResponse;
+    };
+    sdk: {
+      input: StartMonitorDeploymentCommandInput;
+      output: StartMonitorDeploymentCommandOutput;
+    };
+  };
+}

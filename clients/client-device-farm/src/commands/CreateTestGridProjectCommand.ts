@@ -112,4 +112,16 @@ export class CreateTestGridProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestGridProjectCommand)
   .de(de_CreateTestGridProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestGridProjectRequest;
+      output: CreateTestGridProjectResult;
+    };
+    sdk: {
+      input: CreateTestGridProjectCommandInput;
+      output: CreateTestGridProjectCommandOutput;
+    };
+  };
+}

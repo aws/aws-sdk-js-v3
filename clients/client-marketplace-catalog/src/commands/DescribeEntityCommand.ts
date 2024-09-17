@@ -110,4 +110,16 @@ export class DescribeEntityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEntityCommand)
   .de(de_DescribeEntityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEntityRequest;
+      output: DescribeEntityResponse;
+    };
+    sdk: {
+      input: DescribeEntityCommandInput;
+      output: DescribeEntityCommandOutput;
+    };
+  };
+}

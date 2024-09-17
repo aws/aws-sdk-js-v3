@@ -140,4 +140,16 @@ export class CreateAccountAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccountAssignmentCommand)
   .de(de_CreateAccountAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountAssignmentRequest;
+      output: CreateAccountAssignmentResponse;
+    };
+    sdk: {
+      input: CreateAccountAssignmentCommandInput;
+      output: CreateAccountAssignmentCommandOutput;
+    };
+  };
+}

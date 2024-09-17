@@ -105,4 +105,16 @@ export class GetUserDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserDetailsCommand)
   .de(de_GetUserDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserDetailsRequest;
+      output: GetUserDetailsResponse;
+    };
+    sdk: {
+      input: GetUserDetailsCommandInput;
+      output: GetUserDetailsCommandOutput;
+    };
+  };
+}

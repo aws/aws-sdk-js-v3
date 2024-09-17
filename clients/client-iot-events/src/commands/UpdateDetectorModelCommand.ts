@@ -484,4 +484,16 @@ export class UpdateDetectorModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDetectorModelCommand)
   .de(de_UpdateDetectorModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDetectorModelRequest;
+      output: UpdateDetectorModelResponse;
+    };
+    sdk: {
+      input: UpdateDetectorModelCommandInput;
+      output: UpdateDetectorModelCommandOutput;
+    };
+  };
+}

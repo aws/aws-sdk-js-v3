@@ -115,4 +115,16 @@ export class GetFolderPathCommand extends $Command
   .f(GetFolderPathRequestFilterSensitiveLog, GetFolderPathResponseFilterSensitiveLog)
   .ser(se_GetFolderPathCommand)
   .de(de_GetFolderPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFolderPathRequest;
+      output: GetFolderPathResponse;
+    };
+    sdk: {
+      input: GetFolderPathCommandInput;
+      output: GetFolderPathCommandOutput;
+    };
+  };
+}

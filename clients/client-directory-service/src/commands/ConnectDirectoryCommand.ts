@@ -119,4 +119,16 @@ export class ConnectDirectoryCommand extends $Command
   .f(ConnectDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_ConnectDirectoryCommand)
   .de(de_ConnectDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConnectDirectoryRequest;
+      output: ConnectDirectoryResult;
+    };
+    sdk: {
+      input: ConnectDirectoryCommandInput;
+      output: ConnectDirectoryCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class PutInsightRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInsightRuleCommand)
   .de(de_PutInsightRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInsightRuleInput;
+      output: {};
+    };
+    sdk: {
+      input: PutInsightRuleCommandInput;
+      output: PutInsightRuleCommandOutput;
+    };
+  };
+}

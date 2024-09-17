@@ -104,4 +104,16 @@ export class ListIpRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIpRoutesCommand)
   .de(de_ListIpRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIpRoutesRequest;
+      output: ListIpRoutesResult;
+    };
+    sdk: {
+      input: ListIpRoutesCommandInput;
+      output: ListIpRoutesCommandOutput;
+    };
+  };
+}

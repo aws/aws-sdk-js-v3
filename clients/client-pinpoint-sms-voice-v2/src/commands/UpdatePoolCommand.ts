@@ -126,4 +126,16 @@ export class UpdatePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePoolCommand)
   .de(de_UpdatePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePoolRequest;
+      output: UpdatePoolResult;
+    };
+    sdk: {
+      input: UpdatePoolCommandInput;
+      output: UpdatePoolCommandOutput;
+    };
+  };
+}

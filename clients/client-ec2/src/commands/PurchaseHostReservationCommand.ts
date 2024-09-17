@@ -114,4 +114,16 @@ export class PurchaseHostReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseHostReservationCommand)
   .de(de_PurchaseHostReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseHostReservationRequest;
+      output: PurchaseHostReservationResult;
+    };
+    sdk: {
+      input: PurchaseHostReservationCommandInput;
+      output: PurchaseHostReservationCommandOutput;
+    };
+  };
+}

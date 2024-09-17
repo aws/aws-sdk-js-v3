@@ -122,4 +122,16 @@ export class DescribeSlackChannelConfigurationsCommand extends $Command
   .f(void 0, DescribeSlackChannelConfigurationsResultFilterSensitiveLog)
   .ser(se_DescribeSlackChannelConfigurationsCommand)
   .de(de_DescribeSlackChannelConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSlackChannelConfigurationsRequest;
+      output: DescribeSlackChannelConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeSlackChannelConfigurationsCommandInput;
+      output: DescribeSlackChannelConfigurationsCommandOutput;
+    };
+  };
+}

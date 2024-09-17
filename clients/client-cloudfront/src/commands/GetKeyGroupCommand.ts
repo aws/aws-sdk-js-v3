@@ -97,4 +97,16 @@ export class GetKeyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyGroupCommand)
   .de(de_GetKeyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyGroupRequest;
+      output: GetKeyGroupResult;
+    };
+    sdk: {
+      input: GetKeyGroupCommandInput;
+      output: GetKeyGroupCommandOutput;
+    };
+  };
+}

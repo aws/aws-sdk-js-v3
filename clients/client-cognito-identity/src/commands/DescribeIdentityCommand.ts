@@ -100,4 +100,16 @@ export class DescribeIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityCommand)
   .de(de_DescribeIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityInput;
+      output: IdentityDescription;
+    };
+    sdk: {
+      input: DescribeIdentityCommandInput;
+      output: DescribeIdentityCommandOutput;
+    };
+  };
+}

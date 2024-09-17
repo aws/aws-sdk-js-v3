@@ -97,4 +97,16 @@ export class DeregisterSubscriptionProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterSubscriptionProviderCommand)
   .de(de_DeregisterSubscriptionProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterSubscriptionProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterSubscriptionProviderCommandInput;
+      output: DeregisterSubscriptionProviderCommandOutput;
+    };
+  };
+}

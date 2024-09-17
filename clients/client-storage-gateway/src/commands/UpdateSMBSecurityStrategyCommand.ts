@@ -93,4 +93,16 @@ export class UpdateSMBSecurityStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSMBSecurityStrategyCommand)
   .de(de_UpdateSMBSecurityStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSMBSecurityStrategyInput;
+      output: UpdateSMBSecurityStrategyOutput;
+    };
+    sdk: {
+      input: UpdateSMBSecurityStrategyCommandInput;
+      output: UpdateSMBSecurityStrategyCommandOutput;
+    };
+  };
+}

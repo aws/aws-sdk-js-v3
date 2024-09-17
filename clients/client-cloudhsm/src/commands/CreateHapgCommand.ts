@@ -99,4 +99,16 @@ export class CreateHapgCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHapgCommand)
   .de(de_CreateHapgCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHapgRequest;
+      output: CreateHapgResponse;
+    };
+    sdk: {
+      input: CreateHapgCommandInput;
+      output: CreateHapgCommandOutput;
+    };
+  };
+}

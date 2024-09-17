@@ -102,4 +102,16 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateWirelessGatewayWithThingCommand)
   .de(de_AssociateWirelessGatewayWithThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateWirelessGatewayWithThingRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateWirelessGatewayWithThingCommandInput;
+      output: AssociateWirelessGatewayWithThingCommandOutput;
+    };
+  };
+}

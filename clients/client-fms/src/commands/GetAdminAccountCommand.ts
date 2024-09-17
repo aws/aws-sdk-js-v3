@@ -91,4 +91,16 @@ export class GetAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdminAccountCommand)
   .de(de_GetAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAdminAccountResponse;
+    };
+    sdk: {
+      input: GetAdminAccountCommandInput;
+      output: GetAdminAccountCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class DescribeAppBlocksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppBlocksCommand)
   .de(de_DescribeAppBlocksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppBlocksRequest;
+      output: DescribeAppBlocksResult;
+    };
+    sdk: {
+      input: DescribeAppBlocksCommandInput;
+      output: DescribeAppBlocksCommandOutput;
+    };
+  };
+}

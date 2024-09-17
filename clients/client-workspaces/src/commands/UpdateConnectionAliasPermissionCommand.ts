@@ -126,4 +126,16 @@ export class UpdateConnectionAliasPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectionAliasPermissionCommand)
   .de(de_UpdateConnectionAliasPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectionAliasPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConnectionAliasPermissionCommandInput;
+      output: UpdateConnectionAliasPermissionCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetLicenseConversionTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLicenseConversionTaskCommand)
   .de(de_GetLicenseConversionTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLicenseConversionTaskRequest;
+      output: GetLicenseConversionTaskResponse;
+    };
+    sdk: {
+      input: GetLicenseConversionTaskCommandInput;
+      output: GetLicenseConversionTaskCommandOutput;
+    };
+  };
+}

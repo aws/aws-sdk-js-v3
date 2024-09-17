@@ -130,4 +130,16 @@ export class ListInventoryEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInventoryEntriesCommand)
   .de(de_ListInventoryEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInventoryEntriesRequest;
+      output: ListInventoryEntriesResult;
+    };
+    sdk: {
+      input: ListInventoryEntriesCommandInput;
+      output: ListInventoryEntriesCommandOutput;
+    };
+  };
+}

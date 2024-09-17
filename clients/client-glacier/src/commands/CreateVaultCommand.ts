@@ -130,4 +130,16 @@ export class CreateVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVaultCommand)
   .de(de_CreateVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVaultInput;
+      output: CreateVaultOutput;
+    };
+    sdk: {
+      input: CreateVaultCommandInput;
+      output: CreateVaultCommandOutput;
+    };
+  };
+}

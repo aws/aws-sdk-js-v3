@@ -96,4 +96,16 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveClientIDFromOpenIDConnectProviderCommand)
   .de(de_RemoveClientIDFromOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveClientIDFromOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveClientIDFromOpenIDConnectProviderCommandInput;
+      output: RemoveClientIDFromOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

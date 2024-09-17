@@ -115,4 +115,16 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDataQualityRuleRecommendationRunCommand)
   .de(de_StartDataQualityRuleRecommendationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDataQualityRuleRecommendationRunRequest;
+      output: StartDataQualityRuleRecommendationRunResponse;
+    };
+    sdk: {
+      input: StartDataQualityRuleRecommendationRunCommandInput;
+      output: StartDataQualityRuleRecommendationRunCommandOutput;
+    };
+  };
+}

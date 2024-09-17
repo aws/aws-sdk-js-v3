@@ -208,4 +208,16 @@ export class ChangeServerLifeCycleStateCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_ChangeServerLifeCycleStateCommand)
   .de(de_ChangeServerLifeCycleStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangeServerLifeCycleStateRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: ChangeServerLifeCycleStateCommandInput;
+      output: ChangeServerLifeCycleStateCommandOutput;
+    };
+  };
+}

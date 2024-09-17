@@ -124,4 +124,16 @@ export class RestoreTableFromRecoveryPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableFromRecoveryPointCommand)
   .de(de_RestoreTableFromRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableFromRecoveryPointRequest;
+      output: RestoreTableFromRecoveryPointResponse;
+    };
+    sdk: {
+      input: RestoreTableFromRecoveryPointCommandInput;
+      output: RestoreTableFromRecoveryPointCommandOutput;
+    };
+  };
+}

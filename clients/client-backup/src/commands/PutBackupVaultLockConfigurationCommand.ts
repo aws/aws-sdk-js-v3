@@ -111,4 +111,16 @@ export class PutBackupVaultLockConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupVaultLockConfigurationCommand)
   .de(de_PutBackupVaultLockConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupVaultLockConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBackupVaultLockConfigurationCommandInput;
+      output: PutBackupVaultLockConfigurationCommandOutput;
+    };
+  };
+}

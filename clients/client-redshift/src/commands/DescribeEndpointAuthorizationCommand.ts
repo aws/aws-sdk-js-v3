@@ -106,4 +106,16 @@ export class DescribeEndpointAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointAuthorizationCommand)
   .de(de_DescribeEndpointAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointAuthorizationMessage;
+      output: EndpointAuthorizationList;
+    };
+    sdk: {
+      input: DescribeEndpointAuthorizationCommandInput;
+      output: DescribeEndpointAuthorizationCommandOutput;
+    };
+  };
+}

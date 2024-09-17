@@ -94,4 +94,16 @@ export class EnableDomainAutoRenewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableDomainAutoRenewCommand)
   .de(de_EnableDomainAutoRenewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableDomainAutoRenewRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableDomainAutoRenewCommandInput;
+      output: EnableDomainAutoRenewCommandOutput;
+    };
+  };
+}

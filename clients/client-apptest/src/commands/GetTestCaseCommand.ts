@@ -195,4 +195,16 @@ export class GetTestCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestCaseCommand)
   .de(de_GetTestCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestCaseRequest;
+      output: GetTestCaseResponse;
+    };
+    sdk: {
+      input: GetTestCaseCommandInput;
+      output: GetTestCaseCommandOutput;
+    };
+  };
+}

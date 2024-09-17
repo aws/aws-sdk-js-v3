@@ -92,4 +92,16 @@ export class GetServiceEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceEndpointCommand)
   .de(de_GetServiceEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceEndpointRequest;
+      output: GetServiceEndpointResponse;
+    };
+    sdk: {
+      input: GetServiceEndpointCommandInput;
+      output: GetServiceEndpointCommandOutput;
+    };
+  };
+}

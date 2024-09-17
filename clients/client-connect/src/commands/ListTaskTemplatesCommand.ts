@@ -107,4 +107,16 @@ export class ListTaskTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskTemplatesCommand)
   .de(de_ListTaskTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskTemplatesRequest;
+      output: ListTaskTemplatesResponse;
+    };
+    sdk: {
+      input: ListTaskTemplatesCommandInput;
+      output: ListTaskTemplatesCommandOutput;
+    };
+  };
+}

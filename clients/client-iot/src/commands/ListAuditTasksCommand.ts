@@ -100,4 +100,16 @@ export class ListAuditTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuditTasksCommand)
   .de(de_ListAuditTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuditTasksRequest;
+      output: ListAuditTasksResponse;
+    };
+    sdk: {
+      input: ListAuditTasksCommandInput;
+      output: ListAuditTasksCommandOutput;
+    };
+  };
+}

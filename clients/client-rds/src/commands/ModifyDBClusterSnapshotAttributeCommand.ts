@@ -157,4 +157,16 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBClusterSnapshotAttributeCommand)
   .de(de_ModifyDBClusterSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBClusterSnapshotAttributeMessage;
+      output: ModifyDBClusterSnapshotAttributeResult;
+    };
+    sdk: {
+      input: ModifyDBClusterSnapshotAttributeCommandInput;
+      output: ModifyDBClusterSnapshotAttributeCommandOutput;
+    };
+  };
+}

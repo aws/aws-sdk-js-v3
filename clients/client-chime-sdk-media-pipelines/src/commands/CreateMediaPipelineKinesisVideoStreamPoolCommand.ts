@@ -158,4 +158,16 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   )
   .ser(se_CreateMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_CreateMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolRequest;
+      output: CreateMediaPipelineKinesisVideoStreamPoolResponse;
+    };
+    sdk: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: CreateMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class TestInvokeAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestInvokeAuthorizerCommand)
   .de(de_TestInvokeAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestInvokeAuthorizerRequest;
+      output: TestInvokeAuthorizerResponse;
+    };
+    sdk: {
+      input: TestInvokeAuthorizerCommandInput;
+      output: TestInvokeAuthorizerCommandOutput;
+    };
+  };
+}

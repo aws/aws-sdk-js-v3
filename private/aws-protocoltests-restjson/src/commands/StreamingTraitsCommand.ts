@@ -85,4 +85,16 @@ export class StreamingTraitsCommand extends $Command
   .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
   .ser(se_StreamingTraitsCommand)
   .de(de_StreamingTraitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsInputOutput;
+      output: StreamingTraitsInputOutput;
+    };
+    sdk: {
+      input: StreamingTraitsCommandInput;
+      output: StreamingTraitsCommandOutput;
+    };
+  };
+}

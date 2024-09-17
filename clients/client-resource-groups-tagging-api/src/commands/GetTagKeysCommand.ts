@@ -125,4 +125,16 @@ export class GetTagKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTagKeysCommand)
   .de(de_GetTagKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTagKeysInput;
+      output: GetTagKeysOutput;
+    };
+    sdk: {
+      input: GetTagKeysCommandInput;
+      output: GetTagKeysCommandOutput;
+    };
+  };
+}

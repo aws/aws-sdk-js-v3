@@ -88,4 +88,16 @@ export class UpdateUserProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserProfileCommand)
   .de(de_UpdateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserProfileCommandInput;
+      output: UpdateUserProfileCommandOutput;
+    };
+  };
+}

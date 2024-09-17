@@ -103,4 +103,16 @@ export class GetCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCertificateCommand)
   .de(de_GetCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCertificateRequest;
+      output: GetCertificateResponse;
+    };
+    sdk: {
+      input: GetCertificateCommandInput;
+      output: GetCertificateCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class CreateDataSourceFromS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataSourceFromS3Command)
   .de(de_CreateDataSourceFromS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceFromS3Input;
+      output: CreateDataSourceFromS3Output;
+    };
+    sdk: {
+      input: CreateDataSourceFromS3CommandInput;
+      output: CreateDataSourceFromS3CommandOutput;
+    };
+  };
+}

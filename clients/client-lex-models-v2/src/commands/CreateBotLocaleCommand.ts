@@ -208,4 +208,16 @@ export class CreateBotLocaleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBotLocaleCommand)
   .de(de_CreateBotLocaleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBotLocaleRequest;
+      output: CreateBotLocaleResponse;
+    };
+    sdk: {
+      input: CreateBotLocaleCommandInput;
+      output: CreateBotLocaleCommandOutput;
+    };
+  };
+}

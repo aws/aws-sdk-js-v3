@@ -107,4 +107,16 @@ export class BatchGetPreparedStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetPreparedStatementCommand)
   .de(de_BatchGetPreparedStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetPreparedStatementInput;
+      output: BatchGetPreparedStatementOutput;
+    };
+    sdk: {
+      input: BatchGetPreparedStatementCommandInput;
+      output: BatchGetPreparedStatementCommandOutput;
+    };
+  };
+}

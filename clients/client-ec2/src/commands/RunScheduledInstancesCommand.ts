@@ -157,4 +157,16 @@ export class RunScheduledInstancesCommand extends $Command
   .f(RunScheduledInstancesRequestFilterSensitiveLog, void 0)
   .ser(se_RunScheduledInstancesCommand)
   .de(de_RunScheduledInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunScheduledInstancesRequest;
+      output: RunScheduledInstancesResult;
+    };
+    sdk: {
+      input: RunScheduledInstancesCommandInput;
+      output: RunScheduledInstancesCommandOutput;
+    };
+  };
+}

@@ -148,4 +148,16 @@ export class CreateDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDetectorCommand)
   .de(de_CreateDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDetectorRequest;
+      output: CreateDetectorResponse;
+    };
+    sdk: {
+      input: CreateDetectorCommandInput;
+      output: CreateDetectorCommandOutput;
+    };
+  };
+}

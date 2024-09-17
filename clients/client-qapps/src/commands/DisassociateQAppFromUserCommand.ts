@@ -108,4 +108,16 @@ export class DisassociateQAppFromUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateQAppFromUserCommand)
   .de(de_DisassociateQAppFromUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateQAppFromUserInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateQAppFromUserCommandInput;
+      output: DisassociateQAppFromUserCommandOutput;
+    };
+  };
+}

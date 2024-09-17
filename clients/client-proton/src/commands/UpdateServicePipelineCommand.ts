@@ -157,4 +157,16 @@ export class UpdateServicePipelineCommand extends $Command
   .f(UpdateServicePipelineInputFilterSensitiveLog, UpdateServicePipelineOutputFilterSensitiveLog)
   .ser(se_UpdateServicePipelineCommand)
   .de(de_UpdateServicePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServicePipelineInput;
+      output: UpdateServicePipelineOutput;
+    };
+    sdk: {
+      input: UpdateServicePipelineCommandInput;
+      output: UpdateServicePipelineCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class GetModelInvocationJobCommand extends $Command
   .f(void 0, GetModelInvocationJobResponseFilterSensitiveLog)
   .ser(se_GetModelInvocationJobCommand)
   .de(de_GetModelInvocationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelInvocationJobRequest;
+      output: GetModelInvocationJobResponse;
+    };
+    sdk: {
+      input: GetModelInvocationJobCommandInput;
+      output: GetModelInvocationJobCommandOutput;
+    };
+  };
+}

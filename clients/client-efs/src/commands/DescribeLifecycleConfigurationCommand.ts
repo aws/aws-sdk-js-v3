@@ -125,4 +125,16 @@ export class DescribeLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLifecycleConfigurationCommand)
   .de(de_DescribeLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLifecycleConfigurationRequest;
+      output: LifecycleConfigurationDescription;
+    };
+    sdk: {
+      input: DescribeLifecycleConfigurationCommandInput;
+      output: DescribeLifecycleConfigurationCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class ListInputSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputSecurityGroupsCommand)
   .de(de_ListInputSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputSecurityGroupsRequest;
+      output: ListInputSecurityGroupsResponse;
+    };
+    sdk: {
+      input: ListInputSecurityGroupsCommandInput;
+      output: ListInputSecurityGroupsCommandOutput;
+    };
+  };
+}

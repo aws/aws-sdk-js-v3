@@ -150,4 +150,16 @@ export class CreateCrossAccountAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCrossAccountAttachmentCommand)
   .de(de_CreateCrossAccountAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCrossAccountAttachmentRequest;
+      output: CreateCrossAccountAttachmentResponse;
+    };
+    sdk: {
+      input: CreateCrossAccountAttachmentCommandInput;
+      output: CreateCrossAccountAttachmentCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class UpdateStreamingImageCommand extends $Command
   .f(UpdateStreamingImageRequestFilterSensitiveLog, UpdateStreamingImageResponseFilterSensitiveLog)
   .ser(se_UpdateStreamingImageCommand)
   .de(de_UpdateStreamingImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamingImageRequest;
+      output: UpdateStreamingImageResponse;
+    };
+    sdk: {
+      input: UpdateStreamingImageCommandInput;
+      output: UpdateStreamingImageCommandOutput;
+    };
+  };
+}

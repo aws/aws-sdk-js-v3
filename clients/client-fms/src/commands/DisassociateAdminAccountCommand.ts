@@ -88,4 +88,16 @@ export class DisassociateAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAdminAccountCommand)
   .de(de_DisassociateAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAdminAccountCommandInput;
+      output: DisassociateAdminAccountCommandOutput;
+    };
+  };
+}

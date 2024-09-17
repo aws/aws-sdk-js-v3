@@ -115,4 +115,16 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSingleWirelessDeviceImportTaskCommand)
   .de(de_StartSingleWirelessDeviceImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSingleWirelessDeviceImportTaskRequest;
+      output: StartSingleWirelessDeviceImportTaskResponse;
+    };
+    sdk: {
+      input: StartSingleWirelessDeviceImportTaskCommandInput;
+      output: StartSingleWirelessDeviceImportTaskCommandOutput;
+    };
+  };
+}

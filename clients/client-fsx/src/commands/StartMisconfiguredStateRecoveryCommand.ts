@@ -661,4 +661,16 @@ export class StartMisconfiguredStateRecoveryCommand extends $Command
   .f(void 0, StartMisconfiguredStateRecoveryResponseFilterSensitiveLog)
   .ser(se_StartMisconfiguredStateRecoveryCommand)
   .de(de_StartMisconfiguredStateRecoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMisconfiguredStateRecoveryRequest;
+      output: StartMisconfiguredStateRecoveryResponse;
+    };
+    sdk: {
+      input: StartMisconfiguredStateRecoveryCommandInput;
+      output: StartMisconfiguredStateRecoveryCommandOutput;
+    };
+  };
+}

@@ -150,4 +150,16 @@ export class DisassociateLicenseCommand extends $Command
   .f(void 0, DisassociateLicenseResponseFilterSensitiveLog)
   .ser(se_DisassociateLicenseCommand)
   .de(de_DisassociateLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLicenseRequest;
+      output: DisassociateLicenseResponse;
+    };
+    sdk: {
+      input: DisassociateLicenseCommandInput;
+      output: DisassociateLicenseCommandOutput;
+    };
+  };
+}

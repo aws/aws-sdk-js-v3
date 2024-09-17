@@ -102,4 +102,16 @@ export class AcceptInputDeviceTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptInputDeviceTransferCommand)
   .de(de_AcceptInputDeviceTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptInputDeviceTransferRequest;
+      output: {};
+    };
+    sdk: {
+      input: AcceptInputDeviceTransferCommandInput;
+      output: AcceptInputDeviceTransferCommandOutput;
+    };
+  };
+}

@@ -136,4 +136,16 @@ export class GetConfigurationCommand extends $Command
   .f(void 0, ConfigurationFilterSensitiveLog)
   .ser(se_GetConfigurationCommand)
   .de(de_GetConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfigurationRequest;
+      output: Configuration;
+    };
+    sdk: {
+      input: GetConfigurationCommandInput;
+      output: GetConfigurationCommandOutput;
+    };
+  };
+}

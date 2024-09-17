@@ -249,4 +249,16 @@ export class CreateRuleSetCommand extends $Command
   .f(CreateRuleSetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRuleSetCommand)
   .de(de_CreateRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleSetRequest;
+      output: CreateRuleSetResponse;
+    };
+    sdk: {
+      input: CreateRuleSetCommandInput;
+      output: CreateRuleSetCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class UpdateStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStageCommand)
   .de(de_UpdateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStageRequest;
+      output: UpdateStageResponse;
+    };
+    sdk: {
+      input: UpdateStageCommandInput;
+      output: UpdateStageCommandOutput;
+    };
+  };
+}

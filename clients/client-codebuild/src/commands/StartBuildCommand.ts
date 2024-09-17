@@ -391,4 +391,16 @@ export class StartBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBuildCommand)
   .de(de_StartBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBuildInput;
+      output: StartBuildOutput;
+    };
+    sdk: {
+      input: StartBuildCommandInput;
+      output: StartBuildCommandOutput;
+    };
+  };
+}

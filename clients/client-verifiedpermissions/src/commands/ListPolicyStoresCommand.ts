@@ -188,4 +188,16 @@ export class ListPolicyStoresCommand extends $Command
   .f(void 0, ListPolicyStoresOutputFilterSensitiveLog)
   .ser(se_ListPolicyStoresCommand)
   .de(de_ListPolicyStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyStoresInput;
+      output: ListPolicyStoresOutput;
+    };
+    sdk: {
+      input: ListPolicyStoresCommandInput;
+      output: ListPolicyStoresCommandOutput;
+    };
+  };
+}

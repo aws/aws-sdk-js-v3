@@ -97,4 +97,16 @@ export class GetTopicAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTopicAttributesCommand)
   .de(de_GetTopicAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTopicAttributesInput;
+      output: GetTopicAttributesResponse;
+    };
+    sdk: {
+      input: GetTopicAttributesCommandInput;
+      output: GetTopicAttributesCommandOutput;
+    };
+  };
+}

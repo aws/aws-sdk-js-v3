@@ -201,4 +201,16 @@ export class ListVersionsByFunctionCommand extends $Command
   .f(void 0, ListVersionsByFunctionResponseFilterSensitiveLog)
   .ser(se_ListVersionsByFunctionCommand)
   .de(de_ListVersionsByFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVersionsByFunctionRequest;
+      output: ListVersionsByFunctionResponse;
+    };
+    sdk: {
+      input: ListVersionsByFunctionCommandInput;
+      output: ListVersionsByFunctionCommandOutput;
+    };
+  };
+}

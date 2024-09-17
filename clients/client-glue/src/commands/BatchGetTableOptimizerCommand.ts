@@ -173,4 +173,16 @@ export class BatchGetTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetTableOptimizerCommand)
   .de(de_BatchGetTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetTableOptimizerRequest;
+      output: BatchGetTableOptimizerResponse;
+    };
+    sdk: {
+      input: BatchGetTableOptimizerCommandInput;
+      output: BatchGetTableOptimizerCommandOutput;
+    };
+  };
+}

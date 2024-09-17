@@ -98,4 +98,16 @@ export class ListRoleAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoleAliasesCommand)
   .de(de_ListRoleAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoleAliasesRequest;
+      output: ListRoleAliasesResponse;
+    };
+    sdk: {
+      input: ListRoleAliasesCommandInput;
+      output: ListRoleAliasesCommandOutput;
+    };
+  };
+}

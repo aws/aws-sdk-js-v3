@@ -109,4 +109,16 @@ export class GetCoreNetworkPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkPolicyCommand)
   .de(de_GetCoreNetworkPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkPolicyRequest;
+      output: GetCoreNetworkPolicyResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkPolicyCommandInput;
+      output: GetCoreNetworkPolicyCommandOutput;
+    };
+  };
+}

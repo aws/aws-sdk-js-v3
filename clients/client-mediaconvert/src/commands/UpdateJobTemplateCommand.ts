@@ -3035,4 +3035,16 @@ export class UpdateJobTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJobTemplateCommand)
   .de(de_UpdateJobTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobTemplateRequest;
+      output: UpdateJobTemplateResponse;
+    };
+    sdk: {
+      input: UpdateJobTemplateCommandInput;
+      output: UpdateJobTemplateCommandOutput;
+    };
+  };
+}

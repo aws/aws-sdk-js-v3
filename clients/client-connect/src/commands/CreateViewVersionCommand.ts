@@ -134,4 +134,16 @@ export class CreateViewVersionCommand extends $Command
   .f(void 0, CreateViewVersionResponseFilterSensitiveLog)
   .ser(se_CreateViewVersionCommand)
   .de(de_CreateViewVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateViewVersionRequest;
+      output: CreateViewVersionResponse;
+    };
+    sdk: {
+      input: CreateViewVersionCommandInput;
+      output: CreateViewVersionCommandOutput;
+    };
+  };
+}

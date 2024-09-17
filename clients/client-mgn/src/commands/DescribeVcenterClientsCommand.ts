@@ -107,4 +107,16 @@ export class DescribeVcenterClientsCommand extends $Command
   .f(void 0, DescribeVcenterClientsResponseFilterSensitiveLog)
   .ser(se_DescribeVcenterClientsCommand)
   .de(de_DescribeVcenterClientsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVcenterClientsRequest;
+      output: DescribeVcenterClientsResponse;
+    };
+    sdk: {
+      input: DescribeVcenterClientsCommandInput;
+      output: DescribeVcenterClientsCommandOutput;
+    };
+  };
+}

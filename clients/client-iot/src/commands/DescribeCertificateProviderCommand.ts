@@ -109,4 +109,16 @@ export class DescribeCertificateProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCertificateProviderCommand)
   .de(de_DescribeCertificateProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCertificateProviderRequest;
+      output: DescribeCertificateProviderResponse;
+    };
+    sdk: {
+      input: DescribeCertificateProviderCommandInput;
+      output: DescribeCertificateProviderCommandOutput;
+    };
+  };
+}

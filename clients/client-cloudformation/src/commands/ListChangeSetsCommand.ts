@@ -96,4 +96,16 @@ export class ListChangeSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChangeSetsCommand)
   .de(de_ListChangeSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChangeSetsInput;
+      output: ListChangeSetsOutput;
+    };
+    sdk: {
+      input: ListChangeSetsCommandInput;
+      output: ListChangeSetsCommandOutput;
+    };
+  };
+}

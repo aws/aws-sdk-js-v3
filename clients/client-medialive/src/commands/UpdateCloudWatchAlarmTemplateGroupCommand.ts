@@ -112,4 +112,16 @@ export class UpdateCloudWatchAlarmTemplateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCloudWatchAlarmTemplateGroupCommand)
   .de(de_UpdateCloudWatchAlarmTemplateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCloudWatchAlarmTemplateGroupRequest;
+      output: UpdateCloudWatchAlarmTemplateGroupResponse;
+    };
+    sdk: {
+      input: UpdateCloudWatchAlarmTemplateGroupCommandInput;
+      output: UpdateCloudWatchAlarmTemplateGroupCommandOutput;
+    };
+  };
+}

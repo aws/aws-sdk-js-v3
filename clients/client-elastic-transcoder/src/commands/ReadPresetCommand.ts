@@ -158,4 +158,16 @@ export class ReadPresetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReadPresetCommand)
   .de(de_ReadPresetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReadPresetRequest;
+      output: ReadPresetResponse;
+    };
+    sdk: {
+      input: ReadPresetCommandInput;
+      output: ReadPresetCommandOutput;
+    };
+  };
+}

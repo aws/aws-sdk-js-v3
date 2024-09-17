@@ -104,4 +104,16 @@ export class UpdateContactFlowModuleContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactFlowModuleContentCommand)
   .de(de_UpdateContactFlowModuleContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactFlowModuleContentRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactFlowModuleContentCommandInput;
+      output: UpdateContactFlowModuleContentCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class DescribeBundleTasksCommand extends $Command
   .f(void 0, DescribeBundleTasksResultFilterSensitiveLog)
   .ser(se_DescribeBundleTasksCommand)
   .de(de_DescribeBundleTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBundleTasksRequest;
+      output: DescribeBundleTasksResult;
+    };
+    sdk: {
+      input: DescribeBundleTasksCommandInput;
+      output: DescribeBundleTasksCommandOutput;
+    };
+  };
+}

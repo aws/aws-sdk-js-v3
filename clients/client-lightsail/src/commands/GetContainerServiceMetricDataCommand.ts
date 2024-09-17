@@ -126,4 +126,16 @@ export class GetContainerServiceMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerServiceMetricDataCommand)
   .de(de_GetContainerServiceMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerServiceMetricDataRequest;
+      output: GetContainerServiceMetricDataResult;
+    };
+    sdk: {
+      input: GetContainerServiceMetricDataCommandInput;
+      output: GetContainerServiceMetricDataCommandOutput;
+    };
+  };
+}

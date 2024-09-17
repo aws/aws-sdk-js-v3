@@ -152,4 +152,16 @@ export class CreateRecommendationTemplateCommand extends $Command
   .f(CreateRecommendationTemplateRequestFilterSensitiveLog, CreateRecommendationTemplateResponseFilterSensitiveLog)
   .ser(se_CreateRecommendationTemplateCommand)
   .de(de_CreateRecommendationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRecommendationTemplateRequest;
+      output: CreateRecommendationTemplateResponse;
+    };
+    sdk: {
+      input: CreateRecommendationTemplateCommandInput;
+      output: CreateRecommendationTemplateCommandOutput;
+    };
+  };
+}

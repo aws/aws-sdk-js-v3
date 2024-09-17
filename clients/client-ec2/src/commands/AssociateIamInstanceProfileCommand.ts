@@ -118,4 +118,16 @@ export class AssociateIamInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateIamInstanceProfileCommand)
   .de(de_AssociateIamInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateIamInstanceProfileRequest;
+      output: AssociateIamInstanceProfileResult;
+    };
+    sdk: {
+      input: AssociateIamInstanceProfileCommandInput;
+      output: AssociateIamInstanceProfileCommandOutput;
+    };
+  };
+}

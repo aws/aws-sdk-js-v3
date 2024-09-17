@@ -129,4 +129,16 @@ export class SendDestinationNumberVerificationCodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDestinationNumberVerificationCodeCommand)
   .de(de_SendDestinationNumberVerificationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDestinationNumberVerificationCodeRequest;
+      output: SendDestinationNumberVerificationCodeResult;
+    };
+    sdk: {
+      input: SendDestinationNumberVerificationCodeCommandInput;
+      output: SendDestinationNumberVerificationCodeCommandOutput;
+    };
+  };
+}

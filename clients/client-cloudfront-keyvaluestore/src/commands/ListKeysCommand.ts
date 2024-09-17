@@ -107,4 +107,16 @@ export class ListKeysCommand extends $Command
   .f(void 0, ListKeysResponseFilterSensitiveLog)
   .ser(se_ListKeysCommand)
   .de(de_ListKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeysRequest;
+      output: ListKeysResponse;
+    };
+    sdk: {
+      input: ListKeysCommandInput;
+      output: ListKeysCommandOutput;
+    };
+  };
+}

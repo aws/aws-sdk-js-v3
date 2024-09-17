@@ -130,4 +130,16 @@ export class RegisterDBProxyTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDBProxyTargetsCommand)
   .de(de_RegisterDBProxyTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDBProxyTargetsRequest;
+      output: RegisterDBProxyTargetsResponse;
+    };
+    sdk: {
+      input: RegisterDBProxyTargetsCommandInput;
+      output: RegisterDBProxyTargetsCommandOutput;
+    };
+  };
+}

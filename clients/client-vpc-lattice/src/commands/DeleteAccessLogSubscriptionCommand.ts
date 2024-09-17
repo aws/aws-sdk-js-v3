@@ -96,4 +96,16 @@ export class DeleteAccessLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessLogSubscriptionCommand)
   .de(de_DeleteAccessLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessLogSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessLogSubscriptionCommandInput;
+      output: DeleteAccessLogSubscriptionCommandOutput;
+    };
+  };
+}

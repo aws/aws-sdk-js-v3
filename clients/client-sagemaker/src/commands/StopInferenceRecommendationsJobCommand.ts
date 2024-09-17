@@ -81,4 +81,16 @@ export class StopInferenceRecommendationsJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopInferenceRecommendationsJobCommand)
   .de(de_StopInferenceRecommendationsJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopInferenceRecommendationsJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopInferenceRecommendationsJobCommandInput;
+      output: StopInferenceRecommendationsJobCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class DeleteApnsSandboxChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApnsSandboxChannelCommand)
   .de(de_DeleteApnsSandboxChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApnsSandboxChannelRequest;
+      output: DeleteApnsSandboxChannelResponse;
+    };
+    sdk: {
+      input: DeleteApnsSandboxChannelCommandInput;
+      output: DeleteApnsSandboxChannelCommandOutput;
+    };
+  };
+}

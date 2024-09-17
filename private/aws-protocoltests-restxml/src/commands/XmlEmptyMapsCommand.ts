@@ -79,4 +79,16 @@ export class XmlEmptyMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlEmptyMapsCommand)
   .de(de_XmlEmptyMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyMapsRequest;
+      output: XmlEmptyMapsResponse;
+    };
+    sdk: {
+      input: XmlEmptyMapsCommandInput;
+      output: XmlEmptyMapsCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociatePrincipalFromPortfolioCommand)
   .de(de_DisassociatePrincipalFromPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePrincipalFromPortfolioInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociatePrincipalFromPortfolioCommandInput;
+      output: DisassociatePrincipalFromPortfolioCommandOutput;
+    };
+  };
+}

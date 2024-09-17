@@ -96,4 +96,16 @@ export class StopCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCampaignCommand)
   .de(de_StopCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCampaignRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCampaignCommandInput;
+      output: StopCampaignCommandOutput;
+    };
+  };
+}

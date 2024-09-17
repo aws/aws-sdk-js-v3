@@ -94,4 +94,16 @@ export class DisableClientAuthenticationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableClientAuthenticationCommand)
   .de(de_DisableClientAuthenticationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableClientAuthenticationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableClientAuthenticationCommandInput;
+      output: DisableClientAuthenticationCommandOutput;
+    };
+  };
+}

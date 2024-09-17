@@ -135,4 +135,16 @@ export class AssociateSubnetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSubnetsCommand)
   .de(de_AssociateSubnetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSubnetsRequest;
+      output: AssociateSubnetsResponse;
+    };
+    sdk: {
+      input: AssociateSubnetsCommandInput;
+      output: AssociateSubnetsCommandOutput;
+    };
+  };
+}

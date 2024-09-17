@@ -115,4 +115,16 @@ export class ListExtensibleSourceServersCommand extends $Command
   .f(void 0, ListExtensibleSourceServersResponseFilterSensitiveLog)
   .ser(se_ListExtensibleSourceServersCommand)
   .de(de_ListExtensibleSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExtensibleSourceServersRequest;
+      output: ListExtensibleSourceServersResponse;
+    };
+    sdk: {
+      input: ListExtensibleSourceServersCommandInput;
+      output: ListExtensibleSourceServersCommandOutput;
+    };
+  };
+}

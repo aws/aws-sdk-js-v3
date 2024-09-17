@@ -96,4 +96,16 @@ export class DisassociateBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateBotCommand)
   .de(de_DisassociateBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateBotRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateBotCommandInput;
+      output: DisassociateBotCommandOutput;
+    };
+  };
+}

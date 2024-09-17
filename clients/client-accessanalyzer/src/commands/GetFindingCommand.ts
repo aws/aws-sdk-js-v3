@@ -125,4 +125,16 @@ export class GetFindingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingCommand)
   .de(de_GetFindingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingRequest;
+      output: GetFindingResponse;
+    };
+    sdk: {
+      input: GetFindingCommandInput;
+      output: GetFindingCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class DescribeWorkspaceImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceImagesCommand)
   .de(de_DescribeWorkspaceImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceImagesRequest;
+      output: DescribeWorkspaceImagesResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceImagesCommandInput;
+      output: DescribeWorkspaceImagesCommandOutput;
+    };
+  };
+}

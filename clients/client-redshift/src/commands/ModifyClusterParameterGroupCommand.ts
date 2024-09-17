@@ -104,4 +104,16 @@ export class ModifyClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterParameterGroupCommand)
   .de(de_ModifyClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterParameterGroupMessage;
+      output: ClusterParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ModifyClusterParameterGroupCommandInput;
+      output: ModifyClusterParameterGroupCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class ImportHypervisorConfigurationCommand extends $Command
   .f(ImportHypervisorConfigurationInputFilterSensitiveLog, void 0)
   .ser(se_ImportHypervisorConfigurationCommand)
   .de(de_ImportHypervisorConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportHypervisorConfigurationInput;
+      output: ImportHypervisorConfigurationOutput;
+    };
+    sdk: {
+      input: ImportHypervisorConfigurationCommandInput;
+      output: ImportHypervisorConfigurationCommandOutput;
+    };
+  };
+}

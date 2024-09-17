@@ -160,4 +160,16 @@ export class GetSlotTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSlotTypesCommand)
   .de(de_GetSlotTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSlotTypesRequest;
+      output: GetSlotTypesResponse;
+    };
+    sdk: {
+      input: GetSlotTypesCommandInput;
+      output: GetSlotTypesCommandOutput;
+    };
+  };
+}

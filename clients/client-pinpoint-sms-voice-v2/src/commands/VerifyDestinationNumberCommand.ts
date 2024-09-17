@@ -110,4 +110,16 @@ export class VerifyDestinationNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyDestinationNumberCommand)
   .de(de_VerifyDestinationNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyDestinationNumberRequest;
+      output: VerifyDestinationNumberResult;
+    };
+    sdk: {
+      input: VerifyDestinationNumberCommandInput;
+      output: VerifyDestinationNumberCommandOutput;
+    };
+  };
+}

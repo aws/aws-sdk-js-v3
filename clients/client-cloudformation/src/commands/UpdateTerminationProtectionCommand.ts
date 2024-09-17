@@ -83,4 +83,16 @@ export class UpdateTerminationProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTerminationProtectionCommand)
   .de(de_UpdateTerminationProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTerminationProtectionInput;
+      output: UpdateTerminationProtectionOutput;
+    };
+    sdk: {
+      input: UpdateTerminationProtectionCommandInput;
+      output: UpdateTerminationProtectionCommandOutput;
+    };
+  };
+}

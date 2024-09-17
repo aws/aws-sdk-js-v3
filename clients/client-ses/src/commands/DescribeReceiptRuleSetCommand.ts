@@ -171,4 +171,16 @@ export class DescribeReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReceiptRuleSetCommand)
   .de(de_DescribeReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReceiptRuleSetRequest;
+      output: DescribeReceiptRuleSetResponse;
+    };
+    sdk: {
+      input: DescribeReceiptRuleSetCommandInput;
+      output: DescribeReceiptRuleSetCommandOutput;
+    };
+  };
+}

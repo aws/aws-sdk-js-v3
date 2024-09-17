@@ -119,4 +119,16 @@ export class UpdateImageSetMetadataCommand extends $Command
   .f(UpdateImageSetMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateImageSetMetadataCommand)
   .de(de_UpdateImageSetMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImageSetMetadataRequest;
+      output: UpdateImageSetMetadataResponse;
+    };
+    sdk: {
+      input: UpdateImageSetMetadataCommandInput;
+      output: UpdateImageSetMetadataCommandOutput;
+    };
+  };
+}

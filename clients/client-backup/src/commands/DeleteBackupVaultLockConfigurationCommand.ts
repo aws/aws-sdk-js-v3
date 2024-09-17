@@ -100,4 +100,16 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupVaultLockConfigurationCommand)
   .de(de_DeleteBackupVaultLockConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupVaultLockConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBackupVaultLockConfigurationCommandInput;
+      output: DeleteBackupVaultLockConfigurationCommandOutput;
+    };
+  };
+}

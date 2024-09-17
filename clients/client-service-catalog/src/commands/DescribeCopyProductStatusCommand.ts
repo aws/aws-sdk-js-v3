@@ -83,4 +83,16 @@ export class DescribeCopyProductStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCopyProductStatusCommand)
   .de(de_DescribeCopyProductStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCopyProductStatusInput;
+      output: DescribeCopyProductStatusOutput;
+    };
+    sdk: {
+      input: DescribeCopyProductStatusCommandInput;
+      output: DescribeCopyProductStatusCommandOutput;
+    };
+  };
+}

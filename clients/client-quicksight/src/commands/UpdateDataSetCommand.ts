@@ -353,4 +353,16 @@ export class UpdateDataSetCommand extends $Command
   .f(UpdateDataSetRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDataSetCommand)
   .de(de_UpdateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSetRequest;
+      output: UpdateDataSetResponse;
+    };
+    sdk: {
+      input: UpdateDataSetCommandInput;
+      output: UpdateDataSetCommandOutput;
+    };
+  };
+}

@@ -154,4 +154,16 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAssetPropertyValueHistoryCommand)
   .de(de_BatchGetAssetPropertyValueHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAssetPropertyValueHistoryRequest;
+      output: BatchGetAssetPropertyValueHistoryResponse;
+    };
+    sdk: {
+      input: BatchGetAssetPropertyValueHistoryCommandInput;
+      output: BatchGetAssetPropertyValueHistoryCommandOutput;
+    };
+  };
+}

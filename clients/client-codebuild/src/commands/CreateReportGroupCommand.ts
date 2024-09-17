@@ -131,4 +131,16 @@ export class CreateReportGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReportGroupCommand)
   .de(de_CreateReportGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReportGroupInput;
+      output: CreateReportGroupOutput;
+    };
+    sdk: {
+      input: CreateReportGroupCommandInput;
+      output: CreateReportGroupCommandOutput;
+    };
+  };
+}

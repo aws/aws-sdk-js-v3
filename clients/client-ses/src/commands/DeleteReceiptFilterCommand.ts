@@ -89,4 +89,16 @@ export class DeleteReceiptFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReceiptFilterCommand)
   .de(de_DeleteReceiptFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReceiptFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReceiptFilterCommandInput;
+      output: DeleteReceiptFilterCommandOutput;
+    };
+  };
+}

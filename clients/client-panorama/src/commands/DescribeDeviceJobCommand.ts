@@ -100,4 +100,16 @@ export class DescribeDeviceJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeviceJobCommand)
   .de(de_DescribeDeviceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeviceJobRequest;
+      output: DescribeDeviceJobResponse;
+    };
+    sdk: {
+      input: DescribeDeviceJobCommandInput;
+      output: DescribeDeviceJobCommandOutput;
+    };
+  };
+}

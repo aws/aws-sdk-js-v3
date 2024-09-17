@@ -112,4 +112,16 @@ export class CreateSourceRepositoryBranchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSourceRepositoryBranchCommand)
   .de(de_CreateSourceRepositoryBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSourceRepositoryBranchRequest;
+      output: CreateSourceRepositoryBranchResponse;
+    };
+    sdk: {
+      input: CreateSourceRepositoryBranchCommandInput;
+      output: CreateSourceRepositoryBranchCommandOutput;
+    };
+  };
+}

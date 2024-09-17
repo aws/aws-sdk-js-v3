@@ -90,4 +90,16 @@ export class CreatePresignedMlflowTrackingServerUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePresignedMlflowTrackingServerUrlCommand)
   .de(de_CreatePresignedMlflowTrackingServerUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePresignedMlflowTrackingServerUrlRequest;
+      output: CreatePresignedMlflowTrackingServerUrlResponse;
+    };
+    sdk: {
+      input: CreatePresignedMlflowTrackingServerUrlCommandInput;
+      output: CreatePresignedMlflowTrackingServerUrlCommandOutput;
+    };
+  };
+}

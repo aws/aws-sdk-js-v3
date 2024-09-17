@@ -105,4 +105,16 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAutomaticTapeCreationPolicyCommand)
   .de(de_UpdateAutomaticTapeCreationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAutomaticTapeCreationPolicyInput;
+      output: UpdateAutomaticTapeCreationPolicyOutput;
+    };
+    sdk: {
+      input: UpdateAutomaticTapeCreationPolicyCommandInput;
+      output: UpdateAutomaticTapeCreationPolicyCommandOutput;
+    };
+  };
+}

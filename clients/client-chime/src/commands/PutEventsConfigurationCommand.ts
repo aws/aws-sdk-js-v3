@@ -112,4 +112,16 @@ export class PutEventsConfigurationCommand extends $Command
   .f(PutEventsConfigurationRequestFilterSensitiveLog, PutEventsConfigurationResponseFilterSensitiveLog)
   .ser(se_PutEventsConfigurationCommand)
   .de(de_PutEventsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsConfigurationRequest;
+      output: PutEventsConfigurationResponse;
+    };
+    sdk: {
+      input: PutEventsConfigurationCommandInput;
+      output: PutEventsConfigurationCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DeleteMitigationActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMitigationActionCommand)
   .de(de_DeleteMitigationActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMitigationActionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMitigationActionCommandInput;
+      output: DeleteMitigationActionCommandOutput;
+    };
+  };
+}

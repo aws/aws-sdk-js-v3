@@ -106,4 +106,16 @@ export class AddDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddDataSourceCommand)
   .de(de_AddDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddDataSourceRequest;
+      output: AddDataSourceResponse;
+    };
+    sdk: {
+      input: AddDataSourceCommandInput;
+      output: AddDataSourceCommandOutput;
+    };
+  };
+}

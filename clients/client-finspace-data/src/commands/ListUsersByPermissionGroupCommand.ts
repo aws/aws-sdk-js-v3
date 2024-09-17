@@ -114,4 +114,16 @@ export class ListUsersByPermissionGroupCommand extends $Command
   .f(void 0, ListUsersByPermissionGroupResponseFilterSensitiveLog)
   .ser(se_ListUsersByPermissionGroupCommand)
   .de(de_ListUsersByPermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersByPermissionGroupRequest;
+      output: ListUsersByPermissionGroupResponse;
+    };
+    sdk: {
+      input: ListUsersByPermissionGroupCommandInput;
+      output: ListUsersByPermissionGroupCommandOutput;
+    };
+  };
+}

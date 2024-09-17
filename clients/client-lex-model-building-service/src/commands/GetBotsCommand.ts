@@ -148,4 +148,16 @@ export class GetBotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBotsCommand)
   .de(de_GetBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotsRequest;
+      output: GetBotsResponse;
+    };
+    sdk: {
+      input: GetBotsCommandInput;
+      output: GetBotsCommandOutput;
+    };
+  };
+}

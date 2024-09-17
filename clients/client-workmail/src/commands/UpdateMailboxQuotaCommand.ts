@@ -97,4 +97,16 @@ export class UpdateMailboxQuotaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMailboxQuotaCommand)
   .de(de_UpdateMailboxQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMailboxQuotaRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMailboxQuotaCommandInput;
+      output: UpdateMailboxQuotaCommandOutput;
+    };
+  };
+}

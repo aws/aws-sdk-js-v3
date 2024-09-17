@@ -104,4 +104,16 @@ export class UpdateRunGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRunGroupCommand)
   .de(de_UpdateRunGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRunGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRunGroupCommandInput;
+      output: UpdateRunGroupCommandOutput;
+    };
+  };
+}

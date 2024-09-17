@@ -128,4 +128,16 @@ export class ListPriceListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPriceListsCommand)
   .de(de_ListPriceListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPriceListsRequest;
+      output: ListPriceListsResponse;
+    };
+    sdk: {
+      input: ListPriceListsCommandInput;
+      output: ListPriceListsCommandOutput;
+    };
+  };
+}

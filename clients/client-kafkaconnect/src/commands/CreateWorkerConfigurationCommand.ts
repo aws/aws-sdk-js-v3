@@ -125,4 +125,16 @@ export class CreateWorkerConfigurationCommand extends $Command
   .f(CreateWorkerConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWorkerConfigurationCommand)
   .de(de_CreateWorkerConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkerConfigurationRequest;
+      output: CreateWorkerConfigurationResponse;
+    };
+    sdk: {
+      input: CreateWorkerConfigurationCommandInput;
+      output: CreateWorkerConfigurationCommandOutput;
+    };
+  };
+}

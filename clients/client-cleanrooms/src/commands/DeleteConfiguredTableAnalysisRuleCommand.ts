@@ -99,4 +99,16 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfiguredTableAnalysisRuleCommand)
   .de(de_DeleteConfiguredTableAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfiguredTableAnalysisRuleInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfiguredTableAnalysisRuleCommandInput;
+      output: DeleteConfiguredTableAnalysisRuleCommandOutput;
+    };
+  };
+}

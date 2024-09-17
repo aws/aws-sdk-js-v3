@@ -154,4 +154,16 @@ export class GetTemplateSyncStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateSyncStatusCommand)
   .de(de_GetTemplateSyncStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateSyncStatusInput;
+      output: GetTemplateSyncStatusOutput;
+    };
+    sdk: {
+      input: GetTemplateSyncStatusCommandInput;
+      output: GetTemplateSyncStatusCommandOutput;
+    };
+  };
+}

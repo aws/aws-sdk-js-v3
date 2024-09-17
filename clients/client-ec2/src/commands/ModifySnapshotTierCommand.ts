@@ -84,4 +84,16 @@ export class ModifySnapshotTierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySnapshotTierCommand)
   .de(de_ModifySnapshotTierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySnapshotTierRequest;
+      output: ModifySnapshotTierResult;
+    };
+    sdk: {
+      input: ModifySnapshotTierCommandInput;
+      output: ModifySnapshotTierCommandOutput;
+    };
+  };
+}

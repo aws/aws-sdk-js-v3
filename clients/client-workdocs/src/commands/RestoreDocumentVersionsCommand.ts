@@ -102,4 +102,16 @@ export class RestoreDocumentVersionsCommand extends $Command
   .f(RestoreDocumentVersionsRequestFilterSensitiveLog, void 0)
   .ser(se_RestoreDocumentVersionsCommand)
   .de(de_RestoreDocumentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDocumentVersionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestoreDocumentVersionsCommandInput;
+      output: RestoreDocumentVersionsCommandOutput;
+    };
+  };
+}

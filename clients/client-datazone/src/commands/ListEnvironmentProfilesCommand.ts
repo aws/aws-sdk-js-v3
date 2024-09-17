@@ -119,4 +119,16 @@ export class ListEnvironmentProfilesCommand extends $Command
   .f(ListEnvironmentProfilesInputFilterSensitiveLog, ListEnvironmentProfilesOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentProfilesCommand)
   .de(de_ListEnvironmentProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentProfilesInput;
+      output: ListEnvironmentProfilesOutput;
+    };
+    sdk: {
+      input: ListEnvironmentProfilesCommandInput;
+      output: ListEnvironmentProfilesCommandOutput;
+    };
+  };
+}

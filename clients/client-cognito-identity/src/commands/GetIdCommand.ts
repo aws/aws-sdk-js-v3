@@ -110,4 +110,16 @@ export class GetIdCommand extends $Command
   .f(GetIdInputFilterSensitiveLog, void 0)
   .ser(se_GetIdCommand)
   .de(de_GetIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdInput;
+      output: GetIdResponse;
+    };
+    sdk: {
+      input: GetIdCommandInput;
+      output: GetIdCommandOutput;
+    };
+  };
+}

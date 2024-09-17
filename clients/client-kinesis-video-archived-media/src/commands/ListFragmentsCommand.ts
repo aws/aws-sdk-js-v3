@@ -158,4 +158,16 @@ export class ListFragmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFragmentsCommand)
   .de(de_ListFragmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFragmentsInput;
+      output: ListFragmentsOutput;
+    };
+    sdk: {
+      input: ListFragmentsCommandInput;
+      output: ListFragmentsCommandOutput;
+    };
+  };
+}

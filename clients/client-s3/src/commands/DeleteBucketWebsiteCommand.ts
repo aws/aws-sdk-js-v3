@@ -117,4 +117,16 @@ export class DeleteBucketWebsiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketWebsiteCommand)
   .de(de_DeleteBucketWebsiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketWebsiteRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketWebsiteCommandInput;
+      output: DeleteBucketWebsiteCommandOutput;
+    };
+  };
+}

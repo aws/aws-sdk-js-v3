@@ -142,4 +142,16 @@ export class GetComputeAccessCommand extends $Command
   .f(void 0, GetComputeAccessOutputFilterSensitiveLog)
   .ser(se_GetComputeAccessCommand)
   .de(de_GetComputeAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComputeAccessInput;
+      output: GetComputeAccessOutput;
+    };
+    sdk: {
+      input: GetComputeAccessCommandInput;
+      output: GetComputeAccessCommandOutput;
+    };
+  };
+}

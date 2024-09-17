@@ -83,4 +83,16 @@ export class DeleteIntegrationResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIntegrationResponseCommand)
   .de(de_DeleteIntegrationResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIntegrationResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIntegrationResponseCommandInput;
+      output: DeleteIntegrationResponseCommandOutput;
+    };
+  };
+}

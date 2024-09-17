@@ -123,4 +123,16 @@ export class GetCampaignActivitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignActivitiesCommand)
   .de(de_GetCampaignActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignActivitiesRequest;
+      output: GetCampaignActivitiesResponse;
+    };
+    sdk: {
+      input: GetCampaignActivitiesCommandInput;
+      output: GetCampaignActivitiesCommandOutput;
+    };
+  };
+}

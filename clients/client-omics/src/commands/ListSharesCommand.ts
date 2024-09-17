@@ -126,4 +126,16 @@ export class ListSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSharesCommand)
   .de(de_ListSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSharesRequest;
+      output: ListSharesResponse;
+    };
+    sdk: {
+      input: ListSharesCommandInput;
+      output: ListSharesCommandOutput;
+    };
+  };
+}

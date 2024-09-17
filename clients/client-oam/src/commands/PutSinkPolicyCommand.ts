@@ -120,4 +120,16 @@ export class PutSinkPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSinkPolicyCommand)
   .de(de_PutSinkPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSinkPolicyInput;
+      output: PutSinkPolicyOutput;
+    };
+    sdk: {
+      input: PutSinkPolicyCommandInput;
+      output: PutSinkPolicyCommandOutput;
+    };
+  };
+}

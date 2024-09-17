@@ -90,4 +90,16 @@ export class UpdateNotebookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNotebookCommand)
   .de(de_UpdateNotebookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNotebookInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNotebookCommandInput;
+      output: UpdateNotebookCommandOutput;
+    };
+  };
+}

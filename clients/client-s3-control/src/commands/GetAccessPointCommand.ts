@@ -126,4 +126,16 @@ export class GetAccessPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointCommand)
   .de(de_GetAccessPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointRequest;
+      output: GetAccessPointResult;
+    };
+    sdk: {
+      input: GetAccessPointCommandInput;
+      output: GetAccessPointCommandOutput;
+    };
+  };
+}

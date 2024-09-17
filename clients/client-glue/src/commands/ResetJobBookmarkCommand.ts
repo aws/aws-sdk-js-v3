@@ -116,4 +116,16 @@ export class ResetJobBookmarkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetJobBookmarkCommand)
   .de(de_ResetJobBookmarkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetJobBookmarkRequest;
+      output: ResetJobBookmarkResponse;
+    };
+    sdk: {
+      input: ResetJobBookmarkCommandInput;
+      output: ResetJobBookmarkCommandOutput;
+    };
+  };
+}

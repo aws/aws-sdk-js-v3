@@ -104,4 +104,16 @@ export class GetCanaryRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCanaryRunsCommand)
   .de(de_GetCanaryRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCanaryRunsRequest;
+      output: GetCanaryRunsResponse;
+    };
+    sdk: {
+      input: GetCanaryRunsCommandInput;
+      output: GetCanaryRunsCommandOutput;
+    };
+  };
+}

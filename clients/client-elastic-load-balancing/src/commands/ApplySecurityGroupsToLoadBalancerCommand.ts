@@ -123,4 +123,16 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApplySecurityGroupsToLoadBalancerCommand)
   .de(de_ApplySecurityGroupsToLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApplySecurityGroupsToLoadBalancerInput;
+      output: ApplySecurityGroupsToLoadBalancerOutput;
+    };
+    sdk: {
+      input: ApplySecurityGroupsToLoadBalancerCommandInput;
+      output: ApplySecurityGroupsToLoadBalancerCommandOutput;
+    };
+  };
+}

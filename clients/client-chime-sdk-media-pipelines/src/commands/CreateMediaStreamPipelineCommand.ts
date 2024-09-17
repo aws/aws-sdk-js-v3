@@ -150,4 +150,16 @@ export class CreateMediaStreamPipelineCommand extends $Command
   .f(CreateMediaStreamPipelineRequestFilterSensitiveLog, CreateMediaStreamPipelineResponseFilterSensitiveLog)
   .ser(se_CreateMediaStreamPipelineCommand)
   .de(de_CreateMediaStreamPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaStreamPipelineRequest;
+      output: CreateMediaStreamPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaStreamPipelineCommandInput;
+      output: CreateMediaStreamPipelineCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class CancelLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelLegalHoldCommand)
   .de(de_CancelLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelLegalHoldInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelLegalHoldCommandInput;
+      output: CancelLegalHoldCommandOutput;
+    };
+  };
+}

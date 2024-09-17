@@ -107,4 +107,16 @@ export class AssociateRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateRouteTableCommand)
   .de(de_AssociateRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateRouteTableRequest;
+      output: AssociateRouteTableResult;
+    };
+    sdk: {
+      input: AssociateRouteTableCommandInput;
+      output: AssociateRouteTableCommandOutput;
+    };
+  };
+}

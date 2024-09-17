@@ -110,4 +110,16 @@ export class ListQualificationTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQualificationTypesCommand)
   .de(de_ListQualificationTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQualificationTypesRequest;
+      output: ListQualificationTypesResponse;
+    };
+    sdk: {
+      input: ListQualificationTypesCommandInput;
+      output: ListQualificationTypesCommandOutput;
+    };
+  };
+}

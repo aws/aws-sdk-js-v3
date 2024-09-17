@@ -115,4 +115,16 @@ export class ListAssessmentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssessmentTargetsCommand)
   .de(de_ListAssessmentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentTargetsRequest;
+      output: ListAssessmentTargetsResponse;
+    };
+    sdk: {
+      input: ListAssessmentTargetsCommandInput;
+      output: ListAssessmentTargetsCommandOutput;
+    };
+  };
+}

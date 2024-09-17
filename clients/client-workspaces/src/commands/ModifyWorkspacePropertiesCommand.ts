@@ -118,4 +118,16 @@ export class ModifyWorkspacePropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyWorkspacePropertiesCommand)
   .de(de_ModifyWorkspacePropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyWorkspacePropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyWorkspacePropertiesCommandInput;
+      output: ModifyWorkspacePropertiesCommandOutput;
+    };
+  };
+}

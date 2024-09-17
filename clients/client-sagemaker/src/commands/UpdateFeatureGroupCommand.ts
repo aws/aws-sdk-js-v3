@@ -121,4 +121,16 @@ export class UpdateFeatureGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFeatureGroupCommand)
   .de(de_UpdateFeatureGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFeatureGroupRequest;
+      output: UpdateFeatureGroupResponse;
+    };
+    sdk: {
+      input: UpdateFeatureGroupCommandInput;
+      output: UpdateFeatureGroupCommandOutput;
+    };
+  };
+}

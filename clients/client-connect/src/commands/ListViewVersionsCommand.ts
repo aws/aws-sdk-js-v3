@@ -115,4 +115,16 @@ export class ListViewVersionsCommand extends $Command
   .f(void 0, ListViewVersionsResponseFilterSensitiveLog)
   .ser(se_ListViewVersionsCommand)
   .de(de_ListViewVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListViewVersionsRequest;
+      output: ListViewVersionsResponse;
+    };
+    sdk: {
+      input: ListViewVersionsCommandInput;
+      output: ListViewVersionsCommandOutput;
+    };
+  };
+}

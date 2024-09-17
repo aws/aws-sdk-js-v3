@@ -92,4 +92,16 @@ export class StartAppReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAppReplicationCommand)
   .de(de_StartAppReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAppReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartAppReplicationCommandInput;
+      output: StartAppReplicationCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class AssociateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLinkCommand)
   .de(de_AssociateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLinkRequest;
+      output: AssociateLinkResponse;
+    };
+    sdk: {
+      input: AssociateLinkCommandInput;
+      output: AssociateLinkCommandOutput;
+    };
+  };
+}

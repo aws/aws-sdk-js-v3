@@ -143,4 +143,16 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePrivateDnsNamespaceCommand)
   .de(de_UpdatePrivateDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePrivateDnsNamespaceRequest;
+      output: UpdatePrivateDnsNamespaceResponse;
+    };
+    sdk: {
+      input: UpdatePrivateDnsNamespaceCommandInput;
+      output: UpdatePrivateDnsNamespaceCommandOutput;
+    };
+  };
+}

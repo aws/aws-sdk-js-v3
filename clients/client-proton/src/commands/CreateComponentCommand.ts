@@ -138,4 +138,16 @@ export class CreateComponentCommand extends $Command
   .f(CreateComponentInputFilterSensitiveLog, CreateComponentOutputFilterSensitiveLog)
   .ser(se_CreateComponentCommand)
   .de(de_CreateComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComponentInput;
+      output: CreateComponentOutput;
+    };
+    sdk: {
+      input: CreateComponentCommandInput;
+      output: CreateComponentCommandOutput;
+    };
+  };
+}

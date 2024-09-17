@@ -114,4 +114,16 @@ export class CancelCapacityReservationFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelCapacityReservationFleetsCommand)
   .de(de_CancelCapacityReservationFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelCapacityReservationFleetsRequest;
+      output: CancelCapacityReservationFleetsResult;
+    };
+    sdk: {
+      input: CancelCapacityReservationFleetsCommandInput;
+      output: CancelCapacityReservationFleetsCommandOutput;
+    };
+  };
+}

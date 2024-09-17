@@ -163,4 +163,16 @@ export class CreateAccountSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccountSubscriptionCommand)
   .de(de_CreateAccountSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountSubscriptionRequest;
+      output: CreateAccountSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateAccountSubscriptionCommandInput;
+      output: CreateAccountSubscriptionCommandOutput;
+    };
+  };
+}

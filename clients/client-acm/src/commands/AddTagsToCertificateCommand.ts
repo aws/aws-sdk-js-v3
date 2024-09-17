@@ -117,4 +117,16 @@ export class AddTagsToCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToCertificateCommand)
   .de(de_AddTagsToCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsToCertificateCommandInput;
+      output: AddTagsToCertificateCommandOutput;
+    };
+  };
+}

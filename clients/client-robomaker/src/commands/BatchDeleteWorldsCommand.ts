@@ -91,4 +91,16 @@ export class BatchDeleteWorldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteWorldsCommand)
   .de(de_BatchDeleteWorldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteWorldsRequest;
+      output: BatchDeleteWorldsResponse;
+    };
+    sdk: {
+      input: BatchDeleteWorldsCommandInput;
+      output: BatchDeleteWorldsCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingProfileConcurrencyCommand)
   .de(de_UpdateRoutingProfileConcurrencyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingProfileConcurrencyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingProfileConcurrencyCommandInput;
+      output: UpdateRoutingProfileConcurrencyCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class GetImpersonationRoleEffectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImpersonationRoleEffectCommand)
   .de(de_GetImpersonationRoleEffectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImpersonationRoleEffectRequest;
+      output: GetImpersonationRoleEffectResponse;
+    };
+    sdk: {
+      input: GetImpersonationRoleEffectCommandInput;
+      output: GetImpersonationRoleEffectCommandOutput;
+    };
+  };
+}

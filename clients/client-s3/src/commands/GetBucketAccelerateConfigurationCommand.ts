@@ -119,4 +119,16 @@ export class GetBucketAccelerateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketAccelerateConfigurationCommand)
   .de(de_GetBucketAccelerateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketAccelerateConfigurationRequest;
+      output: GetBucketAccelerateConfigurationOutput;
+    };
+    sdk: {
+      input: GetBucketAccelerateConfigurationCommandInput;
+      output: GetBucketAccelerateConfigurationCommandOutput;
+    };
+  };
+}

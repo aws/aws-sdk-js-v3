@@ -208,4 +208,16 @@ export class CreateFileCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFileCacheCommand)
   .de(de_CreateFileCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileCacheRequest;
+      output: CreateFileCacheResponse;
+    };
+    sdk: {
+      input: CreateFileCacheCommandInput;
+      output: CreateFileCacheCommandOutput;
+    };
+  };
+}

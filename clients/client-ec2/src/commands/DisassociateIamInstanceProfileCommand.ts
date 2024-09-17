@@ -117,4 +117,16 @@ export class DisassociateIamInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateIamInstanceProfileCommand)
   .de(de_DisassociateIamInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateIamInstanceProfileRequest;
+      output: DisassociateIamInstanceProfileResult;
+    };
+    sdk: {
+      input: DisassociateIamInstanceProfileCommandInput;
+      output: DisassociateIamInstanceProfileCommandOutput;
+    };
+  };
+}

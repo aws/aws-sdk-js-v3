@@ -145,4 +145,16 @@ export class ListTransformersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTransformersCommand)
   .de(de_ListTransformersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTransformersRequest;
+      output: ListTransformersResponse;
+    };
+    sdk: {
+      input: ListTransformersCommandInput;
+      output: ListTransformersCommandOutput;
+    };
+  };
+}

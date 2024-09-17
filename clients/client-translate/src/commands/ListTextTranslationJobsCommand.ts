@@ -140,4 +140,16 @@ export class ListTextTranslationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTextTranslationJobsCommand)
   .de(de_ListTextTranslationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTextTranslationJobsRequest;
+      output: ListTextTranslationJobsResponse;
+    };
+    sdk: {
+      input: ListTextTranslationJobsCommandInput;
+      output: ListTextTranslationJobsCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DeleteWorkerConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkerConfigurationCommand)
   .de(de_DeleteWorkerConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkerConfigurationRequest;
+      output: DeleteWorkerConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteWorkerConfigurationCommandInput;
+      output: DeleteWorkerConfigurationCommandOutput;
+    };
+  };
+}

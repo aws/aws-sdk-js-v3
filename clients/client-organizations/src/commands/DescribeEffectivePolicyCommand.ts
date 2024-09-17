@@ -424,4 +424,16 @@ export class DescribeEffectivePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEffectivePolicyCommand)
   .de(de_DescribeEffectivePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEffectivePolicyRequest;
+      output: DescribeEffectivePolicyResponse;
+    };
+    sdk: {
+      input: DescribeEffectivePolicyCommandInput;
+      output: DescribeEffectivePolicyCommandOutput;
+    };
+  };
+}

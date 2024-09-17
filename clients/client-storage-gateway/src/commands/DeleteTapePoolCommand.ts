@@ -87,4 +87,16 @@ export class DeleteTapePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTapePoolCommand)
   .de(de_DeleteTapePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTapePoolInput;
+      output: DeleteTapePoolOutput;
+    };
+    sdk: {
+      input: DeleteTapePoolCommandInput;
+      output: DeleteTapePoolCommandOutput;
+    };
+  };
+}

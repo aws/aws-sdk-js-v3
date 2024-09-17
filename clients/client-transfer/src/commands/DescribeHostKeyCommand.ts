@@ -104,4 +104,16 @@ export class DescribeHostKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHostKeyCommand)
   .de(de_DescribeHostKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHostKeyRequest;
+      output: DescribeHostKeyResponse;
+    };
+    sdk: {
+      input: DescribeHostKeyCommandInput;
+      output: DescribeHostKeyCommandOutput;
+    };
+  };
+}

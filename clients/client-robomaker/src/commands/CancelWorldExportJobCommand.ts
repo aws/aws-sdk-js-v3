@@ -88,4 +88,16 @@ export class CancelWorldExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelWorldExportJobCommand)
   .de(de_CancelWorldExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelWorldExportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelWorldExportJobCommandInput;
+      output: CancelWorldExportJobCommandOutput;
+    };
+  };
+}

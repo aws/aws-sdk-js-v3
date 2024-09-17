@@ -97,4 +97,16 @@ export class GetAccessTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessTokenCommand)
   .de(de_GetAccessTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessTokenRequest;
+      output: GetAccessTokenResponse;
+    };
+    sdk: {
+      input: GetAccessTokenCommandInput;
+      output: GetAccessTokenCommandOutput;
+    };
+  };
+}

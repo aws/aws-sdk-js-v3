@@ -110,4 +110,16 @@ export class GetReplicationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReplicationSetCommand)
   .de(de_GetReplicationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReplicationSetInput;
+      output: GetReplicationSetOutput;
+    };
+    sdk: {
+      input: GetReplicationSetCommandInput;
+      output: GetReplicationSetCommandOutput;
+    };
+  };
+}

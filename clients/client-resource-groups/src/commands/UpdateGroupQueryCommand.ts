@@ -119,4 +119,16 @@ export class UpdateGroupQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGroupQueryCommand)
   .de(de_UpdateGroupQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupQueryInput;
+      output: UpdateGroupQueryOutput;
+    };
+    sdk: {
+      input: UpdateGroupQueryCommandInput;
+      output: UpdateGroupQueryCommandOutput;
+    };
+  };
+}

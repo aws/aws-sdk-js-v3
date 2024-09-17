@@ -192,4 +192,16 @@ export class DescribeDashboardSnapshotJobCommand extends $Command
   .f(void 0, DescribeDashboardSnapshotJobResponseFilterSensitiveLog)
   .ser(se_DescribeDashboardSnapshotJobCommand)
   .de(de_DescribeDashboardSnapshotJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDashboardSnapshotJobRequest;
+      output: DescribeDashboardSnapshotJobResponse;
+    };
+    sdk: {
+      input: DescribeDashboardSnapshotJobCommandInput;
+      output: DescribeDashboardSnapshotJobCommandOutput;
+    };
+  };
+}

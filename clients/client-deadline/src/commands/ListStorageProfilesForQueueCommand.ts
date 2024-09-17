@@ -109,4 +109,16 @@ export class ListStorageProfilesForQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageProfilesForQueueCommand)
   .de(de_ListStorageProfilesForQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageProfilesForQueueRequest;
+      output: ListStorageProfilesForQueueResponse;
+    };
+    sdk: {
+      input: ListStorageProfilesForQueueCommandInput;
+      output: ListStorageProfilesForQueueCommandOutput;
+    };
+  };
+}

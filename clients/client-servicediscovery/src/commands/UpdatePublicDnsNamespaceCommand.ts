@@ -103,4 +103,16 @@ export class UpdatePublicDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePublicDnsNamespaceCommand)
   .de(de_UpdatePublicDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePublicDnsNamespaceRequest;
+      output: UpdatePublicDnsNamespaceResponse;
+    };
+    sdk: {
+      input: UpdatePublicDnsNamespaceCommandInput;
+      output: UpdatePublicDnsNamespaceCommandOutput;
+    };
+  };
+}

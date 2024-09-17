@@ -96,4 +96,16 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCrossAccountAuthorizationCommand)
   .de(de_DeleteCrossAccountAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCrossAccountAuthorizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCrossAccountAuthorizationCommandInput;
+      output: DeleteCrossAccountAuthorizationCommandOutput;
+    };
+  };
+}

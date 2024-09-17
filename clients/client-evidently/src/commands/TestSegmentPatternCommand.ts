@@ -88,4 +88,16 @@ export class TestSegmentPatternCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestSegmentPatternCommand)
   .de(de_TestSegmentPatternCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestSegmentPatternRequest;
+      output: TestSegmentPatternResponse;
+    };
+    sdk: {
+      input: TestSegmentPatternCommandInput;
+      output: TestSegmentPatternCommandOutput;
+    };
+  };
+}

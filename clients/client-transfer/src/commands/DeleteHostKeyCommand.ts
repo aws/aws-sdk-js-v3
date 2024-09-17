@@ -92,4 +92,16 @@ export class DeleteHostKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHostKeyCommand)
   .de(de_DeleteHostKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHostKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHostKeyCommandInput;
+      output: DeleteHostKeyCommandOutput;
+    };
+  };
+}

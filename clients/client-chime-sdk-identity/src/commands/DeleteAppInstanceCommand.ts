@@ -96,4 +96,16 @@ export class DeleteAppInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppInstanceCommand)
   .de(de_DeleteAppInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppInstanceCommandInput;
+      output: DeleteAppInstanceCommandOutput;
+    };
+  };
+}

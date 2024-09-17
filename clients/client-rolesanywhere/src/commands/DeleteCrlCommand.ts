@@ -96,4 +96,16 @@ export class DeleteCrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCrlCommand)
   .de(de_DeleteCrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarCrlRequest;
+      output: CrlDetailResponse;
+    };
+    sdk: {
+      input: DeleteCrlCommandInput;
+      output: DeleteCrlCommandOutput;
+    };
+  };
+}

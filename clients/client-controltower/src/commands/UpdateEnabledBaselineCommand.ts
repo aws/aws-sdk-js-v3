@@ -107,4 +107,16 @@ export class UpdateEnabledBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnabledBaselineCommand)
   .de(de_UpdateEnabledBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnabledBaselineInput;
+      output: UpdateEnabledBaselineOutput;
+    };
+    sdk: {
+      input: UpdateEnabledBaselineCommandInput;
+      output: UpdateEnabledBaselineCommandOutput;
+    };
+  };
+}

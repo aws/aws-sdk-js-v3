@@ -98,4 +98,16 @@ export class DisassociateConnectionAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateConnectionAliasCommand)
   .de(de_DisassociateConnectionAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateConnectionAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateConnectionAliasCommandInput;
+      output: DisassociateConnectionAliasCommandOutput;
+    };
+  };
+}

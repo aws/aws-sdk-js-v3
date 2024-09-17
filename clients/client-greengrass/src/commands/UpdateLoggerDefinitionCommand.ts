@@ -79,4 +79,16 @@ export class UpdateLoggerDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLoggerDefinitionCommand)
   .de(de_UpdateLoggerDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLoggerDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLoggerDefinitionCommandInput;
+      output: UpdateLoggerDefinitionCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class CreateStudioLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStudioLifecycleConfigCommand)
   .de(de_CreateStudioLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStudioLifecycleConfigRequest;
+      output: CreateStudioLifecycleConfigResponse;
+    };
+    sdk: {
+      input: CreateStudioLifecycleConfigCommandInput;
+      output: CreateStudioLifecycleConfigCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class CreateLabelsCommand extends $Command
   .f(CreateLabelsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLabelsCommand)
   .de(de_CreateLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLabelsRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLabelsCommandInput;
+      output: CreateLabelsCommandOutput;
+    };
+  };
+}

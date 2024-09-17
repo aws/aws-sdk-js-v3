@@ -109,4 +109,16 @@ export class AssociateQualificationWithWorkerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateQualificationWithWorkerCommand)
   .de(de_AssociateQualificationWithWorkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateQualificationWithWorkerRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateQualificationWithWorkerCommandInput;
+      output: AssociateQualificationWithWorkerCommandOutput;
+    };
+  };
+}

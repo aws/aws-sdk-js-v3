@@ -98,4 +98,16 @@ export class GetInsightsByAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightsByAssessmentCommand)
   .de(de_GetInsightsByAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightsByAssessmentRequest;
+      output: GetInsightsByAssessmentResponse;
+    };
+    sdk: {
+      input: GetInsightsByAssessmentCommandInput;
+      output: GetInsightsByAssessmentCommandOutput;
+    };
+  };
+}

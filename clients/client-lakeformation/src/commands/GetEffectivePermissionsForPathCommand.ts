@@ -173,4 +173,16 @@ export class GetEffectivePermissionsForPathCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEffectivePermissionsForPathCommand)
   .de(de_GetEffectivePermissionsForPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEffectivePermissionsForPathRequest;
+      output: GetEffectivePermissionsForPathResponse;
+    };
+    sdk: {
+      input: GetEffectivePermissionsForPathCommandInput;
+      output: GetEffectivePermissionsForPathCommandOutput;
+    };
+  };
+}

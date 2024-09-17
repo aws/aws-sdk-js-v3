@@ -113,4 +113,16 @@ export class DescribeVolumesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumesCommand)
   .de(de_DescribeVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumesRequest;
+      output: DescribeVolumesResult;
+    };
+    sdk: {
+      input: DescribeVolumesCommandInput;
+      output: DescribeVolumesCommandOutput;
+    };
+  };
+}

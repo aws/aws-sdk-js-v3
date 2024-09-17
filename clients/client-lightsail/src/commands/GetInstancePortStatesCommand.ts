@@ -124,4 +124,16 @@ export class GetInstancePortStatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstancePortStatesCommand)
   .de(de_GetInstancePortStatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstancePortStatesRequest;
+      output: GetInstancePortStatesResult;
+    };
+    sdk: {
+      input: GetInstancePortStatesCommandInput;
+      output: GetInstancePortStatesCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class StartRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRunCommand)
   .de(de_StartRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRunRequest;
+      output: StartRunResponse;
+    };
+    sdk: {
+      input: StartRunCommandInput;
+      output: StartRunCommandOutput;
+    };
+  };
+}

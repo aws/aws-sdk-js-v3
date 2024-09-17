@@ -120,4 +120,16 @@ export class GetContainerLogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerLogCommand)
   .de(de_GetContainerLogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerLogRequest;
+      output: GetContainerLogResult;
+    };
+    sdk: {
+      input: GetContainerLogCommandInput;
+      output: GetContainerLogCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DescribeCodeRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCodeRepositoryCommand)
   .de(de_DescribeCodeRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCodeRepositoryInput;
+      output: DescribeCodeRepositoryOutput;
+    };
+    sdk: {
+      input: DescribeCodeRepositoryCommandInput;
+      output: DescribeCodeRepositoryCommandOutput;
+    };
+  };
+}

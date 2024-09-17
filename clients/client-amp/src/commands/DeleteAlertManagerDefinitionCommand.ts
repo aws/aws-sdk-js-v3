@@ -98,4 +98,16 @@ export class DeleteAlertManagerDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAlertManagerDefinitionCommand)
   .de(de_DeleteAlertManagerDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAlertManagerDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAlertManagerDefinitionCommandInput;
+      output: DeleteAlertManagerDefinitionCommandOutput;
+    };
+  };
+}

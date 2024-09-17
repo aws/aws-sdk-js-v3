@@ -122,4 +122,16 @@ export class ListRasterDataCollectionsCommand extends $Command
   .f(ListRasterDataCollectionsInputFilterSensitiveLog, ListRasterDataCollectionsOutputFilterSensitiveLog)
   .ser(se_ListRasterDataCollectionsCommand)
   .de(de_ListRasterDataCollectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRasterDataCollectionsInput;
+      output: ListRasterDataCollectionsOutput;
+    };
+    sdk: {
+      input: ListRasterDataCollectionsCommandInput;
+      output: ListRasterDataCollectionsCommandOutput;
+    };
+  };
+}

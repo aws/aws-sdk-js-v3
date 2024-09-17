@@ -107,4 +107,16 @@ export class DescribeDomainNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainNodesCommand)
   .de(de_DescribeDomainNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainNodesRequest;
+      output: DescribeDomainNodesResponse;
+    };
+    sdk: {
+      input: DescribeDomainNodesCommandInput;
+      output: DescribeDomainNodesCommandOutput;
+    };
+  };
+}

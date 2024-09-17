@@ -96,4 +96,16 @@ export class UpdateLocationAzureBlobCommand extends $Command
   .f(UpdateLocationAzureBlobRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLocationAzureBlobCommand)
   .de(de_UpdateLocationAzureBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationAzureBlobRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationAzureBlobCommandInput;
+      output: UpdateLocationAzureBlobCommandOutput;
+    };
+  };
+}

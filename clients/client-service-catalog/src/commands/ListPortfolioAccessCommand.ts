@@ -91,4 +91,16 @@ export class ListPortfolioAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPortfolioAccessCommand)
   .de(de_ListPortfolioAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPortfolioAccessInput;
+      output: ListPortfolioAccessOutput;
+    };
+    sdk: {
+      input: ListPortfolioAccessCommandInput;
+      output: ListPortfolioAccessCommandOutput;
+    };
+  };
+}

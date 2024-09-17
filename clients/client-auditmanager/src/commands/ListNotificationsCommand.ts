@@ -105,4 +105,16 @@ export class ListNotificationsCommand extends $Command
   .f(void 0, ListNotificationsResponseFilterSensitiveLog)
   .ser(se_ListNotificationsCommand)
   .de(de_ListNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotificationsRequest;
+      output: ListNotificationsResponse;
+    };
+    sdk: {
+      input: ListNotificationsCommandInput;
+      output: ListNotificationsCommandOutput;
+    };
+  };
+}

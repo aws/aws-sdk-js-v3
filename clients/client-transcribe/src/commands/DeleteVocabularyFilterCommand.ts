@@ -95,4 +95,16 @@ export class DeleteVocabularyFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVocabularyFilterCommand)
   .de(de_DeleteVocabularyFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVocabularyFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVocabularyFilterCommandInput;
+      output: DeleteVocabularyFilterCommandOutput;
+    };
+  };
+}

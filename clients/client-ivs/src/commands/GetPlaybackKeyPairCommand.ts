@@ -97,4 +97,16 @@ export class GetPlaybackKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlaybackKeyPairCommand)
   .de(de_GetPlaybackKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaybackKeyPairRequest;
+      output: GetPlaybackKeyPairResponse;
+    };
+    sdk: {
+      input: GetPlaybackKeyPairCommandInput;
+      output: GetPlaybackKeyPairCommandOutput;
+    };
+  };
+}

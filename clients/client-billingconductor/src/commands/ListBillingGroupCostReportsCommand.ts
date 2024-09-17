@@ -117,4 +117,16 @@ export class ListBillingGroupCostReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBillingGroupCostReportsCommand)
   .de(de_ListBillingGroupCostReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBillingGroupCostReportsInput;
+      output: ListBillingGroupCostReportsOutput;
+    };
+    sdk: {
+      input: ListBillingGroupCostReportsCommandInput;
+      output: ListBillingGroupCostReportsCommandOutput;
+    };
+  };
+}

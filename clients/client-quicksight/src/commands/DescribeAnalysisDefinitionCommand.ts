@@ -5067,4 +5067,16 @@ export class DescribeAnalysisDefinitionCommand extends $Command
   .f(void 0, DescribeAnalysisDefinitionResponseFilterSensitiveLog)
   .ser(se_DescribeAnalysisDefinitionCommand)
   .de(de_DescribeAnalysisDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnalysisDefinitionRequest;
+      output: DescribeAnalysisDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeAnalysisDefinitionCommandInput;
+      output: DescribeAnalysisDefinitionCommandOutput;
+    };
+  };
+}

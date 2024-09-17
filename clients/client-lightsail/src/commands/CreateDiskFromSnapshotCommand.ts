@@ -154,4 +154,16 @@ export class CreateDiskFromSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDiskFromSnapshotCommand)
   .de(de_CreateDiskFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDiskFromSnapshotRequest;
+      output: CreateDiskFromSnapshotResult;
+    };
+    sdk: {
+      input: CreateDiskFromSnapshotCommandInput;
+      output: CreateDiskFromSnapshotCommandOutput;
+    };
+  };
+}

@@ -139,4 +139,16 @@ export class CreateWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebhookCommand)
   .de(de_CreateWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebhookInput;
+      output: CreateWebhookOutput;
+    };
+    sdk: {
+      input: CreateWebhookCommandInput;
+      output: CreateWebhookCommandOutput;
+    };
+  };
+}

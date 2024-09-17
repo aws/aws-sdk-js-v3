@@ -112,4 +112,16 @@ export class DeleteWorkspaceServiceAccountTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkspaceServiceAccountTokenCommand)
   .de(de_DeleteWorkspaceServiceAccountTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkspaceServiceAccountTokenRequest;
+      output: DeleteWorkspaceServiceAccountTokenResponse;
+    };
+    sdk: {
+      input: DeleteWorkspaceServiceAccountTokenCommandInput;
+      output: DeleteWorkspaceServiceAccountTokenCommandOutput;
+    };
+  };
+}

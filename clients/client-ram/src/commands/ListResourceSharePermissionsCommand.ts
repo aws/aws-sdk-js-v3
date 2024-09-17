@@ -130,4 +130,16 @@ export class ListResourceSharePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceSharePermissionsCommand)
   .de(de_ListResourceSharePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceSharePermissionsRequest;
+      output: ListResourceSharePermissionsResponse;
+    };
+    sdk: {
+      input: ListResourceSharePermissionsCommandInput;
+      output: ListResourceSharePermissionsCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class ListDestinationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDestinationsCommand)
   .de(de_ListDestinationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDestinationsRequest;
+      output: ListDestinationsResponse;
+    };
+    sdk: {
+      input: ListDestinationsCommandInput;
+      output: ListDestinationsCommandOutput;
+    };
+  };
+}

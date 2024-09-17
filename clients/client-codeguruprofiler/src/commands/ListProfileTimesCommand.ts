@@ -101,4 +101,16 @@ export class ListProfileTimesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfileTimesCommand)
   .de(de_ListProfileTimesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfileTimesRequest;
+      output: ListProfileTimesResponse;
+    };
+    sdk: {
+      input: ListProfileTimesCommandInput;
+      output: ListProfileTimesCommandOutput;
+    };
+  };
+}

@@ -240,4 +240,16 @@ export class VerifyCommand extends $Command
   .f(VerifyRequestFilterSensitiveLog, void 0)
   .ser(se_VerifyCommand)
   .de(de_VerifyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyRequest;
+      output: VerifyResponse;
+    };
+    sdk: {
+      input: VerifyCommandInput;
+      output: VerifyCommandOutput;
+    };
+  };
+}

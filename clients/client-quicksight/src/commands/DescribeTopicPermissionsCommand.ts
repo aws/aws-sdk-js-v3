@@ -107,4 +107,16 @@ export class DescribeTopicPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicPermissionsCommand)
   .de(de_DescribeTopicPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicPermissionsRequest;
+      output: DescribeTopicPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeTopicPermissionsCommandInput;
+      output: DescribeTopicPermissionsCommandOutput;
+    };
+  };
+}

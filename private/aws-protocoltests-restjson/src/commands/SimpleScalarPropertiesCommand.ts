@@ -89,4 +89,16 @@ export class SimpleScalarPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SimpleScalarPropertiesCommand)
   .de(de_SimpleScalarPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SimpleScalarPropertiesInputOutput;
+      output: SimpleScalarPropertiesInputOutput;
+    };
+    sdk: {
+      input: SimpleScalarPropertiesCommandInput;
+      output: SimpleScalarPropertiesCommandOutput;
+    };
+  };
+}

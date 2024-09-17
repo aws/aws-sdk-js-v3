@@ -195,4 +195,16 @@ export class DisconnectSourceServerCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_DisconnectSourceServerCommand)
   .de(de_DisconnectSourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectSourceServerRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: DisconnectSourceServerCommandInput;
+      output: DisconnectSourceServerCommandOutput;
+    };
+  };
+}

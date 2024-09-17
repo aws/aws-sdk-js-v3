@@ -102,4 +102,16 @@ export class UpdatePermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePermissionSetCommand)
   .de(de_UpdatePermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePermissionSetCommandInput;
+      output: UpdatePermissionSetCommandOutput;
+    };
+  };
+}

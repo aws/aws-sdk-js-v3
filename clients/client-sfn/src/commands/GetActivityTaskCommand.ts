@@ -117,4 +117,16 @@ export class GetActivityTaskCommand extends $Command
   .f(void 0, GetActivityTaskOutputFilterSensitiveLog)
   .ser(se_GetActivityTaskCommand)
   .de(de_GetActivityTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActivityTaskInput;
+      output: GetActivityTaskOutput;
+    };
+    sdk: {
+      input: GetActivityTaskCommandInput;
+      output: GetActivityTaskCommandOutput;
+    };
+  };
+}

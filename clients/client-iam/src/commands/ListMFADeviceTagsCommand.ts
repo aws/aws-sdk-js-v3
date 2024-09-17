@@ -100,4 +100,16 @@ export class ListMFADeviceTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMFADeviceTagsCommand)
   .de(de_ListMFADeviceTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMFADeviceTagsRequest;
+      output: ListMFADeviceTagsResponse;
+    };
+    sdk: {
+      input: ListMFADeviceTagsCommandInput;
+      output: ListMFADeviceTagsCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ListNotebookSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookSessionsCommand)
   .de(de_ListNotebookSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookSessionsRequest;
+      output: ListNotebookSessionsResponse;
+    };
+    sdk: {
+      input: ListNotebookSessionsCommandInput;
+      output: ListNotebookSessionsCommandOutput;
+    };
+  };
+}

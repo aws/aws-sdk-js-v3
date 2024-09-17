@@ -142,4 +142,16 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTargetedSentimentDetectionJobsCommand)
   .de(de_ListTargetedSentimentDetectionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTargetedSentimentDetectionJobsRequest;
+      output: ListTargetedSentimentDetectionJobsResponse;
+    };
+    sdk: {
+      input: ListTargetedSentimentDetectionJobsCommandInput;
+      output: ListTargetedSentimentDetectionJobsCommandOutput;
+    };
+  };
+}

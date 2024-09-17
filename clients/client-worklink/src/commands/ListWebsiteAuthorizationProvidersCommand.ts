@@ -112,4 +112,16 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWebsiteAuthorizationProvidersCommand)
   .de(de_ListWebsiteAuthorizationProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWebsiteAuthorizationProvidersRequest;
+      output: ListWebsiteAuthorizationProvidersResponse;
+    };
+    sdk: {
+      input: ListWebsiteAuthorizationProvidersCommandInput;
+      output: ListWebsiteAuthorizationProvidersCommandOutput;
+    };
+  };
+}

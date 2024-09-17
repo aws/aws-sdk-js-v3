@@ -149,4 +149,16 @@ export class DescribeDBLogFilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBLogFilesCommand)
   .de(de_DescribeDBLogFilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBLogFilesMessage;
+      output: DescribeDBLogFilesResponse;
+    };
+    sdk: {
+      input: DescribeDBLogFilesCommandInput;
+      output: DescribeDBLogFilesCommandOutput;
+    };
+  };
+}

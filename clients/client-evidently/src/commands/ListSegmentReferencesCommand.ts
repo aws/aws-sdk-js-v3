@@ -103,4 +103,16 @@ export class ListSegmentReferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSegmentReferencesCommand)
   .de(de_ListSegmentReferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSegmentReferencesRequest;
+      output: ListSegmentReferencesResponse;
+    };
+    sdk: {
+      input: ListSegmentReferencesCommandInput;
+      output: ListSegmentReferencesCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DescribeVpcIngressConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcIngressConnectionCommand)
   .de(de_DescribeVpcIngressConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcIngressConnectionRequest;
+      output: DescribeVpcIngressConnectionResponse;
+    };
+    sdk: {
+      input: DescribeVpcIngressConnectionCommandInput;
+      output: DescribeVpcIngressConnectionCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class BatchGetDocumentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetDocumentStatusCommand)
   .de(de_BatchGetDocumentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDocumentStatusRequest;
+      output: BatchGetDocumentStatusResponse;
+    };
+    sdk: {
+      input: BatchGetDocumentStatusCommandInput;
+      output: BatchGetDocumentStatusCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command
   .f(void 0, DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog)
   .ser(se_DescribeSpeakerEnrollmentJobCommand)
   .de(de_DescribeSpeakerEnrollmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpeakerEnrollmentJobRequest;
+      output: DescribeSpeakerEnrollmentJobResponse;
+    };
+    sdk: {
+      input: DescribeSpeakerEnrollmentJobCommandInput;
+      output: DescribeSpeakerEnrollmentJobCommandOutput;
+    };
+  };
+}

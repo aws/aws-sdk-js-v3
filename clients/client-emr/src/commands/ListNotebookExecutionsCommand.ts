@@ -107,4 +107,16 @@ export class ListNotebookExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookExecutionsCommand)
   .de(de_ListNotebookExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookExecutionsInput;
+      output: ListNotebookExecutionsOutput;
+    };
+    sdk: {
+      input: ListNotebookExecutionsCommandInput;
+      output: ListNotebookExecutionsCommandOutput;
+    };
+  };
+}

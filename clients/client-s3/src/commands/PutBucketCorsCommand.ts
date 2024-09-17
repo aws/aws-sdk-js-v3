@@ -209,4 +209,16 @@ export class PutBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketCorsCommand)
   .de(de_PutBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketCorsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketCorsCommandInput;
+      output: PutBucketCorsCommandOutput;
+    };
+  };
+}

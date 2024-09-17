@@ -114,4 +114,16 @@ export class PutBucketOwnershipControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketOwnershipControlsCommand)
   .de(de_PutBucketOwnershipControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketOwnershipControlsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketOwnershipControlsCommandInput;
+      output: PutBucketOwnershipControlsCommandOutput;
+    };
+  };
+}

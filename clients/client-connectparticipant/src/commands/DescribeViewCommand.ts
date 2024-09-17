@@ -109,4 +109,16 @@ export class DescribeViewCommand extends $Command
   .f(void 0, DescribeViewResponseFilterSensitiveLog)
   .ser(se_DescribeViewCommand)
   .de(de_DescribeViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeViewRequest;
+      output: DescribeViewResponse;
+    };
+    sdk: {
+      input: DescribeViewCommandInput;
+      output: DescribeViewCommandOutput;
+    };
+  };
+}

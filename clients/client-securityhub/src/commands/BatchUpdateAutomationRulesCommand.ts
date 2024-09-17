@@ -322,4 +322,16 @@ export class BatchUpdateAutomationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateAutomationRulesCommand)
   .de(de_BatchUpdateAutomationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateAutomationRulesRequest;
+      output: BatchUpdateAutomationRulesResponse;
+    };
+    sdk: {
+      input: BatchUpdateAutomationRulesCommandInput;
+      output: BatchUpdateAutomationRulesCommandOutput;
+    };
+  };
+}

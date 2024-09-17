@@ -144,4 +144,16 @@ export class GetHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostedZoneCommand)
   .de(de_GetHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostedZoneRequest;
+      output: GetHostedZoneResponse;
+    };
+    sdk: {
+      input: GetHostedZoneCommandInput;
+      output: GetHostedZoneCommandOutput;
+    };
+  };
+}

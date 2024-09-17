@@ -127,4 +127,16 @@ export class AddBridgeOutputsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddBridgeOutputsCommand)
   .de(de_AddBridgeOutputsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddBridgeOutputsRequest;
+      output: AddBridgeOutputsResponse;
+    };
+    sdk: {
+      input: AddBridgeOutputsCommandInput;
+      output: AddBridgeOutputsCommandOutput;
+    };
+  };
+}

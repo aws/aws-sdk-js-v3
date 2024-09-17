@@ -153,4 +153,16 @@ export class UpdatePipelineNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePipelineNotificationsCommand)
   .de(de_UpdatePipelineNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipelineNotificationsRequest;
+      output: UpdatePipelineNotificationsResponse;
+    };
+    sdk: {
+      input: UpdatePipelineNotificationsCommandInput;
+      output: UpdatePipelineNotificationsCommandOutput;
+    };
+  };
+}

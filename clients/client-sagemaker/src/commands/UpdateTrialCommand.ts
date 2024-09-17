@@ -85,4 +85,16 @@ export class UpdateTrialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrialCommand)
   .de(de_UpdateTrialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrialRequest;
+      output: UpdateTrialResponse;
+    };
+    sdk: {
+      input: UpdateTrialCommandInput;
+      output: UpdateTrialCommandOutput;
+    };
+  };
+}

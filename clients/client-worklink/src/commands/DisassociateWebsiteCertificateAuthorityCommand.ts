@@ -102,4 +102,16 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateWebsiteCertificateAuthorityCommand)
   .de(de_DisassociateWebsiteCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWebsiteCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWebsiteCertificateAuthorityCommandInput;
+      output: DisassociateWebsiteCertificateAuthorityCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class DescribeClientPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientPropertiesCommand)
   .de(de_DescribeClientPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientPropertiesRequest;
+      output: DescribeClientPropertiesResult;
+    };
+    sdk: {
+      input: DescribeClientPropertiesCommandInput;
+      output: DescribeClientPropertiesCommandOutput;
+    };
+  };
+}

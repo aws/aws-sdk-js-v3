@@ -140,4 +140,16 @@ export class AdminListGroupsForUserCommand extends $Command
   .f(AdminListGroupsForUserRequestFilterSensitiveLog, void 0)
   .ser(se_AdminListGroupsForUserCommand)
   .de(de_AdminListGroupsForUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminListGroupsForUserRequest;
+      output: AdminListGroupsForUserResponse;
+    };
+    sdk: {
+      input: AdminListGroupsForUserCommandInput;
+      output: AdminListGroupsForUserCommandOutput;
+    };
+  };
+}

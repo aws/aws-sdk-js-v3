@@ -87,4 +87,16 @@ export class DeleteDiscovererCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDiscovererCommand)
   .de(de_DeleteDiscovererCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDiscovererRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDiscovererCommandInput;
+      output: DeleteDiscovererCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisionedModelThroughputCommand)
   .de(de_DeleteProvisionedModelThroughputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisionedModelThroughputRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisionedModelThroughputCommandInput;
+      output: DeleteProvisionedModelThroughputCommandOutput;
+    };
+  };
+}

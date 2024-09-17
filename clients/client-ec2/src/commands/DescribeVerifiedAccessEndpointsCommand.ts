@@ -144,4 +144,16 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedAccessEndpointsCommand)
   .de(de_DescribeVerifiedAccessEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessEndpointsRequest;
+      output: DescribeVerifiedAccessEndpointsResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessEndpointsCommandInput;
+      output: DescribeVerifiedAccessEndpointsCommandOutput;
+    };
+  };
+}

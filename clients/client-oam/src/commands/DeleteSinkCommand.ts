@@ -90,4 +90,16 @@ export class DeleteSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSinkCommand)
   .de(de_DeleteSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSinkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSinkCommandInput;
+      output: DeleteSinkCommandOutput;
+    };
+  };
+}

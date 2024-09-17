@@ -178,4 +178,16 @@ export class GetAnomalySubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnomalySubscriptionsCommand)
   .de(de_GetAnomalySubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnomalySubscriptionsRequest;
+      output: GetAnomalySubscriptionsResponse;
+    };
+    sdk: {
+      input: GetAnomalySubscriptionsCommandInput;
+      output: GetAnomalySubscriptionsCommandOutput;
+    };
+  };
+}

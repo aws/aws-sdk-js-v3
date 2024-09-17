@@ -144,4 +144,16 @@ export class ListSubscriptionGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSubscriptionGrantsCommand)
   .de(de_ListSubscriptionGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionGrantsInput;
+      output: ListSubscriptionGrantsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionGrantsCommandInput;
+      output: ListSubscriptionGrantsCommandOutput;
+    };
+  };
+}

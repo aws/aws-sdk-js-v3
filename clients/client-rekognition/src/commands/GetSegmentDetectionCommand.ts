@@ -181,4 +181,16 @@ export class GetSegmentDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentDetectionCommand)
   .de(de_GetSegmentDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentDetectionRequest;
+      output: GetSegmentDetectionResponse;
+    };
+    sdk: {
+      input: GetSegmentDetectionCommandInput;
+      output: GetSegmentDetectionCommandOutput;
+    };
+  };
+}

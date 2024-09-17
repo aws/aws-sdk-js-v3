@@ -139,4 +139,16 @@ export class CreateAssessmentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssessmentTemplateCommand)
   .de(de_CreateAssessmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentTemplateRequest;
+      output: CreateAssessmentTemplateResponse;
+    };
+    sdk: {
+      input: CreateAssessmentTemplateCommandInput;
+      output: CreateAssessmentTemplateCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class UpdateCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCanaryCommand)
   .de(de_UpdateCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCanaryCommandInput;
+      output: UpdateCanaryCommandOutput;
+    };
+  };
+}

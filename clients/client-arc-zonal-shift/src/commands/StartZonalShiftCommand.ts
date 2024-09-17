@@ -114,4 +114,16 @@ export class StartZonalShiftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartZonalShiftCommand)
   .de(de_StartZonalShiftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartZonalShiftRequest;
+      output: ZonalShift;
+    };
+    sdk: {
+      input: StartZonalShiftCommandInput;
+      output: StartZonalShiftCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class ListPortalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPortalsCommand)
   .de(de_ListPortalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPortalsRequest;
+      output: ListPortalsResponse;
+    };
+    sdk: {
+      input: ListPortalsCommandInput;
+      output: ListPortalsCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class DescribeAuditTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuditTaskCommand)
   .de(de_DescribeAuditTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuditTaskRequest;
+      output: DescribeAuditTaskResponse;
+    };
+    sdk: {
+      input: DescribeAuditTaskCommandInput;
+      output: DescribeAuditTaskCommandOutput;
+    };
+  };
+}

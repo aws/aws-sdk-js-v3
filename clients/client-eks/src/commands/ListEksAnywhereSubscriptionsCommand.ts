@@ -124,4 +124,16 @@ export class ListEksAnywhereSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEksAnywhereSubscriptionsCommand)
   .de(de_ListEksAnywhereSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEksAnywhereSubscriptionsRequest;
+      output: ListEksAnywhereSubscriptionsResponse;
+    };
+    sdk: {
+      input: ListEksAnywhereSubscriptionsCommandInput;
+      output: ListEksAnywhereSubscriptionsCommandOutput;
+    };
+  };
+}

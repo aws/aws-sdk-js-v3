@@ -83,4 +83,16 @@ export class GetConsoleScreenshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConsoleScreenshotCommand)
   .de(de_GetConsoleScreenshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConsoleScreenshotRequest;
+      output: GetConsoleScreenshotResult;
+    };
+    sdk: {
+      input: GetConsoleScreenshotCommandInput;
+      output: GetConsoleScreenshotCommandOutput;
+    };
+  };
+}

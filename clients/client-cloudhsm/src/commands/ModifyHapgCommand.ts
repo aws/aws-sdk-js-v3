@@ -102,4 +102,16 @@ export class ModifyHapgCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyHapgCommand)
   .de(de_ModifyHapgCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyHapgRequest;
+      output: ModifyHapgResponse;
+    };
+    sdk: {
+      input: ModifyHapgCommandInput;
+      output: ModifyHapgCommandOutput;
+    };
+  };
+}

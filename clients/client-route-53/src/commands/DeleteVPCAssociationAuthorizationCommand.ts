@@ -118,4 +118,16 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVPCAssociationAuthorizationCommand)
   .de(de_DeleteVPCAssociationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVPCAssociationAuthorizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVPCAssociationAuthorizationCommandInput;
+      output: DeleteVPCAssociationAuthorizationCommandOutput;
+    };
+  };
+}

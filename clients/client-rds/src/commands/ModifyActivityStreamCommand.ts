@@ -97,4 +97,16 @@ export class ModifyActivityStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyActivityStreamCommand)
   .de(de_ModifyActivityStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyActivityStreamRequest;
+      output: ModifyActivityStreamResponse;
+    };
+    sdk: {
+      input: ModifyActivityStreamCommandInput;
+      output: ModifyActivityStreamCommandOutput;
+    };
+  };
+}

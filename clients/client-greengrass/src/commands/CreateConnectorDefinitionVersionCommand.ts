@@ -98,4 +98,16 @@ export class CreateConnectorDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectorDefinitionVersionCommand)
   .de(de_CreateConnectorDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorDefinitionVersionRequest;
+      output: CreateConnectorDefinitionVersionResponse;
+    };
+    sdk: {
+      input: CreateConnectorDefinitionVersionCommandInput;
+      output: CreateConnectorDefinitionVersionCommandOutput;
+    };
+  };
+}

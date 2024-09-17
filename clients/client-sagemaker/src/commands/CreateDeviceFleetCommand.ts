@@ -97,4 +97,16 @@ export class CreateDeviceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeviceFleetCommand)
   .de(de_CreateDeviceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeviceFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateDeviceFleetCommandInput;
+      output: CreateDeviceFleetCommandOutput;
+    };
+  };
+}

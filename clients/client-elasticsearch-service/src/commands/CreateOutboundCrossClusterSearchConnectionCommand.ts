@@ -127,4 +127,16 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOutboundCrossClusterSearchConnectionCommand)
   .de(de_CreateOutboundCrossClusterSearchConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOutboundCrossClusterSearchConnectionRequest;
+      output: CreateOutboundCrossClusterSearchConnectionResponse;
+    };
+    sdk: {
+      input: CreateOutboundCrossClusterSearchConnectionCommandInput;
+      output: CreateOutboundCrossClusterSearchConnectionCommandOutput;
+    };
+  };
+}

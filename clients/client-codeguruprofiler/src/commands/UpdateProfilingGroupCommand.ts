@@ -118,4 +118,16 @@ export class UpdateProfilingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProfilingGroupCommand)
   .de(de_UpdateProfilingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfilingGroupRequest;
+      output: UpdateProfilingGroupResponse;
+    };
+    sdk: {
+      input: UpdateProfilingGroupCommandInput;
+      output: UpdateProfilingGroupCommandOutput;
+    };
+  };
+}

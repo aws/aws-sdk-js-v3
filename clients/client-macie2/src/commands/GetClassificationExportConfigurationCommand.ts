@@ -110,4 +110,16 @@ export class GetClassificationExportConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClassificationExportConfigurationCommand)
   .de(de_GetClassificationExportConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetClassificationExportConfigurationResponse;
+    };
+    sdk: {
+      input: GetClassificationExportConfigurationCommandInput;
+      output: GetClassificationExportConfigurationCommandOutput;
+    };
+  };
+}

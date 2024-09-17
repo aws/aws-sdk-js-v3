@@ -204,4 +204,16 @@ export class UpdateFlowSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowSourceCommand)
   .de(de_UpdateFlowSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowSourceRequest;
+      output: UpdateFlowSourceResponse;
+    };
+    sdk: {
+      input: UpdateFlowSourceCommandInput;
+      output: UpdateFlowSourceCommandOutput;
+    };
+  };
+}

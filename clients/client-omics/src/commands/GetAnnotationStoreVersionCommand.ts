@@ -121,4 +121,16 @@ export class GetAnnotationStoreVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnnotationStoreVersionCommand)
   .de(de_GetAnnotationStoreVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnnotationStoreVersionRequest;
+      output: GetAnnotationStoreVersionResponse;
+    };
+    sdk: {
+      input: GetAnnotationStoreVersionCommandInput;
+      output: GetAnnotationStoreVersionCommandOutput;
+    };
+  };
+}

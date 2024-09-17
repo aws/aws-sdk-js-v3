@@ -92,4 +92,16 @@ export class DeleteAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppCommand)
   .de(de_DeleteAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppCommandInput;
+      output: DeleteAppCommandOutput;
+    };
+  };
+}

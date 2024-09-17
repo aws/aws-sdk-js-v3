@@ -180,4 +180,16 @@ export class CreateProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProductCommand)
   .de(de_CreateProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProductInput;
+      output: CreateProductOutput;
+    };
+    sdk: {
+      input: CreateProductCommandInput;
+      output: CreateProductCommandOutput;
+    };
+  };
+}

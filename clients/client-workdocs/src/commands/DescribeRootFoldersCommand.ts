@@ -126,4 +126,16 @@ export class DescribeRootFoldersCommand extends $Command
   .f(DescribeRootFoldersRequestFilterSensitiveLog, DescribeRootFoldersResponseFilterSensitiveLog)
   .ser(se_DescribeRootFoldersCommand)
   .de(de_DescribeRootFoldersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRootFoldersRequest;
+      output: DescribeRootFoldersResponse;
+    };
+    sdk: {
+      input: DescribeRootFoldersCommandInput;
+      output: DescribeRootFoldersCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class UntagLogGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagLogGroupCommand)
   .de(de_UntagLogGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagLogGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagLogGroupCommandInput;
+      output: UntagLogGroupCommandOutput;
+    };
+  };
+}

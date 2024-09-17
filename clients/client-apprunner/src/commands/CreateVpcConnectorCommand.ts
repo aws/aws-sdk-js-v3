@@ -114,4 +114,16 @@ export class CreateVpcConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcConnectorCommand)
   .de(de_CreateVpcConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcConnectorRequest;
+      output: CreateVpcConnectorResponse;
+    };
+    sdk: {
+      input: CreateVpcConnectorCommandInput;
+      output: CreateVpcConnectorCommandOutput;
+    };
+  };
+}

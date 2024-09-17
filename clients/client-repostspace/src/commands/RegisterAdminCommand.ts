@@ -91,4 +91,16 @@ export class RegisterAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterAdminCommand)
   .de(de_RegisterAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterAdminInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterAdminCommandInput;
+      output: RegisterAdminCommandOutput;
+    };
+  };
+}

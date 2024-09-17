@@ -91,4 +91,16 @@ export class DeleteUsagePlanKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUsagePlanKeyCommand)
   .de(de_DeleteUsagePlanKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUsagePlanKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUsagePlanKeyCommandInput;
+      output: DeleteUsagePlanKeyCommandOutput;
+    };
+  };
+}

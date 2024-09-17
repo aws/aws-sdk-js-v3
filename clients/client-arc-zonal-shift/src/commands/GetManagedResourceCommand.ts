@@ -138,4 +138,16 @@ export class GetManagedResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetManagedResourceCommand)
   .de(de_GetManagedResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetManagedResourceRequest;
+      output: GetManagedResourceResponse;
+    };
+    sdk: {
+      input: GetManagedResourceCommandInput;
+      output: GetManagedResourceCommandOutput;
+    };
+  };
+}

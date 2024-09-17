@@ -109,4 +109,16 @@ export class GetTopicRuleDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTopicRuleDestinationCommand)
   .de(de_GetTopicRuleDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTopicRuleDestinationRequest;
+      output: GetTopicRuleDestinationResponse;
+    };
+    sdk: {
+      input: GetTopicRuleDestinationCommandInput;
+      output: GetTopicRuleDestinationCommandOutput;
+    };
+  };
+}

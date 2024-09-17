@@ -113,4 +113,16 @@ export class ListAppInstanceBotsCommand extends $Command
   .f(ListAppInstanceBotsRequestFilterSensitiveLog, ListAppInstanceBotsResponseFilterSensitiveLog)
   .ser(se_ListAppInstanceBotsCommand)
   .de(de_ListAppInstanceBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInstanceBotsRequest;
+      output: ListAppInstanceBotsResponse;
+    };
+    sdk: {
+      input: ListAppInstanceBotsCommandInput;
+      output: ListAppInstanceBotsCommandOutput;
+    };
+  };
+}

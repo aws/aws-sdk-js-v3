@@ -82,4 +82,16 @@ export class DeleteModelCardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelCardCommand)
   .de(de_DeleteModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelCardRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelCardCommandInput;
+      output: DeleteModelCardCommandOutput;
+    };
+  };
+}

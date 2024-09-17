@@ -92,4 +92,16 @@ export class GetSubscriptionAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubscriptionAttributesCommand)
   .de(de_GetSubscriptionAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionAttributesInput;
+      output: GetSubscriptionAttributesResponse;
+    };
+    sdk: {
+      input: GetSubscriptionAttributesCommandInput;
+      output: GetSubscriptionAttributesCommandOutput;
+    };
+  };
+}

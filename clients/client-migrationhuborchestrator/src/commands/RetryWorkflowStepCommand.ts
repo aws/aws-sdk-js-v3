@@ -98,4 +98,16 @@ export class RetryWorkflowStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetryWorkflowStepCommand)
   .de(de_RetryWorkflowStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetryWorkflowStepRequest;
+      output: RetryWorkflowStepResponse;
+    };
+    sdk: {
+      input: RetryWorkflowStepCommandInput;
+      output: RetryWorkflowStepCommandOutput;
+    };
+  };
+}

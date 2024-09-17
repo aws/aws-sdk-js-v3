@@ -89,4 +89,16 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_ImportClientVpnClientCertificateRevocationListCommand)
   .de(de_ImportClientVpnClientCertificateRevocationListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportClientVpnClientCertificateRevocationListRequest;
+      output: ImportClientVpnClientCertificateRevocationListResult;
+    };
+    sdk: {
+      input: ImportClientVpnClientCertificateRevocationListCommandInput;
+      output: ImportClientVpnClientCertificateRevocationListCommandOutput;
+    };
+  };
+}

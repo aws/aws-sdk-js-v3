@@ -159,4 +159,16 @@ export class ConfigureAccessPointCommand extends $Command
   .f(ConfigureAccessPointRequestFilterSensitiveLog, ConfigureAccessPointResponseFilterSensitiveLog)
   .ser(se_ConfigureAccessPointCommand)
   .de(de_ConfigureAccessPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureAccessPointRequest;
+      output: ConfigureAccessPointResponse;
+    };
+    sdk: {
+      input: ConfigureAccessPointCommandInput;
+      output: ConfigureAccessPointCommandOutput;
+    };
+  };
+}

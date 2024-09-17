@@ -105,4 +105,16 @@ export class ListBackendEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackendEnvironmentsCommand)
   .de(de_ListBackendEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackendEnvironmentsRequest;
+      output: ListBackendEnvironmentsResult;
+    };
+    sdk: {
+      input: ListBackendEnvironmentsCommandInput;
+      output: ListBackendEnvironmentsCommandOutput;
+    };
+  };
+}

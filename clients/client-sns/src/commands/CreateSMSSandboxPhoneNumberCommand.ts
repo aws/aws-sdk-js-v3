@@ -110,4 +110,16 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command
   .f(CreateSMSSandboxPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_CreateSMSSandboxPhoneNumberCommand)
   .de(de_CreateSMSSandboxPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSMSSandboxPhoneNumberInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateSMSSandboxPhoneNumberCommandInput;
+      output: CreateSMSSandboxPhoneNumberCommandOutput;
+    };
+  };
+}

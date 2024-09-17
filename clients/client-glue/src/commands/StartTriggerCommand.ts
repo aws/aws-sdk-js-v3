@@ -97,4 +97,16 @@ export class StartTriggerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTriggerCommand)
   .de(de_StartTriggerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTriggerRequest;
+      output: StartTriggerResponse;
+    };
+    sdk: {
+      input: StartTriggerCommandInput;
+      output: StartTriggerCommandOutput;
+    };
+  };
+}

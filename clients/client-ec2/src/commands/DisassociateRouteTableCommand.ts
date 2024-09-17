@@ -91,4 +91,16 @@ export class DisassociateRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateRouteTableCommand)
   .de(de_DisassociateRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateRouteTableRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateRouteTableCommandInput;
+      output: DisassociateRouteTableCommandOutput;
+    };
+  };
+}

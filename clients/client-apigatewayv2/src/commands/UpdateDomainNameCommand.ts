@@ -132,4 +132,16 @@ export class UpdateDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainNameCommand)
   .de(de_UpdateDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainNameRequest;
+      output: UpdateDomainNameResponse;
+    };
+    sdk: {
+      input: UpdateDomainNameCommandInput;
+      output: UpdateDomainNameCommandOutput;
+    };
+  };
+}

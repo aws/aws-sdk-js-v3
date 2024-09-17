@@ -216,4 +216,16 @@ export class UpdateSecretCommand extends $Command
   .f(UpdateSecretRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSecretCommand)
   .de(de_UpdateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecretRequest;
+      output: UpdateSecretResponse;
+    };
+    sdk: {
+      input: UpdateSecretCommandInput;
+      output: UpdateSecretCommandOutput;
+    };
+  };
+}

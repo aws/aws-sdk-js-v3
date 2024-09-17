@@ -213,4 +213,16 @@ export class DescribeSSLPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSSLPoliciesCommand)
   .de(de_DescribeSSLPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSSLPoliciesInput;
+      output: DescribeSSLPoliciesOutput;
+    };
+    sdk: {
+      input: DescribeSSLPoliciesCommandInput;
+      output: DescribeSSLPoliciesCommandOutput;
+    };
+  };
+}

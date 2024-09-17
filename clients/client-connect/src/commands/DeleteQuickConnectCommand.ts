@@ -109,4 +109,16 @@ export class DeleteQuickConnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQuickConnectCommand)
   .de(de_DeleteQuickConnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQuickConnectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQuickConnectCommandInput;
+      output: DeleteQuickConnectCommandOutput;
+    };
+  };
+}

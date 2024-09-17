@@ -92,4 +92,16 @@ export class ListNamedQueriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNamedQueriesCommand)
   .de(de_ListNamedQueriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNamedQueriesInput;
+      output: ListNamedQueriesOutput;
+    };
+    sdk: {
+      input: ListNamedQueriesCommandInput;
+      output: ListNamedQueriesCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DescribeAccountAuditConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAuditConfigurationCommand)
   .de(de_DescribeAccountAuditConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAccountAuditConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeAccountAuditConfigurationCommandInput;
+      output: DescribeAccountAuditConfigurationCommandOutput;
+    };
+  };
+}

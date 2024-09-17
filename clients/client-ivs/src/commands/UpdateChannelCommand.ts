@@ -125,4 +125,16 @@ export class UpdateChannelCommand extends $Command
   .f(void 0, UpdateChannelResponseFilterSensitiveLog)
   .ser(se_UpdateChannelCommand)
   .de(de_UpdateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChannelRequest;
+      output: UpdateChannelResponse;
+    };
+    sdk: {
+      input: UpdateChannelCommandInput;
+      output: UpdateChannelCommandOutput;
+    };
+  };
+}

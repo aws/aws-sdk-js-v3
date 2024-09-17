@@ -113,4 +113,16 @@ export class ListRetainedMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRetainedMessagesCommand)
   .de(de_ListRetainedMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRetainedMessagesRequest;
+      output: ListRetainedMessagesResponse;
+    };
+    sdk: {
+      input: ListRetainedMessagesCommandInput;
+      output: ListRetainedMessagesCommandOutput;
+    };
+  };
+}

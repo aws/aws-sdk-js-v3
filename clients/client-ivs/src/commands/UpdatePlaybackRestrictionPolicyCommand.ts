@@ -118,4 +118,16 @@ export class UpdatePlaybackRestrictionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePlaybackRestrictionPolicyCommand)
   .de(de_UpdatePlaybackRestrictionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePlaybackRestrictionPolicyRequest;
+      output: UpdatePlaybackRestrictionPolicyResponse;
+    };
+    sdk: {
+      input: UpdatePlaybackRestrictionPolicyCommandInput;
+      output: UpdatePlaybackRestrictionPolicyCommandOutput;
+    };
+  };
+}

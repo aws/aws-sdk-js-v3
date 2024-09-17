@@ -189,4 +189,16 @@ export class MergePullRequestByFastForwardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergePullRequestByFastForwardCommand)
   .de(de_MergePullRequestByFastForwardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergePullRequestByFastForwardInput;
+      output: MergePullRequestByFastForwardOutput;
+    };
+    sdk: {
+      input: MergePullRequestByFastForwardCommandInput;
+      output: MergePullRequestByFastForwardCommandOutput;
+    };
+  };
+}

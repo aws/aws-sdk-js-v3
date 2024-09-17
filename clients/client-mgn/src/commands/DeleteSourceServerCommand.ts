@@ -85,4 +85,16 @@ export class DeleteSourceServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSourceServerCommand)
   .de(de_DeleteSourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSourceServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSourceServerCommandInput;
+      output: DeleteSourceServerCommandOutput;
+    };
+  };
+}

@@ -142,4 +142,16 @@ export class CopyPackageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyPackageVersionsCommand)
   .de(de_CopyPackageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyPackageVersionsRequest;
+      output: CopyPackageVersionsResult;
+    };
+    sdk: {
+      input: CopyPackageVersionsCommandInput;
+      output: CopyPackageVersionsCommandOutput;
+    };
+  };
+}

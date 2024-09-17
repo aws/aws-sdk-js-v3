@@ -138,4 +138,16 @@ export class GetDataSourceIntrospectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSourceIntrospectionCommand)
   .de(de_GetDataSourceIntrospectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSourceIntrospectionRequest;
+      output: GetDataSourceIntrospectionResponse;
+    };
+    sdk: {
+      input: GetDataSourceIntrospectionCommandInput;
+      output: GetDataSourceIntrospectionCommandOutput;
+    };
+  };
+}

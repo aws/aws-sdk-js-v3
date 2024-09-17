@@ -102,4 +102,16 @@ export class UpdateAllowListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAllowListCommand)
   .de(de_UpdateAllowListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAllowListRequest;
+      output: UpdateAllowListResponse;
+    };
+    sdk: {
+      input: UpdateAllowListCommandInput;
+      output: UpdateAllowListCommandOutput;
+    };
+  };
+}

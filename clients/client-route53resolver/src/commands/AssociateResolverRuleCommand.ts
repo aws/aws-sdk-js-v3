@@ -113,4 +113,16 @@ export class AssociateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResolverRuleCommand)
   .de(de_AssociateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResolverRuleRequest;
+      output: AssociateResolverRuleResponse;
+    };
+    sdk: {
+      input: AssociateResolverRuleCommandInput;
+      output: AssociateResolverRuleCommandOutput;
+    };
+  };
+}

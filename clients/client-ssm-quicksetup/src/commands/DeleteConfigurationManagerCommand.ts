@@ -94,4 +94,16 @@ export class DeleteConfigurationManagerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationManagerCommand)
   .de(de_DeleteConfigurationManagerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationManagerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationManagerCommandInput;
+      output: DeleteConfigurationManagerCommandOutput;
+    };
+  };
+}

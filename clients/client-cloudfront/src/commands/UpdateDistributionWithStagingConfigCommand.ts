@@ -661,4 +661,16 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   .f(void 0, UpdateDistributionWithStagingConfigResultFilterSensitiveLog)
   .ser(se_UpdateDistributionWithStagingConfigCommand)
   .de(de_UpdateDistributionWithStagingConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionWithStagingConfigRequest;
+      output: UpdateDistributionWithStagingConfigResult;
+    };
+    sdk: {
+      input: UpdateDistributionWithStagingConfigCommandInput;
+      output: UpdateDistributionWithStagingConfigCommandOutput;
+    };
+  };
+}

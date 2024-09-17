@@ -90,4 +90,16 @@ export class ListReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReportsCommand)
   .de(de_ListReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReportsInput;
+      output: ListReportsOutput;
+    };
+    sdk: {
+      input: ListReportsCommandInput;
+      output: ListReportsCommandOutput;
+    };
+  };
+}

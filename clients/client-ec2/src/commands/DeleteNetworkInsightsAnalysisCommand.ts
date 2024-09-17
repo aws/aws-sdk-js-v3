@@ -80,4 +80,16 @@ export class DeleteNetworkInsightsAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkInsightsAnalysisCommand)
   .de(de_DeleteNetworkInsightsAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkInsightsAnalysisRequest;
+      output: DeleteNetworkInsightsAnalysisResult;
+    };
+    sdk: {
+      input: DeleteNetworkInsightsAnalysisCommandInput;
+      output: DeleteNetworkInsightsAnalysisCommandOutput;
+    };
+  };
+}

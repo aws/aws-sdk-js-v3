@@ -144,4 +144,16 @@ export class AcceptResourceShareInvitationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptResourceShareInvitationCommand)
   .de(de_AcceptResourceShareInvitationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptResourceShareInvitationRequest;
+      output: AcceptResourceShareInvitationResponse;
+    };
+    sdk: {
+      input: AcceptResourceShareInvitationCommandInput;
+      output: AcceptResourceShareInvitationCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class DeleteReplicationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationJobCommand)
   .de(de_DeleteReplicationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReplicationJobCommandInput;
+      output: DeleteReplicationJobCommandOutput;
+    };
+  };
+}

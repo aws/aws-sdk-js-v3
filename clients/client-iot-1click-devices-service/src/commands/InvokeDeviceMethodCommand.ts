@@ -99,4 +99,16 @@ export class InvokeDeviceMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InvokeDeviceMethodCommand)
   .de(de_InvokeDeviceMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeDeviceMethodRequest;
+      output: InvokeDeviceMethodResponse;
+    };
+    sdk: {
+      input: InvokeDeviceMethodCommandInput;
+      output: InvokeDeviceMethodCommandOutput;
+    };
+  };
+}

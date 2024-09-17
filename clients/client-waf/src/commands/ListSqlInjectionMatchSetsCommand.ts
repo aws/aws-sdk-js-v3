@@ -119,4 +119,16 @@ export class ListSqlInjectionMatchSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSqlInjectionMatchSetsCommand)
   .de(de_ListSqlInjectionMatchSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSqlInjectionMatchSetsRequest;
+      output: ListSqlInjectionMatchSetsResponse;
+    };
+    sdk: {
+      input: ListSqlInjectionMatchSetsCommandInput;
+      output: ListSqlInjectionMatchSetsCommandOutput;
+    };
+  };
+}

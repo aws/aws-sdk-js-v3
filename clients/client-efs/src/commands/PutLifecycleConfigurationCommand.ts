@@ -192,4 +192,16 @@ export class PutLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecycleConfigurationCommand)
   .de(de_PutLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecycleConfigurationRequest;
+      output: LifecycleConfigurationDescription;
+    };
+    sdk: {
+      input: PutLifecycleConfigurationCommandInput;
+      output: PutLifecycleConfigurationCommandOutput;
+    };
+  };
+}

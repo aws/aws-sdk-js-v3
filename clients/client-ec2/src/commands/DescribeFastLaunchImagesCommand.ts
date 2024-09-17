@@ -109,4 +109,16 @@ export class DescribeFastLaunchImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFastLaunchImagesCommand)
   .de(de_DescribeFastLaunchImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFastLaunchImagesRequest;
+      output: DescribeFastLaunchImagesResult;
+    };
+    sdk: {
+      input: DescribeFastLaunchImagesCommandInput;
+      output: DescribeFastLaunchImagesCommandOutput;
+    };
+  };
+}

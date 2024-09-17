@@ -102,4 +102,16 @@ export class DeleteCachePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCachePolicyCommand)
   .de(de_DeleteCachePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCachePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCachePolicyCommandInput;
+      output: DeleteCachePolicyCommandOutput;
+    };
+  };
+}

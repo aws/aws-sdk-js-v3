@@ -106,4 +106,16 @@ export class DeleteAuditSuppressionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAuditSuppressionCommand)
   .de(de_DeleteAuditSuppressionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAuditSuppressionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAuditSuppressionCommandInput;
+      output: DeleteAuditSuppressionCommandOutput;
+    };
+  };
+}

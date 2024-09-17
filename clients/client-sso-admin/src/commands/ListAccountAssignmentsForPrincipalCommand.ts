@@ -118,4 +118,16 @@ export class ListAccountAssignmentsForPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountAssignmentsForPrincipalCommand)
   .de(de_ListAccountAssignmentsForPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountAssignmentsForPrincipalRequest;
+      output: ListAccountAssignmentsForPrincipalResponse;
+    };
+    sdk: {
+      input: ListAccountAssignmentsForPrincipalCommandInput;
+      output: ListAccountAssignmentsForPrincipalCommandOutput;
+    };
+  };
+}

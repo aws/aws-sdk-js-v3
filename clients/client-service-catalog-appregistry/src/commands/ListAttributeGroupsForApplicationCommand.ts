@@ -108,4 +108,16 @@ export class ListAttributeGroupsForApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttributeGroupsForApplicationCommand)
   .de(de_ListAttributeGroupsForApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttributeGroupsForApplicationRequest;
+      output: ListAttributeGroupsForApplicationResponse;
+    };
+    sdk: {
+      input: ListAttributeGroupsForApplicationCommandInput;
+      output: ListAttributeGroupsForApplicationCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class ListConnectorDefinitionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConnectorDefinitionVersionsCommand)
   .de(de_ListConnectorDefinitionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectorDefinitionVersionsRequest;
+      output: ListConnectorDefinitionVersionsResponse;
+    };
+    sdk: {
+      input: ListConnectorDefinitionVersionsCommandInput;
+      output: ListConnectorDefinitionVersionsCommandOutput;
+    };
+  };
+}

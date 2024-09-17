@@ -93,4 +93,16 @@ export class ListEngineVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEngineVersionsCommand)
   .de(de_ListEngineVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEngineVersionsInput;
+      output: ListEngineVersionsOutput;
+    };
+    sdk: {
+      input: ListEngineVersionsCommandInput;
+      output: ListEngineVersionsCommandOutput;
+    };
+  };
+}

@@ -210,4 +210,16 @@ export class CreateGameSessionCommand extends $Command
   .f(void 0, CreateGameSessionOutputFilterSensitiveLog)
   .ser(se_CreateGameSessionCommand)
   .de(de_CreateGameSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGameSessionInput;
+      output: CreateGameSessionOutput;
+    };
+    sdk: {
+      input: CreateGameSessionCommandInput;
+      output: CreateGameSessionCommandOutput;
+    };
+  };
+}

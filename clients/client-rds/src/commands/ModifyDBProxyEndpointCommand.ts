@@ -109,4 +109,16 @@ export class ModifyDBProxyEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBProxyEndpointCommand)
   .de(de_ModifyDBProxyEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBProxyEndpointRequest;
+      output: ModifyDBProxyEndpointResponse;
+    };
+    sdk: {
+      input: ModifyDBProxyEndpointCommandInput;
+      output: ModifyDBProxyEndpointCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class StartQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartQueryExecutionCommand)
   .de(de_StartQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartQueryExecutionInput;
+      output: StartQueryExecutionOutput;
+    };
+    sdk: {
+      input: StartQueryExecutionCommandInput;
+      output: StartQueryExecutionCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DeleteSamplingRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSamplingRuleCommand)
   .de(de_DeleteSamplingRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSamplingRuleRequest;
+      output: DeleteSamplingRuleResult;
+    };
+    sdk: {
+      input: DeleteSamplingRuleCommandInput;
+      output: DeleteSamplingRuleCommandOutput;
+    };
+  };
+}

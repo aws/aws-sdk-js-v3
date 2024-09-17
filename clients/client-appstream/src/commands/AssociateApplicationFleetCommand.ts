@@ -96,4 +96,16 @@ export class AssociateApplicationFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApplicationFleetCommand)
   .de(de_AssociateApplicationFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApplicationFleetRequest;
+      output: AssociateApplicationFleetResult;
+    };
+    sdk: {
+      input: AssociateApplicationFleetCommandInput;
+      output: AssociateApplicationFleetCommandOutput;
+    };
+  };
+}

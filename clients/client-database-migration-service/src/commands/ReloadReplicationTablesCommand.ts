@@ -97,4 +97,16 @@ export class ReloadReplicationTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReloadReplicationTablesCommand)
   .de(de_ReloadReplicationTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReloadReplicationTablesMessage;
+      output: ReloadReplicationTablesResponse;
+    };
+    sdk: {
+      input: ReloadReplicationTablesCommandInput;
+      output: ReloadReplicationTablesCommandOutput;
+    };
+  };
+}

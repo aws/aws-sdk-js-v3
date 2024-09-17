@@ -87,4 +87,16 @@ export class DeleteDhcpOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDhcpOptionsCommand)
   .de(de_DeleteDhcpOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDhcpOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDhcpOptionsCommandInput;
+      output: DeleteDhcpOptionsCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class DeleteLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLinkCommand)
   .de(de_DeleteLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLinkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLinkCommandInput;
+      output: DeleteLinkCommandOutput;
+    };
+  };
+}

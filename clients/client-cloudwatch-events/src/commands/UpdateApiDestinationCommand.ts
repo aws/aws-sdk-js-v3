@@ -98,4 +98,16 @@ export class UpdateApiDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApiDestinationCommand)
   .de(de_UpdateApiDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApiDestinationRequest;
+      output: UpdateApiDestinationResponse;
+    };
+    sdk: {
+      input: UpdateApiDestinationCommandInput;
+      output: UpdateApiDestinationCommandOutput;
+    };
+  };
+}

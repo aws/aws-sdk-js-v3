@@ -98,4 +98,16 @@ export class ListAlarmModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAlarmModelsCommand)
   .de(de_ListAlarmModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAlarmModelsRequest;
+      output: ListAlarmModelsResponse;
+    };
+    sdk: {
+      input: ListAlarmModelsCommandInput;
+      output: ListAlarmModelsCommandOutput;
+    };
+  };
+}

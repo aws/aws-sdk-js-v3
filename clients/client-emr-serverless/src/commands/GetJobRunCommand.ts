@@ -189,4 +189,16 @@ export class GetJobRunCommand extends $Command
   .f(void 0, GetJobRunResponseFilterSensitiveLog)
   .ser(se_GetJobRunCommand)
   .de(de_GetJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRunRequest;
+      output: GetJobRunResponse;
+    };
+    sdk: {
+      input: GetJobRunCommandInput;
+      output: GetJobRunCommandOutput;
+    };
+  };
+}

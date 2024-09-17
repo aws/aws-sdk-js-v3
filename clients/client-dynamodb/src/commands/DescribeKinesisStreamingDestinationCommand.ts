@@ -102,4 +102,16 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKinesisStreamingDestinationCommand)
   .de(de_DescribeKinesisStreamingDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKinesisStreamingDestinationInput;
+      output: DescribeKinesisStreamingDestinationOutput;
+    };
+    sdk: {
+      input: DescribeKinesisStreamingDestinationCommandInput;
+      output: DescribeKinesisStreamingDestinationCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command
   .f(void 0, DescribeWorkspaceAuthenticationResponseFilterSensitiveLog)
   .ser(se_DescribeWorkspaceAuthenticationCommand)
   .de(de_DescribeWorkspaceAuthenticationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceAuthenticationRequest;
+      output: DescribeWorkspaceAuthenticationResponse;
+    };
+    sdk: {
+      input: DescribeWorkspaceAuthenticationCommandInput;
+      output: DescribeWorkspaceAuthenticationCommandOutput;
+    };
+  };
+}

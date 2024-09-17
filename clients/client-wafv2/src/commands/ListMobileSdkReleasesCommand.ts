@@ -116,4 +116,16 @@ export class ListMobileSdkReleasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMobileSdkReleasesCommand)
   .de(de_ListMobileSdkReleasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMobileSdkReleasesRequest;
+      output: ListMobileSdkReleasesResponse;
+    };
+    sdk: {
+      input: ListMobileSdkReleasesCommandInput;
+      output: ListMobileSdkReleasesCommandOutput;
+    };
+  };
+}

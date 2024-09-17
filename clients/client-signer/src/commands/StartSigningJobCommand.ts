@@ -141,4 +141,16 @@ export class StartSigningJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSigningJobCommand)
   .de(de_StartSigningJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSigningJobRequest;
+      output: StartSigningJobResponse;
+    };
+    sdk: {
+      input: StartSigningJobCommandInput;
+      output: StartSigningJobCommandOutput;
+    };
+  };
+}

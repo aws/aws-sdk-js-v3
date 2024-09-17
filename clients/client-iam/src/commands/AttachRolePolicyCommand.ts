@@ -134,4 +134,16 @@ export class AttachRolePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachRolePolicyCommand)
   .de(de_AttachRolePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachRolePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachRolePolicyCommandInput;
+      output: AttachRolePolicyCommandOutput;
+    };
+  };
+}

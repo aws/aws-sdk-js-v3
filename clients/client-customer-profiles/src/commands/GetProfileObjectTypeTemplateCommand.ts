@@ -128,4 +128,16 @@ export class GetProfileObjectTypeTemplateCommand extends $Command
   .f(void 0, GetProfileObjectTypeTemplateResponseFilterSensitiveLog)
   .ser(se_GetProfileObjectTypeTemplateCommand)
   .de(de_GetProfileObjectTypeTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileObjectTypeTemplateRequest;
+      output: GetProfileObjectTypeTemplateResponse;
+    };
+    sdk: {
+      input: GetProfileObjectTypeTemplateCommandInput;
+      output: GetProfileObjectTypeTemplateCommandOutput;
+    };
+  };
+}

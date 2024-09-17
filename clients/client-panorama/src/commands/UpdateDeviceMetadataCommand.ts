@@ -93,4 +93,16 @@ export class UpdateDeviceMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeviceMetadataCommand)
   .de(de_UpdateDeviceMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceMetadataRequest;
+      output: UpdateDeviceMetadataResponse;
+    };
+    sdk: {
+      input: UpdateDeviceMetadataCommandInput;
+      output: UpdateDeviceMetadataCommandOutput;
+    };
+  };
+}

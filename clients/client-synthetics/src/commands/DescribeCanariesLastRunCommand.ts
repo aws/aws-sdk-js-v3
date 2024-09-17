@@ -114,4 +114,16 @@ export class DescribeCanariesLastRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCanariesLastRunCommand)
   .de(de_DescribeCanariesLastRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCanariesLastRunRequest;
+      output: DescribeCanariesLastRunResponse;
+    };
+    sdk: {
+      input: DescribeCanariesLastRunCommandInput;
+      output: DescribeCanariesLastRunCommandOutput;
+    };
+  };
+}

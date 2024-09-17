@@ -96,4 +96,16 @@ export class UpdateQueueHoursOfOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQueueHoursOfOperationCommand)
   .de(de_UpdateQueueHoursOfOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQueueHoursOfOperationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQueueHoursOfOperationCommandInput;
+      output: UpdateQueueHoursOfOperationCommandOutput;
+    };
+  };
+}

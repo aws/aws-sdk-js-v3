@@ -96,4 +96,16 @@ export class GetCrawlerMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCrawlerMetricsCommand)
   .de(de_GetCrawlerMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCrawlerMetricsRequest;
+      output: GetCrawlerMetricsResponse;
+    };
+    sdk: {
+      input: GetCrawlerMetricsCommandInput;
+      output: GetCrawlerMetricsCommandOutput;
+    };
+  };
+}

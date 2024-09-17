@@ -209,4 +209,16 @@ export class DetectMetricSetConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectMetricSetConfigCommand)
   .de(de_DetectMetricSetConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectMetricSetConfigRequest;
+      output: DetectMetricSetConfigResponse;
+    };
+    sdk: {
+      input: DetectMetricSetConfigCommandInput;
+      output: DetectMetricSetConfigCommandOutput;
+    };
+  };
+}

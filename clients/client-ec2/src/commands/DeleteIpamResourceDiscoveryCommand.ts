@@ -97,4 +97,16 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpamResourceDiscoveryCommand)
   .de(de_DeleteIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpamResourceDiscoveryRequest;
+      output: DeleteIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: DeleteIpamResourceDiscoveryCommandInput;
+      output: DeleteIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

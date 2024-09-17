@@ -98,4 +98,16 @@ export class DescribePatchBaselinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePatchBaselinesCommand)
   .de(de_DescribePatchBaselinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePatchBaselinesRequest;
+      output: DescribePatchBaselinesResult;
+    };
+    sdk: {
+      input: DescribePatchBaselinesCommandInput;
+      output: DescribePatchBaselinesCommandOutput;
+    };
+  };
+}

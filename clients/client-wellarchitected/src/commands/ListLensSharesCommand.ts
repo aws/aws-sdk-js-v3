@@ -104,4 +104,16 @@ export class ListLensSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLensSharesCommand)
   .de(de_ListLensSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLensSharesInput;
+      output: ListLensSharesOutput;
+    };
+    sdk: {
+      input: ListLensSharesCommandInput;
+      output: ListLensSharesCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class ListCheckSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCheckSummariesCommand)
   .de(de_ListCheckSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCheckSummariesInput;
+      output: ListCheckSummariesOutput;
+    };
+    sdk: {
+      input: ListCheckSummariesCommandInput;
+      output: ListCheckSummariesCommandOutput;
+    };
+  };
+}

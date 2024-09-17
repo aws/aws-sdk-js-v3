@@ -156,4 +156,16 @@ export class DescribeReportDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReportDefinitionsCommand)
   .de(de_DescribeReportDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReportDefinitionsRequest;
+      output: DescribeReportDefinitionsResponse;
+    };
+    sdk: {
+      input: DescribeReportDefinitionsCommandInput;
+      output: DescribeReportDefinitionsCommandOutput;
+    };
+  };
+}

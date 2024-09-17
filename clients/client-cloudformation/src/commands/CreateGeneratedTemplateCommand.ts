@@ -135,4 +135,16 @@ export class CreateGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGeneratedTemplateCommand)
   .de(de_CreateGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGeneratedTemplateInput;
+      output: CreateGeneratedTemplateOutput;
+    };
+    sdk: {
+      input: CreateGeneratedTemplateCommandInput;
+      output: CreateGeneratedTemplateCommandOutput;
+    };
+  };
+}

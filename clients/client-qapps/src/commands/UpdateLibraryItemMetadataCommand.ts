@@ -113,4 +113,16 @@ export class UpdateLibraryItemMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLibraryItemMetadataCommand)
   .de(de_UpdateLibraryItemMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLibraryItemMetadataInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLibraryItemMetadataCommandInput;
+      output: UpdateLibraryItemMetadataCommandOutput;
+    };
+  };
+}

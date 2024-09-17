@@ -137,4 +137,16 @@ export class UpdateQualificationTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQualificationTypeCommand)
   .de(de_UpdateQualificationTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQualificationTypeRequest;
+      output: UpdateQualificationTypeResponse;
+    };
+    sdk: {
+      input: UpdateQualificationTypeCommandInput;
+      output: UpdateQualificationTypeCommandOutput;
+    };
+  };
+}

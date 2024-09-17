@@ -99,4 +99,16 @@ export class GetDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentCommand)
   .de(de_GetDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentRequest;
+      output: GetDeploymentResponse;
+    };
+    sdk: {
+      input: GetDeploymentCommandInput;
+      output: GetDeploymentCommandOutput;
+    };
+  };
+}

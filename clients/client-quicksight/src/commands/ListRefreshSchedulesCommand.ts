@@ -117,4 +117,16 @@ export class ListRefreshSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRefreshSchedulesCommand)
   .de(de_ListRefreshSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRefreshSchedulesRequest;
+      output: ListRefreshSchedulesResponse;
+    };
+    sdk: {
+      input: ListRefreshSchedulesCommandInput;
+      output: ListRefreshSchedulesCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class UpdateApiMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApiMappingCommand)
   .de(de_UpdateApiMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApiMappingRequest;
+      output: UpdateApiMappingResponse;
+    };
+    sdk: {
+      input: UpdateApiMappingCommandInput;
+      output: UpdateApiMappingCommandOutput;
+    };
+  };
+}

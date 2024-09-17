@@ -101,4 +101,16 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookInstanceLifecycleConfigsCommand)
   .de(de_ListNotebookInstanceLifecycleConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookInstanceLifecycleConfigsInput;
+      output: ListNotebookInstanceLifecycleConfigsOutput;
+    };
+    sdk: {
+      input: ListNotebookInstanceLifecycleConfigsCommandInput;
+      output: ListNotebookInstanceLifecycleConfigsCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class DeletePerformanceAnalysisReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePerformanceAnalysisReportCommand)
   .de(de_DeletePerformanceAnalysisReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePerformanceAnalysisReportRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePerformanceAnalysisReportCommandInput;
+      output: DeletePerformanceAnalysisReportCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePipelineDefinitionForExecutionCommand)
   .de(de_DescribePipelineDefinitionForExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePipelineDefinitionForExecutionRequest;
+      output: DescribePipelineDefinitionForExecutionResponse;
+    };
+    sdk: {
+      input: DescribePipelineDefinitionForExecutionCommandInput;
+      output: DescribePipelineDefinitionForExecutionCommandOutput;
+    };
+  };
+}

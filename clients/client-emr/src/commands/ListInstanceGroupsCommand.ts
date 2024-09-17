@@ -199,4 +199,16 @@ export class ListInstanceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceGroupsCommand)
   .de(de_ListInstanceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceGroupsInput;
+      output: ListInstanceGroupsOutput;
+    };
+    sdk: {
+      input: ListInstanceGroupsCommandInput;
+      output: ListInstanceGroupsCommandOutput;
+    };
+  };
+}

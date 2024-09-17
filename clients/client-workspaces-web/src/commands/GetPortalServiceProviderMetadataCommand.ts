@@ -98,4 +98,16 @@ export class GetPortalServiceProviderMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPortalServiceProviderMetadataCommand)
   .de(de_GetPortalServiceProviderMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPortalServiceProviderMetadataRequest;
+      output: GetPortalServiceProviderMetadataResponse;
+    };
+    sdk: {
+      input: GetPortalServiceProviderMetadataCommandInput;
+      output: GetPortalServiceProviderMetadataCommandOutput;
+    };
+  };
+}

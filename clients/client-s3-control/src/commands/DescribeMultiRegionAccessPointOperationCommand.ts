@@ -167,4 +167,16 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMultiRegionAccessPointOperationCommand)
   .de(de_DescribeMultiRegionAccessPointOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMultiRegionAccessPointOperationRequest;
+      output: DescribeMultiRegionAccessPointOperationResult;
+    };
+    sdk: {
+      input: DescribeMultiRegionAccessPointOperationCommandInput;
+      output: DescribeMultiRegionAccessPointOperationCommandOutput;
+    };
+  };
+}

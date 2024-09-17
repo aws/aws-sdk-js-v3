@@ -125,4 +125,16 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrderableReplicationInstancesCommand)
   .de(de_DescribeOrderableReplicationInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrderableReplicationInstancesMessage;
+      output: DescribeOrderableReplicationInstancesResponse;
+    };
+    sdk: {
+      input: DescribeOrderableReplicationInstancesCommandInput;
+      output: DescribeOrderableReplicationInstancesCommandOutput;
+    };
+  };
+}

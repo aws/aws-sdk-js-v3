@@ -97,4 +97,16 @@ export class DeleteProfileKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProfileKeyCommand)
   .de(de_DeleteProfileKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProfileKeyRequest;
+      output: DeleteProfileKeyResponse;
+    };
+    sdk: {
+      input: DeleteProfileKeyCommandInput;
+      output: DeleteProfileKeyCommandOutput;
+    };
+  };
+}

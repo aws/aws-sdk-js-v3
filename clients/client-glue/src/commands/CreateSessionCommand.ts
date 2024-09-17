@@ -156,4 +156,16 @@ export class CreateSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSessionCommand)
   .de(de_CreateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSessionRequest;
+      output: CreateSessionResponse;
+    };
+    sdk: {
+      input: CreateSessionCommandInput;
+      output: CreateSessionCommandOutput;
+    };
+  };
+}

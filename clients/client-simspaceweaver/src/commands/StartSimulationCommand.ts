@@ -118,4 +118,16 @@ export class StartSimulationCommand extends $Command
   .f(StartSimulationInputFilterSensitiveLog, void 0)
   .ser(se_StartSimulationCommand)
   .de(de_StartSimulationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSimulationInput;
+      output: StartSimulationOutput;
+    };
+    sdk: {
+      input: StartSimulationCommandInput;
+      output: StartSimulationCommandOutput;
+    };
+  };
+}

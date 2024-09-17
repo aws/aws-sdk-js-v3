@@ -108,4 +108,16 @@ export class DeleteStateMachineVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStateMachineVersionCommand)
   .de(de_DeleteStateMachineVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStateMachineVersionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStateMachineVersionCommandInput;
+      output: DeleteStateMachineVersionCommandOutput;
+    };
+  };
+}

@@ -5106,4 +5106,16 @@ export class DescribeDashboardDefinitionCommand extends $Command
   .f(void 0, DescribeDashboardDefinitionResponseFilterSensitiveLog)
   .ser(se_DescribeDashboardDefinitionCommand)
   .de(de_DescribeDashboardDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDashboardDefinitionRequest;
+      output: DescribeDashboardDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeDashboardDefinitionCommandInput;
+      output: DescribeDashboardDefinitionCommandOutput;
+    };
+  };
+}

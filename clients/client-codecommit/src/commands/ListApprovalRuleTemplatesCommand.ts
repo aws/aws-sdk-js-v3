@@ -88,4 +88,16 @@ export class ListApprovalRuleTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApprovalRuleTemplatesCommand)
   .de(de_ListApprovalRuleTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApprovalRuleTemplatesInput;
+      output: ListApprovalRuleTemplatesOutput;
+    };
+    sdk: {
+      input: ListApprovalRuleTemplatesCommandInput;
+      output: ListApprovalRuleTemplatesCommandOutput;
+    };
+  };
+}

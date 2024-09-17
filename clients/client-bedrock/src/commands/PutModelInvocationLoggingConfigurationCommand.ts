@@ -112,4 +112,16 @@ export class PutModelInvocationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutModelInvocationLoggingConfigurationCommand)
   .de(de_PutModelInvocationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutModelInvocationLoggingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutModelInvocationLoggingConfigurationCommandInput;
+      output: PutModelInvocationLoggingConfigurationCommandOutput;
+    };
+  };
+}

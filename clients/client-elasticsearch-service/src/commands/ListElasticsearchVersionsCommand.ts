@@ -97,4 +97,16 @@ export class ListElasticsearchVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListElasticsearchVersionsCommand)
   .de(de_ListElasticsearchVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListElasticsearchVersionsRequest;
+      output: ListElasticsearchVersionsResponse;
+    };
+    sdk: {
+      input: ListElasticsearchVersionsCommandInput;
+      output: ListElasticsearchVersionsCommandOutput;
+    };
+  };
+}

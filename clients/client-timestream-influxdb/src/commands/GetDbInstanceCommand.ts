@@ -121,4 +121,16 @@ export class GetDbInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDbInstanceCommand)
   .de(de_GetDbInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDbInstanceInput;
+      output: GetDbInstanceOutput;
+    };
+    sdk: {
+      input: GetDbInstanceCommandInput;
+      output: GetDbInstanceCommandOutput;
+    };
+  };
+}

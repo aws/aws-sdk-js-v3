@@ -208,4 +208,16 @@ export class PauseReplicationCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_PauseReplicationCommand)
   .de(de_PauseReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PauseReplicationRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: PauseReplicationCommandInput;
+      output: PauseReplicationCommandOutput;
+    };
+  };
+}

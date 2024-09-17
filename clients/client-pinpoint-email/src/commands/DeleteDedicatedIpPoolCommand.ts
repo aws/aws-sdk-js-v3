@@ -87,4 +87,16 @@ export class DeleteDedicatedIpPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDedicatedIpPoolCommand)
   .de(de_DeleteDedicatedIpPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDedicatedIpPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDedicatedIpPoolCommandInput;
+      output: DeleteDedicatedIpPoolCommandOutput;
+    };
+  };
+}

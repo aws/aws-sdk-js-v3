@@ -98,4 +98,16 @@ export class FinalizeDeviceClaimCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FinalizeDeviceClaimCommand)
   .de(de_FinalizeDeviceClaimCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FinalizeDeviceClaimRequest;
+      output: FinalizeDeviceClaimResponse;
+    };
+    sdk: {
+      input: FinalizeDeviceClaimCommandInput;
+      output: FinalizeDeviceClaimCommandOutput;
+    };
+  };
+}

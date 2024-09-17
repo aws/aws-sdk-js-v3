@@ -131,4 +131,16 @@ export class ListAssignmentsForHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssignmentsForHITCommand)
   .de(de_ListAssignmentsForHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssignmentsForHITRequest;
+      output: ListAssignmentsForHITResponse;
+    };
+    sdk: {
+      input: ListAssignmentsForHITCommandInput;
+      output: ListAssignmentsForHITCommandOutput;
+    };
+  };
+}

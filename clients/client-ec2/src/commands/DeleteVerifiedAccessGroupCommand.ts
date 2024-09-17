@@ -98,4 +98,16 @@ export class DeleteVerifiedAccessGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedAccessGroupCommand)
   .de(de_DeleteVerifiedAccessGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedAccessGroupRequest;
+      output: DeleteVerifiedAccessGroupResult;
+    };
+    sdk: {
+      input: DeleteVerifiedAccessGroupCommandInput;
+      output: DeleteVerifiedAccessGroupCommandOutput;
+    };
+  };
+}

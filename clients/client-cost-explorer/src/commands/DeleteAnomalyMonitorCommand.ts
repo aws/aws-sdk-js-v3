@@ -81,4 +81,16 @@ export class DeleteAnomalyMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnomalyMonitorCommand)
   .de(de_DeleteAnomalyMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnomalyMonitorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAnomalyMonitorCommandInput;
+      output: DeleteAnomalyMonitorCommandOutput;
+    };
+  };
+}

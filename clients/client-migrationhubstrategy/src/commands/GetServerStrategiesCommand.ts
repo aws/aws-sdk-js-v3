@@ -112,4 +112,16 @@ export class GetServerStrategiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServerStrategiesCommand)
   .de(de_GetServerStrategiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServerStrategiesRequest;
+      output: GetServerStrategiesResponse;
+    };
+    sdk: {
+      input: GetServerStrategiesCommandInput;
+      output: GetServerStrategiesCommandOutput;
+    };
+  };
+}

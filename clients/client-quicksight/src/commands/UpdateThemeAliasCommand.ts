@@ -110,4 +110,16 @@ export class UpdateThemeAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThemeAliasCommand)
   .de(de_UpdateThemeAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThemeAliasRequest;
+      output: UpdateThemeAliasResponse;
+    };
+    sdk: {
+      input: UpdateThemeAliasCommandInput;
+      output: UpdateThemeAliasCommandOutput;
+    };
+  };
+}

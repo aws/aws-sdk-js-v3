@@ -125,4 +125,16 @@ export class ListImageRecipesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageRecipesCommand)
   .de(de_ListImageRecipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageRecipesRequest;
+      output: ListImageRecipesResponse;
+    };
+    sdk: {
+      input: ListImageRecipesCommandInput;
+      output: ListImageRecipesCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class GetInstanceTpmEkPubCommand extends $Command
   .f(void 0, GetInstanceTpmEkPubResultFilterSensitiveLog)
   .ser(se_GetInstanceTpmEkPubCommand)
   .de(de_GetInstanceTpmEkPubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceTpmEkPubRequest;
+      output: GetInstanceTpmEkPubResult;
+    };
+    sdk: {
+      input: GetInstanceTpmEkPubCommandInput;
+      output: GetInstanceTpmEkPubCommandOutput;
+    };
+  };
+}

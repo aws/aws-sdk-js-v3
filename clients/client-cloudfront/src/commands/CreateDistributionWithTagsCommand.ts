@@ -963,4 +963,16 @@ export class CreateDistributionWithTagsCommand extends $Command
   .f(CreateDistributionWithTagsRequestFilterSensitiveLog, CreateDistributionWithTagsResultFilterSensitiveLog)
   .ser(se_CreateDistributionWithTagsCommand)
   .de(de_CreateDistributionWithTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDistributionWithTagsRequest;
+      output: CreateDistributionWithTagsResult;
+    };
+    sdk: {
+      input: CreateDistributionWithTagsCommandInput;
+      output: CreateDistributionWithTagsCommandOutput;
+    };
+  };
+}

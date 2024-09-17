@@ -115,4 +115,16 @@ export class DescribeAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAcceleratorCommand)
   .de(de_DescribeAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAcceleratorRequest;
+      output: DescribeAcceleratorResponse;
+    };
+    sdk: {
+      input: DescribeAcceleratorCommandInput;
+      output: DescribeAcceleratorCommandOutput;
+    };
+  };
+}

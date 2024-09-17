@@ -95,4 +95,16 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCloudFrontOriginAccessIdentityCommand)
   .de(de_DeleteCloudFrontOriginAccessIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCloudFrontOriginAccessIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCloudFrontOriginAccessIdentityCommandInput;
+      output: DeleteCloudFrontOriginAccessIdentityCommandOutput;
+    };
+  };
+}

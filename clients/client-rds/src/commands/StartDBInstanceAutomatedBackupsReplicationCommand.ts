@@ -189,4 +189,16 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBInstanceAutomatedBackupsReplicationCommand)
   .de(de_StartDBInstanceAutomatedBackupsReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBInstanceAutomatedBackupsReplicationMessage;
+      output: StartDBInstanceAutomatedBackupsReplicationResult;
+    };
+    sdk: {
+      input: StartDBInstanceAutomatedBackupsReplicationCommandInput;
+      output: StartDBInstanceAutomatedBackupsReplicationCommandOutput;
+    };
+  };
+}

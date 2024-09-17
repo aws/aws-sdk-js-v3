@@ -117,4 +117,16 @@ export class GetModelImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelImportJobCommand)
   .de(de_GetModelImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelImportJobRequest;
+      output: GetModelImportJobResponse;
+    };
+    sdk: {
+      input: GetModelImportJobCommandInput;
+      output: GetModelImportJobCommandOutput;
+    };
+  };
+}

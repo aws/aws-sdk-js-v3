@@ -106,4 +106,16 @@ export class DeleteTransformerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransformerCommand)
   .de(de_DeleteTransformerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransformerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTransformerCommandInput;
+      output: DeleteTransformerCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ListLexBotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLexBotsCommand)
   .de(de_ListLexBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLexBotsRequest;
+      output: ListLexBotsResponse;
+    };
+    sdk: {
+      input: ListLexBotsCommandInput;
+      output: ListLexBotsCommandOutput;
+    };
+  };
+}

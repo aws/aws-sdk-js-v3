@@ -97,4 +97,16 @@ export class DescribeMacHostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMacHostsCommand)
   .de(de_DescribeMacHostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMacHostsRequest;
+      output: DescribeMacHostsResult;
+    };
+    sdk: {
+      input: DescribeMacHostsCommandInput;
+      output: DescribeMacHostsCommandOutput;
+    };
+  };
+}

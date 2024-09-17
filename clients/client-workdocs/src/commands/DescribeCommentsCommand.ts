@@ -141,4 +141,16 @@ export class DescribeCommentsCommand extends $Command
   .f(DescribeCommentsRequestFilterSensitiveLog, DescribeCommentsResponseFilterSensitiveLog)
   .ser(se_DescribeCommentsCommand)
   .de(de_DescribeCommentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCommentsRequest;
+      output: DescribeCommentsResponse;
+    };
+    sdk: {
+      input: DescribeCommentsCommandInput;
+      output: DescribeCommentsCommandOutput;
+    };
+  };
+}

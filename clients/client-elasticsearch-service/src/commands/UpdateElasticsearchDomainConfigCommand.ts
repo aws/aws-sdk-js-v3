@@ -410,4 +410,16 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command
   .f(UpdateElasticsearchDomainConfigRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateElasticsearchDomainConfigCommand)
   .de(de_UpdateElasticsearchDomainConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateElasticsearchDomainConfigRequest;
+      output: UpdateElasticsearchDomainConfigResponse;
+    };
+    sdk: {
+      input: UpdateElasticsearchDomainConfigCommandInput;
+      output: UpdateElasticsearchDomainConfigCommandOutput;
+    };
+  };
+}

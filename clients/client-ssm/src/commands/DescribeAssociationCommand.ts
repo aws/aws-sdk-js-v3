@@ -232,4 +232,16 @@ export class DescribeAssociationCommand extends $Command
   .f(void 0, DescribeAssociationResultFilterSensitiveLog)
   .ser(se_DescribeAssociationCommand)
   .de(de_DescribeAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssociationRequest;
+      output: DescribeAssociationResult;
+    };
+    sdk: {
+      input: DescribeAssociationCommandInput;
+      output: DescribeAssociationCommandOutput;
+    };
+  };
+}

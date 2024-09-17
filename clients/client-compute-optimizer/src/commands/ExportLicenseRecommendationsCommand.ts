@@ -138,4 +138,16 @@ export class ExportLicenseRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportLicenseRecommendationsCommand)
   .de(de_ExportLicenseRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportLicenseRecommendationsRequest;
+      output: ExportLicenseRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportLicenseRecommendationsCommandInput;
+      output: ExportLicenseRecommendationsCommandOutput;
+    };
+  };
+}

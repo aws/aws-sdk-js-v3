@@ -348,4 +348,16 @@ export class DescribeClusterOperationV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterOperationV2Command)
   .de(de_DescribeClusterOperationV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterOperationV2Request;
+      output: DescribeClusterOperationV2Response;
+    };
+    sdk: {
+      input: DescribeClusterOperationV2CommandInput;
+      output: DescribeClusterOperationV2CommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class ListEntityPersonasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntityPersonasCommand)
   .de(de_ListEntityPersonasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntityPersonasRequest;
+      output: ListEntityPersonasResponse;
+    };
+    sdk: {
+      input: ListEntityPersonasCommandInput;
+      output: ListEntityPersonasCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class AttachDiskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachDiskCommand)
   .de(de_AttachDiskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachDiskRequest;
+      output: AttachDiskResult;
+    };
+    sdk: {
+      input: AttachDiskCommandInput;
+      output: AttachDiskCommandOutput;
+    };
+  };
+}

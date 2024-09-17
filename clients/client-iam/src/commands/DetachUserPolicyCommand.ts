@@ -96,4 +96,16 @@ export class DetachUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachUserPolicyCommand)
   .de(de_DetachUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachUserPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachUserPolicyCommandInput;
+      output: DetachUserPolicyCommandOutput;
+    };
+  };
+}

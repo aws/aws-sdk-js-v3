@@ -126,4 +126,16 @@ export class GetSparqlStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSparqlStatisticsCommand)
   .de(de_GetSparqlStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSparqlStatisticsOutput;
+    };
+    sdk: {
+      input: GetSparqlStatisticsCommandInput;
+      output: GetSparqlStatisticsCommandOutput;
+    };
+  };
+}

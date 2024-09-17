@@ -105,4 +105,16 @@ export class StartMailboxExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMailboxExportJobCommand)
   .de(de_StartMailboxExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMailboxExportJobRequest;
+      output: StartMailboxExportJobResponse;
+    };
+    sdk: {
+      input: StartMailboxExportJobCommandInput;
+      output: StartMailboxExportJobCommandOutput;
+    };
+  };
+}

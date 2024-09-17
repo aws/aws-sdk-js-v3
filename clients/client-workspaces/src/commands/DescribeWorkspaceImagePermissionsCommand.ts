@@ -99,4 +99,16 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceImagePermissionsCommand)
   .de(de_DescribeWorkspaceImagePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceImagePermissionsRequest;
+      output: DescribeWorkspaceImagePermissionsResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceImagePermissionsCommandInput;
+      output: DescribeWorkspaceImagePermissionsCommandOutput;
+    };
+  };
+}

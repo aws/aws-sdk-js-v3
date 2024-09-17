@@ -209,4 +209,16 @@ export class CreateMediaConcatenationPipelineCommand extends $Command
   )
   .ser(se_CreateMediaConcatenationPipelineCommand)
   .de(de_CreateMediaConcatenationPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaConcatenationPipelineRequest;
+      output: CreateMediaConcatenationPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaConcatenationPipelineCommandInput;
+      output: CreateMediaConcatenationPipelineCommandOutput;
+    };
+  };
+}

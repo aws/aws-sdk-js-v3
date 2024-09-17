@@ -108,4 +108,16 @@ export class UpdateRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRevisionCommand)
   .de(de_UpdateRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRevisionRequest;
+      output: UpdateRevisionResponse;
+    };
+    sdk: {
+      input: UpdateRevisionCommandInput;
+      output: UpdateRevisionCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedElasticsearchInstancesCommand)
   .de(de_DescribeReservedElasticsearchInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedElasticsearchInstancesRequest;
+      output: DescribeReservedElasticsearchInstancesResponse;
+    };
+    sdk: {
+      input: DescribeReservedElasticsearchInstancesCommandInput;
+      output: DescribeReservedElasticsearchInstancesCommandOutput;
+    };
+  };
+}

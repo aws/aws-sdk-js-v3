@@ -97,4 +97,16 @@ export class ListStreamKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamKeysCommand)
   .de(de_ListStreamKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamKeysRequest;
+      output: ListStreamKeysResponse;
+    };
+    sdk: {
+      input: ListStreamKeysCommandInput;
+      output: ListStreamKeysCommandOutput;
+    };
+  };
+}

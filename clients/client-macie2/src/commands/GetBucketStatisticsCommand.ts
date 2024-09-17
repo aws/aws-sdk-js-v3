@@ -163,4 +163,16 @@ export class GetBucketStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketStatisticsCommand)
   .de(de_GetBucketStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketStatisticsRequest;
+      output: GetBucketStatisticsResponse;
+    };
+    sdk: {
+      input: GetBucketStatisticsCommandInput;
+      output: GetBucketStatisticsCommandOutput;
+    };
+  };
+}

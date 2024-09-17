@@ -131,4 +131,16 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   .f(void 0, void 0)
   .ser(se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand)
   .de(de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput;
+      output: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput;
+    };
+    sdk: {
+      input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput;
+      output: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput;
+    };
+  };
+}

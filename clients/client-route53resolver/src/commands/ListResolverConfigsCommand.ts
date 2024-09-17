@@ -111,4 +111,16 @@ export class ListResolverConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverConfigsCommand)
   .de(de_ListResolverConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverConfigsRequest;
+      output: ListResolverConfigsResponse;
+    };
+    sdk: {
+      input: ListResolverConfigsCommandInput;
+      output: ListResolverConfigsCommandOutput;
+    };
+  };
+}

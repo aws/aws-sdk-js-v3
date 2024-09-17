@@ -161,4 +161,16 @@ export class StartPipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipelineCommand)
   .de(de_StartPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipelineRequest;
+      output: StartPipelineResponse;
+    };
+    sdk: {
+      input: StartPipelineCommandInput;
+      output: StartPipelineCommandOutput;
+    };
+  };
+}

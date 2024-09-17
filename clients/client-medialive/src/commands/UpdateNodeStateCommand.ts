@@ -120,4 +120,16 @@ export class UpdateNodeStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNodeStateCommand)
   .de(de_UpdateNodeStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNodeStateRequest;
+      output: UpdateNodeStateResponse;
+    };
+    sdk: {
+      input: UpdateNodeStateCommandInput;
+      output: UpdateNodeStateCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class RegisterEventTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterEventTopicCommand)
   .de(de_RegisterEventTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterEventTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterEventTopicCommandInput;
+      output: RegisterEventTopicCommandOutput;
+    };
+  };
+}

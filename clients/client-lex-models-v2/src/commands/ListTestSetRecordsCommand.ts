@@ -184,4 +184,16 @@ export class ListTestSetRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestSetRecordsCommand)
   .de(de_ListTestSetRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestSetRecordsRequest;
+      output: ListTestSetRecordsResponse;
+    };
+    sdk: {
+      input: ListTestSetRecordsCommandInput;
+      output: ListTestSetRecordsCommandOutput;
+    };
+  };
+}

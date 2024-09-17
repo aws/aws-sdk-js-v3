@@ -112,4 +112,16 @@ export class StopReplicationToReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopReplicationToReplicaCommand)
   .de(de_StopReplicationToReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopReplicationToReplicaRequest;
+      output: StopReplicationToReplicaResponse;
+    };
+    sdk: {
+      input: StopReplicationToReplicaCommandInput;
+      output: StopReplicationToReplicaCommandOutput;
+    };
+  };
+}

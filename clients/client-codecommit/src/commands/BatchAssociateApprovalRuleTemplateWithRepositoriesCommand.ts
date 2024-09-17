@@ -131,4 +131,16 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
   .f(void 0, void 0)
   .ser(se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand)
   .de(de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput;
+      output: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput;
+    };
+    sdk: {
+      input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput;
+      output: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class UpdateAccessLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessLogSubscriptionCommand)
   .de(de_UpdateAccessLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessLogSubscriptionRequest;
+      output: UpdateAccessLogSubscriptionResponse;
+    };
+    sdk: {
+      input: UpdateAccessLogSubscriptionCommandInput;
+      output: UpdateAccessLogSubscriptionCommandOutput;
+    };
+  };
+}

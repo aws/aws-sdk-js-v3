@@ -112,4 +112,16 @@ export class ListInputRoutingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputRoutingsCommand)
   .de(de_ListInputRoutingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputRoutingsRequest;
+      output: ListInputRoutingsResponse;
+    };
+    sdk: {
+      input: ListInputRoutingsCommandInput;
+      output: ListInputRoutingsCommandOutput;
+    };
+  };
+}

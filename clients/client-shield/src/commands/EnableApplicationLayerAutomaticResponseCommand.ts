@@ -121,4 +121,16 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableApplicationLayerAutomaticResponseCommand)
   .de(de_EnableApplicationLayerAutomaticResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableApplicationLayerAutomaticResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableApplicationLayerAutomaticResponseCommandInput;
+      output: EnableApplicationLayerAutomaticResponseCommandOutput;
+    };
+  };
+}

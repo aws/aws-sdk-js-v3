@@ -97,4 +97,16 @@ export class GetContainerRecipePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerRecipePolicyCommand)
   .de(de_GetContainerRecipePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerRecipePolicyRequest;
+      output: GetContainerRecipePolicyResponse;
+    };
+    sdk: {
+      input: GetContainerRecipePolicyCommandInput;
+      output: GetContainerRecipePolicyCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class GetCellCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCellCommand)
   .de(de_GetCellCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCellRequest;
+      output: GetCellResponse;
+    };
+    sdk: {
+      input: GetCellCommandInput;
+      output: GetCellCommandOutput;
+    };
+  };
+}

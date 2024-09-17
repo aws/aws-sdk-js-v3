@@ -110,4 +110,16 @@ export class AddEntityOwnerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddEntityOwnerCommand)
   .de(de_AddEntityOwnerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddEntityOwnerInput;
+      output: {};
+    };
+    sdk: {
+      input: AddEntityOwnerCommandInput;
+      output: AddEntityOwnerCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class ListComponentProvisionedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComponentProvisionedResourcesCommand)
   .de(de_ListComponentProvisionedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentProvisionedResourcesInput;
+      output: ListComponentProvisionedResourcesOutput;
+    };
+    sdk: {
+      input: ListComponentProvisionedResourcesCommandInput;
+      output: ListComponentProvisionedResourcesCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class StopGameSessionPlacementCommand extends $Command
   .f(void 0, StopGameSessionPlacementOutputFilterSensitiveLog)
   .ser(se_StopGameSessionPlacementCommand)
   .de(de_StopGameSessionPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopGameSessionPlacementInput;
+      output: StopGameSessionPlacementOutput;
+    };
+    sdk: {
+      input: StopGameSessionPlacementCommandInput;
+      output: StopGameSessionPlacementCommandOutput;
+    };
+  };
+}

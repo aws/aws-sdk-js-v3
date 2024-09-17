@@ -130,4 +130,16 @@ export class CreateAccessGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessGrantCommand)
   .de(de_CreateAccessGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessGrantRequest;
+      output: CreateAccessGrantResult;
+    };
+    sdk: {
+      input: CreateAccessGrantCommandInput;
+      output: CreateAccessGrantCommandOutput;
+    };
+  };
+}

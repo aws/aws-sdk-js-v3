@@ -101,4 +101,16 @@ export class GetTrustStoreCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrustStoreCertificateCommand)
   .de(de_GetTrustStoreCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrustStoreCertificateRequest;
+      output: GetTrustStoreCertificateResponse;
+    };
+    sdk: {
+      input: GetTrustStoreCertificateCommandInput;
+      output: GetTrustStoreCertificateCommandOutput;
+    };
+  };
+}

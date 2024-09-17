@@ -129,4 +129,16 @@ export class UpdateRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRouteCommand)
   .de(de_UpdateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRouteRequest;
+      output: UpdateRouteResult;
+    };
+    sdk: {
+      input: UpdateRouteCommandInput;
+      output: UpdateRouteCommandOutput;
+    };
+  };
+}

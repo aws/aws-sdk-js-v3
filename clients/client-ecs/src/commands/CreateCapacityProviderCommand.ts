@@ -157,4 +157,16 @@ export class CreateCapacityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCapacityProviderCommand)
   .de(de_CreateCapacityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCapacityProviderRequest;
+      output: CreateCapacityProviderResponse;
+    };
+    sdk: {
+      input: CreateCapacityProviderCommandInput;
+      output: CreateCapacityProviderCommandOutput;
+    };
+  };
+}

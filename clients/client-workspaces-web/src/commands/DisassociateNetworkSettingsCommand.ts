@@ -98,4 +98,16 @@ export class DisassociateNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateNetworkSettingsCommand)
   .de(de_DisassociateNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateNetworkSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateNetworkSettingsCommandInput;
+      output: DisassociateNetworkSettingsCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class DescribeSimulationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSimulationCommand)
   .de(de_DescribeSimulationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSimulationInput;
+      output: DescribeSimulationOutput;
+    };
+    sdk: {
+      input: DescribeSimulationCommandInput;
+      output: DescribeSimulationCommandOutput;
+    };
+  };
+}

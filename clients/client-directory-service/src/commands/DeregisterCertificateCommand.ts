@@ -101,4 +101,16 @@ export class DeregisterCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterCertificateCommand)
   .de(de_DeregisterCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterCertificateCommandInput;
+      output: DeregisterCertificateCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class CancelBatchPredictionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelBatchPredictionJobCommand)
   .de(de_CancelBatchPredictionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelBatchPredictionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelBatchPredictionJobCommandInput;
+      output: CancelBatchPredictionJobCommandOutput;
+    };
+  };
+}

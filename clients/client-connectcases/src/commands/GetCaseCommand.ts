@@ -117,4 +117,16 @@ export class GetCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCaseCommand)
   .de(de_GetCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCaseRequest;
+      output: GetCaseResponse;
+    };
+    sdk: {
+      input: GetCaseCommandInput;
+      output: GetCaseCommandOutput;
+    };
+  };
+}

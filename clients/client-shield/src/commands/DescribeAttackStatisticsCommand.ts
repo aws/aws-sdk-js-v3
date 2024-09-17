@@ -99,4 +99,16 @@ export class DescribeAttackStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAttackStatisticsCommand)
   .de(de_DescribeAttackStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAttackStatisticsResponse;
+    };
+    sdk: {
+      input: DescribeAttackStatisticsCommandInput;
+      output: DescribeAttackStatisticsCommandOutput;
+    };
+  };
+}

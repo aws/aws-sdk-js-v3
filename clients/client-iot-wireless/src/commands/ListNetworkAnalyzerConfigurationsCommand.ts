@@ -104,4 +104,16 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworkAnalyzerConfigurationsCommand)
   .de(de_ListNetworkAnalyzerConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkAnalyzerConfigurationsRequest;
+      output: ListNetworkAnalyzerConfigurationsResponse;
+    };
+    sdk: {
+      input: ListNetworkAnalyzerConfigurationsCommandInput;
+      output: ListNetworkAnalyzerConfigurationsCommandOutput;
+    };
+  };
+}

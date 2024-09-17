@@ -166,4 +166,16 @@ export class DescribeVpcsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcsCommand)
   .de(de_DescribeVpcsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcsRequest;
+      output: DescribeVpcsResult;
+    };
+    sdk: {
+      input: DescribeVpcsCommandInput;
+      output: DescribeVpcsCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class StartMaintenanceCommand extends $Command
   .f(StartMaintenanceRequestFilterSensitiveLog, StartMaintenanceResponseFilterSensitiveLog)
   .ser(se_StartMaintenanceCommand)
   .de(de_StartMaintenanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMaintenanceRequest;
+      output: StartMaintenanceResponse;
+    };
+    sdk: {
+      input: StartMaintenanceCommandInput;
+      output: StartMaintenanceCommandOutput;
+    };
+  };
+}

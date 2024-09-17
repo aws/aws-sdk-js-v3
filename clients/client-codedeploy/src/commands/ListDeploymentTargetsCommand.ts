@@ -116,4 +116,16 @@ export class ListDeploymentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentTargetsCommand)
   .de(de_ListDeploymentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentTargetsInput;
+      output: ListDeploymentTargetsOutput;
+    };
+    sdk: {
+      input: ListDeploymentTargetsCommandInput;
+      output: ListDeploymentTargetsCommandOutput;
+    };
+  };
+}

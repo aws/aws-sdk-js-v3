@@ -221,4 +221,16 @@ export class PublishVersionCommand extends $Command
   .f(void 0, FunctionConfigurationFilterSensitiveLog)
   .ser(se_PublishVersionCommand)
   .de(de_PublishVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishVersionRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: PublishVersionCommandInput;
+      output: PublishVersionCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DescribeMyUserProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMyUserProfileCommand)
   .de(de_DescribeMyUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeMyUserProfileResult;
+    };
+    sdk: {
+      input: DescribeMyUserProfileCommandInput;
+      output: DescribeMyUserProfileCommandOutput;
+    };
+  };
+}

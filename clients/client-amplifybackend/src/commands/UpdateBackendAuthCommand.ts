@@ -177,4 +177,16 @@ export class UpdateBackendAuthCommand extends $Command
   .f(UpdateBackendAuthRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateBackendAuthCommand)
   .de(de_UpdateBackendAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackendAuthRequest;
+      output: UpdateBackendAuthResponse;
+    };
+    sdk: {
+      input: UpdateBackendAuthCommandInput;
+      output: UpdateBackendAuthCommandOutput;
+    };
+  };
+}

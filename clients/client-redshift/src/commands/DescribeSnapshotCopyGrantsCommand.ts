@@ -110,4 +110,16 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotCopyGrantsCommand)
   .de(de_DescribeSnapshotCopyGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotCopyGrantsMessage;
+      output: SnapshotCopyGrantMessage;
+    };
+    sdk: {
+      input: DescribeSnapshotCopyGrantsCommandInput;
+      output: DescribeSnapshotCopyGrantsCommandOutput;
+    };
+  };
+}

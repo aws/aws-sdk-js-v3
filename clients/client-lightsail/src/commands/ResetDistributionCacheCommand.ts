@@ -124,4 +124,16 @@ export class ResetDistributionCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetDistributionCacheCommand)
   .de(de_ResetDistributionCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetDistributionCacheRequest;
+      output: ResetDistributionCacheResult;
+    };
+    sdk: {
+      input: ResetDistributionCacheCommandInput;
+      output: ResetDistributionCacheCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class CreateDataCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataCatalogCommand)
   .de(de_CreateDataCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataCatalogInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateDataCatalogCommandInput;
+      output: CreateDataCatalogCommandOutput;
+    };
+  };
+}

@@ -220,4 +220,16 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyLoadBalancerAttributesCommand)
   .de(de_ModifyLoadBalancerAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyLoadBalancerAttributesInput;
+      output: ModifyLoadBalancerAttributesOutput;
+    };
+    sdk: {
+      input: ModifyLoadBalancerAttributesCommandInput;
+      output: ModifyLoadBalancerAttributesCommandOutput;
+    };
+  };
+}

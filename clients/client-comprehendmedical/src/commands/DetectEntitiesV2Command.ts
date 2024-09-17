@@ -169,4 +169,16 @@ export class DetectEntitiesV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_DetectEntitiesV2Command)
   .de(de_DetectEntitiesV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectEntitiesV2Request;
+      output: DetectEntitiesV2Response;
+    };
+    sdk: {
+      input: DetectEntitiesV2CommandInput;
+      output: DetectEntitiesV2CommandOutput;
+    };
+  };
+}

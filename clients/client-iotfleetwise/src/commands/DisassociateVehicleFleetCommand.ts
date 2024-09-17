@@ -96,4 +96,16 @@ export class DisassociateVehicleFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateVehicleFleetCommand)
   .de(de_DisassociateVehicleFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateVehicleFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateVehicleFleetCommandInput;
+      output: DisassociateVehicleFleetCommandOutput;
+    };
+  };
+}

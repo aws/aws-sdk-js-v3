@@ -71,4 +71,16 @@ export class MalformedListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedListCommand)
   .de(de_MalformedListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedListInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedListCommandInput;
+      output: MalformedListCommandOutput;
+    };
+  };
+}

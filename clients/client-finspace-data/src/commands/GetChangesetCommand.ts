@@ -118,4 +118,16 @@ export class GetChangesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChangesetCommand)
   .de(de_GetChangesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChangesetRequest;
+      output: GetChangesetResponse;
+    };
+    sdk: {
+      input: GetChangesetCommandInput;
+      output: GetChangesetCommandOutput;
+    };
+  };
+}

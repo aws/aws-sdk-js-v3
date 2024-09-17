@@ -124,4 +124,16 @@ export class DeleteAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAutoScalingGroupCommand)
   .de(de_DeleteAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAutoScalingGroupType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAutoScalingGroupCommandInput;
+      output: DeleteAutoScalingGroupCommandOutput;
+    };
+  };
+}

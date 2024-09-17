@@ -134,4 +134,16 @@ export class UpdateRetrieverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRetrieverCommand)
   .de(de_UpdateRetrieverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRetrieverRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRetrieverCommandInput;
+      output: UpdateRetrieverCommandOutput;
+    };
+  };
+}

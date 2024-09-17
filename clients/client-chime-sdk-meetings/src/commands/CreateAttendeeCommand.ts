@@ -129,4 +129,16 @@ export class CreateAttendeeCommand extends $Command
   .f(CreateAttendeeRequestFilterSensitiveLog, CreateAttendeeResponseFilterSensitiveLog)
   .ser(se_CreateAttendeeCommand)
   .de(de_CreateAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAttendeeRequest;
+      output: CreateAttendeeResponse;
+    };
+    sdk: {
+      input: CreateAttendeeCommandInput;
+      output: CreateAttendeeCommandOutput;
+    };
+  };
+}

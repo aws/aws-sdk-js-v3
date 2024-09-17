@@ -170,4 +170,16 @@ export class GetTraceGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTraceGraphCommand)
   .de(de_GetTraceGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTraceGraphRequest;
+      output: GetTraceGraphResult;
+    };
+    sdk: {
+      input: GetTraceGraphCommandInput;
+      output: GetTraceGraphCommandOutput;
+    };
+  };
+}

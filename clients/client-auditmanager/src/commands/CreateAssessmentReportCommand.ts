@@ -109,4 +109,16 @@ export class CreateAssessmentReportCommand extends $Command
   .f(CreateAssessmentReportRequestFilterSensitiveLog, CreateAssessmentReportResponseFilterSensitiveLog)
   .ser(se_CreateAssessmentReportCommand)
   .de(de_CreateAssessmentReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentReportRequest;
+      output: CreateAssessmentReportResponse;
+    };
+    sdk: {
+      input: CreateAssessmentReportCommandInput;
+      output: CreateAssessmentReportCommandOutput;
+    };
+  };
+}

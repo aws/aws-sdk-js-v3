@@ -205,4 +205,16 @@ export class GetInAppMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInAppMessagesCommand)
   .de(de_GetInAppMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInAppMessagesRequest;
+      output: GetInAppMessagesResponse;
+    };
+    sdk: {
+      input: GetInAppMessagesCommandInput;
+      output: GetInAppMessagesCommandOutput;
+    };
+  };
+}

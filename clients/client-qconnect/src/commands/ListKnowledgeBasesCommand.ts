@@ -111,4 +111,16 @@ export class ListKnowledgeBasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKnowledgeBasesCommand)
   .de(de_ListKnowledgeBasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKnowledgeBasesRequest;
+      output: ListKnowledgeBasesResponse;
+    };
+    sdk: {
+      input: ListKnowledgeBasesCommandInput;
+      output: ListKnowledgeBasesCommandOutput;
+    };
+  };
+}

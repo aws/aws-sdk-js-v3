@@ -135,4 +135,16 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutVoiceConnectorStreamingConfigurationCommand)
   .de(de_PutVoiceConnectorStreamingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorStreamingConfigurationRequest;
+      output: PutVoiceConnectorStreamingConfigurationResponse;
+    };
+    sdk: {
+      input: PutVoiceConnectorStreamingConfigurationCommandInput;
+      output: PutVoiceConnectorStreamingConfigurationCommandOutput;
+    };
+  };
+}

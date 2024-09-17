@@ -159,4 +159,16 @@ export class GetRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationPreferencesCommand)
   .de(de_GetRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationPreferencesRequest;
+      output: GetRecommendationPreferencesResponse;
+    };
+    sdk: {
+      input: GetRecommendationPreferencesCommandInput;
+      output: GetRecommendationPreferencesCommandOutput;
+    };
+  };
+}

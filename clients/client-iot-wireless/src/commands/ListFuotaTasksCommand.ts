@@ -97,4 +97,16 @@ export class ListFuotaTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFuotaTasksCommand)
   .de(de_ListFuotaTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFuotaTasksRequest;
+      output: ListFuotaTasksResponse;
+    };
+    sdk: {
+      input: ListFuotaTasksCommandInput;
+      output: ListFuotaTasksCommandOutput;
+    };
+  };
+}

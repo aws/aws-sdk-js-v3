@@ -101,4 +101,16 @@ export class GetLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLandingZoneCommand)
   .de(de_GetLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLandingZoneInput;
+      output: GetLandingZoneOutput;
+    };
+    sdk: {
+      input: GetLandingZoneCommandInput;
+      output: GetLandingZoneCommandOutput;
+    };
+  };
+}

@@ -209,4 +209,16 @@ export class GetLaunchProfileDetailsCommand extends $Command
   .f(void 0, GetLaunchProfileDetailsResponseFilterSensitiveLog)
   .ser(se_GetLaunchProfileDetailsCommand)
   .de(de_GetLaunchProfileDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchProfileDetailsRequest;
+      output: GetLaunchProfileDetailsResponse;
+    };
+    sdk: {
+      input: GetLaunchProfileDetailsCommandInput;
+      output: GetLaunchProfileDetailsCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class DescribeQuickConnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQuickConnectCommand)
   .de(de_DescribeQuickConnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQuickConnectRequest;
+      output: DescribeQuickConnectResponse;
+    };
+    sdk: {
+      input: DescribeQuickConnectCommandInput;
+      output: DescribeQuickConnectCommandOutput;
+    };
+  };
+}

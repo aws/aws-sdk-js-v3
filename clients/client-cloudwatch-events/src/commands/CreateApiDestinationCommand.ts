@@ -99,4 +99,16 @@ export class CreateApiDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApiDestinationCommand)
   .de(de_CreateApiDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApiDestinationRequest;
+      output: CreateApiDestinationResponse;
+    };
+    sdk: {
+      input: CreateApiDestinationCommandInput;
+      output: CreateApiDestinationCommandOutput;
+    };
+  };
+}

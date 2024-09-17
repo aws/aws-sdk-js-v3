@@ -112,4 +112,16 @@ export class StartPolicyGenerationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPolicyGenerationCommand)
   .de(de_StartPolicyGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPolicyGenerationRequest;
+      output: StartPolicyGenerationResponse;
+    };
+    sdk: {
+      input: StartPolicyGenerationCommandInput;
+      output: StartPolicyGenerationCommandOutput;
+    };
+  };
+}

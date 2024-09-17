@@ -82,4 +82,16 @@ export class DeleteThreatIntelSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteThreatIntelSetCommand)
   .de(de_DeleteThreatIntelSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteThreatIntelSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteThreatIntelSetCommandInput;
+      output: DeleteThreatIntelSetCommandOutput;
+    };
+  };
+}

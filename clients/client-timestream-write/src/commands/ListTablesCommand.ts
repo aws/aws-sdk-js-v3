@@ -143,4 +143,16 @@ export class ListTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTablesCommand)
   .de(de_ListTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTablesRequest;
+      output: ListTablesResponse;
+    };
+    sdk: {
+      input: ListTablesCommandInput;
+      output: ListTablesCommandOutput;
+    };
+  };
+}

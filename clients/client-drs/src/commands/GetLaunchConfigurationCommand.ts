@@ -102,4 +102,16 @@ export class GetLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLaunchConfigurationCommand)
   .de(de_GetLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchConfigurationRequest;
+      output: LaunchConfiguration;
+    };
+    sdk: {
+      input: GetLaunchConfigurationCommandInput;
+      output: GetLaunchConfigurationCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class AddApplicationInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationInputCommand)
   .de(de_AddApplicationInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationInputRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddApplicationInputCommandInput;
+      output: AddApplicationInputCommandOutput;
+    };
+  };
+}

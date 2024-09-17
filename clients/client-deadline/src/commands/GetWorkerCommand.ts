@@ -125,4 +125,16 @@ export class GetWorkerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkerCommand)
   .de(de_GetWorkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkerRequest;
+      output: GetWorkerResponse;
+    };
+    sdk: {
+      input: GetWorkerCommandInput;
+      output: GetWorkerCommandOutput;
+    };
+  };
+}

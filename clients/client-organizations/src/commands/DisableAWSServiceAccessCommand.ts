@@ -455,4 +455,16 @@ export class DisableAWSServiceAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAWSServiceAccessCommand)
   .de(de_DisableAWSServiceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAWSServiceAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableAWSServiceAccessCommandInput;
+      output: DisableAWSServiceAccessCommandOutput;
+    };
+  };
+}

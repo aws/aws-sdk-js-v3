@@ -441,4 +441,16 @@ export class UpdatePipeCommand extends $Command
   .f(UpdatePipeRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePipeCommand)
   .de(de_UpdatePipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipeRequest;
+      output: UpdatePipeResponse;
+    };
+    sdk: {
+      input: UpdatePipeCommandInput;
+      output: UpdatePipeCommandOutput;
+    };
+  };
+}

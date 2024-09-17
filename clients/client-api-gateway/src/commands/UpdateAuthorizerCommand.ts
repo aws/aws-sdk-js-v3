@@ -115,4 +115,16 @@ export class UpdateAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAuthorizerCommand)
   .de(de_UpdateAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAuthorizerRequest;
+      output: Authorizer;
+    };
+    sdk: {
+      input: UpdateAuthorizerCommandInput;
+      output: UpdateAuthorizerCommandOutput;
+    };
+  };
+}

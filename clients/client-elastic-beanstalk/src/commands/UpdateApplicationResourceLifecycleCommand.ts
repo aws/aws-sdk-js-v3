@@ -119,4 +119,16 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationResourceLifecycleCommand)
   .de(de_UpdateApplicationResourceLifecycleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationResourceLifecycleMessage;
+      output: ApplicationResourceLifecycleDescriptionMessage;
+    };
+    sdk: {
+      input: UpdateApplicationResourceLifecycleCommandInput;
+      output: UpdateApplicationResourceLifecycleCommandOutput;
+    };
+  };
+}

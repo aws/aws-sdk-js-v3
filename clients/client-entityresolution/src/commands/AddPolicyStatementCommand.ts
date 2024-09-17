@@ -110,4 +110,16 @@ export class AddPolicyStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddPolicyStatementCommand)
   .de(de_AddPolicyStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddPolicyStatementInput;
+      output: AddPolicyStatementOutput;
+    };
+    sdk: {
+      input: AddPolicyStatementCommandInput;
+      output: AddPolicyStatementCommandOutput;
+    };
+  };
+}

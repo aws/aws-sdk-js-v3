@@ -166,4 +166,16 @@ export class CreatePartnershipCommand extends $Command
   .f(CreatePartnershipRequestFilterSensitiveLog, CreatePartnershipResponseFilterSensitiveLog)
   .ser(se_CreatePartnershipCommand)
   .de(de_CreatePartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePartnershipRequest;
+      output: CreatePartnershipResponse;
+    };
+    sdk: {
+      input: CreatePartnershipCommandInput;
+      output: CreatePartnershipCommandOutput;
+    };
+  };
+}

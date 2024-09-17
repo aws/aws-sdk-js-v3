@@ -165,4 +165,16 @@ export class AssociateResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResourceCommand)
   .de(de_AssociateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResourceRequest;
+      output: AssociateResourceResponse;
+    };
+    sdk: {
+      input: AssociateResourceCommandInput;
+      output: AssociateResourceCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class PostLineageEventCommand extends $Command
   .f(PostLineageEventInputFilterSensitiveLog, void 0)
   .ser(se_PostLineageEventCommand)
   .de(de_PostLineageEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostLineageEventInput;
+      output: {};
+    };
+    sdk: {
+      input: PostLineageEventCommandInput;
+      output: PostLineageEventCommandOutput;
+    };
+  };
+}

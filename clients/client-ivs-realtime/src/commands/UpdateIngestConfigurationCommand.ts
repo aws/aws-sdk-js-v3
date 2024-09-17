@@ -112,4 +112,16 @@ export class UpdateIngestConfigurationCommand extends $Command
   .f(void 0, UpdateIngestConfigurationResponseFilterSensitiveLog)
   .ser(se_UpdateIngestConfigurationCommand)
   .de(de_UpdateIngestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIngestConfigurationRequest;
+      output: UpdateIngestConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateIngestConfigurationCommandInput;
+      output: UpdateIngestConfigurationCommandOutput;
+    };
+  };
+}

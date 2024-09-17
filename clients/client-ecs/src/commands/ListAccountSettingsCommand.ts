@@ -177,4 +177,16 @@ export class ListAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountSettingsCommand)
   .de(de_ListAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountSettingsRequest;
+      output: ListAccountSettingsResponse;
+    };
+    sdk: {
+      input: ListAccountSettingsCommandInput;
+      output: ListAccountSettingsCommandOutput;
+    };
+  };
+}

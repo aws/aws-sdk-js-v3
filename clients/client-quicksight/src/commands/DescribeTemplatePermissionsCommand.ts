@@ -115,4 +115,16 @@ export class DescribeTemplatePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTemplatePermissionsCommand)
   .de(de_DescribeTemplatePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTemplatePermissionsRequest;
+      output: DescribeTemplatePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeTemplatePermissionsCommandInput;
+      output: DescribeTemplatePermissionsCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class ListTrainingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrainingJobsCommand)
   .de(de_ListTrainingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrainingJobsRequest;
+      output: ListTrainingJobsResponse;
+    };
+    sdk: {
+      input: ListTrainingJobsCommandInput;
+      output: ListTrainingJobsCommandOutput;
+    };
+  };
+}

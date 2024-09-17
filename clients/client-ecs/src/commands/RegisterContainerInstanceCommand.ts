@@ -222,4 +222,16 @@ export class RegisterContainerInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterContainerInstanceCommand)
   .de(de_RegisterContainerInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterContainerInstanceRequest;
+      output: RegisterContainerInstanceResponse;
+    };
+    sdk: {
+      input: RegisterContainerInstanceCommandInput;
+      output: RegisterContainerInstanceCommandOutput;
+    };
+  };
+}

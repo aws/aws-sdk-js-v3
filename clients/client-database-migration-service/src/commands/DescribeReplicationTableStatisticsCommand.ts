@@ -134,4 +134,16 @@ export class DescribeReplicationTableStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTableStatisticsCommand)
   .de(de_DescribeReplicationTableStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTableStatisticsMessage;
+      output: DescribeReplicationTableStatisticsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTableStatisticsCommandInput;
+      output: DescribeReplicationTableStatisticsCommandOutput;
+    };
+  };
+}

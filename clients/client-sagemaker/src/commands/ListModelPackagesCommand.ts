@@ -98,4 +98,16 @@ export class ListModelPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelPackagesCommand)
   .de(de_ListModelPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelPackagesInput;
+      output: ListModelPackagesOutput;
+    };
+    sdk: {
+      input: ListModelPackagesCommandInput;
+      output: ListModelPackagesCommandOutput;
+    };
+  };
+}

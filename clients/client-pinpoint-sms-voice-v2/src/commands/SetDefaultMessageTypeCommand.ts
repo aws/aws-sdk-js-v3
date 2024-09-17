@@ -107,4 +107,16 @@ export class SetDefaultMessageTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDefaultMessageTypeCommand)
   .de(de_SetDefaultMessageTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDefaultMessageTypeRequest;
+      output: SetDefaultMessageTypeResult;
+    };
+    sdk: {
+      input: SetDefaultMessageTypeCommandInput;
+      output: SetDefaultMessageTypeCommandOutput;
+    };
+  };
+}

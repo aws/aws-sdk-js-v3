@@ -94,4 +94,16 @@ export class DescribeLoggingStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoggingStatusCommand)
   .de(de_DescribeLoggingStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoggingStatusMessage;
+      output: LoggingStatus;
+    };
+    sdk: {
+      input: DescribeLoggingStatusCommandInput;
+      output: DescribeLoggingStatusCommandOutput;
+    };
+  };
+}

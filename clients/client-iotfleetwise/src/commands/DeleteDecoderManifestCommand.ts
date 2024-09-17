@@ -99,4 +99,16 @@ export class DeleteDecoderManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDecoderManifestCommand)
   .de(de_DeleteDecoderManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDecoderManifestRequest;
+      output: DeleteDecoderManifestResponse;
+    };
+    sdk: {
+      input: DeleteDecoderManifestCommandInput;
+      output: DeleteDecoderManifestCommandOutput;
+    };
+  };
+}

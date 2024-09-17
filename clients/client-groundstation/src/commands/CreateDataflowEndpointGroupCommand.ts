@@ -145,4 +145,16 @@ export class CreateDataflowEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataflowEndpointGroupCommand)
   .de(de_CreateDataflowEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataflowEndpointGroupRequest;
+      output: DataflowEndpointGroupIdResponse;
+    };
+    sdk: {
+      input: CreateDataflowEndpointGroupCommandInput;
+      output: CreateDataflowEndpointGroupCommandOutput;
+    };
+  };
+}

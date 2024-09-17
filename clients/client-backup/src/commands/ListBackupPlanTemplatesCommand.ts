@@ -97,4 +97,16 @@ export class ListBackupPlanTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupPlanTemplatesCommand)
   .de(de_ListBackupPlanTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupPlanTemplatesInput;
+      output: ListBackupPlanTemplatesOutput;
+    };
+    sdk: {
+      input: ListBackupPlanTemplatesCommandInput;
+      output: ListBackupPlanTemplatesCommandOutput;
+    };
+  };
+}

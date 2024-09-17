@@ -113,4 +113,16 @@ export class GetFoundationModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFoundationModelCommand)
   .de(de_GetFoundationModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFoundationModelRequest;
+      output: GetFoundationModelResponse;
+    };
+    sdk: {
+      input: GetFoundationModelCommandInput;
+      output: GetFoundationModelCommandOutput;
+    };
+  };
+}

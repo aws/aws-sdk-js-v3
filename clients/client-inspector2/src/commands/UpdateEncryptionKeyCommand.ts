@@ -96,4 +96,16 @@ export class UpdateEncryptionKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEncryptionKeyCommand)
   .de(de_UpdateEncryptionKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEncryptionKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEncryptionKeyCommandInput;
+      output: UpdateEncryptionKeyCommandOutput;
+    };
+  };
+}

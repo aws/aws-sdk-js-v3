@@ -91,4 +91,16 @@ export class AssociateSubnetCidrBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSubnetCidrBlockCommand)
   .de(de_AssociateSubnetCidrBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSubnetCidrBlockRequest;
+      output: AssociateSubnetCidrBlockResult;
+    };
+    sdk: {
+      input: AssociateSubnetCidrBlockCommandInput;
+      output: AssociateSubnetCidrBlockCommandOutput;
+    };
+  };
+}

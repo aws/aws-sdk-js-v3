@@ -107,4 +107,16 @@ export class GetPlaybackRestrictionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPlaybackRestrictionPolicyCommand)
   .de(de_GetPlaybackRestrictionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPlaybackRestrictionPolicyRequest;
+      output: GetPlaybackRestrictionPolicyResponse;
+    };
+    sdk: {
+      input: GetPlaybackRestrictionPolicyCommandInput;
+      output: GetPlaybackRestrictionPolicyCommandOutput;
+    };
+  };
+}

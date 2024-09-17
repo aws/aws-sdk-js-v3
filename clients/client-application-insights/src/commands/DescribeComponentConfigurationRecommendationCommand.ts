@@ -103,4 +103,16 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeComponentConfigurationRecommendationCommand)
   .de(de_DescribeComponentConfigurationRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComponentConfigurationRecommendationRequest;
+      output: DescribeComponentConfigurationRecommendationResponse;
+    };
+    sdk: {
+      input: DescribeComponentConfigurationRecommendationCommandInput;
+      output: DescribeComponentConfigurationRecommendationCommandOutput;
+    };
+  };
+}

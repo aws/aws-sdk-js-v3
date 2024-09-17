@@ -163,4 +163,16 @@ export class GetResourceSyncStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceSyncStatusCommand)
   .de(de_GetResourceSyncStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceSyncStatusInput;
+      output: GetResourceSyncStatusOutput;
+    };
+    sdk: {
+      input: GetResourceSyncStatusCommandInput;
+      output: GetResourceSyncStatusCommandOutput;
+    };
+  };
+}

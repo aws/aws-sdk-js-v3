@@ -109,4 +109,16 @@ export class DescribePortfolioShareStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePortfolioShareStatusCommand)
   .de(de_DescribePortfolioShareStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePortfolioShareStatusInput;
+      output: DescribePortfolioShareStatusOutput;
+    };
+    sdk: {
+      input: DescribePortfolioShareStatusCommandInput;
+      output: DescribePortfolioShareStatusCommandOutput;
+    };
+  };
+}

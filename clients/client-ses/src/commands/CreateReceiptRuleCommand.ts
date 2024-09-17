@@ -185,4 +185,16 @@ export class CreateReceiptRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReceiptRuleCommand)
   .de(de_CreateReceiptRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReceiptRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateReceiptRuleCommandInput;
+      output: CreateReceiptRuleCommandOutput;
+    };
+  };
+}

@@ -149,4 +149,16 @@ export class StartStreamEncryptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartStreamEncryptionCommand)
   .de(de_StartStreamEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartStreamEncryptionInput;
+      output: {};
+    };
+    sdk: {
+      input: StartStreamEncryptionCommandInput;
+      output: StartStreamEncryptionCommandOutput;
+    };
+  };
+}

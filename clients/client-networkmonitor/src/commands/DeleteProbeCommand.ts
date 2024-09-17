@@ -99,4 +99,16 @@ export class DeleteProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProbeCommand)
   .de(de_DeleteProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProbeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProbeCommandInput;
+      output: DeleteProbeCommandOutput;
+    };
+  };
+}

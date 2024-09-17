@@ -101,4 +101,16 @@ export class DisassociateLensesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLensesCommand)
   .de(de_DisassociateLensesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLensesInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateLensesCommandInput;
+      output: DisassociateLensesCommandOutput;
+    };
+  };
+}

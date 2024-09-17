@@ -97,4 +97,16 @@ export class UpdateRouteCalculatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRouteCalculatorCommand)
   .de(de_UpdateRouteCalculatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRouteCalculatorRequest;
+      output: UpdateRouteCalculatorResponse;
+    };
+    sdk: {
+      input: UpdateRouteCalculatorCommandInput;
+      output: UpdateRouteCalculatorCommandOutput;
+    };
+  };
+}

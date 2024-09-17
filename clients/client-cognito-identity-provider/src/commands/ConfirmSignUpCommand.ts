@@ -172,4 +172,16 @@ export class ConfirmSignUpCommand extends $Command
   .f(ConfirmSignUpRequestFilterSensitiveLog, void 0)
   .ser(se_ConfirmSignUpCommand)
   .de(de_ConfirmSignUpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmSignUpRequest;
+      output: {};
+    };
+    sdk: {
+      input: ConfirmSignUpCommandInput;
+      output: ConfirmSignUpCommandOutput;
+    };
+  };
+}

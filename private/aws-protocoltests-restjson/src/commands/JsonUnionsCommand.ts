@@ -109,4 +109,16 @@ export class JsonUnionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonUnionsCommand)
   .de(de_JsonUnionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnionInputOutput;
+      output: UnionInputOutput;
+    };
+    sdk: {
+      input: JsonUnionsCommandInput;
+      output: JsonUnionsCommandOutput;
+    };
+  };
+}

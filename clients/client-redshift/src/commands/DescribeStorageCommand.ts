@@ -76,4 +76,16 @@ export class DescribeStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStorageCommand)
   .de(de_DescribeStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CustomerStorageMessage;
+    };
+    sdk: {
+      input: DescribeStorageCommandInput;
+      output: DescribeStorageCommandOutput;
+    };
+  };
+}

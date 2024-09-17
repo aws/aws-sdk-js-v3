@@ -90,4 +90,16 @@ export class DeleteTimelineEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTimelineEventCommand)
   .de(de_DeleteTimelineEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTimelineEventInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTimelineEventCommandInput;
+      output: DeleteTimelineEventCommandOutput;
+    };
+  };
+}

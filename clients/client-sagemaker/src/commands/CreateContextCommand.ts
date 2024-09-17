@@ -101,4 +101,16 @@ export class CreateContextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContextCommand)
   .de(de_CreateContextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContextRequest;
+      output: CreateContextResponse;
+    };
+    sdk: {
+      input: CreateContextCommandInput;
+      output: CreateContextCommandOutput;
+    };
+  };
+}

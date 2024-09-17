@@ -140,4 +140,16 @@ export class GetArchiveExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArchiveExportCommand)
   .de(de_GetArchiveExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveExportRequest;
+      output: GetArchiveExportResponse;
+    };
+    sdk: {
+      input: GetArchiveExportCommandInput;
+      output: GetArchiveExportCommandOutput;
+    };
+  };
+}

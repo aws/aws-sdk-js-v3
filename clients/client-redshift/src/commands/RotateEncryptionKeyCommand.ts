@@ -283,4 +283,16 @@ export class RotateEncryptionKeyCommand extends $Command
   .f(void 0, RotateEncryptionKeyResultFilterSensitiveLog)
   .ser(se_RotateEncryptionKeyCommand)
   .de(de_RotateEncryptionKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateEncryptionKeyMessage;
+      output: RotateEncryptionKeyResult;
+    };
+    sdk: {
+      input: RotateEncryptionKeyCommandInput;
+      output: RotateEncryptionKeyCommandOutput;
+    };
+  };
+}

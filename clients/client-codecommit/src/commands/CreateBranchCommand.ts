@@ -129,4 +129,16 @@ export class CreateBranchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBranchCommand)
   .de(de_CreateBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBranchInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateBranchCommandInput;
+      output: CreateBranchCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class SyncDeploymentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SyncDeploymentJobCommand)
   .de(de_SyncDeploymentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SyncDeploymentJobRequest;
+      output: SyncDeploymentJobResponse;
+    };
+    sdk: {
+      input: SyncDeploymentJobCommandInput;
+      output: SyncDeploymentJobCommandOutput;
+    };
+  };
+}

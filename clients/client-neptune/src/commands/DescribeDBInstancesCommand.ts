@@ -233,4 +233,16 @@ export class DescribeDBInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBInstancesCommand)
   .de(de_DescribeDBInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBInstancesMessage;
+      output: DBInstanceMessage;
+    };
+    sdk: {
+      input: DescribeDBInstancesCommandInput;
+      output: DescribeDBInstancesCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class ListProjectAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProjectAssetsCommand)
   .de(de_ListProjectAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectAssetsRequest;
+      output: ListProjectAssetsResponse;
+    };
+    sdk: {
+      input: ListProjectAssetsCommandInput;
+      output: ListProjectAssetsCommandOutput;
+    };
+  };
+}

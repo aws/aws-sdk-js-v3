@@ -101,4 +101,16 @@ export class DeleteAccountPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccountPolicyCommand)
   .de(de_DeleteAccountPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccountPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccountPolicyCommandInput;
+      output: DeleteAccountPolicyCommandOutput;
+    };
+  };
+}

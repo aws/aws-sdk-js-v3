@@ -99,4 +99,16 @@ export class DeregisterComputeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterComputeCommand)
   .de(de_DeregisterComputeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterComputeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterComputeCommandInput;
+      output: DeregisterComputeCommandOutput;
+    };
+  };
+}

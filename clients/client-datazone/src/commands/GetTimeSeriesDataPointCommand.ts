@@ -110,4 +110,16 @@ export class GetTimeSeriesDataPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTimeSeriesDataPointCommand)
   .de(de_GetTimeSeriesDataPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTimeSeriesDataPointInput;
+      output: GetTimeSeriesDataPointOutput;
+    };
+    sdk: {
+      input: GetTimeSeriesDataPointCommandInput;
+      output: GetTimeSeriesDataPointCommandOutput;
+    };
+  };
+}

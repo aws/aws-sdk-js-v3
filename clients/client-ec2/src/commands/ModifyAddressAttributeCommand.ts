@@ -88,4 +88,16 @@ export class ModifyAddressAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyAddressAttributeCommand)
   .de(de_ModifyAddressAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyAddressAttributeRequest;
+      output: ModifyAddressAttributeResult;
+    };
+    sdk: {
+      input: ModifyAddressAttributeCommandInput;
+      output: ModifyAddressAttributeCommandOutput;
+    };
+  };
+}

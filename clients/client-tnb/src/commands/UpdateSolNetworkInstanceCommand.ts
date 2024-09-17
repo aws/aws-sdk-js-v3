@@ -118,4 +118,16 @@ export class UpdateSolNetworkInstanceCommand extends $Command
   .f(UpdateSolNetworkInstanceInputFilterSensitiveLog, UpdateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_UpdateSolNetworkInstanceCommand)
   .de(de_UpdateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSolNetworkInstanceInput;
+      output: UpdateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: UpdateSolNetworkInstanceCommandInput;
+      output: UpdateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

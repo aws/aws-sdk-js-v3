@@ -498,4 +498,16 @@ export class RunTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RunTaskCommand)
   .de(de_RunTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunTaskRequest;
+      output: RunTaskResponse;
+    };
+    sdk: {
+      input: RunTaskCommandInput;
+      output: RunTaskCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateWirelessDeviceWithMulticastGroupCommand)
   .de(de_AssociateWirelessDeviceWithMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateWirelessDeviceWithMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateWirelessDeviceWithMulticastGroupCommandInput;
+      output: AssociateWirelessDeviceWithMulticastGroupCommandOutput;
+    };
+  };
+}

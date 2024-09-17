@@ -125,4 +125,16 @@ export class GetContactMethodsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContactMethodsCommand)
   .de(de_GetContactMethodsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactMethodsRequest;
+      output: GetContactMethodsResult;
+    };
+    sdk: {
+      input: GetContactMethodsCommandInput;
+      output: GetContactMethodsCommandOutput;
+    };
+  };
+}

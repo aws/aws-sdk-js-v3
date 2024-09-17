@@ -95,4 +95,16 @@ export class GetContactPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContactPolicyCommand)
   .de(de_GetContactPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactPolicyRequest;
+      output: GetContactPolicyResult;
+    };
+    sdk: {
+      input: GetContactPolicyCommandInput;
+      output: GetContactPolicyCommandOutput;
+    };
+  };
+}

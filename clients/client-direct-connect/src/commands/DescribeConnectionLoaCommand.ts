@@ -97,4 +97,16 @@ export class DescribeConnectionLoaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectionLoaCommand)
   .de(de_DescribeConnectionLoaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionLoaRequest;
+      output: DescribeConnectionLoaResponse;
+    };
+    sdk: {
+      input: DescribeConnectionLoaCommandInput;
+      output: DescribeConnectionLoaCommandOutput;
+    };
+  };
+}

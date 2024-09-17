@@ -116,4 +116,16 @@ export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends
   .f(void 0, void 0)
   .ser(se_ListCollaborationConfiguredAudienceModelAssociationsCommand)
   .de(de_ListCollaborationConfiguredAudienceModelAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollaborationConfiguredAudienceModelAssociationsInput;
+      output: ListCollaborationConfiguredAudienceModelAssociationsOutput;
+    };
+    sdk: {
+      input: ListCollaborationConfiguredAudienceModelAssociationsCommandInput;
+      output: ListCollaborationConfiguredAudienceModelAssociationsCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ModifyTrafficMirrorSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrafficMirrorSessionCommand)
   .de(de_ModifyTrafficMirrorSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrafficMirrorSessionRequest;
+      output: ModifyTrafficMirrorSessionResult;
+    };
+    sdk: {
+      input: ModifyTrafficMirrorSessionCommandInput;
+      output: ModifyTrafficMirrorSessionCommandOutput;
+    };
+  };
+}

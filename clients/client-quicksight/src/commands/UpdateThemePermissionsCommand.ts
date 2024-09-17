@@ -225,4 +225,16 @@ export class UpdateThemePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThemePermissionsCommand)
   .de(de_UpdateThemePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThemePermissionsRequest;
+      output: UpdateThemePermissionsResponse;
+    };
+    sdk: {
+      input: UpdateThemePermissionsCommandInput;
+      output: UpdateThemePermissionsCommandOutput;
+    };
+  };
+}

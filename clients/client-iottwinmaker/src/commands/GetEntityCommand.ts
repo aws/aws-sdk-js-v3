@@ -230,4 +230,16 @@ export class GetEntityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEntityCommand)
   .de(de_GetEntityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEntityRequest;
+      output: GetEntityResponse;
+    };
+    sdk: {
+      input: GetEntityCommandInput;
+      output: GetEntityCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class CreateServiceSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceSyncConfigCommand)
   .de(de_CreateServiceSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceSyncConfigInput;
+      output: CreateServiceSyncConfigOutput;
+    };
+    sdk: {
+      input: CreateServiceSyncConfigCommandInput;
+      output: CreateServiceSyncConfigCommandOutput;
+    };
+  };
+}

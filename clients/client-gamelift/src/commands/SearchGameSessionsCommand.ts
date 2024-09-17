@@ -219,4 +219,16 @@ export class SearchGameSessionsCommand extends $Command
   .f(void 0, SearchGameSessionsOutputFilterSensitiveLog)
   .ser(se_SearchGameSessionsCommand)
   .de(de_SearchGameSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchGameSessionsInput;
+      output: SearchGameSessionsOutput;
+    };
+    sdk: {
+      input: SearchGameSessionsCommandInput;
+      output: SearchGameSessionsCommandOutput;
+    };
+  };
+}

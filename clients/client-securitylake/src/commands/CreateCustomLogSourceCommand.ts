@@ -133,4 +133,16 @@ export class CreateCustomLogSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomLogSourceCommand)
   .de(de_CreateCustomLogSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomLogSourceRequest;
+      output: CreateCustomLogSourceResponse;
+    };
+    sdk: {
+      input: CreateCustomLogSourceCommandInput;
+      output: CreateCustomLogSourceCommandOutput;
+    };
+  };
+}

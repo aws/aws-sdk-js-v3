@@ -114,4 +114,16 @@ export class ListWaitingWorkflowStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWaitingWorkflowStepsCommand)
   .de(de_ListWaitingWorkflowStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWaitingWorkflowStepsRequest;
+      output: ListWaitingWorkflowStepsResponse;
+    };
+    sdk: {
+      input: ListWaitingWorkflowStepsCommandInput;
+      output: ListWaitingWorkflowStepsCommandOutput;
+    };
+  };
+}

@@ -142,4 +142,16 @@ export class CreateObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateObjectCommand)
   .de(de_CreateObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateObjectRequest;
+      output: CreateObjectResponse;
+    };
+    sdk: {
+      input: CreateObjectCommandInput;
+      output: CreateObjectCommandOutput;
+    };
+  };
+}

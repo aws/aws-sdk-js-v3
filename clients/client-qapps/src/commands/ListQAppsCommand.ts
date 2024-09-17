@@ -202,4 +202,16 @@ export class ListQAppsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQAppsCommand)
   .de(de_ListQAppsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQAppsInput;
+      output: ListQAppsOutput;
+    };
+    sdk: {
+      input: ListQAppsCommandInput;
+      output: ListQAppsCommandOutput;
+    };
+  };
+}

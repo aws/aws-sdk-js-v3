@@ -95,4 +95,16 @@ export class ListCrossAccountResourceAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCrossAccountResourceAccountsCommand)
   .de(de_ListCrossAccountResourceAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListCrossAccountResourceAccountsResponse;
+    };
+    sdk: {
+      input: ListCrossAccountResourceAccountsCommandInput;
+      output: ListCrossAccountResourceAccountsCommandOutput;
+    };
+  };
+}

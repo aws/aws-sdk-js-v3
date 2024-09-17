@@ -103,4 +103,16 @@ export class BatchDeleteTaxRegistrationCommand extends $Command
   .f(void 0, BatchDeleteTaxRegistrationResponseFilterSensitiveLog)
   .ser(se_BatchDeleteTaxRegistrationCommand)
   .de(de_BatchDeleteTaxRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteTaxRegistrationRequest;
+      output: BatchDeleteTaxRegistrationResponse;
+    };
+    sdk: {
+      input: BatchDeleteTaxRegistrationCommandInput;
+      output: BatchDeleteTaxRegistrationCommandOutput;
+    };
+  };
+}

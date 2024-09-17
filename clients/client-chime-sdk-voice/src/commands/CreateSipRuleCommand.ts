@@ -130,4 +130,16 @@ export class CreateSipRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSipRuleCommand)
   .de(de_CreateSipRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSipRuleRequest;
+      output: CreateSipRuleResponse;
+    };
+    sdk: {
+      input: CreateSipRuleCommandInput;
+      output: CreateSipRuleCommandOutput;
+    };
+  };
+}

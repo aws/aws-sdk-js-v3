@@ -110,4 +110,16 @@ export class ListResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcesCommand)
   .de(de_ListResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesRequest;
+      output: ListResourcesResponse;
+    };
+    sdk: {
+      input: ListResourcesCommandInput;
+      output: ListResourcesCommandOutput;
+    };
+  };
+}

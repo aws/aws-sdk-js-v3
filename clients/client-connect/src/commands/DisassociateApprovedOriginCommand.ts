@@ -92,4 +92,16 @@ export class DisassociateApprovedOriginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateApprovedOriginCommand)
   .de(de_DisassociateApprovedOriginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateApprovedOriginRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateApprovedOriginCommandInput;
+      output: DisassociateApprovedOriginCommandOutput;
+    };
+  };
+}

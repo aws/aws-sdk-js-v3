@@ -130,4 +130,16 @@ export class StartMetadataModelImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMetadataModelImportCommand)
   .de(de_StartMetadataModelImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMetadataModelImportMessage;
+      output: StartMetadataModelImportResponse;
+    };
+    sdk: {
+      input: StartMetadataModelImportCommandInput;
+      output: StartMetadataModelImportCommandOutput;
+    };
+  };
+}

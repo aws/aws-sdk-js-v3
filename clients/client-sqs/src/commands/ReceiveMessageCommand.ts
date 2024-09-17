@@ -233,4 +233,16 @@ export class ReceiveMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReceiveMessageCommand)
   .de(de_ReceiveMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReceiveMessageRequest;
+      output: ReceiveMessageResult;
+    };
+    sdk: {
+      input: ReceiveMessageCommandInput;
+      output: ReceiveMessageCommandOutput;
+    };
+  };
+}

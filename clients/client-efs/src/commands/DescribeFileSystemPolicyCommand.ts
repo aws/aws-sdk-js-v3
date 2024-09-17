@@ -94,4 +94,16 @@ export class DescribeFileSystemPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFileSystemPolicyCommand)
   .de(de_DescribeFileSystemPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFileSystemPolicyRequest;
+      output: FileSystemPolicyDescription;
+    };
+    sdk: {
+      input: DescribeFileSystemPolicyCommandInput;
+      output: DescribeFileSystemPolicyCommandOutput;
+    };
+  };
+}

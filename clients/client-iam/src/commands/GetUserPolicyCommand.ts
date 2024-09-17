@@ -102,4 +102,16 @@ export class GetUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserPolicyCommand)
   .de(de_GetUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserPolicyRequest;
+      output: GetUserPolicyResponse;
+    };
+    sdk: {
+      input: GetUserPolicyCommandInput;
+      output: GetUserPolicyCommandOutput;
+    };
+  };
+}

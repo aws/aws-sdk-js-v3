@@ -94,4 +94,16 @@ export class DeleteReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReportDefinitionCommand)
   .de(de_DeleteReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReportDefinitionRequest;
+      output: DeleteReportDefinitionResult;
+    };
+    sdk: {
+      input: DeleteReportDefinitionCommandInput;
+      output: DeleteReportDefinitionCommandOutput;
+    };
+  };
+}

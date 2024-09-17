@@ -95,4 +95,16 @@ export class GetRevealConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevealConfigurationCommand)
   .de(de_GetRevealConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRevealConfigurationResponse;
+    };
+    sdk: {
+      input: GetRevealConfigurationCommandInput;
+      output: GetRevealConfigurationCommandOutput;
+    };
+  };
+}

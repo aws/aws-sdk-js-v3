@@ -105,4 +105,16 @@ export class AssociateMemberToGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateMemberToGroupCommand)
   .de(de_AssociateMemberToGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateMemberToGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateMemberToGroupCommandInput;
+      output: AssociateMemberToGroupCommandOutput;
+    };
+  };
+}

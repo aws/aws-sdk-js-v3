@@ -107,4 +107,16 @@ export class DeleteConformancePackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConformancePackCommand)
   .de(de_DeleteConformancePackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConformancePackRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConformancePackCommandInput;
+      output: DeleteConformancePackCommandOutput;
+    };
+  };
+}

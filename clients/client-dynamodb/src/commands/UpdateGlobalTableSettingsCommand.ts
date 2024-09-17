@@ -285,4 +285,16 @@ export class UpdateGlobalTableSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGlobalTableSettingsCommand)
   .de(de_UpdateGlobalTableSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGlobalTableSettingsInput;
+      output: UpdateGlobalTableSettingsOutput;
+    };
+    sdk: {
+      input: UpdateGlobalTableSettingsCommandInput;
+      output: UpdateGlobalTableSettingsCommandOutput;
+    };
+  };
+}

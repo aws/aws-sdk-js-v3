@@ -140,4 +140,16 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceRecommendationsJobStepsCommand)
   .de(de_ListInferenceRecommendationsJobStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceRecommendationsJobStepsRequest;
+      output: ListInferenceRecommendationsJobStepsResponse;
+    };
+    sdk: {
+      input: ListInferenceRecommendationsJobStepsCommandInput;
+      output: ListInferenceRecommendationsJobStepsCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class GetOperationsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOperationsForResourceCommand)
   .de(de_GetOperationsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOperationsForResourceRequest;
+      output: GetOperationsForResourceResult;
+    };
+    sdk: {
+      input: GetOperationsForResourceCommandInput;
+      output: GetOperationsForResourceCommandOutput;
+    };
+  };
+}

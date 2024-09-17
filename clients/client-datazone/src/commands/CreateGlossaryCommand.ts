@@ -113,4 +113,16 @@ export class CreateGlossaryCommand extends $Command
   .f(CreateGlossaryInputFilterSensitiveLog, CreateGlossaryOutputFilterSensitiveLog)
   .ser(se_CreateGlossaryCommand)
   .de(de_CreateGlossaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlossaryInput;
+      output: CreateGlossaryOutput;
+    };
+    sdk: {
+      input: CreateGlossaryCommandInput;
+      output: CreateGlossaryCommandOutput;
+    };
+  };
+}

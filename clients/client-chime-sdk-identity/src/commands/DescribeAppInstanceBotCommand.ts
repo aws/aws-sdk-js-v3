@@ -120,4 +120,16 @@ export class DescribeAppInstanceBotCommand extends $Command
   .f(void 0, DescribeAppInstanceBotResponseFilterSensitiveLog)
   .ser(se_DescribeAppInstanceBotCommand)
   .de(de_DescribeAppInstanceBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppInstanceBotRequest;
+      output: DescribeAppInstanceBotResponse;
+    };
+    sdk: {
+      input: DescribeAppInstanceBotCommandInput;
+      output: DescribeAppInstanceBotCommandOutput;
+    };
+  };
+}

@@ -301,4 +301,16 @@ export class CreateKxClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxClusterCommand)
   .de(de_CreateKxClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxClusterRequest;
+      output: CreateKxClusterResponse;
+    };
+    sdk: {
+      input: CreateKxClusterCommandInput;
+      output: CreateKxClusterCommandOutput;
+    };
+  };
+}

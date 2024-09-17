@@ -93,4 +93,16 @@ export class StartThingRegistrationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartThingRegistrationTaskCommand)
   .de(de_StartThingRegistrationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartThingRegistrationTaskRequest;
+      output: StartThingRegistrationTaskResponse;
+    };
+    sdk: {
+      input: StartThingRegistrationTaskCommandInput;
+      output: StartThingRegistrationTaskCommandOutput;
+    };
+  };
+}

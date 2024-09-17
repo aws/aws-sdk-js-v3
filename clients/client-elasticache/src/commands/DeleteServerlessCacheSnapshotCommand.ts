@@ -108,4 +108,16 @@ export class DeleteServerlessCacheSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServerlessCacheSnapshotCommand)
   .de(de_DeleteServerlessCacheSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServerlessCacheSnapshotRequest;
+      output: DeleteServerlessCacheSnapshotResponse;
+    };
+    sdk: {
+      input: DeleteServerlessCacheSnapshotCommandInput;
+      output: DeleteServerlessCacheSnapshotCommandOutput;
+    };
+  };
+}

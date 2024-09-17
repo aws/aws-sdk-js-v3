@@ -97,4 +97,16 @@ export class GetLFTagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLFTagCommand)
   .de(de_GetLFTagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLFTagRequest;
+      output: GetLFTagResponse;
+    };
+    sdk: {
+      input: GetLFTagCommandInput;
+      output: GetLFTagCommandOutput;
+    };
+  };
+}

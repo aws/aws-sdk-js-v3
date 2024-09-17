@@ -164,4 +164,16 @@ export class CopyClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyClusterSnapshotCommand)
   .de(de_CopyClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyClusterSnapshotMessage;
+      output: CopyClusterSnapshotResult;
+    };
+    sdk: {
+      input: CopyClusterSnapshotCommandInput;
+      output: CopyClusterSnapshotCommandOutput;
+    };
+  };
+}

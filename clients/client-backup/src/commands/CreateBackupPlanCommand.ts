@@ -156,4 +156,16 @@ export class CreateBackupPlanCommand extends $Command
   .f(CreateBackupPlanInputFilterSensitiveLog, void 0)
   .ser(se_CreateBackupPlanCommand)
   .de(de_CreateBackupPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackupPlanInput;
+      output: CreateBackupPlanOutput;
+    };
+    sdk: {
+      input: CreateBackupPlanCommandInput;
+      output: CreateBackupPlanCommandOutput;
+    };
+  };
+}

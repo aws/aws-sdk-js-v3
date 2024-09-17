@@ -90,4 +90,16 @@ export class QueryListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryListsCommand)
   .de(de_QueryListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryListsInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryListsCommandInput;
+      output: QueryListsCommandOutput;
+    };
+  };
+}

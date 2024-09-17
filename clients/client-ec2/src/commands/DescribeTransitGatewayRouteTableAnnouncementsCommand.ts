@@ -119,4 +119,16 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DescribeTransitGatewayRouteTableAnnouncementsCommand)
   .de(de_DescribeTransitGatewayRouteTableAnnouncementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTransitGatewayRouteTableAnnouncementsRequest;
+      output: DescribeTransitGatewayRouteTableAnnouncementsResult;
+    };
+    sdk: {
+      input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput;
+      output: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput;
+    };
+  };
+}

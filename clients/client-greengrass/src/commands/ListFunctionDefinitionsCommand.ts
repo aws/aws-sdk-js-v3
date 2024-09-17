@@ -92,4 +92,16 @@ export class ListFunctionDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionDefinitionsCommand)
   .de(de_ListFunctionDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionDefinitionsRequest;
+      output: ListFunctionDefinitionsResponse;
+    };
+    sdk: {
+      input: ListFunctionDefinitionsCommandInput;
+      output: ListFunctionDefinitionsCommandOutput;
+    };
+  };
+}

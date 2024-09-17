@@ -121,4 +121,16 @@ export class GetViewCommand extends $Command
   .f(void 0, GetViewOutputFilterSensitiveLog)
   .ser(se_GetViewCommand)
   .de(de_GetViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetViewInput;
+      output: GetViewOutput;
+    };
+    sdk: {
+      input: GetViewCommandInput;
+      output: GetViewCommandOutput;
+    };
+  };
+}

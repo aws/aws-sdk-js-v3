@@ -119,4 +119,16 @@ export class DeleteJobTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteJobTaggingCommand)
   .de(de_DeleteJobTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteJobTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteJobTaggingCommandInput;
+      output: DeleteJobTaggingCommandOutput;
+    };
+  };
+}

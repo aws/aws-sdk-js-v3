@@ -102,4 +102,16 @@ export class DeleteResiliencyPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResiliencyPolicyCommand)
   .de(de_DeleteResiliencyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResiliencyPolicyRequest;
+      output: DeleteResiliencyPolicyResponse;
+    };
+    sdk: {
+      input: DeleteResiliencyPolicyCommandInput;
+      output: DeleteResiliencyPolicyCommandOutput;
+    };
+  };
+}

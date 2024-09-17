@@ -142,4 +142,16 @@ export class GetDataSetDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSetDetailsCommand)
   .de(de_GetDataSetDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSetDetailsRequest;
+      output: GetDataSetDetailsResponse;
+    };
+    sdk: {
+      input: GetDataSetDetailsCommandInput;
+      output: GetDataSetDetailsCommandOutput;
+    };
+  };
+}

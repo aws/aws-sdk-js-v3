@@ -110,4 +110,16 @@ export class ListSecurityProfileApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityProfileApplicationsCommand)
   .de(de_ListSecurityProfileApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityProfileApplicationsRequest;
+      output: ListSecurityProfileApplicationsResponse;
+    };
+    sdk: {
+      input: ListSecurityProfileApplicationsCommandInput;
+      output: ListSecurityProfileApplicationsCommandOutput;
+    };
+  };
+}

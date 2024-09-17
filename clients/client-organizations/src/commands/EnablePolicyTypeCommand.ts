@@ -468,4 +468,16 @@ export class EnablePolicyTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnablePolicyTypeCommand)
   .de(de_EnablePolicyTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnablePolicyTypeRequest;
+      output: EnablePolicyTypeResponse;
+    };
+    sdk: {
+      input: EnablePolicyTypeCommandInput;
+      output: EnablePolicyTypeCommandOutput;
+    };
+  };
+}

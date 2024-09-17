@@ -348,4 +348,16 @@ export class StopDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDBInstanceCommand)
   .de(de_StopDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDBInstanceMessage;
+      output: StopDBInstanceResult;
+    };
+    sdk: {
+      input: StopDBInstanceCommandInput;
+      output: StopDBInstanceCommandOutput;
+    };
+  };
+}

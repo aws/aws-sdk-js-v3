@@ -106,4 +106,16 @@ export class StartPrimaryEmailUpdateCommand extends $Command
   .f(StartPrimaryEmailUpdateRequestFilterSensitiveLog, void 0)
   .ser(se_StartPrimaryEmailUpdateCommand)
   .de(de_StartPrimaryEmailUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPrimaryEmailUpdateRequest;
+      output: StartPrimaryEmailUpdateResponse;
+    };
+    sdk: {
+      input: StartPrimaryEmailUpdateCommandInput;
+      output: StartPrimaryEmailUpdateCommandOutput;
+    };
+  };
+}

@@ -220,4 +220,16 @@ export class AdminInitiateAuthCommand extends $Command
   .f(AdminInitiateAuthRequestFilterSensitiveLog, AdminInitiateAuthResponseFilterSensitiveLog)
   .ser(se_AdminInitiateAuthCommand)
   .de(de_AdminInitiateAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminInitiateAuthRequest;
+      output: AdminInitiateAuthResponse;
+    };
+    sdk: {
+      input: AdminInitiateAuthCommandInput;
+      output: AdminInitiateAuthCommandOutput;
+    };
+  };
+}

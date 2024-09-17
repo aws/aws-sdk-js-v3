@@ -114,4 +114,16 @@ export class GetIpAccessSettingsCommand extends $Command
   .f(void 0, GetIpAccessSettingsResponseFilterSensitiveLog)
   .ser(se_GetIpAccessSettingsCommand)
   .de(de_GetIpAccessSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpAccessSettingsRequest;
+      output: GetIpAccessSettingsResponse;
+    };
+    sdk: {
+      input: GetIpAccessSettingsCommandInput;
+      output: GetIpAccessSettingsCommandOutput;
+    };
+  };
+}

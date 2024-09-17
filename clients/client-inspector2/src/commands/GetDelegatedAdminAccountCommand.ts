@@ -98,4 +98,16 @@ export class GetDelegatedAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDelegatedAdminAccountCommand)
   .de(de_GetDelegatedAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDelegatedAdminAccountResponse;
+    };
+    sdk: {
+      input: GetDelegatedAdminAccountCommandInput;
+      output: GetDelegatedAdminAccountCommandOutput;
+    };
+  };
+}

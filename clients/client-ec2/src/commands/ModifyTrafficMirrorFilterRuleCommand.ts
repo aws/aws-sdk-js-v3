@@ -125,4 +125,16 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrafficMirrorFilterRuleCommand)
   .de(de_ModifyTrafficMirrorFilterRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrafficMirrorFilterRuleRequest;
+      output: ModifyTrafficMirrorFilterRuleResult;
+    };
+    sdk: {
+      input: ModifyTrafficMirrorFilterRuleCommandInput;
+      output: ModifyTrafficMirrorFilterRuleCommandOutput;
+    };
+  };
+}

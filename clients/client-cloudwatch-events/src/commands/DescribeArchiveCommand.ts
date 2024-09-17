@@ -96,4 +96,16 @@ export class DescribeArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeArchiveCommand)
   .de(de_DescribeArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeArchiveRequest;
+      output: DescribeArchiveResponse;
+    };
+    sdk: {
+      input: DescribeArchiveCommandInput;
+      output: DescribeArchiveCommandOutput;
+    };
+  };
+}

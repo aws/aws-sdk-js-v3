@@ -102,4 +102,16 @@ export class StartPipelineReprocessingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipelineReprocessingCommand)
   .de(de_StartPipelineReprocessingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipelineReprocessingRequest;
+      output: StartPipelineReprocessingResponse;
+    };
+    sdk: {
+      input: StartPipelineReprocessingCommandInput;
+      output: StartPipelineReprocessingCommandOutput;
+    };
+  };
+}

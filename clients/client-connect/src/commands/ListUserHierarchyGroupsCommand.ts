@@ -106,4 +106,16 @@ export class ListUserHierarchyGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserHierarchyGroupsCommand)
   .de(de_ListUserHierarchyGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserHierarchyGroupsRequest;
+      output: ListUserHierarchyGroupsResponse;
+    };
+    sdk: {
+      input: ListUserHierarchyGroupsCommandInput;
+      output: ListUserHierarchyGroupsCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DescribeOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOfferingCommand)
   .de(de_DescribeOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOfferingRequest;
+      output: DescribeOfferingResponse;
+    };
+    sdk: {
+      input: DescribeOfferingCommandInput;
+      output: DescribeOfferingCommandOutput;
+    };
+  };
+}

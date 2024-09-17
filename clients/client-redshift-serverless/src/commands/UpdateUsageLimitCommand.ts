@@ -103,4 +103,16 @@ export class UpdateUsageLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUsageLimitCommand)
   .de(de_UpdateUsageLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUsageLimitRequest;
+      output: UpdateUsageLimitResponse;
+    };
+    sdk: {
+      input: UpdateUsageLimitCommandInput;
+      output: UpdateUsageLimitCommandOutput;
+    };
+  };
+}

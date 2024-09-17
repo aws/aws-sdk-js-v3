@@ -84,4 +84,16 @@ export class DeletePendingAggregationRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePendingAggregationRequestCommand)
   .de(de_DeletePendingAggregationRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePendingAggregationRequestRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePendingAggregationRequestCommandInput;
+      output: DeletePendingAggregationRequestCommandOutput;
+    };
+  };
+}

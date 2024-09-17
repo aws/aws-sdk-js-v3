@@ -120,4 +120,16 @@ export class ListEntitiesForPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitiesForPolicyCommand)
   .de(de_ListEntitiesForPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitiesForPolicyRequest;
+      output: ListEntitiesForPolicyResponse;
+    };
+    sdk: {
+      input: ListEntitiesForPolicyCommandInput;
+      output: ListEntitiesForPolicyCommandOutput;
+    };
+  };
+}

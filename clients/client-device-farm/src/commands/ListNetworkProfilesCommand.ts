@@ -107,4 +107,16 @@ export class ListNetworkProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworkProfilesCommand)
   .de(de_ListNetworkProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkProfilesRequest;
+      output: ListNetworkProfilesResult;
+    };
+    sdk: {
+      input: ListNetworkProfilesCommandInput;
+      output: ListNetworkProfilesCommandOutput;
+    };
+  };
+}

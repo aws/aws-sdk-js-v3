@@ -129,4 +129,16 @@ export class CreateLicenseConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLicenseConfigurationCommand)
   .de(de_CreateLicenseConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLicenseConfigurationRequest;
+      output: CreateLicenseConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLicenseConfigurationCommandInput;
+      output: CreateLicenseConfigurationCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class UpdateTopicPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTopicPermissionsCommand)
   .de(de_UpdateTopicPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTopicPermissionsRequest;
+      output: UpdateTopicPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateTopicPermissionsCommandInput;
+      output: UpdateTopicPermissionsCommandOutput;
+    };
+  };
+}

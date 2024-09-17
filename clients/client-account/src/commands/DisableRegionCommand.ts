@@ -100,4 +100,16 @@ export class DisableRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableRegionCommand)
   .de(de_DisableRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableRegionCommandInput;
+      output: DisableRegionCommandOutput;
+    };
+  };
+}

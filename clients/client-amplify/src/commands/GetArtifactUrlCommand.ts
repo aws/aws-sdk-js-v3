@@ -93,4 +93,16 @@ export class GetArtifactUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArtifactUrlCommand)
   .de(de_GetArtifactUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArtifactUrlRequest;
+      output: GetArtifactUrlResult;
+    };
+    sdk: {
+      input: GetArtifactUrlCommandInput;
+      output: GetArtifactUrlCommandOutput;
+    };
+  };
+}

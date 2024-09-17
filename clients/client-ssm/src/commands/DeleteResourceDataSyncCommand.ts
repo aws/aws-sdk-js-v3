@@ -87,4 +87,16 @@ export class DeleteResourceDataSyncCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceDataSyncCommand)
   .de(de_DeleteResourceDataSyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceDataSyncRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourceDataSyncCommandInput;
+      output: DeleteResourceDataSyncCommandOutput;
+    };
+  };
+}

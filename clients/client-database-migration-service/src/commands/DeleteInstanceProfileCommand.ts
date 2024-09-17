@@ -135,4 +135,16 @@ export class DeleteInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceProfileCommand)
   .de(de_DeleteInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceProfileMessage;
+      output: DeleteInstanceProfileResponse;
+    };
+    sdk: {
+      input: DeleteInstanceProfileCommandInput;
+      output: DeleteInstanceProfileCommandOutput;
+    };
+  };
+}

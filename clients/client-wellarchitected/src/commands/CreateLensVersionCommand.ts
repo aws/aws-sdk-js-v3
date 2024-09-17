@@ -108,4 +108,16 @@ export class CreateLensVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLensVersionCommand)
   .de(de_CreateLensVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLensVersionInput;
+      output: CreateLensVersionOutput;
+    };
+    sdk: {
+      input: CreateLensVersionCommandInput;
+      output: CreateLensVersionCommandOutput;
+    };
+  };
+}

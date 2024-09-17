@@ -98,4 +98,16 @@ export class DeleteVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVocabularyCommand)
   .de(de_DeleteVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVocabularyRequest;
+      output: DeleteVocabularyResponse;
+    };
+    sdk: {
+      input: DeleteVocabularyCommandInput;
+      output: DeleteVocabularyCommandOutput;
+    };
+  };
+}

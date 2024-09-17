@@ -123,4 +123,16 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command
   .f(void 0, GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog)
   .ser(se_GetRelationalDatabaseMasterUserPasswordCommand)
   .de(de_GetRelationalDatabaseMasterUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseMasterUserPasswordRequest;
+      output: GetRelationalDatabaseMasterUserPasswordResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseMasterUserPasswordCommandInput;
+      output: GetRelationalDatabaseMasterUserPasswordCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class DescribeWorldGenerationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorldGenerationJobCommand)
   .de(de_DescribeWorldGenerationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorldGenerationJobRequest;
+      output: DescribeWorldGenerationJobResponse;
+    };
+    sdk: {
+      input: DescribeWorldGenerationJobCommandInput;
+      output: DescribeWorldGenerationJobCommandOutput;
+    };
+  };
+}

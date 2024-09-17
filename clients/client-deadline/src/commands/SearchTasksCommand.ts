@@ -187,4 +187,16 @@ export class SearchTasksCommand extends $Command
   .f(void 0, SearchTasksResponseFilterSensitiveLog)
   .ser(se_SearchTasksCommand)
   .de(de_SearchTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTasksRequest;
+      output: SearchTasksResponse;
+    };
+    sdk: {
+      input: SearchTasksCommandInput;
+      output: SearchTasksCommandOutput;
+    };
+  };
+}

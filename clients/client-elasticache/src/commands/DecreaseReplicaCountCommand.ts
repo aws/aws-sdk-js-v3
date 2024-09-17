@@ -256,4 +256,16 @@ export class DecreaseReplicaCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DecreaseReplicaCountCommand)
   .de(de_DecreaseReplicaCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DecreaseReplicaCountMessage;
+      output: DecreaseReplicaCountResult;
+    };
+    sdk: {
+      input: DecreaseReplicaCountCommandInput;
+      output: DecreaseReplicaCountCommandOutput;
+    };
+  };
+}

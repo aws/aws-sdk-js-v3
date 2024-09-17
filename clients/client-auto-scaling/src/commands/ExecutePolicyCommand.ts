@@ -102,4 +102,16 @@ export class ExecutePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecutePolicyCommand)
   .de(de_ExecutePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecutePolicyType;
+      output: {};
+    };
+    sdk: {
+      input: ExecutePolicyCommandInput;
+      output: ExecutePolicyCommandOutput;
+    };
+  };
+}

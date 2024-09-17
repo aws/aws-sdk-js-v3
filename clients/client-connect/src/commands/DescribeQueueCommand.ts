@@ -112,4 +112,16 @@ export class DescribeQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQueueCommand)
   .de(de_DescribeQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQueueRequest;
+      output: DescribeQueueResponse;
+    };
+    sdk: {
+      input: DescribeQueueCommandInput;
+      output: DescribeQueueCommandOutput;
+    };
+  };
+}

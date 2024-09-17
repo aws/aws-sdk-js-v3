@@ -125,4 +125,16 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseBlueprintsCommand)
   .de(de_GetRelationalDatabaseBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseBlueprintsRequest;
+      output: GetRelationalDatabaseBlueprintsResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseBlueprintsCommandInput;
+      output: GetRelationalDatabaseBlueprintsCommandOutput;
+    };
+  };
+}

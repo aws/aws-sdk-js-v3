@@ -81,4 +81,16 @@ export class GetLineageGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLineageGroupPolicyCommand)
   .de(de_GetLineageGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLineageGroupPolicyRequest;
+      output: GetLineageGroupPolicyResponse;
+    };
+    sdk: {
+      input: GetLineageGroupPolicyCommandInput;
+      output: GetLineageGroupPolicyCommandOutput;
+    };
+  };
+}

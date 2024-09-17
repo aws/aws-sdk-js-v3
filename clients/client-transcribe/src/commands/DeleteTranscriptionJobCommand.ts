@@ -91,4 +91,16 @@ export class DeleteTranscriptionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTranscriptionJobCommand)
   .de(de_DeleteTranscriptionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTranscriptionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTranscriptionJobCommandInput;
+      output: DeleteTranscriptionJobCommandOutput;
+    };
+  };
+}

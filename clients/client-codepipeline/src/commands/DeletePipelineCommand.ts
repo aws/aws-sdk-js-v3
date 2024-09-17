@@ -81,4 +81,16 @@ export class DeletePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePipelineCommand)
   .de(de_DeletePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePipelineInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePipelineCommandInput;
+      output: DeletePipelineCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class CheckNoPublicAccessCommand extends $Command
   .f(CheckNoPublicAccessRequestFilterSensitiveLog, void 0)
   .ser(se_CheckNoPublicAccessCommand)
   .de(de_CheckNoPublicAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckNoPublicAccessRequest;
+      output: CheckNoPublicAccessResponse;
+    };
+    sdk: {
+      input: CheckNoPublicAccessCommandInput;
+      output: CheckNoPublicAccessCommandOutput;
+    };
+  };
+}

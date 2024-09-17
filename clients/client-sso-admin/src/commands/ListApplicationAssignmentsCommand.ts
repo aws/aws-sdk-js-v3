@@ -103,4 +103,16 @@ export class ListApplicationAssignmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAssignmentsCommand)
   .de(de_ListApplicationAssignmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAssignmentsRequest;
+      output: ListApplicationAssignmentsResponse;
+    };
+    sdk: {
+      input: ListApplicationAssignmentsCommandInput;
+      output: ListApplicationAssignmentsCommandOutput;
+    };
+  };
+}

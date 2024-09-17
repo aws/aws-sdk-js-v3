@@ -123,4 +123,16 @@ export class DescribeInstanceCommand extends $Command
   .f(void 0, DescribeInstanceResponseFilterSensitiveLog)
   .ser(se_DescribeInstanceCommand)
   .de(de_DescribeInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceRequest;
+      output: DescribeInstanceResponse;
+    };
+    sdk: {
+      input: DescribeInstanceCommandInput;
+      output: DescribeInstanceCommandOutput;
+    };
+  };
+}

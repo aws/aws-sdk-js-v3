@@ -94,4 +94,16 @@ export class CreatePresignedNotebookUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePresignedNotebookUrlCommand)
   .de(de_CreatePresignedNotebookUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePresignedNotebookUrlRequest;
+      output: CreatePresignedNotebookUrlResponse;
+    };
+    sdk: {
+      input: CreatePresignedNotebookUrlCommandInput;
+      output: CreatePresignedNotebookUrlCommandOutput;
+    };
+  };
+}

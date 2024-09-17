@@ -143,4 +143,16 @@ export class UpdateInfrastructureConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInfrastructureConfigurationCommand)
   .de(de_UpdateInfrastructureConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInfrastructureConfigurationRequest;
+      output: UpdateInfrastructureConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateInfrastructureConfigurationCommandInput;
+      output: UpdateInfrastructureConfigurationCommandOutput;
+    };
+  };
+}

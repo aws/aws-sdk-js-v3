@@ -109,4 +109,16 @@ export class GetWorkflowRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowRunCommand)
   .de(de_GetWorkflowRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowRunRequest;
+      output: GetWorkflowRunResponse;
+    };
+    sdk: {
+      input: GetWorkflowRunCommandInput;
+      output: GetWorkflowRunCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class BatchGetMembershipDatasourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetMembershipDatasourcesCommand)
   .de(de_BatchGetMembershipDatasourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetMembershipDatasourcesRequest;
+      output: BatchGetMembershipDatasourcesResponse;
+    };
+    sdk: {
+      input: BatchGetMembershipDatasourcesCommandInput;
+      output: BatchGetMembershipDatasourcesCommandOutput;
+    };
+  };
+}

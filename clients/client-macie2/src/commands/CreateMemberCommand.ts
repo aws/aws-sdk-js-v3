@@ -104,4 +104,16 @@ export class CreateMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMemberCommand)
   .de(de_CreateMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMemberRequest;
+      output: CreateMemberResponse;
+    };
+    sdk: {
+      input: CreateMemberCommandInput;
+      output: CreateMemberCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class CreateChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChannelGroupCommand)
   .de(de_CreateChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelGroupRequest;
+      output: CreateChannelGroupResponse;
+    };
+    sdk: {
+      input: CreateChannelGroupCommandInput;
+      output: CreateChannelGroupCommandOutput;
+    };
+  };
+}

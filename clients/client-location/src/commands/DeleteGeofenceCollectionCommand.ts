@@ -95,4 +95,16 @@ export class DeleteGeofenceCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGeofenceCollectionCommand)
   .de(de_DeleteGeofenceCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGeofenceCollectionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGeofenceCollectionCommandInput;
+      output: DeleteGeofenceCollectionCommandOutput;
+    };
+  };
+}

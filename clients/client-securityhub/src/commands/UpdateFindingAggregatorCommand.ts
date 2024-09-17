@@ -135,4 +135,16 @@ export class UpdateFindingAggregatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFindingAggregatorCommand)
   .de(de_UpdateFindingAggregatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFindingAggregatorRequest;
+      output: UpdateFindingAggregatorResponse;
+    };
+    sdk: {
+      input: UpdateFindingAggregatorCommandInput;
+      output: UpdateFindingAggregatorCommandOutput;
+    };
+  };
+}

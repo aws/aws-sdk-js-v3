@@ -149,4 +149,16 @@ export class RegisterTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTargetsCommand)
   .de(de_RegisterTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTargetsInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterTargetsCommandInput;
+      output: RegisterTargetsCommandOutput;
+    };
+  };
+}

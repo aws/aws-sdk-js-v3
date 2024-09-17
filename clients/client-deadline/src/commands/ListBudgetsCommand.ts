@@ -115,4 +115,16 @@ export class ListBudgetsCommand extends $Command
   .f(void 0, ListBudgetsResponseFilterSensitiveLog)
   .ser(se_ListBudgetsCommand)
   .de(de_ListBudgetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBudgetsRequest;
+      output: ListBudgetsResponse;
+    };
+    sdk: {
+      input: ListBudgetsCommandInput;
+      output: ListBudgetsCommandOutput;
+    };
+  };
+}

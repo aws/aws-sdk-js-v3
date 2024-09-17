@@ -148,4 +148,16 @@ export class CreateEmailIdentityCommand extends $Command
   .f(CreateEmailIdentityRequestFilterSensitiveLog, void 0)
   .ser(se_CreateEmailIdentityCommand)
   .de(de_CreateEmailIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEmailIdentityRequest;
+      output: CreateEmailIdentityResponse;
+    };
+    sdk: {
+      input: CreateEmailIdentityCommandInput;
+      output: CreateEmailIdentityCommandOutput;
+    };
+  };
+}

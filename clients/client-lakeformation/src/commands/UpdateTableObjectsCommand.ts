@@ -124,4 +124,16 @@ export class UpdateTableObjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableObjectsCommand)
   .de(de_UpdateTableObjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableObjectsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTableObjectsCommandInput;
+      output: UpdateTableObjectsCommandOutput;
+    };
+  };
+}

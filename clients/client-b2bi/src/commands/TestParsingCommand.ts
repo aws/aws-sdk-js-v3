@@ -128,4 +128,16 @@ export class TestParsingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestParsingCommand)
   .de(de_TestParsingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestParsingRequest;
+      output: TestParsingResponse;
+    };
+    sdk: {
+      input: TestParsingCommandInput;
+      output: TestParsingCommandOutput;
+    };
+  };
+}

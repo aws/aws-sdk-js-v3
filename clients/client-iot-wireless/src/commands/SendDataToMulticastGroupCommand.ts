@@ -101,4 +101,16 @@ export class SendDataToMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDataToMulticastGroupCommand)
   .de(de_SendDataToMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDataToMulticastGroupRequest;
+      output: SendDataToMulticastGroupResponse;
+    };
+    sdk: {
+      input: SendDataToMulticastGroupCommandInput;
+      output: SendDataToMulticastGroupCommandOutput;
+    };
+  };
+}

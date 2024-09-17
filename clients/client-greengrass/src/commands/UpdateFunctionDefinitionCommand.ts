@@ -79,4 +79,16 @@ export class UpdateFunctionDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFunctionDefinitionCommand)
   .de(de_UpdateFunctionDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFunctionDefinitionCommandInput;
+      output: UpdateFunctionDefinitionCommandOutput;
+    };
+  };
+}

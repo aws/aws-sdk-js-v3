@@ -112,4 +112,16 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
   .f(void 0, void 0)
   .ser(se_ListCustomerManagedPolicyReferencesInPermissionSetCommand)
   .de(de_ListCustomerManagedPolicyReferencesInPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomerManagedPolicyReferencesInPermissionSetRequest;
+      output: ListCustomerManagedPolicyReferencesInPermissionSetResponse;
+    };
+    sdk: {
+      input: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput;
+      output: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput;
+    };
+  };
+}

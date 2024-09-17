@@ -130,4 +130,16 @@ export class UpdateStreamProcessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStreamProcessorCommand)
   .de(de_UpdateStreamProcessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamProcessorRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStreamProcessorCommandInput;
+      output: UpdateStreamProcessorCommandOutput;
+    };
+  };
+}

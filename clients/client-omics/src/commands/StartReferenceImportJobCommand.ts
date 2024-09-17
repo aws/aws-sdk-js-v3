@@ -114,4 +114,16 @@ export class StartReferenceImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReferenceImportJobCommand)
   .de(de_StartReferenceImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReferenceImportJobRequest;
+      output: StartReferenceImportJobResponse;
+    };
+    sdk: {
+      input: StartReferenceImportJobCommandInput;
+      output: StartReferenceImportJobCommandOutput;
+    };
+  };
+}

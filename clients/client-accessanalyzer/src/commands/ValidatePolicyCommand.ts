@@ -131,4 +131,16 @@ export class ValidatePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidatePolicyCommand)
   .de(de_ValidatePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidatePolicyRequest;
+      output: ValidatePolicyResponse;
+    };
+    sdk: {
+      input: ValidatePolicyCommandInput;
+      output: ValidatePolicyCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class UpdateFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetCommand)
   .de(de_UpdateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetRequest;
+      output: UpdateFleetResponse;
+    };
+    sdk: {
+      input: UpdateFleetCommandInput;
+      output: UpdateFleetCommandOutput;
+    };
+  };
+}

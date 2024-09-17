@@ -182,4 +182,16 @@ export class GetResourceLFTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceLFTagsCommand)
   .de(de_GetResourceLFTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceLFTagsRequest;
+      output: GetResourceLFTagsResponse;
+    };
+    sdk: {
+      input: GetResourceLFTagsCommandInput;
+      output: GetResourceLFTagsCommandOutput;
+    };
+  };
+}

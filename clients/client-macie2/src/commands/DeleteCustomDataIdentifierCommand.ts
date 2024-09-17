@@ -96,4 +96,16 @@ export class DeleteCustomDataIdentifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomDataIdentifierCommand)
   .de(de_DeleteCustomDataIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomDataIdentifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomDataIdentifierCommandInput;
+      output: DeleteCustomDataIdentifierCommandOutput;
+    };
+  };
+}

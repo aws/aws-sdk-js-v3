@@ -136,4 +136,16 @@ export class UpdateComponentCommand extends $Command
   .f(UpdateComponentInputFilterSensitiveLog, UpdateComponentOutputFilterSensitiveLog)
   .ser(se_UpdateComponentCommand)
   .de(de_UpdateComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateComponentInput;
+      output: UpdateComponentOutput;
+    };
+    sdk: {
+      input: UpdateComponentCommandInput;
+      output: UpdateComponentCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class ExportCertificateCommand extends $Command
   .f(ExportCertificateRequestFilterSensitiveLog, ExportCertificateResponseFilterSensitiveLog)
   .ser(se_ExportCertificateCommand)
   .de(de_ExportCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportCertificateRequest;
+      output: ExportCertificateResponse;
+    };
+    sdk: {
+      input: ExportCertificateCommandInput;
+      output: ExportCertificateCommandOutput;
+    };
+  };
+}

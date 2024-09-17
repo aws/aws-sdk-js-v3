@@ -89,4 +89,16 @@ export class StopCrawlerScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCrawlerScheduleCommand)
   .de(de_StopCrawlerScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCrawlerScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCrawlerScheduleCommandInput;
+      output: StopCrawlerScheduleCommandOutput;
+    };
+  };
+}

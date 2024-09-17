@@ -107,4 +107,16 @@ export class GetAccountLevelServiceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountLevelServiceConfigurationCommand)
   .de(de_GetAccountLevelServiceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountLevelServiceConfigurationOutput;
+    };
+    sdk: {
+      input: GetAccountLevelServiceConfigurationCommandInput;
+      output: GetAccountLevelServiceConfigurationCommandOutput;
+    };
+  };
+}

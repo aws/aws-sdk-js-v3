@@ -102,4 +102,16 @@ export class DeleteAlternateContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAlternateContactCommand)
   .de(de_DeleteAlternateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAlternateContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAlternateContactCommandInput;
+      output: DeleteAlternateContactCommandOutput;
+    };
+  };
+}

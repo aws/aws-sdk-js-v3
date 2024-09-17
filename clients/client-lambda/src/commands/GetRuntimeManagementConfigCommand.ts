@@ -94,4 +94,16 @@ export class GetRuntimeManagementConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuntimeManagementConfigCommand)
   .de(de_GetRuntimeManagementConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuntimeManagementConfigRequest;
+      output: GetRuntimeManagementConfigResponse;
+    };
+    sdk: {
+      input: GetRuntimeManagementConfigCommandInput;
+      output: GetRuntimeManagementConfigCommandOutput;
+    };
+  };
+}

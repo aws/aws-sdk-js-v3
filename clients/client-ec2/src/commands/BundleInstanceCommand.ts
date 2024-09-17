@@ -116,4 +116,16 @@ export class BundleInstanceCommand extends $Command
   .f(BundleInstanceRequestFilterSensitiveLog, BundleInstanceResultFilterSensitiveLog)
   .ser(se_BundleInstanceCommand)
   .de(de_BundleInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BundleInstanceRequest;
+      output: BundleInstanceResult;
+    };
+    sdk: {
+      input: BundleInstanceCommandInput;
+      output: BundleInstanceCommandOutput;
+    };
+  };
+}

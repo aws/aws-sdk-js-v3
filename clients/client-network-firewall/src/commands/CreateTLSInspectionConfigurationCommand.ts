@@ -208,4 +208,16 @@ export class CreateTLSInspectionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTLSInspectionConfigurationCommand)
   .de(de_CreateTLSInspectionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTLSInspectionConfigurationRequest;
+      output: CreateTLSInspectionConfigurationResponse;
+    };
+    sdk: {
+      input: CreateTLSInspectionConfigurationCommandInput;
+      output: CreateTLSInspectionConfigurationCommandOutput;
+    };
+  };
+}

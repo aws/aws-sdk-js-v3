@@ -130,4 +130,16 @@ export class UpdateConnectorRegistrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectorRegistrationCommand)
   .de(de_UpdateConnectorRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectorRegistrationRequest;
+      output: UpdateConnectorRegistrationResponse;
+    };
+    sdk: {
+      input: UpdateConnectorRegistrationCommandInput;
+      output: UpdateConnectorRegistrationCommandOutput;
+    };
+  };
+}

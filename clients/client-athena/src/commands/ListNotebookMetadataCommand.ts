@@ -103,4 +103,16 @@ export class ListNotebookMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookMetadataCommand)
   .de(de_ListNotebookMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookMetadataInput;
+      output: ListNotebookMetadataOutput;
+    };
+    sdk: {
+      input: ListNotebookMetadataCommandInput;
+      output: ListNotebookMetadataCommandOutput;
+    };
+  };
+}

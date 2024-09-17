@@ -87,4 +87,16 @@ export class DeleteCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCapacityReservationCommand)
   .de(de_DeleteCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCapacityReservationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCapacityReservationCommandInput;
+      output: DeleteCapacityReservationCommandOutput;
+    };
+  };
+}

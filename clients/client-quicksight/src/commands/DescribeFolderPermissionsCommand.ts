@@ -120,4 +120,16 @@ export class DescribeFolderPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFolderPermissionsCommand)
   .de(de_DescribeFolderPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFolderPermissionsRequest;
+      output: DescribeFolderPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeFolderPermissionsCommandInput;
+      output: DescribeFolderPermissionsCommandOutput;
+    };
+  };
+}

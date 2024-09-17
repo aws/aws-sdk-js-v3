@@ -134,4 +134,16 @@ export class DescribeWhatIfAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWhatIfAnalysisCommand)
   .de(de_DescribeWhatIfAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWhatIfAnalysisRequest;
+      output: DescribeWhatIfAnalysisResponse;
+    };
+    sdk: {
+      input: DescribeWhatIfAnalysisCommandInput;
+      output: DescribeWhatIfAnalysisCommandOutput;
+    };
+  };
+}

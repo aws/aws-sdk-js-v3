@@ -115,4 +115,16 @@ export class GetVoiceProfileDomainCommand extends $Command
   .f(void 0, GetVoiceProfileDomainResponseFilterSensitiveLog)
   .ser(se_GetVoiceProfileDomainCommand)
   .de(de_GetVoiceProfileDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceProfileDomainRequest;
+      output: GetVoiceProfileDomainResponse;
+    };
+    sdk: {
+      input: GetVoiceProfileDomainCommandInput;
+      output: GetVoiceProfileDomainCommandOutput;
+    };
+  };
+}

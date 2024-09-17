@@ -93,4 +93,16 @@ export class RefreshTokenCommand extends $Command
   .f(RefreshTokenRequestFilterSensitiveLog, RefreshTokenResponseFilterSensitiveLog)
   .ser(se_RefreshTokenCommand)
   .de(de_RefreshTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshTokenRequest;
+      output: RefreshTokenResponse;
+    };
+    sdk: {
+      input: RefreshTokenCommandInput;
+      output: RefreshTokenCommandOutput;
+    };
+  };
+}

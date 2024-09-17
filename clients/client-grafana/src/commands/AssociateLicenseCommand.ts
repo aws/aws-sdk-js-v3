@@ -155,4 +155,16 @@ export class AssociateLicenseCommand extends $Command
   .f(void 0, AssociateLicenseResponseFilterSensitiveLog)
   .ser(se_AssociateLicenseCommand)
   .de(de_AssociateLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLicenseRequest;
+      output: AssociateLicenseResponse;
+    };
+    sdk: {
+      input: AssociateLicenseCommandInput;
+      output: AssociateLicenseCommandOutput;
+    };
+  };
+}

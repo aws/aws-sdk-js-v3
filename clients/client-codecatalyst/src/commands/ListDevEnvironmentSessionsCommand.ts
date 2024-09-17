@@ -110,4 +110,16 @@ export class ListDevEnvironmentSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevEnvironmentSessionsCommand)
   .de(de_ListDevEnvironmentSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevEnvironmentSessionsRequest;
+      output: ListDevEnvironmentSessionsResponse;
+    };
+    sdk: {
+      input: ListDevEnvironmentSessionsCommandInput;
+      output: ListDevEnvironmentSessionsCommandOutput;
+    };
+  };
+}

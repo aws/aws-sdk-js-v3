@@ -140,4 +140,16 @@ export class GetConfiguredTableAssociationAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfiguredTableAssociationAnalysisRuleCommand)
   .de(de_GetConfiguredTableAssociationAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfiguredTableAssociationAnalysisRuleInput;
+      output: GetConfiguredTableAssociationAnalysisRuleOutput;
+    };
+    sdk: {
+      input: GetConfiguredTableAssociationAnalysisRuleCommandInput;
+      output: GetConfiguredTableAssociationAnalysisRuleCommandOutput;
+    };
+  };
+}

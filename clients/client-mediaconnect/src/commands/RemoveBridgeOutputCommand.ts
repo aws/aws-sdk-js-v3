@@ -100,4 +100,16 @@ export class RemoveBridgeOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveBridgeOutputCommand)
   .de(de_RemoveBridgeOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveBridgeOutputRequest;
+      output: RemoveBridgeOutputResponse;
+    };
+    sdk: {
+      input: RemoveBridgeOutputCommandInput;
+      output: RemoveBridgeOutputCommandOutput;
+    };
+  };
+}

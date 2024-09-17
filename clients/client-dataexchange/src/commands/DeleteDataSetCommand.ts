@@ -93,4 +93,16 @@ export class DeleteDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataSetCommand)
   .de(de_DeleteDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataSetCommandInput;
+      output: DeleteDataSetCommandOutput;
+    };
+  };
+}

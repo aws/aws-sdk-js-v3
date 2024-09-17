@@ -102,4 +102,16 @@ export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateWirelessDeviceWithFuotaTaskCommand)
   .de(de_AssociateWirelessDeviceWithFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateWirelessDeviceWithFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateWirelessDeviceWithFuotaTaskCommandInput;
+      output: AssociateWirelessDeviceWithFuotaTaskCommandOutput;
+    };
+  };
+}

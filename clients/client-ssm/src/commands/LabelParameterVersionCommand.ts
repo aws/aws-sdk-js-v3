@@ -136,4 +136,16 @@ export class LabelParameterVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LabelParameterVersionCommand)
   .de(de_LabelParameterVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LabelParameterVersionRequest;
+      output: LabelParameterVersionResult;
+    };
+    sdk: {
+      input: LabelParameterVersionCommandInput;
+      output: LabelParameterVersionCommandOutput;
+    };
+  };
+}

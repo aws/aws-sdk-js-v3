@@ -100,4 +100,16 @@ export class ListAssociatedAttributeGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedAttributeGroupsCommand)
   .de(de_ListAssociatedAttributeGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedAttributeGroupsRequest;
+      output: ListAssociatedAttributeGroupsResponse;
+    };
+    sdk: {
+      input: ListAssociatedAttributeGroupsCommandInput;
+      output: ListAssociatedAttributeGroupsCommandOutput;
+    };
+  };
+}

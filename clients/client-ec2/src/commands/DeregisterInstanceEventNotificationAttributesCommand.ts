@@ -98,4 +98,16 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeregisterInstanceEventNotificationAttributesCommand)
   .de(de_DeregisterInstanceEventNotificationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterInstanceEventNotificationAttributesRequest;
+      output: DeregisterInstanceEventNotificationAttributesResult;
+    };
+    sdk: {
+      input: DeregisterInstanceEventNotificationAttributesCommandInput;
+      output: DeregisterInstanceEventNotificationAttributesCommandOutput;
+    };
+  };
+}

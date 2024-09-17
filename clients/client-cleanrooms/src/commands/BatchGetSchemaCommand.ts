@@ -155,4 +155,16 @@ export class BatchGetSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetSchemaCommand)
   .de(de_BatchGetSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetSchemaInput;
+      output: BatchGetSchemaOutput;
+    };
+    sdk: {
+      input: BatchGetSchemaCommandInput;
+      output: BatchGetSchemaCommandOutput;
+    };
+  };
+}

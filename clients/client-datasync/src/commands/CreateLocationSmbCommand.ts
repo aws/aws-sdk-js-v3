@@ -109,4 +109,16 @@ export class CreateLocationSmbCommand extends $Command
   .f(CreateLocationSmbRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLocationSmbCommand)
   .de(de_CreateLocationSmbCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationSmbRequest;
+      output: CreateLocationSmbResponse;
+    };
+    sdk: {
+      input: CreateLocationSmbCommandInput;
+      output: CreateLocationSmbCommandOutput;
+    };
+  };
+}

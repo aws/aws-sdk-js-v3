@@ -111,4 +111,16 @@ export class BatchDeleteAgentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteAgentsCommand)
   .de(de_BatchDeleteAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteAgentsRequest;
+      output: BatchDeleteAgentsResponse;
+    };
+    sdk: {
+      input: BatchDeleteAgentsCommandInput;
+      output: BatchDeleteAgentsCommandOutput;
+    };
+  };
+}

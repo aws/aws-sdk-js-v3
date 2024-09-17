@@ -126,4 +126,16 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVPCAssociationAuthorizationCommand)
   .de(de_CreateVPCAssociationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVPCAssociationAuthorizationRequest;
+      output: CreateVPCAssociationAuthorizationResponse;
+    };
+    sdk: {
+      input: CreateVPCAssociationAuthorizationCommandInput;
+      output: CreateVPCAssociationAuthorizationCommandOutput;
+    };
+  };
+}

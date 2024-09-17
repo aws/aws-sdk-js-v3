@@ -118,4 +118,16 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSpotDatafeedSubscriptionCommand)
   .de(de_CreateSpotDatafeedSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSpotDatafeedSubscriptionRequest;
+      output: CreateSpotDatafeedSubscriptionResult;
+    };
+    sdk: {
+      input: CreateSpotDatafeedSubscriptionCommandInput;
+      output: CreateSpotDatafeedSubscriptionCommandOutput;
+    };
+  };
+}

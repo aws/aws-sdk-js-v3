@@ -109,4 +109,16 @@ export class UpdateBrowserSettingsCommand extends $Command
   .f(UpdateBrowserSettingsRequestFilterSensitiveLog, UpdateBrowserSettingsResponseFilterSensitiveLog)
   .ser(se_UpdateBrowserSettingsCommand)
   .de(de_UpdateBrowserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBrowserSettingsRequest;
+      output: UpdateBrowserSettingsResponse;
+    };
+    sdk: {
+      input: UpdateBrowserSettingsCommandInput;
+      output: UpdateBrowserSettingsCommandOutput;
+    };
+  };
+}

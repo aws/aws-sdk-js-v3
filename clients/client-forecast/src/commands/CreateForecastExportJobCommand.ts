@@ -126,4 +126,16 @@ export class CreateForecastExportJobCommand extends $Command
   .f(CreateForecastExportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateForecastExportJobCommand)
   .de(de_CreateForecastExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateForecastExportJobRequest;
+      output: CreateForecastExportJobResponse;
+    };
+    sdk: {
+      input: CreateForecastExportJobCommandInput;
+      output: CreateForecastExportJobCommandOutput;
+    };
+  };
+}

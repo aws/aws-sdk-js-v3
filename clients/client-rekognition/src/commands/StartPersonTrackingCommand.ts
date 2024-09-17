@@ -132,4 +132,16 @@ export class StartPersonTrackingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPersonTrackingCommand)
   .de(de_StartPersonTrackingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPersonTrackingRequest;
+      output: StartPersonTrackingResponse;
+    };
+    sdk: {
+      input: StartPersonTrackingCommandInput;
+      output: StartPersonTrackingCommandOutput;
+    };
+  };
+}

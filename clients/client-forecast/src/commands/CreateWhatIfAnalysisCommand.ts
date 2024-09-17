@@ -137,4 +137,16 @@ export class CreateWhatIfAnalysisCommand extends $Command
   .f(CreateWhatIfAnalysisRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWhatIfAnalysisCommand)
   .de(de_CreateWhatIfAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWhatIfAnalysisRequest;
+      output: CreateWhatIfAnalysisResponse;
+    };
+    sdk: {
+      input: CreateWhatIfAnalysisCommandInput;
+      output: CreateWhatIfAnalysisCommandOutput;
+    };
+  };
+}

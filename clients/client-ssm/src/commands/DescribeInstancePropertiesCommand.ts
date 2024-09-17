@@ -174,4 +174,16 @@ export class DescribeInstancePropertiesCommand extends $Command
   .f(void 0, DescribeInstancePropertiesResultFilterSensitiveLog)
   .ser(se_DescribeInstancePropertiesCommand)
   .de(de_DescribeInstancePropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancePropertiesRequest;
+      output: DescribeInstancePropertiesResult;
+    };
+    sdk: {
+      input: DescribeInstancePropertiesCommandInput;
+      output: DescribeInstancePropertiesCommandOutput;
+    };
+  };
+}

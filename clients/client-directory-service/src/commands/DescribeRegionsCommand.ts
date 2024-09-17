@@ -119,4 +119,16 @@ export class DescribeRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegionsCommand)
   .de(de_DescribeRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegionsRequest;
+      output: DescribeRegionsResult;
+    };
+    sdk: {
+      input: DescribeRegionsCommandInput;
+      output: DescribeRegionsCommandOutput;
+    };
+  };
+}

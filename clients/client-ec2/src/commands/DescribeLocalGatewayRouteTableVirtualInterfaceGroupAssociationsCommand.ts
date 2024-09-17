@@ -116,4 +116,16 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand)
   .de(de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest;
+      output: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput;
+      output: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput;
+    };
+  };
+}

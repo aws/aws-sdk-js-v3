@@ -131,4 +131,16 @@ export class DeleteMountTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMountTargetCommand)
   .de(de_DeleteMountTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMountTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMountTargetCommandInput;
+      output: DeleteMountTargetCommandOutput;
+    };
+  };
+}

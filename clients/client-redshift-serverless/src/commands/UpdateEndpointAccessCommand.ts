@@ -129,4 +129,16 @@ export class UpdateEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointAccessCommand)
   .de(de_UpdateEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointAccessRequest;
+      output: UpdateEndpointAccessResponse;
+    };
+    sdk: {
+      input: UpdateEndpointAccessCommandInput;
+      output: UpdateEndpointAccessCommandOutput;
+    };
+  };
+}

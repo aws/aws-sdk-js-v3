@@ -99,4 +99,16 @@ export class CreateCidrCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCidrCollectionCommand)
   .de(de_CreateCidrCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCidrCollectionRequest;
+      output: CreateCidrCollectionResponse;
+    };
+    sdk: {
+      input: CreateCidrCollectionCommandInput;
+      output: CreateCidrCollectionCommandOutput;
+    };
+  };
+}

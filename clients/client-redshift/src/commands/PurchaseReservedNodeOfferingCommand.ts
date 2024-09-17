@@ -122,4 +122,16 @@ export class PurchaseReservedNodeOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseReservedNodeOfferingCommand)
   .de(de_PurchaseReservedNodeOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseReservedNodeOfferingMessage;
+      output: PurchaseReservedNodeOfferingResult;
+    };
+    sdk: {
+      input: PurchaseReservedNodeOfferingCommandInput;
+      output: PurchaseReservedNodeOfferingCommandOutput;
+    };
+  };
+}

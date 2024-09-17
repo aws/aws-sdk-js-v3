@@ -124,4 +124,16 @@ export class GetCommentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommentCommand)
   .de(de_GetCommentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommentInput;
+      output: GetCommentOutput;
+    };
+    sdk: {
+      input: GetCommentCommandInput;
+      output: GetCommentCommandOutput;
+    };
+  };
+}

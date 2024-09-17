@@ -256,4 +256,16 @@ export class CreateEventDataStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventDataStoreCommand)
   .de(de_CreateEventDataStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventDataStoreRequest;
+      output: CreateEventDataStoreResponse;
+    };
+    sdk: {
+      input: CreateEventDataStoreCommandInput;
+      output: CreateEventDataStoreCommandOutput;
+    };
+  };
+}

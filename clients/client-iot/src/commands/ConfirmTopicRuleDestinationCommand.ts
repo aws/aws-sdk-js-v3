@@ -100,4 +100,16 @@ export class ConfirmTopicRuleDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmTopicRuleDestinationCommand)
   .de(de_ConfirmTopicRuleDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmTopicRuleDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: ConfirmTopicRuleDestinationCommandInput;
+      output: ConfirmTopicRuleDestinationCommandOutput;
+    };
+  };
+}

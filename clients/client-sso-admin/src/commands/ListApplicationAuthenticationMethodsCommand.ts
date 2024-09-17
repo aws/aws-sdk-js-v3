@@ -113,4 +113,16 @@ export class ListApplicationAuthenticationMethodsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAuthenticationMethodsCommand)
   .de(de_ListApplicationAuthenticationMethodsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAuthenticationMethodsRequest;
+      output: ListApplicationAuthenticationMethodsResponse;
+    };
+    sdk: {
+      input: ListApplicationAuthenticationMethodsCommandInput;
+      output: ListApplicationAuthenticationMethodsCommandOutput;
+    };
+  };
+}

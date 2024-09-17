@@ -484,4 +484,16 @@ export class DeleteJourneyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteJourneyCommand)
   .de(de_DeleteJourneyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteJourneyRequest;
+      output: DeleteJourneyResponse;
+    };
+    sdk: {
+      input: DeleteJourneyCommandInput;
+      output: DeleteJourneyCommandOutput;
+    };
+  };
+}

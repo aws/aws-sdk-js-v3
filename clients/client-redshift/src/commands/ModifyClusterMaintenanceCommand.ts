@@ -281,4 +281,16 @@ export class ModifyClusterMaintenanceCommand extends $Command
   .f(void 0, ModifyClusterMaintenanceResultFilterSensitiveLog)
   .ser(se_ModifyClusterMaintenanceCommand)
   .de(de_ModifyClusterMaintenanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterMaintenanceMessage;
+      output: ModifyClusterMaintenanceResult;
+    };
+    sdk: {
+      input: ModifyClusterMaintenanceCommandInput;
+      output: ModifyClusterMaintenanceCommandOutput;
+    };
+  };
+}

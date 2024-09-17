@@ -102,4 +102,16 @@ export class DeleteLaunchProfileMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLaunchProfileMemberCommand)
   .de(de_DeleteLaunchProfileMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchProfileMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLaunchProfileMemberCommandInput;
+      output: DeleteLaunchProfileMemberCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class DescribeDatasetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDatasetGroupCommand)
   .de(de_DescribeDatasetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDatasetGroupRequest;
+      output: DescribeDatasetGroupResponse;
+    };
+    sdk: {
+      input: DescribeDatasetGroupCommandInput;
+      output: DescribeDatasetGroupCommandOutput;
+    };
+  };
+}

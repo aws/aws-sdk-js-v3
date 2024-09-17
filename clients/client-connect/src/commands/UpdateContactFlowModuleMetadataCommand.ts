@@ -105,4 +105,16 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactFlowModuleMetadataCommand)
   .de(de_UpdateContactFlowModuleMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactFlowModuleMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactFlowModuleMetadataCommandInput;
+      output: UpdateContactFlowModuleMetadataCommandOutput;
+    };
+  };
+}

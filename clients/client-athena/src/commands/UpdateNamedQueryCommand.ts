@@ -87,4 +87,16 @@ export class UpdateNamedQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNamedQueryCommand)
   .de(de_UpdateNamedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNamedQueryInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNamedQueryCommandInput;
+      output: UpdateNamedQueryCommandOutput;
+    };
+  };
+}

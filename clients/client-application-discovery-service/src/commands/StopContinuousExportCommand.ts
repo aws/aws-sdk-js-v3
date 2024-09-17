@@ -113,4 +113,16 @@ export class StopContinuousExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopContinuousExportCommand)
   .de(de_StopContinuousExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopContinuousExportRequest;
+      output: StopContinuousExportResponse;
+    };
+    sdk: {
+      input: StopContinuousExportCommandInput;
+      output: StopContinuousExportCommandOutput;
+    };
+  };
+}

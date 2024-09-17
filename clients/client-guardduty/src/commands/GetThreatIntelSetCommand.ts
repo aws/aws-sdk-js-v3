@@ -90,4 +90,16 @@ export class GetThreatIntelSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetThreatIntelSetCommand)
   .de(de_GetThreatIntelSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThreatIntelSetRequest;
+      output: GetThreatIntelSetResponse;
+    };
+    sdk: {
+      input: GetThreatIntelSetCommandInput;
+      output: GetThreatIntelSetCommandOutput;
+    };
+  };
+}

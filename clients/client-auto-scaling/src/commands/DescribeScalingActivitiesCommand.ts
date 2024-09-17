@@ -143,4 +143,16 @@ export class DescribeScalingActivitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingActivitiesCommand)
   .de(de_DescribeScalingActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingActivitiesType;
+      output: ActivitiesType;
+    };
+    sdk: {
+      input: DescribeScalingActivitiesCommandInput;
+      output: DescribeScalingActivitiesCommandOutput;
+    };
+  };
+}

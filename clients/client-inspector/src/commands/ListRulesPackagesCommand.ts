@@ -113,4 +113,16 @@ export class ListRulesPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRulesPackagesCommand)
   .de(de_ListRulesPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRulesPackagesRequest;
+      output: ListRulesPackagesResponse;
+    };
+    sdk: {
+      input: ListRulesPackagesCommandInput;
+      output: ListRulesPackagesCommandOutput;
+    };
+  };
+}

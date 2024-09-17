@@ -140,4 +140,16 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConvertRecoveryPointToSnapshotCommand)
   .de(de_ConvertRecoveryPointToSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConvertRecoveryPointToSnapshotRequest;
+      output: ConvertRecoveryPointToSnapshotResponse;
+    };
+    sdk: {
+      input: ConvertRecoveryPointToSnapshotCommandInput;
+      output: ConvertRecoveryPointToSnapshotCommandOutput;
+    };
+  };
+}

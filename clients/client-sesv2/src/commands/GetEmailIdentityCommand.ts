@@ -127,4 +127,16 @@ export class GetEmailIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEmailIdentityCommand)
   .de(de_GetEmailIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEmailIdentityRequest;
+      output: GetEmailIdentityResponse;
+    };
+    sdk: {
+      input: GetEmailIdentityCommandInput;
+      output: GetEmailIdentityCommandOutput;
+    };
+  };
+}

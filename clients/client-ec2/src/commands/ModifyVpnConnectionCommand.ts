@@ -225,4 +225,16 @@ export class ModifyVpnConnectionCommand extends $Command
   .f(void 0, ModifyVpnConnectionResultFilterSensitiveLog)
   .ser(se_ModifyVpnConnectionCommand)
   .de(de_ModifyVpnConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpnConnectionRequest;
+      output: ModifyVpnConnectionResult;
+    };
+    sdk: {
+      input: ModifyVpnConnectionCommandInput;
+      output: ModifyVpnConnectionCommandOutput;
+    };
+  };
+}

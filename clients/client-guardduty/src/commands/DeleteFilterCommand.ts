@@ -82,4 +82,16 @@ export class DeleteFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFilterCommand)
   .de(de_DeleteFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFilterCommandInput;
+      output: DeleteFilterCommandOutput;
+    };
+  };
+}

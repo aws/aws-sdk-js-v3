@@ -238,4 +238,16 @@ export class CreateCapabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCapabilityCommand)
   .de(de_CreateCapabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCapabilityRequest;
+      output: CreateCapabilityResponse;
+    };
+    sdk: {
+      input: CreateCapabilityCommandInput;
+      output: CreateCapabilityCommandOutput;
+    };
+  };
+}

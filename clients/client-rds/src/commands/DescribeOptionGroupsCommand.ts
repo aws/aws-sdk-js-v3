@@ -168,4 +168,16 @@ export class DescribeOptionGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOptionGroupsCommand)
   .de(de_DescribeOptionGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOptionGroupsMessage;
+      output: OptionGroups;
+    };
+    sdk: {
+      input: DescribeOptionGroupsCommandInput;
+      output: DescribeOptionGroupsCommandOutput;
+    };
+  };
+}

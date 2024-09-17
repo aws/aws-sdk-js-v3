@@ -90,4 +90,16 @@ export class DeleteSiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSiteCommand)
   .de(de_DeleteSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSiteInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSiteCommandInput;
+      output: DeleteSiteCommandOutput;
+    };
+  };
+}

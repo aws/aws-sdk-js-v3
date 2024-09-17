@@ -108,4 +108,16 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectTransitGatewayVpcAttachmentCommand)
   .de(de_RejectTransitGatewayVpcAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectTransitGatewayVpcAttachmentRequest;
+      output: RejectTransitGatewayVpcAttachmentResult;
+    };
+    sdk: {
+      input: RejectTransitGatewayVpcAttachmentCommandInput;
+      output: RejectTransitGatewayVpcAttachmentCommandOutput;
+    };
+  };
+}

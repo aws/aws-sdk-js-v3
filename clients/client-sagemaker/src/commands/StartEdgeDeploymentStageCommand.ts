@@ -76,4 +76,16 @@ export class StartEdgeDeploymentStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartEdgeDeploymentStageCommand)
   .de(de_StartEdgeDeploymentStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEdgeDeploymentStageRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartEdgeDeploymentStageCommandInput;
+      output: StartEdgeDeploymentStageCommandOutput;
+    };
+  };
+}

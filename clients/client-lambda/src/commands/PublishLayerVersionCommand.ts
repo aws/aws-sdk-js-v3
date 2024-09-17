@@ -131,4 +131,16 @@ export class PublishLayerVersionCommand extends $Command
   .f(PublishLayerVersionRequestFilterSensitiveLog, void 0)
   .ser(se_PublishLayerVersionCommand)
   .de(de_PublishLayerVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishLayerVersionRequest;
+      output: PublishLayerVersionResponse;
+    };
+    sdk: {
+      input: PublishLayerVersionCommandInput;
+      output: PublishLayerVersionCommandOutput;
+    };
+  };
+}

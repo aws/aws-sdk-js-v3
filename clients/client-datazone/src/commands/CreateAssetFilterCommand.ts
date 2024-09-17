@@ -379,4 +379,16 @@ export class CreateAssetFilterCommand extends $Command
   .f(CreateAssetFilterInputFilterSensitiveLog, CreateAssetFilterOutputFilterSensitiveLog)
   .ser(se_CreateAssetFilterCommand)
   .de(de_CreateAssetFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetFilterInput;
+      output: CreateAssetFilterOutput;
+    };
+    sdk: {
+      input: CreateAssetFilterCommandInput;
+      output: CreateAssetFilterCommandOutput;
+    };
+  };
+}

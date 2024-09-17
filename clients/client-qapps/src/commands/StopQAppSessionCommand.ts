@@ -101,4 +101,16 @@ export class StopQAppSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopQAppSessionCommand)
   .de(de_StopQAppSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopQAppSessionInput;
+      output: {};
+    };
+    sdk: {
+      input: StopQAppSessionCommandInput;
+      output: StopQAppSessionCommandOutput;
+    };
+  };
+}

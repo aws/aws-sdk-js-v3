@@ -128,4 +128,16 @@ export class DescribeOptedOutNumbersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOptedOutNumbersCommand)
   .de(de_DescribeOptedOutNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOptedOutNumbersRequest;
+      output: DescribeOptedOutNumbersResult;
+    };
+    sdk: {
+      input: DescribeOptedOutNumbersCommandInput;
+      output: DescribeOptedOutNumbersCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class GetAccessGrantsInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessGrantsInstanceCommand)
   .de(de_GetAccessGrantsInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessGrantsInstanceRequest;
+      output: GetAccessGrantsInstanceResult;
+    };
+    sdk: {
+      input: GetAccessGrantsInstanceCommandInput;
+      output: GetAccessGrantsInstanceCommandOutput;
+    };
+  };
+}

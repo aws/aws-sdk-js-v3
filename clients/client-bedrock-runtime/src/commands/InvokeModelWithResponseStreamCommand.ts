@@ -177,4 +177,16 @@ export class InvokeModelWithResponseStreamCommand extends $Command
   .f(InvokeModelWithResponseStreamRequestFilterSensitiveLog, InvokeModelWithResponseStreamResponseFilterSensitiveLog)
   .ser(se_InvokeModelWithResponseStreamCommand)
   .de(de_InvokeModelWithResponseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeModelWithResponseStreamRequest;
+      output: InvokeModelWithResponseStreamResponse;
+    };
+    sdk: {
+      input: InvokeModelWithResponseStreamCommandInput;
+      output: InvokeModelWithResponseStreamCommandOutput;
+    };
+  };
+}

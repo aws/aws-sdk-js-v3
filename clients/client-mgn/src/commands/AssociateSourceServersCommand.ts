@@ -91,4 +91,16 @@ export class AssociateSourceServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSourceServersCommand)
   .de(de_AssociateSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSourceServersRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateSourceServersCommandInput;
+      output: AssociateSourceServersCommandOutput;
+    };
+  };
+}

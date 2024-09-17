@@ -111,4 +111,16 @@ export class ListConnectorEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConnectorEntitiesCommand)
   .de(de_ListConnectorEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectorEntitiesRequest;
+      output: ListConnectorEntitiesResponse;
+    };
+    sdk: {
+      input: ListConnectorEntitiesCommandInput;
+      output: ListConnectorEntitiesCommandOutput;
+    };
+  };
+}

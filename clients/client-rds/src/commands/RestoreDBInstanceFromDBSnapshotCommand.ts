@@ -498,4 +498,16 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBInstanceFromDBSnapshotCommand)
   .de(de_RestoreDBInstanceFromDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBInstanceFromDBSnapshotMessage;
+      output: RestoreDBInstanceFromDBSnapshotResult;
+    };
+    sdk: {
+      input: RestoreDBInstanceFromDBSnapshotCommandInput;
+      output: RestoreDBInstanceFromDBSnapshotCommandOutput;
+    };
+  };
+}

@@ -146,4 +146,16 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command
   .f(UpdateMaintenanceWindowTargetRequestFilterSensitiveLog, UpdateMaintenanceWindowTargetResultFilterSensitiveLog)
   .ser(se_UpdateMaintenanceWindowTargetCommand)
   .de(de_UpdateMaintenanceWindowTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMaintenanceWindowTargetRequest;
+      output: UpdateMaintenanceWindowTargetResult;
+    };
+    sdk: {
+      input: UpdateMaintenanceWindowTargetCommandInput;
+      output: UpdateMaintenanceWindowTargetCommandOutput;
+    };
+  };
+}

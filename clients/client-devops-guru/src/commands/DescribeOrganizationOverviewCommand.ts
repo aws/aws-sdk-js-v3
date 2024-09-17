@@ -107,4 +107,16 @@ export class DescribeOrganizationOverviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationOverviewCommand)
   .de(de_DescribeOrganizationOverviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationOverviewRequest;
+      output: DescribeOrganizationOverviewResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationOverviewCommandInput;
+      output: DescribeOrganizationOverviewCommandOutput;
+    };
+  };
+}

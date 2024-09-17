@@ -100,4 +100,16 @@ export class PutMailboxPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMailboxPermissionsCommand)
   .de(de_PutMailboxPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMailboxPermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMailboxPermissionsCommandInput;
+      output: PutMailboxPermissionsCommandOutput;
+    };
+  };
+}

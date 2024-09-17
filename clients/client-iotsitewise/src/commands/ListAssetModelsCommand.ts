@@ -121,4 +121,16 @@ export class ListAssetModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetModelsCommand)
   .de(de_ListAssetModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetModelsRequest;
+      output: ListAssetModelsResponse;
+    };
+    sdk: {
+      input: ListAssetModelsCommandInput;
+      output: ListAssetModelsCommandOutput;
+    };
+  };
+}

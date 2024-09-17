@@ -121,4 +121,16 @@ export class ListRepositoriesInDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRepositoriesInDomainCommand)
   .de(de_ListRepositoriesInDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRepositoriesInDomainRequest;
+      output: ListRepositoriesInDomainResult;
+    };
+    sdk: {
+      input: ListRepositoriesInDomainCommandInput;
+      output: ListRepositoriesInDomainCommandOutput;
+    };
+  };
+}

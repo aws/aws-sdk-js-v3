@@ -105,4 +105,16 @@ export class ListFieldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFieldsCommand)
   .de(de_ListFieldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFieldsRequest;
+      output: ListFieldsResponse;
+    };
+    sdk: {
+      input: ListFieldsCommandInput;
+      output: ListFieldsCommandOutput;
+    };
+  };
+}

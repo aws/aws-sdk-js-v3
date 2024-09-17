@@ -117,4 +117,16 @@ export class UpdatePodIdentityAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePodIdentityAssociationCommand)
   .de(de_UpdatePodIdentityAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePodIdentityAssociationRequest;
+      output: UpdatePodIdentityAssociationResponse;
+    };
+    sdk: {
+      input: UpdatePodIdentityAssociationCommandInput;
+      output: UpdatePodIdentityAssociationCommandOutput;
+    };
+  };
+}

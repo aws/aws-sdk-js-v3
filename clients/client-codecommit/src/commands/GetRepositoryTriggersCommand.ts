@@ -119,4 +119,16 @@ export class GetRepositoryTriggersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRepositoryTriggersCommand)
   .de(de_GetRepositoryTriggersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRepositoryTriggersInput;
+      output: GetRepositoryTriggersOutput;
+    };
+    sdk: {
+      input: GetRepositoryTriggersCommandInput;
+      output: GetRepositoryTriggersCommandOutput;
+    };
+  };
+}

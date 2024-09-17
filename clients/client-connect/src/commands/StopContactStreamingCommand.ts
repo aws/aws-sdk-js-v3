@@ -91,4 +91,16 @@ export class StopContactStreamingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopContactStreamingCommand)
   .de(de_StopContactStreamingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopContactStreamingRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopContactStreamingCommandInput;
+      output: StopContactStreamingCommandOutput;
+    };
+  };
+}

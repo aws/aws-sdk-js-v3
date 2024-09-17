@@ -106,4 +106,16 @@ export class CreateScheduledAuditCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduledAuditCommand)
   .de(de_CreateScheduledAuditCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduledAuditRequest;
+      output: CreateScheduledAuditResponse;
+    };
+    sdk: {
+      input: CreateScheduledAuditCommandInput;
+      output: CreateScheduledAuditCommandOutput;
+    };
+  };
+}

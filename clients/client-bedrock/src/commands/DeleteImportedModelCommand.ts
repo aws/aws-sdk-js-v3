@@ -95,4 +95,16 @@ export class DeleteImportedModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImportedModelCommand)
   .de(de_DeleteImportedModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImportedModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImportedModelCommandInput;
+      output: DeleteImportedModelCommandOutput;
+    };
+  };
+}

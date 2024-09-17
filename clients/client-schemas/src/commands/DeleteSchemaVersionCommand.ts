@@ -89,4 +89,16 @@ export class DeleteSchemaVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSchemaVersionCommand)
   .de(de_DeleteSchemaVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSchemaVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSchemaVersionCommandInput;
+      output: DeleteSchemaVersionCommandOutput;
+    };
+  };
+}

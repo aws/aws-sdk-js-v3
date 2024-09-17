@@ -172,4 +172,16 @@ export class TranslatePinDataCommand extends $Command
   .f(TranslatePinDataInputFilterSensitiveLog, TranslatePinDataOutputFilterSensitiveLog)
   .ser(se_TranslatePinDataCommand)
   .de(de_TranslatePinDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TranslatePinDataInput;
+      output: TranslatePinDataOutput;
+    };
+    sdk: {
+      input: TranslatePinDataCommandInput;
+      output: TranslatePinDataCommandOutput;
+    };
+  };
+}

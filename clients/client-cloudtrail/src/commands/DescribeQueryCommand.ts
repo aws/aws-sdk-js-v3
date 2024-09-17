@@ -122,4 +122,16 @@ export class DescribeQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQueryCommand)
   .de(de_DescribeQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQueryRequest;
+      output: DescribeQueryResponse;
+    };
+    sdk: {
+      input: DescribeQueryCommandInput;
+      output: DescribeQueryCommandOutput;
+    };
+  };
+}

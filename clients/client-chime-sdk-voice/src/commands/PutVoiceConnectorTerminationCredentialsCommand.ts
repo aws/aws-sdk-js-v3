@@ -109,4 +109,16 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command
   .f(PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog, void 0)
   .ser(se_PutVoiceConnectorTerminationCredentialsCommand)
   .de(de_PutVoiceConnectorTerminationCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorTerminationCredentialsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutVoiceConnectorTerminationCredentialsCommandInput;
+      output: PutVoiceConnectorTerminationCredentialsCommandOutput;
+    };
+  };
+}

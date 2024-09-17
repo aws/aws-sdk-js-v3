@@ -175,4 +175,16 @@ export class ReEncryptDataCommand extends $Command
   .f(ReEncryptDataInputFilterSensitiveLog, ReEncryptDataOutputFilterSensitiveLog)
   .ser(se_ReEncryptDataCommand)
   .de(de_ReEncryptDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReEncryptDataInput;
+      output: ReEncryptDataOutput;
+    };
+    sdk: {
+      input: ReEncryptDataCommandInput;
+      output: ReEncryptDataCommandOutput;
+    };
+  };
+}

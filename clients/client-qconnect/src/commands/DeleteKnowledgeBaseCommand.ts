@@ -98,4 +98,16 @@ export class DeleteKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKnowledgeBaseCommand)
   .de(de_DeleteKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKnowledgeBaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKnowledgeBaseCommandInput;
+      output: DeleteKnowledgeBaseCommandOutput;
+    };
+  };
+}

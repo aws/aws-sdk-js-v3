@@ -118,4 +118,16 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMaintenanceWindowScheduleCommand)
   .de(de_DescribeMaintenanceWindowScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMaintenanceWindowScheduleRequest;
+      output: DescribeMaintenanceWindowScheduleResult;
+    };
+    sdk: {
+      input: DescribeMaintenanceWindowScheduleCommandInput;
+      output: DescribeMaintenanceWindowScheduleCommandOutput;
+    };
+  };
+}

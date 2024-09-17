@@ -84,4 +84,16 @@ export class GetAccountPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountPreferencesCommand)
   .de(de_GetAccountPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountPreferencesResult;
+    };
+    sdk: {
+      input: GetAccountPreferencesCommandInput;
+      output: GetAccountPreferencesCommandOutput;
+    };
+  };
+}

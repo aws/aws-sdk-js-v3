@@ -114,4 +114,16 @@ export class DescribeClientVpnConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientVpnConnectionsCommand)
   .de(de_DescribeClientVpnConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientVpnConnectionsRequest;
+      output: DescribeClientVpnConnectionsResult;
+    };
+    sdk: {
+      input: DescribeClientVpnConnectionsCommandInput;
+      output: DescribeClientVpnConnectionsCommandOutput;
+    };
+  };
+}

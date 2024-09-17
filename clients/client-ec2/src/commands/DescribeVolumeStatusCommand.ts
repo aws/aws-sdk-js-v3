@@ -228,4 +228,16 @@ export class DescribeVolumeStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumeStatusCommand)
   .de(de_DescribeVolumeStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumeStatusRequest;
+      output: DescribeVolumeStatusResult;
+    };
+    sdk: {
+      input: DescribeVolumeStatusCommandInput;
+      output: DescribeVolumeStatusCommandOutput;
+    };
+  };
+}

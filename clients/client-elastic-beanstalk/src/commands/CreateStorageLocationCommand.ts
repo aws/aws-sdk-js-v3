@@ -103,4 +103,16 @@ export class CreateStorageLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStorageLocationCommand)
   .de(de_CreateStorageLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CreateStorageLocationResultMessage;
+    };
+    sdk: {
+      input: CreateStorageLocationCommandInput;
+      output: CreateStorageLocationCommandOutput;
+    };
+  };
+}

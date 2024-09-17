@@ -168,4 +168,16 @@ export class VerifyCardValidationDataCommand extends $Command
   .f(VerifyCardValidationDataInputFilterSensitiveLog, void 0)
   .ser(se_VerifyCardValidationDataCommand)
   .de(de_VerifyCardValidationDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyCardValidationDataInput;
+      output: VerifyCardValidationDataOutput;
+    };
+    sdk: {
+      input: VerifyCardValidationDataCommandInput;
+      output: VerifyCardValidationDataCommandOutput;
+    };
+  };
+}

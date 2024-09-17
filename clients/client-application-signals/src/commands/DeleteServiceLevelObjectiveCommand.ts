@@ -91,4 +91,16 @@ export class DeleteServiceLevelObjectiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceLevelObjectiveCommand)
   .de(de_DeleteServiceLevelObjectiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceLevelObjectiveInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceLevelObjectiveCommandInput;
+      output: DeleteServiceLevelObjectiveCommandOutput;
+    };
+  };
+}

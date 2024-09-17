@@ -134,4 +134,16 @@ export class AssociateResourceToProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResourceToProfileCommand)
   .de(de_AssociateResourceToProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResourceToProfileRequest;
+      output: AssociateResourceToProfileResponse;
+    };
+    sdk: {
+      input: AssociateResourceToProfileCommandInput;
+      output: AssociateResourceToProfileCommandOutput;
+    };
+  };
+}

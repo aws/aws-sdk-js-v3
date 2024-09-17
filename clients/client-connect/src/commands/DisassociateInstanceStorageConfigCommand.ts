@@ -97,4 +97,16 @@ export class DisassociateInstanceStorageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateInstanceStorageConfigCommand)
   .de(de_DisassociateInstanceStorageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateInstanceStorageConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateInstanceStorageConfigCommandInput;
+      output: DisassociateInstanceStorageConfigCommandOutput;
+    };
+  };
+}

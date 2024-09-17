@@ -175,4 +175,16 @@ export class UpdateGeneratedTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGeneratedTemplateCommand)
   .de(de_UpdateGeneratedTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGeneratedTemplateInput;
+      output: UpdateGeneratedTemplateOutput;
+    };
+    sdk: {
+      input: UpdateGeneratedTemplateCommandInput;
+      output: UpdateGeneratedTemplateCommandOutput;
+    };
+  };
+}

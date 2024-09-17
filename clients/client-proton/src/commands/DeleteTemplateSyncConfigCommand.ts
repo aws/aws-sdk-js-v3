@@ -103,4 +103,16 @@ export class DeleteTemplateSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTemplateSyncConfigCommand)
   .de(de_DeleteTemplateSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTemplateSyncConfigInput;
+      output: DeleteTemplateSyncConfigOutput;
+    };
+    sdk: {
+      input: DeleteTemplateSyncConfigCommandInput;
+      output: DeleteTemplateSyncConfigCommandOutput;
+    };
+  };
+}

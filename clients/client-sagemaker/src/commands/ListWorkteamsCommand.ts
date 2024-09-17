@@ -122,4 +122,16 @@ export class ListWorkteamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkteamsCommand)
   .de(de_ListWorkteamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkteamsRequest;
+      output: ListWorkteamsResponse;
+    };
+    sdk: {
+      input: ListWorkteamsCommandInput;
+      output: ListWorkteamsCommandOutput;
+    };
+  };
+}

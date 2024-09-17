@@ -107,4 +107,16 @@ export class ListInferenceProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInferenceProfilesCommand)
   .de(de_ListInferenceProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInferenceProfilesRequest;
+      output: ListInferenceProfilesResponse;
+    };
+    sdk: {
+      input: ListInferenceProfilesCommandInput;
+      output: ListInferenceProfilesCommandOutput;
+    };
+  };
+}

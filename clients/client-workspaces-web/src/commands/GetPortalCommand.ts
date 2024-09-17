@@ -114,4 +114,16 @@ export class GetPortalCommand extends $Command
   .f(void 0, GetPortalResponseFilterSensitiveLog)
   .ser(se_GetPortalCommand)
   .de(de_GetPortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPortalRequest;
+      output: GetPortalResponse;
+    };
+    sdk: {
+      input: GetPortalCommandInput;
+      output: GetPortalCommandOutput;
+    };
+  };
+}

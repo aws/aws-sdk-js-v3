@@ -115,4 +115,16 @@ export class GetEnvironmentTemplateVersionCommand extends $Command
   .f(void 0, GetEnvironmentTemplateVersionOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentTemplateVersionCommand)
   .de(de_GetEnvironmentTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentTemplateVersionInput;
+      output: GetEnvironmentTemplateVersionOutput;
+    };
+    sdk: {
+      input: GetEnvironmentTemplateVersionCommandInput;
+      output: GetEnvironmentTemplateVersionCommandOutput;
+    };
+  };
+}

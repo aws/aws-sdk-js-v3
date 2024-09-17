@@ -109,4 +109,16 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelInvocationLoggingConfigurationCommand)
   .de(de_GetModelInvocationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetModelInvocationLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetModelInvocationLoggingConfigurationCommandInput;
+      output: GetModelInvocationLoggingConfigurationCommandOutput;
+    };
+  };
+}

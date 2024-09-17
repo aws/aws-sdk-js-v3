@@ -105,4 +105,16 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProvisioningTemplateVersionCommand)
   .de(de_DescribeProvisioningTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProvisioningTemplateVersionRequest;
+      output: DescribeProvisioningTemplateVersionResponse;
+    };
+    sdk: {
+      input: DescribeProvisioningTemplateVersionCommandInput;
+      output: DescribeProvisioningTemplateVersionCommandOutput;
+    };
+  };
+}

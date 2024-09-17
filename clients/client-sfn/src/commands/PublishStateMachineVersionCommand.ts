@@ -130,4 +130,16 @@ export class PublishStateMachineVersionCommand extends $Command
   .f(PublishStateMachineVersionInputFilterSensitiveLog, void 0)
   .ser(se_PublishStateMachineVersionCommand)
   .de(de_PublishStateMachineVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishStateMachineVersionInput;
+      output: PublishStateMachineVersionOutput;
+    };
+    sdk: {
+      input: PublishStateMachineVersionCommandInput;
+      output: PublishStateMachineVersionCommandOutput;
+    };
+  };
+}

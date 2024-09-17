@@ -153,4 +153,16 @@ export class CreateDataSetImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataSetImportTaskCommand)
   .de(de_CreateDataSetImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSetImportTaskRequest;
+      output: CreateDataSetImportTaskResponse;
+    };
+    sdk: {
+      input: CreateDataSetImportTaskCommandInput;
+      output: CreateDataSetImportTaskCommandOutput;
+    };
+  };
+}

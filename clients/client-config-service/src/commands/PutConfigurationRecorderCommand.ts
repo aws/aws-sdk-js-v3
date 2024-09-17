@@ -159,4 +159,16 @@ export class PutConfigurationRecorderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationRecorderCommand)
   .de(de_PutConfigurationRecorderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationRecorderRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationRecorderCommandInput;
+      output: PutConfigurationRecorderCommandOutput;
+    };
+  };
+}

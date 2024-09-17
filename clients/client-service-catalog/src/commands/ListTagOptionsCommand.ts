@@ -100,4 +100,16 @@ export class ListTagOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagOptionsCommand)
   .de(de_ListTagOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagOptionsInput;
+      output: ListTagOptionsOutput;
+    };
+    sdk: {
+      input: ListTagOptionsCommandInput;
+      output: ListTagOptionsCommandOutput;
+    };
+  };
+}

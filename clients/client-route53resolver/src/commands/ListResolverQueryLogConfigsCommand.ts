@@ -127,4 +127,16 @@ export class ListResolverQueryLogConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverQueryLogConfigsCommand)
   .de(de_ListResolverQueryLogConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverQueryLogConfigsRequest;
+      output: ListResolverQueryLogConfigsResponse;
+    };
+    sdk: {
+      input: ListResolverQueryLogConfigsCommandInput;
+      output: ListResolverQueryLogConfigsCommandOutput;
+    };
+  };
+}

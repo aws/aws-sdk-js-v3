@@ -294,4 +294,16 @@ export class RetrieveAndGenerateCommand extends $Command
   .f(RetrieveAndGenerateRequestFilterSensitiveLog, RetrieveAndGenerateResponseFilterSensitiveLog)
   .ser(se_RetrieveAndGenerateCommand)
   .de(de_RetrieveAndGenerateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveAndGenerateRequest;
+      output: RetrieveAndGenerateResponse;
+    };
+    sdk: {
+      input: RetrieveAndGenerateCommandInput;
+      output: RetrieveAndGenerateCommandOutput;
+    };
+  };
+}

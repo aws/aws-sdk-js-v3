@@ -145,4 +145,16 @@ export class UpdateDeviceCommand extends $Command
   .f(UpdateDeviceRequestFilterSensitiveLog, UpdateDeviceResponseFilterSensitiveLog)
   .ser(se_UpdateDeviceCommand)
   .de(de_UpdateDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceRequest;
+      output: UpdateDeviceResponse;
+    };
+    sdk: {
+      input: UpdateDeviceCommandInput;
+      output: UpdateDeviceCommandOutput;
+    };
+  };
+}

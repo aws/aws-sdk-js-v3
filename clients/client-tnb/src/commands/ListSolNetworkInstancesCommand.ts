@@ -107,4 +107,16 @@ export class ListSolNetworkInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolNetworkInstancesCommand)
   .de(de_ListSolNetworkInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolNetworkInstancesInput;
+      output: ListSolNetworkInstancesOutput;
+    };
+    sdk: {
+      input: ListSolNetworkInstancesCommandInput;
+      output: ListSolNetworkInstancesCommandOutput;
+    };
+  };
+}

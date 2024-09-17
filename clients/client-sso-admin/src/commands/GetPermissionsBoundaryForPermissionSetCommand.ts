@@ -110,4 +110,16 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPermissionsBoundaryForPermissionSetCommand)
   .de(de_GetPermissionsBoundaryForPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPermissionsBoundaryForPermissionSetRequest;
+      output: GetPermissionsBoundaryForPermissionSetResponse;
+    };
+    sdk: {
+      input: GetPermissionsBoundaryForPermissionSetCommandInput;
+      output: GetPermissionsBoundaryForPermissionSetCommandOutput;
+    };
+  };
+}

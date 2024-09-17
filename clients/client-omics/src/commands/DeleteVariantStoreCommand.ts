@@ -96,4 +96,16 @@ export class DeleteVariantStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVariantStoreCommand)
   .de(de_DeleteVariantStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVariantStoreRequest;
+      output: DeleteVariantStoreResponse;
+    };
+    sdk: {
+      input: DeleteVariantStoreCommandInput;
+      output: DeleteVariantStoreCommandOutput;
+    };
+  };
+}

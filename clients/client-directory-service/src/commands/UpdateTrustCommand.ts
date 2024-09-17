@@ -92,4 +92,16 @@ export class UpdateTrustCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrustCommand)
   .de(de_UpdateTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrustRequest;
+      output: UpdateTrustResult;
+    };
+    sdk: {
+      input: UpdateTrustCommandInput;
+      output: UpdateTrustCommandOutput;
+    };
+  };
+}

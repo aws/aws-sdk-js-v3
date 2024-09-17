@@ -249,4 +249,16 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command
   )
   .ser(se_CreateMediaLiveConnectorPipelineCommand)
   .de(de_CreateMediaLiveConnectorPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaLiveConnectorPipelineRequest;
+      output: CreateMediaLiveConnectorPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaLiveConnectorPipelineCommandInput;
+      output: CreateMediaLiveConnectorPipelineCommandOutput;
+    };
+  };
+}

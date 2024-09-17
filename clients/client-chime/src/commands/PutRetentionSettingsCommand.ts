@@ -129,4 +129,16 @@ export class PutRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRetentionSettingsCommand)
   .de(de_PutRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRetentionSettingsRequest;
+      output: PutRetentionSettingsResponse;
+    };
+    sdk: {
+      input: PutRetentionSettingsCommandInput;
+      output: PutRetentionSettingsCommandOutput;
+    };
+  };
+}

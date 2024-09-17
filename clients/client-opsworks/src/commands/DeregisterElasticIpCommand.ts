@@ -87,4 +87,16 @@ export class DeregisterElasticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterElasticIpCommand)
   .de(de_DeregisterElasticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterElasticIpRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterElasticIpCommandInput;
+      output: DeregisterElasticIpCommandOutput;
+    };
+  };
+}

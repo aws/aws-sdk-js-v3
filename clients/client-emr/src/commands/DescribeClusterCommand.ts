@@ -205,4 +205,16 @@ export class DescribeClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterCommand)
   .de(de_DescribeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterInput;
+      output: DescribeClusterOutput;
+    };
+    sdk: {
+      input: DescribeClusterCommandInput;
+      output: DescribeClusterCommandOutput;
+    };
+  };
+}

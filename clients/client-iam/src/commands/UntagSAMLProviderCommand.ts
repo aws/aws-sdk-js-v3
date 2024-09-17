@@ -97,4 +97,16 @@ export class UntagSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagSAMLProviderCommand)
   .de(de_UntagSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagSAMLProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagSAMLProviderCommandInput;
+      output: UntagSAMLProviderCommandOutput;
+    };
+  };
+}

@@ -192,4 +192,16 @@ export class UpdateSlotTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSlotTypeCommand)
   .de(de_UpdateSlotTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSlotTypeRequest;
+      output: UpdateSlotTypeResponse;
+    };
+    sdk: {
+      input: UpdateSlotTypeCommandInput;
+      output: UpdateSlotTypeCommandOutput;
+    };
+  };
+}

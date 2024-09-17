@@ -125,4 +125,16 @@ export class BatchGetReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetReportsCommand)
   .de(de_BatchGetReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetReportsInput;
+      output: BatchGetReportsOutput;
+    };
+    sdk: {
+      input: BatchGetReportsCommandInput;
+      output: BatchGetReportsCommandOutput;
+    };
+  };
+}

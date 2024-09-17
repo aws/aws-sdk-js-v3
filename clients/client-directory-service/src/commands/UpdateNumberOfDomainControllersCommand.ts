@@ -107,4 +107,16 @@ export class UpdateNumberOfDomainControllersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNumberOfDomainControllersCommand)
   .de(de_UpdateNumberOfDomainControllersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNumberOfDomainControllersRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNumberOfDomainControllersCommandInput;
+      output: UpdateNumberOfDomainControllersCommandOutput;
+    };
+  };
+}

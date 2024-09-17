@@ -112,4 +112,16 @@ export class PutHypervisorPropertyMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutHypervisorPropertyMappingsCommand)
   .de(de_PutHypervisorPropertyMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutHypervisorPropertyMappingsInput;
+      output: PutHypervisorPropertyMappingsOutput;
+    };
+    sdk: {
+      input: PutHypervisorPropertyMappingsCommandInput;
+      output: PutHypervisorPropertyMappingsCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DeleteOriginEndpointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOriginEndpointPolicyCommand)
   .de(de_DeleteOriginEndpointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOriginEndpointPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOriginEndpointPolicyCommandInput;
+      output: DeleteOriginEndpointPolicyCommandOutput;
+    };
+  };
+}

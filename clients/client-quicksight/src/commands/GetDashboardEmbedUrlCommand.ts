@@ -170,4 +170,16 @@ export class GetDashboardEmbedUrlCommand extends $Command
   .f(void 0, GetDashboardEmbedUrlResponseFilterSensitiveLog)
   .ser(se_GetDashboardEmbedUrlCommand)
   .de(de_GetDashboardEmbedUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDashboardEmbedUrlRequest;
+      output: GetDashboardEmbedUrlResponse;
+    };
+    sdk: {
+      input: GetDashboardEmbedUrlCommandInput;
+      output: GetDashboardEmbedUrlCommandOutput;
+    };
+  };
+}

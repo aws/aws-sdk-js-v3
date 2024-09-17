@@ -114,4 +114,16 @@ export class DeleteOptedOutNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOptedOutNumberCommand)
   .de(de_DeleteOptedOutNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOptedOutNumberRequest;
+      output: DeleteOptedOutNumberResult;
+    };
+    sdk: {
+      input: DeleteOptedOutNumberCommandInput;
+      output: DeleteOptedOutNumberCommandOutput;
+    };
+  };
+}

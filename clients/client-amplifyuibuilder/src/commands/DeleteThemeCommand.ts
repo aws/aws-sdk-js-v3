@@ -86,4 +86,16 @@ export class DeleteThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteThemeCommand)
   .de(de_DeleteThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteThemeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteThemeCommandInput;
+      output: DeleteThemeCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class DeleteSharedTrustStoreAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSharedTrustStoreAssociationCommand)
   .de(de_DeleteSharedTrustStoreAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSharedTrustStoreAssociationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSharedTrustStoreAssociationCommandInput;
+      output: DeleteSharedTrustStoreAssociationCommandOutput;
+    };
+  };
+}

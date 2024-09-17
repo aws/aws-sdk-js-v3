@@ -129,4 +129,16 @@ export class UpdateThemeForStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThemeForStackCommand)
   .de(de_UpdateThemeForStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThemeForStackRequest;
+      output: UpdateThemeForStackResult;
+    };
+    sdk: {
+      input: UpdateThemeForStackCommandInput;
+      output: UpdateThemeForStackCommandOutput;
+    };
+  };
+}

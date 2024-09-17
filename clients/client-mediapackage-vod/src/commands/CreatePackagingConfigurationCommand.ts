@@ -366,4 +366,16 @@ export class CreatePackagingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePackagingConfigurationCommand)
   .de(de_CreatePackagingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackagingConfigurationRequest;
+      output: CreatePackagingConfigurationResponse;
+    };
+    sdk: {
+      input: CreatePackagingConfigurationCommandInput;
+      output: CreatePackagingConfigurationCommandOutput;
+    };
+  };
+}

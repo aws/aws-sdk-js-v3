@@ -89,4 +89,16 @@ export class GetCoreDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreDefinitionCommand)
   .de(de_GetCoreDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreDefinitionRequest;
+      output: GetCoreDefinitionResponse;
+    };
+    sdk: {
+      input: GetCoreDefinitionCommandInput;
+      output: GetCoreDefinitionCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class GetCollaborationPrivacyBudgetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCollaborationPrivacyBudgetTemplateCommand)
   .de(de_GetCollaborationPrivacyBudgetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCollaborationPrivacyBudgetTemplateInput;
+      output: GetCollaborationPrivacyBudgetTemplateOutput;
+    };
+    sdk: {
+      input: GetCollaborationPrivacyBudgetTemplateCommandInput;
+      output: GetCollaborationPrivacyBudgetTemplateCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class GetConnectivityInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectivityInfoCommand)
   .de(de_GetConnectivityInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectivityInfoRequest;
+      output: GetConnectivityInfoResponse;
+    };
+    sdk: {
+      input: GetConnectivityInfoCommandInput;
+      output: GetConnectivityInfoCommandOutput;
+    };
+  };
+}

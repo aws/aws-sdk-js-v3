@@ -104,4 +104,16 @@ export class GetInventorySchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInventorySchemaCommand)
   .de(de_GetInventorySchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInventorySchemaRequest;
+      output: GetInventorySchemaResult;
+    };
+    sdk: {
+      input: GetInventorySchemaCommandInput;
+      output: GetInventorySchemaCommandOutput;
+    };
+  };
+}

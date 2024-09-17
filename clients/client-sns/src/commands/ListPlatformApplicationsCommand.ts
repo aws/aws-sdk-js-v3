@@ -104,4 +104,16 @@ export class ListPlatformApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPlatformApplicationsCommand)
   .de(de_ListPlatformApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPlatformApplicationsInput;
+      output: ListPlatformApplicationsResponse;
+    };
+    sdk: {
+      input: ListPlatformApplicationsCommandInput;
+      output: ListPlatformApplicationsCommandOutput;
+    };
+  };
+}

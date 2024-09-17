@@ -119,4 +119,16 @@ export class UpdatePortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePortfolioCommand)
   .de(de_UpdatePortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePortfolioInput;
+      output: UpdatePortfolioOutput;
+    };
+    sdk: {
+      input: UpdatePortfolioCommandInput;
+      output: UpdatePortfolioCommandOutput;
+    };
+  };
+}

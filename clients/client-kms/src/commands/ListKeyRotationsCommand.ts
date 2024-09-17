@@ -192,4 +192,16 @@ export class ListKeyRotationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyRotationsCommand)
   .de(de_ListKeyRotationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyRotationsRequest;
+      output: ListKeyRotationsResponse;
+    };
+    sdk: {
+      input: ListKeyRotationsCommandInput;
+      output: ListKeyRotationsCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class CreateVoiceConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVoiceConnectorCommand)
   .de(de_CreateVoiceConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVoiceConnectorRequest;
+      output: CreateVoiceConnectorResponse;
+    };
+    sdk: {
+      input: CreateVoiceConnectorCommandInput;
+      output: CreateVoiceConnectorCommandOutput;
+    };
+  };
+}

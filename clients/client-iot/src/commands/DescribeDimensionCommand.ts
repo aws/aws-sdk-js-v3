@@ -97,4 +97,16 @@ export class DescribeDimensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDimensionCommand)
   .de(de_DescribeDimensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDimensionRequest;
+      output: DescribeDimensionResponse;
+    };
+    sdk: {
+      input: DescribeDimensionCommandInput;
+      output: DescribeDimensionCommandOutput;
+    };
+  };
+}

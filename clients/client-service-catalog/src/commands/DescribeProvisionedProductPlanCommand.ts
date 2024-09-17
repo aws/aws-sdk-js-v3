@@ -144,4 +144,16 @@ export class DescribeProvisionedProductPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProvisionedProductPlanCommand)
   .de(de_DescribeProvisionedProductPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProvisionedProductPlanInput;
+      output: DescribeProvisionedProductPlanOutput;
+    };
+    sdk: {
+      input: DescribeProvisionedProductPlanCommandInput;
+      output: DescribeProvisionedProductPlanCommandOutput;
+    };
+  };
+}

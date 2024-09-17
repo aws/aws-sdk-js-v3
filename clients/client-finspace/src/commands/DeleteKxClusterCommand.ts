@@ -99,4 +99,16 @@ export class DeleteKxClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKxClusterCommand)
   .de(de_DeleteKxClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKxClusterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKxClusterCommandInput;
+      output: DeleteKxClusterCommandOutput;
+    };
+  };
+}

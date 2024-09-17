@@ -190,4 +190,16 @@ export class GetBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketReplicationCommand)
   .de(de_GetBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketReplicationRequest;
+      output: GetBucketReplicationResult;
+    };
+    sdk: {
+      input: GetBucketReplicationCommandInput;
+      output: GetBucketReplicationCommandOutput;
+    };
+  };
+}

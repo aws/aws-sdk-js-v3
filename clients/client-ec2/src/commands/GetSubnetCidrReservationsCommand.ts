@@ -120,4 +120,16 @@ export class GetSubnetCidrReservationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubnetCidrReservationsCommand)
   .de(de_GetSubnetCidrReservationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubnetCidrReservationsRequest;
+      output: GetSubnetCidrReservationsResult;
+    };
+    sdk: {
+      input: GetSubnetCidrReservationsCommandInput;
+      output: GetSubnetCidrReservationsCommandOutput;
+    };
+  };
+}

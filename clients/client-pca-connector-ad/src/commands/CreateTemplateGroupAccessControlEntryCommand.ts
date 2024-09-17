@@ -116,4 +116,16 @@ export class CreateTemplateGroupAccessControlEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTemplateGroupAccessControlEntryCommand)
   .de(de_CreateTemplateGroupAccessControlEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTemplateGroupAccessControlEntryRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateTemplateGroupAccessControlEntryCommandInput;
+      output: CreateTemplateGroupAccessControlEntryCommandOutput;
+    };
+  };
+}

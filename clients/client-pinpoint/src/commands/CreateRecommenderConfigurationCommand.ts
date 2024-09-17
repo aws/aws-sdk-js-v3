@@ -130,4 +130,16 @@ export class CreateRecommenderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRecommenderConfigurationCommand)
   .de(de_CreateRecommenderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRecommenderConfigurationRequest;
+      output: CreateRecommenderConfigurationResponse;
+    };
+    sdk: {
+      input: CreateRecommenderConfigurationCommandInput;
+      output: CreateRecommenderConfigurationCommandOutput;
+    };
+  };
+}

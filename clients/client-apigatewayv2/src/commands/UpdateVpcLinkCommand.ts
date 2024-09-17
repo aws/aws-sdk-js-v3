@@ -101,4 +101,16 @@ export class UpdateVpcLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVpcLinkCommand)
   .de(de_UpdateVpcLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVpcLinkRequest;
+      output: UpdateVpcLinkResponse;
+    };
+    sdk: {
+      input: UpdateVpcLinkCommandInput;
+      output: UpdateVpcLinkCommandOutput;
+    };
+  };
+}

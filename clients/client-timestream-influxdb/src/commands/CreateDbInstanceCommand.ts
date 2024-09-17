@@ -156,4 +156,16 @@ export class CreateDbInstanceCommand extends $Command
   .f(CreateDbInstanceInputFilterSensitiveLog, void 0)
   .ser(se_CreateDbInstanceCommand)
   .de(de_CreateDbInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDbInstanceInput;
+      output: CreateDbInstanceOutput;
+    };
+    sdk: {
+      input: CreateDbInstanceCommandInput;
+      output: CreateDbInstanceCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class UnarchiveWaveCommand extends $Command
   .f(void 0, WaveFilterSensitiveLog)
   .ser(se_UnarchiveWaveCommand)
   .de(de_UnarchiveWaveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnarchiveWaveRequest;
+      output: Wave;
+    };
+    sdk: {
+      input: UnarchiveWaveCommandInput;
+      output: UnarchiveWaveCommandOutput;
+    };
+  };
+}

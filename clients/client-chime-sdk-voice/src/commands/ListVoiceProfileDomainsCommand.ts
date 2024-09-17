@@ -114,4 +114,16 @@ export class ListVoiceProfileDomainsCommand extends $Command
   .f(void 0, ListVoiceProfileDomainsResponseFilterSensitiveLog)
   .ser(se_ListVoiceProfileDomainsCommand)
   .de(de_ListVoiceProfileDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVoiceProfileDomainsRequest;
+      output: ListVoiceProfileDomainsResponse;
+    };
+    sdk: {
+      input: ListVoiceProfileDomainsCommandInput;
+      output: ListVoiceProfileDomainsCommandOutput;
+    };
+  };
+}

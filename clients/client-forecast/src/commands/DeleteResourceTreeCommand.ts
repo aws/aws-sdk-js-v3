@@ -116,4 +116,16 @@ export class DeleteResourceTreeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceTreeCommand)
   .de(de_DeleteResourceTreeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceTreeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourceTreeCommandInput;
+      output: DeleteResourceTreeCommandOutput;
+    };
+  };
+}

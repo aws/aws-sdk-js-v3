@@ -131,4 +131,16 @@ export class CreateTenantDatabaseCommand extends $Command
   .f(CreateTenantDatabaseMessageFilterSensitiveLog, CreateTenantDatabaseResultFilterSensitiveLog)
   .ser(se_CreateTenantDatabaseCommand)
   .de(de_CreateTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTenantDatabaseMessage;
+      output: CreateTenantDatabaseResult;
+    };
+    sdk: {
+      input: CreateTenantDatabaseCommandInput;
+      output: CreateTenantDatabaseCommandOutput;
+    };
+  };
+}

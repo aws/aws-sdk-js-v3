@@ -103,4 +103,16 @@ export class UpdateBackendConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBackendConfigCommand)
   .de(de_UpdateBackendConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackendConfigRequest;
+      output: UpdateBackendConfigResponse;
+    };
+    sdk: {
+      input: UpdateBackendConfigCommandInput;
+      output: UpdateBackendConfigCommandOutput;
+    };
+  };
+}

@@ -148,4 +148,16 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeElasticsearchInstanceTypeLimitsCommand)
   .de(de_DescribeElasticsearchInstanceTypeLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeElasticsearchInstanceTypeLimitsRequest;
+      output: DescribeElasticsearchInstanceTypeLimitsResponse;
+    };
+    sdk: {
+      input: DescribeElasticsearchInstanceTypeLimitsCommandInput;
+      output: DescribeElasticsearchInstanceTypeLimitsCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class GetParametersByPathCommand extends $Command
   .f(void 0, GetParametersByPathResultFilterSensitiveLog)
   .ser(se_GetParametersByPathCommand)
   .de(de_GetParametersByPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersByPathRequest;
+      output: GetParametersByPathResult;
+    };
+    sdk: {
+      input: GetParametersByPathCommandInput;
+      output: GetParametersByPathCommandOutput;
+    };
+  };
+}

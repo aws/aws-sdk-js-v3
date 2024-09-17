@@ -92,4 +92,16 @@ export class UpdateUserHierarchyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserHierarchyCommand)
   .de(de_UpdateUserHierarchyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserHierarchyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserHierarchyCommandInput;
+      output: UpdateUserHierarchyCommandOutput;
+    };
+  };
+}

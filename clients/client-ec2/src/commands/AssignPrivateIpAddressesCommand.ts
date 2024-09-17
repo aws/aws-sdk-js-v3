@@ -136,4 +136,16 @@ export class AssignPrivateIpAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignPrivateIpAddressesCommand)
   .de(de_AssignPrivateIpAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignPrivateIpAddressesRequest;
+      output: AssignPrivateIpAddressesResult;
+    };
+    sdk: {
+      input: AssignPrivateIpAddressesCommandInput;
+      output: AssignPrivateIpAddressesCommandOutput;
+    };
+  };
+}

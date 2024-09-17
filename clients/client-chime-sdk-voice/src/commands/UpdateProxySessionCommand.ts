@@ -131,4 +131,16 @@ export class UpdateProxySessionCommand extends $Command
   .f(void 0, UpdateProxySessionResponseFilterSensitiveLog)
   .ser(se_UpdateProxySessionCommand)
   .de(de_UpdateProxySessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProxySessionRequest;
+      output: UpdateProxySessionResponse;
+    };
+    sdk: {
+      input: UpdateProxySessionCommandInput;
+      output: UpdateProxySessionCommandOutput;
+    };
+  };
+}

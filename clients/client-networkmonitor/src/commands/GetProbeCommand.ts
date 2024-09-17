@@ -110,4 +110,16 @@ export class GetProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProbeCommand)
   .de(de_GetProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProbeInput;
+      output: GetProbeOutput;
+    };
+    sdk: {
+      input: GetProbeCommandInput;
+      output: GetProbeCommandOutput;
+    };
+  };
+}

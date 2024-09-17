@@ -145,4 +145,16 @@ export class ModifyClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterCommand)
   .de(de_ModifyClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterRequest;
+      output: ModifyClusterResponse;
+    };
+    sdk: {
+      input: ModifyClusterCommandInput;
+      output: ModifyClusterCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class ListGameServerGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGameServerGroupsCommand)
   .de(de_ListGameServerGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGameServerGroupsInput;
+      output: ListGameServerGroupsOutput;
+    };
+    sdk: {
+      input: ListGameServerGroupsCommandInput;
+      output: ListGameServerGroupsCommandOutput;
+    };
+  };
+}

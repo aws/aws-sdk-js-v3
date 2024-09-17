@@ -96,4 +96,16 @@ export class DescribeInterconnectLoaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInterconnectLoaCommand)
   .de(de_DescribeInterconnectLoaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInterconnectLoaRequest;
+      output: DescribeInterconnectLoaResponse;
+    };
+    sdk: {
+      input: DescribeInterconnectLoaCommandInput;
+      output: DescribeInterconnectLoaCommandOutput;
+    };
+  };
+}

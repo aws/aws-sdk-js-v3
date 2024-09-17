@@ -342,4 +342,16 @@ export class CreateCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheClusterCommand)
   .de(de_CreateCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheClusterMessage;
+      output: CreateCacheClusterResult;
+    };
+    sdk: {
+      input: CreateCacheClusterCommandInput;
+      output: CreateCacheClusterCommandOutput;
+    };
+  };
+}

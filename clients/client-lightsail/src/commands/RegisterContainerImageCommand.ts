@@ -112,4 +112,16 @@ export class RegisterContainerImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterContainerImageCommand)
   .de(de_RegisterContainerImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterContainerImageRequest;
+      output: RegisterContainerImageResult;
+    };
+    sdk: {
+      input: RegisterContainerImageCommandInput;
+      output: RegisterContainerImageCommandOutput;
+    };
+  };
+}

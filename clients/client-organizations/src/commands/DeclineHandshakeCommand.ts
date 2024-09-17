@@ -306,4 +306,16 @@ export class DeclineHandshakeCommand extends $Command
   .f(void 0, DeclineHandshakeResponseFilterSensitiveLog)
   .ser(se_DeclineHandshakeCommand)
   .de(de_DeclineHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeclineHandshakeRequest;
+      output: DeclineHandshakeResponse;
+    };
+    sdk: {
+      input: DeclineHandshakeCommandInput;
+      output: DeclineHandshakeCommandOutput;
+    };
+  };
+}

@@ -139,4 +139,16 @@ export class UpdateClusterCommand extends $Command
   .f(UpdateClusterInputFilterSensitiveLog, void 0)
   .ser(se_UpdateClusterCommand)
   .de(de_UpdateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterInput;
+      output: UpdateClusterOutput;
+    };
+    sdk: {
+      input: UpdateClusterCommandInput;
+      output: UpdateClusterCommandOutput;
+    };
+  };
+}

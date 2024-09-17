@@ -129,4 +129,16 @@ export class GetMLEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLEndpointCommand)
   .de(de_GetMLEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLEndpointInput;
+      output: GetMLEndpointOutput;
+    };
+    sdk: {
+      input: GetMLEndpointCommandInput;
+      output: GetMLEndpointCommandOutput;
+    };
+  };
+}

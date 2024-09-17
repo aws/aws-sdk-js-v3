@@ -103,4 +103,16 @@ export class GetIdentityProviderCommand extends $Command
   .f(void 0, GetIdentityProviderResponseFilterSensitiveLog)
   .ser(se_GetIdentityProviderCommand)
   .de(de_GetIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityProviderRequest;
+      output: GetIdentityProviderResponse;
+    };
+    sdk: {
+      input: GetIdentityProviderCommandInput;
+      output: GetIdentityProviderCommandOutput;
+    };
+  };
+}

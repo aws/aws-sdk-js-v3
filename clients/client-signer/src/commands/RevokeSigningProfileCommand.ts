@@ -96,4 +96,16 @@ export class RevokeSigningProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeSigningProfileCommand)
   .de(de_RevokeSigningProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSigningProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeSigningProfileCommandInput;
+      output: RevokeSigningProfileCommandOutput;
+    };
+  };
+}

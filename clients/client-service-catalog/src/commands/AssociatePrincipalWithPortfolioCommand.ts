@@ -107,4 +107,16 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociatePrincipalWithPortfolioCommand)
   .de(de_AssociatePrincipalWithPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePrincipalWithPortfolioInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociatePrincipalWithPortfolioCommandInput;
+      output: AssociatePrincipalWithPortfolioCommandOutput;
+    };
+  };
+}

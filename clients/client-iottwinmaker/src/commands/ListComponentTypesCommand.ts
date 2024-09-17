@@ -117,4 +117,16 @@ export class ListComponentTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComponentTypesCommand)
   .de(de_ListComponentTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComponentTypesRequest;
+      output: ListComponentTypesResponse;
+    };
+    sdk: {
+      input: ListComponentTypesCommandInput;
+      output: ListComponentTypesCommandOutput;
+    };
+  };
+}

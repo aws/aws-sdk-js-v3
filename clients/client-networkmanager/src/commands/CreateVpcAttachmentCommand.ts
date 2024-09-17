@@ -168,4 +168,16 @@ export class CreateVpcAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcAttachmentCommand)
   .de(de_CreateVpcAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcAttachmentRequest;
+      output: CreateVpcAttachmentResponse;
+    };
+    sdk: {
+      input: CreateVpcAttachmentCommandInput;
+      output: CreateVpcAttachmentCommandOutput;
+    };
+  };
+}

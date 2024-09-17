@@ -107,4 +107,16 @@ export class ListDirectoryBucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDirectoryBucketsCommand)
   .de(de_ListDirectoryBucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDirectoryBucketsRequest;
+      output: ListDirectoryBucketsOutput;
+    };
+    sdk: {
+      input: ListDirectoryBucketsCommandInput;
+      output: ListDirectoryBucketsCommandOutput;
+    };
+  };
+}

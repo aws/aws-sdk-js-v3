@@ -91,4 +91,16 @@ export class DeleteTerminologyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTerminologyCommand)
   .de(de_DeleteTerminologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTerminologyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTerminologyCommandInput;
+      output: DeleteTerminologyCommandOutput;
+    };
+  };
+}

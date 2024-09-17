@@ -118,4 +118,16 @@ export class DescribeSecurityGroupRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityGroupRulesCommand)
   .de(de_DescribeSecurityGroupRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityGroupRulesRequest;
+      output: DescribeSecurityGroupRulesResult;
+    };
+    sdk: {
+      input: DescribeSecurityGroupRulesCommandInput;
+      output: DescribeSecurityGroupRulesCommandOutput;
+    };
+  };
+}

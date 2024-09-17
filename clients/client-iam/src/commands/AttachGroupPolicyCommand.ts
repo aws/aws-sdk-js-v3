@@ -117,4 +117,16 @@ export class AttachGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachGroupPolicyCommand)
   .de(de_AttachGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachGroupPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachGroupPolicyCommandInput;
+      output: AttachGroupPolicyCommandOutput;
+    };
+  };
+}

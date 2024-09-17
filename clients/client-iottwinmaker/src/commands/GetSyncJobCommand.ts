@@ -108,4 +108,16 @@ export class GetSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSyncJobCommand)
   .de(de_GetSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSyncJobRequest;
+      output: GetSyncJobResponse;
+    };
+    sdk: {
+      input: GetSyncJobCommandInput;
+      output: GetSyncJobCommandOutput;
+    };
+  };
+}

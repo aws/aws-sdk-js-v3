@@ -102,4 +102,16 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectDomainTransferFromAnotherAwsAccountCommand)
   .de(de_RejectDomainTransferFromAnotherAwsAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectDomainTransferFromAnotherAwsAccountRequest;
+      output: RejectDomainTransferFromAnotherAwsAccountResponse;
+    };
+    sdk: {
+      input: RejectDomainTransferFromAnotherAwsAccountCommandInput;
+      output: RejectDomainTransferFromAnotherAwsAccountCommandOutput;
+    };
+  };
+}

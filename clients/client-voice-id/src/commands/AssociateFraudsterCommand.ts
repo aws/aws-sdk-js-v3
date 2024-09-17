@@ -118,4 +118,16 @@ export class AssociateFraudsterCommand extends $Command
   .f(AssociateFraudsterRequestFilterSensitiveLog, void 0)
   .ser(se_AssociateFraudsterCommand)
   .de(de_AssociateFraudsterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFraudsterRequest;
+      output: AssociateFraudsterResponse;
+    };
+    sdk: {
+      input: AssociateFraudsterCommandInput;
+      output: AssociateFraudsterCommandOutput;
+    };
+  };
+}

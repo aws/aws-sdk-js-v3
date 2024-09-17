@@ -364,4 +364,16 @@ export class ListHandshakesForOrganizationCommand extends $Command
   .f(void 0, ListHandshakesForOrganizationResponseFilterSensitiveLog)
   .ser(se_ListHandshakesForOrganizationCommand)
   .de(de_ListHandshakesForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHandshakesForOrganizationRequest;
+      output: ListHandshakesForOrganizationResponse;
+    };
+    sdk: {
+      input: ListHandshakesForOrganizationCommandInput;
+      output: ListHandshakesForOrganizationCommandOutput;
+    };
+  };
+}

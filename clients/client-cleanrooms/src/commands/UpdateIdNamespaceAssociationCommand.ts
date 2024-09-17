@@ -127,4 +127,16 @@ export class UpdateIdNamespaceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdNamespaceAssociationCommand)
   .de(de_UpdateIdNamespaceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdNamespaceAssociationInput;
+      output: UpdateIdNamespaceAssociationOutput;
+    };
+    sdk: {
+      input: UpdateIdNamespaceAssociationCommandInput;
+      output: UpdateIdNamespaceAssociationCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class GetTaxRegistrationDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTaxRegistrationDocumentCommand)
   .de(de_GetTaxRegistrationDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaxRegistrationDocumentRequest;
+      output: GetTaxRegistrationDocumentResponse;
+    };
+    sdk: {
+      input: GetTaxRegistrationDocumentCommandInput;
+      output: GetTaxRegistrationDocumentCommandOutput;
+    };
+  };
+}

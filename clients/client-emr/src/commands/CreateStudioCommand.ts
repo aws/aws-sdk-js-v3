@@ -108,4 +108,16 @@ export class CreateStudioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStudioCommand)
   .de(de_CreateStudioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStudioInput;
+      output: CreateStudioOutput;
+    };
+    sdk: {
+      input: CreateStudioCommandInput;
+      output: CreateStudioCommandOutput;
+    };
+  };
+}

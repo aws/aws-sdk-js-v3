@@ -88,4 +88,16 @@ export class DeletePreparedStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePreparedStatementCommand)
   .de(de_DeletePreparedStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePreparedStatementInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePreparedStatementCommandInput;
+      output: DeletePreparedStatementCommandOutput;
+    };
+  };
+}

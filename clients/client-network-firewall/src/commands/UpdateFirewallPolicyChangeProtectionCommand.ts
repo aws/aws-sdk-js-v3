@@ -125,4 +125,16 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallPolicyChangeProtectionCommand)
   .de(de_UpdateFirewallPolicyChangeProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallPolicyChangeProtectionRequest;
+      output: UpdateFirewallPolicyChangeProtectionResponse;
+    };
+    sdk: {
+      input: UpdateFirewallPolicyChangeProtectionCommandInput;
+      output: UpdateFirewallPolicyChangeProtectionCommandOutput;
+    };
+  };
+}

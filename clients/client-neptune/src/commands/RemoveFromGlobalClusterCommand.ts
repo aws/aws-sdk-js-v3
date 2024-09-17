@@ -109,4 +109,16 @@ export class RemoveFromGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveFromGlobalClusterCommand)
   .de(de_RemoveFromGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveFromGlobalClusterMessage;
+      output: RemoveFromGlobalClusterResult;
+    };
+    sdk: {
+      input: RemoveFromGlobalClusterCommandInput;
+      output: RemoveFromGlobalClusterCommandOutput;
+    };
+  };
+}

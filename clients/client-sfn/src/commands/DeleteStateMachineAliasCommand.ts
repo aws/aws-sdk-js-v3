@@ -116,4 +116,16 @@ export class DeleteStateMachineAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStateMachineAliasCommand)
   .de(de_DeleteStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStateMachineAliasInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStateMachineAliasCommandInput;
+      output: DeleteStateMachineAliasCommandOutput;
+    };
+  };
+}

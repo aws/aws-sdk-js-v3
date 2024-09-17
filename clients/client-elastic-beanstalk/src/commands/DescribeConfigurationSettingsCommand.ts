@@ -174,4 +174,16 @@ export class DescribeConfigurationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationSettingsCommand)
   .de(de_DescribeConfigurationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationSettingsMessage;
+      output: ConfigurationSettingsDescriptions;
+    };
+    sdk: {
+      input: DescribeConfigurationSettingsCommandInput;
+      output: DescribeConfigurationSettingsCommandOutput;
+    };
+  };
+}

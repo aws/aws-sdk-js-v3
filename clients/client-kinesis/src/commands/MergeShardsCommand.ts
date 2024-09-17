@@ -148,4 +148,16 @@ export class MergeShardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergeShardsCommand)
   .de(de_MergeShardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergeShardsInput;
+      output: {};
+    };
+    sdk: {
+      input: MergeShardsCommandInput;
+      output: MergeShardsCommandOutput;
+    };
+  };
+}

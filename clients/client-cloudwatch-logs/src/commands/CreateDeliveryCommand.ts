@@ -162,4 +162,16 @@ export class CreateDeliveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeliveryCommand)
   .de(de_CreateDeliveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeliveryRequest;
+      output: CreateDeliveryResponse;
+    };
+    sdk: {
+      input: CreateDeliveryCommandInput;
+      output: CreateDeliveryCommandOutput;
+    };
+  };
+}

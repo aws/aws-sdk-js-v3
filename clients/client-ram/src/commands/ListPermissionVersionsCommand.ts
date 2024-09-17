@@ -125,4 +125,16 @@ export class ListPermissionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionVersionsCommand)
   .de(de_ListPermissionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionVersionsRequest;
+      output: ListPermissionVersionsResponse;
+    };
+    sdk: {
+      input: ListPermissionVersionsCommandInput;
+      output: ListPermissionVersionsCommandOutput;
+    };
+  };
+}

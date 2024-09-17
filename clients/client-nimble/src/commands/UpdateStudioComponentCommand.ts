@@ -219,4 +219,16 @@ export class UpdateStudioComponentCommand extends $Command
   .f(UpdateStudioComponentRequestFilterSensitiveLog, UpdateStudioComponentResponseFilterSensitiveLog)
   .ser(se_UpdateStudioComponentCommand)
   .de(de_UpdateStudioComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStudioComponentRequest;
+      output: UpdateStudioComponentResponse;
+    };
+    sdk: {
+      input: UpdateStudioComponentCommandInput;
+      output: UpdateStudioComponentCommandOutput;
+    };
+  };
+}

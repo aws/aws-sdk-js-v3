@@ -119,4 +119,16 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteRumMetricDefinitionsCommand)
   .de(de_BatchDeleteRumMetricDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteRumMetricDefinitionsRequest;
+      output: BatchDeleteRumMetricDefinitionsResponse;
+    };
+    sdk: {
+      input: BatchDeleteRumMetricDefinitionsCommandInput;
+      output: BatchDeleteRumMetricDefinitionsCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class GetFeatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFeatureCommand)
   .de(de_GetFeatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFeatureRequest;
+      output: GetFeatureResponse;
+    };
+    sdk: {
+      input: GetFeatureCommandInput;
+      output: GetFeatureCommandOutput;
+    };
+  };
+}

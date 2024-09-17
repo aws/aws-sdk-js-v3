@@ -170,4 +170,16 @@ export class DeleteLaunchProfileCommand extends $Command
   .f(void 0, DeleteLaunchProfileResponseFilterSensitiveLog)
   .ser(se_DeleteLaunchProfileCommand)
   .de(de_DeleteLaunchProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchProfileRequest;
+      output: DeleteLaunchProfileResponse;
+    };
+    sdk: {
+      input: DeleteLaunchProfileCommandInput;
+      output: DeleteLaunchProfileCommandOutput;
+    };
+  };
+}

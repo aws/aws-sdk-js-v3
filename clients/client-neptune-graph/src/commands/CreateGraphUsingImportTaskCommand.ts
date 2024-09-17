@@ -137,4 +137,16 @@ export class CreateGraphUsingImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGraphUsingImportTaskCommand)
   .de(de_CreateGraphUsingImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGraphUsingImportTaskInput;
+      output: CreateGraphUsingImportTaskOutput;
+    };
+    sdk: {
+      input: CreateGraphUsingImportTaskCommandInput;
+      output: CreateGraphUsingImportTaskCommandOutput;
+    };
+  };
+}

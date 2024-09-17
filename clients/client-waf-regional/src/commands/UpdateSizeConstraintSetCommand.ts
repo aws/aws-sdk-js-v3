@@ -281,4 +281,16 @@ export class UpdateSizeConstraintSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSizeConstraintSetCommand)
   .de(de_UpdateSizeConstraintSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSizeConstraintSetRequest;
+      output: UpdateSizeConstraintSetResponse;
+    };
+    sdk: {
+      input: UpdateSizeConstraintSetCommandInput;
+      output: UpdateSizeConstraintSetCommandOutput;
+    };
+  };
+}

@@ -221,4 +221,16 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAnalyticsConfigurationCommand)
   .de(de_PutBucketAnalyticsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAnalyticsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAnalyticsConfigurationCommandInput;
+      output: PutBucketAnalyticsConfigurationCommandOutput;
+    };
+  };
+}

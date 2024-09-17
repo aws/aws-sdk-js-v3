@@ -123,4 +123,16 @@ export class DescribeTopicRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicRefreshScheduleCommand)
   .de(de_DescribeTopicRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicRefreshScheduleRequest;
+      output: DescribeTopicRefreshScheduleResponse;
+    };
+    sdk: {
+      input: DescribeTopicRefreshScheduleCommandInput;
+      output: DescribeTopicRefreshScheduleCommandOutput;
+    };
+  };
+}

@@ -80,4 +80,16 @@ export class DisassociateTrunkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTrunkInterfaceCommand)
   .de(de_DisassociateTrunkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTrunkInterfaceRequest;
+      output: DisassociateTrunkInterfaceResult;
+    };
+    sdk: {
+      input: DisassociateTrunkInterfaceCommandInput;
+      output: DisassociateTrunkInterfaceCommandOutput;
+    };
+  };
+}

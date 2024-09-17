@@ -101,4 +101,16 @@ export class CreatePresignedDomainUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePresignedDomainUrlCommand)
   .de(de_CreatePresignedDomainUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePresignedDomainUrlRequest;
+      output: CreatePresignedDomainUrlResponse;
+    };
+    sdk: {
+      input: CreatePresignedDomainUrlCommandInput;
+      output: CreatePresignedDomainUrlCommandOutput;
+    };
+  };
+}

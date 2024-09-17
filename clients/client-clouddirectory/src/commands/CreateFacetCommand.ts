@@ -140,4 +140,16 @@ export class CreateFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFacetCommand)
   .de(de_CreateFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFacetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateFacetCommandInput;
+      output: CreateFacetCommandOutput;
+    };
+  };
+}

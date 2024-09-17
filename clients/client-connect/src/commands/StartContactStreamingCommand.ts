@@ -113,4 +113,16 @@ export class StartContactStreamingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartContactStreamingCommand)
   .de(de_StartContactStreamingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartContactStreamingRequest;
+      output: StartContactStreamingResponse;
+    };
+    sdk: {
+      input: StartContactStreamingCommandInput;
+      output: StartContactStreamingCommandOutput;
+    };
+  };
+}

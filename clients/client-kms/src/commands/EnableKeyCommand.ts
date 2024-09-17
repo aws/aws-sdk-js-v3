@@ -139,4 +139,16 @@ export class EnableKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableKeyCommand)
   .de(de_EnableKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableKeyCommandInput;
+      output: EnableKeyCommandOutput;
+    };
+  };
+}

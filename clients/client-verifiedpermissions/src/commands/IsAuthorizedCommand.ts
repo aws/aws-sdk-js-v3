@@ -252,4 +252,16 @@ export class IsAuthorizedCommand extends $Command
   .f(IsAuthorizedInputFilterSensitiveLog, IsAuthorizedOutputFilterSensitiveLog)
   .ser(se_IsAuthorizedCommand)
   .de(de_IsAuthorizedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsAuthorizedInput;
+      output: IsAuthorizedOutput;
+    };
+    sdk: {
+      input: IsAuthorizedCommandInput;
+      output: IsAuthorizedCommandOutput;
+    };
+  };
+}

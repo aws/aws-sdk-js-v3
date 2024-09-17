@@ -82,4 +82,16 @@ export class StartMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitoringScheduleCommand)
   .de(de_StartMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitoringScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMonitoringScheduleCommandInput;
+      output: StartMonitoringScheduleCommandOutput;
+    };
+  };
+}

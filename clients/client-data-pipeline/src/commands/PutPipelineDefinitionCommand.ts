@@ -294,4 +294,16 @@ export class PutPipelineDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPipelineDefinitionCommand)
   .de(de_PutPipelineDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPipelineDefinitionInput;
+      output: PutPipelineDefinitionOutput;
+    };
+    sdk: {
+      input: PutPipelineDefinitionCommandInput;
+      output: PutPipelineDefinitionCommandOutput;
+    };
+  };
+}

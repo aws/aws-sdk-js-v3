@@ -104,4 +104,16 @@ export class CreateLogStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLogStreamCommand)
   .de(de_CreateLogStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLogStreamRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLogStreamCommandInput;
+      output: CreateLogStreamCommandOutput;
+    };
+  };
+}

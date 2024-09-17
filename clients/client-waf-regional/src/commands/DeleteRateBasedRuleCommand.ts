@@ -152,4 +152,16 @@ export class DeleteRateBasedRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRateBasedRuleCommand)
   .de(de_DeleteRateBasedRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRateBasedRuleRequest;
+      output: DeleteRateBasedRuleResponse;
+    };
+    sdk: {
+      input: DeleteRateBasedRuleCommandInput;
+      output: DeleteRateBasedRuleCommandOutput;
+    };
+  };
+}

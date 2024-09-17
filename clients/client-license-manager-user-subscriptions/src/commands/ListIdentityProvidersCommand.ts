@@ -122,4 +122,16 @@ export class ListIdentityProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentityProvidersCommand)
   .de(de_ListIdentityProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentityProvidersRequest;
+      output: ListIdentityProvidersResponse;
+    };
+    sdk: {
+      input: ListIdentityProvidersCommandInput;
+      output: ListIdentityProvidersCommandOutput;
+    };
+  };
+}

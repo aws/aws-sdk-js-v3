@@ -112,4 +112,16 @@ export class GetDistributionBundlesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDistributionBundlesCommand)
   .de(de_GetDistributionBundlesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDistributionBundlesResult;
+    };
+    sdk: {
+      input: GetDistributionBundlesCommandInput;
+      output: GetDistributionBundlesCommandOutput;
+    };
+  };
+}

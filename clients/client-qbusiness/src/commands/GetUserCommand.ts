@@ -109,4 +109,16 @@ export class GetUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserCommand)
   .de(de_GetUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserRequest;
+      output: GetUserResponse;
+    };
+    sdk: {
+      input: GetUserCommandInput;
+      output: GetUserCommandOutput;
+    };
+  };
+}

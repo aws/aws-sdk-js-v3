@@ -140,4 +140,16 @@ export class UpdateKxEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxEnvironmentCommand)
   .de(de_UpdateKxEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxEnvironmentRequest;
+      output: UpdateKxEnvironmentResponse;
+    };
+    sdk: {
+      input: UpdateKxEnvironmentCommandInput;
+      output: UpdateKxEnvironmentCommandOutput;
+    };
+  };
+}

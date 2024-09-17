@@ -286,4 +286,16 @@ export class GetAutomationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutomationExecutionCommand)
   .de(de_GetAutomationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutomationExecutionRequest;
+      output: GetAutomationExecutionResult;
+    };
+    sdk: {
+      input: GetAutomationExecutionCommandInput;
+      output: GetAutomationExecutionCommandOutput;
+    };
+  };
+}

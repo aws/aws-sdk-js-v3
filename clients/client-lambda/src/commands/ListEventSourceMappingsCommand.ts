@@ -169,4 +169,16 @@ export class ListEventSourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventSourceMappingsCommand)
   .de(de_ListEventSourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventSourceMappingsRequest;
+      output: ListEventSourceMappingsResponse;
+    };
+    sdk: {
+      input: ListEventSourceMappingsCommandInput;
+      output: ListEventSourceMappingsCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class DescribeInstanceHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceHealthCommand)
   .de(de_DescribeInstanceHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndPointStateInput;
+      output: DescribeEndPointStateOutput;
+    };
+    sdk: {
+      input: DescribeInstanceHealthCommandInput;
+      output: DescribeInstanceHealthCommandOutput;
+    };
+  };
+}

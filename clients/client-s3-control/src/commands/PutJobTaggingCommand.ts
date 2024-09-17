@@ -168,4 +168,16 @@ export class PutJobTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutJobTaggingCommand)
   .de(de_PutJobTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutJobTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutJobTaggingCommandInput;
+      output: PutJobTaggingCommandOutput;
+    };
+  };
+}

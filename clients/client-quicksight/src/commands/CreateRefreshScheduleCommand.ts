@@ -123,4 +123,16 @@ export class CreateRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRefreshScheduleCommand)
   .de(de_CreateRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRefreshScheduleRequest;
+      output: CreateRefreshScheduleResponse;
+    };
+    sdk: {
+      input: CreateRefreshScheduleCommandInput;
+      output: CreateRefreshScheduleCommandOutput;
+    };
+  };
+}

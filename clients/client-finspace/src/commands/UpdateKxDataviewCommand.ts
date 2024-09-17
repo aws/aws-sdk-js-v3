@@ -153,4 +153,16 @@ export class UpdateKxDataviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxDataviewCommand)
   .de(de_UpdateKxDataviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxDataviewRequest;
+      output: UpdateKxDataviewResponse;
+    };
+    sdk: {
+      input: UpdateKxDataviewCommandInput;
+      output: UpdateKxDataviewCommandOutput;
+    };
+  };
+}

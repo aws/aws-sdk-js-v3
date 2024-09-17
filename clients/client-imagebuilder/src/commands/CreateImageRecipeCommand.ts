@@ -164,4 +164,16 @@ export class CreateImageRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageRecipeCommand)
   .de(de_CreateImageRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageRecipeRequest;
+      output: CreateImageRecipeResponse;
+    };
+    sdk: {
+      input: CreateImageRecipeCommandInput;
+      output: CreateImageRecipeCommandOutput;
+    };
+  };
+}

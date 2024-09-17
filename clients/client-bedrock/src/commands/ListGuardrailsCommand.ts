@@ -111,4 +111,16 @@ export class ListGuardrailsCommand extends $Command
   .f(void 0, ListGuardrailsResponseFilterSensitiveLog)
   .ser(se_ListGuardrailsCommand)
   .de(de_ListGuardrailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGuardrailsRequest;
+      output: ListGuardrailsResponse;
+    };
+    sdk: {
+      input: ListGuardrailsCommandInput;
+      output: ListGuardrailsCommandOutput;
+    };
+  };
+}

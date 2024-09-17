@@ -79,4 +79,16 @@ export class GetAccountAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountAliasCommand)
   .de(de_GetAccountAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountAliasResult;
+    };
+    sdk: {
+      input: GetAccountAliasCommandInput;
+      output: GetAccountAliasCommandOutput;
+    };
+  };
+}

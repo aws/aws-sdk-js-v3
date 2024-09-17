@@ -104,4 +104,16 @@ export class UpdateUserDefinedFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserDefinedFunctionCommand)
   .de(de_UpdateUserDefinedFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserDefinedFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserDefinedFunctionCommandInput;
+      output: UpdateUserDefinedFunctionCommandOutput;
+    };
+  };
+}

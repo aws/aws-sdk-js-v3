@@ -133,4 +133,16 @@ export class CreateSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSecurityGroupCommand)
   .de(de_CreateSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecurityGroupRequest;
+      output: CreateSecurityGroupResult;
+    };
+    sdk: {
+      input: CreateSecurityGroupCommandInput;
+      output: CreateSecurityGroupCommandOutput;
+    };
+  };
+}

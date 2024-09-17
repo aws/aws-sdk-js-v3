@@ -97,4 +97,16 @@ export class PutMaintenanceStartTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMaintenanceStartTimeCommand)
   .de(de_PutMaintenanceStartTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMaintenanceStartTimeInput;
+      output: PutMaintenanceStartTimeOutput;
+    };
+    sdk: {
+      input: PutMaintenanceStartTimeCommandInput;
+      output: PutMaintenanceStartTimeCommandOutput;
+    };
+  };
+}

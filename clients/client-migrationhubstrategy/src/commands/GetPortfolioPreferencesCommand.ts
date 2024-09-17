@@ -139,4 +139,16 @@ export class GetPortfolioPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPortfolioPreferencesCommand)
   .de(de_GetPortfolioPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPortfolioPreferencesResponse;
+    };
+    sdk: {
+      input: GetPortfolioPreferencesCommandInput;
+      output: GetPortfolioPreferencesCommandOutput;
+    };
+  };
+}

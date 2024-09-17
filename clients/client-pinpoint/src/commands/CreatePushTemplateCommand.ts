@@ -153,4 +153,16 @@ export class CreatePushTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePushTemplateCommand)
   .de(de_CreatePushTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePushTemplateRequest;
+      output: CreatePushTemplateResponse;
+    };
+    sdk: {
+      input: CreatePushTemplateCommandInput;
+      output: CreatePushTemplateCommandOutput;
+    };
+  };
+}

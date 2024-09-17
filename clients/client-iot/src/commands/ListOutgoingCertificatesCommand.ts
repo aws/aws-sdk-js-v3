@@ -105,4 +105,16 @@ export class ListOutgoingCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOutgoingCertificatesCommand)
   .de(de_ListOutgoingCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOutgoingCertificatesRequest;
+      output: ListOutgoingCertificatesResponse;
+    };
+    sdk: {
+      input: ListOutgoingCertificatesCommandInput;
+      output: ListOutgoingCertificatesCommandOutput;
+    };
+  };
+}

@@ -146,4 +146,16 @@ export class GetRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRoleCommand)
   .de(de_GetRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRoleRequest;
+      output: GetRoleResponse;
+    };
+    sdk: {
+      input: GetRoleCommandInput;
+      output: GetRoleCommandOutput;
+    };
+  };
+}

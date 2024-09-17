@@ -347,4 +347,16 @@ export class PromoteReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteReadReplicaCommand)
   .de(de_PromoteReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteReadReplicaMessage;
+      output: PromoteReadReplicaResult;
+    };
+    sdk: {
+      input: PromoteReadReplicaCommandInput;
+      output: PromoteReadReplicaCommandOutput;
+    };
+  };
+}

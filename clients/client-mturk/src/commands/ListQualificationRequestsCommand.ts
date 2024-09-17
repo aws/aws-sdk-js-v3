@@ -103,4 +103,16 @@ export class ListQualificationRequestsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQualificationRequestsCommand)
   .de(de_ListQualificationRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQualificationRequestsRequest;
+      output: ListQualificationRequestsResponse;
+    };
+    sdk: {
+      input: ListQualificationRequestsCommandInput;
+      output: ListQualificationRequestsCommandOutput;
+    };
+  };
+}

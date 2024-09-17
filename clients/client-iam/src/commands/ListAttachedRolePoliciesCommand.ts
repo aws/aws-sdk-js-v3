@@ -108,4 +108,16 @@ export class ListAttachedRolePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedRolePoliciesCommand)
   .de(de_ListAttachedRolePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedRolePoliciesRequest;
+      output: ListAttachedRolePoliciesResponse;
+    };
+    sdk: {
+      input: ListAttachedRolePoliciesCommandInput;
+      output: ListAttachedRolePoliciesCommandOutput;
+    };
+  };
+}

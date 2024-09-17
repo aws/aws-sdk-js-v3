@@ -135,4 +135,16 @@ export class DescribeSigningJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSigningJobCommand)
   .de(de_DescribeSigningJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSigningJobRequest;
+      output: DescribeSigningJobResponse;
+    };
+    sdk: {
+      input: DescribeSigningJobCommandInput;
+      output: DescribeSigningJobCommandOutput;
+    };
+  };
+}

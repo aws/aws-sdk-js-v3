@@ -91,4 +91,16 @@ export class AddAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddAssociationCommand)
   .de(de_AddAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddAssociationRequest;
+      output: AddAssociationResponse;
+    };
+    sdk: {
+      input: AddAssociationCommandInput;
+      output: AddAssociationCommandOutput;
+    };
+  };
+}

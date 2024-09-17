@@ -225,4 +225,16 @@ export class UpdateGraphqlApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGraphqlApiCommand)
   .de(de_UpdateGraphqlApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGraphqlApiRequest;
+      output: UpdateGraphqlApiResponse;
+    };
+    sdk: {
+      input: UpdateGraphqlApiCommandInput;
+      output: UpdateGraphqlApiCommandOutput;
+    };
+  };
+}

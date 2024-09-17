@@ -126,4 +126,16 @@ export class DescribeInferenceSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInferenceSchedulerCommand)
   .de(de_DescribeInferenceSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInferenceSchedulerRequest;
+      output: DescribeInferenceSchedulerResponse;
+    };
+    sdk: {
+      input: DescribeInferenceSchedulerCommandInput;
+      output: DescribeInferenceSchedulerCommandOutput;
+    };
+  };
+}

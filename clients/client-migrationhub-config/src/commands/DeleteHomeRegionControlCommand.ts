@@ -97,4 +97,16 @@ export class DeleteHomeRegionControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHomeRegionControlCommand)
   .de(de_DeleteHomeRegionControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHomeRegionControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHomeRegionControlCommandInput;
+      output: DeleteHomeRegionControlCommandOutput;
+    };
+  };
+}

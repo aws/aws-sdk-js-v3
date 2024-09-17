@@ -118,4 +118,16 @@ export class CreateEventBusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventBusCommand)
   .de(de_CreateEventBusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventBusRequest;
+      output: CreateEventBusResponse;
+    };
+    sdk: {
+      input: CreateEventBusCommandInput;
+      output: CreateEventBusCommandOutput;
+    };
+  };
+}

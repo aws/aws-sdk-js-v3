@@ -166,4 +166,16 @@ export class GetCommentsForComparedCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommentsForComparedCommitCommand)
   .de(de_GetCommentsForComparedCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommentsForComparedCommitInput;
+      output: GetCommentsForComparedCommitOutput;
+    };
+    sdk: {
+      input: GetCommentsForComparedCommitCommandInput;
+      output: GetCommentsForComparedCommitCommandOutput;
+    };
+  };
+}

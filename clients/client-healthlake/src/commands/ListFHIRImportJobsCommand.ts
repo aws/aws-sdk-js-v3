@@ -131,4 +131,16 @@ export class ListFHIRImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFHIRImportJobsCommand)
   .de(de_ListFHIRImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFHIRImportJobsRequest;
+      output: ListFHIRImportJobsResponse;
+    };
+    sdk: {
+      input: ListFHIRImportJobsCommandInput;
+      output: ListFHIRImportJobsCommandOutput;
+    };
+  };
+}

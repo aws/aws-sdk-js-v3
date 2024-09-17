@@ -130,4 +130,16 @@ export class DescribeUsageLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUsageLimitsCommand)
   .de(de_DescribeUsageLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUsageLimitsMessage;
+      output: UsageLimitList;
+    };
+    sdk: {
+      input: DescribeUsageLimitsCommandInput;
+      output: DescribeUsageLimitsCommandOutput;
+    };
+  };
+}

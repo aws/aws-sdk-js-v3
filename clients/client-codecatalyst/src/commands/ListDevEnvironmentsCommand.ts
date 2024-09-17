@@ -139,4 +139,16 @@ export class ListDevEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevEnvironmentsCommand)
   .de(de_ListDevEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevEnvironmentsRequest;
+      output: ListDevEnvironmentsResponse;
+    };
+    sdk: {
+      input: ListDevEnvironmentsCommandInput;
+      output: ListDevEnvironmentsCommandOutput;
+    };
+  };
+}

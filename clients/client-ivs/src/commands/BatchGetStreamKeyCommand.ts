@@ -99,4 +99,16 @@ export class BatchGetStreamKeyCommand extends $Command
   .f(void 0, BatchGetStreamKeyResponseFilterSensitiveLog)
   .ser(se_BatchGetStreamKeyCommand)
   .de(de_BatchGetStreamKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetStreamKeyRequest;
+      output: BatchGetStreamKeyResponse;
+    };
+    sdk: {
+      input: BatchGetStreamKeyCommandInput;
+      output: BatchGetStreamKeyCommandOutput;
+    };
+  };
+}

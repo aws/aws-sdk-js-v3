@@ -116,4 +116,16 @@ export class CompleteMultipartReadSetUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteMultipartReadSetUploadCommand)
   .de(de_CompleteMultipartReadSetUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteMultipartReadSetUploadRequest;
+      output: CompleteMultipartReadSetUploadResponse;
+    };
+    sdk: {
+      input: CompleteMultipartReadSetUploadCommandInput;
+      output: CompleteMultipartReadSetUploadCommandOutput;
+    };
+  };
+}

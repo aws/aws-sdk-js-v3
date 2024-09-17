@@ -126,4 +126,16 @@ export class GetSolFunctionInstanceCommand extends $Command
   .f(void 0, GetSolFunctionInstanceOutputFilterSensitiveLog)
   .ser(se_GetSolFunctionInstanceCommand)
   .de(de_GetSolFunctionInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSolFunctionInstanceInput;
+      output: GetSolFunctionInstanceOutput;
+    };
+    sdk: {
+      input: GetSolFunctionInstanceCommandInput;
+      output: GetSolFunctionInstanceCommandOutput;
+    };
+  };
+}

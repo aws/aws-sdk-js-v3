@@ -107,4 +107,16 @@ export class DeleteFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFacetCommand)
   .de(de_DeleteFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFacetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFacetCommandInput;
+      output: DeleteFacetCommandOutput;
+    };
+  };
+}

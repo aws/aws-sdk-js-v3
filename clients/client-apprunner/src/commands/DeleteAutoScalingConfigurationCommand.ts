@@ -107,4 +107,16 @@ export class DeleteAutoScalingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAutoScalingConfigurationCommand)
   .de(de_DeleteAutoScalingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAutoScalingConfigurationRequest;
+      output: DeleteAutoScalingConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteAutoScalingConfigurationCommandInput;
+      output: DeleteAutoScalingConfigurationCommandOutput;
+    };
+  };
+}

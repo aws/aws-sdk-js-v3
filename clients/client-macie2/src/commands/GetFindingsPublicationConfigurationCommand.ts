@@ -107,4 +107,16 @@ export class GetFindingsPublicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsPublicationConfigurationCommand)
   .de(de_GetFindingsPublicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetFindingsPublicationConfigurationResponse;
+    };
+    sdk: {
+      input: GetFindingsPublicationConfigurationCommandInput;
+      output: GetFindingsPublicationConfigurationCommandOutput;
+    };
+  };
+}

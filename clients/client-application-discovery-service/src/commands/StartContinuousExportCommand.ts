@@ -115,4 +115,16 @@ export class StartContinuousExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartContinuousExportCommand)
   .de(de_StartContinuousExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: StartContinuousExportResponse;
+    };
+    sdk: {
+      input: StartContinuousExportCommandInput;
+      output: StartContinuousExportCommandOutput;
+    };
+  };
+}

@@ -420,4 +420,16 @@ export class StartBuildBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBuildBatchCommand)
   .de(de_StartBuildBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBuildBatchInput;
+      output: StartBuildBatchOutput;
+    };
+    sdk: {
+      input: StartBuildBatchCommandInput;
+      output: StartBuildBatchCommandOutput;
+    };
+  };
+}

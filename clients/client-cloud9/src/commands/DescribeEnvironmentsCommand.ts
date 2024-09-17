@@ -162,4 +162,16 @@ export class DescribeEnvironmentsCommand extends $Command
   .f(void 0, DescribeEnvironmentsResultFilterSensitiveLog)
   .ser(se_DescribeEnvironmentsCommand)
   .de(de_DescribeEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentsRequest;
+      output: DescribeEnvironmentsResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentsCommandInput;
+      output: DescribeEnvironmentsCommandOutput;
+    };
+  };
+}

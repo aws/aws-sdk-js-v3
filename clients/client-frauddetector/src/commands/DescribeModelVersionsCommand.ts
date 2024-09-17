@@ -257,4 +257,16 @@ export class DescribeModelVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeModelVersionsCommand)
   .de(de_DescribeModelVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelVersionsRequest;
+      output: DescribeModelVersionsResult;
+    };
+    sdk: {
+      input: DescribeModelVersionsCommandInput;
+      output: DescribeModelVersionsCommandOutput;
+    };
+  };
+}

@@ -325,4 +325,16 @@ export class UpdateWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWebACLCommand)
   .de(de_UpdateWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWebACLRequest;
+      output: UpdateWebACLResponse;
+    };
+    sdk: {
+      input: UpdateWebACLCommandInput;
+      output: UpdateWebACLCommandOutput;
+    };
+  };
+}

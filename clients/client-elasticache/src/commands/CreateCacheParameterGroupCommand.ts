@@ -152,4 +152,16 @@ export class CreateCacheParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheParameterGroupCommand)
   .de(de_CreateCacheParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheParameterGroupMessage;
+      output: CreateCacheParameterGroupResult;
+    };
+    sdk: {
+      input: CreateCacheParameterGroupCommandInput;
+      output: CreateCacheParameterGroupCommandOutput;
+    };
+  };
+}

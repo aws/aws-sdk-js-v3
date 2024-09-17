@@ -119,4 +119,16 @@ export class RetrieveEnvironmentInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetrieveEnvironmentInfoCommand)
   .de(de_RetrieveEnvironmentInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveEnvironmentInfoMessage;
+      output: RetrieveEnvironmentInfoResultMessage;
+    };
+    sdk: {
+      input: RetrieveEnvironmentInfoCommandInput;
+      output: RetrieveEnvironmentInfoCommandOutput;
+    };
+  };
+}

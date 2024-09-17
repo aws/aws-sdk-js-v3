@@ -102,4 +102,16 @@ export class UnlinkDeveloperIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnlinkDeveloperIdentityCommand)
   .de(de_UnlinkDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnlinkDeveloperIdentityInput;
+      output: {};
+    };
+    sdk: {
+      input: UnlinkDeveloperIdentityCommandInput;
+      output: UnlinkDeveloperIdentityCommandOutput;
+    };
+  };
+}

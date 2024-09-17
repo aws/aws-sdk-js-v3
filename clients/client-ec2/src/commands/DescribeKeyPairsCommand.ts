@@ -132,4 +132,16 @@ export class DescribeKeyPairsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyPairsCommand)
   .de(de_DescribeKeyPairsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyPairsRequest;
+      output: DescribeKeyPairsResult;
+    };
+    sdk: {
+      input: DescribeKeyPairsCommandInput;
+      output: DescribeKeyPairsCommandOutput;
+    };
+  };
+}

@@ -301,4 +301,16 @@ export class BatchGetBuildBatchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetBuildBatchesCommand)
   .de(de_BatchGetBuildBatchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetBuildBatchesInput;
+      output: BatchGetBuildBatchesOutput;
+    };
+    sdk: {
+      input: BatchGetBuildBatchesCommandInput;
+      output: BatchGetBuildBatchesCommandOutput;
+    };
+  };
+}

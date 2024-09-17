@@ -97,4 +97,16 @@ export class UpdateRulesOfIpGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRulesOfIpGroupCommand)
   .de(de_UpdateRulesOfIpGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRulesOfIpGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRulesOfIpGroupCommandInput;
+      output: UpdateRulesOfIpGroupCommandOutput;
+    };
+  };
+}

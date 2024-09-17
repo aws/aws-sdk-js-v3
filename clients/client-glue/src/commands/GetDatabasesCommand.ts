@@ -126,4 +126,16 @@ export class GetDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDatabasesCommand)
   .de(de_GetDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatabasesRequest;
+      output: GetDatabasesResponse;
+    };
+    sdk: {
+      input: GetDatabasesCommandInput;
+      output: GetDatabasesCommandOutput;
+    };
+  };
+}

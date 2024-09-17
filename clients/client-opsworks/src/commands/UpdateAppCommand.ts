@@ -123,4 +123,16 @@ export class UpdateAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppCommand)
   .de(de_UpdateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAppCommandInput;
+      output: UpdateAppCommandOutput;
+    };
+  };
+}

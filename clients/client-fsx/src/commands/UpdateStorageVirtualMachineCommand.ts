@@ -172,4 +172,16 @@ export class UpdateStorageVirtualMachineCommand extends $Command
   .f(UpdateStorageVirtualMachineRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateStorageVirtualMachineCommand)
   .de(de_UpdateStorageVirtualMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStorageVirtualMachineRequest;
+      output: UpdateStorageVirtualMachineResponse;
+    };
+    sdk: {
+      input: UpdateStorageVirtualMachineCommandInput;
+      output: UpdateStorageVirtualMachineCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLBCookieStickinessPolicyCommand)
   .de(de_CreateLBCookieStickinessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLBCookieStickinessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateLBCookieStickinessPolicyCommandInput;
+      output: CreateLBCookieStickinessPolicyCommandOutput;
+    };
+  };
+}

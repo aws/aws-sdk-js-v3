@@ -133,4 +133,16 @@ export class DescribeDBSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSecurityGroupsCommand)
   .de(de_DescribeDBSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSecurityGroupsMessage;
+      output: DBSecurityGroupMessage;
+    };
+    sdk: {
+      input: DescribeDBSecurityGroupsCommandInput;
+      output: DescribeDBSecurityGroupsCommandOutput;
+    };
+  };
+}

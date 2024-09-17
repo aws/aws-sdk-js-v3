@@ -130,4 +130,16 @@ export class ListDistributedGrantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDistributedGrantsCommand)
   .de(de_ListDistributedGrantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributedGrantsRequest;
+      output: ListDistributedGrantsResponse;
+    };
+    sdk: {
+      input: ListDistributedGrantsCommandInput;
+      output: ListDistributedGrantsCommandOutput;
+    };
+  };
+}

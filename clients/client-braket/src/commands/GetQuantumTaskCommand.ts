@@ -121,4 +121,16 @@ export class GetQuantumTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQuantumTaskCommand)
   .de(de_GetQuantumTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQuantumTaskRequest;
+      output: GetQuantumTaskResponse;
+    };
+    sdk: {
+      input: GetQuantumTaskCommandInput;
+      output: GetQuantumTaskCommandOutput;
+    };
+  };
+}

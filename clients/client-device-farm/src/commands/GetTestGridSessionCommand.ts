@@ -105,4 +105,16 @@ export class GetTestGridSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestGridSessionCommand)
   .de(de_GetTestGridSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestGridSessionRequest;
+      output: GetTestGridSessionResult;
+    };
+    sdk: {
+      input: GetTestGridSessionCommandInput;
+      output: GetTestGridSessionCommandOutput;
+    };
+  };
+}

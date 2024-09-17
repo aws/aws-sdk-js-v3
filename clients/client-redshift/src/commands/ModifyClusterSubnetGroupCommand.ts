@@ -135,4 +135,16 @@ export class ModifyClusterSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterSubnetGroupCommand)
   .de(de_ModifyClusterSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterSubnetGroupMessage;
+      output: ModifyClusterSubnetGroupResult;
+    };
+    sdk: {
+      input: ModifyClusterSubnetGroupCommandInput;
+      output: ModifyClusterSubnetGroupCommandOutput;
+    };
+  };
+}

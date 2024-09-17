@@ -150,4 +150,16 @@ export class CreateIngestionDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIngestionDestinationCommand)
   .de(de_CreateIngestionDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIngestionDestinationRequest;
+      output: CreateIngestionDestinationResponse;
+    };
+    sdk: {
+      input: CreateIngestionDestinationCommandInput;
+      output: CreateIngestionDestinationCommandOutput;
+    };
+  };
+}

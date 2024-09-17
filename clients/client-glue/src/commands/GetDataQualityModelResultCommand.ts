@@ -100,4 +100,16 @@ export class GetDataQualityModelResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataQualityModelResultCommand)
   .de(de_GetDataQualityModelResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataQualityModelResultRequest;
+      output: GetDataQualityModelResultResponse;
+    };
+    sdk: {
+      input: GetDataQualityModelResultCommandInput;
+      output: GetDataQualityModelResultCommandOutput;
+    };
+  };
+}

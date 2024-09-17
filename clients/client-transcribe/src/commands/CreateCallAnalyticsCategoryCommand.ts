@@ -270,4 +270,16 @@ export class CreateCallAnalyticsCategoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCallAnalyticsCategoryCommand)
   .de(de_CreateCallAnalyticsCategoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCallAnalyticsCategoryRequest;
+      output: CreateCallAnalyticsCategoryResponse;
+    };
+    sdk: {
+      input: CreateCallAnalyticsCategoryCommandInput;
+      output: CreateCallAnalyticsCategoryCommandOutput;
+    };
+  };
+}

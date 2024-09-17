@@ -137,4 +137,16 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command
   .f(void 0, DescribeFraudsterRegistrationJobResponseFilterSensitiveLog)
   .ser(se_DescribeFraudsterRegistrationJobCommand)
   .de(de_DescribeFraudsterRegistrationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFraudsterRegistrationJobRequest;
+      output: DescribeFraudsterRegistrationJobResponse;
+    };
+    sdk: {
+      input: DescribeFraudsterRegistrationJobCommandInput;
+      output: DescribeFraudsterRegistrationJobCommandOutput;
+    };
+  };
+}

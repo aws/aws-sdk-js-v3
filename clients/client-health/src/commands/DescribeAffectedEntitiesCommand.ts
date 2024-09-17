@@ -140,4 +140,16 @@ export class DescribeAffectedEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAffectedEntitiesCommand)
   .de(de_DescribeAffectedEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAffectedEntitiesRequest;
+      output: DescribeAffectedEntitiesResponse;
+    };
+    sdk: {
+      input: DescribeAffectedEntitiesCommandInput;
+      output: DescribeAffectedEntitiesCommandOutput;
+    };
+  };
+}

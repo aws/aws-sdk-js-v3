@@ -132,4 +132,16 @@ export class DisableKinesisStreamingDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableKinesisStreamingDestinationCommand)
   .de(de_DisableKinesisStreamingDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: KinesisStreamingDestinationInput;
+      output: KinesisStreamingDestinationOutput;
+    };
+    sdk: {
+      input: DisableKinesisStreamingDestinationCommandInput;
+      output: DisableKinesisStreamingDestinationCommandOutput;
+    };
+  };
+}

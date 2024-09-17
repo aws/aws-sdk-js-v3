@@ -84,4 +84,16 @@ export class DeleteRelayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRelayCommand)
   .de(de_DeleteRelayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRelayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRelayCommandInput;
+      output: DeleteRelayCommandOutput;
+    };
+  };
+}

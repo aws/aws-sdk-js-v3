@@ -96,4 +96,16 @@ export class AssociateApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApiCommand)
   .de(de_AssociateApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApiRequest;
+      output: AssociateApiResponse;
+    };
+    sdk: {
+      input: AssociateApiCommandInput;
+      output: AssociateApiCommandOutput;
+    };
+  };
+}

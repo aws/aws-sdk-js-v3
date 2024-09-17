@@ -106,4 +106,16 @@ export class UpdateActiveModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateActiveModelVersionCommand)
   .de(de_UpdateActiveModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateActiveModelVersionRequest;
+      output: UpdateActiveModelVersionResponse;
+    };
+    sdk: {
+      input: UpdateActiveModelVersionCommandInput;
+      output: UpdateActiveModelVersionCommandOutput;
+    };
+  };
+}

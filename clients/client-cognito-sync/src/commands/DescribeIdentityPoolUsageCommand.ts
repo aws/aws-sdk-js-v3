@@ -150,4 +150,16 @@ export class DescribeIdentityPoolUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityPoolUsageCommand)
   .de(de_DescribeIdentityPoolUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityPoolUsageRequest;
+      output: DescribeIdentityPoolUsageResponse;
+    };
+    sdk: {
+      input: DescribeIdentityPoolUsageCommandInput;
+      output: DescribeIdentityPoolUsageCommandOutput;
+    };
+  };
+}

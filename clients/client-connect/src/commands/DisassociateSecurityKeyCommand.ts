@@ -92,4 +92,16 @@ export class DisassociateSecurityKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateSecurityKeyCommand)
   .de(de_DisassociateSecurityKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateSecurityKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateSecurityKeyCommandInput;
+      output: DisassociateSecurityKeyCommandOutput;
+    };
+  };
+}

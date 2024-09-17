@@ -219,4 +219,16 @@ export class DescribeJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJobCommand)
   .de(de_DescribeJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobInput;
+      output: GlacierJobDescription;
+    };
+    sdk: {
+      input: DescribeJobCommandInput;
+      output: DescribeJobCommandOutput;
+    };
+  };
+}

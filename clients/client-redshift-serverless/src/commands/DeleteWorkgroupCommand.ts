@@ -145,4 +145,16 @@ export class DeleteWorkgroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkgroupCommand)
   .de(de_DeleteWorkgroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkgroupRequest;
+      output: DeleteWorkgroupResponse;
+    };
+    sdk: {
+      input: DeleteWorkgroupCommandInput;
+      output: DeleteWorkgroupCommandOutput;
+    };
+  };
+}

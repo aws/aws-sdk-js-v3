@@ -122,4 +122,16 @@ export class SearchAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchAnalysesCommand)
   .de(de_SearchAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchAnalysesRequest;
+      output: SearchAnalysesResponse;
+    };
+    sdk: {
+      input: SearchAnalysesCommandInput;
+      output: SearchAnalysesCommandOutput;
+    };
+  };
+}

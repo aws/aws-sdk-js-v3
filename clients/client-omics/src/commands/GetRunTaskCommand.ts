@@ -114,4 +114,16 @@ export class GetRunTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRunTaskCommand)
   .de(de_GetRunTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRunTaskRequest;
+      output: GetRunTaskResponse;
+    };
+    sdk: {
+      input: GetRunTaskCommandInput;
+      output: GetRunTaskCommandOutput;
+    };
+  };
+}

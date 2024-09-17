@@ -87,4 +87,16 @@ export class ListSharedReportGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSharedReportGroupsCommand)
   .de(de_ListSharedReportGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSharedReportGroupsInput;
+      output: ListSharedReportGroupsOutput;
+    };
+    sdk: {
+      input: ListSharedReportGroupsCommandInput;
+      output: ListSharedReportGroupsCommandOutput;
+    };
+  };
+}

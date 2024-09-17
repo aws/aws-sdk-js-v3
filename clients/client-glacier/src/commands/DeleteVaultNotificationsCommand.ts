@@ -113,4 +113,16 @@ export class DeleteVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVaultNotificationsCommand)
   .de(de_DeleteVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVaultNotificationsCommandInput;
+      output: DeleteVaultNotificationsCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class UpdateWaveCommand extends $Command
   .f(void 0, WaveFilterSensitiveLog)
   .ser(se_UpdateWaveCommand)
   .de(de_UpdateWaveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWaveRequest;
+      output: Wave;
+    };
+    sdk: {
+      input: UpdateWaveCommandInput;
+      output: UpdateWaveCommandOutput;
+    };
+  };
+}

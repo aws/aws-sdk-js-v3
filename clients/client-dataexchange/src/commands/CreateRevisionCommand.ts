@@ -109,4 +109,16 @@ export class CreateRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRevisionCommand)
   .de(de_CreateRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRevisionRequest;
+      output: CreateRevisionResponse;
+    };
+    sdk: {
+      input: CreateRevisionCommandInput;
+      output: CreateRevisionCommandOutput;
+    };
+  };
+}

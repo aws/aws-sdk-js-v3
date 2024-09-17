@@ -399,4 +399,16 @@ export class CreateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRuleCommand)
   .de(de_CreateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleInput;
+      output: CreateRuleOutput;
+    };
+    sdk: {
+      input: CreateRuleCommandInput;
+      output: CreateRuleCommandOutput;
+    };
+  };
+}

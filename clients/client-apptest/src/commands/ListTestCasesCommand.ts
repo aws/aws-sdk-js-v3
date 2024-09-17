@@ -108,4 +108,16 @@ export class ListTestCasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestCasesCommand)
   .de(de_ListTestCasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestCasesRequest;
+      output: ListTestCasesResponse;
+    };
+    sdk: {
+      input: ListTestCasesCommandInput;
+      output: ListTestCasesCommandOutput;
+    };
+  };
+}

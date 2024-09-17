@@ -108,4 +108,16 @@ export class ListStackSetOperationResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackSetOperationResultsCommand)
   .de(de_ListStackSetOperationResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackSetOperationResultsInput;
+      output: ListStackSetOperationResultsOutput;
+    };
+    sdk: {
+      input: ListStackSetOperationResultsCommandInput;
+      output: ListStackSetOperationResultsCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class DeleteRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRemoteAccessSessionCommand)
   .de(de_DeleteRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRemoteAccessSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRemoteAccessSessionCommandInput;
+      output: DeleteRemoteAccessSessionCommandOutput;
+    };
+  };
+}

@@ -161,4 +161,16 @@ export class CreateWirelessDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWirelessDeviceCommand)
   .de(de_CreateWirelessDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWirelessDeviceRequest;
+      output: CreateWirelessDeviceResponse;
+    };
+    sdk: {
+      input: CreateWirelessDeviceCommandInput;
+      output: CreateWirelessDeviceCommandOutput;
+    };
+  };
+}

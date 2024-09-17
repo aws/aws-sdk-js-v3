@@ -140,4 +140,16 @@ export class DeleteProgressUpdateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProgressUpdateStreamCommand)
   .de(de_DeleteProgressUpdateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProgressUpdateStreamRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProgressUpdateStreamCommandInput;
+      output: DeleteProgressUpdateStreamCommandOutput;
+    };
+  };
+}

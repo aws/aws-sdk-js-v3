@@ -99,4 +99,16 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationSetReputationMetricsEnabledCommand)
   .de(de_UpdateConfigurationSetReputationMetricsEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationSetReputationMetricsEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationSetReputationMetricsEnabledCommandInput;
+      output: UpdateConfigurationSetReputationMetricsEnabledCommandOutput;
+    };
+  };
+}

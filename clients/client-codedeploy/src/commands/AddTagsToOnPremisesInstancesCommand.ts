@@ -108,4 +108,16 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToOnPremisesInstancesCommand)
   .de(de_AddTagsToOnPremisesInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToOnPremisesInstancesInput;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsToOnPremisesInstancesCommandInput;
+      output: AddTagsToOnPremisesInstancesCommandOutput;
+    };
+  };
+}

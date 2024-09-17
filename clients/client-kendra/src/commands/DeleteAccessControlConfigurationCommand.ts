@@ -108,4 +108,16 @@ export class DeleteAccessControlConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessControlConfigurationCommand)
   .de(de_DeleteAccessControlConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessControlConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessControlConfigurationCommandInput;
+      output: DeleteAccessControlConfigurationCommandOutput;
+    };
+  };
+}

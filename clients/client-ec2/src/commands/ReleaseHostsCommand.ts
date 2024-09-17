@@ -98,4 +98,16 @@ export class ReleaseHostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseHostsCommand)
   .de(de_ReleaseHostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseHostsRequest;
+      output: ReleaseHostsResult;
+    };
+    sdk: {
+      input: ReleaseHostsCommandInput;
+      output: ReleaseHostsCommandOutput;
+    };
+  };
+}

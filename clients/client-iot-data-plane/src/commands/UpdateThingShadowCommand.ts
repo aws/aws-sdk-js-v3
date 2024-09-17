@@ -124,4 +124,16 @@ export class UpdateThingShadowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThingShadowCommand)
   .de(de_UpdateThingShadowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThingShadowRequest;
+      output: UpdateThingShadowResponse;
+    };
+    sdk: {
+      input: UpdateThingShadowCommandInput;
+      output: UpdateThingShadowCommandOutput;
+    };
+  };
+}

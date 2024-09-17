@@ -107,4 +107,16 @@ export class CreateIntegrationAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIntegrationAssociationCommand)
   .de(de_CreateIntegrationAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIntegrationAssociationRequest;
+      output: CreateIntegrationAssociationResponse;
+    };
+    sdk: {
+      input: CreateIntegrationAssociationCommandInput;
+      output: CreateIntegrationAssociationCommandOutput;
+    };
+  };
+}

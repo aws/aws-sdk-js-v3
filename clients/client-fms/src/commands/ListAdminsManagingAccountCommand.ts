@@ -91,4 +91,16 @@ export class ListAdminsManagingAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAdminsManagingAccountCommand)
   .de(de_ListAdminsManagingAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAdminsManagingAccountRequest;
+      output: ListAdminsManagingAccountResponse;
+    };
+    sdk: {
+      input: ListAdminsManagingAccountCommandInput;
+      output: ListAdminsManagingAccountCommandOutput;
+    };
+  };
+}

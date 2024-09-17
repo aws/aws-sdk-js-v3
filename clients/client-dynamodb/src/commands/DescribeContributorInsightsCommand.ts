@@ -96,4 +96,16 @@ export class DescribeContributorInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContributorInsightsCommand)
   .de(de_DescribeContributorInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContributorInsightsInput;
+      output: DescribeContributorInsightsOutput;
+    };
+    sdk: {
+      input: DescribeContributorInsightsCommandInput;
+      output: DescribeContributorInsightsCommandOutput;
+    };
+  };
+}

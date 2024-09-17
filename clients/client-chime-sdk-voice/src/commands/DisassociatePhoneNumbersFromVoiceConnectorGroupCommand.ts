@@ -122,4 +122,16 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
   )
   .ser(se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand)
   .de(de_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest;
+      output: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse;
+    };
+    sdk: {
+      input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput;
+      output: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput;
+    };
+  };
+}

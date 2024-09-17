@@ -93,4 +93,16 @@ export class DescribeSlackWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSlackWorkspacesCommand)
   .de(de_DescribeSlackWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSlackWorkspacesRequest;
+      output: DescribeSlackWorkspacesResult;
+    };
+    sdk: {
+      input: DescribeSlackWorkspacesCommandInput;
+      output: DescribeSlackWorkspacesCommandOutput;
+    };
+  };
+}

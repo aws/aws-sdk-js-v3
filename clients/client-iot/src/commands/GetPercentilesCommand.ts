@@ -124,4 +124,16 @@ export class GetPercentilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPercentilesCommand)
   .de(de_GetPercentilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPercentilesRequest;
+      output: GetPercentilesResponse;
+    };
+    sdk: {
+      input: GetPercentilesCommandInput;
+      output: GetPercentilesCommandOutput;
+    };
+  };
+}

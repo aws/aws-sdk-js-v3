@@ -122,4 +122,16 @@ export class CreateImpersonationRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImpersonationRoleCommand)
   .de(de_CreateImpersonationRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImpersonationRoleRequest;
+      output: CreateImpersonationRoleResponse;
+    };
+    sdk: {
+      input: CreateImpersonationRoleCommandInput;
+      output: CreateImpersonationRoleCommandOutput;
+    };
+  };
+}

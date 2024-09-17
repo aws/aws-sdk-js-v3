@@ -126,4 +126,16 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAvailabilityZonesForLoadBalancerCommand)
   .de(de_DisableAvailabilityZonesForLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAvailabilityZonesInput;
+      output: RemoveAvailabilityZonesOutput;
+    };
+    sdk: {
+      input: DisableAvailabilityZonesForLoadBalancerCommandInput;
+      output: DisableAvailabilityZonesForLoadBalancerCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class CreateDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBShardGroupCommand)
   .de(de_CreateDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: CreateDBShardGroupCommandInput;
+      output: CreateDBShardGroupCommandOutput;
+    };
+  };
+}

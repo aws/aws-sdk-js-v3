@@ -97,4 +97,16 @@ export class ListFeatureGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFeatureGroupsCommand)
   .de(de_ListFeatureGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFeatureGroupsRequest;
+      output: ListFeatureGroupsResponse;
+    };
+    sdk: {
+      input: ListFeatureGroupsCommandInput;
+      output: ListFeatureGroupsCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class RegisterCertificateWithoutCACommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterCertificateWithoutCACommand)
   .de(de_RegisterCertificateWithoutCACommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterCertificateWithoutCARequest;
+      output: RegisterCertificateWithoutCAResponse;
+    };
+    sdk: {
+      input: RegisterCertificateWithoutCACommandInput;
+      output: RegisterCertificateWithoutCACommandOutput;
+    };
+  };
+}

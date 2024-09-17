@@ -142,4 +142,16 @@ export class ModifyRedshiftIdcApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyRedshiftIdcApplicationCommand)
   .de(de_ModifyRedshiftIdcApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyRedshiftIdcApplicationMessage;
+      output: ModifyRedshiftIdcApplicationResult;
+    };
+    sdk: {
+      input: ModifyRedshiftIdcApplicationCommandInput;
+      output: ModifyRedshiftIdcApplicationCommandOutput;
+    };
+  };
+}

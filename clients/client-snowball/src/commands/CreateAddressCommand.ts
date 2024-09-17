@@ -130,4 +130,16 @@ export class CreateAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAddressCommand)
   .de(de_CreateAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddressRequest;
+      output: CreateAddressResult;
+    };
+    sdk: {
+      input: CreateAddressCommandInput;
+      output: CreateAddressCommandOutput;
+    };
+  };
+}

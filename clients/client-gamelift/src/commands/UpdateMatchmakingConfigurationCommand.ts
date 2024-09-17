@@ -150,4 +150,16 @@ export class UpdateMatchmakingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMatchmakingConfigurationCommand)
   .de(de_UpdateMatchmakingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMatchmakingConfigurationInput;
+      output: UpdateMatchmakingConfigurationOutput;
+    };
+    sdk: {
+      input: UpdateMatchmakingConfigurationCommandInput;
+      output: UpdateMatchmakingConfigurationCommandOutput;
+    };
+  };
+}

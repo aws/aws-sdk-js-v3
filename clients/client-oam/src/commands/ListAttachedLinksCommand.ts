@@ -102,4 +102,16 @@ export class ListAttachedLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedLinksCommand)
   .de(de_ListAttachedLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedLinksInput;
+      output: ListAttachedLinksOutput;
+    };
+    sdk: {
+      input: ListAttachedLinksCommandInput;
+      output: ListAttachedLinksCommandOutput;
+    };
+  };
+}

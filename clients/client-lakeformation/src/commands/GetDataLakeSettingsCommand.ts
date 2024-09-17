@@ -133,4 +133,16 @@ export class GetDataLakeSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataLakeSettingsCommand)
   .de(de_GetDataLakeSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataLakeSettingsRequest;
+      output: GetDataLakeSettingsResponse;
+    };
+    sdk: {
+      input: GetDataLakeSettingsCommandInput;
+      output: GetDataLakeSettingsCommandOutput;
+    };
+  };
+}

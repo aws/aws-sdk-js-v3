@@ -141,4 +141,16 @@ export class GetVaultLockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVaultLockCommand)
   .de(de_GetVaultLockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVaultLockInput;
+      output: GetVaultLockOutput;
+    };
+    sdk: {
+      input: GetVaultLockCommandInput;
+      output: GetVaultLockCommandOutput;
+    };
+  };
+}

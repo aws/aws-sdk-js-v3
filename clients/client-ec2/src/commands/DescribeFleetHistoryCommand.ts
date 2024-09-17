@@ -101,4 +101,16 @@ export class DescribeFleetHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetHistoryCommand)
   .de(de_DescribeFleetHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetHistoryRequest;
+      output: DescribeFleetHistoryResult;
+    };
+    sdk: {
+      input: DescribeFleetHistoryCommandInput;
+      output: DescribeFleetHistoryCommandOutput;
+    };
+  };
+}

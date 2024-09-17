@@ -120,4 +120,16 @@ export class CreateOutpostResolverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOutpostResolverCommand)
   .de(de_CreateOutpostResolverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOutpostResolverRequest;
+      output: CreateOutpostResolverResponse;
+    };
+    sdk: {
+      input: CreateOutpostResolverCommandInput;
+      output: CreateOutpostResolverCommandOutput;
+    };
+  };
+}

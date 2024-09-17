@@ -179,4 +179,16 @@ export class MoveCapacityReservationInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MoveCapacityReservationInstancesCommand)
   .de(de_MoveCapacityReservationInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MoveCapacityReservationInstancesRequest;
+      output: MoveCapacityReservationInstancesResult;
+    };
+    sdk: {
+      input: MoveCapacityReservationInstancesCommandInput;
+      output: MoveCapacityReservationInstancesCommandOutput;
+    };
+  };
+}

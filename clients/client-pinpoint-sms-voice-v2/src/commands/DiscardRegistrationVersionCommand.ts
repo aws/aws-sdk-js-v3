@@ -118,4 +118,16 @@ export class DiscardRegistrationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DiscardRegistrationVersionCommand)
   .de(de_DiscardRegistrationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DiscardRegistrationVersionRequest;
+      output: DiscardRegistrationVersionResult;
+    };
+    sdk: {
+      input: DiscardRegistrationVersionCommandInput;
+      output: DiscardRegistrationVersionCommandOutput;
+    };
+  };
+}

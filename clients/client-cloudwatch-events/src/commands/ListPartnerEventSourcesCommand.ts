@@ -92,4 +92,16 @@ export class ListPartnerEventSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartnerEventSourcesCommand)
   .de(de_ListPartnerEventSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnerEventSourcesRequest;
+      output: ListPartnerEventSourcesResponse;
+    };
+    sdk: {
+      input: ListPartnerEventSourcesCommandInput;
+      output: ListPartnerEventSourcesCommandOutput;
+    };
+  };
+}

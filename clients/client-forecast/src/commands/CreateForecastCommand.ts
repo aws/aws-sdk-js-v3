@@ -148,4 +148,16 @@ export class CreateForecastCommand extends $Command
   .f(CreateForecastRequestFilterSensitiveLog, void 0)
   .ser(se_CreateForecastCommand)
   .de(de_CreateForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateForecastRequest;
+      output: CreateForecastResponse;
+    };
+    sdk: {
+      input: CreateForecastCommandInput;
+      output: CreateForecastCommandOutput;
+    };
+  };
+}

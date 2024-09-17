@@ -426,4 +426,16 @@ export class DeregisterDelegatedAdministratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterDelegatedAdministratorCommand)
   .de(de_DeregisterDelegatedAdministratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterDelegatedAdministratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterDelegatedAdministratorCommandInput;
+      output: DeregisterDelegatedAdministratorCommandOutput;
+    };
+  };
+}

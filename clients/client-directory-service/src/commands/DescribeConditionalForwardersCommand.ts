@@ -113,4 +113,16 @@ export class DescribeConditionalForwardersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConditionalForwardersCommand)
   .de(de_DescribeConditionalForwardersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConditionalForwardersRequest;
+      output: DescribeConditionalForwardersResult;
+    };
+    sdk: {
+      input: DescribeConditionalForwardersCommandInput;
+      output: DescribeConditionalForwardersCommandOutput;
+    };
+  };
+}

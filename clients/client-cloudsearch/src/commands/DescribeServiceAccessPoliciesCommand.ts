@@ -103,4 +103,16 @@ export class DescribeServiceAccessPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceAccessPoliciesCommand)
   .de(de_DescribeServiceAccessPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceAccessPoliciesRequest;
+      output: DescribeServiceAccessPoliciesResponse;
+    };
+    sdk: {
+      input: DescribeServiceAccessPoliciesCommandInput;
+      output: DescribeServiceAccessPoliciesCommandOutput;
+    };
+  };
+}

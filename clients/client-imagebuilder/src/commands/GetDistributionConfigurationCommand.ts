@@ -185,4 +185,16 @@ export class GetDistributionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDistributionConfigurationCommand)
   .de(de_GetDistributionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDistributionConfigurationRequest;
+      output: GetDistributionConfigurationResponse;
+    };
+    sdk: {
+      input: GetDistributionConfigurationCommandInput;
+      output: GetDistributionConfigurationCommandOutput;
+    };
+  };
+}

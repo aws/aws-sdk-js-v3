@@ -369,4 +369,16 @@ export class UploadPartCopyCommand extends $Command
   .f(UploadPartCopyRequestFilterSensitiveLog, UploadPartCopyOutputFilterSensitiveLog)
   .ser(se_UploadPartCopyCommand)
   .de(de_UploadPartCopyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadPartCopyRequest;
+      output: UploadPartCopyOutput;
+    };
+    sdk: {
+      input: UploadPartCopyCommandInput;
+      output: UploadPartCopyCommandOutput;
+    };
+  };
+}

@@ -494,4 +494,16 @@ export class TransactGetItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransactGetItemsCommand)
   .de(de_TransactGetItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransactGetItemsInput;
+      output: TransactGetItemsOutput;
+    };
+    sdk: {
+      input: TransactGetItemsCommandInput;
+      output: TransactGetItemsCommandOutput;
+    };
+  };
+}

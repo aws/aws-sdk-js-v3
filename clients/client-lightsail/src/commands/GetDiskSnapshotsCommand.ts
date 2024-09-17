@@ -135,4 +135,16 @@ export class GetDiskSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDiskSnapshotsCommand)
   .de(de_GetDiskSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDiskSnapshotsRequest;
+      output: GetDiskSnapshotsResult;
+    };
+    sdk: {
+      input: GetDiskSnapshotsCommandInput;
+      output: GetDiskSnapshotsCommandOutput;
+    };
+  };
+}

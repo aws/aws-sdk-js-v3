@@ -180,4 +180,16 @@ export class ListCallAnalyticsCategoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCallAnalyticsCategoriesCommand)
   .de(de_ListCallAnalyticsCategoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCallAnalyticsCategoriesRequest;
+      output: ListCallAnalyticsCategoriesResponse;
+    };
+    sdk: {
+      input: ListCallAnalyticsCategoriesCommandInput;
+      output: ListCallAnalyticsCategoriesCommandOutput;
+    };
+  };
+}

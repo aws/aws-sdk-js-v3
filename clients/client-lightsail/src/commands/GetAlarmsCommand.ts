@@ -146,4 +146,16 @@ export class GetAlarmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAlarmsCommand)
   .de(de_GetAlarmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAlarmsRequest;
+      output: GetAlarmsResult;
+    };
+    sdk: {
+      input: GetAlarmsCommandInput;
+      output: GetAlarmsCommandOutput;
+    };
+  };
+}

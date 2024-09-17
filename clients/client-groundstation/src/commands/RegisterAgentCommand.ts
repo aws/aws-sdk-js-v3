@@ -118,4 +118,16 @@ export class RegisterAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterAgentCommand)
   .de(de_RegisterAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterAgentRequest;
+      output: RegisterAgentResponse;
+    };
+    sdk: {
+      input: RegisterAgentCommandInput;
+      output: RegisterAgentCommandOutput;
+    };
+  };
+}

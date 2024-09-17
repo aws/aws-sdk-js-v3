@@ -154,4 +154,16 @@ export class CreateStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStageCommand)
   .de(de_CreateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStageRequest;
+      output: CreateStageResponse;
+    };
+    sdk: {
+      input: CreateStageCommandInput;
+      output: CreateStageCommandOutput;
+    };
+  };
+}

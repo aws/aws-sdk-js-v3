@@ -126,4 +126,16 @@ export class DescribePackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePackagesCommand)
   .de(de_DescribePackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePackagesRequest;
+      output: DescribePackagesResponse;
+    };
+    sdk: {
+      input: DescribePackagesCommandInput;
+      output: DescribePackagesCommandOutput;
+    };
+  };
+}

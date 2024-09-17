@@ -84,4 +84,16 @@ export class ReleaseIpamPoolAllocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseIpamPoolAllocationCommand)
   .de(de_ReleaseIpamPoolAllocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseIpamPoolAllocationRequest;
+      output: ReleaseIpamPoolAllocationResult;
+    };
+    sdk: {
+      input: ReleaseIpamPoolAllocationCommandInput;
+      output: ReleaseIpamPoolAllocationCommandOutput;
+    };
+  };
+}

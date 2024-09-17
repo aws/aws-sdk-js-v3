@@ -97,4 +97,16 @@ export class UpdateRepositoryNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRepositoryNameCommand)
   .de(de_UpdateRepositoryNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRepositoryNameInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRepositoryNameCommandInput;
+      output: UpdateRepositoryNameCommandOutput;
+    };
+  };
+}

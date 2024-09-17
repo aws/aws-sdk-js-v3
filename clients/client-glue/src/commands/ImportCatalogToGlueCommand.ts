@@ -81,4 +81,16 @@ export class ImportCatalogToGlueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportCatalogToGlueCommand)
   .de(de_ImportCatalogToGlueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCatalogToGlueRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportCatalogToGlueCommandInput;
+      output: ImportCatalogToGlueCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class GetCoipPoolUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoipPoolUsageCommand)
   .de(de_GetCoipPoolUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoipPoolUsageRequest;
+      output: GetCoipPoolUsageResult;
+    };
+    sdk: {
+      input: GetCoipPoolUsageCommandInput;
+      output: GetCoipPoolUsageCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class GetMonitoringSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMonitoringSubscriptionCommand)
   .de(de_GetMonitoringSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMonitoringSubscriptionRequest;
+      output: GetMonitoringSubscriptionResult;
+    };
+    sdk: {
+      input: GetMonitoringSubscriptionCommandInput;
+      output: GetMonitoringSubscriptionCommandOutput;
+    };
+  };
+}

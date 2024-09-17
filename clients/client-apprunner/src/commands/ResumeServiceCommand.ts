@@ -188,4 +188,16 @@ export class ResumeServiceCommand extends $Command
   .f(void 0, ResumeServiceResponseFilterSensitiveLog)
   .ser(se_ResumeServiceCommand)
   .de(de_ResumeServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeServiceRequest;
+      output: ResumeServiceResponse;
+    };
+    sdk: {
+      input: ResumeServiceCommandInput;
+      output: ResumeServiceCommandOutput;
+    };
+  };
+}

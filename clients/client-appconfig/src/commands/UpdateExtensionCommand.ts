@@ -132,4 +132,16 @@ export class UpdateExtensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExtensionCommand)
   .de(de_UpdateExtensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExtensionRequest;
+      output: Extension;
+    };
+    sdk: {
+      input: UpdateExtensionCommandInput;
+      output: UpdateExtensionCommandOutput;
+    };
+  };
+}

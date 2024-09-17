@@ -137,4 +137,16 @@ export class AttachCertificateToDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachCertificateToDistributionCommand)
   .de(de_AttachCertificateToDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachCertificateToDistributionRequest;
+      output: AttachCertificateToDistributionResult;
+    };
+    sdk: {
+      input: AttachCertificateToDistributionCommandInput;
+      output: AttachCertificateToDistributionCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class CreateEncoderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEncoderConfigurationCommand)
   .de(de_CreateEncoderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEncoderConfigurationRequest;
+      output: CreateEncoderConfigurationResponse;
+    };
+    sdk: {
+      input: CreateEncoderConfigurationCommandInput;
+      output: CreateEncoderConfigurationCommandOutput;
+    };
+  };
+}

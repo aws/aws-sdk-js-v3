@@ -125,4 +125,16 @@ export class ListObjectParentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectParentsCommand)
   .de(de_ListObjectParentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectParentsRequest;
+      output: ListObjectParentsResponse;
+    };
+    sdk: {
+      input: ListObjectParentsCommandInput;
+      output: ListObjectParentsCommandOutput;
+    };
+  };
+}

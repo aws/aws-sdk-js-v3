@@ -99,4 +99,16 @@ export class CreateLunaClientCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLunaClientCommand)
   .de(de_CreateLunaClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLunaClientRequest;
+      output: CreateLunaClientResponse;
+    };
+    sdk: {
+      input: CreateLunaClientCommandInput;
+      output: CreateLunaClientCommandOutput;
+    };
+  };
+}

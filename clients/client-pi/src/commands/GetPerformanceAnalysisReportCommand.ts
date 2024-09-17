@@ -193,4 +193,16 @@ export class GetPerformanceAnalysisReportCommand extends $Command
   .f(void 0, GetPerformanceAnalysisReportResponseFilterSensitiveLog)
   .ser(se_GetPerformanceAnalysisReportCommand)
   .de(de_GetPerformanceAnalysisReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPerformanceAnalysisReportRequest;
+      output: GetPerformanceAnalysisReportResponse;
+    };
+    sdk: {
+      input: GetPerformanceAnalysisReportCommandInput;
+      output: GetPerformanceAnalysisReportCommandOutput;
+    };
+  };
+}

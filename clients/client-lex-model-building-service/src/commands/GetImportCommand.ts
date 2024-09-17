@@ -105,4 +105,16 @@ export class GetImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImportCommand)
   .de(de_GetImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportRequest;
+      output: GetImportResponse;
+    };
+    sdk: {
+      input: GetImportCommandInput;
+      output: GetImportCommandOutput;
+    };
+  };
+}

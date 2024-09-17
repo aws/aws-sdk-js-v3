@@ -86,4 +86,16 @@ export class CloseTunnelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CloseTunnelCommand)
   .de(de_CloseTunnelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CloseTunnelRequest;
+      output: {};
+    };
+    sdk: {
+      input: CloseTunnelCommandInput;
+      output: CloseTunnelCommandOutput;
+    };
+  };
+}

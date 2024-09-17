@@ -110,4 +110,16 @@ export class UpdateVocabularyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVocabularyCommand)
   .de(de_UpdateVocabularyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVocabularyRequest;
+      output: UpdateVocabularyResponse;
+    };
+    sdk: {
+      input: UpdateVocabularyCommandInput;
+      output: UpdateVocabularyCommandOutput;
+    };
+  };
+}

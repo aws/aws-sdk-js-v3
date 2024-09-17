@@ -117,4 +117,16 @@ export class StartMonitoringMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitoringMemberCommand)
   .de(de_StartMonitoringMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitoringMemberRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMonitoringMemberCommandInput;
+      output: StartMonitoringMemberCommandOutput;
+    };
+  };
+}

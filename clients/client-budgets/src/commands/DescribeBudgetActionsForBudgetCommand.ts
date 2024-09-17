@@ -158,4 +158,16 @@ export class DescribeBudgetActionsForBudgetCommand extends $Command
   .f(void 0, DescribeBudgetActionsForBudgetResponseFilterSensitiveLog)
   .ser(se_DescribeBudgetActionsForBudgetCommand)
   .de(de_DescribeBudgetActionsForBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetActionsForBudgetRequest;
+      output: DescribeBudgetActionsForBudgetResponse;
+    };
+    sdk: {
+      input: DescribeBudgetActionsForBudgetCommandInput;
+      output: DescribeBudgetActionsForBudgetCommandOutput;
+    };
+  };
+}

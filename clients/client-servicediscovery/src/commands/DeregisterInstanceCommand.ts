@@ -114,4 +114,16 @@ export class DeregisterInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterInstanceCommand)
   .de(de_DeregisterInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterInstanceRequest;
+      output: DeregisterInstanceResponse;
+    };
+    sdk: {
+      input: DeregisterInstanceCommandInput;
+      output: DeregisterInstanceCommandOutput;
+    };
+  };
+}

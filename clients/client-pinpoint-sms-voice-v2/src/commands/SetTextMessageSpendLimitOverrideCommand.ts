@@ -103,4 +103,16 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTextMessageSpendLimitOverrideCommand)
   .de(de_SetTextMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTextMessageSpendLimitOverrideRequest;
+      output: SetTextMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: SetTextMessageSpendLimitOverrideCommandInput;
+      output: SetTextMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

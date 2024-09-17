@@ -158,4 +158,16 @@ export class GetInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceProfileCommand)
   .de(de_GetInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceProfileRequest;
+      output: GetInstanceProfileResponse;
+    };
+    sdk: {
+      input: GetInstanceProfileCommandInput;
+      output: GetInstanceProfileCommandOutput;
+    };
+  };
+}

@@ -165,4 +165,16 @@ export class CreateLayerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLayerCommand)
   .de(de_CreateLayerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLayerRequest;
+      output: CreateLayerResult;
+    };
+    sdk: {
+      input: CreateLayerCommandInput;
+      output: CreateLayerCommandOutput;
+    };
+  };
+}

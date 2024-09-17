@@ -100,4 +100,16 @@ export class DisassociateAgentKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAgentKnowledgeBaseCommand)
   .de(de_DisassociateAgentKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAgentKnowledgeBaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAgentKnowledgeBaseCommandInput;
+      output: DisassociateAgentKnowledgeBaseCommandOutput;
+    };
+  };
+}

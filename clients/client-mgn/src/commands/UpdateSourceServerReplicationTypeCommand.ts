@@ -213,4 +213,16 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_UpdateSourceServerReplicationTypeCommand)
   .de(de_UpdateSourceServerReplicationTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSourceServerReplicationTypeRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: UpdateSourceServerReplicationTypeCommandInput;
+      output: UpdateSourceServerReplicationTypeCommandOutput;
+    };
+  };
+}

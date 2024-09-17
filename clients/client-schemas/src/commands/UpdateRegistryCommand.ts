@@ -95,4 +95,16 @@ export class UpdateRegistryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRegistryCommand)
   .de(de_UpdateRegistryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRegistryRequest;
+      output: UpdateRegistryResponse;
+    };
+    sdk: {
+      input: UpdateRegistryCommandInput;
+      output: UpdateRegistryCommandOutput;
+    };
+  };
+}

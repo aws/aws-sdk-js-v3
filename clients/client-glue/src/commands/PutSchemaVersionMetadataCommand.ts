@@ -112,4 +112,16 @@ export class PutSchemaVersionMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSchemaVersionMetadataCommand)
   .de(de_PutSchemaVersionMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSchemaVersionMetadataInput;
+      output: PutSchemaVersionMetadataResponse;
+    };
+    sdk: {
+      input: PutSchemaVersionMetadataCommandInput;
+      output: PutSchemaVersionMetadataCommandOutput;
+    };
+  };
+}

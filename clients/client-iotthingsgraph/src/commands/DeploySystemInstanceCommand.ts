@@ -116,4 +116,16 @@ export class DeploySystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeploySystemInstanceCommand)
   .de(de_DeploySystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeploySystemInstanceRequest;
+      output: DeploySystemInstanceResponse;
+    };
+    sdk: {
+      input: DeploySystemInstanceCommandInput;
+      output: DeploySystemInstanceCommandOutput;
+    };
+  };
+}

@@ -159,4 +159,16 @@ export class CreateReplicationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationConfigCommand)
   .de(de_CreateReplicationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationConfigMessage;
+      output: CreateReplicationConfigResponse;
+    };
+    sdk: {
+      input: CreateReplicationConfigCommandInput;
+      output: CreateReplicationConfigCommandOutput;
+    };
+  };
+}

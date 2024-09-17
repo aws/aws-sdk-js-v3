@@ -175,4 +175,16 @@ export class GetContentModerationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContentModerationCommand)
   .de(de_GetContentModerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContentModerationRequest;
+      output: GetContentModerationResponse;
+    };
+    sdk: {
+      input: GetContentModerationCommandInput;
+      output: GetContentModerationCommandOutput;
+    };
+  };
+}

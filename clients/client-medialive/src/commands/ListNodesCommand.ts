@@ -120,4 +120,16 @@ export class ListNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNodesCommand)
   .de(de_ListNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNodesRequest;
+      output: ListNodesResponse;
+    };
+    sdk: {
+      input: ListNodesCommandInput;
+      output: ListNodesCommandOutput;
+    };
+  };
+}

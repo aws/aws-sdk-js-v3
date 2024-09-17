@@ -319,4 +319,16 @@ export class UploadPartCommand extends $Command
   .f(UploadPartRequestFilterSensitiveLog, UploadPartOutputFilterSensitiveLog)
   .ser(se_UploadPartCommand)
   .de(de_UploadPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadPartRequest;
+      output: UploadPartOutput;
+    };
+    sdk: {
+      input: UploadPartCommandInput;
+      output: UploadPartCommandOutput;
+    };
+  };
+}

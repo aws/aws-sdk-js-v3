@@ -102,4 +102,16 @@ export class ListTargetsForSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTargetsForSecurityProfileCommand)
   .de(de_ListTargetsForSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTargetsForSecurityProfileRequest;
+      output: ListTargetsForSecurityProfileResponse;
+    };
+    sdk: {
+      input: ListTargetsForSecurityProfileCommandInput;
+      output: ListTargetsForSecurityProfileCommandOutput;
+    };
+  };
+}

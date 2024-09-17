@@ -105,4 +105,16 @@ export class GetFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFeedbackCommand)
   .de(de_GetFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFeedbackRequest;
+      output: GetFeedbackResponse;
+    };
+    sdk: {
+      input: GetFeedbackCommandInput;
+      output: GetFeedbackCommandOutput;
+    };
+  };
+}

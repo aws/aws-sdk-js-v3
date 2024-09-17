@@ -105,4 +105,16 @@ export class DeleteChannelFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelFlowCommand)
   .de(de_DeleteChannelFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelFlowCommandInput;
+      output: DeleteChannelFlowCommandOutput;
+    };
+  };
+}

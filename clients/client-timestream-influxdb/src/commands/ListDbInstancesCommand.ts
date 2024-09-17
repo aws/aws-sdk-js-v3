@@ -110,4 +110,16 @@ export class ListDbInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDbInstancesCommand)
   .de(de_ListDbInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDbInstancesInput;
+      output: ListDbInstancesOutput;
+    };
+    sdk: {
+      input: ListDbInstancesCommandInput;
+      output: ListDbInstancesCommandOutput;
+    };
+  };
+}

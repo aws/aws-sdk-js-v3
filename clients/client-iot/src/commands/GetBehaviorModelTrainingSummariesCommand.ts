@@ -112,4 +112,16 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBehaviorModelTrainingSummariesCommand)
   .de(de_GetBehaviorModelTrainingSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBehaviorModelTrainingSummariesRequest;
+      output: GetBehaviorModelTrainingSummariesResponse;
+    };
+    sdk: {
+      input: GetBehaviorModelTrainingSummariesCommandInput;
+      output: GetBehaviorModelTrainingSummariesCommandOutput;
+    };
+  };
+}

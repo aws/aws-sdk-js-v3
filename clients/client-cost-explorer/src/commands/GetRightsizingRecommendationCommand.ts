@@ -304,4 +304,16 @@ export class GetRightsizingRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRightsizingRecommendationCommand)
   .de(de_GetRightsizingRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRightsizingRecommendationRequest;
+      output: GetRightsizingRecommendationResponse;
+    };
+    sdk: {
+      input: GetRightsizingRecommendationCommandInput;
+      output: GetRightsizingRecommendationCommandOutput;
+    };
+  };
+}

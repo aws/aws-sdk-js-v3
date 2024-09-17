@@ -188,4 +188,16 @@ export class BatchGetPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetPartitionCommand)
   .de(de_BatchGetPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetPartitionRequest;
+      output: BatchGetPartitionResponse;
+    };
+    sdk: {
+      input: BatchGetPartitionCommandInput;
+      output: BatchGetPartitionCommandOutput;
+    };
+  };
+}

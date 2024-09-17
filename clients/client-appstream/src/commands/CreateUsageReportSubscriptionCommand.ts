@@ -90,4 +90,16 @@ export class CreateUsageReportSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUsageReportSubscriptionCommand)
   .de(de_CreateUsageReportSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CreateUsageReportSubscriptionResult;
+    };
+    sdk: {
+      input: CreateUsageReportSubscriptionCommandInput;
+      output: CreateUsageReportSubscriptionCommandOutput;
+    };
+  };
+}

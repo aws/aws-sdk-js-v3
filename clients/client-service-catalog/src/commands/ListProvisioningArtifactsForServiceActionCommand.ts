@@ -119,4 +119,16 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisioningArtifactsForServiceActionCommand)
   .de(de_ListProvisioningArtifactsForServiceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisioningArtifactsForServiceActionInput;
+      output: ListProvisioningArtifactsForServiceActionOutput;
+    };
+    sdk: {
+      input: ListProvisioningArtifactsForServiceActionCommandInput;
+      output: ListProvisioningArtifactsForServiceActionCommandOutput;
+    };
+  };
+}

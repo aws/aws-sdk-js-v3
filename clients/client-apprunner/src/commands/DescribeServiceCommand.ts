@@ -182,4 +182,16 @@ export class DescribeServiceCommand extends $Command
   .f(void 0, DescribeServiceResponseFilterSensitiveLog)
   .ser(se_DescribeServiceCommand)
   .de(de_DescribeServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceRequest;
+      output: DescribeServiceResponse;
+    };
+    sdk: {
+      input: DescribeServiceCommandInput;
+      output: DescribeServiceCommandOutput;
+    };
+  };
+}

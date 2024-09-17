@@ -87,4 +87,16 @@ export class DescribeEntityAggregatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEntityAggregatesCommand)
   .de(de_DescribeEntityAggregatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEntityAggregatesRequest;
+      output: DescribeEntityAggregatesResponse;
+    };
+    sdk: {
+      input: DescribeEntityAggregatesCommandInput;
+      output: DescribeEntityAggregatesCommandOutput;
+    };
+  };
+}

@@ -244,4 +244,16 @@ export class DeleteDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBInstanceCommand)
   .de(de_DeleteDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBInstanceMessage;
+      output: DeleteDBInstanceResult;
+    };
+    sdk: {
+      input: DeleteDBInstanceCommandInput;
+      output: DeleteDBInstanceCommandOutput;
+    };
+  };
+}

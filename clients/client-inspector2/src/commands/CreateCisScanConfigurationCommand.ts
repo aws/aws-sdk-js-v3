@@ -132,4 +132,16 @@ export class CreateCisScanConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCisScanConfigurationCommand)
   .de(de_CreateCisScanConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCisScanConfigurationRequest;
+      output: CreateCisScanConfigurationResponse;
+    };
+    sdk: {
+      input: CreateCisScanConfigurationCommandInput;
+      output: CreateCisScanConfigurationCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class ListWorkersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkersCommand)
   .de(de_ListWorkersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkersRequest;
+      output: ListWorkersResponse;
+    };
+    sdk: {
+      input: ListWorkersCommandInput;
+      output: ListWorkersCommandOutput;
+    };
+  };
+}

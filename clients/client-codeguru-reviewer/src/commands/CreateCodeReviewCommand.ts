@@ -200,4 +200,16 @@ export class CreateCodeReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCodeReviewCommand)
   .de(de_CreateCodeReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCodeReviewRequest;
+      output: CreateCodeReviewResponse;
+    };
+    sdk: {
+      input: CreateCodeReviewCommandInput;
+      output: CreateCodeReviewCommandOutput;
+    };
+  };
+}

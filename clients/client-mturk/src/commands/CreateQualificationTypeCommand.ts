@@ -112,4 +112,16 @@ export class CreateQualificationTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQualificationTypeCommand)
   .de(de_CreateQualificationTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQualificationTypeRequest;
+      output: CreateQualificationTypeResponse;
+    };
+    sdk: {
+      input: CreateQualificationTypeCommandInput;
+      output: CreateQualificationTypeCommandOutput;
+    };
+  };
+}

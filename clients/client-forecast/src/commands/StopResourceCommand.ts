@@ -114,4 +114,16 @@ export class StopResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopResourceCommand)
   .de(de_StopResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopResourceCommandInput;
+      output: StopResourceCommandOutput;
+    };
+  };
+}

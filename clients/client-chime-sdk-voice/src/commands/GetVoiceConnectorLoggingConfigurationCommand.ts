@@ -111,4 +111,16 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceConnectorLoggingConfigurationCommand)
   .de(de_GetVoiceConnectorLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceConnectorLoggingConfigurationRequest;
+      output: GetVoiceConnectorLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetVoiceConnectorLoggingConfigurationCommandInput;
+      output: GetVoiceConnectorLoggingConfigurationCommandOutput;
+    };
+  };
+}

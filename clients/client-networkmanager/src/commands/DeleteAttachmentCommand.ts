@@ -144,4 +144,16 @@ export class DeleteAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAttachmentCommand)
   .de(de_DeleteAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAttachmentRequest;
+      output: DeleteAttachmentResponse;
+    };
+    sdk: {
+      input: DeleteAttachmentCommandInput;
+      output: DeleteAttachmentCommandOutput;
+    };
+  };
+}

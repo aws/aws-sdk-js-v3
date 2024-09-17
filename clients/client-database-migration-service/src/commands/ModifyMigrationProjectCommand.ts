@@ -214,4 +214,16 @@ export class ModifyMigrationProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyMigrationProjectCommand)
   .de(de_ModifyMigrationProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyMigrationProjectMessage;
+      output: ModifyMigrationProjectResponse;
+    };
+    sdk: {
+      input: ModifyMigrationProjectCommandInput;
+      output: ModifyMigrationProjectCommandOutput;
+    };
+  };
+}

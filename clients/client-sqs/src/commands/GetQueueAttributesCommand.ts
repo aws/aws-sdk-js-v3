@@ -119,4 +119,16 @@ export class GetQueueAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueueAttributesCommand)
   .de(de_GetQueueAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueAttributesRequest;
+      output: GetQueueAttributesResult;
+    };
+    sdk: {
+      input: GetQueueAttributesCommandInput;
+      output: GetQueueAttributesCommandOutput;
+    };
+  };
+}

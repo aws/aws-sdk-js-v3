@@ -129,4 +129,16 @@ export class DeletePackageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackageVersionsCommand)
   .de(de_DeletePackageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackageVersionsRequest;
+      output: DeletePackageVersionsResult;
+    };
+    sdk: {
+      input: DeletePackageVersionsCommandInput;
+      output: DeletePackageVersionsCommandOutput;
+    };
+  };
+}

@@ -148,4 +148,16 @@ export class CreateCommentCommand extends $Command
   .f(CreateCommentRequestFilterSensitiveLog, CreateCommentResponseFilterSensitiveLog)
   .ser(se_CreateCommentCommand)
   .de(de_CreateCommentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCommentRequest;
+      output: CreateCommentResponse;
+    };
+    sdk: {
+      input: CreateCommentCommandInput;
+      output: CreateCommentCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class DeleteLakeFormationIdentityCenterConfigurationCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_DeleteLakeFormationIdentityCenterConfigurationCommand)
   .de(de_DeleteLakeFormationIdentityCenterConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLakeFormationIdentityCenterConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLakeFormationIdentityCenterConfigurationCommandInput;
+      output: DeleteLakeFormationIdentityCenterConfigurationCommandOutput;
+    };
+  };
+}

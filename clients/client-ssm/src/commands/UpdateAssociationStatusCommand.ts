@@ -240,4 +240,16 @@ export class UpdateAssociationStatusCommand extends $Command
   .f(void 0, UpdateAssociationStatusResultFilterSensitiveLog)
   .ser(se_UpdateAssociationStatusCommand)
   .de(de_UpdateAssociationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssociationStatusRequest;
+      output: UpdateAssociationStatusResult;
+    };
+    sdk: {
+      input: UpdateAssociationStatusCommandInput;
+      output: UpdateAssociationStatusCommandOutput;
+    };
+  };
+}

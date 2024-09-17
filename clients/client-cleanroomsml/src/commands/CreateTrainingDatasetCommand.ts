@@ -113,4 +113,16 @@ export class CreateTrainingDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrainingDatasetCommand)
   .de(de_CreateTrainingDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrainingDatasetRequest;
+      output: CreateTrainingDatasetResponse;
+    };
+    sdk: {
+      input: CreateTrainingDatasetCommandInput;
+      output: CreateTrainingDatasetCommandOutput;
+    };
+  };
+}

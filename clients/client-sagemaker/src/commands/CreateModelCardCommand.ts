@@ -101,4 +101,16 @@ export class CreateModelCardCommand extends $Command
   .f(CreateModelCardRequestFilterSensitiveLog, void 0)
   .ser(se_CreateModelCardCommand)
   .de(de_CreateModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCardRequest;
+      output: CreateModelCardResponse;
+    };
+    sdk: {
+      input: CreateModelCardCommandInput;
+      output: CreateModelCardCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class DeleteVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVehicleCommand)
   .de(de_DeleteVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVehicleRequest;
+      output: DeleteVehicleResponse;
+    };
+    sdk: {
+      input: DeleteVehicleCommandInput;
+      output: DeleteVehicleCommandOutput;
+    };
+  };
+}

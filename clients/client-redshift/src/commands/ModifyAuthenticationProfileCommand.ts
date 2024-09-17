@@ -90,4 +90,16 @@ export class ModifyAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyAuthenticationProfileCommand)
   .de(de_ModifyAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyAuthenticationProfileMessage;
+      output: ModifyAuthenticationProfileResult;
+    };
+    sdk: {
+      input: ModifyAuthenticationProfileCommandInput;
+      output: ModifyAuthenticationProfileCommandOutput;
+    };
+  };
+}

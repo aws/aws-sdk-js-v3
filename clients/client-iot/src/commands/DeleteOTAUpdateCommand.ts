@@ -101,4 +101,16 @@ export class DeleteOTAUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOTAUpdateCommand)
   .de(de_DeleteOTAUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOTAUpdateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOTAUpdateCommandInput;
+      output: DeleteOTAUpdateCommandOutput;
+    };
+  };
+}

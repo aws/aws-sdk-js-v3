@@ -118,4 +118,16 @@ export class ListSnapshotBlocksCommand extends $Command
   .f(void 0, ListSnapshotBlocksResponseFilterSensitiveLog)
   .ser(se_ListSnapshotBlocksCommand)
   .de(de_ListSnapshotBlocksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSnapshotBlocksRequest;
+      output: ListSnapshotBlocksResponse;
+    };
+    sdk: {
+      input: ListSnapshotBlocksCommandInput;
+      output: ListSnapshotBlocksCommandOutput;
+    };
+  };
+}

@@ -79,4 +79,16 @@ export class DeleteModelPackageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelPackageGroupCommand)
   .de(de_DeleteModelPackageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelPackageGroupInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelPackageGroupCommandInput;
+      output: DeleteModelPackageGroupCommandOutput;
+    };
+  };
+}

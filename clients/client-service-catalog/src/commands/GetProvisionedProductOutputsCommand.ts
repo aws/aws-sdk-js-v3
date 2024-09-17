@@ -102,4 +102,16 @@ export class GetProvisionedProductOutputsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProvisionedProductOutputsCommand)
   .de(de_GetProvisionedProductOutputsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProvisionedProductOutputsInput;
+      output: GetProvisionedProductOutputsOutput;
+    };
+    sdk: {
+      input: GetProvisionedProductOutputsCommandInput;
+      output: GetProvisionedProductOutputsCommandOutput;
+    };
+  };
+}

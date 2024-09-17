@@ -108,4 +108,16 @@ export class CreateScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScriptCommand)
   .de(de_CreateScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScriptRequest;
+      output: CreateScriptResponse;
+    };
+    sdk: {
+      input: CreateScriptCommandInput;
+      output: CreateScriptCommandOutput;
+    };
+  };
+}

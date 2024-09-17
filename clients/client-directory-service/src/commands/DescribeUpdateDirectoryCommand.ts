@@ -120,4 +120,16 @@ export class DescribeUpdateDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUpdateDirectoryCommand)
   .de(de_DescribeUpdateDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUpdateDirectoryRequest;
+      output: DescribeUpdateDirectoryResult;
+    };
+    sdk: {
+      input: DescribeUpdateDirectoryCommandInput;
+      output: DescribeUpdateDirectoryCommandOutput;
+    };
+  };
+}

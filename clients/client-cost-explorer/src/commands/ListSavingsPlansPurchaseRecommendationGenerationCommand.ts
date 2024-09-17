@@ -110,4 +110,16 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
   .f(void 0, void 0)
   .ser(se_ListSavingsPlansPurchaseRecommendationGenerationCommand)
   .de(de_ListSavingsPlansPurchaseRecommendationGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSavingsPlansPurchaseRecommendationGenerationRequest;
+      output: ListSavingsPlansPurchaseRecommendationGenerationResponse;
+    };
+    sdk: {
+      input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput;
+      output: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput;
+    };
+  };
+}

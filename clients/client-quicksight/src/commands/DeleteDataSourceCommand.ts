@@ -100,4 +100,16 @@ export class DeleteDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataSourceCommand)
   .de(de_DeleteDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSourceRequest;
+      output: DeleteDataSourceResponse;
+    };
+    sdk: {
+      input: DeleteDataSourceCommandInput;
+      output: DeleteDataSourceCommandOutput;
+    };
+  };
+}

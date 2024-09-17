@@ -115,4 +115,16 @@ export class ListServerNeighborsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServerNeighborsCommand)
   .de(de_ListServerNeighborsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServerNeighborsRequest;
+      output: ListServerNeighborsResponse;
+    };
+    sdk: {
+      input: ListServerNeighborsCommandInput;
+      output: ListServerNeighborsCommandOutput;
+    };
+  };
+}

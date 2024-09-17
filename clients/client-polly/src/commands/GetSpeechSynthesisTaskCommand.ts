@@ -111,4 +111,16 @@ export class GetSpeechSynthesisTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSpeechSynthesisTaskCommand)
   .de(de_GetSpeechSynthesisTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpeechSynthesisTaskInput;
+      output: GetSpeechSynthesisTaskOutput;
+    };
+    sdk: {
+      input: GetSpeechSynthesisTaskCommandInput;
+      output: GetSpeechSynthesisTaskCommandOutput;
+    };
+  };
+}

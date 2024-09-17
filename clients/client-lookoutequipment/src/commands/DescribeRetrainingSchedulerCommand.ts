@@ -131,4 +131,16 @@ export class DescribeRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRetrainingSchedulerCommand)
   .de(de_DescribeRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRetrainingSchedulerRequest;
+      output: DescribeRetrainingSchedulerResponse;
+    };
+    sdk: {
+      input: DescribeRetrainingSchedulerCommandInput;
+      output: DescribeRetrainingSchedulerCommandOutput;
+    };
+  };
+}

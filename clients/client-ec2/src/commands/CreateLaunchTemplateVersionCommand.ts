@@ -658,4 +658,16 @@ export class CreateLaunchTemplateVersionCommand extends $Command
   .f(CreateLaunchTemplateVersionRequestFilterSensitiveLog, CreateLaunchTemplateVersionResultFilterSensitiveLog)
   .ser(se_CreateLaunchTemplateVersionCommand)
   .de(de_CreateLaunchTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchTemplateVersionRequest;
+      output: CreateLaunchTemplateVersionResult;
+    };
+    sdk: {
+      input: CreateLaunchTemplateVersionCommandInput;
+      output: CreateLaunchTemplateVersionCommandOutput;
+    };
+  };
+}

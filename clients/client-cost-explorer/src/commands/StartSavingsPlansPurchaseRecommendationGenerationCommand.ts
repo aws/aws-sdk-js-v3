@@ -107,4 +107,16 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
   .f(void 0, void 0)
   .ser(se_StartSavingsPlansPurchaseRecommendationGenerationCommand)
   .de(de_StartSavingsPlansPurchaseRecommendationGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: StartSavingsPlansPurchaseRecommendationGenerationResponse;
+    };
+    sdk: {
+      input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput;
+      output: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput;
+    };
+  };
+}

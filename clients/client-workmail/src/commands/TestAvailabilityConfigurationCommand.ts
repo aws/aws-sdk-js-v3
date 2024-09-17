@@ -117,4 +117,16 @@ export class TestAvailabilityConfigurationCommand extends $Command
   .f(TestAvailabilityConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_TestAvailabilityConfigurationCommand)
   .de(de_TestAvailabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestAvailabilityConfigurationRequest;
+      output: TestAvailabilityConfigurationResponse;
+    };
+    sdk: {
+      input: TestAvailabilityConfigurationCommandInput;
+      output: TestAvailabilityConfigurationCommandOutput;
+    };
+  };
+}

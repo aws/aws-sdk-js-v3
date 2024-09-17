@@ -121,4 +121,16 @@ export class CreateChannelPlacementGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChannelPlacementGroupCommand)
   .de(de_CreateChannelPlacementGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelPlacementGroupRequest;
+      output: CreateChannelPlacementGroupResponse;
+    };
+    sdk: {
+      input: CreateChannelPlacementGroupCommandInput;
+      output: CreateChannelPlacementGroupCommandOutput;
+    };
+  };
+}

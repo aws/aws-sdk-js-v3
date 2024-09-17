@@ -141,4 +141,16 @@ export class GetGremlinQueryStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGremlinQueryStatusCommand)
   .de(de_GetGremlinQueryStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGremlinQueryStatusInput;
+      output: GetGremlinQueryStatusOutput;
+    };
+    sdk: {
+      input: GetGremlinQueryStatusCommandInput;
+      output: GetGremlinQueryStatusCommandOutput;
+    };
+  };
+}

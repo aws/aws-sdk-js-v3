@@ -88,4 +88,16 @@ export class DeleteWorldTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorldTemplateCommand)
   .de(de_DeleteWorldTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorldTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorldTemplateCommandInput;
+      output: DeleteWorldTemplateCommandOutput;
+    };
+  };
+}

@@ -146,4 +146,16 @@ export class CreateResiliencyPolicyCommand extends $Command
   .f(CreateResiliencyPolicyRequestFilterSensitiveLog, CreateResiliencyPolicyResponseFilterSensitiveLog)
   .ser(se_CreateResiliencyPolicyCommand)
   .de(de_CreateResiliencyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResiliencyPolicyRequest;
+      output: CreateResiliencyPolicyResponse;
+    };
+    sdk: {
+      input: CreateResiliencyPolicyCommandInput;
+      output: CreateResiliencyPolicyCommandOutput;
+    };
+  };
+}

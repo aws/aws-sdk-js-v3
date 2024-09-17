@@ -125,4 +125,16 @@ export class DescribeVirtualRouterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualRouterCommand)
   .de(de_DescribeVirtualRouterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualRouterInput;
+      output: DescribeVirtualRouterOutput;
+    };
+    sdk: {
+      input: DescribeVirtualRouterCommandInput;
+      output: DescribeVirtualRouterCommandOutput;
+    };
+  };
+}

@@ -169,4 +169,16 @@ export class DescribeNatGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNatGatewaysCommand)
   .de(de_DescribeNatGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNatGatewaysRequest;
+      output: DescribeNatGatewaysResult;
+    };
+    sdk: {
+      input: DescribeNatGatewaysCommandInput;
+      output: DescribeNatGatewaysCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class GetTileCommand extends $Command
   .f(void 0, GetTileOutputFilterSensitiveLog)
   .ser(se_GetTileCommand)
   .de(de_GetTileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTileInput;
+      output: GetTileOutput;
+    };
+    sdk: {
+      input: GetTileCommandInput;
+      output: GetTileCommandOutput;
+    };
+  };
+}

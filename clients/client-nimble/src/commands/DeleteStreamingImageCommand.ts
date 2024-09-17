@@ -128,4 +128,16 @@ export class DeleteStreamingImageCommand extends $Command
   .f(void 0, DeleteStreamingImageResponseFilterSensitiveLog)
   .ser(se_DeleteStreamingImageCommand)
   .de(de_DeleteStreamingImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStreamingImageRequest;
+      output: DeleteStreamingImageResponse;
+    };
+    sdk: {
+      input: DeleteStreamingImageCommandInput;
+      output: DeleteStreamingImageCommandOutput;
+    };
+  };
+}

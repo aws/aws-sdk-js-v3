@@ -101,4 +101,16 @@ export class DeleteWorkspaceApiKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkspaceApiKeyCommand)
   .de(de_DeleteWorkspaceApiKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkspaceApiKeyRequest;
+      output: DeleteWorkspaceApiKeyResponse;
+    };
+    sdk: {
+      input: DeleteWorkspaceApiKeyCommandInput;
+      output: DeleteWorkspaceApiKeyCommandOutput;
+    };
+  };
+}

@@ -258,4 +258,16 @@ export class ListRootsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRootsCommand)
   .de(de_ListRootsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRootsRequest;
+      output: ListRootsResponse;
+    };
+    sdk: {
+      input: ListRootsCommandInput;
+      output: ListRootsCommandOutput;
+    };
+  };
+}

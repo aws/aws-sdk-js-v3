@@ -90,4 +90,16 @@ export class StopClockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopClockCommand)
   .de(de_StopClockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopClockInput;
+      output: {};
+    };
+    sdk: {
+      input: StopClockCommandInput;
+      output: StopClockCommandOutput;
+    };
+  };
+}

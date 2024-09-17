@@ -198,4 +198,16 @@ export class SearchRasterDataCollectionCommand extends $Command
   .f(SearchRasterDataCollectionInputFilterSensitiveLog, SearchRasterDataCollectionOutputFilterSensitiveLog)
   .ser(se_SearchRasterDataCollectionCommand)
   .de(de_SearchRasterDataCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRasterDataCollectionInput;
+      output: SearchRasterDataCollectionOutput;
+    };
+    sdk: {
+      input: SearchRasterDataCollectionCommandInput;
+      output: SearchRasterDataCollectionCommandOutput;
+    };
+  };
+}

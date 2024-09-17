@@ -132,4 +132,16 @@ export class UpdateServerCommand extends $Command
   .f(void 0, UpdateServerResponseFilterSensitiveLog)
   .ser(se_UpdateServerCommand)
   .de(de_UpdateServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServerRequest;
+      output: UpdateServerResponse;
+    };
+    sdk: {
+      input: UpdateServerCommandInput;
+      output: UpdateServerCommandOutput;
+    };
+  };
+}

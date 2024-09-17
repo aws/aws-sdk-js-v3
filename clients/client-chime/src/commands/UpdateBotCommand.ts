@@ -110,4 +110,16 @@ export class UpdateBotCommand extends $Command
   .f(void 0, UpdateBotResponseFilterSensitiveLog)
   .ser(se_UpdateBotCommand)
   .de(de_UpdateBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotRequest;
+      output: UpdateBotResponse;
+    };
+    sdk: {
+      input: UpdateBotCommandInput;
+      output: UpdateBotCommandOutput;
+    };
+  };
+}

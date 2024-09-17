@@ -101,4 +101,16 @@ export class PrepareAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PrepareAgentCommand)
   .de(de_PrepareAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PrepareAgentRequest;
+      output: PrepareAgentResponse;
+    };
+    sdk: {
+      input: PrepareAgentCommandInput;
+      output: PrepareAgentCommandOutput;
+    };
+  };
+}

@@ -243,4 +243,16 @@ export class SignCommand extends $Command
   .f(SignRequestFilterSensitiveLog, void 0)
   .ser(se_SignCommand)
   .de(de_SignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignRequest;
+      output: SignResponse;
+    };
+    sdk: {
+      input: SignCommandInput;
+      output: SignCommandOutput;
+    };
+  };
+}

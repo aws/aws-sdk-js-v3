@@ -84,4 +84,16 @@ export class DeleteMetricStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMetricStreamCommand)
   .de(de_DeleteMetricStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMetricStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMetricStreamCommandInput;
+      output: DeleteMetricStreamCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class UpdateModelCardCommand extends $Command
   .f(UpdateModelCardRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateModelCardCommand)
   .de(de_UpdateModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelCardRequest;
+      output: UpdateModelCardResponse;
+    };
+    sdk: {
+      input: UpdateModelCardCommandInput;
+      output: UpdateModelCardCommandOutput;
+    };
+  };
+}

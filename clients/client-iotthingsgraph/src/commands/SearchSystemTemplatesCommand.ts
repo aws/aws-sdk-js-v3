@@ -105,4 +105,16 @@ export class SearchSystemTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchSystemTemplatesCommand)
   .de(de_SearchSystemTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchSystemTemplatesRequest;
+      output: SearchSystemTemplatesResponse;
+    };
+    sdk: {
+      input: SearchSystemTemplatesCommandInput;
+      output: SearchSystemTemplatesCommandOutput;
+    };
+  };
+}

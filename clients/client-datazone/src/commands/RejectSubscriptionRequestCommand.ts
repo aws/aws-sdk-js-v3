@@ -173,4 +173,16 @@ export class RejectSubscriptionRequestCommand extends $Command
   .f(RejectSubscriptionRequestInputFilterSensitiveLog, RejectSubscriptionRequestOutputFilterSensitiveLog)
   .ser(se_RejectSubscriptionRequestCommand)
   .de(de_RejectSubscriptionRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectSubscriptionRequestInput;
+      output: RejectSubscriptionRequestOutput;
+    };
+    sdk: {
+      input: RejectSubscriptionRequestCommandInput;
+      output: RejectSubscriptionRequestCommandOutput;
+    };
+  };
+}

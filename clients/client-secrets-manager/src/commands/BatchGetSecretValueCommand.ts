@@ -207,4 +207,16 @@ export class BatchGetSecretValueCommand extends $Command
   .f(void 0, BatchGetSecretValueResponseFilterSensitiveLog)
   .ser(se_BatchGetSecretValueCommand)
   .de(de_BatchGetSecretValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetSecretValueRequest;
+      output: BatchGetSecretValueResponse;
+    };
+    sdk: {
+      input: BatchGetSecretValueCommandInput;
+      output: BatchGetSecretValueCommandOutput;
+    };
+  };
+}

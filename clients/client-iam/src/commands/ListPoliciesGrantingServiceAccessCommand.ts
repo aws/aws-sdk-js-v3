@@ -199,4 +199,16 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPoliciesGrantingServiceAccessCommand)
   .de(de_ListPoliciesGrantingServiceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesGrantingServiceAccessRequest;
+      output: ListPoliciesGrantingServiceAccessResponse;
+    };
+    sdk: {
+      input: ListPoliciesGrantingServiceAccessCommandInput;
+      output: ListPoliciesGrantingServiceAccessCommandOutput;
+    };
+  };
+}

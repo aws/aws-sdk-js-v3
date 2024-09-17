@@ -135,4 +135,16 @@ export class DistributeDatasetEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DistributeDatasetEntriesCommand)
   .de(de_DistributeDatasetEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DistributeDatasetEntriesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DistributeDatasetEntriesCommandInput;
+      output: DistributeDatasetEntriesCommandOutput;
+    };
+  };
+}

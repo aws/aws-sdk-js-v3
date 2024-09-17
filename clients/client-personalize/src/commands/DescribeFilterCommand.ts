@@ -96,4 +96,16 @@ export class DescribeFilterCommand extends $Command
   .f(void 0, DescribeFilterResponseFilterSensitiveLog)
   .ser(se_DescribeFilterCommand)
   .de(de_DescribeFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFilterRequest;
+      output: DescribeFilterResponse;
+    };
+    sdk: {
+      input: DescribeFilterCommandInput;
+      output: DescribeFilterCommandOutput;
+    };
+  };
+}

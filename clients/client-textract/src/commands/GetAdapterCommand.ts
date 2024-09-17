@@ -115,4 +115,16 @@ export class GetAdapterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdapterCommand)
   .de(de_GetAdapterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdapterRequest;
+      output: GetAdapterResponse;
+    };
+    sdk: {
+      input: GetAdapterCommandInput;
+      output: GetAdapterCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class UpdateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStreamCommand)
   .de(de_UpdateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateStreamCommandInput;
+      output: UpdateStreamCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class GetAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAuthorizerCommand)
   .de(de_GetAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAuthorizerRequest;
+      output: Authorizer;
+    };
+    sdk: {
+      input: GetAuthorizerCommandInput;
+      output: GetAuthorizerCommandOutput;
+    };
+  };
+}

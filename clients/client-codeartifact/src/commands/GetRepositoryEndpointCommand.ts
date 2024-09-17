@@ -148,4 +148,16 @@ export class GetRepositoryEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRepositoryEndpointCommand)
   .de(de_GetRepositoryEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRepositoryEndpointRequest;
+      output: GetRepositoryEndpointResult;
+    };
+    sdk: {
+      input: GetRepositoryEndpointCommandInput;
+      output: GetRepositoryEndpointCommandOutput;
+    };
+  };
+}

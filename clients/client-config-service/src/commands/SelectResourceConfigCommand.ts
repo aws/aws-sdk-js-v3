@@ -104,4 +104,16 @@ export class SelectResourceConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SelectResourceConfigCommand)
   .de(de_SelectResourceConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SelectResourceConfigRequest;
+      output: SelectResourceConfigResponse;
+    };
+    sdk: {
+      input: SelectResourceConfigCommandInput;
+      output: SelectResourceConfigCommandOutput;
+    };
+  };
+}

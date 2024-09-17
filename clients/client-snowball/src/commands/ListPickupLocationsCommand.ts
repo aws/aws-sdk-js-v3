@@ -127,4 +127,16 @@ export class ListPickupLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPickupLocationsCommand)
   .de(de_ListPickupLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPickupLocationsRequest;
+      output: ListPickupLocationsResult;
+    };
+    sdk: {
+      input: ListPickupLocationsCommandInput;
+      output: ListPickupLocationsCommandOutput;
+    };
+  };
+}

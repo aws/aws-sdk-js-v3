@@ -112,4 +112,16 @@ export class UpdateEnvironmentTemplateCommand extends $Command
   .f(UpdateEnvironmentTemplateInputFilterSensitiveLog, UpdateEnvironmentTemplateOutputFilterSensitiveLog)
   .ser(se_UpdateEnvironmentTemplateCommand)
   .de(de_UpdateEnvironmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentTemplateInput;
+      output: UpdateEnvironmentTemplateOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentTemplateCommandInput;
+      output: UpdateEnvironmentTemplateCommandOutput;
+    };
+  };
+}

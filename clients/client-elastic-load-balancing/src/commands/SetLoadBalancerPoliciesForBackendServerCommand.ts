@@ -126,4 +126,16 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetLoadBalancerPoliciesForBackendServerCommand)
   .de(de_SetLoadBalancerPoliciesForBackendServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLoadBalancerPoliciesForBackendServerInput;
+      output: {};
+    };
+    sdk: {
+      input: SetLoadBalancerPoliciesForBackendServerCommandInput;
+      output: SetLoadBalancerPoliciesForBackendServerCommandOutput;
+    };
+  };
+}

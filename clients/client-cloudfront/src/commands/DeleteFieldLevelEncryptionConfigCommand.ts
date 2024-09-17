@@ -95,4 +95,16 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFieldLevelEncryptionConfigCommand)
   .de(de_DeleteFieldLevelEncryptionConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFieldLevelEncryptionConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFieldLevelEncryptionConfigCommandInput;
+      output: DeleteFieldLevelEncryptionConfigCommandOutput;
+    };
+  };
+}

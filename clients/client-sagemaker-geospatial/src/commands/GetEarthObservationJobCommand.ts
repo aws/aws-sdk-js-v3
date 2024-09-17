@@ -268,4 +268,16 @@ export class GetEarthObservationJobCommand extends $Command
   .f(void 0, GetEarthObservationJobOutputFilterSensitiveLog)
   .ser(se_GetEarthObservationJobCommand)
   .de(de_GetEarthObservationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEarthObservationJobInput;
+      output: GetEarthObservationJobOutput;
+    };
+    sdk: {
+      input: GetEarthObservationJobCommandInput;
+      output: GetEarthObservationJobCommandOutput;
+    };
+  };
+}

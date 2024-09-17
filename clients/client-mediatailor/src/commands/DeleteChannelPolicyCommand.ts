@@ -75,4 +75,16 @@ export class DeleteChannelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelPolicyCommand)
   .de(de_DeleteChannelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelPolicyCommandInput;
+      output: DeleteChannelPolicyCommandOutput;
+    };
+  };
+}

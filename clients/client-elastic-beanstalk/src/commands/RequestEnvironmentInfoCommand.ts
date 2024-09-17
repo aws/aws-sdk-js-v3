@@ -104,4 +104,16 @@ export class RequestEnvironmentInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestEnvironmentInfoCommand)
   .de(de_RequestEnvironmentInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestEnvironmentInfoMessage;
+      output: {};
+    };
+    sdk: {
+      input: RequestEnvironmentInfoCommandInput;
+      output: RequestEnvironmentInfoCommandOutput;
+    };
+  };
+}

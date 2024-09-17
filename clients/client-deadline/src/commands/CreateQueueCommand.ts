@@ -127,4 +127,16 @@ export class CreateQueueCommand extends $Command
   .f(CreateQueueRequestFilterSensitiveLog, void 0)
   .ser(se_CreateQueueCommand)
   .de(de_CreateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueRequest;
+      output: CreateQueueResponse;
+    };
+    sdk: {
+      input: CreateQueueCommandInput;
+      output: CreateQueueCommandOutput;
+    };
+  };
+}

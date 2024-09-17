@@ -110,4 +110,16 @@ export class DeleteTrustAnchorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrustAnchorCommand)
   .de(de_DeleteTrustAnchorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarTrustAnchorRequest;
+      output: TrustAnchorDetailResponse;
+    };
+    sdk: {
+      input: DeleteTrustAnchorCommandInput;
+      output: DeleteTrustAnchorCommandOutput;
+    };
+  };
+}

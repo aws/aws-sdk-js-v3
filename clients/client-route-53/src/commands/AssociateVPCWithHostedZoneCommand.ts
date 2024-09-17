@@ -205,4 +205,16 @@ export class AssociateVPCWithHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateVPCWithHostedZoneCommand)
   .de(de_AssociateVPCWithHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateVPCWithHostedZoneRequest;
+      output: AssociateVPCWithHostedZoneResponse;
+    };
+    sdk: {
+      input: AssociateVPCWithHostedZoneCommandInput;
+      output: AssociateVPCWithHostedZoneCommandOutput;
+    };
+  };
+}

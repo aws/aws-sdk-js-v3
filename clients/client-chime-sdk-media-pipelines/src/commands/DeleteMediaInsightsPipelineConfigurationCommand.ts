@@ -108,4 +108,16 @@ export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaInsightsPipelineConfigurationCommand)
   .de(de_DeleteMediaInsightsPipelineConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaInsightsPipelineConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaInsightsPipelineConfigurationCommandInput;
+      output: DeleteMediaInsightsPipelineConfigurationCommandOutput;
+    };
+  };
+}

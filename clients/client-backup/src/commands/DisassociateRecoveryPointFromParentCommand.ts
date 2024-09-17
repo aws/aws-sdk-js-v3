@@ -97,4 +97,16 @@ export class DisassociateRecoveryPointFromParentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateRecoveryPointFromParentCommand)
   .de(de_DisassociateRecoveryPointFromParentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateRecoveryPointFromParentInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateRecoveryPointFromParentCommandInput;
+      output: DisassociateRecoveryPointFromParentCommandOutput;
+    };
+  };
+}

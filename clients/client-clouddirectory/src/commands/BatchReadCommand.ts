@@ -500,4 +500,16 @@ export class BatchReadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchReadCommand)
   .de(de_BatchReadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchReadRequest;
+      output: BatchReadResponse;
+    };
+    sdk: {
+      input: BatchReadCommandInput;
+      output: BatchReadCommandOutput;
+    };
+  };
+}

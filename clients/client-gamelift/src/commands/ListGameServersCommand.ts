@@ -119,4 +119,16 @@ export class ListGameServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGameServersCommand)
   .de(de_ListGameServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGameServersInput;
+      output: ListGameServersOutput;
+    };
+    sdk: {
+      input: ListGameServersCommandInput;
+      output: ListGameServersCommandOutput;
+    };
+  };
+}

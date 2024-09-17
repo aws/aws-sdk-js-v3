@@ -106,4 +106,16 @@ export class GetMessagingSessionEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMessagingSessionEndpointCommand)
   .de(de_GetMessagingSessionEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetMessagingSessionEndpointResponse;
+    };
+    sdk: {
+      input: GetMessagingSessionEndpointCommandInput;
+      output: GetMessagingSessionEndpointCommandOutput;
+    };
+  };
+}

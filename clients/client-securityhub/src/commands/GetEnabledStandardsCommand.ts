@@ -133,4 +133,16 @@ export class GetEnabledStandardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEnabledStandardsCommand)
   .de(de_GetEnabledStandardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnabledStandardsRequest;
+      output: GetEnabledStandardsResponse;
+    };
+    sdk: {
+      input: GetEnabledStandardsCommandInput;
+      output: GetEnabledStandardsCommandOutput;
+    };
+  };
+}

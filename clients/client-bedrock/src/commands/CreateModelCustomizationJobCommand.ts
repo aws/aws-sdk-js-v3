@@ -157,4 +157,16 @@ export class CreateModelCustomizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelCustomizationJobCommand)
   .de(de_CreateModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCustomizationJobRequest;
+      output: CreateModelCustomizationJobResponse;
+    };
+    sdk: {
+      input: CreateModelCustomizationJobCommandInput;
+      output: CreateModelCustomizationJobCommandOutput;
+    };
+  };
+}

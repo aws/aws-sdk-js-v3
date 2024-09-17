@@ -148,4 +148,16 @@ export class DescribeDataIngestionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataIngestionJobCommand)
   .de(de_DescribeDataIngestionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataIngestionJobRequest;
+      output: DescribeDataIngestionJobResponse;
+    };
+    sdk: {
+      input: DescribeDataIngestionJobCommandInput;
+      output: DescribeDataIngestionJobCommandOutput;
+    };
+  };
+}

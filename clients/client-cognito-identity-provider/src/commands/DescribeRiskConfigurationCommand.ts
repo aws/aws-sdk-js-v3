@@ -164,4 +164,16 @@ export class DescribeRiskConfigurationCommand extends $Command
   .f(DescribeRiskConfigurationRequestFilterSensitiveLog, DescribeRiskConfigurationResponseFilterSensitiveLog)
   .ser(se_DescribeRiskConfigurationCommand)
   .de(de_DescribeRiskConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRiskConfigurationRequest;
+      output: DescribeRiskConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeRiskConfigurationCommandInput;
+      output: DescribeRiskConfigurationCommandOutput;
+    };
+  };
+}

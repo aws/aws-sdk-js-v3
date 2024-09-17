@@ -128,4 +128,16 @@ export class CreateDatasetExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatasetExportJobCommand)
   .de(de_CreateDatasetExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatasetExportJobRequest;
+      output: CreateDatasetExportJobResponse;
+    };
+    sdk: {
+      input: CreateDatasetExportJobCommandInput;
+      output: CreateDatasetExportJobCommandOutput;
+    };
+  };
+}

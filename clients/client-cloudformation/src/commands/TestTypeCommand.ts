@@ -108,4 +108,16 @@ export class TestTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestTypeCommand)
   .de(de_TestTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestTypeInput;
+      output: TestTypeOutput;
+    };
+    sdk: {
+      input: TestTypeCommandInput;
+      output: TestTypeCommandOutput;
+    };
+  };
+}

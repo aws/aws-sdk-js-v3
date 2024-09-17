@@ -208,4 +208,16 @@ export class CalculateRouteCommand extends $Command
   .f(CalculateRouteRequestFilterSensitiveLog, CalculateRouteResponseFilterSensitiveLog)
   .ser(se_CalculateRouteCommand)
   .de(de_CalculateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CalculateRouteRequest;
+      output: CalculateRouteResponse;
+    };
+    sdk: {
+      input: CalculateRouteCommandInput;
+      output: CalculateRouteCommandOutput;
+    };
+  };
+}

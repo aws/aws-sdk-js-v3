@@ -130,4 +130,16 @@ export class PutAppReplicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAppReplicationConfigurationCommand)
   .de(de_PutAppReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAppReplicationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAppReplicationConfigurationCommandInput;
+      output: PutAppReplicationConfigurationCommandOutput;
+    };
+  };
+}

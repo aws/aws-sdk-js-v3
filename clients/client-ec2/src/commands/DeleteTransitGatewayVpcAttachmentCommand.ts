@@ -105,4 +105,16 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayVpcAttachmentCommand)
   .de(de_DeleteTransitGatewayVpcAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayVpcAttachmentRequest;
+      output: DeleteTransitGatewayVpcAttachmentResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayVpcAttachmentCommandInput;
+      output: DeleteTransitGatewayVpcAttachmentCommandOutput;
+    };
+  };
+}

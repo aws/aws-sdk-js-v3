@@ -145,4 +145,16 @@ export class StartCutoverCommand extends $Command
   .f(StartCutoverRequestFilterSensitiveLog, StartCutoverResponseFilterSensitiveLog)
   .ser(se_StartCutoverCommand)
   .de(de_StartCutoverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCutoverRequest;
+      output: StartCutoverResponse;
+    };
+    sdk: {
+      input: StartCutoverCommandInput;
+      output: StartCutoverCommandOutput;
+    };
+  };
+}

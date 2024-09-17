@@ -109,4 +109,16 @@ export class DeleteEnvironmentTemplateCommand extends $Command
   .f(void 0, DeleteEnvironmentTemplateOutputFilterSensitiveLog)
   .ser(se_DeleteEnvironmentTemplateCommand)
   .de(de_DeleteEnvironmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentTemplateInput;
+      output: DeleteEnvironmentTemplateOutput;
+    };
+    sdk: {
+      input: DeleteEnvironmentTemplateCommandInput;
+      output: DeleteEnvironmentTemplateCommandOutput;
+    };
+  };
+}

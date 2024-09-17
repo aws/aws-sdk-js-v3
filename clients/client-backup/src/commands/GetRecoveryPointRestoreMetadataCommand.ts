@@ -106,4 +106,16 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command
   .f(void 0, GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog)
   .ser(se_GetRecoveryPointRestoreMetadataCommand)
   .de(de_GetRecoveryPointRestoreMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecoveryPointRestoreMetadataInput;
+      output: GetRecoveryPointRestoreMetadataOutput;
+    };
+    sdk: {
+      input: GetRecoveryPointRestoreMetadataCommandInput;
+      output: GetRecoveryPointRestoreMetadataCommandOutput;
+    };
+  };
+}

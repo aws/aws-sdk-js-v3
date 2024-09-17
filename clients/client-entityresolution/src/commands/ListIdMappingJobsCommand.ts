@@ -103,4 +103,16 @@ export class ListIdMappingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdMappingJobsCommand)
   .de(de_ListIdMappingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdMappingJobsInput;
+      output: ListIdMappingJobsOutput;
+    };
+    sdk: {
+      input: ListIdMappingJobsCommandInput;
+      output: ListIdMappingJobsCommandOutput;
+    };
+  };
+}

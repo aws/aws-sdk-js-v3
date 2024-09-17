@@ -227,4 +227,16 @@ export class DescribePredictorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePredictorCommand)
   .de(de_DescribePredictorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePredictorRequest;
+      output: DescribePredictorResponse;
+    };
+    sdk: {
+      input: DescribePredictorCommandInput;
+      output: DescribePredictorCommandOutput;
+    };
+  };
+}

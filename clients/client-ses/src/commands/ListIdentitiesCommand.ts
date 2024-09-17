@@ -115,4 +115,16 @@ export class ListIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentitiesCommand)
   .de(de_ListIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentitiesRequest;
+      output: ListIdentitiesResponse;
+    };
+    sdk: {
+      input: ListIdentitiesCommandInput;
+      output: ListIdentitiesCommandOutput;
+    };
+  };
+}

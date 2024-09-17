@@ -99,4 +99,16 @@ export class GetObjectCommand extends $Command
   .f(void 0, GetObjectResponseFilterSensitiveLog)
   .ser(se_GetObjectCommand)
   .de(de_GetObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectRequest;
+      output: GetObjectResponse;
+    };
+    sdk: {
+      input: GetObjectCommandInput;
+      output: GetObjectCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class DescribeTrafficSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrafficSourcesCommand)
   .de(de_DescribeTrafficSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrafficSourcesRequest;
+      output: DescribeTrafficSourcesResponse;
+    };
+    sdk: {
+      input: DescribeTrafficSourcesCommandInput;
+      output: DescribeTrafficSourcesCommandOutput;
+    };
+  };
+}

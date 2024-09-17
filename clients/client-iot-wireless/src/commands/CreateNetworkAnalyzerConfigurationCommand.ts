@@ -126,4 +126,16 @@ export class CreateNetworkAnalyzerConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkAnalyzerConfigurationCommand)
   .de(de_CreateNetworkAnalyzerConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkAnalyzerConfigurationRequest;
+      output: CreateNetworkAnalyzerConfigurationResponse;
+    };
+    sdk: {
+      input: CreateNetworkAnalyzerConfigurationCommandInput;
+      output: CreateNetworkAnalyzerConfigurationCommandOutput;
+    };
+  };
+}

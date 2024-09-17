@@ -121,4 +121,16 @@ export class ModifyGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyGlobalReplicationGroupCommand)
   .de(de_ModifyGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyGlobalReplicationGroupMessage;
+      output: ModifyGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: ModifyGlobalReplicationGroupCommandInput;
+      output: ModifyGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class DescribeHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHubCommand)
   .de(de_DescribeHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHubRequest;
+      output: DescribeHubResponse;
+    };
+    sdk: {
+      input: DescribeHubCommandInput;
+      output: DescribeHubCommandOutput;
+    };
+  };
+}

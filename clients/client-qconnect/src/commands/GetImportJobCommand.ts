@@ -110,4 +110,16 @@ export class GetImportJobCommand extends $Command
   .f(void 0, GetImportJobResponseFilterSensitiveLog)
   .ser(se_GetImportJobCommand)
   .de(de_GetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportJobRequest;
+      output: GetImportJobResponse;
+    };
+    sdk: {
+      input: GetImportJobCommandInput;
+      output: GetImportJobCommandOutput;
+    };
+  };
+}

@@ -236,4 +236,16 @@ export class GenerateOrganizationsAccessReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateOrganizationsAccessReportCommand)
   .de(de_GenerateOrganizationsAccessReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateOrganizationsAccessReportRequest;
+      output: GenerateOrganizationsAccessReportResponse;
+    };
+    sdk: {
+      input: GenerateOrganizationsAccessReportCommandInput;
+      output: GenerateOrganizationsAccessReportCommandOutput;
+    };
+  };
+}

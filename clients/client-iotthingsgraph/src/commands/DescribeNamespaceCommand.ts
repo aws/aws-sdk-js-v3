@@ -95,4 +95,16 @@ export class DescribeNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNamespaceCommand)
   .de(de_DescribeNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNamespaceRequest;
+      output: DescribeNamespaceResponse;
+    };
+    sdk: {
+      input: DescribeNamespaceCommandInput;
+      output: DescribeNamespaceCommandOutput;
+    };
+  };
+}

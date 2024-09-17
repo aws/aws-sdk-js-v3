@@ -93,4 +93,16 @@ export class SuspendContactRecordingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuspendContactRecordingCommand)
   .de(de_SuspendContactRecordingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SuspendContactRecordingRequest;
+      output: {};
+    };
+    sdk: {
+      input: SuspendContactRecordingCommandInput;
+      output: SuspendContactRecordingCommandOutput;
+    };
+  };
+}

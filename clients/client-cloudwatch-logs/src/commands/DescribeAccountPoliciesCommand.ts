@@ -103,4 +103,16 @@ export class DescribeAccountPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountPoliciesCommand)
   .de(de_DescribeAccountPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountPoliciesRequest;
+      output: DescribeAccountPoliciesResponse;
+    };
+    sdk: {
+      input: DescribeAccountPoliciesCommandInput;
+      output: DescribeAccountPoliciesCommandOutput;
+    };
+  };
+}

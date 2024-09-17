@@ -136,4 +136,16 @@ export class CreateFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFunctionCommand)
   .de(de_CreateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionRequest;
+      output: CreateFunctionResponse;
+    };
+    sdk: {
+      input: CreateFunctionCommandInput;
+      output: CreateFunctionCommandOutput;
+    };
+  };
+}

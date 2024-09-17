@@ -164,4 +164,16 @@ export class CreateNetworkInsightsPathCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkInsightsPathCommand)
   .de(de_CreateNetworkInsightsPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkInsightsPathRequest;
+      output: CreateNetworkInsightsPathResult;
+    };
+    sdk: {
+      input: CreateNetworkInsightsPathCommandInput;
+      output: CreateNetworkInsightsPathCommandOutput;
+    };
+  };
+}

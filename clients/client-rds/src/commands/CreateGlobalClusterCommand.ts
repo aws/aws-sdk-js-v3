@@ -176,4 +176,16 @@ export class CreateGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGlobalClusterCommand)
   .de(de_CreateGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlobalClusterMessage;
+      output: CreateGlobalClusterResult;
+    };
+    sdk: {
+      input: CreateGlobalClusterCommandInput;
+      output: CreateGlobalClusterCommandOutput;
+    };
+  };
+}

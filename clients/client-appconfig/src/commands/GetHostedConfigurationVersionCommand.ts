@@ -133,4 +133,16 @@ export class GetHostedConfigurationVersionCommand extends $Command
   .f(void 0, HostedConfigurationVersionFilterSensitiveLog)
   .ser(se_GetHostedConfigurationVersionCommand)
   .de(de_GetHostedConfigurationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostedConfigurationVersionRequest;
+      output: HostedConfigurationVersion;
+    };
+    sdk: {
+      input: GetHostedConfigurationVersionCommandInput;
+      output: GetHostedConfigurationVersionCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCalculatedAttributeDefinitionCommand)
   .de(de_DeleteCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCalculatedAttributeDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCalculatedAttributeDefinitionCommandInput;
+      output: DeleteCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

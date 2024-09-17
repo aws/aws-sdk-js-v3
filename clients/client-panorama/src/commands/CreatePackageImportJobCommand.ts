@@ -114,4 +114,16 @@ export class CreatePackageImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePackageImportJobCommand)
   .de(de_CreatePackageImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageImportJobRequest;
+      output: CreatePackageImportJobResponse;
+    };
+    sdk: {
+      input: CreatePackageImportJobCommandInput;
+      output: CreatePackageImportJobCommandOutput;
+    };
+  };
+}

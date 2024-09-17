@@ -106,4 +106,16 @@ export class GetReadSetCommand extends $Command
   .f(void 0, GetReadSetResponseFilterSensitiveLog)
   .ser(se_GetReadSetCommand)
   .de(de_GetReadSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReadSetRequest;
+      output: GetReadSetResponse;
+    };
+    sdk: {
+      input: GetReadSetCommandInput;
+      output: GetReadSetCommandOutput;
+    };
+  };
+}

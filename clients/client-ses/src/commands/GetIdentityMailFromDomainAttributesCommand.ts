@@ -120,4 +120,16 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityMailFromDomainAttributesCommand)
   .de(de_GetIdentityMailFromDomainAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityMailFromDomainAttributesRequest;
+      output: GetIdentityMailFromDomainAttributesResponse;
+    };
+    sdk: {
+      input: GetIdentityMailFromDomainAttributesCommandInput;
+      output: GetIdentityMailFromDomainAttributesCommandOutput;
+    };
+  };
+}

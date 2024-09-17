@@ -97,4 +97,16 @@ export class RemoveFlowMediaStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveFlowMediaStreamCommand)
   .de(de_RemoveFlowMediaStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveFlowMediaStreamRequest;
+      output: RemoveFlowMediaStreamResponse;
+    };
+    sdk: {
+      input: RemoveFlowMediaStreamCommandInput;
+      output: RemoveFlowMediaStreamCommandOutput;
+    };
+  };
+}

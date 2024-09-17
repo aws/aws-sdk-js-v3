@@ -111,4 +111,16 @@ export class CreateEdgeDeploymentPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEdgeDeploymentPlanCommand)
   .de(de_CreateEdgeDeploymentPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEdgeDeploymentPlanRequest;
+      output: CreateEdgeDeploymentPlanResponse;
+    };
+    sdk: {
+      input: CreateEdgeDeploymentPlanCommandInput;
+      output: CreateEdgeDeploymentPlanCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class DisassociateApplicationFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateApplicationFleetCommand)
   .de(de_DisassociateApplicationFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateApplicationFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateApplicationFleetCommandInput;
+      output: DisassociateApplicationFleetCommandOutput;
+    };
+  };
+}

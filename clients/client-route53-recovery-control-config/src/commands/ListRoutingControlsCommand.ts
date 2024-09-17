@@ -107,4 +107,16 @@ export class ListRoutingControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoutingControlsCommand)
   .de(de_ListRoutingControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutingControlsRequest;
+      output: ListRoutingControlsResponse;
+    };
+    sdk: {
+      input: ListRoutingControlsCommandInput;
+      output: ListRoutingControlsCommandOutput;
+    };
+  };
+}

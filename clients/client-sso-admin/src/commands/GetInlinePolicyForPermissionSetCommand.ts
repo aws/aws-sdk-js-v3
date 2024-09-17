@@ -100,4 +100,16 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInlinePolicyForPermissionSetCommand)
   .de(de_GetInlinePolicyForPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInlinePolicyForPermissionSetRequest;
+      output: GetInlinePolicyForPermissionSetResponse;
+    };
+    sdk: {
+      input: GetInlinePolicyForPermissionSetCommandInput;
+      output: GetInlinePolicyForPermissionSetCommandOutput;
+    };
+  };
+}

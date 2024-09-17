@@ -97,4 +97,16 @@ export class PutOutcomeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOutcomeCommand)
   .de(de_PutOutcomeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOutcomeRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutOutcomeCommandInput;
+      output: PutOutcomeCommandOutput;
+    };
+  };
+}

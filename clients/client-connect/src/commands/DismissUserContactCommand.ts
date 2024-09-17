@@ -99,4 +99,16 @@ export class DismissUserContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DismissUserContactCommand)
   .de(de_DismissUserContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DismissUserContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DismissUserContactCommandInput;
+      output: DismissUserContactCommandOutput;
+    };
+  };
+}

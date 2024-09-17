@@ -103,4 +103,16 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateWirelessDeviceFromFuotaTaskCommand)
   .de(de_DisassociateWirelessDeviceFromFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWirelessDeviceFromFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWirelessDeviceFromFuotaTaskCommandInput;
+      output: DisassociateWirelessDeviceFromFuotaTaskCommandOutput;
+    };
+  };
+}

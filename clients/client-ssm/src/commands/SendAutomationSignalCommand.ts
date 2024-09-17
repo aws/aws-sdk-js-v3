@@ -96,4 +96,16 @@ export class SendAutomationSignalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendAutomationSignalCommand)
   .de(de_SendAutomationSignalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendAutomationSignalRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendAutomationSignalCommandInput;
+      output: SendAutomationSignalCommandOutput;
+    };
+  };
+}

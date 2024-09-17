@@ -105,4 +105,16 @@ export class DescribePlaceIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePlaceIndexCommand)
   .de(de_DescribePlaceIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePlaceIndexRequest;
+      output: DescribePlaceIndexResponse;
+    };
+    sdk: {
+      input: DescribePlaceIndexCommandInput;
+      output: DescribePlaceIndexCommandOutput;
+    };
+  };
+}

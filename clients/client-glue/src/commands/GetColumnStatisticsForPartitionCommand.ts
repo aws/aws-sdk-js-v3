@@ -170,4 +170,16 @@ export class GetColumnStatisticsForPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetColumnStatisticsForPartitionCommand)
   .de(de_GetColumnStatisticsForPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetColumnStatisticsForPartitionRequest;
+      output: GetColumnStatisticsForPartitionResponse;
+    };
+    sdk: {
+      input: GetColumnStatisticsForPartitionCommandInput;
+      output: GetColumnStatisticsForPartitionCommandOutput;
+    };
+  };
+}

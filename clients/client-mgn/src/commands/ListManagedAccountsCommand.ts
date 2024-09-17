@@ -89,4 +89,16 @@ export class ListManagedAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedAccountsCommand)
   .de(de_ListManagedAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedAccountsRequest;
+      output: ListManagedAccountsResponse;
+    };
+    sdk: {
+      input: ListManagedAccountsCommandInput;
+      output: ListManagedAccountsCommandOutput;
+    };
+  };
+}

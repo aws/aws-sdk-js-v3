@@ -107,4 +107,16 @@ export class ListPrivacyBudgetTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrivacyBudgetTemplatesCommand)
   .de(de_ListPrivacyBudgetTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrivacyBudgetTemplatesInput;
+      output: ListPrivacyBudgetTemplatesOutput;
+    };
+    sdk: {
+      input: ListPrivacyBudgetTemplatesCommandInput;
+      output: ListPrivacyBudgetTemplatesCommandOutput;
+    };
+  };
+}

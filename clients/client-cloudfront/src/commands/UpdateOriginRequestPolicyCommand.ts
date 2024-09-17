@@ -205,4 +205,16 @@ export class UpdateOriginRequestPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOriginRequestPolicyCommand)
   .de(de_UpdateOriginRequestPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOriginRequestPolicyRequest;
+      output: UpdateOriginRequestPolicyResult;
+    };
+    sdk: {
+      input: UpdateOriginRequestPolicyCommandInput;
+      output: UpdateOriginRequestPolicyCommandOutput;
+    };
+  };
+}

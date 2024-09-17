@@ -130,4 +130,16 @@ export class DescribeNotificationConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotificationConfigurationsCommand)
   .de(de_DescribeNotificationConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotificationConfigurationsType;
+      output: DescribeNotificationConfigurationsAnswer;
+    };
+    sdk: {
+      input: DescribeNotificationConfigurationsCommandInput;
+      output: DescribeNotificationConfigurationsCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class CreateSecurityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSecurityConfigurationCommand)
   .de(de_CreateSecurityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecurityConfigurationInput;
+      output: CreateSecurityConfigurationOutput;
+    };
+    sdk: {
+      input: CreateSecurityConfigurationCommandInput;
+      output: CreateSecurityConfigurationCommandOutput;
+    };
+  };
+}

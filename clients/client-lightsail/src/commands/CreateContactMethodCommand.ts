@@ -126,4 +126,16 @@ export class CreateContactMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContactMethodCommand)
   .de(de_CreateContactMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContactMethodRequest;
+      output: CreateContactMethodResult;
+    };
+    sdk: {
+      input: CreateContactMethodCommandInput;
+      output: CreateContactMethodCommandOutput;
+    };
+  };
+}

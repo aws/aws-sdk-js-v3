@@ -99,4 +99,16 @@ export class UpdateDocumentMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentMetadataCommand)
   .de(de_UpdateDocumentMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDocumentMetadataCommandInput;
+      output: UpdateDocumentMetadataCommandOutput;
+    };
+  };
+}

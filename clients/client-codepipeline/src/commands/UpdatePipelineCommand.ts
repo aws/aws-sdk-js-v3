@@ -535,4 +535,16 @@ export class UpdatePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePipelineCommand)
   .de(de_UpdatePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePipelineInput;
+      output: UpdatePipelineOutput;
+    };
+    sdk: {
+      input: UpdatePipelineCommandInput;
+      output: UpdatePipelineCommandOutput;
+    };
+  };
+}

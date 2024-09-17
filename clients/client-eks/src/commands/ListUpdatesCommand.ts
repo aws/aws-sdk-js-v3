@@ -101,4 +101,16 @@ export class ListUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUpdatesCommand)
   .de(de_ListUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUpdatesRequest;
+      output: ListUpdatesResponse;
+    };
+    sdk: {
+      input: ListUpdatesCommandInput;
+      output: ListUpdatesCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseReservedInstancesOfferingCommand)
   .de(de_PurchaseReservedInstancesOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseReservedInstancesOfferingRequest;
+      output: PurchaseReservedInstancesOfferingResult;
+    };
+    sdk: {
+      input: PurchaseReservedInstancesOfferingCommandInput;
+      output: PurchaseReservedInstancesOfferingCommandOutput;
+    };
+  };
+}

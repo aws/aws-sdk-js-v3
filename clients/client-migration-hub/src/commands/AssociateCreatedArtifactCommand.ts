@@ -132,4 +132,16 @@ export class AssociateCreatedArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateCreatedArtifactCommand)
   .de(de_AssociateCreatedArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateCreatedArtifactRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateCreatedArtifactCommandInput;
+      output: AssociateCreatedArtifactCommandOutput;
+    };
+  };
+}

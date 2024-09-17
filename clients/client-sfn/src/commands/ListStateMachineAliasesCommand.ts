@@ -128,4 +128,16 @@ export class ListStateMachineAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStateMachineAliasesCommand)
   .de(de_ListStateMachineAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStateMachineAliasesInput;
+      output: ListStateMachineAliasesOutput;
+    };
+    sdk: {
+      input: ListStateMachineAliasesCommandInput;
+      output: ListStateMachineAliasesCommandOutput;
+    };
+  };
+}

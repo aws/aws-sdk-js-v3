@@ -103,4 +103,16 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAffectedAccountsForOrganizationCommand)
   .de(de_DescribeAffectedAccountsForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAffectedAccountsForOrganizationRequest;
+      output: DescribeAffectedAccountsForOrganizationResponse;
+    };
+    sdk: {
+      input: DescribeAffectedAccountsForOrganizationCommandInput;
+      output: DescribeAffectedAccountsForOrganizationCommandOutput;
+    };
+  };
+}

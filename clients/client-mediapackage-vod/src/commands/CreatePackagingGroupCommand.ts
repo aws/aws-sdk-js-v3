@@ -118,4 +118,16 @@ export class CreatePackagingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePackagingGroupCommand)
   .de(de_CreatePackagingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackagingGroupRequest;
+      output: CreatePackagingGroupResponse;
+    };
+    sdk: {
+      input: CreatePackagingGroupCommandInput;
+      output: CreatePackagingGroupCommandOutput;
+    };
+  };
+}

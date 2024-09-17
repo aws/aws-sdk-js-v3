@@ -100,4 +100,16 @@ export class GetSdkTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSdkTypeCommand)
   .de(de_GetSdkTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSdkTypeRequest;
+      output: SdkType;
+    };
+    sdk: {
+      input: GetSdkTypeCommandInput;
+      output: GetSdkTypeCommandOutput;
+    };
+  };
+}

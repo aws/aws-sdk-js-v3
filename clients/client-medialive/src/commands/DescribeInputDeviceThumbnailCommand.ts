@@ -114,4 +114,16 @@ export class DescribeInputDeviceThumbnailCommand extends $Command
   .f(void 0, DescribeInputDeviceThumbnailResponseFilterSensitiveLog)
   .ser(se_DescribeInputDeviceThumbnailCommand)
   .de(de_DescribeInputDeviceThumbnailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInputDeviceThumbnailRequest;
+      output: DescribeInputDeviceThumbnailResponse;
+    };
+    sdk: {
+      input: DescribeInputDeviceThumbnailCommandInput;
+      output: DescribeInputDeviceThumbnailCommandOutput;
+    };
+  };
+}

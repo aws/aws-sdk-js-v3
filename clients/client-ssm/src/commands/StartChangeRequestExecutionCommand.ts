@@ -187,4 +187,16 @@ export class StartChangeRequestExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartChangeRequestExecutionCommand)
   .de(de_StartChangeRequestExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartChangeRequestExecutionRequest;
+      output: StartChangeRequestExecutionResult;
+    };
+    sdk: {
+      input: StartChangeRequestExecutionCommandInput;
+      output: StartChangeRequestExecutionCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DeleteRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRouteTableCommand)
   .de(de_DeleteRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRouteTableRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRouteTableCommandInput;
+      output: DeleteRouteTableCommandOutput;
+    };
+  };
+}

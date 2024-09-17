@@ -105,4 +105,16 @@ export class DeleteWirelessGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWirelessGatewayCommand)
   .de(de_DeleteWirelessGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWirelessGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWirelessGatewayCommandInput;
+      output: DeleteWirelessGatewayCommandOutput;
+    };
+  };
+}

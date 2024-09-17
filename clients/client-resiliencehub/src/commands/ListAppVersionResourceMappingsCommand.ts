@@ -122,4 +122,16 @@ export class ListAppVersionResourceMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppVersionResourceMappingsCommand)
   .de(de_ListAppVersionResourceMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppVersionResourceMappingsRequest;
+      output: ListAppVersionResourceMappingsResponse;
+    };
+    sdk: {
+      input: ListAppVersionResourceMappingsCommandInput;
+      output: ListAppVersionResourceMappingsCommandOutput;
+    };
+  };
+}

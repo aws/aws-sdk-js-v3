@@ -79,4 +79,16 @@ export class DeleteProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectCommand)
   .de(de_DeleteProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectCommandInput;
+      output: DeleteProjectCommandOutput;
+    };
+  };
+}

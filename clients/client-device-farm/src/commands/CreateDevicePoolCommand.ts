@@ -131,4 +131,16 @@ export class CreateDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDevicePoolCommand)
   .de(de_CreateDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDevicePoolRequest;
+      output: CreateDevicePoolResult;
+    };
+    sdk: {
+      input: CreateDevicePoolCommandInput;
+      output: CreateDevicePoolCommandOutput;
+    };
+  };
+}

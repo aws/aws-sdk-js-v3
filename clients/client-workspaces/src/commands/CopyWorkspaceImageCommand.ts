@@ -116,4 +116,16 @@ export class CopyWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyWorkspaceImageCommand)
   .de(de_CopyWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyWorkspaceImageRequest;
+      output: CopyWorkspaceImageResult;
+    };
+    sdk: {
+      input: CopyWorkspaceImageCommandInput;
+      output: CopyWorkspaceImageCommandOutput;
+    };
+  };
+}

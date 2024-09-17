@@ -90,4 +90,16 @@ export class GetFunctionConcurrencyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionConcurrencyCommand)
   .de(de_GetFunctionConcurrencyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionConcurrencyRequest;
+      output: GetFunctionConcurrencyResponse;
+    };
+    sdk: {
+      input: GetFunctionConcurrencyCommandInput;
+      output: GetFunctionConcurrencyCommandOutput;
+    };
+  };
+}

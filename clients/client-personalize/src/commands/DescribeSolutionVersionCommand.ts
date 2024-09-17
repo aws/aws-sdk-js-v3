@@ -169,4 +169,16 @@ export class DescribeSolutionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSolutionVersionCommand)
   .de(de_DescribeSolutionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSolutionVersionRequest;
+      output: DescribeSolutionVersionResponse;
+    };
+    sdk: {
+      input: DescribeSolutionVersionCommandInput;
+      output: DescribeSolutionVersionCommandOutput;
+    };
+  };
+}

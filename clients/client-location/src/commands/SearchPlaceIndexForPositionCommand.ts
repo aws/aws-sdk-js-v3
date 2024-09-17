@@ -153,4 +153,16 @@ export class SearchPlaceIndexForPositionCommand extends $Command
   .f(SearchPlaceIndexForPositionRequestFilterSensitiveLog, SearchPlaceIndexForPositionResponseFilterSensitiveLog)
   .ser(se_SearchPlaceIndexForPositionCommand)
   .de(de_SearchPlaceIndexForPositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchPlaceIndexForPositionRequest;
+      output: SearchPlaceIndexForPositionResponse;
+    };
+    sdk: {
+      input: SearchPlaceIndexForPositionCommandInput;
+      output: SearchPlaceIndexForPositionCommandOutput;
+    };
+  };
+}

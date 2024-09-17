@@ -101,4 +101,16 @@ export class ModifyTrustStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrustStoreCommand)
   .de(de_ModifyTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrustStoreInput;
+      output: ModifyTrustStoreOutput;
+    };
+    sdk: {
+      input: ModifyTrustStoreCommandInput;
+      output: ModifyTrustStoreCommandOutput;
+    };
+  };
+}

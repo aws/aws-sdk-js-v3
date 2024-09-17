@@ -302,4 +302,16 @@ export class TestFailoverCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestFailoverCommand)
   .de(de_TestFailoverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestFailoverMessage;
+      output: TestFailoverResult;
+    };
+    sdk: {
+      input: TestFailoverCommandInput;
+      output: TestFailoverCommandOutput;
+    };
+  };
+}

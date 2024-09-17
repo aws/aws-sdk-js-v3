@@ -100,4 +100,16 @@ export class StartMLEvaluationTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMLEvaluationTaskRunCommand)
   .de(de_StartMLEvaluationTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMLEvaluationTaskRunRequest;
+      output: StartMLEvaluationTaskRunResponse;
+    };
+    sdk: {
+      input: StartMLEvaluationTaskRunCommandInput;
+      output: StartMLEvaluationTaskRunCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DescribeSchedulingPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSchedulingPoliciesCommand)
   .de(de_DescribeSchedulingPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSchedulingPoliciesRequest;
+      output: DescribeSchedulingPoliciesResponse;
+    };
+    sdk: {
+      input: DescribeSchedulingPoliciesCommandInput;
+      output: DescribeSchedulingPoliciesCommandOutput;
+    };
+  };
+}

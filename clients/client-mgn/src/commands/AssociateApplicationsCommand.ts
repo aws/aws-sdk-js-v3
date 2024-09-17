@@ -91,4 +91,16 @@ export class AssociateApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApplicationsCommand)
   .de(de_AssociateApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApplicationsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateApplicationsCommandInput;
+      output: AssociateApplicationsCommandOutput;
+    };
+  };
+}

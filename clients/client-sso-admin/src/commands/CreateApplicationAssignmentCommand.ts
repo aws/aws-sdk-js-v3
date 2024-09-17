@@ -106,4 +106,16 @@ export class CreateApplicationAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationAssignmentCommand)
   .de(de_CreateApplicationAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationAssignmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateApplicationAssignmentCommandInput;
+      output: CreateApplicationAssignmentCommandOutput;
+    };
+  };
+}

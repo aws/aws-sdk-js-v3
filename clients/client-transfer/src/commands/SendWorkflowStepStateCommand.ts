@@ -101,4 +101,16 @@ export class SendWorkflowStepStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendWorkflowStepStateCommand)
   .de(de_SendWorkflowStepStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendWorkflowStepStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendWorkflowStepStateCommandInput;
+      output: SendWorkflowStepStateCommandOutput;
+    };
+  };
+}

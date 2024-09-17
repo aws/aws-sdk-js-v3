@@ -104,4 +104,16 @@ export class GetReferenceCommand extends $Command
   .f(void 0, GetReferenceResponseFilterSensitiveLog)
   .ser(se_GetReferenceCommand)
   .de(de_GetReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReferenceRequest;
+      output: GetReferenceResponse;
+    };
+    sdk: {
+      input: GetReferenceCommandInput;
+      output: GetReferenceCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class PutApprovalResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutApprovalResultCommand)
   .de(de_PutApprovalResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutApprovalResultInput;
+      output: PutApprovalResultOutput;
+    };
+    sdk: {
+      input: PutApprovalResultCommandInput;
+      output: PutApprovalResultCommandOutput;
+    };
+  };
+}

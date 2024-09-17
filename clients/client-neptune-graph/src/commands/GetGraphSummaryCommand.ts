@@ -142,4 +142,16 @@ export class GetGraphSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGraphSummaryCommand)
   .de(de_GetGraphSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGraphSummaryInput;
+      output: GetGraphSummaryOutput;
+    };
+    sdk: {
+      input: GetGraphSummaryCommandInput;
+      output: GetGraphSummaryCommandOutput;
+    };
+  };
+}

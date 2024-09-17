@@ -106,4 +106,16 @@ export class GetBuiltinIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBuiltinIntentsCommand)
   .de(de_GetBuiltinIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBuiltinIntentsRequest;
+      output: GetBuiltinIntentsResponse;
+    };
+    sdk: {
+      input: GetBuiltinIntentsCommandInput;
+      output: GetBuiltinIntentsCommandOutput;
+    };
+  };
+}

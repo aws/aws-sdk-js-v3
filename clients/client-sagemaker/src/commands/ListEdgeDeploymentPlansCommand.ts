@@ -98,4 +98,16 @@ export class ListEdgeDeploymentPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEdgeDeploymentPlansCommand)
   .de(de_ListEdgeDeploymentPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEdgeDeploymentPlansRequest;
+      output: ListEdgeDeploymentPlansResponse;
+    };
+    sdk: {
+      input: ListEdgeDeploymentPlansCommandInput;
+      output: ListEdgeDeploymentPlansCommandOutput;
+    };
+  };
+}

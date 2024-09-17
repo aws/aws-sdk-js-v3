@@ -102,4 +102,16 @@ export class CreateCoipPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCoipPoolCommand)
   .de(de_CreateCoipPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCoipPoolRequest;
+      output: CreateCoipPoolResult;
+    };
+    sdk: {
+      input: CreateCoipPoolCommandInput;
+      output: CreateCoipPoolCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class UpdateResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourceCommand)
   .de(de_UpdateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateResourceCommandInput;
+      output: UpdateResourceCommandOutput;
+    };
+  };
+}

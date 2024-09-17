@@ -128,4 +128,16 @@ export class GetDataProductCommand extends $Command
   .f(void 0, GetDataProductOutputFilterSensitiveLog)
   .ser(se_GetDataProductCommand)
   .de(de_GetDataProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataProductInput;
+      output: GetDataProductOutput;
+    };
+    sdk: {
+      input: GetDataProductCommandInput;
+      output: GetDataProductCommandOutput;
+    };
+  };
+}

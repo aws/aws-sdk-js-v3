@@ -199,4 +199,16 @@ export class GenerateMacCommand extends $Command
   .f(GenerateMacRequestFilterSensitiveLog, void 0)
   .ser(se_GenerateMacCommand)
   .de(de_GenerateMacCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateMacRequest;
+      output: GenerateMacResponse;
+    };
+    sdk: {
+      input: GenerateMacCommandInput;
+      output: GenerateMacCommandOutput;
+    };
+  };
+}

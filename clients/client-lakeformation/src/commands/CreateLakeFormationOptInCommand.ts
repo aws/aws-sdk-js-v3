@@ -150,4 +150,16 @@ export class CreateLakeFormationOptInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLakeFormationOptInCommand)
   .de(de_CreateLakeFormationOptInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLakeFormationOptInRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLakeFormationOptInCommandInput;
+      output: CreateLakeFormationOptInCommandOutput;
+    };
+  };
+}

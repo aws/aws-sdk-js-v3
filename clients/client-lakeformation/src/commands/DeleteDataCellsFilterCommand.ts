@@ -93,4 +93,16 @@ export class DeleteDataCellsFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataCellsFilterCommand)
   .de(de_DeleteDataCellsFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataCellsFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataCellsFilterCommandInput;
+      output: DeleteDataCellsFilterCommandOutput;
+    };
+  };
+}

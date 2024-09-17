@@ -112,4 +112,16 @@ export class DescribeExclusionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExclusionsCommand)
   .de(de_DescribeExclusionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExclusionsRequest;
+      output: DescribeExclusionsResponse;
+    };
+    sdk: {
+      input: DescribeExclusionsCommandInput;
+      output: DescribeExclusionsCommandOutput;
+    };
+  };
+}

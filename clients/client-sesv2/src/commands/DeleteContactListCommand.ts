@@ -87,4 +87,16 @@ export class DeleteContactListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContactListCommand)
   .de(de_DeleteContactListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContactListRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContactListCommandInput;
+      output: DeleteContactListCommandOutput;
+    };
+  };
+}

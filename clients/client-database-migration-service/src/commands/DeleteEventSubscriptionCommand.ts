@@ -101,4 +101,16 @@ export class DeleteEventSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventSubscriptionCommand)
   .de(de_DeleteEventSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventSubscriptionMessage;
+      output: DeleteEventSubscriptionResponse;
+    };
+    sdk: {
+      input: DeleteEventSubscriptionCommandInput;
+      output: DeleteEventSubscriptionCommandOutput;
+    };
+  };
+}

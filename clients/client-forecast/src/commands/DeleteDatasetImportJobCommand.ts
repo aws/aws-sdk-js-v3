@@ -89,4 +89,16 @@ export class DeleteDatasetImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDatasetImportJobCommand)
   .de(de_DeleteDatasetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDatasetImportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDatasetImportJobCommandInput;
+      output: DeleteDatasetImportJobCommandOutput;
+    };
+  };
+}

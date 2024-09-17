@@ -110,4 +110,16 @@ export class DeleteOptOutListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOptOutListCommand)
   .de(de_DeleteOptOutListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOptOutListRequest;
+      output: DeleteOptOutListResult;
+    };
+    sdk: {
+      input: DeleteOptOutListCommandInput;
+      output: DeleteOptOutListCommandOutput;
+    };
+  };
+}

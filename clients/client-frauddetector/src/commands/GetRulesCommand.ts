@@ -113,4 +113,16 @@ export class GetRulesCommand extends $Command
   .f(void 0, GetRulesResultFilterSensitiveLog)
   .ser(se_GetRulesCommand)
   .de(de_GetRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRulesRequest;
+      output: GetRulesResult;
+    };
+    sdk: {
+      input: GetRulesCommandInput;
+      output: GetRulesCommandOutput;
+    };
+  };
+}

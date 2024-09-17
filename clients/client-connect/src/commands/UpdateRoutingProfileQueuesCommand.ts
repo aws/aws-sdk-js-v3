@@ -101,4 +101,16 @@ export class UpdateRoutingProfileQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingProfileQueuesCommand)
   .de(de_UpdateRoutingProfileQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingProfileQueuesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingProfileQueuesCommandInput;
+      output: UpdateRoutingProfileQueuesCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class ListCheckDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCheckDetailsCommand)
   .de(de_ListCheckDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCheckDetailsInput;
+      output: ListCheckDetailsOutput;
+    };
+    sdk: {
+      input: ListCheckDetailsCommandInput;
+      output: ListCheckDetailsCommandOutput;
+    };
+  };
+}

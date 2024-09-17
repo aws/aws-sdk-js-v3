@@ -86,4 +86,16 @@ export class PutMetadataFlagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetadataFlagCommand)
   .de(de_PutMetadataFlagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetadataFlagRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMetadataFlagCommandInput;
+      output: PutMetadataFlagCommandOutput;
+    };
+  };
+}

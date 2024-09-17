@@ -175,4 +175,16 @@ export class CreateAssessmentFrameworkCommand extends $Command
   .f(CreateAssessmentFrameworkRequestFilterSensitiveLog, CreateAssessmentFrameworkResponseFilterSensitiveLog)
   .ser(se_CreateAssessmentFrameworkCommand)
   .de(de_CreateAssessmentFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentFrameworkRequest;
+      output: CreateAssessmentFrameworkResponse;
+    };
+    sdk: {
+      input: CreateAssessmentFrameworkCommandInput;
+      output: CreateAssessmentFrameworkCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class CreatePublicDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicDnsNamespaceCommand)
   .de(de_CreatePublicDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicDnsNamespaceRequest;
+      output: CreatePublicDnsNamespaceResponse;
+    };
+    sdk: {
+      input: CreatePublicDnsNamespaceCommandInput;
+      output: CreatePublicDnsNamespaceCommandOutput;
+    };
+  };
+}

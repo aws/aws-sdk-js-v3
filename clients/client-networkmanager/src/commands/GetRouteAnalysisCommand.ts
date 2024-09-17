@@ -157,4 +157,16 @@ export class GetRouteAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRouteAnalysisCommand)
   .de(de_GetRouteAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRouteAnalysisRequest;
+      output: GetRouteAnalysisResponse;
+    };
+    sdk: {
+      input: GetRouteAnalysisCommandInput;
+      output: GetRouteAnalysisCommandOutput;
+    };
+  };
+}

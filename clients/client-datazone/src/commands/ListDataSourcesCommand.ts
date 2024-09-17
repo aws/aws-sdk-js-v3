@@ -137,4 +137,16 @@ export class ListDataSourcesCommand extends $Command
   .f(ListDataSourcesInputFilterSensitiveLog, ListDataSourcesOutputFilterSensitiveLog)
   .ser(se_ListDataSourcesCommand)
   .de(de_ListDataSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourcesInput;
+      output: ListDataSourcesOutput;
+    };
+    sdk: {
+      input: ListDataSourcesCommandInput;
+      output: ListDataSourcesCommandOutput;
+    };
+  };
+}

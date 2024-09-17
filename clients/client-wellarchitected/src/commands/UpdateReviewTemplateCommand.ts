@@ -122,4 +122,16 @@ export class UpdateReviewTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReviewTemplateCommand)
   .de(de_UpdateReviewTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReviewTemplateInput;
+      output: UpdateReviewTemplateOutput;
+    };
+    sdk: {
+      input: UpdateReviewTemplateCommandInput;
+      output: UpdateReviewTemplateCommandOutput;
+    };
+  };
+}

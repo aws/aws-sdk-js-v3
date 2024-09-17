@@ -76,4 +76,16 @@ export class StopEdgeDeploymentStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopEdgeDeploymentStageCommand)
   .de(de_StopEdgeDeploymentStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopEdgeDeploymentStageRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopEdgeDeploymentStageCommandInput;
+      output: StopEdgeDeploymentStageCommandOutput;
+    };
+  };
+}

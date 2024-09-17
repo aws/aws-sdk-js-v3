@@ -93,4 +93,16 @@ export class UpdateFarmCommand extends $Command
   .f(UpdateFarmRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFarmCommand)
   .de(de_UpdateFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFarmRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFarmCommandInput;
+      output: UpdateFarmCommandOutput;
+    };
+  };
+}

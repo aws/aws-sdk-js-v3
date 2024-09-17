@@ -117,4 +117,16 @@ export class ListApplicationAssignmentsForPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAssignmentsForPrincipalCommand)
   .de(de_ListApplicationAssignmentsForPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAssignmentsForPrincipalRequest;
+      output: ListApplicationAssignmentsForPrincipalResponse;
+    };
+    sdk: {
+      input: ListApplicationAssignmentsForPrincipalCommandInput;
+      output: ListApplicationAssignmentsForPrincipalCommandOutput;
+    };
+  };
+}

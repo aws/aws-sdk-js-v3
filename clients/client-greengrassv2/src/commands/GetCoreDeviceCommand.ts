@@ -129,4 +129,16 @@ export class GetCoreDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreDeviceCommand)
   .de(de_GetCoreDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreDeviceRequest;
+      output: GetCoreDeviceResponse;
+    };
+    sdk: {
+      input: GetCoreDeviceCommandInput;
+      output: GetCoreDeviceCommandOutput;
+    };
+  };
+}

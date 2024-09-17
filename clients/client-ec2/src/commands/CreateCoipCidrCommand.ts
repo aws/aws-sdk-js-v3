@@ -85,4 +85,16 @@ export class CreateCoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCoipCidrCommand)
   .de(de_CreateCoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCoipCidrRequest;
+      output: CreateCoipCidrResult;
+    };
+    sdk: {
+      input: CreateCoipCidrCommandInput;
+      output: CreateCoipCidrCommandOutput;
+    };
+  };
+}

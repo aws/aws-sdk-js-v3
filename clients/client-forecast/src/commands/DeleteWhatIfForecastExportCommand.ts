@@ -87,4 +87,16 @@ export class DeleteWhatIfForecastExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWhatIfForecastExportCommand)
   .de(de_DeleteWhatIfForecastExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWhatIfForecastExportRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWhatIfForecastExportCommandInput;
+      output: DeleteWhatIfForecastExportCommandOutput;
+    };
+  };
+}

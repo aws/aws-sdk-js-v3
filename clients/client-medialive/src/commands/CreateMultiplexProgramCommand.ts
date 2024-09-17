@@ -173,4 +173,16 @@ export class CreateMultiplexProgramCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMultiplexProgramCommand)
   .de(de_CreateMultiplexProgramCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMultiplexProgramRequest;
+      output: CreateMultiplexProgramResponse;
+    };
+    sdk: {
+      input: CreateMultiplexProgramCommandInput;
+      output: CreateMultiplexProgramCommandOutput;
+    };
+  };
+}

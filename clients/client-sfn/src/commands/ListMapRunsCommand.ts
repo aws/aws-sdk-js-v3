@@ -97,4 +97,16 @@ export class ListMapRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMapRunsCommand)
   .de(de_ListMapRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMapRunsInput;
+      output: ListMapRunsOutput;
+    };
+    sdk: {
+      input: ListMapRunsCommandInput;
+      output: ListMapRunsCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class GetSoftwareSetCommand extends $Command
   .f(void 0, GetSoftwareSetResponseFilterSensitiveLog)
   .ser(se_GetSoftwareSetCommand)
   .de(de_GetSoftwareSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSoftwareSetRequest;
+      output: GetSoftwareSetResponse;
+    };
+    sdk: {
+      input: GetSoftwareSetCommandInput;
+      output: GetSoftwareSetCommandOutput;
+    };
+  };
+}

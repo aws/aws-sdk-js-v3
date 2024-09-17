@@ -145,4 +145,16 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerTlsCertificateCommand)
   .de(de_CreateLoadBalancerTlsCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoadBalancerTlsCertificateRequest;
+      output: CreateLoadBalancerTlsCertificateResult;
+    };
+    sdk: {
+      input: CreateLoadBalancerTlsCertificateCommandInput;
+      output: CreateLoadBalancerTlsCertificateCommandOutput;
+    };
+  };
+}

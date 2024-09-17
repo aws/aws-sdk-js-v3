@@ -151,4 +151,16 @@ export class CreateFeatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFeatureCommand)
   .de(de_CreateFeatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFeatureRequest;
+      output: CreateFeatureResponse;
+    };
+    sdk: {
+      input: CreateFeatureCommandInput;
+      output: CreateFeatureCommandOutput;
+    };
+  };
+}

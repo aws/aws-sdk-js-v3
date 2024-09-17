@@ -134,4 +134,16 @@ export class CreateStreamingImageCommand extends $Command
   .f(CreateStreamingImageRequestFilterSensitiveLog, CreateStreamingImageResponseFilterSensitiveLog)
   .ser(se_CreateStreamingImageCommand)
   .de(de_CreateStreamingImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamingImageRequest;
+      output: CreateStreamingImageResponse;
+    };
+    sdk: {
+      input: CreateStreamingImageCommandInput;
+      output: CreateStreamingImageCommandOutput;
+    };
+  };
+}

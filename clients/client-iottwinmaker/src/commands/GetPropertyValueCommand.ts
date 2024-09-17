@@ -214,4 +214,16 @@ export class GetPropertyValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPropertyValueCommand)
   .de(de_GetPropertyValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPropertyValueRequest;
+      output: GetPropertyValueResponse;
+    };
+    sdk: {
+      input: GetPropertyValueCommandInput;
+      output: GetPropertyValueCommandOutput;
+    };
+  };
+}

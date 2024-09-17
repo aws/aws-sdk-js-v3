@@ -117,4 +117,16 @@ export class ListCommonControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCommonControlsCommand)
   .de(de_ListCommonControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCommonControlsRequest;
+      output: ListCommonControlsResponse;
+    };
+    sdk: {
+      input: ListCommonControlsCommandInput;
+      output: ListCommonControlsCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class DisassociateFileSystemAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateFileSystemAliasesCommand)
   .de(de_DisassociateFileSystemAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateFileSystemAliasesRequest;
+      output: DisassociateFileSystemAliasesResponse;
+    };
+    sdk: {
+      input: DisassociateFileSystemAliasesCommandInput;
+      output: DisassociateFileSystemAliasesCommandOutput;
+    };
+  };
+}

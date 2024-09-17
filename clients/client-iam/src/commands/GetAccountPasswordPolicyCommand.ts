@@ -122,4 +122,16 @@ export class GetAccountPasswordPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountPasswordPolicyCommand)
   .de(de_GetAccountPasswordPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountPasswordPolicyResponse;
+    };
+    sdk: {
+      input: GetAccountPasswordPolicyCommandInput;
+      output: GetAccountPasswordPolicyCommandOutput;
+    };
+  };
+}

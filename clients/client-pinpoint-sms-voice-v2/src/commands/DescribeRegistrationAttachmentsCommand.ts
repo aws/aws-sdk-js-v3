@@ -125,4 +125,16 @@ export class DescribeRegistrationAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegistrationAttachmentsCommand)
   .de(de_DescribeRegistrationAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegistrationAttachmentsRequest;
+      output: DescribeRegistrationAttachmentsResult;
+    };
+    sdk: {
+      input: DescribeRegistrationAttachmentsCommandInput;
+      output: DescribeRegistrationAttachmentsCommandOutput;
+    };
+  };
+}

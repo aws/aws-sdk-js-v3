@@ -120,4 +120,16 @@ export class UpdateSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSnapshotScheduleCommand)
   .de(de_UpdateSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSnapshotScheduleInput;
+      output: UpdateSnapshotScheduleOutput;
+    };
+    sdk: {
+      input: UpdateSnapshotScheduleCommandInput;
+      output: UpdateSnapshotScheduleCommandOutput;
+    };
+  };
+}

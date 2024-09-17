@@ -87,4 +87,16 @@ export class DeletePredictorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePredictorCommand)
   .de(de_DeletePredictorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePredictorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePredictorCommandInput;
+      output: DeletePredictorCommandOutput;
+    };
+  };
+}

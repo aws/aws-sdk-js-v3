@@ -116,4 +116,16 @@ export class ListStreamingDistributionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamingDistributionsCommand)
   .de(de_ListStreamingDistributionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamingDistributionsRequest;
+      output: ListStreamingDistributionsResult;
+    };
+    sdk: {
+      input: ListStreamingDistributionsCommandInput;
+      output: ListStreamingDistributionsCommandOutput;
+    };
+  };
+}

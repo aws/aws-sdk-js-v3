@@ -217,4 +217,16 @@ export class GetExportJobCommand extends $Command
   .f(void 0, GetExportJobResponseFilterSensitiveLog)
   .ser(se_GetExportJobCommand)
   .de(de_GetExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExportJobRequest;
+      output: GetExportJobResponse;
+    };
+    sdk: {
+      input: GetExportJobCommandInput;
+      output: GetExportJobCommandOutput;
+    };
+  };
+}

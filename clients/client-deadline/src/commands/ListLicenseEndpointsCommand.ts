@@ -102,4 +102,16 @@ export class ListLicenseEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseEndpointsCommand)
   .de(de_ListLicenseEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseEndpointsRequest;
+      output: ListLicenseEndpointsResponse;
+    };
+    sdk: {
+      input: ListLicenseEndpointsCommandInput;
+      output: ListLicenseEndpointsCommandOutput;
+    };
+  };
+}

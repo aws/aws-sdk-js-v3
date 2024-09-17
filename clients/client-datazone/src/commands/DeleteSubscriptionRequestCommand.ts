@@ -97,4 +97,16 @@ export class DeleteSubscriptionRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriptionRequestCommand)
   .de(de_DeleteSubscriptionRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriptionRequestInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriptionRequestCommandInput;
+      output: DeleteSubscriptionRequestCommandOutput;
+    };
+  };
+}

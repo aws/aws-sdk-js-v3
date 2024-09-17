@@ -106,4 +106,16 @@ export class UpdateMetricAttributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMetricAttributionCommand)
   .de(de_UpdateMetricAttributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMetricAttributionRequest;
+      output: UpdateMetricAttributionResponse;
+    };
+    sdk: {
+      input: UpdateMetricAttributionCommandInput;
+      output: UpdateMetricAttributionCommandOutput;
+    };
+  };
+}

@@ -193,4 +193,16 @@ export class SubscribeToShardCommand extends $Command
   .f(void 0, SubscribeToShardOutputFilterSensitiveLog)
   .ser(se_SubscribeToShardCommand)
   .de(de_SubscribeToShardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToShardInput;
+      output: SubscribeToShardOutput;
+    };
+    sdk: {
+      input: SubscribeToShardCommandInput;
+      output: SubscribeToShardCommandOutput;
+    };
+  };
+}

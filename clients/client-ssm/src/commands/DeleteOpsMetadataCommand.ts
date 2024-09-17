@@ -84,4 +84,16 @@ export class DeleteOpsMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOpsMetadataCommand)
   .de(de_DeleteOpsMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOpsMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOpsMetadataCommandInput;
+      output: DeleteOpsMetadataCommandOutput;
+    };
+  };
+}

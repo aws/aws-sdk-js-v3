@@ -308,4 +308,16 @@ export class SwitchoverReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwitchoverReadReplicaCommand)
   .de(de_SwitchoverReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwitchoverReadReplicaMessage;
+      output: SwitchoverReadReplicaResult;
+    };
+    sdk: {
+      input: SwitchoverReadReplicaCommandInput;
+      output: SwitchoverReadReplicaCommandOutput;
+    };
+  };
+}

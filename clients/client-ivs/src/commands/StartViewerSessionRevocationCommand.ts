@@ -104,4 +104,16 @@ export class StartViewerSessionRevocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartViewerSessionRevocationCommand)
   .de(de_StartViewerSessionRevocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartViewerSessionRevocationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartViewerSessionRevocationCommandInput;
+      output: StartViewerSessionRevocationCommandOutput;
+    };
+  };
+}

@@ -91,4 +91,16 @@ export class DeleteBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBillingGroupCommand)
   .de(de_DeleteBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBillingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBillingGroupCommandInput;
+      output: DeleteBillingGroupCommandOutput;
+    };
+  };
+}

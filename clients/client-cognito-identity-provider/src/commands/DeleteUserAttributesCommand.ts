@@ -124,4 +124,16 @@ export class DeleteUserAttributesCommand extends $Command
   .f(DeleteUserAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteUserAttributesCommand)
   .de(de_DeleteUserAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserAttributesCommandInput;
+      output: DeleteUserAttributesCommandOutput;
+    };
+  };
+}

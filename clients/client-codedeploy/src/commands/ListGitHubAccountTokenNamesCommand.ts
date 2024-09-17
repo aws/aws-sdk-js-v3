@@ -89,4 +89,16 @@ export class ListGitHubAccountTokenNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGitHubAccountTokenNamesCommand)
   .de(de_ListGitHubAccountTokenNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGitHubAccountTokenNamesInput;
+      output: ListGitHubAccountTokenNamesOutput;
+    };
+    sdk: {
+      input: ListGitHubAccountTokenNamesCommandInput;
+      output: ListGitHubAccountTokenNamesCommandOutput;
+    };
+  };
+}

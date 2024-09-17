@@ -84,4 +84,16 @@ export class PutModelPackageGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutModelPackageGroupPolicyCommand)
   .de(de_PutModelPackageGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutModelPackageGroupPolicyInput;
+      output: PutModelPackageGroupPolicyOutput;
+    };
+    sdk: {
+      input: PutModelPackageGroupPolicyCommandInput;
+      output: PutModelPackageGroupPolicyCommandOutput;
+    };
+  };
+}

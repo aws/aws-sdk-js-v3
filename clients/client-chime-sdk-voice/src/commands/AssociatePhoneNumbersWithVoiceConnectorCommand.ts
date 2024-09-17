@@ -125,4 +125,16 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command
   )
   .ser(se_AssociatePhoneNumbersWithVoiceConnectorCommand)
   .de(de_AssociatePhoneNumbersWithVoiceConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePhoneNumbersWithVoiceConnectorRequest;
+      output: AssociatePhoneNumbersWithVoiceConnectorResponse;
+    };
+    sdk: {
+      input: AssociatePhoneNumbersWithVoiceConnectorCommandInput;
+      output: AssociatePhoneNumbersWithVoiceConnectorCommandOutput;
+    };
+  };
+}

@@ -195,4 +195,16 @@ export class GetConfigurationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfigurationPolicyCommand)
   .de(de_GetConfigurationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfigurationPolicyRequest;
+      output: GetConfigurationPolicyResponse;
+    };
+    sdk: {
+      input: GetConfigurationPolicyCommandInput;
+      output: GetConfigurationPolicyCommandOutput;
+    };
+  };
+}

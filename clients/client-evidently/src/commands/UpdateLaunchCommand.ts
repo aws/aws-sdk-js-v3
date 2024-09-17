@@ -189,4 +189,16 @@ export class UpdateLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLaunchCommand)
   .de(de_UpdateLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLaunchRequest;
+      output: UpdateLaunchResponse;
+    };
+    sdk: {
+      input: UpdateLaunchCommandInput;
+      output: UpdateLaunchCommandOutput;
+    };
+  };
+}

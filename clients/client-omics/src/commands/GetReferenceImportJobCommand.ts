@@ -115,4 +115,16 @@ export class GetReferenceImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReferenceImportJobCommand)
   .de(de_GetReferenceImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReferenceImportJobRequest;
+      output: GetReferenceImportJobResponse;
+    };
+    sdk: {
+      input: GetReferenceImportJobCommandInput;
+      output: GetReferenceImportJobCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class ModifyStreamingPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyStreamingPropertiesCommand)
   .de(de_ModifyStreamingPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyStreamingPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyStreamingPropertiesCommandInput;
+      output: ModifyStreamingPropertiesCommandOutput;
+    };
+  };
+}

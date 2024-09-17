@@ -104,4 +104,16 @@ export class OpenTunnelCommand extends $Command
   .f(void 0, OpenTunnelResponseFilterSensitiveLog)
   .ser(se_OpenTunnelCommand)
   .de(de_OpenTunnelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OpenTunnelRequest;
+      output: OpenTunnelResponse;
+    };
+    sdk: {
+      input: OpenTunnelCommandInput;
+      output: OpenTunnelCommandOutput;
+    };
+  };
+}

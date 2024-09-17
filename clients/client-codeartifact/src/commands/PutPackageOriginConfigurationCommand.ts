@@ -127,4 +127,16 @@ export class PutPackageOriginConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPackageOriginConfigurationCommand)
   .de(de_PutPackageOriginConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPackageOriginConfigurationRequest;
+      output: PutPackageOriginConfigurationResult;
+    };
+    sdk: {
+      input: PutPackageOriginConfigurationCommandInput;
+      output: PutPackageOriginConfigurationCommandOutput;
+    };
+  };
+}

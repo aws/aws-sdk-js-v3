@@ -166,4 +166,16 @@ export class ExecuteGremlinProfileQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteGremlinProfileQueryCommand)
   .de(de_ExecuteGremlinProfileQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteGremlinProfileQueryInput;
+      output: ExecuteGremlinProfileQueryOutput;
+    };
+    sdk: {
+      input: ExecuteGremlinProfileQueryCommandInput;
+      output: ExecuteGremlinProfileQueryCommandOutput;
+    };
+  };
+}

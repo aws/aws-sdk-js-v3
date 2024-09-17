@@ -110,4 +110,16 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationSetTrackingOptionsCommand)
   .de(de_UpdateConfigurationSetTrackingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationSetTrackingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationSetTrackingOptionsCommandInput;
+      output: UpdateConfigurationSetTrackingOptionsCommandOutput;
+    };
+  };
+}

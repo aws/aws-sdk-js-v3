@@ -116,4 +116,16 @@ export class UpdateTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableOptimizerCommand)
   .de(de_UpdateTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableOptimizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTableOptimizerCommandInput;
+      output: UpdateTableOptimizerCommandOutput;
+    };
+  };
+}

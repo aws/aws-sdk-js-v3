@@ -115,4 +115,16 @@ export class DescribeThumbnailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeThumbnailsCommand)
   .de(de_DescribeThumbnailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeThumbnailsRequest;
+      output: DescribeThumbnailsResponse;
+    };
+    sdk: {
+      input: DescribeThumbnailsCommandInput;
+      output: DescribeThumbnailsCommandOutput;
+    };
+  };
+}

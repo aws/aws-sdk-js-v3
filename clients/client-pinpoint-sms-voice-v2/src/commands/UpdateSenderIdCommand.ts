@@ -110,4 +110,16 @@ export class UpdateSenderIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSenderIdCommand)
   .de(de_UpdateSenderIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSenderIdRequest;
+      output: UpdateSenderIdResult;
+    };
+    sdk: {
+      input: UpdateSenderIdCommandInput;
+      output: UpdateSenderIdCommandOutput;
+    };
+  };
+}

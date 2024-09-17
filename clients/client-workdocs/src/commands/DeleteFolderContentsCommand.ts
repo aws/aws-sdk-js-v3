@@ -99,4 +99,16 @@ export class DeleteFolderContentsCommand extends $Command
   .f(DeleteFolderContentsRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteFolderContentsCommand)
   .de(de_DeleteFolderContentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFolderContentsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFolderContentsCommandInput;
+      output: DeleteFolderContentsCommandOutput;
+    };
+  };
+}

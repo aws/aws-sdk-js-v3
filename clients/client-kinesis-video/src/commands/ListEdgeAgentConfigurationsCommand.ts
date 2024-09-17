@@ -134,4 +134,16 @@ export class ListEdgeAgentConfigurationsCommand extends $Command
   .f(void 0, ListEdgeAgentConfigurationsOutputFilterSensitiveLog)
   .ser(se_ListEdgeAgentConfigurationsCommand)
   .de(de_ListEdgeAgentConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEdgeAgentConfigurationsInput;
+      output: ListEdgeAgentConfigurationsOutput;
+    };
+    sdk: {
+      input: ListEdgeAgentConfigurationsCommandInput;
+      output: ListEdgeAgentConfigurationsCommandOutput;
+    };
+  };
+}

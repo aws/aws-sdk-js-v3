@@ -334,4 +334,16 @@ export class ScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ScanCommand)
   .de(de_ScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScanInput;
+      output: ScanOutput;
+    };
+    sdk: {
+      input: ScanCommandInput;
+      output: ScanCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class ExportTableToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportTableToPointInTimeCommand)
   .de(de_ExportTableToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportTableToPointInTimeInput;
+      output: ExportTableToPointInTimeOutput;
+    };
+    sdk: {
+      input: ExportTableToPointInTimeCommandInput;
+      output: ExportTableToPointInTimeCommandOutput;
+    };
+  };
+}

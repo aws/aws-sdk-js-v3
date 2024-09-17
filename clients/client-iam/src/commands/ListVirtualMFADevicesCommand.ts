@@ -146,4 +146,16 @@ export class ListVirtualMFADevicesCommand extends $Command
   .f(void 0, ListVirtualMFADevicesResponseFilterSensitiveLog)
   .ser(se_ListVirtualMFADevicesCommand)
   .de(de_ListVirtualMFADevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualMFADevicesRequest;
+      output: ListVirtualMFADevicesResponse;
+    };
+    sdk: {
+      input: ListVirtualMFADevicesCommandInput;
+      output: ListVirtualMFADevicesCommandOutput;
+    };
+  };
+}

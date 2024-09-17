@@ -77,4 +77,16 @@ export class SetStackPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetStackPolicyCommand)
   .de(de_SetStackPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetStackPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: SetStackPolicyCommandInput;
+      output: SetStackPolicyCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class CreateLogGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLogGroupCommand)
   .de(de_CreateLogGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLogGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLogGroupCommandInput;
+      output: CreateLogGroupCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class DeleteLexiconCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLexiconCommand)
   .de(de_DeleteLexiconCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLexiconInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLexiconCommandInput;
+      output: DeleteLexiconCommandOutput;
+    };
+  };
+}

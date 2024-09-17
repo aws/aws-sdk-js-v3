@@ -118,4 +118,16 @@ export class ModifyBackupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyBackupAttributesCommand)
   .de(de_ModifyBackupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyBackupAttributesRequest;
+      output: ModifyBackupAttributesResponse;
+    };
+    sdk: {
+      input: ModifyBackupAttributesCommandInput;
+      output: ModifyBackupAttributesCommandOutput;
+    };
+  };
+}

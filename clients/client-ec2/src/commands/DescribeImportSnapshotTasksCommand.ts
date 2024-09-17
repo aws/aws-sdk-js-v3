@@ -122,4 +122,16 @@ export class DescribeImportSnapshotTasksCommand extends $Command
   .f(void 0, DescribeImportSnapshotTasksResultFilterSensitiveLog)
   .ser(se_DescribeImportSnapshotTasksCommand)
   .de(de_DescribeImportSnapshotTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImportSnapshotTasksRequest;
+      output: DescribeImportSnapshotTasksResult;
+    };
+    sdk: {
+      input: DescribeImportSnapshotTasksCommandInput;
+      output: DescribeImportSnapshotTasksCommandOutput;
+    };
+  };
+}

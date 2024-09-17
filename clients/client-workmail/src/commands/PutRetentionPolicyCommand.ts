@@ -103,4 +103,16 @@ export class PutRetentionPolicyCommand extends $Command
   .f(PutRetentionPolicyRequestFilterSensitiveLog, void 0)
   .ser(se_PutRetentionPolicyCommand)
   .de(de_PutRetentionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRetentionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRetentionPolicyCommandInput;
+      output: PutRetentionPolicyCommandOutput;
+    };
+  };
+}

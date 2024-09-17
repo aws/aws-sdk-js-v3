@@ -123,4 +123,16 @@ export class DeleteEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventDestinationCommand)
   .de(de_DeleteEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventDestinationRequest;
+      output: DeleteEventDestinationResult;
+    };
+    sdk: {
+      input: DeleteEventDestinationCommandInput;
+      output: DeleteEventDestinationCommandOutput;
+    };
+  };
+}

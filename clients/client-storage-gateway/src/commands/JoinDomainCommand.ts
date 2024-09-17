@@ -104,4 +104,16 @@ export class JoinDomainCommand extends $Command
   .f(JoinDomainInputFilterSensitiveLog, void 0)
   .ser(se_JoinDomainCommand)
   .de(de_JoinDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JoinDomainInput;
+      output: JoinDomainOutput;
+    };
+    sdk: {
+      input: JoinDomainCommandInput;
+      output: JoinDomainCommandOutput;
+    };
+  };
+}

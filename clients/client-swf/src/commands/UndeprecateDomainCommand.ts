@@ -112,4 +112,16 @@ export class UndeprecateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UndeprecateDomainCommand)
   .de(de_UndeprecateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UndeprecateDomainInput;
+      output: {};
+    };
+    sdk: {
+      input: UndeprecateDomainCommandInput;
+      output: UndeprecateDomainCommandOutput;
+    };
+  };
+}

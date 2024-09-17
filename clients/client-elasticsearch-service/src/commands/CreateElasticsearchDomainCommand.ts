@@ -343,4 +343,16 @@ export class CreateElasticsearchDomainCommand extends $Command
   .f(CreateElasticsearchDomainRequestFilterSensitiveLog, void 0)
   .ser(se_CreateElasticsearchDomainCommand)
   .de(de_CreateElasticsearchDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateElasticsearchDomainRequest;
+      output: CreateElasticsearchDomainResponse;
+    };
+    sdk: {
+      input: CreateElasticsearchDomainCommandInput;
+      output: CreateElasticsearchDomainCommandOutput;
+    };
+  };
+}

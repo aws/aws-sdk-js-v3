@@ -153,4 +153,16 @@ export class GetReplicationRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReplicationRunsCommand)
   .de(de_GetReplicationRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReplicationRunsRequest;
+      output: GetReplicationRunsResponse;
+    };
+    sdk: {
+      input: GetReplicationRunsCommandInput;
+      output: GetReplicationRunsCommandOutput;
+    };
+  };
+}

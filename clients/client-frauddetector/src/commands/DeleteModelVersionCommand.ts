@@ -94,4 +94,16 @@ export class DeleteModelVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelVersionCommand)
   .de(de_DeleteModelVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelVersionCommandInput;
+      output: DeleteModelVersionCommandOutput;
+    };
+  };
+}

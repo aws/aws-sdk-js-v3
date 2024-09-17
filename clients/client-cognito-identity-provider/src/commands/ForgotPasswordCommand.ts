@@ -193,4 +193,16 @@ export class ForgotPasswordCommand extends $Command
   .f(ForgotPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ForgotPasswordCommand)
   .de(de_ForgotPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ForgotPasswordRequest;
+      output: ForgotPasswordResponse;
+    };
+    sdk: {
+      input: ForgotPasswordCommandInput;
+      output: ForgotPasswordCommandOutput;
+    };
+  };
+}

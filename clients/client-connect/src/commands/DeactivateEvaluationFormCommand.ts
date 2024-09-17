@@ -97,4 +97,16 @@ export class DeactivateEvaluationFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateEvaluationFormCommand)
   .de(de_DeactivateEvaluationFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateEvaluationFormRequest;
+      output: DeactivateEvaluationFormResponse;
+    };
+    sdk: {
+      input: DeactivateEvaluationFormCommandInput;
+      output: DeactivateEvaluationFormCommandOutput;
+    };
+  };
+}

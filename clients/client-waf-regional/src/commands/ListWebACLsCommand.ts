@@ -119,4 +119,16 @@ export class ListWebACLsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWebACLsCommand)
   .de(de_ListWebACLsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWebACLsRequest;
+      output: ListWebACLsResponse;
+    };
+    sdk: {
+      input: ListWebACLsCommandInput;
+      output: ListWebACLsCommandOutput;
+    };
+  };
+}

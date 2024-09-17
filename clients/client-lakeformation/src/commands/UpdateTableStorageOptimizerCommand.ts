@@ -101,4 +101,16 @@ export class UpdateTableStorageOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableStorageOptimizerCommand)
   .de(de_UpdateTableStorageOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableStorageOptimizerRequest;
+      output: UpdateTableStorageOptimizerResponse;
+    };
+    sdk: {
+      input: UpdateTableStorageOptimizerCommandInput;
+      output: UpdateTableStorageOptimizerCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class ListAppInstanceAdminsCommand extends $Command
   .f(ListAppInstanceAdminsRequestFilterSensitiveLog, ListAppInstanceAdminsResponseFilterSensitiveLog)
   .ser(se_ListAppInstanceAdminsCommand)
   .de(de_ListAppInstanceAdminsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInstanceAdminsRequest;
+      output: ListAppInstanceAdminsResponse;
+    };
+    sdk: {
+      input: ListAppInstanceAdminsCommandInput;
+      output: ListAppInstanceAdminsCommandOutput;
+    };
+  };
+}

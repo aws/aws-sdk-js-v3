@@ -116,4 +116,16 @@ export class SubmitFeedbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitFeedbackCommand)
   .de(de_SubmitFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitFeedbackRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubmitFeedbackCommandInput;
+      output: SubmitFeedbackCommandOutput;
+    };
+  };
+}

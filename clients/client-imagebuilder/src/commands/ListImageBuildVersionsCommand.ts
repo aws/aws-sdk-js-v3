@@ -158,4 +158,16 @@ export class ListImageBuildVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageBuildVersionsCommand)
   .de(de_ListImageBuildVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageBuildVersionsRequest;
+      output: ListImageBuildVersionsResponse;
+    };
+    sdk: {
+      input: ListImageBuildVersionsCommandInput;
+      output: ListImageBuildVersionsCommandOutput;
+    };
+  };
+}

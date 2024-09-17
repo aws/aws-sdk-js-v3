@@ -114,4 +114,16 @@ export class DescribeEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointGroupCommand)
   .de(de_DescribeEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointGroupRequest;
+      output: DescribeEndpointGroupResponse;
+    };
+    sdk: {
+      input: DescribeEndpointGroupCommandInput;
+      output: DescribeEndpointGroupCommandOutput;
+    };
+  };
+}

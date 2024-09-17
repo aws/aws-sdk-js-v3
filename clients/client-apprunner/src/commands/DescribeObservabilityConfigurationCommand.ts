@@ -105,4 +105,16 @@ export class DescribeObservabilityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeObservabilityConfigurationCommand)
   .de(de_DescribeObservabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeObservabilityConfigurationRequest;
+      output: DescribeObservabilityConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeObservabilityConfigurationCommandInput;
+      output: DescribeObservabilityConfigurationCommandOutput;
+    };
+  };
+}

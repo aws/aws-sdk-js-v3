@@ -102,4 +102,16 @@ export class TagDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagDeliveryStreamCommand)
   .de(de_TagDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagDeliveryStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: TagDeliveryStreamCommandInput;
+      output: TagDeliveryStreamCommandOutput;
+    };
+  };
+}

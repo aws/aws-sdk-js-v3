@@ -126,4 +126,16 @@ export class DescribeGameServerInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGameServerInstancesCommand)
   .de(de_DescribeGameServerInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameServerInstancesInput;
+      output: DescribeGameServerInstancesOutput;
+    };
+    sdk: {
+      input: DescribeGameServerInstancesCommandInput;
+      output: DescribeGameServerInstancesCommandOutput;
+    };
+  };
+}

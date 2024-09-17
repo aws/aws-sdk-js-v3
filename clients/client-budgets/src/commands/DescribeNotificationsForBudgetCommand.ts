@@ -116,4 +116,16 @@ export class DescribeNotificationsForBudgetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotificationsForBudgetCommand)
   .de(de_DescribeNotificationsForBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotificationsForBudgetRequest;
+      output: DescribeNotificationsForBudgetResponse;
+    };
+    sdk: {
+      input: DescribeNotificationsForBudgetCommandInput;
+      output: DescribeNotificationsForBudgetCommandOutput;
+    };
+  };
+}

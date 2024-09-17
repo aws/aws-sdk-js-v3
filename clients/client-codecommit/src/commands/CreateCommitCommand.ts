@@ -265,4 +265,16 @@ export class CreateCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCommitCommand)
   .de(de_CreateCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCommitInput;
+      output: CreateCommitOutput;
+    };
+    sdk: {
+      input: CreateCommitCommandInput;
+      output: CreateCommitCommandOutput;
+    };
+  };
+}

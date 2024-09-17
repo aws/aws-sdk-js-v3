@@ -140,4 +140,16 @@ export class CreateTransitGatewayPeeringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransitGatewayPeeringCommand)
   .de(de_CreateTransitGatewayPeeringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransitGatewayPeeringRequest;
+      output: CreateTransitGatewayPeeringResponse;
+    };
+    sdk: {
+      input: CreateTransitGatewayPeeringCommandInput;
+      output: CreateTransitGatewayPeeringCommandOutput;
+    };
+  };
+}

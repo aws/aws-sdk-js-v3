@@ -112,4 +112,16 @@ export class CopyBackupToRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyBackupToRegionCommand)
   .de(de_CopyBackupToRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyBackupToRegionRequest;
+      output: CopyBackupToRegionResponse;
+    };
+    sdk: {
+      input: CopyBackupToRegionCommandInput;
+      output: CopyBackupToRegionCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class CreateIpAccessSettingsCommand extends $Command
   .f(CreateIpAccessSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIpAccessSettingsCommand)
   .de(de_CreateIpAccessSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIpAccessSettingsRequest;
+      output: CreateIpAccessSettingsResponse;
+    };
+    sdk: {
+      input: CreateIpAccessSettingsCommandInput;
+      output: CreateIpAccessSettingsCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class DescribeStreamConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStreamConsumerCommand)
   .de(de_DescribeStreamConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStreamConsumerInput;
+      output: DescribeStreamConsumerOutput;
+    };
+    sdk: {
+      input: DescribeStreamConsumerCommandInput;
+      output: DescribeStreamConsumerCommandOutput;
+    };
+  };
+}

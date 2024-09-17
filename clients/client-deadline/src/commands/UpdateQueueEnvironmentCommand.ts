@@ -101,4 +101,16 @@ export class UpdateQueueEnvironmentCommand extends $Command
   .f(UpdateQueueEnvironmentRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateQueueEnvironmentCommand)
   .de(de_UpdateQueueEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQueueEnvironmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateQueueEnvironmentCommandInput;
+      output: UpdateQueueEnvironmentCommandOutput;
+    };
+  };
+}

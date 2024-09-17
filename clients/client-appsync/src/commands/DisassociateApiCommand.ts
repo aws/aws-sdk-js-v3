@@ -92,4 +92,16 @@ export class DisassociateApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateApiCommand)
   .de(de_DisassociateApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateApiRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateApiCommandInput;
+      output: DisassociateApiCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class UpdateFleetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetAttributesCommand)
   .de(de_UpdateFleetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetAttributesInput;
+      output: UpdateFleetAttributesOutput;
+    };
+    sdk: {
+      input: UpdateFleetAttributesCommandInput;
+      output: UpdateFleetAttributesCommandOutput;
+    };
+  };
+}

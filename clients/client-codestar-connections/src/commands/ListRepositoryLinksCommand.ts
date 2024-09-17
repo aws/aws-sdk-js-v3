@@ -111,4 +111,16 @@ export class ListRepositoryLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRepositoryLinksCommand)
   .de(de_ListRepositoryLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRepositoryLinksInput;
+      output: ListRepositoryLinksOutput;
+    };
+    sdk: {
+      input: ListRepositoryLinksCommandInput;
+      output: ListRepositoryLinksCommandOutput;
+    };
+  };
+}

@@ -439,4 +439,16 @@ export class ConverseStreamCommand extends $Command
   .f(void 0, ConverseStreamResponseFilterSensitiveLog)
   .ser(se_ConverseStreamCommand)
   .de(de_ConverseStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConverseStreamRequest;
+      output: ConverseStreamResponse;
+    };
+    sdk: {
+      input: ConverseStreamCommandInput;
+      output: ConverseStreamCommandOutput;
+    };
+  };
+}

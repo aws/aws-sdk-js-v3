@@ -93,4 +93,16 @@ export class JsonEnumsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonEnumsCommand)
   .de(de_JsonEnumsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonEnumsInputOutput;
+      output: JsonEnumsInputOutput;
+    };
+    sdk: {
+      input: JsonEnumsCommandInput;
+      output: JsonEnumsCommandOutput;
+    };
+  };
+}

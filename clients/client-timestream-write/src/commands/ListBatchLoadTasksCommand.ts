@@ -116,4 +116,16 @@ export class ListBatchLoadTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBatchLoadTasksCommand)
   .de(de_ListBatchLoadTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBatchLoadTasksRequest;
+      output: ListBatchLoadTasksResponse;
+    };
+    sdk: {
+      input: ListBatchLoadTasksCommandInput;
+      output: ListBatchLoadTasksCommandOutput;
+    };
+  };
+}

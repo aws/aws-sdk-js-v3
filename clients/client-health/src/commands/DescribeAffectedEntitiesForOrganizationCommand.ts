@@ -149,4 +149,16 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAffectedEntitiesForOrganizationCommand)
   .de(de_DescribeAffectedEntitiesForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAffectedEntitiesForOrganizationRequest;
+      output: DescribeAffectedEntitiesForOrganizationResponse;
+    };
+    sdk: {
+      input: DescribeAffectedEntitiesForOrganizationCommandInput;
+      output: DescribeAffectedEntitiesForOrganizationCommandOutput;
+    };
+  };
+}

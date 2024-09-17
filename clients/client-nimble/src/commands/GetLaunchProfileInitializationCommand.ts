@@ -159,4 +159,16 @@ export class GetLaunchProfileInitializationCommand extends $Command
   .f(void 0, GetLaunchProfileInitializationResponseFilterSensitiveLog)
   .ser(se_GetLaunchProfileInitializationCommand)
   .de(de_GetLaunchProfileInitializationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchProfileInitializationRequest;
+      output: GetLaunchProfileInitializationResponse;
+    };
+    sdk: {
+      input: GetLaunchProfileInitializationCommandInput;
+      output: GetLaunchProfileInitializationCommandOutput;
+    };
+  };
+}

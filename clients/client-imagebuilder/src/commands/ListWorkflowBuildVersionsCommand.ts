@@ -122,4 +122,16 @@ export class ListWorkflowBuildVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowBuildVersionsCommand)
   .de(de_ListWorkflowBuildVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkflowBuildVersionsRequest;
+      output: ListWorkflowBuildVersionsResponse;
+    };
+    sdk: {
+      input: ListWorkflowBuildVersionsCommandInput;
+      output: ListWorkflowBuildVersionsCommandOutput;
+    };
+  };
+}

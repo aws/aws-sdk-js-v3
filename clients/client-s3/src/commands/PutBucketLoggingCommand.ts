@@ -225,4 +225,16 @@ export class PutBucketLoggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketLoggingCommand)
   .de(de_PutBucketLoggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketLoggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketLoggingCommandInput;
+      output: PutBucketLoggingCommandOutput;
+    };
+  };
+}

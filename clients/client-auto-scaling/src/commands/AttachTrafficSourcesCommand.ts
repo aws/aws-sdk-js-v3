@@ -127,4 +127,16 @@ export class AttachTrafficSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachTrafficSourcesCommand)
   .de(de_AttachTrafficSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachTrafficSourcesType;
+      output: {};
+    };
+    sdk: {
+      input: AttachTrafficSourcesCommandInput;
+      output: AttachTrafficSourcesCommandOutput;
+    };
+  };
+}

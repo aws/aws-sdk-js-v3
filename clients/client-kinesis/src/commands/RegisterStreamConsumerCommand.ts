@@ -116,4 +116,16 @@ export class RegisterStreamConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterStreamConsumerCommand)
   .de(de_RegisterStreamConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterStreamConsumerInput;
+      output: RegisterStreamConsumerOutput;
+    };
+    sdk: {
+      input: RegisterStreamConsumerCommandInput;
+      output: RegisterStreamConsumerCommandOutput;
+    };
+  };
+}

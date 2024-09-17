@@ -89,4 +89,16 @@ export class CreatePublicIpv4PoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicIpv4PoolCommand)
   .de(de_CreatePublicIpv4PoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicIpv4PoolRequest;
+      output: CreatePublicIpv4PoolResult;
+    };
+    sdk: {
+      input: CreatePublicIpv4PoolCommandInput;
+      output: CreatePublicIpv4PoolCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class UpdateFolderCommand extends $Command
   .f(UpdateFolderRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFolderCommand)
   .de(de_UpdateFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFolderRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFolderCommandInput;
+      output: UpdateFolderCommandOutput;
+    };
+  };
+}

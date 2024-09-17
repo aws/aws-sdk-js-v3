@@ -88,4 +88,16 @@ export class DeleteIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityCommand)
   .de(de_DeleteIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentityCommandInput;
+      output: DeleteIdentityCommandOutput;
+    };
+  };
+}

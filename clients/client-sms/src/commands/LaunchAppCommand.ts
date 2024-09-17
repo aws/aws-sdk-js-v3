@@ -91,4 +91,16 @@ export class LaunchAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LaunchAppCommand)
   .de(de_LaunchAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LaunchAppRequest;
+      output: {};
+    };
+    sdk: {
+      input: LaunchAppCommandInput;
+      output: LaunchAppCommandOutput;
+    };
+  };
+}

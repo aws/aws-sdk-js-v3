@@ -106,4 +106,16 @@ export class ListCACertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCACertificatesCommand)
   .de(de_ListCACertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCACertificatesRequest;
+      output: ListCACertificatesResponse;
+    };
+    sdk: {
+      input: ListCACertificatesCommandInput;
+      output: ListCACertificatesCommandOutput;
+    };
+  };
+}

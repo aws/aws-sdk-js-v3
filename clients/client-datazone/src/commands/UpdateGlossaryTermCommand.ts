@@ -131,4 +131,16 @@ export class UpdateGlossaryTermCommand extends $Command
   .f(UpdateGlossaryTermInputFilterSensitiveLog, UpdateGlossaryTermOutputFilterSensitiveLog)
   .ser(se_UpdateGlossaryTermCommand)
   .de(de_UpdateGlossaryTermCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGlossaryTermInput;
+      output: UpdateGlossaryTermOutput;
+    };
+    sdk: {
+      input: UpdateGlossaryTermCommandInput;
+      output: UpdateGlossaryTermCommandOutput;
+    };
+  };
+}

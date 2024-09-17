@@ -158,4 +158,16 @@ export class CreateSimulationApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSimulationApplicationCommand)
   .de(de_CreateSimulationApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSimulationApplicationRequest;
+      output: CreateSimulationApplicationResponse;
+    };
+    sdk: {
+      input: CreateSimulationApplicationCommandInput;
+      output: CreateSimulationApplicationCommandOutput;
+    };
+  };
+}

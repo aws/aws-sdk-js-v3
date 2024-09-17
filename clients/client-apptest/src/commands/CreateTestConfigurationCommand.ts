@@ -132,4 +132,16 @@ export class CreateTestConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestConfigurationCommand)
   .de(de_CreateTestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestConfigurationRequest;
+      output: CreateTestConfigurationResponse;
+    };
+    sdk: {
+      input: CreateTestConfigurationCommandInput;
+      output: CreateTestConfigurationCommandOutput;
+    };
+  };
+}
