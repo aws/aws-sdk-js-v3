@@ -10,7 +10,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, ResponseChecksumValidation } from "./constants";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
@@ -63,14 +63,24 @@ export const flexibleChecksumsResponseMiddleware =
     }
 
     const input = args.input;
+    const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
+    const responseChecksumValidation = await config.responseChecksumValidation();
+
+    const isResponseChecksumValidationNeeded =
+      requestValidationModeMember &&
+      (input[requestValidationModeMember] === "ENABLED" ||
+        responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED);
+
+    if (isResponseChecksumValidationNeeded) {
+      input[requestValidationModeMember] = "ENABLED";
+    }
+
     const result = await next(args);
 
     const response = result.response as HttpResponse;
     let collectedStream: Uint8Array | undefined = undefined;
 
-    const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
-    // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
-    if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
+    if (isResponseChecksumValidationNeeded) {
       const { clientName, commandName } = context;
       const isS3WholeObjectMultipartGetResponseChecksum =
         clientName === "S3Client" &&
