@@ -79,6 +79,10 @@ import {
   DeleteProvisionedConcurrencyConfigCommandInput,
   DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/DeleteProvisionedConcurrencyConfigCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "../commands/GetAliasCommand";
 import {
@@ -128,6 +132,11 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetPublicAccessBlockConfigCommandInput,
+  GetPublicAccessBlockConfigCommandOutput,
+} from "../commands/GetPublicAccessBlockConfigCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   GetRuntimeManagementConfigCommandInput,
   GetRuntimeManagementConfigCommandOutput,
@@ -196,6 +205,11 @@ import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "../commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  PutPublicAccessBlockConfigCommandInput,
+  PutPublicAccessBlockConfigCommandOutput,
+} from "../commands/PutPublicAccessBlockConfigCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutRuntimeManagementConfigCommandInput,
   PutRuntimeManagementConfigCommandOutput,
@@ -284,6 +298,8 @@ import {
   PolicyLengthExceededException,
   PreconditionFailedException,
   ProvisionedConcurrencyConfigNotFoundException,
+  PublicAccessBlockConfig,
+  PublicPolicyException,
   RecursiveInvocationException,
   RequestTooLargeException,
   ResourceConflictException,
@@ -714,6 +730,25 @@ export const se_DeleteProvisionedConcurrencyConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2024-09-16/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    [_RI]: [, input[_RI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAccountSettingsCommand
  */
 export const se_GetAccountSettingsCommand = async (
@@ -989,6 +1024,38 @@ export const se_GetProvisionedConcurrencyConfigCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPublicAccessBlockConfigCommand
+ */
+export const se_GetPublicAccessBlockConfigCommand = async (
+  input: GetPublicAccessBlockConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2024-09-16/public-access-block/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2024-09-16/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1497,6 +1564,53 @@ export const se_PutProvisionedConcurrencyConfigCommand = async (
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutPublicAccessBlockConfigCommand
+ */
+export const se_PutPublicAccessBlockConfigCommand = async (
+  input: PutPublicAccessBlockConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2024-09-16/public-access-block/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PublicAccessBlockConfig: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2024-09-16/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+      RevisionId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2255,6 +2369,23 @@ export const de_DeleteProvisionedConcurrencyConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAccountSettingsCommand
  */
 export const de_GetAccountSettingsCommand = async (
@@ -2691,6 +2822,49 @@ export const de_GetProvisionedConcurrencyConfigCommand = async (
     RequestedProvisionedConcurrentExecutions: __expectInt32,
     Status: __expectString,
     StatusReason: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPublicAccessBlockConfigCommand
+ */
+export const de_GetPublicAccessBlockConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPublicAccessBlockConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PublicAccessBlockConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+    RevisionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3250,6 +3424,49 @@ export const de_PutProvisionedConcurrencyConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutPublicAccessBlockConfigCommand
+ */
+export const de_PutPublicAccessBlockConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPublicAccessBlockConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PublicAccessBlockConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+    RevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutRuntimeManagementConfigCommand
  */
 export const de_PutRuntimeManagementConfigCommand = async (
@@ -3724,6 +3941,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.lambda#UnsupportedMediaTypeException":
       throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
+    case "PublicPolicyException":
+    case "com.amazonaws.lambda#PublicPolicyException":
+      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4259,6 +4479,27 @@ const de_ProvisionedConcurrencyConfigNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1PublicPolicyExceptionRes
+ */
+const de_PublicPolicyExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PublicPolicyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PublicPolicyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1RecursiveInvocationExceptionRes
  */
 const de_RecursiveInvocationExceptionRes = async (
@@ -4671,6 +4912,8 @@ const se_LayerVersionContentInput = (input: LayerVersionContentInput, context: _
 
 // se_OnSuccess omitted.
 
+// se_PublicAccessBlockConfig omitted.
+
 // se_Queues omitted.
 
 // se_ScalingConfig omitted.
@@ -4928,6 +5171,8 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
 // de_ProvisionedConcurrencyConfigList omitted.
 
 // de_ProvisionedConcurrencyConfigListItem omitted.
+
+// de_PublicAccessBlockConfig omitted.
 
 // de_Queues omitted.
 
