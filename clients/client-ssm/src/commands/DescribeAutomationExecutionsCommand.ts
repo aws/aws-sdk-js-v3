@@ -115,6 +115,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * //           State: "UNKNOWN" || "ALARM", // required
  * //         },
  * //       ],
+ * //       TargetLocationsURL: "STRING_VALUE",
  * //       AutomationSubtype: "ChangeRequest",
  * //       ScheduledTime: new Date("TIMESTAMP"),
  * //       Runbooks: [ // Runbooks
@@ -163,6 +164,13 @@ export interface DescribeAutomationExecutionsCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               IncludeChildOrganizationUnits: true || false,
+ * //               ExcludeAccounts: [ // ExcludeAccounts
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Targets: "<Targets>",
+ * //               TargetsMaxConcurrency: "STRING_VALUE",
+ * //               TargetsMaxErrors: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },

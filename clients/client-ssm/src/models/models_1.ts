@@ -417,7 +417,7 @@ export interface MaintenanceWindowTask {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -737,8 +737,7 @@ export interface OpsItemSummary {
   Source?: string;
 
   /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>.</p>
+   * <p>The OpsItem status.</p>
    * @public
    */
   Status?: OpsItemStatus;
@@ -1581,11 +1580,11 @@ export interface SessionFilter {
    *          <ul>
    *             <li>
    *                <p>InvokedAfter: Specify a timestamp to limit your results. For example, specify
-   *      2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.</p>
+   *      2024-08-29T00:00:00Z to see sessions that started August 29, 2024, and later.</p>
    *             </li>
    *             <li>
    *                <p>InvokedBefore: Specify a timestamp to limit your results. For example, specify
-   *      2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>
+   *      2024-08-29T00:00:00Z to see sessions that started before August 29, 2024.</p>
    *             </li>
    *             <li>
    *                <p>Target: Specify a managed node to which session connections have been made.</p>
@@ -2072,6 +2071,13 @@ export interface AutomationExecution {
    * @public
    */
   TriggeredAlarms?: AlarmStateInformation[];
+
+  /**
+   * <p>A publicly accessible URL for a file that contains the <code>TargetLocations</code> body.
+   *    Currently, only files in presigned Amazon S3 buckets are supported</p>
+   * @public
+   */
+  TargetLocationsURL?: string;
 
   /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
@@ -2638,8 +2644,8 @@ export interface BaselineOverride {
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   ApprovedPatches?: string[];
@@ -2654,8 +2660,8 @@ export interface BaselineOverride {
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package
+   *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   RejectedPatches?: string[];
@@ -2981,8 +2987,7 @@ export interface InventoryFilter {
    * <p>The type of filter.</p>
    *          <note>
    *             <p>The <code>Exists</code> filter must be used with aggregators. For more information, see
-   *      <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html">Aggregating inventory
-   *      data</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *      <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-aggregate.html">Aggregating inventory data</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -3959,7 +3964,7 @@ export interface MaintenanceWindowRunCommandParameters {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -4076,7 +4081,7 @@ export interface GetMaintenanceWindowTaskResult {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -4297,8 +4302,7 @@ export interface OpsItem {
   RelatedOpsItems?: RelatedOpsItem[];
 
   /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * <p>The OpsItem status. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   Status?: OpsItemStatus;
@@ -4579,8 +4583,8 @@ export interface GetParameterRequest {
    *    parameters shared with you from another account, you must use the full ARN.</p>
    *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
    *    version, use <code>"Name": "name:version"</code>.</p>
-   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sharing.html">Working with shared parameters</a> in
-   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
+   *     shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   Name: string | undefined;
@@ -5886,13 +5890,13 @@ export interface CommandFilter {
    *             <li>
    *                <p>
    *                   <b>InvokedAfter</b>: Specify a timestamp to limit your results.
-   *      For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions
+   *      For example, specify <code>2024-07-07T00:00:00Z</code> to see a list of command executions
    *      occurring July 7, 2021, and later.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>InvokedBefore</b>: Specify a timestamp to limit your results.
-   *      For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions from
+   *      For example, specify <code>2024-07-07T00:00:00Z</code> to see a list of command executions from
    *      before July 7, 2021.</p>
    *             </li>
    *             <li>
@@ -6247,12 +6251,12 @@ export interface CommandPlugin {
    * <p>The S3 bucket where the responses to the command executions should be stored. This was
    *    requested when issuing the command. For example, in the following response:</p>
    *          <p>
-   *             <code>doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript</code>
+   *             <code>amzn-s3-demo-bucket/my-prefix/i-02573cafcfEXAMPLE/awsrunShellScript</code>
    *          </p>
    *          <p>
-   *             <code>doc-example-bucket</code> is the name of the S3 bucket;</p>
+   *             <code>amzn-s3-demo-bucket</code> is the name of the S3 bucket;</p>
    *          <p>
-   *             <code>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix</code> is the name of the S3 prefix;</p>
+   *             <code>my-prefix</code> is the name of the S3 prefix;</p>
    *          <p>
    *             <code>i-02573cafcfEXAMPLE</code> is the managed node ID;</p>
    *          <p>
@@ -6266,12 +6270,12 @@ export interface CommandPlugin {
    *    be stored. This was requested when issuing the command. For example, in the following
    *    response:</p>
    *          <p>
-   *             <code>doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript</code>
+   *             <code>amzn-s3-demo-bucket/my-prefix/i-02573cafcfEXAMPLE/awsrunShellScript</code>
    *          </p>
    *          <p>
-   *             <code>doc-example-bucket</code> is the name of the S3 bucket;</p>
+   *             <code>amzn-s3-demo-bucket</code> is the name of the S3 bucket;</p>
    *          <p>
-   *             <code>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix</code> is the name of the S3 prefix;</p>
+   *             <code>my-prefix</code> is the name of the S3 prefix;</p>
    *          <p>
    *             <code>i-02573cafcfEXAMPLE</code> is the managed node ID;</p>
    *          <p>
@@ -9998,7 +10002,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *          <p>However, for an improved security posture, we strongly recommend creating a custom
    *                 policy and custom service role for running your maintenance window tasks. The policy
    *                 can be crafted to provide only the permissions needed for your particular
-   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up Maintenance Windows</a> in the in the
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
@@ -10838,6 +10842,8 @@ export interface StartAutomationExecutionRequest {
 
   /**
    * <p>A key-value mapping to target resources. Required if you specify TargetParameterName.</p>
+   *          <p>If both this parameter and the <code>TargetLocation:Targets</code> parameter are supplied,
+   *     <code>TargetLocation:Targets</code> takes precedence.</p>
    * @public
    */
   Targets?: Target[];
@@ -10852,6 +10858,8 @@ export interface StartAutomationExecutionRequest {
   /**
    * <p>The maximum number of targets allowed to run this task in parallel. You can specify a
    *    number, such as 10, or a percentage, such as 10%. The default value is <code>10</code>.</p>
+   *          <p>If both this parameter and the <code>TargetLocation:TargetsMaxConcurrency</code> are
+   *    supplied, <code>TargetLocation:TargetsMaxConcurrency</code> takes precedence.</p>
    * @public
    */
   MaxConcurrency?: string;
@@ -10868,6 +10876,8 @@ export interface StartAutomationExecutionRequest {
    *    complete, but some of these executions may fail as well. If you need to ensure that there won't
    *    be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one
    *    at a time.</p>
+   *          <p>If this parameter and the <code>TargetLocation:TargetsMaxErrors</code> parameter are both
+   *    supplied, <code>TargetLocation:TargetsMaxErrors</code> takes precedence.</p>
    * @public
    */
   MaxErrors?: string;
@@ -10875,7 +10885,7 @@ export interface StartAutomationExecutionRequest {
   /**
    * <p>A location is a combination of Amazon Web Services Regions and/or Amazon Web Services accounts where you want to run the
    *    automation. Use this operation to start an automation in multiple Amazon Web Services Regions and multiple
-   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts</a> in the
+   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running automations in multiple Amazon Web Services Regions and accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    * @public
    */
@@ -10912,6 +10922,13 @@ export interface StartAutomationExecutionRequest {
    * @public
    */
   AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>Specify a publicly accessible URL for a file that contains the <code>TargetLocations</code>
+   *    body. Currently, only files in presigned Amazon S3 buckets are supported. </p>
+   * @public
+   */
+  TargetLocationsURL?: string;
 }
 
 /**
