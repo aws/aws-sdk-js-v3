@@ -80,6 +80,11 @@ import {
   DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   GetAccountSettingsCommand,
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
@@ -147,6 +152,16 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetPublicAccessBlockConfigCommand,
+  GetPublicAccessBlockConfigCommandInput,
+  GetPublicAccessBlockConfigCommandOutput,
+} from "./commands/GetPublicAccessBlockConfigCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import {
   GetRuntimeManagementConfigCommand,
   GetRuntimeManagementConfigCommandInput,
@@ -243,6 +258,16 @@ import {
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
 import {
+  PutPublicAccessBlockConfigCommand,
+  PutPublicAccessBlockConfigCommandInput,
+  PutPublicAccessBlockConfigCommandOutput,
+} from "./commands/PutPublicAccessBlockConfigCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   PutRuntimeManagementConfigCommand,
   PutRuntimeManagementConfigCommandInput,
   PutRuntimeManagementConfigCommandOutput,
@@ -314,6 +339,7 @@ const commands = {
   DeleteFunctionUrlConfigCommand,
   DeleteLayerVersionCommand,
   DeleteProvisionedConcurrencyConfigCommand,
+  DeleteResourcePolicyCommand,
   GetAccountSettingsCommand,
   GetAliasCommand,
   GetCodeSigningConfigCommand,
@@ -330,6 +356,8 @@ const commands = {
   GetLayerVersionPolicyCommand,
   GetPolicyCommand,
   GetProvisionedConcurrencyConfigCommand,
+  GetPublicAccessBlockConfigCommand,
+  GetResourcePolicyCommand,
   GetRuntimeManagementConfigCommand,
   InvokeCommand,
   InvokeAsyncCommand,
@@ -353,6 +381,8 @@ const commands = {
   PutFunctionEventInvokeConfigCommand,
   PutFunctionRecursionConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
+  PutPublicAccessBlockConfigCommand,
+  PutResourcePolicyCommand,
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
@@ -634,6 +664,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccountSettingsCommand}
    */
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
@@ -883,6 +930,40 @@ export interface Lambda {
     args: GetProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPublicAccessBlockConfigCommand}
+   */
+  getPublicAccessBlockConfig(
+    args: GetPublicAccessBlockConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicAccessBlockConfigCommandOutput>;
+  getPublicAccessBlockConfig(
+    args: GetPublicAccessBlockConfigCommandInput,
+    cb: (err: any, data?: GetPublicAccessBlockConfigCommandOutput) => void
+  ): void;
+  getPublicAccessBlockConfig(
+    args: GetPublicAccessBlockConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPublicAccessBlockConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1239,6 +1320,40 @@ export interface Lambda {
     args: PutProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutPublicAccessBlockConfigCommand}
+   */
+  putPublicAccessBlockConfig(
+    args: PutPublicAccessBlockConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPublicAccessBlockConfigCommandOutput>;
+  putPublicAccessBlockConfig(
+    args: PutPublicAccessBlockConfigCommandInput,
+    cb: (err: any, data?: PutPublicAccessBlockConfigCommandOutput) => void
+  ): void;
+  putPublicAccessBlockConfig(
+    args: PutPublicAccessBlockConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPublicAccessBlockConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

@@ -3179,6 +3179,25 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
 /**
  * @public
  */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function you want to delete the policy from. You can use either a qualified or an unqualified ARN,
+   *       but the value you specify must be a complete ARN and wildcard characters are not accepted.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Delete the existing policy only if its revision ID matches the string you specify. To find the revision ID of the policy currently attached
+   *       to your function, use the <a>GetResourcePolicy</a> action.</p>
+   * @public
+   */
+  RevisionId?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {}
 
 /**
@@ -4078,6 +4097,78 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
     Object.setPrototypeOf(this, ProvisionedConcurrencyConfigNotFoundException.prototype);
     this.Type = opts.Type;
   }
+}
+
+/**
+ * @public
+ */
+export interface GetPublicAccessBlockConfigRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function you want to retrieve public-access settings for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>An object that defines the public-access settings for a function.</p>
+ * @public
+ */
+export interface PublicAccessBlockConfig {
+  /**
+   * <p>To block the creation of resource-based policies that would grant public access to your function, set <code>BlockPublicPolicy</code>
+   *       to <code>true</code>. To allow the creation of resource-based policies that would grant public access to your function, set <code>BlockPublicPolicy</code>
+   *       to <code>false</code>.</p>
+   * @public
+   */
+  BlockPublicPolicy?: boolean;
+
+  /**
+   * <p>To block public access to your function, even if its resource-based policy allows it, set <code>RestrictPublicResource</code> to <code>true</code>. To
+   *       allow public access to a function with a resource-based policy that permits it, set <code>RestrictPublicResource</code> to <code>false</code>.</p>
+   * @public
+   */
+  RestrictPublicResource?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicAccessBlockConfigResponse {
+  /**
+   * <p>The public-access settings configured for the function you specified</p>
+   * @public
+   */
+  PublicAccessBlockConfig?: PublicAccessBlockConfig;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function you want to retrieve the policy for. You can use either a qualified or an unqualified ARN,
+   *       but the value you specify must be a complete ARN and wildcard characters are not accepted.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The resource-based policy attached to the function you specified.</p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>The revision ID of the policy.</p>
+   * @public
+   */
+  RevisionId?: string;
 }
 
 /**
@@ -6589,6 +6680,117 @@ export interface PutProvisionedConcurrencyConfigResponse {
    * @public
    */
   LastModified?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutPublicAccessBlockConfigRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function you want to configure public-access settings for. Public-access settings
+   *     are applied at the function level, so you can't apply different settings to function versions or aliases.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An object defining the public-access settings you want to apply.</p>
+   *          <p>To block the creation of resource-based policies that would grant public access to your function, set <code>BlockPublicPolicy</code>
+   *       to <code>true</code>. To allow the creation of resource-based policies that would grant public access to your function, set <code>BlockPublicPolicy</code>
+   *       to <code>false</code>.</p>
+   *          <p>To block public access to your function, even if its resource-based policy allows it, set <code>RestrictPublicResource</code> to <code>true</code>. To
+   *       allow public access to a function with a resource-based policy that permits it, set <code>RestrictPublicResource</code> to <code>false</code>.</p>
+   *          <p>The default setting for both <code>BlockPublicPolicy</code> and <code>RestrictPublicResource</code> is <code>true</code>.</p>
+   * @public
+   */
+  PublicAccessBlockConfig: PublicAccessBlockConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPublicAccessBlockConfigResponse {
+  /**
+   * <p>The public-access settings Lambda applied to your function.</p>
+   * @public
+   */
+  PublicAccessBlockConfig?: PublicAccessBlockConfig;
+}
+
+/**
+ * <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
+ *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
+ *       to allow public policies.</p>
+ * @public
+ */
+export class PublicPolicyException extends __BaseException {
+  readonly name: "PublicPolicyException" = "PublicPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string;
+
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicPolicyException, __BaseException>) {
+    super({
+      name: "PublicPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicPolicyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function you want to add the policy to. You can use either a qualified or an unqualified ARN,
+   *       but the value you specify must be a complete ARN and wildcard characters are not accepted.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON resource-based policy you want to add to your function.</p>
+   *          <p>To learn more about creating resource-based policies for controlling access to
+   *       Lambda, see <a href="https://docs.aws.amazon.com/">Working with resource-based IAM policies in Lambda</a> in the
+   *     <i>Lambda Developer Guide</i>.</p>
+   * @public
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>Replace the existing policy only if its revision ID matches the string you specify. To find the revision ID of the policy currently attached
+   *       to your function, use the <a>GetResourcePolicy</a> action.</p>
+   * @public
+   */
+  RevisionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The policy Lambda added to your function.</p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>The revision ID of the policy Lambda added to your function.</p>
+   * @public
+   */
+  RevisionId?: string;
 }
 
 /**
