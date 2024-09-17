@@ -1,6 +1,11 @@
 import { normalizeProvider } from "@smithy/util-middleware";
 
-import { DEFAULT_REQUEST_CHECKSUM_CALCULATION, DEFAULT_RESPONSE_CHECKSUM_VALIDATION } from "./constants";
+import {
+  DEFAULT_REQUEST_CHECKSUM_CALCULATION,
+  DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+  RequestChecksumCalculation,
+  ResponseChecksumValidation,
+} from "./constants";
 import { resolveFlexibleChecksumsConfig } from "./resolveFlexibleChecksumsConfig";
 
 jest.mock("@smithy/util-middleware");
@@ -25,8 +30,8 @@ describe(resolveFlexibleChecksumsConfig.name, () => {
 
   it("normalizes client checksums configuration", () => {
     const mockInput = {
-      requestChecksumCalculation: "WHEN_REQUIRED",
-      responseChecksumValidation: "WHEN_REQUIRED",
+      requestChecksumCalculation: RequestChecksumCalculation.WHEN_REQUIRED,
+      responseChecksumValidation: ResponseChecksumValidation.WHEN_REQUIRED,
     };
     const resolvedConfig = resolveFlexibleChecksumsConfig(mockInput);
     expect(resolvedConfig).toEqual(mockInput);

@@ -1,23 +1,28 @@
 import { Provider } from "@smithy/types";
 import { normalizeProvider } from "@smithy/util-middleware";
 
-import { DEFAULT_REQUEST_CHECKSUM_CALCULATION, DEFAULT_RESPONSE_CHECKSUM_VALIDATION } from "./constants";
+import {
+  DEFAULT_REQUEST_CHECKSUM_CALCULATION,
+  DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+  RequestChecksumCalculation,
+  ResponseChecksumValidation,
+} from "./constants";
 
 export interface FlexibleChecksumsInputConfig {
   /**
    * Determines when a checksum will be calculated for request payloads.
    */
-  requestChecksumCalculation?: string | Provider<string>;
+  requestChecksumCalculation?: RequestChecksumCalculation | Provider<RequestChecksumCalculation>;
 
   /**
    * Determines when checksum validation will be performed on response payloads.
    */
-  responseChecksumValidation?: string | Provider<string>;
+  responseChecksumValidation?: ResponseChecksumValidation | Provider<ResponseChecksumValidation>;
 }
 
 export interface FlexibleChecksumsResolvedConfig {
-  requestChecksumCalculation: Provider<string>;
-  responseChecksumValidation: Provider<string>;
+  requestChecksumCalculation: Provider<RequestChecksumCalculation>;
+  responseChecksumValidation: Provider<ResponseChecksumValidation>;
 }
 
 export const resolveFlexibleChecksumsConfig = <T>(
