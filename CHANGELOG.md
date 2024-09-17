@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
+
+
+### Features
+
+* **client-codebuild:** GitLab Enhancements - Add support for Self-Hosted GitLab runners in CodeBuild. Add group webhooks ([42807fe](https://github.com/aws/aws-sdk-js-v3/commit/42807fe487095378f0b8ec2d82ad493c4de43188))
+* **client-ecr:** The `DescribeImageScanning` API now includes `fixAvailable`, `exploitAvailable`, and `fixedInVersion` fields to provide more detailed information about the availability of fixes, exploits, and fixed versions for identified image vulnerabilities. ([d829454](https://github.com/aws/aws-sdk-js-v3/commit/d8294542d62651a90cc62cae688d671e3c65196c))
+* **client-lambda:** Support for JSON resource-based policies and block public access ([566bb05](https://github.com/aws/aws-sdk-js-v3/commit/566bb05232a186ef130785caeae12ca538a189c0))
+* **client-ssm:** Support for additional levels of cross-account, cross-Region organizational units in Automation. Various documentation updates. ([849e058](https://github.com/aws/aws-sdk-js-v3/commit/849e058a951cd41c34c03dd150fb8197e8c02f79))
+
+
+
+
+
 # [3.652.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.1...v3.652.0) (2024-09-16)
 
 

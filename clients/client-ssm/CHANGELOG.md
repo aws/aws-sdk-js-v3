@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
+
+
+### Features
+
+* **client-ssm:** Support for additional levels of cross-account, cross-Region organizational units in Automation. Various documentation updates. ([849e058](https://github.com/aws/aws-sdk-js-v3/commit/849e058a951cd41c34c03dd150fb8197e8c02f79))
+
+
+
+
+
 ## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

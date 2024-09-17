@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
+
+
+### Features
+
+* **client-lambda:** Support for JSON resource-based policies and block public access ([566bb05](https://github.com/aws/aws-sdk-js-v3/commit/566bb05232a186ef130785caeae12ca538a189c0))
+
+
+
+
+
 ## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
