@@ -7842,9 +7842,9 @@ export interface CreateDBInstanceMessage {
    * <p>The license model information for this DB instance.</p>
    *          <note>
    *             <p>License models for RDS for Db2 require additional configuration. The Bring Your
-   *                 Own License (BYOL) model requires a custom parameter group. The Db2 license through
+   *                 Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through
    *                 Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">RDS for Db2 licensing
+   *                 information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon RDS for Db2 licensing
    *                     options</a> in the <i>Amazon RDS User Guide</i>.</p>
    *             <p>The default for RDS for Db2 is <code>bring-your-own-license</code>.</p>
    *          </note>
