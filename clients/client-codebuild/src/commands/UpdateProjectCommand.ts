@@ -341,7 +341,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //       scopeConfiguration: { // ScopeConfiguration
  * //         name: "STRING_VALUE", // required
  * //         domain: "STRING_VALUE",
- * //         scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //         scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  * //       },
  * //     },
  * //     vpcConfig: { // VpcConfig

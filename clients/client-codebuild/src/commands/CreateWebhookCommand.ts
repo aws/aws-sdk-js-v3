@@ -62,7 +62,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *   scopeConfiguration: { // ScopeConfiguration
  *     name: "STRING_VALUE", // required
  *     domain: "STRING_VALUE",
- *     scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ *     scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  *   },
  * };
  * const command = new CreateWebhookCommand(input);
@@ -88,7 +88,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //     scopeConfiguration: { // ScopeConfiguration
  * //       name: "STRING_VALUE", // required
  * //       domain: "STRING_VALUE",
- * //       scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //       scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  * //     },
  * //   },
  * // };
