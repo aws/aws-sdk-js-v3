@@ -10,12 +10,12 @@ export enum SelectorType {
  *
  * @internal
  */
-export const stringUnionSelector = (
+export const stringUnionSelector = <U extends object, K extends keyof U>(
   obj: Record<string, string | undefined>,
   key: string,
-  union: Record<string, string>,
+  union: U,
   type: SelectorType
-) => {
+): U[K] | undefined => {
   if (!(key in obj)) return undefined;
 
   const value = obj[key]!.toUpperCase();
@@ -23,5 +23,5 @@ export const stringUnionSelector = (
     throw new TypeError(`Cannot load ${type} '${key}'. Expected one of ${Object.values(union)}, got '${obj[key]}'.`);
   }
 
-  return value;
+  return value as U[K];
 };
