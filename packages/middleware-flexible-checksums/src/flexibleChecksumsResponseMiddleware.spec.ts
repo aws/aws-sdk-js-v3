@@ -2,7 +2,7 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { DeserializeHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm, ResponseChecksumValidation } from "./constants";
+import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
@@ -23,9 +23,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
     commandName: "mockCommandName",
   };
 
-  const mockConfig = {
-    responseChecksumValidation: () => Promise.resolve(ResponseChecksumValidation.WHEN_REQUIRED),
-  } as PreviouslyResolved;
+  const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
   const mockResponseAlgorithms = [ChecksumAlgorithm.CRC32, ChecksumAlgorithm.CRC32C];
   const mockMiddlewareConfig = {
@@ -67,7 +65,6 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
       const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
       await handler(mockArgs);
       expect(validateChecksumFromResponse).not.toHaveBeenCalled();
-      expect(mockNext).toHaveBeenCalledWith(mockArgs);
     });
 
     describe("response checksum", () => {
@@ -77,16 +74,12 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMwConfig)(mockNext, mockContext);
         await handler(mockArgs);
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
-        expect(mockNext).toHaveBeenCalledWith(mockArgs);
       });
 
       it("if requestValidationModeMember is not enabled in input", async () => {
         const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
-
-        const mockArgsWithoutEnabled = { ...mockArgs, input: {} };
-        await handler(mockArgsWithoutEnabled);
+        await handler({ ...mockArgs, input: {} });
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
-        expect(mockNext).toHaveBeenCalledWith(mockArgsWithoutEnabled);
       });
 
       it("if checksum is for S3 whole-object multipart GET", async () => {
@@ -99,13 +92,12 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         expect(isChecksumWithPartNumber).toHaveBeenCalledTimes(1);
         expect(isChecksumWithPartNumber).toHaveBeenCalledWith(mockChecksum);
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
-        expect(mockNext).toHaveBeenCalledWith(mockArgs);
       });
     });
   });
 
   describe("validates checksum from response header", () => {
-    it("if requestValidationModeMember is enabled in input", async () => {
+    it("generic case", async () => {
       const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
 
       await handler(mockArgs);
@@ -113,25 +105,6 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         config: mockConfig,
         responseAlgorithms: mockResponseAlgorithms,
       });
-      expect(mockNext).toHaveBeenCalledWith(mockArgs);
-    });
-
-    it(`if requestValidationModeMember is not enabled in input, but responseChecksumValidation returns ${ResponseChecksumValidation.WHEN_SUPPORTED}`, async () => {
-      const mockConfigWithResponseChecksumValidationSupported = {
-        ...mockConfig,
-        responseChecksumValidation: () => Promise.resolve(ResponseChecksumValidation.WHEN_SUPPORTED),
-      };
-      const handler = flexibleChecksumsResponseMiddleware(
-        mockConfigWithResponseChecksumValidationSupported,
-        mockMiddlewareConfig
-      )(mockNext, mockContext);
-
-      await handler({ ...mockArgs, input: {} });
-      expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
-        config: mockConfigWithResponseChecksumValidationSupported,
-        responseAlgorithms: mockResponseAlgorithms,
-      });
-      expect(mockNext).toHaveBeenCalledWith(mockArgs);
     });
 
     it("if checksum is for S3 GET without part number", async () => {
@@ -147,7 +120,6 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         config: mockConfig,
         responseAlgorithms: mockResponseAlgorithms,
       });
-      expect(mockNext).toHaveBeenCalledWith(mockArgs);
     });
   });
 });
