@@ -120,4 +120,16 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationSetEventDestinationCommand)
   .de(de_CreateConfigurationSetEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationSetEventDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConfigurationSetEventDestinationCommandInput;
+      output: CreateConfigurationSetEventDestinationCommandOutput;
+    };
+  };
+}

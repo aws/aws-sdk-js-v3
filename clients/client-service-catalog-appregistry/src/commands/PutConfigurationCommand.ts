@@ -96,4 +96,16 @@ export class PutConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationCommand)
   .de(de_PutConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationCommandInput;
+      output: PutConfigurationCommandOutput;
+    };
+  };
+}

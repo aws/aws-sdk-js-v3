@@ -183,4 +183,16 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataQualityJobDefinitionCommand)
   .de(de_DescribeDataQualityJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataQualityJobDefinitionRequest;
+      output: DescribeDataQualityJobDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeDataQualityJobDefinitionCommandInput;
+      output: DescribeDataQualityJobDefinitionCommandOutput;
+    };
+  };
+}

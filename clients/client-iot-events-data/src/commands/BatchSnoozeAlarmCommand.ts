@@ -104,4 +104,16 @@ export class BatchSnoozeAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchSnoozeAlarmCommand)
   .de(de_BatchSnoozeAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchSnoozeAlarmRequest;
+      output: BatchSnoozeAlarmResponse;
+    };
+    sdk: {
+      input: BatchSnoozeAlarmCommandInput;
+      output: BatchSnoozeAlarmCommandOutput;
+    };
+  };
+}

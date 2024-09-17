@@ -156,4 +156,16 @@ export class UpdateFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFacetCommand)
   .de(de_UpdateFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFacetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFacetCommandInput;
+      output: UpdateFacetCommandOutput;
+    };
+  };
+}

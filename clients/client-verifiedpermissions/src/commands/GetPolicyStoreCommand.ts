@@ -184,4 +184,16 @@ export class GetPolicyStoreCommand extends $Command
   .f(void 0, GetPolicyStoreOutputFilterSensitiveLog)
   .ser(se_GetPolicyStoreCommand)
   .de(de_GetPolicyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPolicyStoreInput;
+      output: GetPolicyStoreOutput;
+    };
+    sdk: {
+      input: GetPolicyStoreCommandInput;
+      output: GetPolicyStoreCommandOutput;
+    };
+  };
+}

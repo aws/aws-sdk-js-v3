@@ -146,4 +146,16 @@ export class StartSnapshotCommand extends $Command
   .f(StartSnapshotRequestFilterSensitiveLog, StartSnapshotResponseFilterSensitiveLog)
   .ser(se_StartSnapshotCommand)
   .de(de_StartSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSnapshotRequest;
+      output: StartSnapshotResponse;
+    };
+    sdk: {
+      input: StartSnapshotCommandInput;
+      output: StartSnapshotCommandOutput;
+    };
+  };
+}

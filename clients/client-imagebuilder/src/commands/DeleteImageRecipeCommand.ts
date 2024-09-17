@@ -103,4 +103,16 @@ export class DeleteImageRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageRecipeCommand)
   .de(de_DeleteImageRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageRecipeRequest;
+      output: DeleteImageRecipeResponse;
+    };
+    sdk: {
+      input: DeleteImageRecipeCommandInput;
+      output: DeleteImageRecipeCommandOutput;
+    };
+  };
+}

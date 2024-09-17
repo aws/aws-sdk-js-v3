@@ -123,4 +123,16 @@ export class StopProductSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopProductSubscriptionCommand)
   .de(de_StopProductSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopProductSubscriptionRequest;
+      output: StopProductSubscriptionResponse;
+    };
+    sdk: {
+      input: StopProductSubscriptionCommandInput;
+      output: StopProductSubscriptionCommandOutput;
+    };
+  };
+}

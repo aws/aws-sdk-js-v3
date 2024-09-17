@@ -103,4 +103,16 @@ export class ListAutoMLJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutoMLJobsCommand)
   .de(de_ListAutoMLJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutoMLJobsRequest;
+      output: ListAutoMLJobsResponse;
+    };
+    sdk: {
+      input: ListAutoMLJobsCommandInput;
+      output: ListAutoMLJobsCommandOutput;
+    };
+  };
+}

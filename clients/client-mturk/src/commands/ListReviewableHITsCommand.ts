@@ -131,4 +131,16 @@ export class ListReviewableHITsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReviewableHITsCommand)
   .de(de_ListReviewableHITsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReviewableHITsRequest;
+      output: ListReviewableHITsResponse;
+    };
+    sdk: {
+      input: ListReviewableHITsCommandInput;
+      output: ListReviewableHITsCommandOutput;
+    };
+  };
+}

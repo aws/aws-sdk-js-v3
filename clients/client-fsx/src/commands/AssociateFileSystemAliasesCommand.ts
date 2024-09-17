@@ -105,4 +105,16 @@ export class AssociateFileSystemAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateFileSystemAliasesCommand)
   .de(de_AssociateFileSystemAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFileSystemAliasesRequest;
+      output: AssociateFileSystemAliasesResponse;
+    };
+    sdk: {
+      input: AssociateFileSystemAliasesCommandInput;
+      output: AssociateFileSystemAliasesCommandOutput;
+    };
+  };
+}

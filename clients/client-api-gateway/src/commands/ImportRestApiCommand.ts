@@ -132,4 +132,16 @@ export class ImportRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportRestApiCommand)
   .de(de_ImportRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: ImportRestApiCommandInput;
+      output: ImportRestApiCommandOutput;
+    };
+  };
+}

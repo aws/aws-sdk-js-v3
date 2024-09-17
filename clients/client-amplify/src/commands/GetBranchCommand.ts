@@ -129,4 +129,16 @@ export class GetBranchCommand extends $Command
   .f(void 0, GetBranchResultFilterSensitiveLog)
   .ser(se_GetBranchCommand)
   .de(de_GetBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBranchRequest;
+      output: GetBranchResult;
+    };
+    sdk: {
+      input: GetBranchCommandInput;
+      output: GetBranchCommandOutput;
+    };
+  };
+}

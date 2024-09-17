@@ -110,4 +110,16 @@ export class UpdateOutpostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOutpostCommand)
   .de(de_UpdateOutpostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOutpostInput;
+      output: UpdateOutpostOutput;
+    };
+    sdk: {
+      input: UpdateOutpostCommandInput;
+      output: UpdateOutpostCommandOutput;
+    };
+  };
+}

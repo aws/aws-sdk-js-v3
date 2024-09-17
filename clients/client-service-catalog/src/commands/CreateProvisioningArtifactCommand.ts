@@ -115,4 +115,16 @@ export class CreateProvisioningArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProvisioningArtifactCommand)
   .de(de_CreateProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProvisioningArtifactInput;
+      output: CreateProvisioningArtifactOutput;
+    };
+    sdk: {
+      input: CreateProvisioningArtifactCommandInput;
+      output: CreateProvisioningArtifactCommandOutput;
+    };
+  };
+}

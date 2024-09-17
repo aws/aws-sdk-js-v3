@@ -99,4 +99,16 @@ export class ListRegistriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRegistriesCommand)
   .de(de_ListRegistriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRegistriesRequest;
+      output: ListRegistriesResponse;
+    };
+    sdk: {
+      input: ListRegistriesCommandInput;
+      output: ListRegistriesCommandOutput;
+    };
+  };
+}

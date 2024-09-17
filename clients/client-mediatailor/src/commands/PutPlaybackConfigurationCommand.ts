@@ -167,4 +167,16 @@ export class PutPlaybackConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPlaybackConfigurationCommand)
   .de(de_PutPlaybackConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPlaybackConfigurationRequest;
+      output: PutPlaybackConfigurationResponse;
+    };
+    sdk: {
+      input: PutPlaybackConfigurationCommandInput;
+      output: PutPlaybackConfigurationCommandOutput;
+    };
+  };
+}

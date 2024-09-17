@@ -186,4 +186,16 @@ export class StartWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkflowExecutionCommand)
   .de(de_StartWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWorkflowExecutionInput;
+      output: Run;
+    };
+    sdk: {
+      input: StartWorkflowExecutionCommandInput;
+      output: StartWorkflowExecutionCommandOutput;
+    };
+  };
+}

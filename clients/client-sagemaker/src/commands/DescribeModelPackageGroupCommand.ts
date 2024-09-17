@@ -91,4 +91,16 @@ export class DescribeModelPackageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeModelPackageGroupCommand)
   .de(de_DescribeModelPackageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelPackageGroupInput;
+      output: DescribeModelPackageGroupOutput;
+    };
+    sdk: {
+      input: DescribeModelPackageGroupCommandInput;
+      output: DescribeModelPackageGroupCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DeleteBatchImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBatchImportJobCommand)
   .de(de_DeleteBatchImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBatchImportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBatchImportJobCommandInput;
+      output: DeleteBatchImportJobCommandOutput;
+    };
+  };
+}

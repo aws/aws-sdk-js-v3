@@ -109,4 +109,16 @@ export class GetAdmChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdmChannelCommand)
   .de(de_GetAdmChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdmChannelRequest;
+      output: GetAdmChannelResponse;
+    };
+    sdk: {
+      input: GetAdmChannelCommandInput;
+      output: GetAdmChannelCommandOutput;
+    };
+  };
+}

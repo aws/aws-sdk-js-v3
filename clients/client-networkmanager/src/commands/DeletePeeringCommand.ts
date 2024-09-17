@@ -123,4 +123,16 @@ export class DeletePeeringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePeeringCommand)
   .de(de_DeletePeeringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePeeringRequest;
+      output: DeletePeeringResponse;
+    };
+    sdk: {
+      input: DeletePeeringCommandInput;
+      output: DeletePeeringCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class GetUserPoolMfaConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserPoolMfaConfigCommand)
   .de(de_GetUserPoolMfaConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserPoolMfaConfigRequest;
+      output: GetUserPoolMfaConfigResponse;
+    };
+    sdk: {
+      input: GetUserPoolMfaConfigCommandInput;
+      output: GetUserPoolMfaConfigCommandOutput;
+    };
+  };
+}

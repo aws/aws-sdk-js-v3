@@ -166,4 +166,16 @@ export class CreateJobQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateJobQueueCommand)
   .de(de_CreateJobQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateJobQueueRequest;
+      output: CreateJobQueueResponse;
+    };
+    sdk: {
+      input: CreateJobQueueCommandInput;
+      output: CreateJobQueueCommandOutput;
+    };
+  };
+}

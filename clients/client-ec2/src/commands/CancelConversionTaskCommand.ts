@@ -81,4 +81,16 @@ export class CancelConversionTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelConversionTaskCommand)
   .de(de_CancelConversionTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelConversionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelConversionTaskCommandInput;
+      output: CancelConversionTaskCommandOutput;
+    };
+  };
+}

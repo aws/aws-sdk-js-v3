@@ -111,4 +111,16 @@ export class DeleteApnsVoipChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApnsVoipChannelCommand)
   .de(de_DeleteApnsVoipChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApnsVoipChannelRequest;
+      output: DeleteApnsVoipChannelResponse;
+    };
+    sdk: {
+      input: DeleteApnsVoipChannelCommandInput;
+      output: DeleteApnsVoipChannelCommandOutput;
+    };
+  };
+}

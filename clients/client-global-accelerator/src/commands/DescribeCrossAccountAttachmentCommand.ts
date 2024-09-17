@@ -113,4 +113,16 @@ export class DescribeCrossAccountAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCrossAccountAttachmentCommand)
   .de(de_DescribeCrossAccountAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCrossAccountAttachmentRequest;
+      output: DescribeCrossAccountAttachmentResponse;
+    };
+    sdk: {
+      input: DescribeCrossAccountAttachmentCommandInput;
+      output: DescribeCrossAccountAttachmentCommandOutput;
+    };
+  };
+}

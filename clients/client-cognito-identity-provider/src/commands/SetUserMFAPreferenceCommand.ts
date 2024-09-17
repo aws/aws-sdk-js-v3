@@ -137,4 +137,16 @@ export class SetUserMFAPreferenceCommand extends $Command
   .f(SetUserMFAPreferenceRequestFilterSensitiveLog, void 0)
   .ser(se_SetUserMFAPreferenceCommand)
   .de(de_SetUserMFAPreferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetUserMFAPreferenceRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetUserMFAPreferenceCommandInput;
+      output: SetUserMFAPreferenceCommandOutput;
+    };
+  };
+}

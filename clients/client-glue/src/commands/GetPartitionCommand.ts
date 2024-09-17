@@ -172,4 +172,16 @@ export class GetPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPartitionCommand)
   .de(de_GetPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPartitionRequest;
+      output: GetPartitionResponse;
+    };
+    sdk: {
+      input: GetPartitionCommandInput;
+      output: GetPartitionCommandOutput;
+    };
+  };
+}

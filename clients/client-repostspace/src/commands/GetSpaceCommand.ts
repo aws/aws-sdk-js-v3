@@ -115,4 +115,16 @@ export class GetSpaceCommand extends $Command
   .f(void 0, GetSpaceOutputFilterSensitiveLog)
   .ser(se_GetSpaceCommand)
   .de(de_GetSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpaceInput;
+      output: GetSpaceOutput;
+    };
+    sdk: {
+      input: GetSpaceCommandInput;
+      output: GetSpaceCommandOutput;
+    };
+  };
+}

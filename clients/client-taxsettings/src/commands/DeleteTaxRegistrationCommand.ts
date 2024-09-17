@@ -91,4 +91,16 @@ export class DeleteTaxRegistrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTaxRegistrationCommand)
   .de(de_DeleteTaxRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTaxRegistrationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTaxRegistrationCommandInput;
+      output: DeleteTaxRegistrationCommandOutput;
+    };
+  };
+}

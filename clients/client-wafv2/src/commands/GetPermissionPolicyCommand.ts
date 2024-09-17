@@ -109,4 +109,16 @@ export class GetPermissionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPermissionPolicyCommand)
   .de(de_GetPermissionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPermissionPolicyRequest;
+      output: GetPermissionPolicyResponse;
+    };
+    sdk: {
+      input: GetPermissionPolicyCommandInput;
+      output: GetPermissionPolicyCommandOutput;
+    };
+  };
+}

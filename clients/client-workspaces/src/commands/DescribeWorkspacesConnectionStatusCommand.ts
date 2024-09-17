@@ -99,4 +99,16 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspacesConnectionStatusCommand)
   .de(de_DescribeWorkspacesConnectionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspacesConnectionStatusRequest;
+      output: DescribeWorkspacesConnectionStatusResult;
+    };
+    sdk: {
+      input: DescribeWorkspacesConnectionStatusCommandInput;
+      output: DescribeWorkspacesConnectionStatusCommandOutput;
+    };
+  };
+}

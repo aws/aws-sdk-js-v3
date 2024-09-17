@@ -130,4 +130,16 @@ export class DescribeStreamSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStreamSummaryCommand)
   .de(de_DescribeStreamSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStreamSummaryInput;
+      output: DescribeStreamSummaryOutput;
+    };
+    sdk: {
+      input: DescribeStreamSummaryCommandInput;
+      output: DescribeStreamSummaryCommandOutput;
+    };
+  };
+}

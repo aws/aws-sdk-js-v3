@@ -98,4 +98,16 @@ export class UpdateClassificationScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClassificationScopeCommand)
   .de(de_UpdateClassificationScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClassificationScopeRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateClassificationScopeCommandInput;
+      output: UpdateClassificationScopeCommandOutput;
+    };
+  };
+}

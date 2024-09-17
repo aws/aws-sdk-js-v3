@@ -105,4 +105,16 @@ export class DeregisterGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterGameServerCommand)
   .de(de_DeregisterGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterGameServerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterGameServerCommandInput;
+      output: DeregisterGameServerCommandOutput;
+    };
+  };
+}

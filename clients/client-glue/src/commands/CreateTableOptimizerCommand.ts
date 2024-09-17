@@ -116,4 +116,16 @@ export class CreateTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTableOptimizerCommand)
   .de(de_CreateTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTableOptimizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateTableOptimizerCommandInput;
+      output: CreateTableOptimizerCommandOutput;
+    };
+  };
+}

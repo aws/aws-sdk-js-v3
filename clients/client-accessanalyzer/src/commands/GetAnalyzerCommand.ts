@@ -111,4 +111,16 @@ export class GetAnalyzerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnalyzerCommand)
   .de(de_GetAnalyzerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnalyzerRequest;
+      output: GetAnalyzerResponse;
+    };
+    sdk: {
+      input: GetAnalyzerCommandInput;
+      output: GetAnalyzerCommandOutput;
+    };
+  };
+}

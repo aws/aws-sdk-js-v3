@@ -143,4 +143,16 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command
   .f(void 0, AttachVerifiedAccessTrustProviderResultFilterSensitiveLog)
   .ser(se_AttachVerifiedAccessTrustProviderCommand)
   .de(de_AttachVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachVerifiedAccessTrustProviderRequest;
+      output: AttachVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: AttachVerifiedAccessTrustProviderCommandInput;
+      output: AttachVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

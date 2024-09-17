@@ -99,4 +99,16 @@ export class DeleteLoadBalancerListenersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoadBalancerListenersCommand)
   .de(de_DeleteLoadBalancerListenersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoadBalancerListenerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoadBalancerListenersCommandInput;
+      output: DeleteLoadBalancerListenersCommandOutput;
+    };
+  };
+}

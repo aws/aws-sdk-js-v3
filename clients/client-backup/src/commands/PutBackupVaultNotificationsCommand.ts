@@ -95,4 +95,16 @@ export class PutBackupVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupVaultNotificationsCommand)
   .de(de_PutBackupVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBackupVaultNotificationsCommandInput;
+      output: PutBackupVaultNotificationsCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class ListHITsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHITsCommand)
   .de(de_ListHITsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHITsRequest;
+      output: ListHITsResponse;
+    };
+    sdk: {
+      input: ListHITsCommandInput;
+      output: ListHITsCommandOutput;
+    };
+  };
+}

@@ -179,4 +179,16 @@ export class GetSpotPlacementScoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSpotPlacementScoresCommand)
   .de(de_GetSpotPlacementScoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpotPlacementScoresRequest;
+      output: GetSpotPlacementScoresResult;
+    };
+    sdk: {
+      input: GetSpotPlacementScoresCommandInput;
+      output: GetSpotPlacementScoresCommandOutput;
+    };
+  };
+}

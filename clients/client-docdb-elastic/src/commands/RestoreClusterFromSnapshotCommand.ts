@@ -139,4 +139,16 @@ export class RestoreClusterFromSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreClusterFromSnapshotCommand)
   .de(de_RestoreClusterFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreClusterFromSnapshotInput;
+      output: RestoreClusterFromSnapshotOutput;
+    };
+    sdk: {
+      input: RestoreClusterFromSnapshotCommandInput;
+      output: RestoreClusterFromSnapshotCommandOutput;
+    };
+  };
+}

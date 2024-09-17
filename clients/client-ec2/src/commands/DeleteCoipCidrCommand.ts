@@ -85,4 +85,16 @@ export class DeleteCoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCoipCidrCommand)
   .de(de_DeleteCoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCoipCidrRequest;
+      output: DeleteCoipCidrResult;
+    };
+    sdk: {
+      input: DeleteCoipCidrCommandInput;
+      output: DeleteCoipCidrCommandOutput;
+    };
+  };
+}

@@ -173,4 +173,16 @@ export class CreateCapacityReservationBySplittingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCapacityReservationBySplittingCommand)
   .de(de_CreateCapacityReservationBySplittingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCapacityReservationBySplittingRequest;
+      output: CreateCapacityReservationBySplittingResult;
+    };
+    sdk: {
+      input: CreateCapacityReservationBySplittingCommandInput;
+      output: CreateCapacityReservationBySplittingCommandOutput;
+    };
+  };
+}

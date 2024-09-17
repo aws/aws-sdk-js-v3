@@ -139,4 +139,16 @@ export class GetBackupPlanFromJSONCommand extends $Command
   .f(void 0, GetBackupPlanFromJSONOutputFilterSensitiveLog)
   .ser(se_GetBackupPlanFromJSONCommand)
   .de(de_GetBackupPlanFromJSONCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupPlanFromJSONInput;
+      output: GetBackupPlanFromJSONOutput;
+    };
+    sdk: {
+      input: GetBackupPlanFromJSONCommandInput;
+      output: GetBackupPlanFromJSONCommandOutput;
+    };
+  };
+}

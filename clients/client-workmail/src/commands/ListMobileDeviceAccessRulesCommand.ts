@@ -123,4 +123,16 @@ export class ListMobileDeviceAccessRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMobileDeviceAccessRulesCommand)
   .de(de_ListMobileDeviceAccessRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMobileDeviceAccessRulesRequest;
+      output: ListMobileDeviceAccessRulesResponse;
+    };
+    sdk: {
+      input: ListMobileDeviceAccessRulesCommandInput;
+      output: ListMobileDeviceAccessRulesCommandOutput;
+    };
+  };
+}

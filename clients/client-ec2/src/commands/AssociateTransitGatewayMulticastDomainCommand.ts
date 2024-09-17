@@ -105,4 +105,16 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTransitGatewayMulticastDomainCommand)
   .de(de_AssociateTransitGatewayMulticastDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTransitGatewayMulticastDomainRequest;
+      output: AssociateTransitGatewayMulticastDomainResult;
+    };
+    sdk: {
+      input: AssociateTransitGatewayMulticastDomainCommandInput;
+      output: AssociateTransitGatewayMulticastDomainCommandOutput;
+    };
+  };
+}

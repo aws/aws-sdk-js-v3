@@ -153,4 +153,16 @@ export class GetAssessmentFrameworkCommand extends $Command
   .f(void 0, GetAssessmentFrameworkResponseFilterSensitiveLog)
   .ser(se_GetAssessmentFrameworkCommand)
   .de(de_GetAssessmentFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssessmentFrameworkRequest;
+      output: GetAssessmentFrameworkResponse;
+    };
+    sdk: {
+      input: GetAssessmentFrameworkCommandInput;
+      output: GetAssessmentFrameworkCommandOutput;
+    };
+  };
+}

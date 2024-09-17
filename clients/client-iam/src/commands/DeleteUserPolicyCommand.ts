@@ -105,4 +105,16 @@ export class DeleteUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserPolicyCommand)
   .de(de_DeleteUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPolicyCommandInput;
+      output: DeleteUserPolicyCommandOutput;
+    };
+  };
+}

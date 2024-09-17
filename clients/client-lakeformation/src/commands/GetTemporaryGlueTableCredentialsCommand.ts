@@ -126,4 +126,16 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemporaryGlueTableCredentialsCommand)
   .de(de_GetTemporaryGlueTableCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemporaryGlueTableCredentialsRequest;
+      output: GetTemporaryGlueTableCredentialsResponse;
+    };
+    sdk: {
+      input: GetTemporaryGlueTableCredentialsCommandInput;
+      output: GetTemporaryGlueTableCredentialsCommandOutput;
+    };
+  };
+}

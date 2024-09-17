@@ -126,4 +126,16 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command
   .f(void 0, ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog)
   .ser(se_ListSuggestedResiliencyPoliciesCommand)
   .de(de_ListSuggestedResiliencyPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSuggestedResiliencyPoliciesRequest;
+      output: ListSuggestedResiliencyPoliciesResponse;
+    };
+    sdk: {
+      input: ListSuggestedResiliencyPoliciesCommandInput;
+      output: ListSuggestedResiliencyPoliciesCommandOutput;
+    };
+  };
+}

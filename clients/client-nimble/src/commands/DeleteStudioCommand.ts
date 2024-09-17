@@ -124,4 +124,16 @@ export class DeleteStudioCommand extends $Command
   .f(void 0, DeleteStudioResponseFilterSensitiveLog)
   .ser(se_DeleteStudioCommand)
   .de(de_DeleteStudioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStudioRequest;
+      output: DeleteStudioResponse;
+    };
+    sdk: {
+      input: DeleteStudioCommandInput;
+      output: DeleteStudioCommandOutput;
+    };
+  };
+}

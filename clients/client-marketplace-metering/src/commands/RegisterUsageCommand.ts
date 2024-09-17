@@ -154,4 +154,16 @@ export class RegisterUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterUsageCommand)
   .de(de_RegisterUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterUsageRequest;
+      output: RegisterUsageResult;
+    };
+    sdk: {
+      input: RegisterUsageCommandInput;
+      output: RegisterUsageCommandOutput;
+    };
+  };
+}

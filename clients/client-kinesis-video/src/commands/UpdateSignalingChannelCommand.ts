@@ -122,4 +122,16 @@ export class UpdateSignalingChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSignalingChannelCommand)
   .de(de_UpdateSignalingChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSignalingChannelInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSignalingChannelCommandInput;
+      output: UpdateSignalingChannelCommandOutput;
+    };
+  };
+}

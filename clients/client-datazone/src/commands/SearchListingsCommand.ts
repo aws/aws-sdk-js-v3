@@ -200,4 +200,16 @@ export class SearchListingsCommand extends $Command
   .f(void 0, SearchListingsOutputFilterSensitiveLog)
   .ser(se_SearchListingsCommand)
   .de(de_SearchListingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchListingsInput;
+      output: SearchListingsOutput;
+    };
+    sdk: {
+      input: SearchListingsCommandInput;
+      output: SearchListingsCommandOutput;
+    };
+  };
+}

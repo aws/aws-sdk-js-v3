@@ -139,4 +139,16 @@ export class DescribeConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectionsCommand)
   .de(de_DescribeConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionsMessage;
+      output: DescribeConnectionsResponse;
+    };
+    sdk: {
+      input: DescribeConnectionsCommandInput;
+      output: DescribeConnectionsCommandOutput;
+    };
+  };
+}

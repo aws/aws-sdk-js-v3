@@ -126,4 +126,16 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApnsVoipSandboxChannelCommand)
   .de(de_UpdateApnsVoipSandboxChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApnsVoipSandboxChannelRequest;
+      output: UpdateApnsVoipSandboxChannelResponse;
+    };
+    sdk: {
+      input: UpdateApnsVoipSandboxChannelCommandInput;
+      output: UpdateApnsVoipSandboxChannelCommandOutput;
+    };
+  };
+}

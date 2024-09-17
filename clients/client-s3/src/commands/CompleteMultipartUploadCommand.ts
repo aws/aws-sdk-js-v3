@@ -322,4 +322,16 @@ export class CompleteMultipartUploadCommand extends $Command
   .f(CompleteMultipartUploadRequestFilterSensitiveLog, CompleteMultipartUploadOutputFilterSensitiveLog)
   .ser(se_CompleteMultipartUploadCommand)
   .de(de_CompleteMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteMultipartUploadRequest;
+      output: CompleteMultipartUploadOutput;
+    };
+    sdk: {
+      input: CompleteMultipartUploadCommandInput;
+      output: CompleteMultipartUploadCommandOutput;
+    };
+  };
+}

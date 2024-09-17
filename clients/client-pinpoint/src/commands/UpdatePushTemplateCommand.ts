@@ -160,4 +160,16 @@ export class UpdatePushTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePushTemplateCommand)
   .de(de_UpdatePushTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePushTemplateRequest;
+      output: UpdatePushTemplateResponse;
+    };
+    sdk: {
+      input: UpdatePushTemplateCommandInput;
+      output: UpdatePushTemplateCommandOutput;
+    };
+  };
+}

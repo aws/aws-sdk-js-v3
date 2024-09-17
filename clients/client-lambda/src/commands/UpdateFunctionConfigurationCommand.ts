@@ -293,4 +293,16 @@ export class UpdateFunctionConfigurationCommand extends $Command
   .f(UpdateFunctionConfigurationRequestFilterSensitiveLog, FunctionConfigurationFilterSensitiveLog)
   .ser(se_UpdateFunctionConfigurationCommand)
   .de(de_UpdateFunctionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionConfigurationRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: UpdateFunctionConfigurationCommandInput;
+      output: UpdateFunctionConfigurationCommandOutput;
+    };
+  };
+}

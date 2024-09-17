@@ -115,4 +115,16 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   .f(void 0, void 0)
   .ser(se_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
   .de(de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+      output: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
+    };
+    sdk: {
+      input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput;
+      output: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput;
+    };
+  };
+}

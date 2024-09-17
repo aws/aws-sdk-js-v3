@@ -150,4 +150,16 @@ export class UpdateBotRecommendationCommand extends $Command
   .f(UpdateBotRecommendationRequestFilterSensitiveLog, UpdateBotRecommendationResponseFilterSensitiveLog)
   .ser(se_UpdateBotRecommendationCommand)
   .de(de_UpdateBotRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotRecommendationRequest;
+      output: UpdateBotRecommendationResponse;
+    };
+    sdk: {
+      input: UpdateBotRecommendationCommandInput;
+      output: UpdateBotRecommendationCommandOutput;
+    };
+  };
+}

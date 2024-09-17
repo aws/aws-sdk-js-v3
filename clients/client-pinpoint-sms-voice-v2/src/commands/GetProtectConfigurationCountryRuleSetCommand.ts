@@ -116,4 +116,16 @@ export class GetProtectConfigurationCountryRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProtectConfigurationCountryRuleSetCommand)
   .de(de_GetProtectConfigurationCountryRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProtectConfigurationCountryRuleSetRequest;
+      output: GetProtectConfigurationCountryRuleSetResult;
+    };
+    sdk: {
+      input: GetProtectConfigurationCountryRuleSetCommandInput;
+      output: GetProtectConfigurationCountryRuleSetCommandOutput;
+    };
+  };
+}

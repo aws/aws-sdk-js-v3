@@ -113,4 +113,16 @@ export class ListNamespacesCommand extends $Command
   .f(void 0, ListNamespacesResponseFilterSensitiveLog)
   .ser(se_ListNamespacesCommand)
   .de(de_ListNamespacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNamespacesRequest;
+      output: ListNamespacesResponse;
+    };
+    sdk: {
+      input: ListNamespacesCommandInput;
+      output: ListNamespacesCommandOutput;
+    };
+  };
+}

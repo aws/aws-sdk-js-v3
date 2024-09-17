@@ -115,4 +115,16 @@ export class ListDataLakeExceptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataLakeExceptionsCommand)
   .de(de_ListDataLakeExceptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataLakeExceptionsRequest;
+      output: ListDataLakeExceptionsResponse;
+    };
+    sdk: {
+      input: ListDataLakeExceptionsCommandInput;
+      output: ListDataLakeExceptionsCommandOutput;
+    };
+  };
+}

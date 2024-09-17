@@ -121,4 +121,16 @@ export class UpdateDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDatabaseCommand)
   .de(de_UpdateDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDatabaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDatabaseCommandInput;
+      output: UpdateDatabaseCommandOutput;
+    };
+  };
+}

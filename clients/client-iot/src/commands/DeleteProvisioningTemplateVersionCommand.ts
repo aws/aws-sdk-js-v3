@@ -108,4 +108,16 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisioningTemplateVersionCommand)
   .de(de_DeleteProvisioningTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisioningTemplateVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisioningTemplateVersionCommandInput;
+      output: DeleteProvisioningTemplateVersionCommandOutput;
+    };
+  };
+}

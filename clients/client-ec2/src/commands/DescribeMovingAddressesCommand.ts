@@ -119,4 +119,16 @@ export class DescribeMovingAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMovingAddressesCommand)
   .de(de_DescribeMovingAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMovingAddressesRequest;
+      output: DescribeMovingAddressesResult;
+    };
+    sdk: {
+      input: DescribeMovingAddressesCommandInput;
+      output: DescribeMovingAddressesCommandOutput;
+    };
+  };
+}

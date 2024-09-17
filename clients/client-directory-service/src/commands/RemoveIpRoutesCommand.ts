@@ -93,4 +93,16 @@ export class RemoveIpRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveIpRoutesCommand)
   .de(de_RemoveIpRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveIpRoutesRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveIpRoutesCommandInput;
+      output: RemoveIpRoutesCommandOutput;
+    };
+  };
+}

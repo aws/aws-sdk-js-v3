@@ -112,4 +112,16 @@ export class ListServicePrincipalNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServicePrincipalNamesCommand)
   .de(de_ListServicePrincipalNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServicePrincipalNamesRequest;
+      output: ListServicePrincipalNamesResponse;
+    };
+    sdk: {
+      input: ListServicePrincipalNamesCommandInput;
+      output: ListServicePrincipalNamesCommandOutput;
+    };
+  };
+}

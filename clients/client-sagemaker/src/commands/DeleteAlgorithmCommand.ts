@@ -79,4 +79,16 @@ export class DeleteAlgorithmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAlgorithmCommand)
   .de(de_DeleteAlgorithmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAlgorithmInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAlgorithmCommandInput;
+      output: DeleteAlgorithmCommandOutput;
+    };
+  };
+}

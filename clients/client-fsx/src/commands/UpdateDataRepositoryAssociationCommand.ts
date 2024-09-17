@@ -164,4 +164,16 @@ export class UpdateDataRepositoryAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataRepositoryAssociationCommand)
   .de(de_UpdateDataRepositoryAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataRepositoryAssociationRequest;
+      output: UpdateDataRepositoryAssociationResponse;
+    };
+    sdk: {
+      input: UpdateDataRepositoryAssociationCommandInput;
+      output: UpdateDataRepositoryAssociationCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class GetGroupConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupConfigurationCommand)
   .de(de_GetGroupConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupConfigurationInput;
+      output: GetGroupConfigurationOutput;
+    };
+    sdk: {
+      input: GetGroupConfigurationCommandInput;
+      output: GetGroupConfigurationCommandOutput;
+    };
+  };
+}

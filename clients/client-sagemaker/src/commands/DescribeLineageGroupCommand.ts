@@ -107,4 +107,16 @@ export class DescribeLineageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLineageGroupCommand)
   .de(de_DescribeLineageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLineageGroupRequest;
+      output: DescribeLineageGroupResponse;
+    };
+    sdk: {
+      input: DescribeLineageGroupCommandInput;
+      output: DescribeLineageGroupCommandOutput;
+    };
+  };
+}

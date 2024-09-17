@@ -144,4 +144,16 @@ export class DeleteRepositoryCreationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryCreationTemplateCommand)
   .de(de_DeleteRepositoryCreationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryCreationTemplateRequest;
+      output: DeleteRepositoryCreationTemplateResponse;
+    };
+    sdk: {
+      input: DeleteRepositoryCreationTemplateCommandInput;
+      output: DeleteRepositoryCreationTemplateCommandOutput;
+    };
+  };
+}

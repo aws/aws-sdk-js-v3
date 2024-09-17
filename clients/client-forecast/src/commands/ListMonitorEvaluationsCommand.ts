@@ -127,4 +127,16 @@ export class ListMonitorEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMonitorEvaluationsCommand)
   .de(de_ListMonitorEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMonitorEvaluationsRequest;
+      output: ListMonitorEvaluationsResponse;
+    };
+    sdk: {
+      input: ListMonitorEvaluationsCommandInput;
+      output: ListMonitorEvaluationsCommandOutput;
+    };
+  };
+}

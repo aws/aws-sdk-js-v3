@@ -96,4 +96,16 @@ export class ListStackSetAutoDeploymentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackSetAutoDeploymentTargetsCommand)
   .de(de_ListStackSetAutoDeploymentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackSetAutoDeploymentTargetsInput;
+      output: ListStackSetAutoDeploymentTargetsOutput;
+    };
+    sdk: {
+      input: ListStackSetAutoDeploymentTargetsCommandInput;
+      output: ListStackSetAutoDeploymentTargetsCommandOutput;
+    };
+  };
+}

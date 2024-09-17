@@ -116,4 +116,16 @@ export class ListAnomalyGroupTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomalyGroupTimeSeriesCommand)
   .de(de_ListAnomalyGroupTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomalyGroupTimeSeriesRequest;
+      output: ListAnomalyGroupTimeSeriesResponse;
+    };
+    sdk: {
+      input: ListAnomalyGroupTimeSeriesCommandInput;
+      output: ListAnomalyGroupTimeSeriesCommandOutput;
+    };
+  };
+}

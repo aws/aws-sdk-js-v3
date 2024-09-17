@@ -115,4 +115,16 @@ export class CreateChatTokenCommand extends $Command
   .f(CreateChatTokenRequestFilterSensitiveLog, CreateChatTokenResponseFilterSensitiveLog)
   .ser(se_CreateChatTokenCommand)
   .de(de_CreateChatTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChatTokenRequest;
+      output: CreateChatTokenResponse;
+    };
+    sdk: {
+      input: CreateChatTokenCommandInput;
+      output: CreateChatTokenCommandOutput;
+    };
+  };
+}

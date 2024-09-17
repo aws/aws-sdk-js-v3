@@ -106,4 +106,16 @@ export class GetBrowserSettingsCommand extends $Command
   .f(void 0, GetBrowserSettingsResponseFilterSensitiveLog)
   .ser(se_GetBrowserSettingsCommand)
   .de(de_GetBrowserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBrowserSettingsRequest;
+      output: GetBrowserSettingsResponse;
+    };
+    sdk: {
+      input: GetBrowserSettingsCommandInput;
+      output: GetBrowserSettingsCommandOutput;
+    };
+  };
+}

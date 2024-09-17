@@ -112,4 +112,16 @@ export class ListChannelPlacementGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChannelPlacementGroupsCommand)
   .de(de_ListChannelPlacementGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelPlacementGroupsRequest;
+      output: ListChannelPlacementGroupsResponse;
+    };
+    sdk: {
+      input: ListChannelPlacementGroupsCommandInput;
+      output: ListChannelPlacementGroupsCommandOutput;
+    };
+  };
+}

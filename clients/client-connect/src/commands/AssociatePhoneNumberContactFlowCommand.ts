@@ -106,4 +106,16 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociatePhoneNumberContactFlowCommand)
   .de(de_AssociatePhoneNumberContactFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePhoneNumberContactFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociatePhoneNumberContactFlowCommandInput;
+      output: AssociatePhoneNumberContactFlowCommandOutput;
+    };
+  };
+}

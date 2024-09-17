@@ -99,4 +99,16 @@ export class GetCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCodeSigningConfigCommand)
   .de(de_GetCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCodeSigningConfigRequest;
+      output: GetCodeSigningConfigResponse;
+    };
+    sdk: {
+      input: GetCodeSigningConfigCommandInput;
+      output: GetCodeSigningConfigCommandOutput;
+    };
+  };
+}

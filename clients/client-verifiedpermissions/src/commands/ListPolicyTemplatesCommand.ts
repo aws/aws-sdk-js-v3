@@ -192,4 +192,16 @@ export class ListPolicyTemplatesCommand extends $Command
   .f(void 0, ListPolicyTemplatesOutputFilterSensitiveLog)
   .ser(se_ListPolicyTemplatesCommand)
   .de(de_ListPolicyTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyTemplatesInput;
+      output: ListPolicyTemplatesOutput;
+    };
+    sdk: {
+      input: ListPolicyTemplatesCommandInput;
+      output: ListPolicyTemplatesCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class CreateLocationHdfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationHdfsCommand)
   .de(de_CreateLocationHdfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationHdfsRequest;
+      output: CreateLocationHdfsResponse;
+    };
+    sdk: {
+      input: CreateLocationHdfsCommandInput;
+      output: CreateLocationHdfsCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class DescribeExportImageTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExportImageTasksCommand)
   .de(de_DescribeExportImageTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExportImageTasksRequest;
+      output: DescribeExportImageTasksResult;
+    };
+    sdk: {
+      input: DescribeExportImageTasksCommandInput;
+      output: DescribeExportImageTasksCommandOutput;
+    };
+  };
+}

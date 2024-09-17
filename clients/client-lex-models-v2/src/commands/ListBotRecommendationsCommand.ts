@@ -109,4 +109,16 @@ export class ListBotRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotRecommendationsCommand)
   .de(de_ListBotRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotRecommendationsRequest;
+      output: ListBotRecommendationsResponse;
+    };
+    sdk: {
+      input: ListBotRecommendationsCommandInput;
+      output: ListBotRecommendationsCommandOutput;
+    };
+  };
+}

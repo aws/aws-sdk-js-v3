@@ -401,4 +401,16 @@ export class GetLaunchTemplateDataCommand extends $Command
   .f(void 0, GetLaunchTemplateDataResultFilterSensitiveLog)
   .ser(se_GetLaunchTemplateDataCommand)
   .de(de_GetLaunchTemplateDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLaunchTemplateDataRequest;
+      output: GetLaunchTemplateDataResult;
+    };
+    sdk: {
+      input: GetLaunchTemplateDataCommandInput;
+      output: GetLaunchTemplateDataCommandOutput;
+    };
+  };
+}

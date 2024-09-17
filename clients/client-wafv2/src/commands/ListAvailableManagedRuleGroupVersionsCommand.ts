@@ -131,4 +131,16 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableManagedRuleGroupVersionsCommand)
   .de(de_ListAvailableManagedRuleGroupVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableManagedRuleGroupVersionsRequest;
+      output: ListAvailableManagedRuleGroupVersionsResponse;
+    };
+    sdk: {
+      input: ListAvailableManagedRuleGroupVersionsCommandInput;
+      output: ListAvailableManagedRuleGroupVersionsCommandOutput;
+    };
+  };
+}

@@ -133,4 +133,16 @@ export class DeleteDiskSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDiskSnapshotCommand)
   .de(de_DeleteDiskSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDiskSnapshotRequest;
+      output: DeleteDiskSnapshotResult;
+    };
+    sdk: {
+      input: DeleteDiskSnapshotCommandInput;
+      output: DeleteDiskSnapshotCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class ListChangedBlocksCommand extends $Command
   .f(void 0, ListChangedBlocksResponseFilterSensitiveLog)
   .ser(se_ListChangedBlocksCommand)
   .de(de_ListChangedBlocksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChangedBlocksRequest;
+      output: ListChangedBlocksResponse;
+    };
+    sdk: {
+      input: ListChangedBlocksCommandInput;
+      output: ListChangedBlocksCommandOutput;
+    };
+  };
+}

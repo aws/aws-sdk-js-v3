@@ -106,4 +106,16 @@ export class PutContactInformationCommand extends $Command
   .f(PutContactInformationRequestFilterSensitiveLog, void 0)
   .ser(se_PutContactInformationCommand)
   .de(de_PutContactInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutContactInformationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutContactInformationCommandInput;
+      output: PutContactInformationCommandOutput;
+    };
+  };
+}

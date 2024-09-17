@@ -106,4 +106,16 @@ export class ListTapePoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTapePoolsCommand)
   .de(de_ListTapePoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTapePoolsInput;
+      output: ListTapePoolsOutput;
+    };
+    sdk: {
+      input: ListTapePoolsCommandInput;
+      output: ListTapePoolsCommandOutput;
+    };
+  };
+}

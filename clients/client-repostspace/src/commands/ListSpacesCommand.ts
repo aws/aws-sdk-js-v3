@@ -110,4 +110,16 @@ export class ListSpacesCommand extends $Command
   .f(void 0, ListSpacesOutputFilterSensitiveLog)
   .ser(se_ListSpacesCommand)
   .de(de_ListSpacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSpacesInput;
+      output: ListSpacesOutput;
+    };
+    sdk: {
+      input: ListSpacesCommandInput;
+      output: ListSpacesCommandOutput;
+    };
+  };
+}

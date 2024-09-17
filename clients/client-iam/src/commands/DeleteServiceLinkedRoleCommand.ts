@@ -105,4 +105,16 @@ export class DeleteServiceLinkedRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceLinkedRoleCommand)
   .de(de_DeleteServiceLinkedRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceLinkedRoleRequest;
+      output: DeleteServiceLinkedRoleResponse;
+    };
+    sdk: {
+      input: DeleteServiceLinkedRoleCommandInput;
+      output: DeleteServiceLinkedRoleCommandOutput;
+    };
+  };
+}

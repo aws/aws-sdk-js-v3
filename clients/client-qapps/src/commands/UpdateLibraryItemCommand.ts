@@ -163,4 +163,16 @@ export class UpdateLibraryItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLibraryItemCommand)
   .de(de_UpdateLibraryItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLibraryItemInput;
+      output: UpdateLibraryItemOutput;
+    };
+    sdk: {
+      input: UpdateLibraryItemCommandInput;
+      output: UpdateLibraryItemCommandOutput;
+    };
+  };
+}

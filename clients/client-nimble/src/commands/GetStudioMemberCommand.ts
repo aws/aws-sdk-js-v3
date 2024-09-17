@@ -107,4 +107,16 @@ export class GetStudioMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStudioMemberCommand)
   .de(de_GetStudioMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStudioMemberRequest;
+      output: GetStudioMemberResponse;
+    };
+    sdk: {
+      input: GetStudioMemberCommandInput;
+      output: GetStudioMemberCommandOutput;
+    };
+  };
+}

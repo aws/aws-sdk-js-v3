@@ -99,4 +99,16 @@ export class UpdateSafetyLeverStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSafetyLeverStateCommand)
   .de(de_UpdateSafetyLeverStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSafetyLeverStateRequest;
+      output: UpdateSafetyLeverStateResponse;
+    };
+    sdk: {
+      input: UpdateSafetyLeverStateCommandInput;
+      output: UpdateSafetyLeverStateCommandOutput;
+    };
+  };
+}

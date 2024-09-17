@@ -105,4 +105,16 @@ export class ListNamedShadowsForThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNamedShadowsForThingCommand)
   .de(de_ListNamedShadowsForThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNamedShadowsForThingRequest;
+      output: ListNamedShadowsForThingResponse;
+    };
+    sdk: {
+      input: ListNamedShadowsForThingCommandInput;
+      output: ListNamedShadowsForThingCommandOutput;
+    };
+  };
+}

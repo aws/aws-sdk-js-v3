@@ -127,4 +127,16 @@ export class ListChannelMembershipsCommand extends $Command
   .f(ListChannelMembershipsRequestFilterSensitiveLog, ListChannelMembershipsResponseFilterSensitiveLog)
   .ser(se_ListChannelMembershipsCommand)
   .de(de_ListChannelMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelMembershipsRequest;
+      output: ListChannelMembershipsResponse;
+    };
+    sdk: {
+      input: ListChannelMembershipsCommandInput;
+      output: ListChannelMembershipsCommandOutput;
+    };
+  };
+}

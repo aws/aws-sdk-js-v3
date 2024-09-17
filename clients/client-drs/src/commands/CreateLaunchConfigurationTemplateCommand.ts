@@ -136,4 +136,16 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command
   )
   .ser(se_CreateLaunchConfigurationTemplateCommand)
   .de(de_CreateLaunchConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchConfigurationTemplateRequest;
+      output: CreateLaunchConfigurationTemplateResponse;
+    };
+    sdk: {
+      input: CreateLaunchConfigurationTemplateCommandInput;
+      output: CreateLaunchConfigurationTemplateCommandOutput;
+    };
+  };
+}

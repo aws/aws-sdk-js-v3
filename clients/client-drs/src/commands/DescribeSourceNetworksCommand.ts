@@ -122,4 +122,16 @@ export class DescribeSourceNetworksCommand extends $Command
   .f(void 0, DescribeSourceNetworksResponseFilterSensitiveLog)
   .ser(se_DescribeSourceNetworksCommand)
   .de(de_DescribeSourceNetworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSourceNetworksRequest;
+      output: DescribeSourceNetworksResponse;
+    };
+    sdk: {
+      input: DescribeSourceNetworksCommandInput;
+      output: DescribeSourceNetworksCommandOutput;
+    };
+  };
+}

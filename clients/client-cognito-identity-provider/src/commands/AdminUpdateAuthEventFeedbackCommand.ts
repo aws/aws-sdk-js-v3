@@ -137,4 +137,16 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command
   .f(AdminUpdateAuthEventFeedbackRequestFilterSensitiveLog, void 0)
   .ser(se_AdminUpdateAuthEventFeedbackCommand)
   .de(de_AdminUpdateAuthEventFeedbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminUpdateAuthEventFeedbackRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminUpdateAuthEventFeedbackCommandInput;
+      output: AdminUpdateAuthEventFeedbackCommandOutput;
+    };
+  };
+}

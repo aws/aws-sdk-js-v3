@@ -84,4 +84,16 @@ export class DeleteAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAuthenticationProfileCommand)
   .de(de_DeleteAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAuthenticationProfileMessage;
+      output: DeleteAuthenticationProfileResult;
+    };
+    sdk: {
+      input: DeleteAuthenticationProfileCommandInput;
+      output: DeleteAuthenticationProfileCommandOutput;
+    };
+  };
+}

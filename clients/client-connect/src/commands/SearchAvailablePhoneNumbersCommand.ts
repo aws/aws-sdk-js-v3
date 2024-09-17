@@ -109,4 +109,16 @@ export class SearchAvailablePhoneNumbersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchAvailablePhoneNumbersCommand)
   .de(de_SearchAvailablePhoneNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchAvailablePhoneNumbersRequest;
+      output: SearchAvailablePhoneNumbersResponse;
+    };
+    sdk: {
+      input: SearchAvailablePhoneNumbersCommandInput;
+      output: SearchAvailablePhoneNumbersCommandOutput;
+    };
+  };
+}

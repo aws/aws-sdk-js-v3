@@ -321,4 +321,16 @@ export class GetHLSStreamingSessionURLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHLSStreamingSessionURLCommand)
   .de(de_GetHLSStreamingSessionURLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHLSStreamingSessionURLInput;
+      output: GetHLSStreamingSessionURLOutput;
+    };
+    sdk: {
+      input: GetHLSStreamingSessionURLCommandInput;
+      output: GetHLSStreamingSessionURLCommandOutput;
+    };
+  };
+}

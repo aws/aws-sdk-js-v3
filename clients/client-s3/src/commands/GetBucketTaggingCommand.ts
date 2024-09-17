@@ -146,4 +146,16 @@ export class GetBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketTaggingCommand)
   .de(de_GetBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketTaggingRequest;
+      output: GetBucketTaggingOutput;
+    };
+    sdk: {
+      input: GetBucketTaggingCommandInput;
+      output: GetBucketTaggingCommandOutput;
+    };
+  };
+}

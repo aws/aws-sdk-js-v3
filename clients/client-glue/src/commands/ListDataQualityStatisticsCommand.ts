@@ -124,4 +124,16 @@ export class ListDataQualityStatisticsCommand extends $Command
   .f(void 0, ListDataQualityStatisticsResponseFilterSensitiveLog)
   .ser(se_ListDataQualityStatisticsCommand)
   .de(de_ListDataQualityStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataQualityStatisticsRequest;
+      output: ListDataQualityStatisticsResponse;
+    };
+    sdk: {
+      input: ListDataQualityStatisticsCommandInput;
+      output: ListDataQualityStatisticsCommandOutput;
+    };
+  };
+}

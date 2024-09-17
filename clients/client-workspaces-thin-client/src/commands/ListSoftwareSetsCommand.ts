@@ -104,4 +104,16 @@ export class ListSoftwareSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSoftwareSetsCommand)
   .de(de_ListSoftwareSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSoftwareSetsRequest;
+      output: ListSoftwareSetsResponse;
+    };
+    sdk: {
+      input: ListSoftwareSetsCommandInput;
+      output: ListSoftwareSetsCommandOutput;
+    };
+  };
+}

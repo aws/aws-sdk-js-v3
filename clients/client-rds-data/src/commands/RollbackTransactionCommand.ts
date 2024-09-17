@@ -133,4 +133,16 @@ export class RollbackTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackTransactionCommand)
   .de(de_RollbackTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackTransactionRequest;
+      output: RollbackTransactionResponse;
+    };
+    sdk: {
+      input: RollbackTransactionCommandInput;
+      output: RollbackTransactionCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class RequestCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestCertificateCommand)
   .de(de_RequestCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestCertificateRequest;
+      output: RequestCertificateResponse;
+    };
+    sdk: {
+      input: RequestCertificateCommandInput;
+      output: RequestCertificateCommandOutput;
+    };
+  };
+}

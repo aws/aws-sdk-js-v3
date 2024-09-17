@@ -109,4 +109,16 @@ export class StartDICOMImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDICOMImportJobCommand)
   .de(de_StartDICOMImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDICOMImportJobRequest;
+      output: StartDICOMImportJobResponse;
+    };
+    sdk: {
+      input: StartDICOMImportJobCommandInput;
+      output: StartDICOMImportJobCommandOutput;
+    };
+  };
+}

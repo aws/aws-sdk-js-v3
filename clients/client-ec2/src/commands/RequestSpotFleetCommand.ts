@@ -589,4 +589,16 @@ export class RequestSpotFleetCommand extends $Command
   .f(RequestSpotFleetRequestFilterSensitiveLog, void 0)
   .ser(se_RequestSpotFleetCommand)
   .de(de_RequestSpotFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestSpotFleetRequest;
+      output: RequestSpotFleetResponse;
+    };
+    sdk: {
+      input: RequestSpotFleetCommandInput;
+      output: RequestSpotFleetCommandOutput;
+    };
+  };
+}

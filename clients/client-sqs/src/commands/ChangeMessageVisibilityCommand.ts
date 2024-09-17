@@ -155,4 +155,16 @@ export class ChangeMessageVisibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ChangeMessageVisibilityCommand)
   .de(de_ChangeMessageVisibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangeMessageVisibilityRequest;
+      output: {};
+    };
+    sdk: {
+      input: ChangeMessageVisibilityCommandInput;
+      output: ChangeMessageVisibilityCommandOutput;
+    };
+  };
+}

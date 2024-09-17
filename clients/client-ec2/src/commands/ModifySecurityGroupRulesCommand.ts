@@ -93,4 +93,16 @@ export class ModifySecurityGroupRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySecurityGroupRulesCommand)
   .de(de_ModifySecurityGroupRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySecurityGroupRulesRequest;
+      output: ModifySecurityGroupRulesResult;
+    };
+    sdk: {
+      input: ModifySecurityGroupRulesCommandInput;
+      output: ModifySecurityGroupRulesCommandOutput;
+    };
+  };
+}

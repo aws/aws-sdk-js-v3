@@ -99,4 +99,16 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAssessmentReportEvidenceFolderCommand)
   .de(de_DisassociateAssessmentReportEvidenceFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAssessmentReportEvidenceFolderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAssessmentReportEvidenceFolderCommandInput;
+      output: DisassociateAssessmentReportEvidenceFolderCommandOutput;
+    };
+  };
+}

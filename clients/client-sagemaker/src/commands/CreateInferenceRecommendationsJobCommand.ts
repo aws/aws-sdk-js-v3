@@ -198,4 +198,16 @@ export class CreateInferenceRecommendationsJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInferenceRecommendationsJobCommand)
   .de(de_CreateInferenceRecommendationsJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInferenceRecommendationsJobRequest;
+      output: CreateInferenceRecommendationsJobResponse;
+    };
+    sdk: {
+      input: CreateInferenceRecommendationsJobCommandInput;
+      output: CreateInferenceRecommendationsJobCommandOutput;
+    };
+  };
+}

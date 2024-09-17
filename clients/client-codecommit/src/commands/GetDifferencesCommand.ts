@@ -153,4 +153,16 @@ export class GetDifferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDifferencesCommand)
   .de(de_GetDifferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDifferencesInput;
+      output: GetDifferencesOutput;
+    };
+    sdk: {
+      input: GetDifferencesCommandInput;
+      output: GetDifferencesCommandOutput;
+    };
+  };
+}

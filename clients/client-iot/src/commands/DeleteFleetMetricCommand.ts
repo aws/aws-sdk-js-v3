@@ -98,4 +98,16 @@ export class DeleteFleetMetricCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetMetricCommand)
   .de(de_DeleteFleetMetricCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetMetricRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFleetMetricCommandInput;
+      output: DeleteFleetMetricCommandOutput;
+    };
+  };
+}

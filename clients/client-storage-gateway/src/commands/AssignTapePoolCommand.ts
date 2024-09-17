@@ -90,4 +90,16 @@ export class AssignTapePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignTapePoolCommand)
   .de(de_AssignTapePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignTapePoolInput;
+      output: AssignTapePoolOutput;
+    };
+    sdk: {
+      input: AssignTapePoolCommandInput;
+      output: AssignTapePoolCommandOutput;
+    };
+  };
+}

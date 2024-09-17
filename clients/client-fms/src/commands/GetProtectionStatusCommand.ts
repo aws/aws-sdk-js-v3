@@ -96,4 +96,16 @@ export class GetProtectionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProtectionStatusCommand)
   .de(de_GetProtectionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProtectionStatusRequest;
+      output: GetProtectionStatusResponse;
+    };
+    sdk: {
+      input: GetProtectionStatusCommandInput;
+      output: GetProtectionStatusCommandOutput;
+    };
+  };
+}

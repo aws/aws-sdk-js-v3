@@ -89,4 +89,16 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveKnowledgeBaseTemplateUriCommand)
   .de(de_RemoveKnowledgeBaseTemplateUriCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveKnowledgeBaseTemplateUriRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveKnowledgeBaseTemplateUriCommandInput;
+      output: RemoveKnowledgeBaseTemplateUriCommandOutput;
+    };
+  };
+}

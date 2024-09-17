@@ -138,4 +138,16 @@ export class ModifyIpamPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamPoolCommand)
   .de(de_ModifyIpamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamPoolRequest;
+      output: ModifyIpamPoolResult;
+    };
+    sdk: {
+      input: ModifyIpamPoolCommandInput;
+      output: ModifyIpamPoolCommandOutput;
+    };
+  };
+}

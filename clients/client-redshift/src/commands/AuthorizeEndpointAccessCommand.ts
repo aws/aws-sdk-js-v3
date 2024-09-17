@@ -110,4 +110,16 @@ export class AuthorizeEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeEndpointAccessCommand)
   .de(de_AuthorizeEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeEndpointAccessMessage;
+      output: EndpointAuthorization;
+    };
+    sdk: {
+      input: AuthorizeEndpointAccessCommandInput;
+      output: AuthorizeEndpointAccessCommandOutput;
+    };
+  };
+}

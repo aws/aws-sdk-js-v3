@@ -125,4 +125,16 @@ export class DescribeIdentityProviderConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityProviderConfigCommand)
   .de(de_DescribeIdentityProviderConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityProviderConfigRequest;
+      output: DescribeIdentityProviderConfigResponse;
+    };
+    sdk: {
+      input: DescribeIdentityProviderConfigCommandInput;
+      output: DescribeIdentityProviderConfigCommandOutput;
+    };
+  };
+}

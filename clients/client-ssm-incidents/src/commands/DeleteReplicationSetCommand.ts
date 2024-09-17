@@ -93,4 +93,16 @@ export class DeleteReplicationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationSetCommand)
   .de(de_DeleteReplicationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReplicationSetCommandInput;
+      output: DeleteReplicationSetCommandOutput;
+    };
+  };
+}

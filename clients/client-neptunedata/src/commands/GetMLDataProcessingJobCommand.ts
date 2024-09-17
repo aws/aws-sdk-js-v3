@@ -125,4 +125,16 @@ export class GetMLDataProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLDataProcessingJobCommand)
   .de(de_GetMLDataProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLDataProcessingJobInput;
+      output: GetMLDataProcessingJobOutput;
+    };
+    sdk: {
+      input: GetMLDataProcessingJobCommandInput;
+      output: GetMLDataProcessingJobCommandOutput;
+    };
+  };
+}

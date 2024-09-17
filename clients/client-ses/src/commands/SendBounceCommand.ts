@@ -124,4 +124,16 @@ export class SendBounceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendBounceCommand)
   .de(de_SendBounceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendBounceRequest;
+      output: SendBounceResponse;
+    };
+    sdk: {
+      input: SendBounceCommandInput;
+      output: SendBounceCommandOutput;
+    };
+  };
+}

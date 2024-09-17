@@ -146,4 +146,16 @@ export class CreateScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScraperCommand)
   .de(de_CreateScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScraperRequest;
+      output: CreateScraperResponse;
+    };
+    sdk: {
+      input: CreateScraperCommandInput;
+      output: CreateScraperCommandOutput;
+    };
+  };
+}

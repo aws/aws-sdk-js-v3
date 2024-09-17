@@ -129,4 +129,16 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcPeeringAuthorizationCommand)
   .de(de_CreateVpcPeeringAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcPeeringAuthorizationInput;
+      output: CreateVpcPeeringAuthorizationOutput;
+    };
+    sdk: {
+      input: CreateVpcPeeringAuthorizationCommandInput;
+      output: CreateVpcPeeringAuthorizationCommandOutput;
+    };
+  };
+}

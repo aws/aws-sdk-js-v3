@@ -113,4 +113,16 @@ export class ListWorkspaceServiceAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkspaceServiceAccountsCommand)
   .de(de_ListWorkspaceServiceAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkspaceServiceAccountsRequest;
+      output: ListWorkspaceServiceAccountsResponse;
+    };
+    sdk: {
+      input: ListWorkspaceServiceAccountsCommandInput;
+      output: ListWorkspaceServiceAccountsCommandOutput;
+    };
+  };
+}

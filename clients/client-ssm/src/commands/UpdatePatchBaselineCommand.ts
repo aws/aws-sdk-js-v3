@@ -200,4 +200,16 @@ export class UpdatePatchBaselineCommand extends $Command
   .f(UpdatePatchBaselineRequestFilterSensitiveLog, UpdatePatchBaselineResultFilterSensitiveLog)
   .ser(se_UpdatePatchBaselineCommand)
   .de(de_UpdatePatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePatchBaselineRequest;
+      output: UpdatePatchBaselineResult;
+    };
+    sdk: {
+      input: UpdatePatchBaselineCommandInput;
+      output: UpdatePatchBaselineCommandOutput;
+    };
+  };
+}

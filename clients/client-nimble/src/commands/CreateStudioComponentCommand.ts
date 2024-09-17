@@ -221,4 +221,16 @@ export class CreateStudioComponentCommand extends $Command
   .f(CreateStudioComponentRequestFilterSensitiveLog, CreateStudioComponentResponseFilterSensitiveLog)
   .ser(se_CreateStudioComponentCommand)
   .de(de_CreateStudioComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStudioComponentRequest;
+      output: CreateStudioComponentResponse;
+    };
+    sdk: {
+      input: CreateStudioComponentCommandInput;
+      output: CreateStudioComponentCommandOutput;
+    };
+  };
+}

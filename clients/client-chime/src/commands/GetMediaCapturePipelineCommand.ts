@@ -146,4 +146,16 @@ export class GetMediaCapturePipelineCommand extends $Command
   .f(void 0, GetMediaCapturePipelineResponseFilterSensitiveLog)
   .ser(se_GetMediaCapturePipelineCommand)
   .de(de_GetMediaCapturePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaCapturePipelineRequest;
+      output: GetMediaCapturePipelineResponse;
+    };
+    sdk: {
+      input: GetMediaCapturePipelineCommandInput;
+      output: GetMediaCapturePipelineCommandOutput;
+    };
+  };
+}

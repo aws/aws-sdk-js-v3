@@ -134,4 +134,16 @@ export class UpdateCapacityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCapacityProviderCommand)
   .de(de_UpdateCapacityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCapacityProviderRequest;
+      output: UpdateCapacityProviderResponse;
+    };
+    sdk: {
+      input: UpdateCapacityProviderCommandInput;
+      output: UpdateCapacityProviderCommandOutput;
+    };
+  };
+}

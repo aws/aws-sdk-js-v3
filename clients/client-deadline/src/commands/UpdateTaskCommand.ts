@@ -101,4 +101,16 @@ export class UpdateTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTaskCommand)
   .de(de_UpdateTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTaskCommandInput;
+      output: UpdateTaskCommandOutput;
+    };
+  };
+}

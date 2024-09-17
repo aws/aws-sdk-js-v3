@@ -96,4 +96,16 @@ export class DisassociateAnalyticsDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAnalyticsDataSetCommand)
   .de(de_DisassociateAnalyticsDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAnalyticsDataSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAnalyticsDataSetCommandInput;
+      output: DisassociateAnalyticsDataSetCommandOutput;
+    };
+  };
+}

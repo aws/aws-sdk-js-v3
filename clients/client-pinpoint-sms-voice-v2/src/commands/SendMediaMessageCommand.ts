@@ -121,4 +121,16 @@ export class SendMediaMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendMediaMessageCommand)
   .de(de_SendMediaMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendMediaMessageRequest;
+      output: SendMediaMessageResult;
+    };
+    sdk: {
+      input: SendMediaMessageCommandInput;
+      output: SendMediaMessageCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class DeleteIntentVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIntentVersionCommand)
   .de(de_DeleteIntentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIntentVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIntentVersionCommandInput;
+      output: DeleteIntentVersionCommandOutput;
+    };
+  };
+}

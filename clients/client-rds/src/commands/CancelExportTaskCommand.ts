@@ -126,4 +126,16 @@ export class CancelExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelExportTaskCommand)
   .de(de_CancelExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelExportTaskMessage;
+      output: ExportTask;
+    };
+    sdk: {
+      input: CancelExportTaskCommandInput;
+      output: CancelExportTaskCommandOutput;
+    };
+  };
+}

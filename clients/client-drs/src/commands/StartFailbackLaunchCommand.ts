@@ -159,4 +159,16 @@ export class StartFailbackLaunchCommand extends $Command
   .f(StartFailbackLaunchRequestFilterSensitiveLog, StartFailbackLaunchResponseFilterSensitiveLog)
   .ser(se_StartFailbackLaunchCommand)
   .de(de_StartFailbackLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFailbackLaunchRequest;
+      output: StartFailbackLaunchResponse;
+    };
+    sdk: {
+      input: StartFailbackLaunchCommandInput;
+      output: StartFailbackLaunchCommandOutput;
+    };
+  };
+}

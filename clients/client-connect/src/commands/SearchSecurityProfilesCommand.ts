@@ -156,4 +156,16 @@ export class SearchSecurityProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchSecurityProfilesCommand)
   .de(de_SearchSecurityProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchSecurityProfilesRequest;
+      output: SearchSecurityProfilesResponse;
+    };
+    sdk: {
+      input: SearchSecurityProfilesCommandInput;
+      output: SearchSecurityProfilesCommandOutput;
+    };
+  };
+}

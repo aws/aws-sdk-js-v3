@@ -134,4 +134,16 @@ export class GetIdNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdNamespaceCommand)
   .de(de_GetIdNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdNamespaceInput;
+      output: GetIdNamespaceOutput;
+    };
+    sdk: {
+      input: GetIdNamespaceCommandInput;
+      output: GetIdNamespaceCommandOutput;
+    };
+  };
+}

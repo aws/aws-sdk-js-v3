@@ -167,4 +167,16 @@ export class DescribeNodegroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNodegroupCommand)
   .de(de_DescribeNodegroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNodegroupRequest;
+      output: DescribeNodegroupResponse;
+    };
+    sdk: {
+      input: DescribeNodegroupCommandInput;
+      output: DescribeNodegroupCommandOutput;
+    };
+  };
+}

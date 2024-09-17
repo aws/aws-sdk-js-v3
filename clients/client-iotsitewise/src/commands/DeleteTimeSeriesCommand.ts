@@ -119,4 +119,16 @@ export class DeleteTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTimeSeriesCommand)
   .de(de_DeleteTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTimeSeriesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTimeSeriesCommandInput;
+      output: DeleteTimeSeriesCommandOutput;
+    };
+  };
+}

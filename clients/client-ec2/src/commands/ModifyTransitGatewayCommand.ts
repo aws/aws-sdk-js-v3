@@ -124,4 +124,16 @@ export class ModifyTransitGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTransitGatewayCommand)
   .de(de_ModifyTransitGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTransitGatewayRequest;
+      output: ModifyTransitGatewayResult;
+    };
+    sdk: {
+      input: ModifyTransitGatewayCommandInput;
+      output: ModifyTransitGatewayCommandOutput;
+    };
+  };
+}

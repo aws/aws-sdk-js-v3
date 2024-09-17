@@ -81,4 +81,16 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPayloadWithXmlNamespaceAndPrefixCommand)
   .de(de_HttpPayloadWithXmlNamespaceAndPrefixCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPayloadWithXmlNamespaceAndPrefixInputOutput;
+      output: HttpPayloadWithXmlNamespaceAndPrefixInputOutput;
+    };
+    sdk: {
+      input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput;
+      output: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput;
+    };
+  };
+}

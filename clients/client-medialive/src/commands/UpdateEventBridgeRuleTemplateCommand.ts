@@ -124,4 +124,16 @@ export class UpdateEventBridgeRuleTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventBridgeRuleTemplateCommand)
   .de(de_UpdateEventBridgeRuleTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventBridgeRuleTemplateRequest;
+      output: UpdateEventBridgeRuleTemplateResponse;
+    };
+    sdk: {
+      input: UpdateEventBridgeRuleTemplateCommandInput;
+      output: UpdateEventBridgeRuleTemplateCommandOutput;
+    };
+  };
+}

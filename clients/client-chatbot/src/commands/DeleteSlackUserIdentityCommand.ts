@@ -86,4 +86,16 @@ export class DeleteSlackUserIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSlackUserIdentityCommand)
   .de(de_DeleteSlackUserIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSlackUserIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSlackUserIdentityCommandInput;
+      output: DeleteSlackUserIdentityCommandOutput;
+    };
+  };
+}

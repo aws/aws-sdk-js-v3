@@ -156,4 +156,16 @@ export class UpdateMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMethodCommand)
   .de(de_UpdateMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMethodRequest;
+      output: Method;
+    };
+    sdk: {
+      input: UpdateMethodCommandInput;
+      output: UpdateMethodCommandOutput;
+    };
+  };
+}

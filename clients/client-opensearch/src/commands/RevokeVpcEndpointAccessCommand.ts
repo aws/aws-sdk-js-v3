@@ -92,4 +92,16 @@ export class RevokeVpcEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeVpcEndpointAccessCommand)
   .de(de_RevokeVpcEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeVpcEndpointAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeVpcEndpointAccessCommandInput;
+      output: RevokeVpcEndpointAccessCommandOutput;
+    };
+  };
+}

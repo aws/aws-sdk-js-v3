@@ -95,4 +95,16 @@ export class ListMissionProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMissionProfilesCommand)
   .de(de_ListMissionProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMissionProfilesRequest;
+      output: ListMissionProfilesResponse;
+    };
+    sdk: {
+      input: ListMissionProfilesCommandInput;
+      output: ListMissionProfilesCommandOutput;
+    };
+  };
+}

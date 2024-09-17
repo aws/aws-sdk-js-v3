@@ -139,4 +139,16 @@ export class UpdateSettingsCommand extends $Command
   .f(UpdateSettingsRequestFilterSensitiveLog, UpdateSettingsResponseFilterSensitiveLog)
   .ser(se_UpdateSettingsCommand)
   .de(de_UpdateSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSettingsRequest;
+      output: UpdateSettingsResponse;
+    };
+    sdk: {
+      input: UpdateSettingsCommandInput;
+      output: UpdateSettingsCommandOutput;
+    };
+  };
+}

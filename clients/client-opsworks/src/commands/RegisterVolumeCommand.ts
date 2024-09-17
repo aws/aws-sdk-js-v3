@@ -91,4 +91,16 @@ export class RegisterVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterVolumeCommand)
   .de(de_RegisterVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterVolumeRequest;
+      output: RegisterVolumeResult;
+    };
+    sdk: {
+      input: RegisterVolumeCommandInput;
+      output: RegisterVolumeCommandOutput;
+    };
+  };
+}

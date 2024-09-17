@@ -96,4 +96,16 @@ export class ListPortfoliosForProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPortfoliosForProductCommand)
   .de(de_ListPortfoliosForProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPortfoliosForProductInput;
+      output: ListPortfoliosForProductOutput;
+    };
+    sdk: {
+      input: ListPortfoliosForProductCommandInput;
+      output: ListPortfoliosForProductCommandOutput;
+    };
+  };
+}

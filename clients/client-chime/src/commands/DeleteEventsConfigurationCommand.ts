@@ -94,4 +94,16 @@ export class DeleteEventsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventsConfigurationCommand)
   .de(de_DeleteEventsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventsConfigurationCommandInput;
+      output: DeleteEventsConfigurationCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class ListIdentityPropagationConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentityPropagationConfigsCommand)
   .de(de_ListIdentityPropagationConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentityPropagationConfigsRequest;
+      output: ListIdentityPropagationConfigsResponse;
+    };
+    sdk: {
+      input: ListIdentityPropagationConfigsCommandInput;
+      output: ListIdentityPropagationConfigsCommandOutput;
+    };
+  };
+}

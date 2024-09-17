@@ -246,4 +246,16 @@ export class DescribeAlarmModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlarmModelCommand)
   .de(de_DescribeAlarmModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlarmModelRequest;
+      output: DescribeAlarmModelResponse;
+    };
+    sdk: {
+      input: DescribeAlarmModelCommandInput;
+      output: DescribeAlarmModelCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class TerminateProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateProvisionedProductCommand)
   .de(de_TerminateProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateProvisionedProductInput;
+      output: TerminateProvisionedProductOutput;
+    };
+    sdk: {
+      input: TerminateProvisionedProductCommandInput;
+      output: TerminateProvisionedProductCommandOutput;
+    };
+  };
+}

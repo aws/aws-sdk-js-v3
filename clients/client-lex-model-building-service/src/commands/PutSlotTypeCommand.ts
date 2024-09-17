@@ -196,4 +196,16 @@ export class PutSlotTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSlotTypeCommand)
   .de(de_PutSlotTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSlotTypeRequest;
+      output: PutSlotTypeResponse;
+    };
+    sdk: {
+      input: PutSlotTypeCommandInput;
+      output: PutSlotTypeCommandOutput;
+    };
+  };
+}

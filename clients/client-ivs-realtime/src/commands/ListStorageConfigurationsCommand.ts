@@ -106,4 +106,16 @@ export class ListStorageConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageConfigurationsCommand)
   .de(de_ListStorageConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageConfigurationsRequest;
+      output: ListStorageConfigurationsResponse;
+    };
+    sdk: {
+      input: ListStorageConfigurationsCommandInput;
+      output: ListStorageConfigurationsCommandOutput;
+    };
+  };
+}

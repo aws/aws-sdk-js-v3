@@ -89,4 +89,16 @@ export class DeleteRegistrationCodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRegistrationCodeCommand)
   .de(de_DeleteRegistrationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeleteRegistrationCodeCommandInput;
+      output: DeleteRegistrationCodeCommandOutput;
+    };
+  };
+}

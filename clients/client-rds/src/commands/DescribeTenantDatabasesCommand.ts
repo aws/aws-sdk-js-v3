@@ -122,4 +122,16 @@ export class DescribeTenantDatabasesCommand extends $Command
   .f(void 0, TenantDatabasesMessageFilterSensitiveLog)
   .ser(se_DescribeTenantDatabasesCommand)
   .de(de_DescribeTenantDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTenantDatabasesMessage;
+      output: TenantDatabasesMessage;
+    };
+    sdk: {
+      input: DescribeTenantDatabasesCommandInput;
+      output: DescribeTenantDatabasesCommandOutput;
+    };
+  };
+}

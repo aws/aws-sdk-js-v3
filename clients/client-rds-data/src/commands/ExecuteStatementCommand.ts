@@ -282,4 +282,16 @@ export class ExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteStatementCommand)
   .de(de_ExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteStatementRequest;
+      output: ExecuteStatementResponse;
+    };
+    sdk: {
+      input: ExecuteStatementCommandInput;
+      output: ExecuteStatementCommandOutput;
+    };
+  };
+}

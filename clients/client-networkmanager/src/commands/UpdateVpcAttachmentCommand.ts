@@ -163,4 +163,16 @@ export class UpdateVpcAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVpcAttachmentCommand)
   .de(de_UpdateVpcAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVpcAttachmentRequest;
+      output: UpdateVpcAttachmentResponse;
+    };
+    sdk: {
+      input: UpdateVpcAttachmentCommandInput;
+      output: UpdateVpcAttachmentCommandOutput;
+    };
+  };
+}

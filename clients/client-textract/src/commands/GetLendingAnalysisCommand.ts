@@ -378,4 +378,16 @@ export class GetLendingAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLendingAnalysisCommand)
   .de(de_GetLendingAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLendingAnalysisRequest;
+      output: GetLendingAnalysisResponse;
+    };
+    sdk: {
+      input: GetLendingAnalysisCommandInput;
+      output: GetLendingAnalysisCommandOutput;
+    };
+  };
+}

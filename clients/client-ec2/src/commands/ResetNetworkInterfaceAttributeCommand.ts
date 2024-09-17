@@ -80,4 +80,16 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetNetworkInterfaceAttributeCommand)
   .de(de_ResetNetworkInterfaceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetNetworkInterfaceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetNetworkInterfaceAttributeCommandInput;
+      output: ResetNetworkInterfaceAttributeCommandOutput;
+    };
+  };
+}

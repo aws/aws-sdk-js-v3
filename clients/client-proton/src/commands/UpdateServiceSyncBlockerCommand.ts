@@ -112,4 +112,16 @@ export class UpdateServiceSyncBlockerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceSyncBlockerCommand)
   .de(de_UpdateServiceSyncBlockerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceSyncBlockerInput;
+      output: UpdateServiceSyncBlockerOutput;
+    };
+    sdk: {
+      input: UpdateServiceSyncBlockerCommandInput;
+      output: UpdateServiceSyncBlockerCommandOutput;
+    };
+  };
+}

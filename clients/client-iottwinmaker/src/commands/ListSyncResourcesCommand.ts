@@ -118,4 +118,16 @@ export class ListSyncResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSyncResourcesCommand)
   .de(de_ListSyncResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSyncResourcesRequest;
+      output: ListSyncResourcesResponse;
+    };
+    sdk: {
+      input: ListSyncResourcesCommandInput;
+      output: ListSyncResourcesCommandOutput;
+    };
+  };
+}

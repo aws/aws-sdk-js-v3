@@ -148,4 +148,16 @@ export class CreateMeshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMeshCommand)
   .de(de_CreateMeshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMeshInput;
+      output: CreateMeshOutput;
+    };
+    sdk: {
+      input: CreateMeshCommandInput;
+      output: CreateMeshCommandOutput;
+    };
+  };
+}

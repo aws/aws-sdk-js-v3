@@ -91,4 +91,16 @@ export class GetGroupsForCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupsForCapacityReservationCommand)
   .de(de_GetGroupsForCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupsForCapacityReservationRequest;
+      output: GetGroupsForCapacityReservationResult;
+    };
+    sdk: {
+      input: GetGroupsForCapacityReservationCommandInput;
+      output: GetGroupsForCapacityReservationCommandOutput;
+    };
+  };
+}

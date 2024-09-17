@@ -103,4 +103,16 @@ export class UnsubscribeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnsubscribeCommand)
   .de(de_UnsubscribeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnsubscribeInput;
+      output: {};
+    };
+    sdk: {
+      input: UnsubscribeCommandInput;
+      output: UnsubscribeCommandOutput;
+    };
+  };
+}

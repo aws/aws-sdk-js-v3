@@ -116,4 +116,16 @@ export class CreateServiceSpecificCredentialCommand extends $Command
   .f(void 0, CreateServiceSpecificCredentialResponseFilterSensitiveLog)
   .ser(se_CreateServiceSpecificCredentialCommand)
   .de(de_CreateServiceSpecificCredentialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceSpecificCredentialRequest;
+      output: CreateServiceSpecificCredentialResponse;
+    };
+    sdk: {
+      input: CreateServiceSpecificCredentialCommandInput;
+      output: CreateServiceSpecificCredentialCommandOutput;
+    };
+  };
+}

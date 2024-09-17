@@ -117,4 +117,16 @@ export class GetQueueUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueueUrlCommand)
   .de(de_GetQueueUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueUrlRequest;
+      output: GetQueueUrlResult;
+    };
+    sdk: {
+      input: GetQueueUrlCommandInput;
+      output: GetQueueUrlCommandOutput;
+    };
+  };
+}

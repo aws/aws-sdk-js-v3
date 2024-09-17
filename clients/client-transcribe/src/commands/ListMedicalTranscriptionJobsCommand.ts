@@ -117,4 +117,16 @@ export class ListMedicalTranscriptionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMedicalTranscriptionJobsCommand)
   .de(de_ListMedicalTranscriptionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMedicalTranscriptionJobsRequest;
+      output: ListMedicalTranscriptionJobsResponse;
+    };
+    sdk: {
+      input: ListMedicalTranscriptionJobsCommandInput;
+      output: ListMedicalTranscriptionJobsCommandOutput;
+    };
+  };
+}

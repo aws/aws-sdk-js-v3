@@ -157,4 +157,16 @@ export class UntagResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourcesCommand)
   .de(de_UntagResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourcesInput;
+      output: UntagResourcesOutput;
+    };
+    sdk: {
+      input: UntagResourcesCommandInput;
+      output: UntagResourcesCommandOutput;
+    };
+  };
+}

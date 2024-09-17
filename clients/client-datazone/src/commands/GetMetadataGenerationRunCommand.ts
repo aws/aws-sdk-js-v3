@@ -107,4 +107,16 @@ export class GetMetadataGenerationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetadataGenerationRunCommand)
   .de(de_GetMetadataGenerationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetadataGenerationRunInput;
+      output: GetMetadataGenerationRunOutput;
+    };
+    sdk: {
+      input: GetMetadataGenerationRunCommandInput;
+      output: GetMetadataGenerationRunCommandOutput;
+    };
+  };
+}

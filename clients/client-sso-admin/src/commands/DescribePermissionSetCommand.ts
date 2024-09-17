@@ -102,4 +102,16 @@ export class DescribePermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePermissionSetCommand)
   .de(de_DescribePermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePermissionSetRequest;
+      output: DescribePermissionSetResponse;
+    };
+    sdk: {
+      input: DescribePermissionSetCommandInput;
+      output: DescribePermissionSetCommandOutput;
+    };
+  };
+}

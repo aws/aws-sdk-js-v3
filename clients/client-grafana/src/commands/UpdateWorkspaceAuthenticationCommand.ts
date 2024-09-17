@@ -177,4 +177,16 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command
   .f(UpdateWorkspaceAuthenticationRequestFilterSensitiveLog, UpdateWorkspaceAuthenticationResponseFilterSensitiveLog)
   .ser(se_UpdateWorkspaceAuthenticationCommand)
   .de(de_UpdateWorkspaceAuthenticationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceAuthenticationRequest;
+      output: UpdateWorkspaceAuthenticationResponse;
+    };
+    sdk: {
+      input: UpdateWorkspaceAuthenticationCommandInput;
+      output: UpdateWorkspaceAuthenticationCommandOutput;
+    };
+  };
+}

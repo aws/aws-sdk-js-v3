@@ -86,4 +86,16 @@ export class DeleteRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRulesetCommand)
   .de(de_DeleteRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRulesetRequest;
+      output: DeleteRulesetResponse;
+    };
+    sdk: {
+      input: DeleteRulesetCommandInput;
+      output: DeleteRulesetCommandOutput;
+    };
+  };
+}

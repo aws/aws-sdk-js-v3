@@ -102,4 +102,16 @@ export class StopServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopServerCommand)
   .de(de_StopServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopServerCommandInput;
+      output: StopServerCommandOutput;
+    };
+  };
+}

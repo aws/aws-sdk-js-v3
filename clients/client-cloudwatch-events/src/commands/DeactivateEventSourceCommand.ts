@@ -94,4 +94,16 @@ export class DeactivateEventSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateEventSourceCommand)
   .de(de_DeactivateEventSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateEventSourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateEventSourceCommandInput;
+      output: DeactivateEventSourceCommandOutput;
+    };
+  };
+}

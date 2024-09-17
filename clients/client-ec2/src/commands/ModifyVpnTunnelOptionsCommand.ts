@@ -249,4 +249,16 @@ export class ModifyVpnTunnelOptionsCommand extends $Command
   .f(ModifyVpnTunnelOptionsRequestFilterSensitiveLog, ModifyVpnTunnelOptionsResultFilterSensitiveLog)
   .ser(se_ModifyVpnTunnelOptionsCommand)
   .de(de_ModifyVpnTunnelOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpnTunnelOptionsRequest;
+      output: ModifyVpnTunnelOptionsResult;
+    };
+    sdk: {
+      input: ModifyVpnTunnelOptionsCommandInput;
+      output: ModifyVpnTunnelOptionsCommandOutput;
+    };
+  };
+}

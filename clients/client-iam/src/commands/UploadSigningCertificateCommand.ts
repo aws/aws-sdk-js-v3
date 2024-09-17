@@ -157,4 +157,16 @@ export class UploadSigningCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UploadSigningCertificateCommand)
   .de(de_UploadSigningCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadSigningCertificateRequest;
+      output: UploadSigningCertificateResponse;
+    };
+    sdk: {
+      input: UploadSigningCertificateCommandInput;
+      output: UploadSigningCertificateCommandOutput;
+    };
+  };
+}

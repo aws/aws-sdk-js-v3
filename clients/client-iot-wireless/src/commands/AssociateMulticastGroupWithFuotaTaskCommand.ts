@@ -102,4 +102,16 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateMulticastGroupWithFuotaTaskCommand)
   .de(de_AssociateMulticastGroupWithFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateMulticastGroupWithFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateMulticastGroupWithFuotaTaskCommandInput;
+      output: AssociateMulticastGroupWithFuotaTaskCommandOutput;
+    };
+  };
+}

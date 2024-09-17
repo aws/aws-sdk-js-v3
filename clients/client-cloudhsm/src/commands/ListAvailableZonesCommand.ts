@@ -98,4 +98,16 @@ export class ListAvailableZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableZonesCommand)
   .de(de_ListAvailableZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListAvailableZonesResponse;
+    };
+    sdk: {
+      input: ListAvailableZonesCommandInput;
+      output: ListAvailableZonesCommandOutput;
+    };
+  };
+}

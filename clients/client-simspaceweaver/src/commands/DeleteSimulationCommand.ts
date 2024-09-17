@@ -94,4 +94,16 @@ export class DeleteSimulationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSimulationCommand)
   .de(de_DeleteSimulationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSimulationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSimulationCommandInput;
+      output: DeleteSimulationCommandOutput;
+    };
+  };
+}

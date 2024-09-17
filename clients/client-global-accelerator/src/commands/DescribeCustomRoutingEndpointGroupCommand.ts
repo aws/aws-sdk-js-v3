@@ -115,4 +115,16 @@ export class DescribeCustomRoutingEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomRoutingEndpointGroupCommand)
   .de(de_DescribeCustomRoutingEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomRoutingEndpointGroupRequest;
+      output: DescribeCustomRoutingEndpointGroupResponse;
+    };
+    sdk: {
+      input: DescribeCustomRoutingEndpointGroupCommandInput;
+      output: DescribeCustomRoutingEndpointGroupCommandOutput;
+    };
+  };
+}

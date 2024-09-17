@@ -84,4 +84,16 @@ export class StopTrainingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTrainingJobCommand)
   .de(de_StopTrainingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTrainingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTrainingJobCommandInput;
+      output: StopTrainingJobCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class UpdateVTLDeviceTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVTLDeviceTypeCommand)
   .de(de_UpdateVTLDeviceTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVTLDeviceTypeInput;
+      output: UpdateVTLDeviceTypeOutput;
+    };
+    sdk: {
+      input: UpdateVTLDeviceTypeCommandInput;
+      output: UpdateVTLDeviceTypeCommandOutput;
+    };
+  };
+}

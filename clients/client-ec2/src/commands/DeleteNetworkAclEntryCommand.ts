@@ -91,4 +91,16 @@ export class DeleteNetworkAclEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkAclEntryCommand)
   .de(de_DeleteNetworkAclEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkAclEntryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNetworkAclEntryCommandInput;
+      output: DeleteNetworkAclEntryCommandOutput;
+    };
+  };
+}

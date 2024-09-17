@@ -138,4 +138,16 @@ export class GetBackupSelectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBackupSelectionCommand)
   .de(de_GetBackupSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupSelectionInput;
+      output: GetBackupSelectionOutput;
+    };
+    sdk: {
+      input: GetBackupSelectionCommandInput;
+      output: GetBackupSelectionCommandOutput;
+    };
+  };
+}

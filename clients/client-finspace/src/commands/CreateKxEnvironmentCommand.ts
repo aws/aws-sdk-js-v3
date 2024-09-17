@@ -112,4 +112,16 @@ export class CreateKxEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxEnvironmentCommand)
   .de(de_CreateKxEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxEnvironmentRequest;
+      output: CreateKxEnvironmentResponse;
+    };
+    sdk: {
+      input: CreateKxEnvironmentCommandInput;
+      output: CreateKxEnvironmentCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class DeleteVerifiedDestinationNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedDestinationNumberCommand)
   .de(de_DeleteVerifiedDestinationNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedDestinationNumberRequest;
+      output: DeleteVerifiedDestinationNumberResult;
+    };
+    sdk: {
+      input: DeleteVerifiedDestinationNumberCommandInput;
+      output: DeleteVerifiedDestinationNumberCommandOutput;
+    };
+  };
+}

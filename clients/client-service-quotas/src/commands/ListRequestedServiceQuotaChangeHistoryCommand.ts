@@ -133,4 +133,16 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRequestedServiceQuotaChangeHistoryCommand)
   .de(de_ListRequestedServiceQuotaChangeHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRequestedServiceQuotaChangeHistoryRequest;
+      output: ListRequestedServiceQuotaChangeHistoryResponse;
+    };
+    sdk: {
+      input: ListRequestedServiceQuotaChangeHistoryCommandInput;
+      output: ListRequestedServiceQuotaChangeHistoryCommandOutput;
+    };
+  };
+}

@@ -181,4 +181,16 @@ export class CreateSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSignalCatalogCommand)
   .de(de_CreateSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSignalCatalogRequest;
+      output: CreateSignalCatalogResponse;
+    };
+    sdk: {
+      input: CreateSignalCatalogCommandInput;
+      output: CreateSignalCatalogCommandOutput;
+    };
+  };
+}

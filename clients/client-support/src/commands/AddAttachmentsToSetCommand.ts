@@ -119,4 +119,16 @@ export class AddAttachmentsToSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddAttachmentsToSetCommand)
   .de(de_AddAttachmentsToSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddAttachmentsToSetRequest;
+      output: AddAttachmentsToSetResponse;
+    };
+    sdk: {
+      input: AddAttachmentsToSetCommandInput;
+      output: AddAttachmentsToSetCommandOutput;
+    };
+  };
+}

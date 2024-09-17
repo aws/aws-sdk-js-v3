@@ -100,4 +100,16 @@ export class GetModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelsCommand)
   .de(de_GetModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelsRequest;
+      output: Models;
+    };
+    sdk: {
+      input: GetModelsCommandInput;
+      output: GetModelsCommandOutput;
+    };
+  };
+}

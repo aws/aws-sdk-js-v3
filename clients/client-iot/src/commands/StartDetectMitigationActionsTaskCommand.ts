@@ -119,4 +119,16 @@ export class StartDetectMitigationActionsTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDetectMitigationActionsTaskCommand)
   .de(de_StartDetectMitigationActionsTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDetectMitigationActionsTaskRequest;
+      output: StartDetectMitigationActionsTaskResponse;
+    };
+    sdk: {
+      input: StartDetectMitigationActionsTaskCommandInput;
+      output: StartDetectMitigationActionsTaskCommandOutput;
+    };
+  };
+}

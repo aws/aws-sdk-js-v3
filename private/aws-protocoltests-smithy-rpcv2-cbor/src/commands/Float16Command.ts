@@ -69,4 +69,16 @@ export class Float16Command extends $Command
   .f(void 0, void 0)
   .ser(se_Float16Command)
   .de(de_Float16Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: Float16Output;
+    };
+    sdk: {
+      input: Float16CommandInput;
+      output: Float16CommandOutput;
+    };
+  };
+}

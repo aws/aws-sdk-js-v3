@@ -181,4 +181,16 @@ export class UploadServerCertificateCommand extends $Command
   .f(UploadServerCertificateRequestFilterSensitiveLog, void 0)
   .ser(se_UploadServerCertificateCommand)
   .de(de_UploadServerCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadServerCertificateRequest;
+      output: UploadServerCertificateResponse;
+    };
+    sdk: {
+      input: UploadServerCertificateCommandInput;
+      output: UploadServerCertificateCommandOutput;
+    };
+  };
+}

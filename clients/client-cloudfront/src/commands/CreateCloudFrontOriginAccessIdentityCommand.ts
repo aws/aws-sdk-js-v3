@@ -123,4 +123,16 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudFrontOriginAccessIdentityCommand)
   .de(de_CreateCloudFrontOriginAccessIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudFrontOriginAccessIdentityRequest;
+      output: CreateCloudFrontOriginAccessIdentityResult;
+    };
+    sdk: {
+      input: CreateCloudFrontOriginAccessIdentityCommandInput;
+      output: CreateCloudFrontOriginAccessIdentityCommandOutput;
+    };
+  };
+}

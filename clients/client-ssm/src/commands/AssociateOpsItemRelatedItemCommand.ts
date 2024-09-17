@@ -103,4 +103,16 @@ export class AssociateOpsItemRelatedItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateOpsItemRelatedItemCommand)
   .de(de_AssociateOpsItemRelatedItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateOpsItemRelatedItemRequest;
+      output: AssociateOpsItemRelatedItemResponse;
+    };
+    sdk: {
+      input: AssociateOpsItemRelatedItemCommandInput;
+      output: AssociateOpsItemRelatedItemCommandOutput;
+    };
+  };
+}

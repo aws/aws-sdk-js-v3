@@ -118,4 +118,16 @@ export class GetLogDeliveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLogDeliveryConfigurationCommand)
   .de(de_GetLogDeliveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLogDeliveryConfigurationRequest;
+      output: GetLogDeliveryConfigurationResponse;
+    };
+    sdk: {
+      input: GetLogDeliveryConfigurationCommandInput;
+      output: GetLogDeliveryConfigurationCommandOutput;
+    };
+  };
+}

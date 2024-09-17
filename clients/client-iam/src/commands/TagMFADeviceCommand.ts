@@ -137,4 +137,16 @@ export class TagMFADeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagMFADeviceCommand)
   .de(de_TagMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagMFADeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagMFADeviceCommandInput;
+      output: TagMFADeviceCommandOutput;
+    };
+  };
+}

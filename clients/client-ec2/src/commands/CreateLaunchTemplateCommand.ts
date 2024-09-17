@@ -421,4 +421,16 @@ export class CreateLaunchTemplateCommand extends $Command
   .f(CreateLaunchTemplateRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLaunchTemplateCommand)
   .de(de_CreateLaunchTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchTemplateRequest;
+      output: CreateLaunchTemplateResult;
+    };
+    sdk: {
+      input: CreateLaunchTemplateCommandInput;
+      output: CreateLaunchTemplateCommandOutput;
+    };
+  };
+}

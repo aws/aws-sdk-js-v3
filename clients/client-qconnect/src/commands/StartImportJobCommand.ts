@@ -146,4 +146,16 @@ export class StartImportJobCommand extends $Command
   .f(void 0, StartImportJobResponseFilterSensitiveLog)
   .ser(se_StartImportJobCommand)
   .de(de_StartImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportJobRequest;
+      output: StartImportJobResponse;
+    };
+    sdk: {
+      input: StartImportJobCommandInput;
+      output: StartImportJobCommandOutput;
+    };
+  };
+}

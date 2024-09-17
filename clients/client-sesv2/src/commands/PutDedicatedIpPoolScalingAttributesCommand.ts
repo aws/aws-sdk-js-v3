@@ -112,4 +112,16 @@ export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDedicatedIpPoolScalingAttributesCommand)
   .de(de_PutDedicatedIpPoolScalingAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDedicatedIpPoolScalingAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDedicatedIpPoolScalingAttributesCommandInput;
+      output: PutDedicatedIpPoolScalingAttributesCommandOutput;
+    };
+  };
+}

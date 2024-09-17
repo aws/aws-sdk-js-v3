@@ -96,4 +96,16 @@ export class GetCredentialReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCredentialReportCommand)
   .de(de_GetCredentialReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetCredentialReportResponse;
+    };
+    sdk: {
+      input: GetCredentialReportCommandInput;
+      output: GetCredentialReportCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class UpdateConfiguredTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfiguredTableCommand)
   .de(de_UpdateConfiguredTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfiguredTableInput;
+      output: UpdateConfiguredTableOutput;
+    };
+    sdk: {
+      input: UpdateConfiguredTableCommandInput;
+      output: UpdateConfiguredTableCommandOutput;
+    };
+  };
+}

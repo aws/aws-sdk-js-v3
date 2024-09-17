@@ -92,4 +92,16 @@ export class AbortEnvironmentUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AbortEnvironmentUpdateCommand)
   .de(de_AbortEnvironmentUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortEnvironmentUpdateMessage;
+      output: {};
+    };
+    sdk: {
+      input: AbortEnvironmentUpdateCommandInput;
+      output: AbortEnvironmentUpdateCommandOutput;
+    };
+  };
+}

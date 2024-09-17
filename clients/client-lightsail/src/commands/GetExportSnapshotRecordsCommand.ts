@@ -151,4 +151,16 @@ export class GetExportSnapshotRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExportSnapshotRecordsCommand)
   .de(de_GetExportSnapshotRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExportSnapshotRecordsRequest;
+      output: GetExportSnapshotRecordsResult;
+    };
+    sdk: {
+      input: GetExportSnapshotRecordsCommandInput;
+      output: GetExportSnapshotRecordsCommandOutput;
+    };
+  };
+}

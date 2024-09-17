@@ -99,4 +99,16 @@ export class ListCostAllocationTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCostAllocationTagsCommand)
   .de(de_ListCostAllocationTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCostAllocationTagsRequest;
+      output: ListCostAllocationTagsResponse;
+    };
+    sdk: {
+      input: ListCostAllocationTagsCommandInput;
+      output: ListCostAllocationTagsCommandOutput;
+    };
+  };
+}

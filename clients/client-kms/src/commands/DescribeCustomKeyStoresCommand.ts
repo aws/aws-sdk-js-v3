@@ -278,4 +278,16 @@ export class DescribeCustomKeyStoresCommand extends $Command
   .f(void 0, DescribeCustomKeyStoresResponseFilterSensitiveLog)
   .ser(se_DescribeCustomKeyStoresCommand)
   .de(de_DescribeCustomKeyStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomKeyStoresRequest;
+      output: DescribeCustomKeyStoresResponse;
+    };
+    sdk: {
+      input: DescribeCustomKeyStoresCommandInput;
+      output: DescribeCustomKeyStoresCommandOutput;
+    };
+  };
+}

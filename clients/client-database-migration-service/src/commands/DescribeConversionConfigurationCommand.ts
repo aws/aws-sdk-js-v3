@@ -107,4 +107,16 @@ export class DescribeConversionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConversionConfigurationCommand)
   .de(de_DescribeConversionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConversionConfigurationMessage;
+      output: DescribeConversionConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeConversionConfigurationCommandInput;
+      output: DescribeConversionConfigurationCommandOutput;
+    };
+  };
+}

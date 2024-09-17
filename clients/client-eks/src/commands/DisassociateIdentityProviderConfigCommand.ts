@@ -137,4 +137,16 @@ export class DisassociateIdentityProviderConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateIdentityProviderConfigCommand)
   .de(de_DisassociateIdentityProviderConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateIdentityProviderConfigRequest;
+      output: DisassociateIdentityProviderConfigResponse;
+    };
+    sdk: {
+      input: DisassociateIdentityProviderConfigCommandInput;
+      output: DisassociateIdentityProviderConfigCommandOutput;
+    };
+  };
+}

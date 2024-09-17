@@ -103,4 +103,16 @@ export class UnarchiveApplicationCommand extends $Command
   .f(void 0, ApplicationFilterSensitiveLog)
   .ser(se_UnarchiveApplicationCommand)
   .de(de_UnarchiveApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnarchiveApplicationRequest;
+      output: Application;
+    };
+    sdk: {
+      input: UnarchiveApplicationCommandInput;
+      output: UnarchiveApplicationCommandOutput;
+    };
+  };
+}

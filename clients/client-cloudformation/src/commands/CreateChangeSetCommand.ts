@@ -153,4 +153,16 @@ export class CreateChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChangeSetCommand)
   .de(de_CreateChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChangeSetInput;
+      output: CreateChangeSetOutput;
+    };
+    sdk: {
+      input: CreateChangeSetCommandInput;
+      output: CreateChangeSetCommandOutput;
+    };
+  };
+}

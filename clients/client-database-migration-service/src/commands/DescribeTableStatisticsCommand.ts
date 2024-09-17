@@ -149,4 +149,16 @@ export class DescribeTableStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTableStatisticsCommand)
   .de(de_DescribeTableStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTableStatisticsMessage;
+      output: DescribeTableStatisticsResponse;
+    };
+    sdk: {
+      input: DescribeTableStatisticsCommandInput;
+      output: DescribeTableStatisticsCommandOutput;
+    };
+  };
+}

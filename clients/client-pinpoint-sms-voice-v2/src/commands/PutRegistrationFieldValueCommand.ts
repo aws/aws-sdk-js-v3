@@ -119,4 +119,16 @@ export class PutRegistrationFieldValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRegistrationFieldValueCommand)
   .de(de_PutRegistrationFieldValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRegistrationFieldValueRequest;
+      output: PutRegistrationFieldValueResult;
+    };
+    sdk: {
+      input: PutRegistrationFieldValueCommandInput;
+      output: PutRegistrationFieldValueCommandOutput;
+    };
+  };
+}

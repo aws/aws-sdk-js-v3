@@ -122,4 +122,16 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEffectiveInstanceAssociationsCommand)
   .de(de_DescribeEffectiveInstanceAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEffectiveInstanceAssociationsRequest;
+      output: DescribeEffectiveInstanceAssociationsResult;
+    };
+    sdk: {
+      input: DescribeEffectiveInstanceAssociationsCommandInput;
+      output: DescribeEffectiveInstanceAssociationsCommandOutput;
+    };
+  };
+}

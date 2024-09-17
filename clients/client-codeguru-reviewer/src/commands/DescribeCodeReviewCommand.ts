@@ -147,4 +147,16 @@ export class DescribeCodeReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCodeReviewCommand)
   .de(de_DescribeCodeReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCodeReviewRequest;
+      output: DescribeCodeReviewResponse;
+    };
+    sdk: {
+      input: DescribeCodeReviewCommandInput;
+      output: DescribeCodeReviewCommandOutput;
+    };
+  };
+}

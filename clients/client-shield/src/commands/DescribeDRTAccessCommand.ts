@@ -84,4 +84,16 @@ export class DescribeDRTAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDRTAccessCommand)
   .de(de_DescribeDRTAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeDRTAccessResponse;
+    };
+    sdk: {
+      input: DescribeDRTAccessCommandInput;
+      output: DescribeDRTAccessCommandOutput;
+    };
+  };
+}

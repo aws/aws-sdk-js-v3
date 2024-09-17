@@ -129,4 +129,16 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyPhrasesDetectionJobCommand)
   .de(de_DescribeKeyPhrasesDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyPhrasesDetectionJobRequest;
+      output: DescribeKeyPhrasesDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribeKeyPhrasesDetectionJobCommandInput;
+      output: DescribeKeyPhrasesDetectionJobCommandOutput;
+    };
+  };
+}

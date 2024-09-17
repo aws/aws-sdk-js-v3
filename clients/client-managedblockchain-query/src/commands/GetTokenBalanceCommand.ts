@@ -130,4 +130,16 @@ export class GetTokenBalanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTokenBalanceCommand)
   .de(de_GetTokenBalanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTokenBalanceInput;
+      output: GetTokenBalanceOutput;
+    };
+    sdk: {
+      input: GetTokenBalanceCommandInput;
+      output: GetTokenBalanceCommandOutput;
+    };
+  };
+}

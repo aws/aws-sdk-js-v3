@@ -92,4 +92,16 @@ export class GetCampaignStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignStateCommand)
   .de(de_GetCampaignStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignStateRequest;
+      output: GetCampaignStateResponse;
+    };
+    sdk: {
+      input: GetCampaignStateCommandInput;
+      output: GetCampaignStateCommandOutput;
+    };
+  };
+}

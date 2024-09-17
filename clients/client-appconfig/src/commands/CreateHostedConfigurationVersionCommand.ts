@@ -172,4 +172,16 @@ export class CreateHostedConfigurationVersionCommand extends $Command
   .f(CreateHostedConfigurationVersionRequestFilterSensitiveLog, HostedConfigurationVersionFilterSensitiveLog)
   .ser(se_CreateHostedConfigurationVersionCommand)
   .de(de_CreateHostedConfigurationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHostedConfigurationVersionRequest;
+      output: HostedConfigurationVersion;
+    };
+    sdk: {
+      input: CreateHostedConfigurationVersionCommandInput;
+      output: CreateHostedConfigurationVersionCommandOutput;
+    };
+  };
+}

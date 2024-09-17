@@ -104,4 +104,16 @@ export class DetectSentimentCommand extends $Command
   .f(DetectSentimentRequestFilterSensitiveLog, DetectSentimentResponseFilterSensitiveLog)
   .ser(se_DetectSentimentCommand)
   .de(de_DetectSentimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectSentimentRequest;
+      output: DetectSentimentResponse;
+    };
+    sdk: {
+      input: DetectSentimentCommandInput;
+      output: DetectSentimentCommandOutput;
+    };
+  };
+}

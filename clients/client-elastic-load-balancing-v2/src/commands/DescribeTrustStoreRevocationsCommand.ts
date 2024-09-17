@@ -106,4 +106,16 @@ export class DescribeTrustStoreRevocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustStoreRevocationsCommand)
   .de(de_DescribeTrustStoreRevocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustStoreRevocationsInput;
+      output: DescribeTrustStoreRevocationsOutput;
+    };
+    sdk: {
+      input: DescribeTrustStoreRevocationsCommandInput;
+      output: DescribeTrustStoreRevocationsCommandOutput;
+    };
+  };
+}

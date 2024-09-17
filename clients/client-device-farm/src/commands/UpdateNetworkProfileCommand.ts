@@ -113,4 +113,16 @@ export class UpdateNetworkProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNetworkProfileCommand)
   .de(de_UpdateNetworkProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNetworkProfileRequest;
+      output: UpdateNetworkProfileResult;
+    };
+    sdk: {
+      input: UpdateNetworkProfileCommandInput;
+      output: UpdateNetworkProfileCommandOutput;
+    };
+  };
+}

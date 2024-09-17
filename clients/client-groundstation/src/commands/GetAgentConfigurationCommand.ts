@@ -90,4 +90,16 @@ export class GetAgentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgentConfigurationCommand)
   .de(de_GetAgentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentConfigurationRequest;
+      output: GetAgentConfigurationResponse;
+    };
+    sdk: {
+      input: GetAgentConfigurationCommandInput;
+      output: GetAgentConfigurationCommandOutput;
+    };
+  };
+}

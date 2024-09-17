@@ -141,4 +141,16 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command
   .f(void 0, DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog)
   .ser(se_DescribeReplicationConfigurationTemplatesCommand)
   .de(de_DescribeReplicationConfigurationTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationConfigurationTemplatesRequest;
+      output: DescribeReplicationConfigurationTemplatesResponse;
+    };
+    sdk: {
+      input: DescribeReplicationConfigurationTemplatesCommandInput;
+      output: DescribeReplicationConfigurationTemplatesCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class UpdatePluginCommand extends $Command
   .f(UpdatePluginRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePluginCommand)
   .de(de_UpdatePluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePluginRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePluginCommandInput;
+      output: UpdatePluginCommandOutput;
+    };
+  };
+}

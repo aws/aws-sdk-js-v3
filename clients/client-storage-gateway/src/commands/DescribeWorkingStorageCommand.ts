@@ -120,4 +120,16 @@ export class DescribeWorkingStorageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkingStorageCommand)
   .de(de_DescribeWorkingStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkingStorageInput;
+      output: DescribeWorkingStorageOutput;
+    };
+    sdk: {
+      input: DescribeWorkingStorageCommandInput;
+      output: DescribeWorkingStorageCommandOutput;
+    };
+  };
+}

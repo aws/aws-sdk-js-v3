@@ -99,4 +99,16 @@ export class DescribeBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBillingGroupCommand)
   .de(de_DescribeBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBillingGroupRequest;
+      output: DescribeBillingGroupResponse;
+    };
+    sdk: {
+      input: DescribeBillingGroupCommandInput;
+      output: DescribeBillingGroupCommandOutput;
+    };
+  };
+}

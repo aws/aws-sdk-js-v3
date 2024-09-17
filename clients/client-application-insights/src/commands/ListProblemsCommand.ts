@@ -120,4 +120,16 @@ export class ListProblemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProblemsCommand)
   .de(de_ListProblemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProblemsRequest;
+      output: ListProblemsResponse;
+    };
+    sdk: {
+      input: ListProblemsCommandInput;
+      output: ListProblemsCommandOutput;
+    };
+  };
+}

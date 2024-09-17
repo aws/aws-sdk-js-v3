@@ -206,4 +206,16 @@ export class RespondDecisionTaskCompletedCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RespondDecisionTaskCompletedCommand)
   .de(de_RespondDecisionTaskCompletedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RespondDecisionTaskCompletedInput;
+      output: {};
+    };
+    sdk: {
+      input: RespondDecisionTaskCompletedCommandInput;
+      output: RespondDecisionTaskCompletedCommandOutput;
+    };
+  };
+}

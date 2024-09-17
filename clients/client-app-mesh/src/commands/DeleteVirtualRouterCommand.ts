@@ -131,4 +131,16 @@ export class DeleteVirtualRouterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVirtualRouterCommand)
   .de(de_DeleteVirtualRouterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVirtualRouterInput;
+      output: DeleteVirtualRouterOutput;
+    };
+    sdk: {
+      input: DeleteVirtualRouterCommandInput;
+      output: DeleteVirtualRouterCommandOutput;
+    };
+  };
+}

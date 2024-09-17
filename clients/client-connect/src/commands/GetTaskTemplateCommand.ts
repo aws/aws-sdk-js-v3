@@ -151,4 +151,16 @@ export class GetTaskTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTaskTemplateCommand)
   .de(de_GetTaskTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaskTemplateRequest;
+      output: GetTaskTemplateResponse;
+    };
+    sdk: {
+      input: GetTaskTemplateCommandInput;
+      output: GetTaskTemplateCommandOutput;
+    };
+  };
+}

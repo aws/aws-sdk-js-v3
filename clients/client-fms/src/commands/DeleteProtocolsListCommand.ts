@@ -89,4 +89,16 @@ export class DeleteProtocolsListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProtocolsListCommand)
   .de(de_DeleteProtocolsListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProtocolsListRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProtocolsListCommandInput;
+      output: DeleteProtocolsListCommandOutput;
+    };
+  };
+}

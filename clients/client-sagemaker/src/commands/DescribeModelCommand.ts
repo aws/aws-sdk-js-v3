@@ -193,4 +193,16 @@ export class DescribeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeModelCommand)
   .de(de_DescribeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelInput;
+      output: DescribeModelOutput;
+    };
+    sdk: {
+      input: DescribeModelCommandInput;
+      output: DescribeModelCommandOutput;
+    };
+  };
+}

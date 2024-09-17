@@ -82,4 +82,16 @@ export class DetachVpnGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachVpnGatewayCommand)
   .de(de_DetachVpnGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachVpnGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachVpnGatewayCommandInput;
+      output: DetachVpnGatewayCommandOutput;
+    };
+  };
+}

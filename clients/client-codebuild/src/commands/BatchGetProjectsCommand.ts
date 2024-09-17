@@ -281,4 +281,16 @@ export class BatchGetProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetProjectsCommand)
   .de(de_BatchGetProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetProjectsInput;
+      output: BatchGetProjectsOutput;
+    };
+    sdk: {
+      input: BatchGetProjectsCommandInput;
+      output: BatchGetProjectsCommandOutput;
+    };
+  };
+}

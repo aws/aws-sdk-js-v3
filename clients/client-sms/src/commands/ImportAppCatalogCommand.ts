@@ -91,4 +91,16 @@ export class ImportAppCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportAppCatalogCommand)
   .de(de_ImportAppCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportAppCatalogRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportAppCatalogCommandInput;
+      output: ImportAppCatalogCommandOutput;
+    };
+  };
+}

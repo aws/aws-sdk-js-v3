@@ -112,4 +112,16 @@ export class CreateLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationCommand)
   .de(de_CreateLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationInput;
+      output: CreateLocationOutput;
+    };
+    sdk: {
+      input: CreateLocationCommandInput;
+      output: CreateLocationCommandOutput;
+    };
+  };
+}

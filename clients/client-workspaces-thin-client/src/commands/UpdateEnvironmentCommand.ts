@@ -146,4 +146,16 @@ export class UpdateEnvironmentCommand extends $Command
   .f(UpdateEnvironmentRequestFilterSensitiveLog, UpdateEnvironmentResponseFilterSensitiveLog)
   .ser(se_UpdateEnvironmentCommand)
   .de(de_UpdateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentRequest;
+      output: UpdateEnvironmentResponse;
+    };
+    sdk: {
+      input: UpdateEnvironmentCommandInput;
+      output: UpdateEnvironmentCommandOutput;
+    };
+  };
+}

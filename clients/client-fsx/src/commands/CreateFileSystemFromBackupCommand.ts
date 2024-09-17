@@ -886,4 +886,16 @@ export class CreateFileSystemFromBackupCommand extends $Command
   .f(CreateFileSystemFromBackupRequestFilterSensitiveLog, CreateFileSystemFromBackupResponseFilterSensitiveLog)
   .ser(se_CreateFileSystemFromBackupCommand)
   .de(de_CreateFileSystemFromBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileSystemFromBackupRequest;
+      output: CreateFileSystemFromBackupResponse;
+    };
+    sdk: {
+      input: CreateFileSystemFromBackupCommandInput;
+      output: CreateFileSystemFromBackupCommandOutput;
+    };
+  };
+}

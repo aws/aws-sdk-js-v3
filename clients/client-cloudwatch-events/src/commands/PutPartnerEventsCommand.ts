@@ -101,4 +101,16 @@ export class PutPartnerEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPartnerEventsCommand)
   .de(de_PutPartnerEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPartnerEventsRequest;
+      output: PutPartnerEventsResponse;
+    };
+    sdk: {
+      input: PutPartnerEventsCommandInput;
+      output: PutPartnerEventsCommandOutput;
+    };
+  };
+}

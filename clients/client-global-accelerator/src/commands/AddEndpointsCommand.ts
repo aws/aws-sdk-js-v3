@@ -135,4 +135,16 @@ export class AddEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddEndpointsCommand)
   .de(de_AddEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddEndpointsRequest;
+      output: AddEndpointsResponse;
+    };
+    sdk: {
+      input: AddEndpointsCommandInput;
+      output: AddEndpointsCommandOutput;
+    };
+  };
+}

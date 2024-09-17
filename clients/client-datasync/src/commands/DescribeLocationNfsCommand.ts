@@ -95,4 +95,16 @@ export class DescribeLocationNfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationNfsCommand)
   .de(de_DescribeLocationNfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationNfsRequest;
+      output: DescribeLocationNfsResponse;
+    };
+    sdk: {
+      input: DescribeLocationNfsCommandInput;
+      output: DescribeLocationNfsCommandOutput;
+    };
+  };
+}

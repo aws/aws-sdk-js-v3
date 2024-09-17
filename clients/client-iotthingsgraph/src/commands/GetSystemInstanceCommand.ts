@@ -120,4 +120,16 @@ export class GetSystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSystemInstanceCommand)
   .de(de_GetSystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSystemInstanceRequest;
+      output: GetSystemInstanceResponse;
+    };
+    sdk: {
+      input: GetSystemInstanceCommandInput;
+      output: GetSystemInstanceCommandOutput;
+    };
+  };
+}

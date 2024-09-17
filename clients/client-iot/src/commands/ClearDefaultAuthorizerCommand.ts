@@ -92,4 +92,16 @@ export class ClearDefaultAuthorizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ClearDefaultAuthorizerCommand)
   .de(de_ClearDefaultAuthorizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: ClearDefaultAuthorizerCommandInput;
+      output: ClearDefaultAuthorizerCommandOutput;
+    };
+  };
+}

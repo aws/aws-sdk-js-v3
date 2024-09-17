@@ -102,4 +102,16 @@ export class StopInferenceExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopInferenceExperimentCommand)
   .de(de_StopInferenceExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopInferenceExperimentRequest;
+      output: StopInferenceExperimentResponse;
+    };
+    sdk: {
+      input: StopInferenceExperimentCommandInput;
+      output: StopInferenceExperimentCommandOutput;
+    };
+  };
+}

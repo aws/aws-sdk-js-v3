@@ -91,4 +91,16 @@ export class UpdateEventIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventIntegrationCommand)
   .de(de_UpdateEventIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventIntegrationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEventIntegrationCommandInput;
+      output: UpdateEventIntegrationCommandOutput;
+    };
+  };
+}

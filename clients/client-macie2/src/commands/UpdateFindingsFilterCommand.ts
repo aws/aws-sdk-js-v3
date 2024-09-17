@@ -123,4 +123,16 @@ export class UpdateFindingsFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFindingsFilterCommand)
   .de(de_UpdateFindingsFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFindingsFilterRequest;
+      output: UpdateFindingsFilterResponse;
+    };
+    sdk: {
+      input: UpdateFindingsFilterCommandInput;
+      output: UpdateFindingsFilterCommandOutput;
+    };
+  };
+}

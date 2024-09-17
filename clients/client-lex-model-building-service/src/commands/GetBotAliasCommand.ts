@@ -118,4 +118,16 @@ export class GetBotAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBotAliasCommand)
   .de(de_GetBotAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotAliasRequest;
+      output: GetBotAliasResponse;
+    };
+    sdk: {
+      input: GetBotAliasCommandInput;
+      output: GetBotAliasCommandOutput;
+    };
+  };
+}

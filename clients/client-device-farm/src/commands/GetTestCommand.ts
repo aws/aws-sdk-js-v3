@@ -129,4 +129,16 @@ export class GetTestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTestCommand)
   .de(de_GetTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTestRequest;
+      output: GetTestResult;
+    };
+    sdk: {
+      input: GetTestCommandInput;
+      output: GetTestCommandOutput;
+    };
+  };
+}

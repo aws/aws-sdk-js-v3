@@ -103,4 +103,16 @@ export class SendTaskSuccessCommand extends $Command
   .f(SendTaskSuccessInputFilterSensitiveLog, void 0)
   .ser(se_SendTaskSuccessCommand)
   .de(de_SendTaskSuccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTaskSuccessInput;
+      output: {};
+    };
+    sdk: {
+      input: SendTaskSuccessCommandInput;
+      output: SendTaskSuccessCommandOutput;
+    };
+  };
+}

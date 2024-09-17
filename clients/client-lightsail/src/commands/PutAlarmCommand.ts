@@ -145,4 +145,16 @@ export class PutAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAlarmCommand)
   .de(de_PutAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAlarmRequest;
+      output: PutAlarmResult;
+    };
+    sdk: {
+      input: PutAlarmCommandInput;
+      output: PutAlarmCommandOutput;
+    };
+  };
+}

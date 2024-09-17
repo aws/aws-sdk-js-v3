@@ -301,4 +301,16 @@ export class PutBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBotCommand)
   .de(de_PutBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBotRequest;
+      output: PutBotResponse;
+    };
+    sdk: {
+      input: PutBotCommandInput;
+      output: PutBotCommandOutput;
+    };
+  };
+}

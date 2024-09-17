@@ -117,4 +117,16 @@ export class CancelMLDataProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelMLDataProcessingJobCommand)
   .de(de_CancelMLDataProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelMLDataProcessingJobInput;
+      output: CancelMLDataProcessingJobOutput;
+    };
+    sdk: {
+      input: CancelMLDataProcessingJobCommandInput;
+      output: CancelMLDataProcessingJobCommandOutput;
+    };
+  };
+}

@@ -79,4 +79,16 @@ export class UpdateCoreDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCoreDefinitionCommand)
   .de(de_UpdateCoreDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCoreDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCoreDefinitionCommandInput;
+      output: UpdateCoreDefinitionCommandOutput;
+    };
+  };
+}

@@ -556,4 +556,16 @@ export class CreateGovCloudAccountCommand extends $Command
   .f(CreateGovCloudAccountRequestFilterSensitiveLog, CreateGovCloudAccountResponseFilterSensitiveLog)
   .ser(se_CreateGovCloudAccountCommand)
   .de(de_CreateGovCloudAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGovCloudAccountRequest;
+      output: CreateGovCloudAccountResponse;
+    };
+    sdk: {
+      input: CreateGovCloudAccountCommandInput;
+      output: CreateGovCloudAccountCommandOutput;
+    };
+  };
+}

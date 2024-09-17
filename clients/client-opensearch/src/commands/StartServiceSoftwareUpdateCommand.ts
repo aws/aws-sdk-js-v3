@@ -102,4 +102,16 @@ export class StartServiceSoftwareUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartServiceSoftwareUpdateCommand)
   .de(de_StartServiceSoftwareUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartServiceSoftwareUpdateRequest;
+      output: StartServiceSoftwareUpdateResponse;
+    };
+    sdk: {
+      input: StartServiceSoftwareUpdateCommandInput;
+      output: StartServiceSoftwareUpdateCommandOutput;
+    };
+  };
+}

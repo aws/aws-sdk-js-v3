@@ -151,4 +151,16 @@ export class ListCustomLineItemsCommand extends $Command
   .f(ListCustomLineItemsInputFilterSensitiveLog, ListCustomLineItemsOutputFilterSensitiveLog)
   .ser(se_ListCustomLineItemsCommand)
   .de(de_ListCustomLineItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomLineItemsInput;
+      output: ListCustomLineItemsOutput;
+    };
+    sdk: {
+      input: ListCustomLineItemsCommandInput;
+      output: ListCustomLineItemsCommandOutput;
+    };
+  };
+}

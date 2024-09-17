@@ -115,4 +115,16 @@ export class ImportDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDatasetCommand)
   .de(de_ImportDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDatasetRequest;
+      output: ImportDatasetResponse;
+    };
+    sdk: {
+      input: ImportDatasetCommandInput;
+      output: ImportDatasetCommandOutput;
+    };
+  };
+}

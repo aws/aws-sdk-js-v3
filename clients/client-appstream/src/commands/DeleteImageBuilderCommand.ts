@@ -133,4 +133,16 @@ export class DeleteImageBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageBuilderCommand)
   .de(de_DeleteImageBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageBuilderRequest;
+      output: DeleteImageBuilderResult;
+    };
+    sdk: {
+      input: DeleteImageBuilderCommandInput;
+      output: DeleteImageBuilderCommandOutput;
+    };
+  };
+}

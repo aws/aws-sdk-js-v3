@@ -95,4 +95,16 @@ export class NotifyWhenUploadedCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyWhenUploadedCommand)
   .de(de_NotifyWhenUploadedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyWhenUploadedInput;
+      output: NotifyWhenUploadedOutput;
+    };
+    sdk: {
+      input: NotifyWhenUploadedCommandInput;
+      output: NotifyWhenUploadedCommandOutput;
+    };
+  };
+}

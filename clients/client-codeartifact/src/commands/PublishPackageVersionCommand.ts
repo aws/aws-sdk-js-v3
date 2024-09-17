@@ -148,4 +148,16 @@ export class PublishPackageVersionCommand extends $Command
   .f(PublishPackageVersionRequestFilterSensitiveLog, void 0)
   .ser(se_PublishPackageVersionCommand)
   .de(de_PublishPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishPackageVersionRequest;
+      output: PublishPackageVersionResult;
+    };
+    sdk: {
+      input: PublishPackageVersionCommandInput;
+      output: PublishPackageVersionCommandOutput;
+    };
+  };
+}

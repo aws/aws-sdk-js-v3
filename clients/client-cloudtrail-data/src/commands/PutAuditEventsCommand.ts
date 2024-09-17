@@ -120,4 +120,16 @@ export class PutAuditEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAuditEventsCommand)
   .de(de_PutAuditEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAuditEventsRequest;
+      output: PutAuditEventsResponse;
+    };
+    sdk: {
+      input: PutAuditEventsCommandInput;
+      output: PutAuditEventsCommandOutput;
+    };
+  };
+}

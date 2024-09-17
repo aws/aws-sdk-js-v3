@@ -124,4 +124,16 @@ export class GetLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLinksCommand)
   .de(de_GetLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLinksRequest;
+      output: GetLinksResponse;
+    };
+    sdk: {
+      input: GetLinksCommandInput;
+      output: GetLinksCommandOutput;
+    };
+  };
+}

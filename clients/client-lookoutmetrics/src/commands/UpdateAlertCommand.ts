@@ -119,4 +119,16 @@ export class UpdateAlertCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAlertCommand)
   .de(de_UpdateAlertCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAlertRequest;
+      output: UpdateAlertResponse;
+    };
+    sdk: {
+      input: UpdateAlertCommandInput;
+      output: UpdateAlertCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class DescribeNotificationRuleCommand extends $Command
   .f(void 0, DescribeNotificationRuleResultFilterSensitiveLog)
   .ser(se_DescribeNotificationRuleCommand)
   .de(de_DescribeNotificationRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotificationRuleRequest;
+      output: DescribeNotificationRuleResult;
+    };
+    sdk: {
+      input: DescribeNotificationRuleCommandInput;
+      output: DescribeNotificationRuleCommandOutput;
+    };
+  };
+}

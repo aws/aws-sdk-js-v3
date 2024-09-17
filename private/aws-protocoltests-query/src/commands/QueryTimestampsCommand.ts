@@ -75,4 +75,16 @@ export class QueryTimestampsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryTimestampsCommand)
   .de(de_QueryTimestampsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryTimestampsInput;
+      output: {};
+    };
+    sdk: {
+      input: QueryTimestampsCommandInput;
+      output: QueryTimestampsCommandOutput;
+    };
+  };
+}

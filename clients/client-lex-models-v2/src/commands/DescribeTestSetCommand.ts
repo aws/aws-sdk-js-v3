@@ -109,4 +109,16 @@ export class DescribeTestSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestSetCommand)
   .de(de_DescribeTestSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestSetRequest;
+      output: DescribeTestSetResponse;
+    };
+    sdk: {
+      input: DescribeTestSetCommandInput;
+      output: DescribeTestSetCommandOutput;
+    };
+  };
+}

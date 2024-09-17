@@ -124,4 +124,16 @@ export class StopAppBlockBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopAppBlockBuilderCommand)
   .de(de_StopAppBlockBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopAppBlockBuilderRequest;
+      output: StopAppBlockBuilderResult;
+    };
+    sdk: {
+      input: StopAppBlockBuilderCommandInput;
+      output: StopAppBlockBuilderCommandOutput;
+    };
+  };
+}

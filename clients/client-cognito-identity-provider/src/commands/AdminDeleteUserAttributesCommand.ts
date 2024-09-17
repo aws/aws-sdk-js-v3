@@ -129,4 +129,16 @@ export class AdminDeleteUserAttributesCommand extends $Command
   .f(AdminDeleteUserAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_AdminDeleteUserAttributesCommand)
   .de(de_AdminDeleteUserAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminDeleteUserAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminDeleteUserAttributesCommandInput;
+      output: AdminDeleteUserAttributesCommandOutput;
+    };
+  };
+}

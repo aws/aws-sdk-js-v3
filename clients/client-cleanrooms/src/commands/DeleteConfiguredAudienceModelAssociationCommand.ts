@@ -100,4 +100,16 @@ export class DeleteConfiguredAudienceModelAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfiguredAudienceModelAssociationCommand)
   .de(de_DeleteConfiguredAudienceModelAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfiguredAudienceModelAssociationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfiguredAudienceModelAssociationCommandInput;
+      output: DeleteConfiguredAudienceModelAssociationCommandOutput;
+    };
+  };
+}

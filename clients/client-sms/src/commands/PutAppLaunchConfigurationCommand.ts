@@ -138,4 +138,16 @@ export class PutAppLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAppLaunchConfigurationCommand)
   .de(de_PutAppLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAppLaunchConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAppLaunchConfigurationCommandInput;
+      output: PutAppLaunchConfigurationCommandOutput;
+    };
+  };
+}

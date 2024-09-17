@@ -117,4 +117,16 @@ export class UpdateConfiguredAudienceModelAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfiguredAudienceModelAssociationCommand)
   .de(de_UpdateConfiguredAudienceModelAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfiguredAudienceModelAssociationInput;
+      output: UpdateConfiguredAudienceModelAssociationOutput;
+    };
+    sdk: {
+      input: UpdateConfiguredAudienceModelAssociationCommandInput;
+      output: UpdateConfiguredAudienceModelAssociationCommandOutput;
+    };
+  };
+}

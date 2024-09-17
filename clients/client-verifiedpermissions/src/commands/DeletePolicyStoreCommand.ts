@@ -174,4 +174,16 @@ export class DeletePolicyStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyStoreCommand)
   .de(de_DeletePolicyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyStoreInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyStoreCommandInput;
+      output: DeletePolicyStoreCommandOutput;
+    };
+  };
+}

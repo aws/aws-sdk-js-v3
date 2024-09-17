@@ -111,4 +111,16 @@ export class ListLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLabelsCommand)
   .de(de_ListLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLabelsRequest;
+      output: ListLabelsResponse;
+    };
+    sdk: {
+      input: ListLabelsCommandInput;
+      output: ListLabelsCommandOutput;
+    };
+  };
+}

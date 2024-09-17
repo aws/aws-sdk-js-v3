@@ -118,4 +118,16 @@ export class UpdateParallelDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateParallelDataCommand)
   .de(de_UpdateParallelDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateParallelDataRequest;
+      output: UpdateParallelDataResponse;
+    };
+    sdk: {
+      input: UpdateParallelDataCommandInput;
+      output: UpdateParallelDataCommandOutput;
+    };
+  };
+}

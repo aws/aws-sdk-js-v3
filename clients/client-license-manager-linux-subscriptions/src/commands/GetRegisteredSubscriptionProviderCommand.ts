@@ -106,4 +106,16 @@ export class GetRegisteredSubscriptionProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegisteredSubscriptionProviderCommand)
   .de(de_GetRegisteredSubscriptionProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRegisteredSubscriptionProviderRequest;
+      output: GetRegisteredSubscriptionProviderResponse;
+    };
+    sdk: {
+      input: GetRegisteredSubscriptionProviderCommandInput;
+      output: GetRegisteredSubscriptionProviderCommandOutput;
+    };
+  };
+}

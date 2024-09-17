@@ -141,4 +141,16 @@ export class CancelEnvironmentDeploymentCommand extends $Command
   .f(void 0, CancelEnvironmentDeploymentOutputFilterSensitiveLog)
   .ser(se_CancelEnvironmentDeploymentCommand)
   .de(de_CancelEnvironmentDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelEnvironmentDeploymentInput;
+      output: CancelEnvironmentDeploymentOutput;
+    };
+    sdk: {
+      input: CancelEnvironmentDeploymentCommandInput;
+      output: CancelEnvironmentDeploymentCommandOutput;
+    };
+  };
+}

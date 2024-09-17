@@ -176,4 +176,16 @@ export class UpdateAssetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssetCommand)
   .de(de_UpdateAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssetRequest;
+      output: UpdateAssetResponse;
+    };
+    sdk: {
+      input: UpdateAssetCommandInput;
+      output: UpdateAssetCommandOutput;
+    };
+  };
+}

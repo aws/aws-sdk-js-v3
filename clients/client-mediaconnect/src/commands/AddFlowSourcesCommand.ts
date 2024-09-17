@@ -210,4 +210,16 @@ export class AddFlowSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddFlowSourcesCommand)
   .de(de_AddFlowSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddFlowSourcesRequest;
+      output: AddFlowSourcesResponse;
+    };
+    sdk: {
+      input: AddFlowSourcesCommandInput;
+      output: AddFlowSourcesCommandOutput;
+    };
+  };
+}

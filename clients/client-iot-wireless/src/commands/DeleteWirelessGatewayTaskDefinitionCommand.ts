@@ -99,4 +99,16 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWirelessGatewayTaskDefinitionCommand)
   .de(de_DeleteWirelessGatewayTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWirelessGatewayTaskDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWirelessGatewayTaskDefinitionCommandInput;
+      output: DeleteWirelessGatewayTaskDefinitionCommandOutput;
+    };
+  };
+}

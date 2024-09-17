@@ -119,4 +119,16 @@ export class DescribePHIDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePHIDetectionJobCommand)
   .de(de_DescribePHIDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePHIDetectionJobRequest;
+      output: DescribePHIDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribePHIDetectionJobCommandInput;
+      output: DescribePHIDetectionJobCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class UpdateWorkloadShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkloadShareCommand)
   .de(de_UpdateWorkloadShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkloadShareInput;
+      output: UpdateWorkloadShareOutput;
+    };
+    sdk: {
+      input: UpdateWorkloadShareCommandInput;
+      output: UpdateWorkloadShareCommandOutput;
+    };
+  };
+}

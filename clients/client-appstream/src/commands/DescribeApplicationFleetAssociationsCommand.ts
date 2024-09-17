@@ -100,4 +100,16 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationFleetAssociationsCommand)
   .de(de_DescribeApplicationFleetAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationFleetAssociationsRequest;
+      output: DescribeApplicationFleetAssociationsResult;
+    };
+    sdk: {
+      input: DescribeApplicationFleetAssociationsCommandInput;
+      output: DescribeApplicationFleetAssociationsCommandOutput;
+    };
+  };
+}

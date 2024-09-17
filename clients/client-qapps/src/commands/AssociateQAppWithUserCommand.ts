@@ -114,4 +114,16 @@ export class AssociateQAppWithUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateQAppWithUserCommand)
   .de(de_AssociateQAppWithUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateQAppWithUserInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateQAppWithUserCommandInput;
+      output: AssociateQAppWithUserCommandOutput;
+    };
+  };
+}

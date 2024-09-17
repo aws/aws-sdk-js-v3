@@ -169,4 +169,16 @@ export class ExecuteOpenCypherExplainQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteOpenCypherExplainQueryCommand)
   .de(de_ExecuteOpenCypherExplainQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteOpenCypherExplainQueryInput;
+      output: ExecuteOpenCypherExplainQueryOutput;
+    };
+    sdk: {
+      input: ExecuteOpenCypherExplainQueryCommandInput;
+      output: ExecuteOpenCypherExplainQueryCommandOutput;
+    };
+  };
+}

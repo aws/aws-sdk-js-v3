@@ -87,4 +87,16 @@ export class DeleteRetentionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRetentionPolicyCommand)
   .de(de_DeleteRetentionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRetentionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRetentionPolicyCommandInput;
+      output: DeleteRetentionPolicyCommandOutput;
+    };
+  };
+}

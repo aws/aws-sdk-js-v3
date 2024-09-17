@@ -115,4 +115,16 @@ export class RevokeEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeEndpointAccessCommand)
   .de(de_RevokeEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeEndpointAccessMessage;
+      output: EndpointAuthorization;
+    };
+    sdk: {
+      input: RevokeEndpointAccessCommandInput;
+      output: RevokeEndpointAccessCommandOutput;
+    };
+  };
+}

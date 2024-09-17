@@ -80,4 +80,16 @@ export class DeleteMaintenanceWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMaintenanceWindowCommand)
   .de(de_DeleteMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMaintenanceWindowRequest;
+      output: DeleteMaintenanceWindowResult;
+    };
+    sdk: {
+      input: DeleteMaintenanceWindowCommandInput;
+      output: DeleteMaintenanceWindowCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class DescribeWorkspaceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceConfigurationCommand)
   .de(de_DescribeWorkspaceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceConfigurationRequest;
+      output: DescribeWorkspaceConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeWorkspaceConfigurationCommandInput;
+      output: DescribeWorkspaceConfigurationCommandOutput;
+    };
+  };
+}

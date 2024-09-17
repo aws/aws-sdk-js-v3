@@ -101,4 +101,16 @@ export class DeleteScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScraperCommand)
   .de(de_DeleteScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScraperRequest;
+      output: DeleteScraperResponse;
+    };
+    sdk: {
+      input: DeleteScraperCommandInput;
+      output: DeleteScraperCommandOutput;
+    };
+  };
+}

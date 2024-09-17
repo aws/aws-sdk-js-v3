@@ -90,4 +90,16 @@ export class DeleteForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteForecastCommand)
   .de(de_DeleteForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteForecastRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteForecastCommandInput;
+      output: DeleteForecastCommandOutput;
+    };
+  };
+}

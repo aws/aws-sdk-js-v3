@@ -102,4 +102,16 @@ export class CreateConditionalForwarderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConditionalForwarderCommand)
   .de(de_CreateConditionalForwarderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConditionalForwarderRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConditionalForwarderCommandInput;
+      output: CreateConditionalForwarderCommandOutput;
+    };
+  };
+}

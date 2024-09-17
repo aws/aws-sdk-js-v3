@@ -145,4 +145,16 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedInstancesOfferingsCommand)
   .de(de_DescribeReservedInstancesOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedInstancesOfferingsRequest;
+      output: DescribeReservedInstancesOfferingsResult;
+    };
+    sdk: {
+      input: DescribeReservedInstancesOfferingsCommandInput;
+      output: DescribeReservedInstancesOfferingsCommandOutput;
+    };
+  };
+}

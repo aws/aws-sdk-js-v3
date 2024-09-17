@@ -240,4 +240,16 @@ export class TransferDomainCommand extends $Command
   .f(TransferDomainRequestFilterSensitiveLog, void 0)
   .ser(se_TransferDomainCommand)
   .de(de_TransferDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransferDomainRequest;
+      output: TransferDomainResponse;
+    };
+    sdk: {
+      input: TransferDomainCommandInput;
+      output: TransferDomainCommandOutput;
+    };
+  };
+}

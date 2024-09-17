@@ -103,4 +103,16 @@ export class DeleteAccessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessorCommand)
   .de(de_DeleteAccessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessorInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessorCommandInput;
+      output: DeleteAccessorCommandOutput;
+    };
+  };
+}

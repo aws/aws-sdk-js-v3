@@ -127,4 +127,16 @@ export class DescribeDBSnapshotAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSnapshotAttributesCommand)
   .de(de_DescribeDBSnapshotAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSnapshotAttributesMessage;
+      output: DescribeDBSnapshotAttributesResult;
+    };
+    sdk: {
+      input: DescribeDBSnapshotAttributesCommandInput;
+      output: DescribeDBSnapshotAttributesCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class ListTrafficPolicyVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficPolicyVersionsCommand)
   .de(de_ListTrafficPolicyVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficPolicyVersionsRequest;
+      output: ListTrafficPolicyVersionsResponse;
+    };
+    sdk: {
+      input: ListTrafficPolicyVersionsCommandInput;
+      output: ListTrafficPolicyVersionsCommandOutput;
+    };
+  };
+}

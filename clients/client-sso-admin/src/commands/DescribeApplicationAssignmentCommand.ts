@@ -105,4 +105,16 @@ export class DescribeApplicationAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationAssignmentCommand)
   .de(de_DescribeApplicationAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationAssignmentRequest;
+      output: DescribeApplicationAssignmentResponse;
+    };
+    sdk: {
+      input: DescribeApplicationAssignmentCommandInput;
+      output: DescribeApplicationAssignmentCommandOutput;
+    };
+  };
+}

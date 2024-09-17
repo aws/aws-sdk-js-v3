@@ -101,4 +101,16 @@ export class CreateLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLedgerCommand)
   .de(de_CreateLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLedgerRequest;
+      output: CreateLedgerResponse;
+    };
+    sdk: {
+      input: CreateLedgerCommandInput;
+      output: CreateLedgerCommandOutput;
+    };
+  };
+}

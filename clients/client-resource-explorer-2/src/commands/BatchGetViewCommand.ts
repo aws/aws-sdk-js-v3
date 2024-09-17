@@ -124,4 +124,16 @@ export class BatchGetViewCommand extends $Command
   .f(void 0, BatchGetViewOutputFilterSensitiveLog)
   .ser(se_BatchGetViewCommand)
   .de(de_BatchGetViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetViewInput;
+      output: BatchGetViewOutput;
+    };
+    sdk: {
+      input: BatchGetViewCommandInput;
+      output: BatchGetViewCommandOutput;
+    };
+  };
+}

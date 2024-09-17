@@ -109,4 +109,16 @@ export class DescribeEventTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventTypesCommand)
   .de(de_DescribeEventTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventTypesRequest;
+      output: DescribeEventTypesResponse;
+    };
+    sdk: {
+      input: DescribeEventTypesCommandInput;
+      output: DescribeEventTypesCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class ListCodegenJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCodegenJobsCommand)
   .de(de_ListCodegenJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCodegenJobsRequest;
+      output: ListCodegenJobsResponse;
+    };
+    sdk: {
+      input: ListCodegenJobsCommandInput;
+      output: ListCodegenJobsCommandOutput;
+    };
+  };
+}

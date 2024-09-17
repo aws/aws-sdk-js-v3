@@ -367,4 +367,16 @@ export class GetTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTablesCommand)
   .de(de_GetTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTablesRequest;
+      output: GetTablesResponse;
+    };
+    sdk: {
+      input: GetTablesCommandInput;
+      output: GetTablesCommandOutput;
+    };
+  };
+}

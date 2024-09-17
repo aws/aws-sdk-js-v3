@@ -100,4 +100,16 @@ export class StopExecutionCommand extends $Command
   .f(StopExecutionInputFilterSensitiveLog, void 0)
   .ser(se_StopExecutionCommand)
   .de(de_StopExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopExecutionInput;
+      output: StopExecutionOutput;
+    };
+    sdk: {
+      input: StopExecutionCommandInput;
+      output: StopExecutionCommandOutput;
+    };
+  };
+}

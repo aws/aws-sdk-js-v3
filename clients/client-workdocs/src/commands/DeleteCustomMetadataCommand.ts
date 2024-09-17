@@ -105,4 +105,16 @@ export class DeleteCustomMetadataCommand extends $Command
   .f(DeleteCustomMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteCustomMetadataCommand)
   .de(de_DeleteCustomMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomMetadataCommandInput;
+      output: DeleteCustomMetadataCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class PublishMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishMetricsCommand)
   .de(de_PublishMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishMetricsInput;
+      output: {};
+    };
+    sdk: {
+      input: PublishMetricsCommandInput;
+      output: PublishMetricsCommandOutput;
+    };
+  };
+}

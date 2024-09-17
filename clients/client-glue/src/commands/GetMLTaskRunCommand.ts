@@ -120,4 +120,16 @@ export class GetMLTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLTaskRunCommand)
   .de(de_GetMLTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLTaskRunRequest;
+      output: GetMLTaskRunResponse;
+    };
+    sdk: {
+      input: GetMLTaskRunCommandInput;
+      output: GetMLTaskRunCommandOutput;
+    };
+  };
+}

@@ -163,4 +163,16 @@ export class StartConfigRulesEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConfigRulesEvaluationCommand)
   .de(de_StartConfigRulesEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConfigRulesEvaluationRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartConfigRulesEvaluationCommandInput;
+      output: StartConfigRulesEvaluationCommandOutput;
+    };
+  };
+}

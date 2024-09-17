@@ -113,4 +113,16 @@ export class AssociateResourceSharePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResourceSharePermissionCommand)
   .de(de_AssociateResourceSharePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResourceSharePermissionRequest;
+      output: AssociateResourceSharePermissionResponse;
+    };
+    sdk: {
+      input: AssociateResourceSharePermissionCommandInput;
+      output: AssociateResourceSharePermissionCommandOutput;
+    };
+  };
+}

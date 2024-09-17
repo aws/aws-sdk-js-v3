@@ -145,4 +145,16 @@ export class StartSyncExecutionCommand extends $Command
   .f(StartSyncExecutionInputFilterSensitiveLog, StartSyncExecutionOutputFilterSensitiveLog)
   .ser(se_StartSyncExecutionCommand)
   .de(de_StartSyncExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSyncExecutionInput;
+      output: StartSyncExecutionOutput;
+    };
+    sdk: {
+      input: StartSyncExecutionCommandInput;
+      output: StartSyncExecutionCommandOutput;
+    };
+  };
+}

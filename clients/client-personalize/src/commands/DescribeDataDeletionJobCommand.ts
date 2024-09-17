@@ -96,4 +96,16 @@ export class DescribeDataDeletionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataDeletionJobCommand)
   .de(de_DescribeDataDeletionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataDeletionJobRequest;
+      output: DescribeDataDeletionJobResponse;
+    };
+    sdk: {
+      input: DescribeDataDeletionJobCommandInput;
+      output: DescribeDataDeletionJobCommandOutput;
+    };
+  };
+}

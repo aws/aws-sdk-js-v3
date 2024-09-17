@@ -505,4 +505,16 @@ export class GetWorkflowExecutionHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowExecutionHistoryCommand)
   .de(de_GetWorkflowExecutionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowExecutionHistoryInput;
+      output: History;
+    };
+    sdk: {
+      input: GetWorkflowExecutionHistoryCommandInput;
+      output: GetWorkflowExecutionHistoryCommandOutput;
+    };
+  };
+}

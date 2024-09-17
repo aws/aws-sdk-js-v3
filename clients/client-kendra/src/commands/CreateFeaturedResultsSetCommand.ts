@@ -146,4 +146,16 @@ export class CreateFeaturedResultsSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFeaturedResultsSetCommand)
   .de(de_CreateFeaturedResultsSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFeaturedResultsSetRequest;
+      output: CreateFeaturedResultsSetResponse;
+    };
+    sdk: {
+      input: CreateFeaturedResultsSetCommandInput;
+      output: CreateFeaturedResultsSetCommandOutput;
+    };
+  };
+}

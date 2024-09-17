@@ -107,4 +107,16 @@ export class PutActionInteractionsCommand extends $Command
   .f(PutActionInteractionsRequestFilterSensitiveLog, void 0)
   .ser(se_PutActionInteractionsCommand)
   .de(de_PutActionInteractionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutActionInteractionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutActionInteractionsCommandInput;
+      output: PutActionInteractionsCommandOutput;
+    };
+  };
+}

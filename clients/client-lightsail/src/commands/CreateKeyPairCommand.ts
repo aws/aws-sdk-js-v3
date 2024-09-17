@@ -157,4 +157,16 @@ export class CreateKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyPairCommand)
   .de(de_CreateKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyPairRequest;
+      output: CreateKeyPairResult;
+    };
+    sdk: {
+      input: CreateKeyPairCommandInput;
+      output: CreateKeyPairCommandOutput;
+    };
+  };
+}

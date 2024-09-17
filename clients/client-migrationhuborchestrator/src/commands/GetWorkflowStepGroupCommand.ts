@@ -117,4 +117,16 @@ export class GetWorkflowStepGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowStepGroupCommand)
   .de(de_GetWorkflowStepGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowStepGroupRequest;
+      output: GetWorkflowStepGroupResponse;
+    };
+    sdk: {
+      input: GetWorkflowStepGroupCommandInput;
+      output: GetWorkflowStepGroupCommandOutput;
+    };
+  };
+}

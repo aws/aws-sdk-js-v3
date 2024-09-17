@@ -95,4 +95,16 @@ export class DeleteProfileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProfileShareCommand)
   .de(de_DeleteProfileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProfileShareInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProfileShareCommandInput;
+      output: DeleteProfileShareCommandOutput;
+    };
+  };
+}

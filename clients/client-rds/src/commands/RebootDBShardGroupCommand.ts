@@ -94,4 +94,16 @@ export class RebootDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootDBShardGroupCommand)
   .de(de_RebootDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: RebootDBShardGroupCommandInput;
+      output: RebootDBShardGroupCommandOutput;
+    };
+  };
+}

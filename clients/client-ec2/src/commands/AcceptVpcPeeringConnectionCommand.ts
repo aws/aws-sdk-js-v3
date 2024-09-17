@@ -138,4 +138,16 @@ export class AcceptVpcPeeringConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptVpcPeeringConnectionCommand)
   .de(de_AcceptVpcPeeringConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptVpcPeeringConnectionRequest;
+      output: AcceptVpcPeeringConnectionResult;
+    };
+    sdk: {
+      input: AcceptVpcPeeringConnectionCommandInput;
+      output: AcceptVpcPeeringConnectionCommandOutput;
+    };
+  };
+}

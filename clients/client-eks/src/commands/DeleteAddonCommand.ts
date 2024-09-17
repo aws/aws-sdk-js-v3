@@ -135,4 +135,16 @@ export class DeleteAddonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAddonCommand)
   .de(de_DeleteAddonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAddonRequest;
+      output: DeleteAddonResponse;
+    };
+    sdk: {
+      input: DeleteAddonCommandInput;
+      output: DeleteAddonCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class UpdateJobStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJobStatusCommand)
   .de(de_UpdateJobStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobStatusRequest;
+      output: UpdateJobStatusResult;
+    };
+    sdk: {
+      input: UpdateJobStatusCommandInput;
+      output: UpdateJobStatusCommandOutput;
+    };
+  };
+}

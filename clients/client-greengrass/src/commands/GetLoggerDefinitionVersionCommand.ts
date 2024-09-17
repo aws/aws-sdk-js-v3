@@ -96,4 +96,16 @@ export class GetLoggerDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggerDefinitionVersionCommand)
   .de(de_GetLoggerDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoggerDefinitionVersionRequest;
+      output: GetLoggerDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetLoggerDefinitionVersionCommandInput;
+      output: GetLoggerDefinitionVersionCommandOutput;
+    };
+  };
+}

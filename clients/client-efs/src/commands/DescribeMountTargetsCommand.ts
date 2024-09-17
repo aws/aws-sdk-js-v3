@@ -147,4 +147,16 @@ export class DescribeMountTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMountTargetsCommand)
   .de(de_DescribeMountTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMountTargetsRequest;
+      output: DescribeMountTargetsResponse;
+    };
+    sdk: {
+      input: DescribeMountTargetsCommandInput;
+      output: DescribeMountTargetsCommandOutput;
+    };
+  };
+}

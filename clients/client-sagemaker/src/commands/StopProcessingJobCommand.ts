@@ -78,4 +78,16 @@ export class StopProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopProcessingJobCommand)
   .de(de_StopProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopProcessingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopProcessingJobCommandInput;
+      output: StopProcessingJobCommandOutput;
+    };
+  };
+}

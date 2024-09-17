@@ -100,4 +100,16 @@ export class ListSlackChannelConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSlackChannelConfigurationsCommand)
   .de(de_ListSlackChannelConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSlackChannelConfigurationsRequest;
+      output: ListSlackChannelConfigurationsResult;
+    };
+    sdk: {
+      input: ListSlackChannelConfigurationsCommandInput;
+      output: ListSlackChannelConfigurationsCommandOutput;
+    };
+  };
+}

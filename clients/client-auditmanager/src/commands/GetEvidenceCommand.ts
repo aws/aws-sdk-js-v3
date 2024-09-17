@@ -118,4 +118,16 @@ export class GetEvidenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEvidenceCommand)
   .de(de_GetEvidenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEvidenceRequest;
+      output: GetEvidenceResponse;
+    };
+    sdk: {
+      input: GetEvidenceCommandInput;
+      output: GetEvidenceCommandOutput;
+    };
+  };
+}

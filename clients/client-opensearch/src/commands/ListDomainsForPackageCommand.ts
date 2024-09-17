@@ -112,4 +112,16 @@ export class ListDomainsForPackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainsForPackageCommand)
   .de(de_ListDomainsForPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainsForPackageRequest;
+      output: ListDomainsForPackageResponse;
+    };
+    sdk: {
+      input: ListDomainsForPackageCommandInput;
+      output: ListDomainsForPackageCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class AssociatePhoneNumberWithUserCommand extends $Command
   .f(AssociatePhoneNumberWithUserRequestFilterSensitiveLog, void 0)
   .ser(se_AssociatePhoneNumberWithUserCommand)
   .de(de_AssociatePhoneNumberWithUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePhoneNumberWithUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociatePhoneNumberWithUserCommandInput;
+      output: AssociatePhoneNumberWithUserCommandOutput;
+    };
+  };
+}

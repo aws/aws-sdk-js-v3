@@ -100,4 +100,16 @@ export class DeleteDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeviceCommand)
   .de(de_DeleteDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeviceCommandInput;
+      output: DeleteDeviceCommandOutput;
+    };
+  };
+}

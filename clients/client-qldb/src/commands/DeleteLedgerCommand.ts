@@ -89,4 +89,16 @@ export class DeleteLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLedgerCommand)
   .de(de_DeleteLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLedgerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLedgerCommandInput;
+      output: DeleteLedgerCommandOutput;
+    };
+  };
+}

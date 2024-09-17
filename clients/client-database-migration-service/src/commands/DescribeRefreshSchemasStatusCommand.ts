@@ -114,4 +114,16 @@ export class DescribeRefreshSchemasStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRefreshSchemasStatusCommand)
   .de(de_DescribeRefreshSchemasStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRefreshSchemasStatusMessage;
+      output: DescribeRefreshSchemasStatusResponse;
+    };
+    sdk: {
+      input: DescribeRefreshSchemasStatusCommandInput;
+      output: DescribeRefreshSchemasStatusCommandOutput;
+    };
+  };
+}

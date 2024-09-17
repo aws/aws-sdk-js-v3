@@ -146,4 +146,16 @@ export class DescribeRecommenderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecommenderCommand)
   .de(de_DescribeRecommenderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecommenderRequest;
+      output: DescribeRecommenderResponse;
+    };
+    sdk: {
+      input: DescribeRecommenderCommandInput;
+      output: DescribeRecommenderCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class GetResourceCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceCollectionCommand)
   .de(de_GetResourceCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceCollectionRequest;
+      output: GetResourceCollectionResponse;
+    };
+    sdk: {
+      input: GetResourceCollectionCommandInput;
+      output: GetResourceCollectionCommandOutput;
+    };
+  };
+}

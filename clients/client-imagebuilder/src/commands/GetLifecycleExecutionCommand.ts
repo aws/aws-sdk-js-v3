@@ -110,4 +110,16 @@ export class GetLifecycleExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLifecycleExecutionCommand)
   .de(de_GetLifecycleExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLifecycleExecutionRequest;
+      output: GetLifecycleExecutionResponse;
+    };
+    sdk: {
+      input: GetLifecycleExecutionCommandInput;
+      output: GetLifecycleExecutionCommandOutput;
+    };
+  };
+}

@@ -162,4 +162,16 @@ export class DescribeEnvironmentResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentResourcesCommand)
   .de(de_DescribeEnvironmentResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentResourcesMessage;
+      output: EnvironmentResourceDescriptionsMessage;
+    };
+    sdk: {
+      input: DescribeEnvironmentResourcesCommandInput;
+      output: DescribeEnvironmentResourcesCommandOutput;
+    };
+  };
+}

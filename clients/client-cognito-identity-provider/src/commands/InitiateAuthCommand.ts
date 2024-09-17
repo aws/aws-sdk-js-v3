@@ -235,4 +235,16 @@ export class InitiateAuthCommand extends $Command
   .f(InitiateAuthRequestFilterSensitiveLog, InitiateAuthResponseFilterSensitiveLog)
   .ser(se_InitiateAuthCommand)
   .de(de_InitiateAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateAuthRequest;
+      output: InitiateAuthResponse;
+    };
+    sdk: {
+      input: InitiateAuthCommandInput;
+      output: InitiateAuthCommandOutput;
+    };
+  };
+}

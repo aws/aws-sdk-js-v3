@@ -130,4 +130,16 @@ export class BatchGetFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetFleetsCommand)
   .de(de_BatchGetFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetFleetsInput;
+      output: BatchGetFleetsOutput;
+    };
+    sdk: {
+      input: BatchGetFleetsCommandInput;
+      output: BatchGetFleetsCommandOutput;
+    };
+  };
+}

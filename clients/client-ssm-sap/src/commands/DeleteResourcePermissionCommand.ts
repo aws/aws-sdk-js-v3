@@ -88,4 +88,16 @@ export class DeleteResourcePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePermissionCommand)
   .de(de_DeleteResourcePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePermissionInput;
+      output: DeleteResourcePermissionOutput;
+    };
+    sdk: {
+      input: DeleteResourcePermissionCommandInput;
+      output: DeleteResourcePermissionCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class DeleteRepositoryLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryLinkCommand)
   .de(de_DeleteRepositoryLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryLinkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRepositoryLinkCommandInput;
+      output: DeleteRepositoryLinkCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class GetFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFacetCommand)
   .de(de_GetFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFacetRequest;
+      output: GetFacetResponse;
+    };
+    sdk: {
+      input: GetFacetCommandInput;
+      output: GetFacetCommandOutput;
+    };
+  };
+}

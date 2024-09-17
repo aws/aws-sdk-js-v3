@@ -104,4 +104,16 @@ export class DescribeProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProfileCommand)
   .de(de_DescribeProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProfileRequest;
+      output: DescribeProfileResponse;
+    };
+    sdk: {
+      input: DescribeProfileCommandInput;
+      output: DescribeProfileCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class ExportBackupPlanTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportBackupPlanTemplateCommand)
   .de(de_ExportBackupPlanTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportBackupPlanTemplateInput;
+      output: ExportBackupPlanTemplateOutput;
+    };
+    sdk: {
+      input: ExportBackupPlanTemplateCommandInput;
+      output: ExportBackupPlanTemplateCommandOutput;
+    };
+  };
+}

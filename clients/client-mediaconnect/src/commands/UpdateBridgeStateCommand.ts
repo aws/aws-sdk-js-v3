@@ -100,4 +100,16 @@ export class UpdateBridgeStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBridgeStateCommand)
   .de(de_UpdateBridgeStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBridgeStateRequest;
+      output: UpdateBridgeStateResponse;
+    };
+    sdk: {
+      input: UpdateBridgeStateCommandInput;
+      output: UpdateBridgeStateCommandOutput;
+    };
+  };
+}

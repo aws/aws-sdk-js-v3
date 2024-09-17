@@ -113,4 +113,16 @@ export class ListAnalyzersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzersCommand)
   .de(de_ListAnalyzersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzersRequest;
+      output: ListAnalyzersResponse;
+    };
+    sdk: {
+      input: ListAnalyzersCommandInput;
+      output: ListAnalyzersCommandOutput;
+    };
+  };
+}

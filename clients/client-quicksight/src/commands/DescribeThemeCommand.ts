@@ -181,4 +181,16 @@ export class DescribeThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeThemeCommand)
   .de(de_DescribeThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeThemeRequest;
+      output: DescribeThemeResponse;
+    };
+    sdk: {
+      input: DescribeThemeCommandInput;
+      output: DescribeThemeCommandOutput;
+    };
+  };
+}

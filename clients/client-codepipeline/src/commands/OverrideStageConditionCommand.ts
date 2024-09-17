@@ -102,4 +102,16 @@ export class OverrideStageConditionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_OverrideStageConditionCommand)
   .de(de_OverrideStageConditionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OverrideStageConditionInput;
+      output: {};
+    };
+    sdk: {
+      input: OverrideStageConditionCommandInput;
+      output: OverrideStageConditionCommandOutput;
+    };
+  };
+}

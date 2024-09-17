@@ -226,4 +226,16 @@ export class BatchRevokePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchRevokePermissionsCommand)
   .de(de_BatchRevokePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchRevokePermissionsRequest;
+      output: BatchRevokePermissionsResponse;
+    };
+    sdk: {
+      input: BatchRevokePermissionsCommandInput;
+      output: BatchRevokePermissionsCommandOutput;
+    };
+  };
+}

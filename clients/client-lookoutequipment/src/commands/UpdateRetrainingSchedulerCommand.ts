@@ -115,4 +115,16 @@ export class UpdateRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRetrainingSchedulerCommand)
   .de(de_UpdateRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRetrainingSchedulerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRetrainingSchedulerCommandInput;
+      output: UpdateRetrainingSchedulerCommandOutput;
+    };
+  };
+}

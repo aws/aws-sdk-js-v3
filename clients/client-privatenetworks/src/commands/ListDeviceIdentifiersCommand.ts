@@ -114,4 +114,16 @@ export class ListDeviceIdentifiersCommand extends $Command
   .f(void 0, ListDeviceIdentifiersResponseFilterSensitiveLog)
   .ser(se_ListDeviceIdentifiersCommand)
   .de(de_ListDeviceIdentifiersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeviceIdentifiersRequest;
+      output: ListDeviceIdentifiersResponse;
+    };
+    sdk: {
+      input: ListDeviceIdentifiersCommandInput;
+      output: ListDeviceIdentifiersCommandOutput;
+    };
+  };
+}

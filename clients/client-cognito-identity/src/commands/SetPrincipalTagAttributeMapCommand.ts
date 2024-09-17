@@ -105,4 +105,16 @@ export class SetPrincipalTagAttributeMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetPrincipalTagAttributeMapCommand)
   .de(de_SetPrincipalTagAttributeMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetPrincipalTagAttributeMapInput;
+      output: SetPrincipalTagAttributeMapResponse;
+    };
+    sdk: {
+      input: SetPrincipalTagAttributeMapCommandInput;
+      output: SetPrincipalTagAttributeMapCommandOutput;
+    };
+  };
+}

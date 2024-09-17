@@ -123,4 +123,16 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
   )
   .ser(se_AssociateAwsAccountWithPartnerAccountCommand)
   .de(de_AssociateAwsAccountWithPartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAwsAccountWithPartnerAccountRequest;
+      output: AssociateAwsAccountWithPartnerAccountResponse;
+    };
+    sdk: {
+      input: AssociateAwsAccountWithPartnerAccountCommandInput;
+      output: AssociateAwsAccountWithPartnerAccountCommandOutput;
+    };
+  };
+}

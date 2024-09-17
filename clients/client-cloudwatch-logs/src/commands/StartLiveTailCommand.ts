@@ -187,4 +187,16 @@ export class StartLiveTailCommand extends $Command
   .f(void 0, StartLiveTailResponseFilterSensitiveLog)
   .ser(se_StartLiveTailCommand)
   .de(de_StartLiveTailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLiveTailRequest;
+      output: StartLiveTailResponse;
+    };
+    sdk: {
+      input: StartLiveTailCommandInput;
+      output: StartLiveTailCommandOutput;
+    };
+  };
+}

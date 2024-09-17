@@ -102,4 +102,16 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisionedProductPropertiesCommand)
   .de(de_UpdateProvisionedProductPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisionedProductPropertiesInput;
+      output: UpdateProvisionedProductPropertiesOutput;
+    };
+    sdk: {
+      input: UpdateProvisionedProductPropertiesCommandInput;
+      output: UpdateProvisionedProductPropertiesCommandOutput;
+    };
+  };
+}

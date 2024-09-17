@@ -172,4 +172,16 @@ export class ListMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMessagesCommand)
   .de(de_ListMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMessagesRequest;
+      output: ListMessagesResponse;
+    };
+    sdk: {
+      input: ListMessagesCommandInput;
+      output: ListMessagesCommandOutput;
+    };
+  };
+}

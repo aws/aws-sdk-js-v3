@@ -104,4 +104,16 @@ export class DisableDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableDirectoryCommand)
   .de(de_DisableDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableDirectoryRequest;
+      output: DisableDirectoryResponse;
+    };
+    sdk: {
+      input: DisableDirectoryCommandInput;
+      output: DisableDirectoryCommandOutput;
+    };
+  };
+}

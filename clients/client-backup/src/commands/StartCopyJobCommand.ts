@@ -110,4 +110,16 @@ export class StartCopyJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCopyJobCommand)
   .de(de_StartCopyJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCopyJobInput;
+      output: StartCopyJobOutput;
+    };
+    sdk: {
+      input: StartCopyJobCommandInput;
+      output: StartCopyJobCommandOutput;
+    };
+  };
+}

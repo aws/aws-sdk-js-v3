@@ -96,4 +96,16 @@ export class PutItemsCommand extends $Command
   .f(PutItemsRequestFilterSensitiveLog, void 0)
   .ser(se_PutItemsCommand)
   .de(de_PutItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutItemsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutItemsCommandInput;
+      output: PutItemsCommandOutput;
+    };
+  };
+}

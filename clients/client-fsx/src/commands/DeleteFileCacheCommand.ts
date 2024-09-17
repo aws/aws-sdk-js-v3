@@ -108,4 +108,16 @@ export class DeleteFileCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileCacheCommand)
   .de(de_DeleteFileCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileCacheRequest;
+      output: DeleteFileCacheResponse;
+    };
+    sdk: {
+      input: DeleteFileCacheCommandInput;
+      output: DeleteFileCacheCommandOutput;
+    };
+  };
+}

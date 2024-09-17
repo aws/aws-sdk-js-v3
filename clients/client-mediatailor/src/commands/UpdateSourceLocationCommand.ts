@@ -123,4 +123,16 @@ export class UpdateSourceLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSourceLocationCommand)
   .de(de_UpdateSourceLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSourceLocationRequest;
+      output: UpdateSourceLocationResponse;
+    };
+    sdk: {
+      input: UpdateSourceLocationCommandInput;
+      output: UpdateSourceLocationCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTimeBasedAutoScalingCommand)
   .de(de_DescribeTimeBasedAutoScalingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTimeBasedAutoScalingRequest;
+      output: DescribeTimeBasedAutoScalingResult;
+    };
+    sdk: {
+      input: DescribeTimeBasedAutoScalingCommandInput;
+      output: DescribeTimeBasedAutoScalingCommandOutput;
+    };
+  };
+}

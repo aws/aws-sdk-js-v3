@@ -139,4 +139,16 @@ export class GetSuiteRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSuiteRunCommand)
   .de(de_GetSuiteRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSuiteRunRequest;
+      output: GetSuiteRunResponse;
+    };
+    sdk: {
+      input: GetSuiteRunCommandInput;
+      output: GetSuiteRunCommandOutput;
+    };
+  };
+}

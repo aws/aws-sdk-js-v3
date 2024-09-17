@@ -108,4 +108,16 @@ export class GetLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLinkCommand)
   .de(de_GetLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLinkInput;
+      output: GetLinkOutput;
+    };
+    sdk: {
+      input: GetLinkCommandInput;
+      output: GetLinkCommandOutput;
+    };
+  };
+}

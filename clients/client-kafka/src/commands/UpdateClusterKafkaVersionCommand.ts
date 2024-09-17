@@ -105,4 +105,16 @@ export class UpdateClusterKafkaVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClusterKafkaVersionCommand)
   .de(de_UpdateClusterKafkaVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterKafkaVersionRequest;
+      output: UpdateClusterKafkaVersionResponse;
+    };
+    sdk: {
+      input: UpdateClusterKafkaVersionCommandInput;
+      output: UpdateClusterKafkaVersionCommandOutput;
+    };
+  };
+}

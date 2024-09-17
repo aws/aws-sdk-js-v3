@@ -124,4 +124,16 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   .f(void 0, DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog)
   .ser(se_DescribeLaunchConfigurationTemplatesCommand)
   .de(de_DescribeLaunchConfigurationTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLaunchConfigurationTemplatesRequest;
+      output: DescribeLaunchConfigurationTemplatesResponse;
+    };
+    sdk: {
+      input: DescribeLaunchConfigurationTemplatesCommandInput;
+      output: DescribeLaunchConfigurationTemplatesCommandOutput;
+    };
+  };
+}

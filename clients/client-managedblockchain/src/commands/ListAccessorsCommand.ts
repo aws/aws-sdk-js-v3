@@ -109,4 +109,16 @@ export class ListAccessorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessorsCommand)
   .de(de_ListAccessorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessorsInput;
+      output: ListAccessorsOutput;
+    };
+    sdk: {
+      input: ListAccessorsCommandInput;
+      output: ListAccessorsCommandOutput;
+    };
+  };
+}

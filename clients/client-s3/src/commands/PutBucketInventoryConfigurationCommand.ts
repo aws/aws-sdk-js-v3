@@ -201,4 +201,16 @@ export class PutBucketInventoryConfigurationCommand extends $Command
   .f(PutBucketInventoryConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_PutBucketInventoryConfigurationCommand)
   .de(de_PutBucketInventoryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketInventoryConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketInventoryConfigurationCommandInput;
+      output: PutBucketInventoryConfigurationCommandOutput;
+    };
+  };
+}

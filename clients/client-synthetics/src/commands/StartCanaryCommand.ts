@@ -89,4 +89,16 @@ export class StartCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartCanaryCommand)
   .de(de_StartCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartCanaryCommandInput;
+      output: StartCanaryCommandOutput;
+    };
+  };
+}

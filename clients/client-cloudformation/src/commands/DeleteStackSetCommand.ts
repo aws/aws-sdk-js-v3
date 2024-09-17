@@ -85,4 +85,16 @@ export class DeleteStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStackSetCommand)
   .de(de_DeleteStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStackSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStackSetCommandInput;
+      output: DeleteStackSetCommandOutput;
+    };
+  };
+}

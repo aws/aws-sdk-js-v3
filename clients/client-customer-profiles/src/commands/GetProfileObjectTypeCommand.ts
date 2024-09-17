@@ -129,4 +129,16 @@ export class GetProfileObjectTypeCommand extends $Command
   .f(void 0, GetProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_GetProfileObjectTypeCommand)
   .de(de_GetProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileObjectTypeRequest;
+      output: GetProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: GetProfileObjectTypeCommandInput;
+      output: GetProfileObjectTypeCommandOutput;
+    };
+  };
+}

@@ -260,4 +260,16 @@ export class GetTelemetryMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTelemetryMetadataCommand)
   .de(de_GetTelemetryMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTelemetryMetadataRequest;
+      output: GetTelemetryMetadataResponse;
+    };
+    sdk: {
+      input: GetTelemetryMetadataCommandInput;
+      output: GetTelemetryMetadataCommandOutput;
+    };
+  };
+}

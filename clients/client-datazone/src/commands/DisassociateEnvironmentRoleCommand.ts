@@ -101,4 +101,16 @@ export class DisassociateEnvironmentRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateEnvironmentRoleCommand)
   .de(de_DisassociateEnvironmentRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateEnvironmentRoleInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateEnvironmentRoleCommandInput;
+      output: DisassociateEnvironmentRoleCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class ListAutomatedDiscoveryAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAutomatedDiscoveryAccountsCommand)
   .de(de_ListAutomatedDiscoveryAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAutomatedDiscoveryAccountsRequest;
+      output: ListAutomatedDiscoveryAccountsResponse;
+    };
+    sdk: {
+      input: ListAutomatedDiscoveryAccountsCommandInput;
+      output: ListAutomatedDiscoveryAccountsCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class ListV2LoggingLevelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListV2LoggingLevelsCommand)
   .de(de_ListV2LoggingLevelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListV2LoggingLevelsRequest;
+      output: ListV2LoggingLevelsResponse;
+    };
+    sdk: {
+      input: ListV2LoggingLevelsCommandInput;
+      output: ListV2LoggingLevelsCommandOutput;
+    };
+  };
+}

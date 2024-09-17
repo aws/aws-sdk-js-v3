@@ -99,4 +99,16 @@ export class GetAppliedSchemaVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppliedSchemaVersionCommand)
   .de(de_GetAppliedSchemaVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppliedSchemaVersionRequest;
+      output: GetAppliedSchemaVersionResponse;
+    };
+    sdk: {
+      input: GetAppliedSchemaVersionCommandInput;
+      output: GetAppliedSchemaVersionCommandOutput;
+    };
+  };
+}

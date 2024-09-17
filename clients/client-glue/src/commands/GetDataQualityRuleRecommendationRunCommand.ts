@@ -120,4 +120,16 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataQualityRuleRecommendationRunCommand)
   .de(de_GetDataQualityRuleRecommendationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataQualityRuleRecommendationRunRequest;
+      output: GetDataQualityRuleRecommendationRunResponse;
+    };
+    sdk: {
+      input: GetDataQualityRuleRecommendationRunCommandInput;
+      output: GetDataQualityRuleRecommendationRunCommandOutput;
+    };
+  };
+}

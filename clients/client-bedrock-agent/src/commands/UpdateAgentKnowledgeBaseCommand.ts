@@ -107,4 +107,16 @@ export class UpdateAgentKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentKnowledgeBaseCommand)
   .de(de_UpdateAgentKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentKnowledgeBaseRequest;
+      output: UpdateAgentKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: UpdateAgentKnowledgeBaseCommandInput;
+      output: UpdateAgentKnowledgeBaseCommandOutput;
+    };
+  };
+}

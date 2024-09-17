@@ -129,4 +129,16 @@ export class StopRelationalDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopRelationalDatabaseCommand)
   .de(de_StopRelationalDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopRelationalDatabaseRequest;
+      output: StopRelationalDatabaseResult;
+    };
+    sdk: {
+      input: StopRelationalDatabaseCommandInput;
+      output: StopRelationalDatabaseCommandOutput;
+    };
+  };
+}

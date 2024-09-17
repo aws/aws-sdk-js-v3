@@ -668,4 +668,16 @@ export class DescribeVolumesCommand extends $Command
   .f(void 0, DescribeVolumesResponseFilterSensitiveLog)
   .ser(se_DescribeVolumesCommand)
   .de(de_DescribeVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumesRequest;
+      output: DescribeVolumesResponse;
+    };
+    sdk: {
+      input: DescribeVolumesCommandInput;
+      output: DescribeVolumesCommandOutput;
+    };
+  };
+}

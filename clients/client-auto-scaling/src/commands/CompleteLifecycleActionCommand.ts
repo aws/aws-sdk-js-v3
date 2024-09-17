@@ -134,4 +134,16 @@ export class CompleteLifecycleActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteLifecycleActionCommand)
   .de(de_CompleteLifecycleActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteLifecycleActionType;
+      output: {};
+    };
+    sdk: {
+      input: CompleteLifecycleActionCommandInput;
+      output: CompleteLifecycleActionCommandOutput;
+    };
+  };
+}

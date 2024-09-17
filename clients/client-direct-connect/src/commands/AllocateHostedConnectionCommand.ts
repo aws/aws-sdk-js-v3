@@ -137,4 +137,16 @@ export class AllocateHostedConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllocateHostedConnectionCommand)
   .de(de_AllocateHostedConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllocateHostedConnectionRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AllocateHostedConnectionCommandInput;
+      output: AllocateHostedConnectionCommandOutput;
+    };
+  };
+}

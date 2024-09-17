@@ -138,4 +138,16 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IncreaseNodeGroupsInGlobalReplicationGroupCommand)
   .de(de_IncreaseNodeGroupsInGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IncreaseNodeGroupsInGlobalReplicationGroupMessage;
+      output: IncreaseNodeGroupsInGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput;
+      output: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

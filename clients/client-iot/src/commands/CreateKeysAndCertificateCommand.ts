@@ -108,4 +108,16 @@ export class CreateKeysAndCertificateCommand extends $Command
   .f(void 0, CreateKeysAndCertificateResponseFilterSensitiveLog)
   .ser(se_CreateKeysAndCertificateCommand)
   .de(de_CreateKeysAndCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeysAndCertificateRequest;
+      output: CreateKeysAndCertificateResponse;
+    };
+    sdk: {
+      input: CreateKeysAndCertificateCommandInput;
+      output: CreateKeysAndCertificateCommandOutput;
+    };
+  };
+}

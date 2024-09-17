@@ -111,4 +111,16 @@ export class ListViewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListViewsCommand)
   .de(de_ListViewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListViewsInput;
+      output: ListViewsOutput;
+    };
+    sdk: {
+      input: ListViewsCommandInput;
+      output: ListViewsCommandOutput;
+    };
+  };
+}

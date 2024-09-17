@@ -138,4 +138,16 @@ export class CreateOutboundConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOutboundConnectionCommand)
   .de(de_CreateOutboundConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOutboundConnectionRequest;
+      output: CreateOutboundConnectionResponse;
+    };
+    sdk: {
+      input: CreateOutboundConnectionCommandInput;
+      output: CreateOutboundConnectionCommandOutput;
+    };
+  };
+}

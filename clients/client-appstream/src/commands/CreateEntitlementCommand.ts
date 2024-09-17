@@ -116,4 +116,16 @@ export class CreateEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEntitlementCommand)
   .de(de_CreateEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEntitlementRequest;
+      output: CreateEntitlementResult;
+    };
+    sdk: {
+      input: CreateEntitlementCommandInput;
+      output: CreateEntitlementCommandOutput;
+    };
+  };
+}

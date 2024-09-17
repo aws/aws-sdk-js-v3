@@ -152,4 +152,16 @@ export class DeleteBudgetActionCommand extends $Command
   .f(void 0, DeleteBudgetActionResponseFilterSensitiveLog)
   .ser(se_DeleteBudgetActionCommand)
   .de(de_DeleteBudgetActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBudgetActionRequest;
+      output: DeleteBudgetActionResponse;
+    };
+    sdk: {
+      input: DeleteBudgetActionCommandInput;
+      output: DeleteBudgetActionCommandOutput;
+    };
+  };
+}

@@ -199,4 +199,16 @@ export class UpdateInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInputDeviceCommand)
   .de(de_UpdateInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInputDeviceRequest;
+      output: UpdateInputDeviceResponse;
+    };
+    sdk: {
+      input: UpdateInputDeviceCommandInput;
+      output: UpdateInputDeviceCommandOutput;
+    };
+  };
+}

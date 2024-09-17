@@ -78,4 +78,16 @@ export class DeleteFpgaImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFpgaImageCommand)
   .de(de_DeleteFpgaImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFpgaImageRequest;
+      output: DeleteFpgaImageResult;
+    };
+    sdk: {
+      input: DeleteFpgaImageCommandInput;
+      output: DeleteFpgaImageCommandOutput;
+    };
+  };
+}

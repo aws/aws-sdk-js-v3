@@ -119,4 +119,16 @@ export class ListLicenseConversionTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseConversionTasksCommand)
   .de(de_ListLicenseConversionTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseConversionTasksRequest;
+      output: ListLicenseConversionTasksResponse;
+    };
+    sdk: {
+      input: ListLicenseConversionTasksCommandInput;
+      output: ListLicenseConversionTasksCommandOutput;
+    };
+  };
+}

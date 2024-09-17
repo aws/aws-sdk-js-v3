@@ -187,4 +187,16 @@ export class CreateTestCaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestCaseCommand)
   .de(de_CreateTestCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestCaseRequest;
+      output: CreateTestCaseResponse;
+    };
+    sdk: {
+      input: CreateTestCaseCommandInput;
+      output: CreateTestCaseCommandOutput;
+    };
+  };
+}

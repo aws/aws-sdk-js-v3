@@ -160,4 +160,16 @@ export class CreateLoadBalancerPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerPolicyCommand)
   .de(de_CreateLoadBalancerPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoadBalancerPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateLoadBalancerPolicyCommandInput;
+      output: CreateLoadBalancerPolicyCommandOutput;
+    };
+  };
+}

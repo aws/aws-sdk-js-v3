@@ -78,4 +78,16 @@ export class GetSubscriptionStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubscriptionStateCommand)
   .de(de_GetSubscriptionStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSubscriptionStateResponse;
+    };
+    sdk: {
+      input: GetSubscriptionStateCommandInput;
+      output: GetSubscriptionStateCommandOutput;
+    };
+  };
+}

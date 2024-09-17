@@ -171,4 +171,16 @@ export class RevokeSecurityGroupEgressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeSecurityGroupEgressCommand)
   .de(de_RevokeSecurityGroupEgressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSecurityGroupEgressRequest;
+      output: RevokeSecurityGroupEgressResult;
+    };
+    sdk: {
+      input: RevokeSecurityGroupEgressCommandInput;
+      output: RevokeSecurityGroupEgressCommandOutput;
+    };
+  };
+}

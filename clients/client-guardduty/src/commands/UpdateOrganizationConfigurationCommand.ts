@@ -126,4 +126,16 @@ export class UpdateOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOrganizationConfigurationCommand)
   .de(de_UpdateOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrganizationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateOrganizationConfigurationCommandInput;
+      output: UpdateOrganizationConfigurationCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class GetBucketEncryptionCommand extends $Command
   .f(void 0, GetBucketEncryptionOutputFilterSensitiveLog)
   .ser(se_GetBucketEncryptionCommand)
   .de(de_GetBucketEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketEncryptionRequest;
+      output: GetBucketEncryptionOutput;
+    };
+    sdk: {
+      input: GetBucketEncryptionCommandInput;
+      output: GetBucketEncryptionCommandOutput;
+    };
+  };
+}

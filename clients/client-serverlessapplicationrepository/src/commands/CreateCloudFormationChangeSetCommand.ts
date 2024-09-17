@@ -137,4 +137,16 @@ export class CreateCloudFormationChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudFormationChangeSetCommand)
   .de(de_CreateCloudFormationChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudFormationChangeSetRequest;
+      output: CreateCloudFormationChangeSetResponse;
+    };
+    sdk: {
+      input: CreateCloudFormationChangeSetCommandInput;
+      output: CreateCloudFormationChangeSetCommandOutput;
+    };
+  };
+}

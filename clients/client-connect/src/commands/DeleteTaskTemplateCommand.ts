@@ -91,4 +91,16 @@ export class DeleteTaskTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTaskTemplateCommand)
   .de(de_DeleteTaskTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTaskTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTaskTemplateCommandInput;
+      output: DeleteTaskTemplateCommandOutput;
+    };
+  };
+}

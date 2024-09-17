@@ -112,4 +112,16 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplaceRootVolumeTaskCommand)
   .de(de_CreateReplaceRootVolumeTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplaceRootVolumeTaskRequest;
+      output: CreateReplaceRootVolumeTaskResult;
+    };
+    sdk: {
+      input: CreateReplaceRootVolumeTaskCommandInput;
+      output: CreateReplaceRootVolumeTaskCommandOutput;
+    };
+  };
+}

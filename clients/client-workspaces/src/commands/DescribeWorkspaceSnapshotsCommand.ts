@@ -95,4 +95,16 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceSnapshotsCommand)
   .de(de_DescribeWorkspaceSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceSnapshotsRequest;
+      output: DescribeWorkspaceSnapshotsResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceSnapshotsCommandInput;
+      output: DescribeWorkspaceSnapshotsCommandOutput;
+    };
+  };
+}

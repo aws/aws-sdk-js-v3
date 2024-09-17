@@ -126,4 +126,16 @@ export class PutPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPermissionCommand)
   .de(de_PutPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPermissionRequest;
+      output: PutPermissionResponse;
+    };
+    sdk: {
+      input: PutPermissionCommandInput;
+      output: PutPermissionCommandOutput;
+    };
+  };
+}

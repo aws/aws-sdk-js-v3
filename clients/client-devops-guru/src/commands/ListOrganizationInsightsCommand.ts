@@ -191,4 +191,16 @@ export class ListOrganizationInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationInsightsCommand)
   .de(de_ListOrganizationInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationInsightsRequest;
+      output: ListOrganizationInsightsResponse;
+    };
+    sdk: {
+      input: ListOrganizationInsightsCommandInput;
+      output: ListOrganizationInsightsCommandOutput;
+    };
+  };
+}

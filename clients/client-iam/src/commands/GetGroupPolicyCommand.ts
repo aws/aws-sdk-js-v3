@@ -102,4 +102,16 @@ export class GetGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupPolicyCommand)
   .de(de_GetGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupPolicyRequest;
+      output: GetGroupPolicyResponse;
+    };
+    sdk: {
+      input: GetGroupPolicyCommandInput;
+      output: GetGroupPolicyCommandOutput;
+    };
+  };
+}

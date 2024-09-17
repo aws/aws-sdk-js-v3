@@ -263,4 +263,16 @@ export class UpdateKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKnowledgeBaseCommand)
   .de(de_UpdateKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKnowledgeBaseRequest;
+      output: UpdateKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: UpdateKnowledgeBaseCommandInput;
+      output: UpdateKnowledgeBaseCommandOutput;
+    };
+  };
+}

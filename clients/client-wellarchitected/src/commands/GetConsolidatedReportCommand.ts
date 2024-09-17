@@ -136,4 +136,16 @@ export class GetConsolidatedReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConsolidatedReportCommand)
   .de(de_GetConsolidatedReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConsolidatedReportInput;
+      output: GetConsolidatedReportOutput;
+    };
+    sdk: {
+      input: GetConsolidatedReportCommandInput;
+      output: GetConsolidatedReportCommandOutput;
+    };
+  };
+}

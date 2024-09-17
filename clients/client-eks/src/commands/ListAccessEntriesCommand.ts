@@ -99,4 +99,16 @@ export class ListAccessEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessEntriesCommand)
   .de(de_ListAccessEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessEntriesRequest;
+      output: ListAccessEntriesResponse;
+    };
+    sdk: {
+      input: ListAccessEntriesCommandInput;
+      output: ListAccessEntriesCommandOutput;
+    };
+  };
+}

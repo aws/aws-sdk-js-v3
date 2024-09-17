@@ -182,4 +182,16 @@ export class ListInstanceFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceFleetsCommand)
   .de(de_ListInstanceFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceFleetsInput;
+      output: ListInstanceFleetsOutput;
+    };
+    sdk: {
+      input: ListInstanceFleetsCommandInput;
+      output: ListInstanceFleetsCommandOutput;
+    };
+  };
+}

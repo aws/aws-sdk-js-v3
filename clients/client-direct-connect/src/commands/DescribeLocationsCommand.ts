@@ -97,4 +97,16 @@ export class DescribeLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationsCommand)
   .de(de_DescribeLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: Locations;
+    };
+    sdk: {
+      input: DescribeLocationsCommandInput;
+      output: DescribeLocationsCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class UpdateBasePathMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBasePathMappingCommand)
   .de(de_UpdateBasePathMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBasePathMappingRequest;
+      output: BasePathMapping;
+    };
+    sdk: {
+      input: UpdateBasePathMappingCommandInput;
+      output: UpdateBasePathMappingCommandOutput;
+    };
+  };
+}

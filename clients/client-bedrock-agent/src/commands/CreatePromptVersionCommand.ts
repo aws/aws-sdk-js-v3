@@ -149,4 +149,16 @@ export class CreatePromptVersionCommand extends $Command
   .f(void 0, CreatePromptVersionResponseFilterSensitiveLog)
   .ser(se_CreatePromptVersionCommand)
   .de(de_CreatePromptVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePromptVersionRequest;
+      output: CreatePromptVersionResponse;
+    };
+    sdk: {
+      input: CreatePromptVersionCommandInput;
+      output: CreatePromptVersionCommandOutput;
+    };
+  };
+}

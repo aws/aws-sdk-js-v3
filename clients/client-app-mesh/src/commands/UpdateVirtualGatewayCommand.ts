@@ -364,4 +364,16 @@ export class UpdateVirtualGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVirtualGatewayCommand)
   .de(de_UpdateVirtualGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVirtualGatewayInput;
+      output: UpdateVirtualGatewayOutput;
+    };
+    sdk: {
+      input: UpdateVirtualGatewayCommandInput;
+      output: UpdateVirtualGatewayCommandOutput;
+    };
+  };
+}

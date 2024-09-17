@@ -112,4 +112,16 @@ export class UpdateZonalAutoshiftConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateZonalAutoshiftConfigurationCommand)
   .de(de_UpdateZonalAutoshiftConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateZonalAutoshiftConfigurationRequest;
+      output: UpdateZonalAutoshiftConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateZonalAutoshiftConfigurationCommandInput;
+      output: UpdateZonalAutoshiftConfigurationCommandOutput;
+    };
+  };
+}

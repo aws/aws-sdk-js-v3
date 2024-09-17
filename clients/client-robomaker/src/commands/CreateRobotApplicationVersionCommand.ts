@@ -124,4 +124,16 @@ export class CreateRobotApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRobotApplicationVersionCommand)
   .de(de_CreateRobotApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRobotApplicationVersionRequest;
+      output: CreateRobotApplicationVersionResponse;
+    };
+    sdk: {
+      input: CreateRobotApplicationVersionCommandInput;
+      output: CreateRobotApplicationVersionCommandOutput;
+    };
+  };
+}

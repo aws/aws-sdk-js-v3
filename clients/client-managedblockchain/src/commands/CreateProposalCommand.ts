@@ -124,4 +124,16 @@ export class CreateProposalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProposalCommand)
   .de(de_CreateProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProposalInput;
+      output: CreateProposalOutput;
+    };
+    sdk: {
+      input: CreateProposalCommandInput;
+      output: CreateProposalCommandOutput;
+    };
+  };
+}

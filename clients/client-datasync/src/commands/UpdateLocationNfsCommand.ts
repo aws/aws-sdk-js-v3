@@ -94,4 +94,16 @@ export class UpdateLocationNfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLocationNfsCommand)
   .de(de_UpdateLocationNfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationNfsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationNfsCommandInput;
+      output: UpdateLocationNfsCommandOutput;
+    };
+  };
+}

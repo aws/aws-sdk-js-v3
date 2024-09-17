@@ -149,4 +149,16 @@ export class ListDevicePoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicePoolsCommand)
   .de(de_ListDevicePoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicePoolsRequest;
+      output: ListDevicePoolsResult;
+    };
+    sdk: {
+      input: ListDevicePoolsCommandInput;
+      output: ListDevicePoolsCommandOutput;
+    };
+  };
+}

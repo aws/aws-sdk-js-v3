@@ -107,4 +107,16 @@ export class PutEvaluationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEvaluationsCommand)
   .de(de_PutEvaluationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEvaluationsRequest;
+      output: PutEvaluationsResponse;
+    };
+    sdk: {
+      input: PutEvaluationsCommandInput;
+      output: PutEvaluationsCommandOutput;
+    };
+  };
+}

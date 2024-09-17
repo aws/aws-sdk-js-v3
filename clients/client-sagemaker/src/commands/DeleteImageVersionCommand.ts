@@ -84,4 +84,16 @@ export class DeleteImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageVersionCommand)
   .de(de_DeleteImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImageVersionCommandInput;
+      output: DeleteImageVersionCommandOutput;
+    };
+  };
+}

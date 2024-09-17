@@ -110,4 +110,16 @@ export class UpdateAssessmentTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssessmentTargetCommand)
   .de(de_UpdateAssessmentTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAssessmentTargetCommandInput;
+      output: UpdateAssessmentTargetCommandOutput;
+    };
+  };
+}

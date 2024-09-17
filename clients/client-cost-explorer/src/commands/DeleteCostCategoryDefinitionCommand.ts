@@ -90,4 +90,16 @@ export class DeleteCostCategoryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCostCategoryDefinitionCommand)
   .de(de_DeleteCostCategoryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCostCategoryDefinitionRequest;
+      output: DeleteCostCategoryDefinitionResponse;
+    };
+    sdk: {
+      input: DeleteCostCategoryDefinitionCommandInput;
+      output: DeleteCostCategoryDefinitionCommandOutput;
+    };
+  };
+}

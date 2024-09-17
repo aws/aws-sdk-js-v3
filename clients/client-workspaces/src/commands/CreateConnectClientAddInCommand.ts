@@ -96,4 +96,16 @@ export class CreateConnectClientAddInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectClientAddInCommand)
   .de(de_CreateConnectClientAddInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectClientAddInRequest;
+      output: CreateConnectClientAddInResult;
+    };
+    sdk: {
+      input: CreateConnectClientAddInCommandInput;
+      output: CreateConnectClientAddInCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class RefreshCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RefreshCacheCommand)
   .de(de_RefreshCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshCacheInput;
+      output: RefreshCacheOutput;
+    };
+    sdk: {
+      input: RefreshCacheCommandInput;
+      output: RefreshCacheCommandOutput;
+    };
+  };
+}

@@ -150,4 +150,16 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePullRequestApprovalRuleContentCommand)
   .de(de_UpdatePullRequestApprovalRuleContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePullRequestApprovalRuleContentInput;
+      output: UpdatePullRequestApprovalRuleContentOutput;
+    };
+    sdk: {
+      input: UpdatePullRequestApprovalRuleContentCommandInput;
+      output: UpdatePullRequestApprovalRuleContentCommandOutput;
+    };
+  };
+}

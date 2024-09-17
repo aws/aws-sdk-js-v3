@@ -109,4 +109,16 @@ export class ListVoiceConnectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVoiceConnectorsCommand)
   .de(de_ListVoiceConnectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVoiceConnectorsRequest;
+      output: ListVoiceConnectorsResponse;
+    };
+    sdk: {
+      input: ListVoiceConnectorsCommandInput;
+      output: ListVoiceConnectorsCommandOutput;
+    };
+  };
+}

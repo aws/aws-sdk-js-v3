@@ -88,4 +88,16 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcEndpointServicePayerResponsibilityCommand)
   .de(de_ModifyVpcEndpointServicePayerResponsibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcEndpointServicePayerResponsibilityRequest;
+      output: ModifyVpcEndpointServicePayerResponsibilityResult;
+    };
+    sdk: {
+      input: ModifyVpcEndpointServicePayerResponsibilityCommandInput;
+      output: ModifyVpcEndpointServicePayerResponsibilityCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class GetAccessorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessorCommand)
   .de(de_GetAccessorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessorInput;
+      output: GetAccessorOutput;
+    };
+    sdk: {
+      input: GetAccessorCommandInput;
+      output: GetAccessorCommandOutput;
+    };
+  };
+}

@@ -218,4 +218,16 @@ export class DeleteReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationInstanceCommand)
   .de(de_DeleteReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationInstanceMessage;
+      output: DeleteReplicationInstanceResponse;
+    };
+    sdk: {
+      input: DeleteReplicationInstanceCommandInput;
+      output: DeleteReplicationInstanceCommandOutput;
+    };
+  };
+}

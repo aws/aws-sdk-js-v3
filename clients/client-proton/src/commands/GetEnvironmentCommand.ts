@@ -119,4 +119,16 @@ export class GetEnvironmentCommand extends $Command
   .f(void 0, GetEnvironmentOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentCommand)
   .de(de_GetEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentInput;
+      output: GetEnvironmentOutput;
+    };
+    sdk: {
+      input: GetEnvironmentCommandInput;
+      output: GetEnvironmentCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeregisterTransitGatewayMulticastGroupSourcesCommand)
   .de(de_DeregisterTransitGatewayMulticastGroupSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTransitGatewayMulticastGroupSourcesRequest;
+      output: DeregisterTransitGatewayMulticastGroupSourcesResult;
+    };
+    sdk: {
+      input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput;
+      output: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput;
+    };
+  };
+}

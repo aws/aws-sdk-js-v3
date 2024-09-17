@@ -110,4 +110,16 @@ export class ListAssessmentFrameworksCommand extends $Command
   .f(void 0, ListAssessmentFrameworksResponseFilterSensitiveLog)
   .ser(se_ListAssessmentFrameworksCommand)
   .de(de_ListAssessmentFrameworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentFrameworksRequest;
+      output: ListAssessmentFrameworksResponse;
+    };
+    sdk: {
+      input: ListAssessmentFrameworksCommandInput;
+      output: ListAssessmentFrameworksCommandOutput;
+    };
+  };
+}

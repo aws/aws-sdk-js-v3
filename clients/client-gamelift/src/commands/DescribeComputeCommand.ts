@@ -143,4 +143,16 @@ export class DescribeComputeCommand extends $Command
   .f(void 0, DescribeComputeOutputFilterSensitiveLog)
   .ser(se_DescribeComputeCommand)
   .de(de_DescribeComputeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComputeInput;
+      output: DescribeComputeOutput;
+    };
+    sdk: {
+      input: DescribeComputeCommandInput;
+      output: DescribeComputeCommandOutput;
+    };
+  };
+}

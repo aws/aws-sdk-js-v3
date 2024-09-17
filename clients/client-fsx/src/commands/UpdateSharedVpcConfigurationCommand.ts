@@ -103,4 +103,16 @@ export class UpdateSharedVpcConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSharedVpcConfigurationCommand)
   .de(de_UpdateSharedVpcConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSharedVpcConfigurationRequest;
+      output: UpdateSharedVpcConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateSharedVpcConfigurationCommandInput;
+      output: UpdateSharedVpcConfigurationCommandOutput;
+    };
+  };
+}

@@ -129,4 +129,16 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteProvisionedProductServiceActionCommand)
   .de(de_ExecuteProvisionedProductServiceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteProvisionedProductServiceActionInput;
+      output: ExecuteProvisionedProductServiceActionOutput;
+    };
+    sdk: {
+      input: ExecuteProvisionedProductServiceActionCommandInput;
+      output: ExecuteProvisionedProductServiceActionCommandOutput;
+    };
+  };
+}

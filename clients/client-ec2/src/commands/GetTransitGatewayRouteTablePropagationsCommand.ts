@@ -106,4 +106,16 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayRouteTablePropagationsCommand)
   .de(de_GetTransitGatewayRouteTablePropagationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayRouteTablePropagationsRequest;
+      output: GetTransitGatewayRouteTablePropagationsResult;
+    };
+    sdk: {
+      input: GetTransitGatewayRouteTablePropagationsCommandInput;
+      output: GetTransitGatewayRouteTablePropagationsCommandOutput;
+    };
+  };
+}

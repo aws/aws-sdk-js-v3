@@ -134,4 +134,16 @@ export class ListVPCConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVPCConnectionsCommand)
   .de(de_ListVPCConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVPCConnectionsRequest;
+      output: ListVPCConnectionsResponse;
+    };
+    sdk: {
+      input: ListVPCConnectionsCommandInput;
+      output: ListVPCConnectionsCommandOutput;
+    };
+  };
+}

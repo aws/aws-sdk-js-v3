@@ -101,4 +101,16 @@ export class DeleteFraudsterCommand extends $Command
   .f(DeleteFraudsterRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteFraudsterCommand)
   .de(de_DeleteFraudsterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFraudsterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFraudsterCommandInput;
+      output: DeleteFraudsterCommandOutput;
+    };
+  };
+}

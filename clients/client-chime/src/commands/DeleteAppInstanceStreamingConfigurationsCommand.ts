@@ -109,4 +109,16 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppInstanceStreamingConfigurationsCommand)
   .de(de_DeleteAppInstanceStreamingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppInstanceStreamingConfigurationsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppInstanceStreamingConfigurationsCommandInput;
+      output: DeleteAppInstanceStreamingConfigurationsCommandOutput;
+    };
+  };
+}

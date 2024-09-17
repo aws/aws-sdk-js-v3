@@ -127,4 +127,16 @@ export class SetUICustomizationCommand extends $Command
   .f(SetUICustomizationRequestFilterSensitiveLog, SetUICustomizationResponseFilterSensitiveLog)
   .ser(se_SetUICustomizationCommand)
   .de(de_SetUICustomizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetUICustomizationRequest;
+      output: SetUICustomizationResponse;
+    };
+    sdk: {
+      input: SetUICustomizationCommandInput;
+      output: SetUICustomizationCommandOutput;
+    };
+  };
+}

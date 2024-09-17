@@ -147,4 +147,16 @@ export class DescribeDBParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBParametersCommand)
   .de(de_DescribeDBParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBParametersMessage;
+      output: DBParameterGroupDetails;
+    };
+    sdk: {
+      input: DescribeDBParametersCommandInput;
+      output: DescribeDBParametersCommandOutput;
+    };
+  };
+}

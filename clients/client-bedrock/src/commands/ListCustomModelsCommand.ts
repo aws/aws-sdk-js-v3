@@ -110,4 +110,16 @@ export class ListCustomModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomModelsCommand)
   .de(de_ListCustomModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomModelsRequest;
+      output: ListCustomModelsResponse;
+    };
+    sdk: {
+      input: ListCustomModelsCommandInput;
+      output: ListCustomModelsCommandOutput;
+    };
+  };
+}

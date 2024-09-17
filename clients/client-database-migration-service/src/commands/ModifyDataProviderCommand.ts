@@ -268,4 +268,16 @@ export class ModifyDataProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDataProviderCommand)
   .de(de_ModifyDataProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDataProviderMessage;
+      output: ModifyDataProviderResponse;
+    };
+    sdk: {
+      input: ModifyDataProviderCommandInput;
+      output: ModifyDataProviderCommandOutput;
+    };
+  };
+}

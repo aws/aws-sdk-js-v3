@@ -132,4 +132,16 @@ export class ListCustomPluginsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomPluginsCommand)
   .de(de_ListCustomPluginsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomPluginsRequest;
+      output: ListCustomPluginsResponse;
+    };
+    sdk: {
+      input: ListCustomPluginsCommandInput;
+      output: ListCustomPluginsCommandOutput;
+    };
+  };
+}

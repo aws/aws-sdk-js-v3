@@ -102,4 +102,16 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceActionExecutionParametersCommand)
   .de(de_DescribeServiceActionExecutionParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceActionExecutionParametersInput;
+      output: DescribeServiceActionExecutionParametersOutput;
+    };
+    sdk: {
+      input: DescribeServiceActionExecutionParametersCommandInput;
+      output: DescribeServiceActionExecutionParametersCommandOutput;
+    };
+  };
+}

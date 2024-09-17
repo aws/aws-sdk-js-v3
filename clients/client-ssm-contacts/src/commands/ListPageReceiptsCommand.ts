@@ -103,4 +103,16 @@ export class ListPageReceiptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPageReceiptsCommand)
   .de(de_ListPageReceiptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPageReceiptsRequest;
+      output: ListPageReceiptsResult;
+    };
+    sdk: {
+      input: ListPageReceiptsCommandInput;
+      output: ListPageReceiptsCommandOutput;
+    };
+  };
+}

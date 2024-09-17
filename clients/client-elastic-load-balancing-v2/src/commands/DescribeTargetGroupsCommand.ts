@@ -164,4 +164,16 @@ export class DescribeTargetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetGroupsCommand)
   .de(de_DescribeTargetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetGroupsInput;
+      output: DescribeTargetGroupsOutput;
+    };
+    sdk: {
+      input: DescribeTargetGroupsCommandInput;
+      output: DescribeTargetGroupsCommandOutput;
+    };
+  };
+}

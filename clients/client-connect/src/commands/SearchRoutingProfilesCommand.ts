@@ -170,4 +170,16 @@ export class SearchRoutingProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchRoutingProfilesCommand)
   .de(de_SearchRoutingProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRoutingProfilesRequest;
+      output: SearchRoutingProfilesResponse;
+    };
+    sdk: {
+      input: SearchRoutingProfilesCommandInput;
+      output: SearchRoutingProfilesCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class DeactivateKeySigningKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateKeySigningKeyCommand)
   .de(de_DeactivateKeySigningKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateKeySigningKeyRequest;
+      output: DeactivateKeySigningKeyResponse;
+    };
+    sdk: {
+      input: DeactivateKeySigningKeyCommandInput;
+      output: DeactivateKeySigningKeyCommandOutput;
+    };
+  };
+}

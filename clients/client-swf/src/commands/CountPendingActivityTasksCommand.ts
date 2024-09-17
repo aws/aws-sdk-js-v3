@@ -114,4 +114,16 @@ export class CountPendingActivityTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CountPendingActivityTasksCommand)
   .de(de_CountPendingActivityTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CountPendingActivityTasksInput;
+      output: PendingTaskCount;
+    };
+    sdk: {
+      input: CountPendingActivityTasksCommandInput;
+      output: CountPendingActivityTasksCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class DescribeAggregationAuthorizationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAggregationAuthorizationsCommand)
   .de(de_DescribeAggregationAuthorizationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAggregationAuthorizationsRequest;
+      output: DescribeAggregationAuthorizationsResponse;
+    };
+    sdk: {
+      input: DescribeAggregationAuthorizationsCommandInput;
+      output: DescribeAggregationAuthorizationsCommandOutput;
+    };
+  };
+}

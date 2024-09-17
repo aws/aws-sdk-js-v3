@@ -96,4 +96,16 @@ export class DeleteAppLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppLaunchConfigurationCommand)
   .de(de_DeleteAppLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppLaunchConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppLaunchConfigurationCommandInput;
+      output: DeleteAppLaunchConfigurationCommandOutput;
+    };
+  };
+}

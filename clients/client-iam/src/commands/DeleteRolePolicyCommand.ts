@@ -111,4 +111,16 @@ export class DeleteRolePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRolePolicyCommand)
   .de(de_DeleteRolePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRolePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRolePolicyCommandInput;
+      output: DeleteRolePolicyCommandOutput;
+    };
+  };
+}

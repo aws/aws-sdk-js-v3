@@ -187,4 +187,16 @@ export class DescribeFleetAttributesCommand extends $Command
   .f(void 0, DescribeFleetAttributesOutputFilterSensitiveLog)
   .ser(se_DescribeFleetAttributesCommand)
   .de(de_DescribeFleetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetAttributesInput;
+      output: DescribeFleetAttributesOutput;
+    };
+    sdk: {
+      input: DescribeFleetAttributesCommandInput;
+      output: DescribeFleetAttributesCommandOutput;
+    };
+  };
+}

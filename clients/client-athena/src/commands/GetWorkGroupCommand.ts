@@ -127,4 +127,16 @@ export class GetWorkGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkGroupCommand)
   .de(de_GetWorkGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkGroupInput;
+      output: GetWorkGroupOutput;
+    };
+    sdk: {
+      input: GetWorkGroupCommandInput;
+      output: GetWorkGroupCommandOutput;
+    };
+  };
+}

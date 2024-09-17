@@ -95,4 +95,16 @@ export class DeleteInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInsightRulesCommand)
   .de(de_DeleteInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInsightRulesInput;
+      output: DeleteInsightRulesOutput;
+    };
+    sdk: {
+      input: DeleteInsightRulesCommandInput;
+      output: DeleteInsightRulesCommandOutput;
+    };
+  };
+}

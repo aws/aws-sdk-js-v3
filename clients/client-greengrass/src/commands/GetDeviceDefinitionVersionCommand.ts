@@ -96,4 +96,16 @@ export class GetDeviceDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeviceDefinitionVersionCommand)
   .de(de_GetDeviceDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceDefinitionVersionRequest;
+      output: GetDeviceDefinitionVersionResponse;
+    };
+    sdk: {
+      input: GetDeviceDefinitionVersionCommandInput;
+      output: GetDeviceDefinitionVersionCommandOutput;
+    };
+  };
+}

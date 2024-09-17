@@ -86,4 +86,16 @@ export class ListSharedProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSharedProjectsCommand)
   .de(de_ListSharedProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSharedProjectsInput;
+      output: ListSharedProjectsOutput;
+    };
+    sdk: {
+      input: ListSharedProjectsCommandInput;
+      output: ListSharedProjectsCommandOutput;
+    };
+  };
+}

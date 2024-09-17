@@ -183,4 +183,16 @@ export class GetStorageLensConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStorageLensConfigurationCommand)
   .de(de_GetStorageLensConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStorageLensConfigurationRequest;
+      output: GetStorageLensConfigurationResult;
+    };
+    sdk: {
+      input: GetStorageLensConfigurationCommandInput;
+      output: GetStorageLensConfigurationCommandOutput;
+    };
+  };
+}

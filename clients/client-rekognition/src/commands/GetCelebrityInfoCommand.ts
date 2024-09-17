@@ -109,4 +109,16 @@ export class GetCelebrityInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCelebrityInfoCommand)
   .de(de_GetCelebrityInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCelebrityInfoRequest;
+      output: GetCelebrityInfoResponse;
+    };
+    sdk: {
+      input: GetCelebrityInfoCommandInput;
+      output: GetCelebrityInfoCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class GetDeviceMethodsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeviceMethodsCommand)
   .de(de_GetDeviceMethodsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceMethodsRequest;
+      output: GetDeviceMethodsResponse;
+    };
+    sdk: {
+      input: GetDeviceMethodsCommandInput;
+      output: GetDeviceMethodsCommandOutput;
+    };
+  };
+}

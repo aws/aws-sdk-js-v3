@@ -83,4 +83,16 @@ export class UpdateDiscoveryJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDiscoveryJobCommand)
   .de(de_UpdateDiscoveryJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDiscoveryJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDiscoveryJobCommandInput;
+      output: UpdateDiscoveryJobCommandOutput;
+    };
+  };
+}

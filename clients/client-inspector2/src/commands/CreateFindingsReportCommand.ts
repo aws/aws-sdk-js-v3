@@ -229,4 +229,16 @@ export class CreateFindingsReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFindingsReportCommand)
   .de(de_CreateFindingsReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFindingsReportRequest;
+      output: CreateFindingsReportResponse;
+    };
+    sdk: {
+      input: CreateFindingsReportCommandInput;
+      output: CreateFindingsReportCommandOutput;
+    };
+  };
+}

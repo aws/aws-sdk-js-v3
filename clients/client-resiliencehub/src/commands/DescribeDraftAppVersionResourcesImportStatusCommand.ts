@@ -115,4 +115,16 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeDraftAppVersionResourcesImportStatusCommand)
   .de(de_DescribeDraftAppVersionResourcesImportStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDraftAppVersionResourcesImportStatusRequest;
+      output: DescribeDraftAppVersionResourcesImportStatusResponse;
+    };
+    sdk: {
+      input: DescribeDraftAppVersionResourcesImportStatusCommandInput;
+      output: DescribeDraftAppVersionResourcesImportStatusCommandOutput;
+    };
+  };
+}

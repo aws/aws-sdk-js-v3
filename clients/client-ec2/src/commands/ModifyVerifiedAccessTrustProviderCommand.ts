@@ -141,4 +141,16 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command
   )
   .ser(se_ModifyVerifiedAccessTrustProviderCommand)
   .de(de_ModifyVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessTrustProviderRequest;
+      output: ModifyVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessTrustProviderCommandInput;
+      output: ModifyVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

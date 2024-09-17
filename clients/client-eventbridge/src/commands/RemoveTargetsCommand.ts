@@ -117,4 +117,16 @@ export class RemoveTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTargetsCommand)
   .de(de_RemoveTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTargetsRequest;
+      output: RemoveTargetsResponse;
+    };
+    sdk: {
+      input: RemoveTargetsCommandInput;
+      output: RemoveTargetsCommandOutput;
+    };
+  };
+}

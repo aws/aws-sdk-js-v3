@@ -98,4 +98,16 @@ export class ListStorageLensGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStorageLensGroupsCommand)
   .de(de_ListStorageLensGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStorageLensGroupsRequest;
+      output: ListStorageLensGroupsResult;
+    };
+    sdk: {
+      input: ListStorageLensGroupsCommandInput;
+      output: ListStorageLensGroupsCommandOutput;
+    };
+  };
+}

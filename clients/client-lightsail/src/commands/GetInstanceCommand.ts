@@ -225,4 +225,16 @@ export class GetInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceCommand)
   .de(de_GetInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceRequest;
+      output: GetInstanceResult;
+    };
+    sdk: {
+      input: GetInstanceCommandInput;
+      output: GetInstanceCommandOutput;
+    };
+  };
+}

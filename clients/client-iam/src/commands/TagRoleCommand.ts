@@ -166,4 +166,16 @@ export class TagRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagRoleCommand)
   .de(de_TagRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagRoleCommandInput;
+      output: TagRoleCommandOutput;
+    };
+  };
+}

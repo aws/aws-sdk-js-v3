@@ -117,4 +117,16 @@ export class CreateSolNetworkInstanceCommand extends $Command
   .f(CreateSolNetworkInstanceInputFilterSensitiveLog, CreateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_CreateSolNetworkInstanceCommand)
   .de(de_CreateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSolNetworkInstanceInput;
+      output: CreateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: CreateSolNetworkInstanceCommandInput;
+      output: CreateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

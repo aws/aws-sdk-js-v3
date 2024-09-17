@@ -87,4 +87,16 @@ export class DescribeHumanTaskUiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHumanTaskUiCommand)
   .de(de_DescribeHumanTaskUiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHumanTaskUiRequest;
+      output: DescribeHumanTaskUiResponse;
+    };
+    sdk: {
+      input: DescribeHumanTaskUiCommandInput;
+      output: DescribeHumanTaskUiCommandOutput;
+    };
+  };
+}

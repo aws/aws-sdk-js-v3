@@ -118,4 +118,16 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationAggregatorSourcesStatusCommand)
   .de(de_DescribeConfigurationAggregatorSourcesStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationAggregatorSourcesStatusRequest;
+      output: DescribeConfigurationAggregatorSourcesStatusResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationAggregatorSourcesStatusCommandInput;
+      output: DescribeConfigurationAggregatorSourcesStatusCommandOutput;
+    };
+  };
+}

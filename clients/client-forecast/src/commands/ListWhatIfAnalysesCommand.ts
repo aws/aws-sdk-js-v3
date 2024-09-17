@@ -103,4 +103,16 @@ export class ListWhatIfAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWhatIfAnalysesCommand)
   .de(de_ListWhatIfAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWhatIfAnalysesRequest;
+      output: ListWhatIfAnalysesResponse;
+    };
+    sdk: {
+      input: ListWhatIfAnalysesCommandInput;
+      output: ListWhatIfAnalysesCommandOutput;
+    };
+  };
+}

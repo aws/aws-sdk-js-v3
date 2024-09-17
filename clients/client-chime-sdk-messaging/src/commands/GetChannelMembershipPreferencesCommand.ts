@@ -129,4 +129,16 @@ export class GetChannelMembershipPreferencesCommand extends $Command
   .f(void 0, GetChannelMembershipPreferencesResponseFilterSensitiveLog)
   .ser(se_GetChannelMembershipPreferencesCommand)
   .de(de_GetChannelMembershipPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelMembershipPreferencesRequest;
+      output: GetChannelMembershipPreferencesResponse;
+    };
+    sdk: {
+      input: GetChannelMembershipPreferencesCommandInput;
+      output: GetChannelMembershipPreferencesCommandOutput;
+    };
+  };
+}

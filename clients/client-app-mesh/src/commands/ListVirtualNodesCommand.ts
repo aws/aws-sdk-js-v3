@@ -113,4 +113,16 @@ export class ListVirtualNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualNodesCommand)
   .de(de_ListVirtualNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualNodesInput;
+      output: ListVirtualNodesOutput;
+    };
+    sdk: {
+      input: ListVirtualNodesCommandInput;
+      output: ListVirtualNodesCommandOutput;
+    };
+  };
+}

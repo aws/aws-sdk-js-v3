@@ -130,4 +130,16 @@ export class ShareDirectoryCommand extends $Command
   .f(ShareDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_ShareDirectoryCommand)
   .de(de_ShareDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ShareDirectoryRequest;
+      output: ShareDirectoryResult;
+    };
+    sdk: {
+      input: ShareDirectoryCommandInput;
+      output: ShareDirectoryCommandOutput;
+    };
+  };
+}

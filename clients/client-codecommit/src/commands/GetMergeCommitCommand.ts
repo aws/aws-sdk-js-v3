@@ -128,4 +128,16 @@ export class GetMergeCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMergeCommitCommand)
   .de(de_GetMergeCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMergeCommitInput;
+      output: GetMergeCommitOutput;
+    };
+    sdk: {
+      input: GetMergeCommitCommandInput;
+      output: GetMergeCommitCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionEventInvokeConfigCommand)
   .de(de_GetFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionEventInvokeConfigRequest;
+      output: FunctionEventInvokeConfig;
+    };
+    sdk: {
+      input: GetFunctionEventInvokeConfigCommandInput;
+      output: GetFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

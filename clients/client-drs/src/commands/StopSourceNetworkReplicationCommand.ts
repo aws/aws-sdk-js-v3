@@ -122,4 +122,16 @@ export class StopSourceNetworkReplicationCommand extends $Command
   .f(void 0, StopSourceNetworkReplicationResponseFilterSensitiveLog)
   .ser(se_StopSourceNetworkReplicationCommand)
   .de(de_StopSourceNetworkReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopSourceNetworkReplicationRequest;
+      output: StopSourceNetworkReplicationResponse;
+    };
+    sdk: {
+      input: StopSourceNetworkReplicationCommandInput;
+      output: StopSourceNetworkReplicationCommandOutput;
+    };
+  };
+}

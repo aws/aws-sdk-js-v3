@@ -91,4 +91,16 @@ export class GetWorldTemplateBodyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorldTemplateBodyCommand)
   .de(de_GetWorldTemplateBodyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorldTemplateBodyRequest;
+      output: GetWorldTemplateBodyResponse;
+    };
+    sdk: {
+      input: GetWorldTemplateBodyCommandInput;
+      output: GetWorldTemplateBodyCommandOutput;
+    };
+  };
+}

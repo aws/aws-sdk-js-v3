@@ -123,4 +123,16 @@ export class DescribeDeliveriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeliveriesCommand)
   .de(de_DescribeDeliveriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliveriesRequest;
+      output: DescribeDeliveriesResponse;
+    };
+    sdk: {
+      input: DescribeDeliveriesCommandInput;
+      output: DescribeDeliveriesCommandOutput;
+    };
+  };
+}

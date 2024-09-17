@@ -125,4 +125,16 @@ export class CreateFrameworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFrameworkCommand)
   .de(de_CreateFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFrameworkInput;
+      output: CreateFrameworkOutput;
+    };
+    sdk: {
+      input: CreateFrameworkCommandInput;
+      output: CreateFrameworkCommandOutput;
+    };
+  };
+}

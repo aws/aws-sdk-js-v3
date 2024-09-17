@@ -129,4 +129,16 @@ export class GetLoadBalancerMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoadBalancerMetricDataCommand)
   .de(de_GetLoadBalancerMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoadBalancerMetricDataRequest;
+      output: GetLoadBalancerMetricDataResult;
+    };
+    sdk: {
+      input: GetLoadBalancerMetricDataCommandInput;
+      output: GetLoadBalancerMetricDataCommandOutput;
+    };
+  };
+}

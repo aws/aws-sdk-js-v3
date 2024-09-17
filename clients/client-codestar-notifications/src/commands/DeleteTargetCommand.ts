@@ -83,4 +83,16 @@ export class DeleteTargetCommand extends $Command
   .f(DeleteTargetRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteTargetCommand)
   .de(de_DeleteTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTargetCommandInput;
+      output: DeleteTargetCommandOutput;
+    };
+  };
+}

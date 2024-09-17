@@ -306,4 +306,16 @@ export class StartDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBClusterCommand)
   .de(de_StartDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBClusterMessage;
+      output: StartDBClusterResult;
+    };
+    sdk: {
+      input: StartDBClusterCommandInput;
+      output: StartDBClusterCommandOutput;
+    };
+  };
+}

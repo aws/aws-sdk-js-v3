@@ -101,4 +101,16 @@ export class ListBonusPaymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBonusPaymentsCommand)
   .de(de_ListBonusPaymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBonusPaymentsRequest;
+      output: ListBonusPaymentsResponse;
+    };
+    sdk: {
+      input: ListBonusPaymentsCommandInput;
+      output: ListBonusPaymentsCommandOutput;
+    };
+  };
+}

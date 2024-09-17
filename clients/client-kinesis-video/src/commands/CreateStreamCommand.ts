@@ -132,4 +132,16 @@ export class CreateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStreamCommand)
   .de(de_CreateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamInput;
+      output: CreateStreamOutput;
+    };
+    sdk: {
+      input: CreateStreamCommandInput;
+      output: CreateStreamCommandOutput;
+    };
+  };
+}

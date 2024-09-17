@@ -95,4 +95,16 @@ export class DeleteLifecycleHookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLifecycleHookCommand)
   .de(de_DeleteLifecycleHookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLifecycleHookType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLifecycleHookCommandInput;
+      output: DeleteLifecycleHookCommandOutput;
+    };
+  };
+}

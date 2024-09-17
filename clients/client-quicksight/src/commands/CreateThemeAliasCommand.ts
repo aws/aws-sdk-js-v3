@@ -113,4 +113,16 @@ export class CreateThemeAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateThemeAliasCommand)
   .de(de_CreateThemeAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateThemeAliasRequest;
+      output: CreateThemeAliasResponse;
+    };
+    sdk: {
+      input: CreateThemeAliasCommandInput;
+      output: CreateThemeAliasCommandOutput;
+    };
+  };
+}

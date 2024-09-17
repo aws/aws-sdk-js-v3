@@ -120,4 +120,16 @@ export class GetWirelessGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWirelessGatewayCommand)
   .de(de_GetWirelessGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWirelessGatewayRequest;
+      output: GetWirelessGatewayResponse;
+    };
+    sdk: {
+      input: GetWirelessGatewayCommandInput;
+      output: GetWirelessGatewayCommandOutput;
+    };
+  };
+}

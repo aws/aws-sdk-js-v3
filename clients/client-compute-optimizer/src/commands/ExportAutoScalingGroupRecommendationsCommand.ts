@@ -145,4 +145,16 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportAutoScalingGroupRecommendationsCommand)
   .de(de_ExportAutoScalingGroupRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportAutoScalingGroupRecommendationsRequest;
+      output: ExportAutoScalingGroupRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportAutoScalingGroupRecommendationsCommandInput;
+      output: ExportAutoScalingGroupRecommendationsCommandOutput;
+    };
+  };
+}

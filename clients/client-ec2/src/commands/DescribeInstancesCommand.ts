@@ -401,4 +401,16 @@ export class DescribeInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstancesCommand)
   .de(de_DescribeInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstancesRequest;
+      output: DescribeInstancesResult;
+    };
+    sdk: {
+      input: DescribeInstancesCommandInput;
+      output: DescribeInstancesCommandOutput;
+    };
+  };
+}

@@ -76,4 +76,16 @@ export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FlattenedXmlMapWithXmlNamespaceCommand)
   .de(de_FlattenedXmlMapWithXmlNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: FlattenedXmlMapWithXmlNamespaceOutput;
+    };
+    sdk: {
+      input: FlattenedXmlMapWithXmlNamespaceCommandInput;
+      output: FlattenedXmlMapWithXmlNamespaceCommandOutput;
+    };
+  };
+}

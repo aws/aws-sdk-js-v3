@@ -118,4 +118,16 @@ export class DescribeScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScriptCommand)
   .de(de_DescribeScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScriptInput;
+      output: DescribeScriptOutput;
+    };
+    sdk: {
+      input: DescribeScriptCommandInput;
+      output: DescribeScriptCommandOutput;
+    };
+  };
+}

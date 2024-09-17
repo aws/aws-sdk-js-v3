@@ -104,4 +104,16 @@ export class UpdateContactAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactAttributesCommand)
   .de(de_UpdateContactAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactAttributesCommandInput;
+      output: UpdateContactAttributesCommandOutput;
+    };
+  };
+}

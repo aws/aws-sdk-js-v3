@@ -127,4 +127,16 @@ export class RotateIngestEndpointCredentialsCommand extends $Command
   .f(void 0, RotateIngestEndpointCredentialsResponseFilterSensitiveLog)
   .ser(se_RotateIngestEndpointCredentialsCommand)
   .de(de_RotateIngestEndpointCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateIngestEndpointCredentialsRequest;
+      output: RotateIngestEndpointCredentialsResponse;
+    };
+    sdk: {
+      input: RotateIngestEndpointCredentialsCommandInput;
+      output: RotateIngestEndpointCredentialsCommandOutput;
+    };
+  };
+}

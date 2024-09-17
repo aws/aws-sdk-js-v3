@@ -145,4 +145,16 @@ export class VerifyMacCommand extends $Command
   .f(VerifyMacInputFilterSensitiveLog, void 0)
   .ser(se_VerifyMacCommand)
   .de(de_VerifyMacCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyMacInput;
+      output: VerifyMacOutput;
+    };
+    sdk: {
+      input: VerifyMacCommandInput;
+      output: VerifyMacCommandOutput;
+    };
+  };
+}

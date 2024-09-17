@@ -129,4 +129,16 @@ export class ListDataSourceRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataSourceRunsCommand)
   .de(de_ListDataSourceRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourceRunsInput;
+      output: ListDataSourceRunsOutput;
+    };
+    sdk: {
+      input: ListDataSourceRunsCommandInput;
+      output: ListDataSourceRunsCommandOutput;
+    };
+  };
+}

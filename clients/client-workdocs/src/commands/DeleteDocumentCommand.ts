@@ -105,4 +105,16 @@ export class DeleteDocumentCommand extends $Command
   .f(DeleteDocumentRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteDocumentCommand)
   .de(de_DeleteDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDocumentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDocumentCommandInput;
+      output: DeleteDocumentCommandOutput;
+    };
+  };
+}

@@ -183,4 +183,16 @@ export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_ListCisScanResultsAggregatedByTargetResourceCommand)
   .de(de_ListCisScanResultsAggregatedByTargetResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCisScanResultsAggregatedByTargetResourceRequest;
+      output: ListCisScanResultsAggregatedByTargetResourceResponse;
+    };
+    sdk: {
+      input: ListCisScanResultsAggregatedByTargetResourceCommandInput;
+      output: ListCisScanResultsAggregatedByTargetResourceCommandOutput;
+    };
+  };
+}

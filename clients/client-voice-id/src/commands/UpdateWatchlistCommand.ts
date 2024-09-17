@@ -119,4 +119,16 @@ export class UpdateWatchlistCommand extends $Command
   .f(UpdateWatchlistRequestFilterSensitiveLog, UpdateWatchlistResponseFilterSensitiveLog)
   .ser(se_UpdateWatchlistCommand)
   .de(de_UpdateWatchlistCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWatchlistRequest;
+      output: UpdateWatchlistResponse;
+    };
+    sdk: {
+      input: UpdateWatchlistCommandInput;
+      output: UpdateWatchlistCommandOutput;
+    };
+  };
+}

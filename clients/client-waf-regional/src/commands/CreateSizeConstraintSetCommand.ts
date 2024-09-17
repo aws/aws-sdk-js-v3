@@ -212,4 +212,16 @@ export class CreateSizeConstraintSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSizeConstraintSetCommand)
   .de(de_CreateSizeConstraintSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSizeConstraintSetRequest;
+      output: CreateSizeConstraintSetResponse;
+    };
+    sdk: {
+      input: CreateSizeConstraintSetCommandInput;
+      output: CreateSizeConstraintSetCommandOutput;
+    };
+  };
+}

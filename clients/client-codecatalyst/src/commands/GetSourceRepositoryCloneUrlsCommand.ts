@@ -105,4 +105,16 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSourceRepositoryCloneUrlsCommand)
   .de(de_GetSourceRepositoryCloneUrlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSourceRepositoryCloneUrlsRequest;
+      output: GetSourceRepositoryCloneUrlsResponse;
+    };
+    sdk: {
+      input: GetSourceRepositoryCloneUrlsCommandInput;
+      output: GetSourceRepositoryCloneUrlsCommandOutput;
+    };
+  };
+}

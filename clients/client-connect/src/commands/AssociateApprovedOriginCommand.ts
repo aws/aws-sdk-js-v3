@@ -98,4 +98,16 @@ export class AssociateApprovedOriginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateApprovedOriginCommand)
   .de(de_AssociateApprovedOriginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateApprovedOriginRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateApprovedOriginCommandInput;
+      output: AssociateApprovedOriginCommandOutput;
+    };
+  };
+}

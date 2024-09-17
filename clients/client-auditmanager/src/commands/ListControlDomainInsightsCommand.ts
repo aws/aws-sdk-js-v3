@@ -119,4 +119,16 @@ export class ListControlDomainInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlDomainInsightsCommand)
   .de(de_ListControlDomainInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlDomainInsightsRequest;
+      output: ListControlDomainInsightsResponse;
+    };
+    sdk: {
+      input: ListControlDomainInsightsCommandInput;
+      output: ListControlDomainInsightsCommandOutput;
+    };
+  };
+}

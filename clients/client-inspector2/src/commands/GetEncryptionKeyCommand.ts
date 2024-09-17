@@ -97,4 +97,16 @@ export class GetEncryptionKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEncryptionKeyCommand)
   .de(de_GetEncryptionKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEncryptionKeyRequest;
+      output: GetEncryptionKeyResponse;
+    };
+    sdk: {
+      input: GetEncryptionKeyCommandInput;
+      output: GetEncryptionKeyCommandOutput;
+    };
+  };
+}

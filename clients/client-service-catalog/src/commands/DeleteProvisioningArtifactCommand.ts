@@ -89,4 +89,16 @@ export class DeleteProvisioningArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisioningArtifactCommand)
   .de(de_DeleteProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisioningArtifactInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisioningArtifactCommandInput;
+      output: DeleteProvisioningArtifactCommandOutput;
+    };
+  };
+}

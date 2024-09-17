@@ -104,4 +104,16 @@ export class GetSystemTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSystemTemplateCommand)
   .de(de_GetSystemTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSystemTemplateRequest;
+      output: GetSystemTemplateResponse;
+    };
+    sdk: {
+      input: GetSystemTemplateCommandInput;
+      output: GetSystemTemplateCommandOutput;
+    };
+  };
+}

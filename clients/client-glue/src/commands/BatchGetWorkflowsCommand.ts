@@ -353,4 +353,16 @@ export class BatchGetWorkflowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetWorkflowsCommand)
   .de(de_BatchGetWorkflowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetWorkflowsRequest;
+      output: BatchGetWorkflowsResponse;
+    };
+    sdk: {
+      input: BatchGetWorkflowsCommandInput;
+      output: BatchGetWorkflowsCommandOutput;
+    };
+  };
+}

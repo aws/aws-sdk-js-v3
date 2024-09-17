@@ -247,4 +247,16 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
   )
   .ser(se_StartMedicalStreamTranscriptionCommand)
   .de(de_StartMedicalStreamTranscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMedicalStreamTranscriptionRequest;
+      output: StartMedicalStreamTranscriptionResponse;
+    };
+    sdk: {
+      input: StartMedicalStreamTranscriptionCommandInput;
+      output: StartMedicalStreamTranscriptionCommandOutput;
+    };
+  };
+}

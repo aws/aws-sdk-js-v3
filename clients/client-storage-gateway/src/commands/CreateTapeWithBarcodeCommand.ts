@@ -122,4 +122,16 @@ export class CreateTapeWithBarcodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTapeWithBarcodeCommand)
   .de(de_CreateTapeWithBarcodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTapeWithBarcodeInput;
+      output: CreateTapeWithBarcodeOutput;
+    };
+    sdk: {
+      input: CreateTapeWithBarcodeCommandInput;
+      output: CreateTapeWithBarcodeCommandOutput;
+    };
+  };
+}

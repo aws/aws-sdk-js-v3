@@ -150,4 +150,16 @@ export class RebootReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootReplicationInstanceCommand)
   .de(de_RebootReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootReplicationInstanceMessage;
+      output: RebootReplicationInstanceResponse;
+    };
+    sdk: {
+      input: RebootReplicationInstanceCommandInput;
+      output: RebootReplicationInstanceCommandOutput;
+    };
+  };
+}

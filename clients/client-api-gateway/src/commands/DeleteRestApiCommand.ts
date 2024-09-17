@@ -90,4 +90,16 @@ export class DeleteRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRestApiCommand)
   .de(de_DeleteRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRestApiRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRestApiCommandInput;
+      output: DeleteRestApiCommandOutput;
+    };
+  };
+}

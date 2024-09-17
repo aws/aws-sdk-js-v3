@@ -113,4 +113,16 @@ export class UpdateSecurityHubConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityHubConfigurationCommand)
   .de(de_UpdateSecurityHubConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityHubConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSecurityHubConfigurationCommandInput;
+      output: UpdateSecurityHubConfigurationCommandOutput;
+    };
+  };
+}

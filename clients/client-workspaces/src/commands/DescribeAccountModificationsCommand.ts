@@ -96,4 +96,16 @@ export class DescribeAccountModificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountModificationsCommand)
   .de(de_DescribeAccountModificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountModificationsRequest;
+      output: DescribeAccountModificationsResult;
+    };
+    sdk: {
+      input: DescribeAccountModificationsCommandInput;
+      output: DescribeAccountModificationsCommandOutput;
+    };
+  };
+}

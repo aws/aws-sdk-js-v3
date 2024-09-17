@@ -98,4 +98,16 @@ export class ListGlobalTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGlobalTablesCommand)
   .de(de_ListGlobalTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGlobalTablesInput;
+      output: ListGlobalTablesOutput;
+    };
+    sdk: {
+      input: ListGlobalTablesCommandInput;
+      output: ListGlobalTablesCommandOutput;
+    };
+  };
+}

@@ -192,4 +192,16 @@ export class DeleteDataProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataProviderCommand)
   .de(de_DeleteDataProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataProviderMessage;
+      output: DeleteDataProviderResponse;
+    };
+    sdk: {
+      input: DeleteDataProviderCommandInput;
+      output: DeleteDataProviderCommandOutput;
+    };
+  };
+}

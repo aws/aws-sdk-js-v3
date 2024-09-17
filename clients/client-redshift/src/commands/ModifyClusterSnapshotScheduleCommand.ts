@@ -90,4 +90,16 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterSnapshotScheduleCommand)
   .de(de_ModifyClusterSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterSnapshotScheduleMessage;
+      output: {};
+    };
+    sdk: {
+      input: ModifyClusterSnapshotScheduleCommandInput;
+      output: ModifyClusterSnapshotScheduleCommandOutput;
+    };
+  };
+}

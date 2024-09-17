@@ -124,4 +124,16 @@ export class GetAgentMemoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAgentMemoryCommand)
   .de(de_GetAgentMemoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentMemoryRequest;
+      output: GetAgentMemoryResponse;
+    };
+    sdk: {
+      input: GetAgentMemoryCommandInput;
+      output: GetAgentMemoryCommandOutput;
+    };
+  };
+}

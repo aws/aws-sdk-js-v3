@@ -103,4 +103,16 @@ export class UpdateCampaignDialerConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCampaignDialerConfigCommand)
   .de(de_UpdateCampaignDialerConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCampaignDialerConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCampaignDialerConfigCommandInput;
+      output: UpdateCampaignDialerConfigCommandOutput;
+    };
+  };
+}

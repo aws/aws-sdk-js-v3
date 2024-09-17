@@ -305,4 +305,16 @@ export class GetExpenseAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExpenseAnalysisCommand)
   .de(de_GetExpenseAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExpenseAnalysisRequest;
+      output: GetExpenseAnalysisResponse;
+    };
+    sdk: {
+      input: GetExpenseAnalysisCommandInput;
+      output: GetExpenseAnalysisCommandOutput;
+    };
+  };
+}

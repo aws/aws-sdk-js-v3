@@ -122,4 +122,16 @@ export class CancelLoaderJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelLoaderJobCommand)
   .de(de_CancelLoaderJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelLoaderJobInput;
+      output: CancelLoaderJobOutput;
+    };
+    sdk: {
+      input: CancelLoaderJobCommandInput;
+      output: CancelLoaderJobCommandOutput;
+    };
+  };
+}

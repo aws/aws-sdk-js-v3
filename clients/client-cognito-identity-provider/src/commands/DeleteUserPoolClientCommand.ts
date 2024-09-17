@@ -102,4 +102,16 @@ export class DeleteUserPoolClientCommand extends $Command
   .f(DeleteUserPoolClientRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteUserPoolClientCommand)
   .de(de_DeleteUserPoolClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPoolClientRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPoolClientCommandInput;
+      output: DeleteUserPoolClientCommandOutput;
+    };
+  };
+}

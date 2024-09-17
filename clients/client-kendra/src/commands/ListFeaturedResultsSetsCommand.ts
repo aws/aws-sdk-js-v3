@@ -110,4 +110,16 @@ export class ListFeaturedResultsSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFeaturedResultsSetsCommand)
   .de(de_ListFeaturedResultsSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFeaturedResultsSetsRequest;
+      output: ListFeaturedResultsSetsResponse;
+    };
+    sdk: {
+      input: ListFeaturedResultsSetsCommandInput;
+      output: ListFeaturedResultsSetsCommandOutput;
+    };
+  };
+}

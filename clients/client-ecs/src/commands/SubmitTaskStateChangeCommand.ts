@@ -145,4 +145,16 @@ export class SubmitTaskStateChangeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitTaskStateChangeCommand)
   .de(de_SubmitTaskStateChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitTaskStateChangeRequest;
+      output: SubmitTaskStateChangeResponse;
+    };
+    sdk: {
+      input: SubmitTaskStateChangeCommandInput;
+      output: SubmitTaskStateChangeCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class CreateUserProfileCommand extends $Command
   .f(void 0, CreateUserProfileOutputFilterSensitiveLog)
   .ser(se_CreateUserProfileCommand)
   .de(de_CreateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserProfileInput;
+      output: CreateUserProfileOutput;
+    };
+    sdk: {
+      input: CreateUserProfileCommandInput;
+      output: CreateUserProfileCommandOutput;
+    };
+  };
+}

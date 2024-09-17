@@ -97,4 +97,16 @@ export class GetRestoreJobMetadataCommand extends $Command
   .f(void 0, GetRestoreJobMetadataOutputFilterSensitiveLog)
   .ser(se_GetRestoreJobMetadataCommand)
   .de(de_GetRestoreJobMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRestoreJobMetadataInput;
+      output: GetRestoreJobMetadataOutput;
+    };
+    sdk: {
+      input: GetRestoreJobMetadataCommandInput;
+      output: GetRestoreJobMetadataCommandOutput;
+    };
+  };
+}

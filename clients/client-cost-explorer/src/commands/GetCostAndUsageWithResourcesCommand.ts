@@ -234,4 +234,16 @@ export class GetCostAndUsageWithResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostAndUsageWithResourcesCommand)
   .de(de_GetCostAndUsageWithResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostAndUsageWithResourcesRequest;
+      output: GetCostAndUsageWithResourcesResponse;
+    };
+    sdk: {
+      input: GetCostAndUsageWithResourcesCommandInput;
+      output: GetCostAndUsageWithResourcesCommandOutput;
+    };
+  };
+}

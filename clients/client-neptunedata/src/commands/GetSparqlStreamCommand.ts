@@ -154,4 +154,16 @@ export class GetSparqlStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSparqlStreamCommand)
   .de(de_GetSparqlStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSparqlStreamInput;
+      output: GetSparqlStreamOutput;
+    };
+    sdk: {
+      input: GetSparqlStreamCommandInput;
+      output: GetSparqlStreamCommandOutput;
+    };
+  };
+}

@@ -155,4 +155,16 @@ export class StopInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopInstancesCommand)
   .de(de_StopInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopInstancesRequest;
+      output: StopInstancesResult;
+    };
+    sdk: {
+      input: StopInstancesCommandInput;
+      output: StopInstancesCommandOutput;
+    };
+  };
+}

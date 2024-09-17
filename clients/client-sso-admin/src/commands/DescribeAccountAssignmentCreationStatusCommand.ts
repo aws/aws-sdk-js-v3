@@ -114,4 +114,16 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAssignmentCreationStatusCommand)
   .de(de_DescribeAccountAssignmentCreationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountAssignmentCreationStatusRequest;
+      output: DescribeAccountAssignmentCreationStatusResponse;
+    };
+    sdk: {
+      input: DescribeAccountAssignmentCreationStatusCommandInput;
+      output: DescribeAccountAssignmentCreationStatusCommandOutput;
+    };
+  };
+}

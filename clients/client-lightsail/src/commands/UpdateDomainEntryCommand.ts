@@ -138,4 +138,16 @@ export class UpdateDomainEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainEntryCommand)
   .de(de_UpdateDomainEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainEntryRequest;
+      output: UpdateDomainEntryResult;
+    };
+    sdk: {
+      input: UpdateDomainEntryCommandInput;
+      output: UpdateDomainEntryCommandOutput;
+    };
+  };
+}

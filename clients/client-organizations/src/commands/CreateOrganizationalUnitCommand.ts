@@ -449,4 +449,16 @@ export class CreateOrganizationalUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOrganizationalUnitCommand)
   .de(de_CreateOrganizationalUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOrganizationalUnitRequest;
+      output: CreateOrganizationalUnitResponse;
+    };
+    sdk: {
+      input: CreateOrganizationalUnitCommandInput;
+      output: CreateOrganizationalUnitCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class UpdateAssessmentControlCommand extends $Command
   .f(UpdateAssessmentControlRequestFilterSensitiveLog, UpdateAssessmentControlResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentControlCommand)
   .de(de_UpdateAssessmentControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentControlRequest;
+      output: UpdateAssessmentControlResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentControlCommandInput;
+      output: UpdateAssessmentControlCommandOutput;
+    };
+  };
+}

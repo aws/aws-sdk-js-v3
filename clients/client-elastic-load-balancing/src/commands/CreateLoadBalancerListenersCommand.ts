@@ -146,4 +146,16 @@ export class CreateLoadBalancerListenersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerListenersCommand)
   .de(de_CreateLoadBalancerListenersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoadBalancerListenerInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateLoadBalancerListenersCommandInput;
+      output: CreateLoadBalancerListenersCommandOutput;
+    };
+  };
+}

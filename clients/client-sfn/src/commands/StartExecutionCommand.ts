@@ -161,4 +161,16 @@ export class StartExecutionCommand extends $Command
   .f(StartExecutionInputFilterSensitiveLog, void 0)
   .ser(se_StartExecutionCommand)
   .de(de_StartExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExecutionInput;
+      output: StartExecutionOutput;
+    };
+    sdk: {
+      input: StartExecutionCommandInput;
+      output: StartExecutionCommandOutput;
+    };
+  };
+}

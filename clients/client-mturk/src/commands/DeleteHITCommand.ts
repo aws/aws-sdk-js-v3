@@ -116,4 +116,16 @@ export class DeleteHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHITCommand)
   .de(de_DeleteHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHITRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHITCommandInput;
+      output: DeleteHITCommandOutput;
+    };
+  };
+}

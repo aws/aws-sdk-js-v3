@@ -106,4 +106,16 @@ export class GetTrafficPolicyInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrafficPolicyInstanceCommand)
   .de(de_GetTrafficPolicyInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrafficPolicyInstanceRequest;
+      output: GetTrafficPolicyInstanceResponse;
+    };
+    sdk: {
+      input: GetTrafficPolicyInstanceCommandInput;
+      output: GetTrafficPolicyInstanceCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class ListAgentActionGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAgentActionGroupsCommand)
   .de(de_ListAgentActionGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAgentActionGroupsRequest;
+      output: ListAgentActionGroupsResponse;
+    };
+    sdk: {
+      input: ListAgentActionGroupsCommandInput;
+      output: ListAgentActionGroupsCommandOutput;
+    };
+  };
+}

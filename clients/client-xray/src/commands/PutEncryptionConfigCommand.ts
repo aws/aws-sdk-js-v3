@@ -88,4 +88,16 @@ export class PutEncryptionConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEncryptionConfigCommand)
   .de(de_PutEncryptionConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEncryptionConfigRequest;
+      output: PutEncryptionConfigResult;
+    };
+    sdk: {
+      input: PutEncryptionConfigCommandInput;
+      output: PutEncryptionConfigCommandOutput;
+    };
+  };
+}

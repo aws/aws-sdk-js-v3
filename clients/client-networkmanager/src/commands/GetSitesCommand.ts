@@ -118,4 +118,16 @@ export class GetSitesCommand extends $Command
   .f(void 0, GetSitesResponseFilterSensitiveLog)
   .ser(se_GetSitesCommand)
   .de(de_GetSitesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSitesRequest;
+      output: GetSitesResponse;
+    };
+    sdk: {
+      input: GetSitesCommandInput;
+      output: GetSitesCommandOutput;
+    };
+  };
+}

@@ -503,4 +503,16 @@ export class DescribeSlotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSlotCommand)
   .de(de_DescribeSlotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSlotRequest;
+      output: DescribeSlotResponse;
+    };
+    sdk: {
+      input: DescribeSlotCommandInput;
+      output: DescribeSlotCommandOutput;
+    };
+  };
+}

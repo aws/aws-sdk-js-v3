@@ -109,4 +109,16 @@ export class GetPermissionGroupCommand extends $Command
   .f(void 0, GetPermissionGroupResponseFilterSensitiveLog)
   .ser(se_GetPermissionGroupCommand)
   .de(de_GetPermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPermissionGroupRequest;
+      output: GetPermissionGroupResponse;
+    };
+    sdk: {
+      input: GetPermissionGroupCommandInput;
+      output: GetPermissionGroupCommandOutput;
+    };
+  };
+}

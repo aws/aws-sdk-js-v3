@@ -87,4 +87,16 @@ export class DeleteAccessControlRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessControlRuleCommand)
   .de(de_DeleteAccessControlRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessControlRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessControlRuleCommandInput;
+      output: DeleteAccessControlRuleCommandOutput;
+    };
+  };
+}

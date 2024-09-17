@@ -115,4 +115,16 @@ export class AssociateAgentKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAgentKnowledgeBaseCommand)
   .de(de_AssociateAgentKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAgentKnowledgeBaseRequest;
+      output: AssociateAgentKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: AssociateAgentKnowledgeBaseCommandInput;
+      output: AssociateAgentKnowledgeBaseCommandOutput;
+    };
+  };
+}

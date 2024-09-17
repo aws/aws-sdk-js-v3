@@ -94,4 +94,16 @@ export class DisassociateMemberFromJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMemberFromJobCommand)
   .de(de_DisassociateMemberFromJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMemberFromJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMemberFromJobCommandInput;
+      output: DisassociateMemberFromJobCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class UntagOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagOpenIDConnectProviderCommand)
   .de(de_UntagOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagOpenIDConnectProviderCommandInput;
+      output: UntagOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

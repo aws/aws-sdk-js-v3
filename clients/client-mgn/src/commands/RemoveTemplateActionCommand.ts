@@ -85,4 +85,16 @@ export class RemoveTemplateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTemplateActionCommand)
   .de(de_RemoveTemplateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTemplateActionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTemplateActionCommandInput;
+      output: RemoveTemplateActionCommandOutput;
+    };
+  };
+}

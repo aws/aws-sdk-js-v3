@@ -137,4 +137,16 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInstanceMetadataOptionsCommand)
   .de(de_UpdateInstanceMetadataOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceMetadataOptionsRequest;
+      output: UpdateInstanceMetadataOptionsResult;
+    };
+    sdk: {
+      input: UpdateInstanceMetadataOptionsCommandInput;
+      output: UpdateInstanceMetadataOptionsCommandOutput;
+    };
+  };
+}

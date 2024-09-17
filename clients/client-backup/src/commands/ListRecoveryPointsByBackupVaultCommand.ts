@@ -143,4 +143,16 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecoveryPointsByBackupVaultCommand)
   .de(de_ListRecoveryPointsByBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecoveryPointsByBackupVaultInput;
+      output: ListRecoveryPointsByBackupVaultOutput;
+    };
+    sdk: {
+      input: ListRecoveryPointsByBackupVaultCommandInput;
+      output: ListRecoveryPointsByBackupVaultCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class ListVpcEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVpcEndpointsCommand)
   .de(de_ListVpcEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVpcEndpointsRequest;
+      output: ListVpcEndpointsResponse;
+    };
+    sdk: {
+      input: ListVpcEndpointsCommandInput;
+      output: ListVpcEndpointsCommandOutput;
+    };
+  };
+}

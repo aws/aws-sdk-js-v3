@@ -86,4 +86,16 @@ export class CreatePreparedStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePreparedStatementCommand)
   .de(de_CreatePreparedStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePreparedStatementInput;
+      output: {};
+    };
+    sdk: {
+      input: CreatePreparedStatementCommandInput;
+      output: CreatePreparedStatementCommandOutput;
+    };
+  };
+}

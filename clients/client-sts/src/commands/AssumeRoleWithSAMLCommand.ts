@@ -305,4 +305,16 @@ export class AssumeRoleWithSAMLCommand extends $Command
   .f(AssumeRoleWithSAMLRequestFilterSensitiveLog, AssumeRoleWithSAMLResponseFilterSensitiveLog)
   .ser(se_AssumeRoleWithSAMLCommand)
   .de(de_AssumeRoleWithSAMLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeRoleWithSAMLRequest;
+      output: AssumeRoleWithSAMLResponse;
+    };
+    sdk: {
+      input: AssumeRoleWithSAMLCommandInput;
+      output: AssumeRoleWithSAMLCommandOutput;
+    };
+  };
+}

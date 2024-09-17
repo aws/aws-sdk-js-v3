@@ -140,4 +140,16 @@ export class UpdateEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointGroupCommand)
   .de(de_UpdateEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointGroupRequest;
+      output: UpdateEndpointGroupResponse;
+    };
+    sdk: {
+      input: UpdateEndpointGroupCommandInput;
+      output: UpdateEndpointGroupCommandOutput;
+    };
+  };
+}

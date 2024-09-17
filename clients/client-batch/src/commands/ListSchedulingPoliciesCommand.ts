@@ -91,4 +91,16 @@ export class ListSchedulingPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSchedulingPoliciesCommand)
   .de(de_ListSchedulingPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSchedulingPoliciesRequest;
+      output: ListSchedulingPoliciesResponse;
+    };
+    sdk: {
+      input: ListSchedulingPoliciesCommandInput;
+      output: ListSchedulingPoliciesCommandOutput;
+    };
+  };
+}

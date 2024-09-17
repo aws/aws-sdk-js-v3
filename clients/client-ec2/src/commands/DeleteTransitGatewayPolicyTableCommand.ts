@@ -94,4 +94,16 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayPolicyTableCommand)
   .de(de_DeleteTransitGatewayPolicyTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayPolicyTableRequest;
+      output: DeleteTransitGatewayPolicyTableResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayPolicyTableCommandInput;
+      output: DeleteTransitGatewayPolicyTableCommandOutput;
+    };
+  };
+}

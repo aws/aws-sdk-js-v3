@@ -141,4 +141,16 @@ export class ModifyCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCertificatesCommand)
   .de(de_ModifyCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCertificatesMessage;
+      output: ModifyCertificatesResult;
+    };
+    sdk: {
+      input: ModifyCertificatesCommandInput;
+      output: ModifyCertificatesCommandOutput;
+    };
+  };
+}

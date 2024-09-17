@@ -146,4 +146,16 @@ export class UpdateProfileCommand extends $Command
   .f(UpdateProfileRequestFilterSensitiveLog, UpdateProfileResponseFilterSensitiveLog)
   .ser(se_UpdateProfileCommand)
   .de(de_UpdateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileRequest;
+      output: UpdateProfileResponse;
+    };
+    sdk: {
+      input: UpdateProfileCommandInput;
+      output: UpdateProfileCommandOutput;
+    };
+  };
+}

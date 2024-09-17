@@ -188,4 +188,16 @@ export class CreateDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBSnapshotCommand)
   .de(de_CreateDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBSnapshotMessage;
+      output: CreateDBSnapshotResult;
+    };
+    sdk: {
+      input: CreateDBSnapshotCommandInput;
+      output: CreateDBSnapshotCommandOutput;
+    };
+  };
+}

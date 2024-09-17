@@ -103,4 +103,16 @@ export class UploadEntityDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UploadEntityDefinitionsCommand)
   .de(de_UploadEntityDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadEntityDefinitionsRequest;
+      output: UploadEntityDefinitionsResponse;
+    };
+    sdk: {
+      input: UploadEntityDefinitionsCommandInput;
+      output: UploadEntityDefinitionsCommandOutput;
+    };
+  };
+}

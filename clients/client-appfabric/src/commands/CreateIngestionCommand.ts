@@ -115,4 +115,16 @@ export class CreateIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIngestionCommand)
   .de(de_CreateIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIngestionRequest;
+      output: CreateIngestionResponse;
+    };
+    sdk: {
+      input: CreateIngestionCommandInput;
+      output: CreateIngestionCommandOutput;
+    };
+  };
+}

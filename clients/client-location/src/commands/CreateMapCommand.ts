@@ -118,4 +118,16 @@ export class CreateMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMapCommand)
   .de(de_CreateMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMapRequest;
+      output: CreateMapResponse;
+    };
+    sdk: {
+      input: CreateMapCommandInput;
+      output: CreateMapCommandOutput;
+    };
+  };
+}

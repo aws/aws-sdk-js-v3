@@ -115,4 +115,16 @@ export class GetServiceInstanceCommand extends $Command
   .f(void 0, GetServiceInstanceOutputFilterSensitiveLog)
   .ser(se_GetServiceInstanceCommand)
   .de(de_GetServiceInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceInstanceInput;
+      output: GetServiceInstanceOutput;
+    };
+    sdk: {
+      input: GetServiceInstanceCommandInput;
+      output: GetServiceInstanceCommandOutput;
+    };
+  };
+}

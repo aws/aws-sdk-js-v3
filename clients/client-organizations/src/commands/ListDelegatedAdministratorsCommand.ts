@@ -422,4 +422,16 @@ export class ListDelegatedAdministratorsCommand extends $Command
   .f(void 0, ListDelegatedAdministratorsResponseFilterSensitiveLog)
   .ser(se_ListDelegatedAdministratorsCommand)
   .de(de_ListDelegatedAdministratorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDelegatedAdministratorsRequest;
+      output: ListDelegatedAdministratorsResponse;
+    };
+    sdk: {
+      input: ListDelegatedAdministratorsCommandInput;
+      output: ListDelegatedAdministratorsCommandOutput;
+    };
+  };
+}

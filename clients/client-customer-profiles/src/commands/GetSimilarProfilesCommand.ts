@@ -107,4 +107,16 @@ export class GetSimilarProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSimilarProfilesCommand)
   .de(de_GetSimilarProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSimilarProfilesRequest;
+      output: GetSimilarProfilesResponse;
+    };
+    sdk: {
+      input: GetSimilarProfilesCommandInput;
+      output: GetSimilarProfilesCommandOutput;
+    };
+  };
+}

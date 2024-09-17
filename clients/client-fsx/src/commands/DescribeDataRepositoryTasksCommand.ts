@@ -157,4 +157,16 @@ export class DescribeDataRepositoryTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataRepositoryTasksCommand)
   .de(de_DescribeDataRepositoryTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataRepositoryTasksRequest;
+      output: DescribeDataRepositoryTasksResponse;
+    };
+    sdk: {
+      input: DescribeDataRepositoryTasksCommandInput;
+      output: DescribeDataRepositoryTasksCommandOutput;
+    };
+  };
+}

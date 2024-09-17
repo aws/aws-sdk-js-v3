@@ -861,4 +861,16 @@ export class CreateEndpointCommand extends $Command
   .f(CreateEndpointMessageFilterSensitiveLog, CreateEndpointResponseFilterSensitiveLog)
   .ser(se_CreateEndpointCommand)
   .de(de_CreateEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEndpointMessage;
+      output: CreateEndpointResponse;
+    };
+    sdk: {
+      input: CreateEndpointCommandInput;
+      output: CreateEndpointCommandOutput;
+    };
+  };
+}

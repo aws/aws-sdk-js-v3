@@ -250,4 +250,16 @@ export class CreateTrailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrailCommand)
   .de(de_CreateTrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrailRequest;
+      output: CreateTrailResponse;
+    };
+    sdk: {
+      input: CreateTrailCommandInput;
+      output: CreateTrailCommandOutput;
+    };
+  };
+}

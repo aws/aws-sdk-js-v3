@@ -168,4 +168,16 @@ export class UpdateAssessmentFrameworkCommand extends $Command
   .f(UpdateAssessmentFrameworkRequestFilterSensitiveLog, UpdateAssessmentFrameworkResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentFrameworkCommand)
   .de(de_UpdateAssessmentFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentFrameworkRequest;
+      output: UpdateAssessmentFrameworkResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentFrameworkCommandInput;
+      output: UpdateAssessmentFrameworkCommandOutput;
+    };
+  };
+}

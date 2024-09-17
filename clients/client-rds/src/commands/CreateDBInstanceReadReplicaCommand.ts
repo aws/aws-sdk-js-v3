@@ -485,4 +485,16 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBInstanceReadReplicaCommand)
   .de(de_CreateDBInstanceReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBInstanceReadReplicaMessage;
+      output: CreateDBInstanceReadReplicaResult;
+    };
+    sdk: {
+      input: CreateDBInstanceReadReplicaCommandInput;
+      output: CreateDBInstanceReadReplicaCommandOutput;
+    };
+  };
+}

@@ -167,4 +167,16 @@ export class CreateNetworkAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkAclCommand)
   .de(de_CreateNetworkAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkAclRequest;
+      output: CreateNetworkAclResult;
+    };
+    sdk: {
+      input: CreateNetworkAclCommandInput;
+      output: CreateNetworkAclCommandOutput;
+    };
+  };
+}

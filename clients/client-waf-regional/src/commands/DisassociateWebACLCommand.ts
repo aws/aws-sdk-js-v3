@@ -132,4 +132,16 @@ export class DisassociateWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateWebACLCommand)
   .de(de_DisassociateWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWebACLRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWebACLCommandInput;
+      output: DisassociateWebACLCommandOutput;
+    };
+  };
+}

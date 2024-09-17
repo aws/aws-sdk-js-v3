@@ -83,4 +83,16 @@ export class DeleteConstraintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConstraintCommand)
   .de(de_DeleteConstraintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConstraintInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConstraintCommandInput;
+      output: DeleteConstraintCommandOutput;
+    };
+  };
+}

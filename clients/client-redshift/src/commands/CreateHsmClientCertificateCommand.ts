@@ -115,4 +115,16 @@ export class CreateHsmClientCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmClientCertificateCommand)
   .de(de_CreateHsmClientCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmClientCertificateMessage;
+      output: CreateHsmClientCertificateResult;
+    };
+    sdk: {
+      input: CreateHsmClientCertificateCommandInput;
+      output: CreateHsmClientCertificateCommandOutput;
+    };
+  };
+}

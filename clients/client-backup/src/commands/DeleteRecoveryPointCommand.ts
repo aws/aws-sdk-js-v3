@@ -109,4 +109,16 @@ export class DeleteRecoveryPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRecoveryPointCommand)
   .de(de_DeleteRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRecoveryPointInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRecoveryPointCommandInput;
+      output: DeleteRecoveryPointCommandOutput;
+    };
+  };
+}

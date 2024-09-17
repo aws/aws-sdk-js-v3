@@ -183,4 +183,16 @@ export class ImportImageCommand extends $Command
   .f(ImportImageRequestFilterSensitiveLog, ImportImageResultFilterSensitiveLog)
   .ser(se_ImportImageCommand)
   .de(de_ImportImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportImageRequest;
+      output: ImportImageResult;
+    };
+    sdk: {
+      input: ImportImageCommandInput;
+      output: ImportImageCommandOutput;
+    };
+  };
+}

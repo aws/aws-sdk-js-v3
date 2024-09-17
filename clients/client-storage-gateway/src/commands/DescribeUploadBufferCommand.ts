@@ -137,4 +137,16 @@ export class DescribeUploadBufferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUploadBufferCommand)
   .de(de_DescribeUploadBufferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUploadBufferInput;
+      output: DescribeUploadBufferOutput;
+    };
+    sdk: {
+      input: DescribeUploadBufferCommandInput;
+      output: DescribeUploadBufferCommandOutput;
+    };
+  };
+}

@@ -83,4 +83,16 @@ export class EnableSagemakerServicecatalogPortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableSagemakerServicecatalogPortfolioCommand)
   .de(de_EnableSagemakerServicecatalogPortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: EnableSagemakerServicecatalogPortfolioCommandInput;
+      output: EnableSagemakerServicecatalogPortfolioCommandOutput;
+    };
+  };
+}

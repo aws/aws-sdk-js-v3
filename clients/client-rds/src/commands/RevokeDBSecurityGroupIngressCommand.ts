@@ -142,4 +142,16 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeDBSecurityGroupIngressCommand)
   .de(de_RevokeDBSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeDBSecurityGroupIngressMessage;
+      output: RevokeDBSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: RevokeDBSecurityGroupIngressCommandInput;
+      output: RevokeDBSecurityGroupIngressCommandOutput;
+    };
+  };
+}

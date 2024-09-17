@@ -98,4 +98,16 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserHierarchyGroupNameCommand)
   .de(de_UpdateUserHierarchyGroupNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserHierarchyGroupNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserHierarchyGroupNameCommandInput;
+      output: UpdateUserHierarchyGroupNameCommandOutput;
+    };
+  };
+}

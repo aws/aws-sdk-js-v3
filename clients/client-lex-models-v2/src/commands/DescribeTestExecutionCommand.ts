@@ -113,4 +113,16 @@ export class DescribeTestExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestExecutionCommand)
   .de(de_DescribeTestExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestExecutionRequest;
+      output: DescribeTestExecutionResponse;
+    };
+    sdk: {
+      input: DescribeTestExecutionCommandInput;
+      output: DescribeTestExecutionCommandOutput;
+    };
+  };
+}

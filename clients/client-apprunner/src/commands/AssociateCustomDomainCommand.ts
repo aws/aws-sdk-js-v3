@@ -113,4 +113,16 @@ export class AssociateCustomDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateCustomDomainCommand)
   .de(de_AssociateCustomDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateCustomDomainRequest;
+      output: AssociateCustomDomainResponse;
+    };
+    sdk: {
+      input: AssociateCustomDomainCommandInput;
+      output: AssociateCustomDomainCommandOutput;
+    };
+  };
+}

@@ -82,4 +82,16 @@ export class GetSerialConsoleAccessStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSerialConsoleAccessStatusCommand)
   .de(de_GetSerialConsoleAccessStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSerialConsoleAccessStatusRequest;
+      output: GetSerialConsoleAccessStatusResult;
+    };
+    sdk: {
+      input: GetSerialConsoleAccessStatusCommandInput;
+      output: GetSerialConsoleAccessStatusCommandOutput;
+    };
+  };
+}

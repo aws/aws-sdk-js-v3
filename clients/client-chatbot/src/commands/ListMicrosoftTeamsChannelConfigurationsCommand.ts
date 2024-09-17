@@ -123,4 +123,16 @@ export class ListMicrosoftTeamsChannelConfigurationsCommand extends $Command
   .f(void 0, ListTeamsChannelConfigurationsResultFilterSensitiveLog)
   .ser(se_ListMicrosoftTeamsChannelConfigurationsCommand)
   .de(de_ListMicrosoftTeamsChannelConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTeamsChannelConfigurationsRequest;
+      output: ListTeamsChannelConfigurationsResult;
+    };
+    sdk: {
+      input: ListMicrosoftTeamsChannelConfigurationsCommandInput;
+      output: ListMicrosoftTeamsChannelConfigurationsCommandOutput;
+    };
+  };
+}

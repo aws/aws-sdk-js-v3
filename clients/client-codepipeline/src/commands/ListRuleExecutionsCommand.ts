@@ -149,4 +149,16 @@ export class ListRuleExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleExecutionsCommand)
   .de(de_ListRuleExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleExecutionsInput;
+      output: ListRuleExecutionsOutput;
+    };
+    sdk: {
+      input: ListRuleExecutionsCommandInput;
+      output: ListRuleExecutionsCommandOutput;
+    };
+  };
+}

@@ -95,4 +95,16 @@ export class DeleteGraphqlApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGraphqlApiCommand)
   .de(de_DeleteGraphqlApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGraphqlApiRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGraphqlApiCommandInput;
+      output: DeleteGraphqlApiCommandOutput;
+    };
+  };
+}

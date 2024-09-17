@@ -5109,4 +5109,16 @@ export class CreateTemplateCommand extends $Command
   .f(CreateTemplateRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTemplateCommand)
   .de(de_CreateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTemplateRequest;
+      output: CreateTemplateResponse;
+    };
+    sdk: {
+      input: CreateTemplateCommandInput;
+      output: CreateTemplateCommandOutput;
+    };
+  };
+}

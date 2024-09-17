@@ -218,4 +218,16 @@ export class UpdateContainerAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContainerAgentCommand)
   .de(de_UpdateContainerAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContainerAgentRequest;
+      output: UpdateContainerAgentResponse;
+    };
+    sdk: {
+      input: UpdateContainerAgentCommandInput;
+      output: UpdateContainerAgentCommandOutput;
+    };
+  };
+}

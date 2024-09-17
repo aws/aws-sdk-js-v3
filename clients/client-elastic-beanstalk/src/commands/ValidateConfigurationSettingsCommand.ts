@@ -133,4 +133,16 @@ export class ValidateConfigurationSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateConfigurationSettingsCommand)
   .de(de_ValidateConfigurationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateConfigurationSettingsMessage;
+      output: ConfigurationSettingsValidationMessages;
+    };
+    sdk: {
+      input: ValidateConfigurationSettingsCommandInput;
+      output: ValidateConfigurationSettingsCommandOutput;
+    };
+  };
+}

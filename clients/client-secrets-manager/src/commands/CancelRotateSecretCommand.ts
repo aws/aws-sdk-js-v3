@@ -141,4 +141,16 @@ export class CancelRotateSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelRotateSecretCommand)
   .de(de_CancelRotateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelRotateSecretRequest;
+      output: CancelRotateSecretResponse;
+    };
+    sdk: {
+      input: CancelRotateSecretCommandInput;
+      output: CancelRotateSecretCommandOutput;
+    };
+  };
+}

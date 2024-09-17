@@ -94,4 +94,16 @@ export class DeleteWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkloadCommand)
   .de(de_DeleteWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkloadInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkloadCommandInput;
+      output: DeleteWorkloadCommandOutput;
+    };
+  };
+}

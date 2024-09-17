@@ -103,4 +103,16 @@ export class ListAccessPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessPoliciesCommand)
   .de(de_ListAccessPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessPoliciesRequest;
+      output: ListAccessPoliciesResponse;
+    };
+    sdk: {
+      input: ListAccessPoliciesCommandInput;
+      output: ListAccessPoliciesCommandOutput;
+    };
+  };
+}

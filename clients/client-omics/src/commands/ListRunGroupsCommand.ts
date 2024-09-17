@@ -115,4 +115,16 @@ export class ListRunGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRunGroupsCommand)
   .de(de_ListRunGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRunGroupsRequest;
+      output: ListRunGroupsResponse;
+    };
+    sdk: {
+      input: ListRunGroupsCommandInput;
+      output: ListRunGroupsCommandOutput;
+    };
+  };
+}

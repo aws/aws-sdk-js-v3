@@ -148,4 +148,16 @@ export class ImportVolumeCommand extends $Command
   .f(ImportVolumeRequestFilterSensitiveLog, ImportVolumeResultFilterSensitiveLog)
   .ser(se_ImportVolumeCommand)
   .de(de_ImportVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportVolumeRequest;
+      output: ImportVolumeResult;
+    };
+    sdk: {
+      input: ImportVolumeCommandInput;
+      output: ImportVolumeCommandOutput;
+    };
+  };
+}

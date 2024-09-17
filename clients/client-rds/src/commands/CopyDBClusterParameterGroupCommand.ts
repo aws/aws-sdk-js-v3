@@ -129,4 +129,16 @@ export class CopyDBClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterParameterGroupCommand)
   .de(de_CopyDBClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterParameterGroupMessage;
+      output: CopyDBClusterParameterGroupResult;
+    };
+    sdk: {
+      input: CopyDBClusterParameterGroupCommandInput;
+      output: CopyDBClusterParameterGroupCommandOutput;
+    };
+  };
+}

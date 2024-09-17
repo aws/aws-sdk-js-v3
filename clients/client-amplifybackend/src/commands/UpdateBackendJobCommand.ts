@@ -100,4 +100,16 @@ export class UpdateBackendJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBackendJobCommand)
   .de(de_UpdateBackendJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackendJobRequest;
+      output: UpdateBackendJobResponse;
+    };
+    sdk: {
+      input: UpdateBackendJobCommandInput;
+      output: UpdateBackendJobCommandOutput;
+    };
+  };
+}

@@ -166,4 +166,16 @@ export class RegisterImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterImageCommand)
   .de(de_RegisterImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterImageRequest;
+      output: RegisterImageResult;
+    };
+    sdk: {
+      input: RegisterImageCommandInput;
+      output: RegisterImageCommandOutput;
+    };
+  };
+}

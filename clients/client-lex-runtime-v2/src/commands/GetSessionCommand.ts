@@ -232,4 +232,16 @@ export class GetSessionCommand extends $Command
   .f(void 0, GetSessionResponseFilterSensitiveLog)
   .ser(se_GetSessionCommand)
   .de(de_GetSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionRequest;
+      output: GetSessionResponse;
+    };
+    sdk: {
+      input: GetSessionCommandInput;
+      output: GetSessionCommandOutput;
+    };
+  };
+}

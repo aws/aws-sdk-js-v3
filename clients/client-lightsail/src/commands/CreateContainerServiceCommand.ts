@@ -249,4 +249,16 @@ export class CreateContainerServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContainerServiceCommand)
   .de(de_CreateContainerServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContainerServiceRequest;
+      output: CreateContainerServiceResult;
+    };
+    sdk: {
+      input: CreateContainerServiceCommandInput;
+      output: CreateContainerServiceCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class DescribeGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGameServerGroupCommand)
   .de(de_DescribeGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameServerGroupInput;
+      output: DescribeGameServerGroupOutput;
+    };
+    sdk: {
+      input: DescribeGameServerGroupCommandInput;
+      output: DescribeGameServerGroupCommandOutput;
+    };
+  };
+}

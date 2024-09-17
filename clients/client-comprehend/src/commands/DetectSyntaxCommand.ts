@@ -111,4 +111,16 @@ export class DetectSyntaxCommand extends $Command
   .f(DetectSyntaxRequestFilterSensitiveLog, DetectSyntaxResponseFilterSensitiveLog)
   .ser(se_DetectSyntaxCommand)
   .de(de_DetectSyntaxCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectSyntaxRequest;
+      output: DetectSyntaxResponse;
+    };
+    sdk: {
+      input: DetectSyntaxCommandInput;
+      output: DetectSyntaxCommandOutput;
+    };
+  };
+}

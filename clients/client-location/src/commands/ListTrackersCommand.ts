@@ -101,4 +101,16 @@ export class ListTrackersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrackersCommand)
   .de(de_ListTrackersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrackersRequest;
+      output: ListTrackersResponse;
+    };
+    sdk: {
+      input: ListTrackersCommandInput;
+      output: ListTrackersCommandOutput;
+    };
+  };
+}

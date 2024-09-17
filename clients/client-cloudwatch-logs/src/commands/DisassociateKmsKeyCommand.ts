@@ -110,4 +110,16 @@ export class DisassociateKmsKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateKmsKeyCommand)
   .de(de_DisassociateKmsKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateKmsKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateKmsKeyCommandInput;
+      output: DisassociateKmsKeyCommandOutput;
+    };
+  };
+}

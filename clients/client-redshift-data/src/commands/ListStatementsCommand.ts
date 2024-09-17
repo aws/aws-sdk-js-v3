@@ -113,4 +113,16 @@ export class ListStatementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStatementsCommand)
   .de(de_ListStatementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStatementsRequest;
+      output: ListStatementsResponse;
+    };
+    sdk: {
+      input: ListStatementsCommandInput;
+      output: ListStatementsCommandOutput;
+    };
+  };
+}

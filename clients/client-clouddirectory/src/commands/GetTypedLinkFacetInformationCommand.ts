@@ -113,4 +113,16 @@ export class GetTypedLinkFacetInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTypedLinkFacetInformationCommand)
   .de(de_GetTypedLinkFacetInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTypedLinkFacetInformationRequest;
+      output: GetTypedLinkFacetInformationResponse;
+    };
+    sdk: {
+      input: GetTypedLinkFacetInformationCommandInput;
+      output: GetTypedLinkFacetInformationCommandOutput;
+    };
+  };
+}

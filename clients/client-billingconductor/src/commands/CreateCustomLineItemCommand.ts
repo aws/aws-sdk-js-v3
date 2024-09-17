@@ -138,4 +138,16 @@ export class CreateCustomLineItemCommand extends $Command
   .f(CreateCustomLineItemInputFilterSensitiveLog, void 0)
   .ser(se_CreateCustomLineItemCommand)
   .de(de_CreateCustomLineItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomLineItemInput;
+      output: CreateCustomLineItemOutput;
+    };
+    sdk: {
+      input: CreateCustomLineItemCommandInput;
+      output: CreateCustomLineItemCommandOutput;
+    };
+  };
+}

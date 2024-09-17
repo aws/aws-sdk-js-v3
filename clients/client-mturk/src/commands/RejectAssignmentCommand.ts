@@ -94,4 +94,16 @@ export class RejectAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectAssignmentCommand)
   .de(de_RejectAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectAssignmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: RejectAssignmentCommandInput;
+      output: RejectAssignmentCommandOutput;
+    };
+  };
+}

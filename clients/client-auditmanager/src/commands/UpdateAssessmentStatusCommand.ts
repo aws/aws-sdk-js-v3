@@ -221,4 +221,16 @@ export class UpdateAssessmentStatusCommand extends $Command
   .f(void 0, UpdateAssessmentStatusResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentStatusCommand)
   .de(de_UpdateAssessmentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentStatusRequest;
+      output: UpdateAssessmentStatusResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentStatusCommandInput;
+      output: UpdateAssessmentStatusCommandOutput;
+    };
+  };
+}

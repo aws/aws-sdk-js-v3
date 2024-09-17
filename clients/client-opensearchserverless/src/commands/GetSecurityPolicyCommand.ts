@@ -102,4 +102,16 @@ export class GetSecurityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSecurityPolicyCommand)
   .de(de_GetSecurityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecurityPolicyRequest;
+      output: GetSecurityPolicyResponse;
+    };
+    sdk: {
+      input: GetSecurityPolicyCommandInput;
+      output: GetSecurityPolicyCommandOutput;
+    };
+  };
+}

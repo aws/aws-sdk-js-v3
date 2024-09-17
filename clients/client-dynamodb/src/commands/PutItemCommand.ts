@@ -303,4 +303,16 @@ export class PutItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutItemCommand)
   .de(de_PutItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutItemInput;
+      output: PutItemOutput;
+    };
+    sdk: {
+      input: PutItemCommandInput;
+      output: PutItemCommandOutput;
+    };
+  };
+}

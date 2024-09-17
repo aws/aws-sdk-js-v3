@@ -111,4 +111,16 @@ export class ListApplicationStatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationStatesCommand)
   .de(de_ListApplicationStatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationStatesRequest;
+      output: ListApplicationStatesResult;
+    };
+    sdk: {
+      input: ListApplicationStatesCommandInput;
+      output: ListApplicationStatesCommandOutput;
+    };
+  };
+}

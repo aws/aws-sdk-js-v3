@@ -164,4 +164,16 @@ export class GetColumnStatisticsForTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetColumnStatisticsForTableCommand)
   .de(de_GetColumnStatisticsForTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetColumnStatisticsForTableRequest;
+      output: GetColumnStatisticsForTableResponse;
+    };
+    sdk: {
+      input: GetColumnStatisticsForTableCommandInput;
+      output: GetColumnStatisticsForTableCommandOutput;
+    };
+  };
+}

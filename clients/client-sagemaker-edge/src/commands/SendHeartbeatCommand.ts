@@ -124,4 +124,16 @@ export class SendHeartbeatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendHeartbeatCommand)
   .de(de_SendHeartbeatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendHeartbeatRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendHeartbeatCommandInput;
+      output: SendHeartbeatCommandOutput;
+    };
+  };
+}

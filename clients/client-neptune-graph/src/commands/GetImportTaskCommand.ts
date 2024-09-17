@@ -117,4 +117,16 @@ export class GetImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImportTaskCommand)
   .de(de_GetImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportTaskInput;
+      output: GetImportTaskOutput;
+    };
+    sdk: {
+      input: GetImportTaskCommandInput;
+      output: GetImportTaskCommandOutput;
+    };
+  };
+}

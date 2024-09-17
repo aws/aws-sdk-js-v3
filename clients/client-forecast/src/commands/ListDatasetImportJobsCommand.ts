@@ -114,4 +114,16 @@ export class ListDatasetImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasetImportJobsCommand)
   .de(de_ListDatasetImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasetImportJobsRequest;
+      output: ListDatasetImportJobsResponse;
+    };
+    sdk: {
+      input: ListDatasetImportJobsCommandInput;
+      output: ListDatasetImportJobsCommandOutput;
+    };
+  };
+}

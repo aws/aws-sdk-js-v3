@@ -123,4 +123,16 @@ export class UpdateTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTagsForResourceCommand)
   .de(de_UpdateTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTagsForResourceMessage;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTagsForResourceCommandInput;
+      output: UpdateTagsForResourceCommandOutput;
+    };
+  };
+}

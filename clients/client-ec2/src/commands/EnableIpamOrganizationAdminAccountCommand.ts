@@ -87,4 +87,16 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableIpamOrganizationAdminAccountCommand)
   .de(de_EnableIpamOrganizationAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableIpamOrganizationAdminAccountRequest;
+      output: EnableIpamOrganizationAdminAccountResult;
+    };
+    sdk: {
+      input: EnableIpamOrganizationAdminAccountCommandInput;
+      output: EnableIpamOrganizationAdminAccountCommandOutput;
+    };
+  };
+}

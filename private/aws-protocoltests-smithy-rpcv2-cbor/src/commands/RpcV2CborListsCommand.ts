@@ -150,4 +150,16 @@ export class RpcV2CborListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RpcV2CborListsCommand)
   .de(de_RpcV2CborListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RpcV2CborListInputOutput;
+      output: RpcV2CborListInputOutput;
+    };
+    sdk: {
+      input: RpcV2CborListsCommandInput;
+      output: RpcV2CborListsCommandOutput;
+    };
+  };
+}

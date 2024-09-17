@@ -144,4 +144,16 @@ export class BatchEnableStandardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchEnableStandardsCommand)
   .de(de_BatchEnableStandardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchEnableStandardsRequest;
+      output: BatchEnableStandardsResponse;
+    };
+    sdk: {
+      input: BatchEnableStandardsCommandInput;
+      output: BatchEnableStandardsCommandOutput;
+    };
+  };
+}

@@ -337,4 +337,16 @@ export class SubmitJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitJobCommand)
   .de(de_SubmitJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitJobRequest;
+      output: SubmitJobResponse;
+    };
+    sdk: {
+      input: SubmitJobCommandInput;
+      output: SubmitJobCommandOutput;
+    };
+  };
+}

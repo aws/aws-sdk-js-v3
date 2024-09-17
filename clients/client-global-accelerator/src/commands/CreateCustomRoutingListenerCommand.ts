@@ -114,4 +114,16 @@ export class CreateCustomRoutingListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomRoutingListenerCommand)
   .de(de_CreateCustomRoutingListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomRoutingListenerRequest;
+      output: CreateCustomRoutingListenerResponse;
+    };
+    sdk: {
+      input: CreateCustomRoutingListenerCommandInput;
+      output: CreateCustomRoutingListenerCommandOutput;
+    };
+  };
+}

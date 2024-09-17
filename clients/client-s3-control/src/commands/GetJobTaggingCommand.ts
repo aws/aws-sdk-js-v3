@@ -126,4 +126,16 @@ export class GetJobTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobTaggingCommand)
   .de(de_GetJobTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobTaggingRequest;
+      output: GetJobTaggingResult;
+    };
+    sdk: {
+      input: GetJobTaggingCommandInput;
+      output: GetJobTaggingCommandOutput;
+    };
+  };
+}

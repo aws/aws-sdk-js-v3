@@ -118,4 +118,16 @@ export class GetDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDevicePoolCommand)
   .de(de_GetDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePoolRequest;
+      output: GetDevicePoolResult;
+    };
+    sdk: {
+      input: GetDevicePoolCommandInput;
+      output: GetDevicePoolCommandOutput;
+    };
+  };
+}

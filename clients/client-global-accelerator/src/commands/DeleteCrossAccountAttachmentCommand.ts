@@ -102,4 +102,16 @@ export class DeleteCrossAccountAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCrossAccountAttachmentCommand)
   .de(de_DeleteCrossAccountAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCrossAccountAttachmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCrossAccountAttachmentCommandInput;
+      output: DeleteCrossAccountAttachmentCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class CreateCloudFormationStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudFormationStackCommand)
   .de(de_CreateCloudFormationStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudFormationStackRequest;
+      output: CreateCloudFormationStackResult;
+    };
+    sdk: {
+      input: CreateCloudFormationStackCommandInput;
+      output: CreateCloudFormationStackCommandOutput;
+    };
+  };
+}

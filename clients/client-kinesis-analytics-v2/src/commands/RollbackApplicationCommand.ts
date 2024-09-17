@@ -347,4 +347,16 @@ export class RollbackApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackApplicationCommand)
   .de(de_RollbackApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackApplicationRequest;
+      output: RollbackApplicationResponse;
+    };
+    sdk: {
+      input: RollbackApplicationCommandInput;
+      output: RollbackApplicationCommandOutput;
+    };
+  };
+}

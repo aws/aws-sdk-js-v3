@@ -168,4 +168,16 @@ export class GetStudioComponentCommand extends $Command
   .f(void 0, GetStudioComponentResponseFilterSensitiveLog)
   .ser(se_GetStudioComponentCommand)
   .de(de_GetStudioComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStudioComponentRequest;
+      output: GetStudioComponentResponse;
+    };
+    sdk: {
+      input: GetStudioComponentCommandInput;
+      output: GetStudioComponentCommandOutput;
+    };
+  };
+}

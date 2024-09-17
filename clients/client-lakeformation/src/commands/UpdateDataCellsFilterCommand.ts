@@ -111,4 +111,16 @@ export class UpdateDataCellsFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataCellsFilterCommand)
   .de(de_UpdateDataCellsFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataCellsFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDataCellsFilterCommandInput;
+      output: UpdateDataCellsFilterCommandOutput;
+    };
+  };
+}

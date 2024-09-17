@@ -108,4 +108,16 @@ export class ListDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainsCommand)
   .de(de_ListDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainsRequest;
+      output: ListDomainsResult;
+    };
+    sdk: {
+      input: ListDomainsCommandInput;
+      output: ListDomainsCommandOutput;
+    };
+  };
+}

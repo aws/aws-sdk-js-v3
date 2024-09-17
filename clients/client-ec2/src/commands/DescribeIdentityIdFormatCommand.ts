@@ -102,4 +102,16 @@ export class DescribeIdentityIdFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityIdFormatCommand)
   .de(de_DescribeIdentityIdFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityIdFormatRequest;
+      output: DescribeIdentityIdFormatResult;
+    };
+    sdk: {
+      input: DescribeIdentityIdFormatCommandInput;
+      output: DescribeIdentityIdFormatCommandOutput;
+    };
+  };
+}

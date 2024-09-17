@@ -88,4 +88,16 @@ export class DeregisterResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterResourceCommand)
   .de(de_DeregisterResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterResourceCommandInput;
+      output: DeregisterResourceCommandOutput;
+    };
+  };
+}

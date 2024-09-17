@@ -76,4 +76,16 @@ export class DeletePrefetchScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrefetchScheduleCommand)
   .de(de_DeletePrefetchScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrefetchScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePrefetchScheduleCommandInput;
+      output: DeletePrefetchScheduleCommandOutput;
+    };
+  };
+}

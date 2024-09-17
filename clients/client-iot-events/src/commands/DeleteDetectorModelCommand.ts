@@ -94,4 +94,16 @@ export class DeleteDetectorModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDetectorModelCommand)
   .de(de_DeleteDetectorModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDetectorModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDetectorModelCommandInput;
+      output: DeleteDetectorModelCommandOutput;
+    };
+  };
+}

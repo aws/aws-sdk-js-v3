@@ -102,4 +102,16 @@ export class DeleteEmailTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEmailTemplateCommand)
   .de(de_DeleteEmailTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEmailTemplateRequest;
+      output: DeleteEmailTemplateResponse;
+    };
+    sdk: {
+      input: DeleteEmailTemplateCommandInput;
+      output: DeleteEmailTemplateCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class PutOptedOutNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOptedOutNumberCommand)
   .de(de_PutOptedOutNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOptedOutNumberRequest;
+      output: PutOptedOutNumberResult;
+    };
+    sdk: {
+      input: PutOptedOutNumberCommandInput;
+      output: PutOptedOutNumberCommandOutput;
+    };
+  };
+}

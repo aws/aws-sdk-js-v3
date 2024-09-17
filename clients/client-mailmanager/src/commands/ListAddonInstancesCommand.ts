@@ -90,4 +90,16 @@ export class ListAddonInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAddonInstancesCommand)
   .de(de_ListAddonInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAddonInstancesRequest;
+      output: ListAddonInstancesResponse;
+    };
+    sdk: {
+      input: ListAddonInstancesCommandInput;
+      output: ListAddonInstancesCommandOutput;
+    };
+  };
+}

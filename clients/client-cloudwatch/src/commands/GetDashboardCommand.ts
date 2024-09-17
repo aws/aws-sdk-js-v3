@@ -91,4 +91,16 @@ export class GetDashboardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDashboardCommand)
   .de(de_GetDashboardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDashboardInput;
+      output: GetDashboardOutput;
+    };
+    sdk: {
+      input: GetDashboardCommandInput;
+      output: GetDashboardCommandOutput;
+    };
+  };
+}

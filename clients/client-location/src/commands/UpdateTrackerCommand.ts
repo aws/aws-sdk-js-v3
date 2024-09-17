@@ -101,4 +101,16 @@ export class UpdateTrackerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrackerCommand)
   .de(de_UpdateTrackerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrackerRequest;
+      output: UpdateTrackerResponse;
+    };
+    sdk: {
+      input: UpdateTrackerCommandInput;
+      output: UpdateTrackerCommandOutput;
+    };
+  };
+}

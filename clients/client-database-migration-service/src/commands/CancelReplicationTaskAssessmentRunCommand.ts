@@ -118,4 +118,16 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelReplicationTaskAssessmentRunCommand)
   .de(de_CancelReplicationTaskAssessmentRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelReplicationTaskAssessmentRunMessage;
+      output: CancelReplicationTaskAssessmentRunResponse;
+    };
+    sdk: {
+      input: CancelReplicationTaskAssessmentRunCommandInput;
+      output: CancelReplicationTaskAssessmentRunCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class DeleteImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImportCommand)
   .de(de_DeleteImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImportRequest;
+      output: DeleteImportResponse;
+    };
+    sdk: {
+      input: DeleteImportCommandInput;
+      output: DeleteImportCommandOutput;
+    };
+  };
+}

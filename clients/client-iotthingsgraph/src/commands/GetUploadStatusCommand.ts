@@ -99,4 +99,16 @@ export class GetUploadStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUploadStatusCommand)
   .de(de_GetUploadStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUploadStatusRequest;
+      output: GetUploadStatusResponse;
+    };
+    sdk: {
+      input: GetUploadStatusCommandInput;
+      output: GetUploadStatusCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
   .f(void 0, void 0)
   .ser(se_DescribeInstanceAccessControlAttributeConfigurationCommand)
   .de(de_DescribeInstanceAccessControlAttributeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceAccessControlAttributeConfigurationRequest;
+      output: DescribeInstanceAccessControlAttributeConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeInstanceAccessControlAttributeConfigurationCommandInput;
+      output: DescribeInstanceAccessControlAttributeConfigurationCommandOutput;
+    };
+  };
+}

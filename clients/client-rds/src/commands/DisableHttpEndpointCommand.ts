@@ -90,4 +90,16 @@ export class DisableHttpEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableHttpEndpointCommand)
   .de(de_DisableHttpEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableHttpEndpointRequest;
+      output: DisableHttpEndpointResponse;
+    };
+    sdk: {
+      input: DisableHttpEndpointCommandInput;
+      output: DisableHttpEndpointCommandOutput;
+    };
+  };
+}

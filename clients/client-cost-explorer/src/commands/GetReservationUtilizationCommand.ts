@@ -228,4 +228,16 @@ export class GetReservationUtilizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservationUtilizationCommand)
   .de(de_GetReservationUtilizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservationUtilizationRequest;
+      output: GetReservationUtilizationResponse;
+    };
+    sdk: {
+      input: GetReservationUtilizationCommandInput;
+      output: GetReservationUtilizationCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class BatchDisableAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDisableAlarmCommand)
   .de(de_BatchDisableAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisableAlarmRequest;
+      output: BatchDisableAlarmResponse;
+    };
+    sdk: {
+      input: BatchDisableAlarmCommandInput;
+      output: BatchDisableAlarmCommandOutput;
+    };
+  };
+}

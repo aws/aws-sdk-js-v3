@@ -136,4 +136,16 @@ export class ListTypedLinkFacetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTypedLinkFacetAttributesCommand)
   .de(de_ListTypedLinkFacetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTypedLinkFacetAttributesRequest;
+      output: ListTypedLinkFacetAttributesResponse;
+    };
+    sdk: {
+      input: ListTypedLinkFacetAttributesCommandInput;
+      output: ListTypedLinkFacetAttributesCommandOutput;
+    };
+  };
+}

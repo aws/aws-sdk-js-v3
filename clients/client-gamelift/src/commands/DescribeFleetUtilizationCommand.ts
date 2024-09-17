@@ -141,4 +141,16 @@ export class DescribeFleetUtilizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetUtilizationCommand)
   .de(de_DescribeFleetUtilizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetUtilizationInput;
+      output: DescribeFleetUtilizationOutput;
+    };
+    sdk: {
+      input: DescribeFleetUtilizationCommandInput;
+      output: DescribeFleetUtilizationCommandOutput;
+    };
+  };
+}

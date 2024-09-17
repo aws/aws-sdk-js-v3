@@ -124,4 +124,16 @@ export class AssociateHostedConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateHostedConnectionCommand)
   .de(de_AssociateHostedConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateHostedConnectionRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AssociateHostedConnectionCommandInput;
+      output: AssociateHostedConnectionCommandOutput;
+    };
+  };
+}

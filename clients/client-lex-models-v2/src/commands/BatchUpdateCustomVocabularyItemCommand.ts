@@ -129,4 +129,16 @@ export class BatchUpdateCustomVocabularyItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateCustomVocabularyItemCommand)
   .de(de_BatchUpdateCustomVocabularyItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateCustomVocabularyItemRequest;
+      output: BatchUpdateCustomVocabularyItemResponse;
+    };
+    sdk: {
+      input: BatchUpdateCustomVocabularyItemCommandInput;
+      output: BatchUpdateCustomVocabularyItemCommandOutput;
+    };
+  };
+}

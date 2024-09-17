@@ -108,4 +108,16 @@ export class GetRetainedMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRetainedMessageCommand)
   .de(de_GetRetainedMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRetainedMessageRequest;
+      output: GetRetainedMessageResponse;
+    };
+    sdk: {
+      input: GetRetainedMessageCommandInput;
+      output: GetRetainedMessageCommandOutput;
+    };
+  };
+}

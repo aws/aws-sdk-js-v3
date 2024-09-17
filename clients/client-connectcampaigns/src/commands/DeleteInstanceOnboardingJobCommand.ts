@@ -93,4 +93,16 @@ export class DeleteInstanceOnboardingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceOnboardingJobCommand)
   .de(de_DeleteInstanceOnboardingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceOnboardingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInstanceOnboardingJobCommandInput;
+      output: DeleteInstanceOnboardingJobCommandOutput;
+    };
+  };
+}

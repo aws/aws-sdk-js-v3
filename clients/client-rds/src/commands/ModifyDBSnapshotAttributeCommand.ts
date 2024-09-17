@@ -182,4 +182,16 @@ export class ModifyDBSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBSnapshotAttributeCommand)
   .de(de_ModifyDBSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBSnapshotAttributeMessage;
+      output: ModifyDBSnapshotAttributeResult;
+    };
+    sdk: {
+      input: ModifyDBSnapshotAttributeCommandInput;
+      output: ModifyDBSnapshotAttributeCommandOutput;
+    };
+  };
+}

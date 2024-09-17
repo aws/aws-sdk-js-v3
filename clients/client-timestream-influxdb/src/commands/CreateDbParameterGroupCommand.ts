@@ -131,4 +131,16 @@ export class CreateDbParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDbParameterGroupCommand)
   .de(de_CreateDbParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDbParameterGroupInput;
+      output: CreateDbParameterGroupOutput;
+    };
+    sdk: {
+      input: CreateDbParameterGroupCommandInput;
+      output: CreateDbParameterGroupCommandOutput;
+    };
+  };
+}

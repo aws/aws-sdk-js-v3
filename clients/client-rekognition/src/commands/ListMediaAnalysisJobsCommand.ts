@@ -198,4 +198,16 @@ export class ListMediaAnalysisJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMediaAnalysisJobsCommand)
   .de(de_ListMediaAnalysisJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMediaAnalysisJobsRequest;
+      output: ListMediaAnalysisJobsResponse;
+    };
+    sdk: {
+      input: ListMediaAnalysisJobsCommandInput;
+      output: ListMediaAnalysisJobsCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class ListThreatIntelSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThreatIntelSetsCommand)
   .de(de_ListThreatIntelSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThreatIntelSetsRequest;
+      output: ListThreatIntelSetsResponse;
+    };
+    sdk: {
+      input: ListThreatIntelSetsCommandInput;
+      output: ListThreatIntelSetsCommandOutput;
+    };
+  };
+}

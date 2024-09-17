@@ -122,4 +122,16 @@ export class ProvisionByoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ProvisionByoipCidrCommand)
   .de(de_ProvisionByoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ProvisionByoipCidrRequest;
+      output: ProvisionByoipCidrResult;
+    };
+    sdk: {
+      input: ProvisionByoipCidrCommandInput;
+      output: ProvisionByoipCidrCommandOutput;
+    };
+  };
+}

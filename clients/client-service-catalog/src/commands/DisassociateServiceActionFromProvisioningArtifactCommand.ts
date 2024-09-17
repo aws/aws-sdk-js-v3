@@ -91,4 +91,16 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
   .f(void 0, void 0)
   .ser(se_DisassociateServiceActionFromProvisioningArtifactCommand)
   .de(de_DisassociateServiceActionFromProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateServiceActionFromProvisioningArtifactInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateServiceActionFromProvisioningArtifactCommandInput;
+      output: DisassociateServiceActionFromProvisioningArtifactCommandOutput;
+    };
+  };
+}

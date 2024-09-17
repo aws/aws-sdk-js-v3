@@ -178,4 +178,16 @@ export class ListUtteranceAnalyticsDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUtteranceAnalyticsDataCommand)
   .de(de_ListUtteranceAnalyticsDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUtteranceAnalyticsDataRequest;
+      output: ListUtteranceAnalyticsDataResponse;
+    };
+    sdk: {
+      input: ListUtteranceAnalyticsDataCommandInput;
+      output: ListUtteranceAnalyticsDataCommandOutput;
+    };
+  };
+}

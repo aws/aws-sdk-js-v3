@@ -111,4 +111,16 @@ export class ListConversationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConversationsCommand)
   .de(de_ListConversationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConversationsRequest;
+      output: ListConversationsResponse;
+    };
+    sdk: {
+      input: ListConversationsCommandInput;
+      output: ListConversationsCommandOutput;
+    };
+  };
+}

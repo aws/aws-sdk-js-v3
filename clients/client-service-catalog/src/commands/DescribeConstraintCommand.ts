@@ -90,4 +90,16 @@ export class DescribeConstraintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConstraintCommand)
   .de(de_DescribeConstraintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConstraintInput;
+      output: DescribeConstraintOutput;
+    };
+    sdk: {
+      input: DescribeConstraintCommandInput;
+      output: DescribeConstraintCommandOutput;
+    };
+  };
+}

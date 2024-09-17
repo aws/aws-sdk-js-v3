@@ -200,4 +200,16 @@ export class DetectProtectiveEquipmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectProtectiveEquipmentCommand)
   .de(de_DetectProtectiveEquipmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectProtectiveEquipmentRequest;
+      output: DetectProtectiveEquipmentResponse;
+    };
+    sdk: {
+      input: DetectProtectiveEquipmentCommandInput;
+      output: DetectProtectiveEquipmentCommandOutput;
+    };
+  };
+}

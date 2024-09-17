@@ -149,4 +149,16 @@ export class ModifyInstanceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceFleetCommand)
   .de(de_ModifyInstanceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceFleetInput;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceFleetCommandInput;
+      output: ModifyInstanceFleetCommandOutput;
+    };
+  };
+}

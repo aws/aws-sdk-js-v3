@@ -98,4 +98,16 @@ export class DeleteHumanLoopCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHumanLoopCommand)
   .de(de_DeleteHumanLoopCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHumanLoopRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHumanLoopCommandInput;
+      output: DeleteHumanLoopCommandOutput;
+    };
+  };
+}

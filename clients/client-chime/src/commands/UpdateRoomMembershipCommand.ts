@@ -120,4 +120,16 @@ export class UpdateRoomMembershipCommand extends $Command
   .f(void 0, UpdateRoomMembershipResponseFilterSensitiveLog)
   .ser(se_UpdateRoomMembershipCommand)
   .de(de_UpdateRoomMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoomMembershipRequest;
+      output: UpdateRoomMembershipResponse;
+    };
+    sdk: {
+      input: UpdateRoomMembershipCommandInput;
+      output: UpdateRoomMembershipCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class CreateScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduleCommand)
   .de(de_CreateScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduleRequest;
+      output: CreateScheduleResponse;
+    };
+    sdk: {
+      input: CreateScheduleCommandInput;
+      output: CreateScheduleCommandOutput;
+    };
+  };
+}

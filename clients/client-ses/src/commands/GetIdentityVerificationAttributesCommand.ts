@@ -130,4 +130,16 @@ export class GetIdentityVerificationAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityVerificationAttributesCommand)
   .de(de_GetIdentityVerificationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityVerificationAttributesRequest;
+      output: GetIdentityVerificationAttributesResponse;
+    };
+    sdk: {
+      input: GetIdentityVerificationAttributesCommandInput;
+      output: GetIdentityVerificationAttributesCommandOutput;
+    };
+  };
+}

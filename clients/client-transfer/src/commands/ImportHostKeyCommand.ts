@@ -110,4 +110,16 @@ export class ImportHostKeyCommand extends $Command
   .f(ImportHostKeyRequestFilterSensitiveLog, void 0)
   .ser(se_ImportHostKeyCommand)
   .de(de_ImportHostKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportHostKeyRequest;
+      output: ImportHostKeyResponse;
+    };
+    sdk: {
+      input: ImportHostKeyCommandInput;
+      output: ImportHostKeyCommandOutput;
+    };
+  };
+}

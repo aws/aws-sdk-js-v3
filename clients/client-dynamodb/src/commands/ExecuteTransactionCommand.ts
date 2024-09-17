@@ -538,4 +538,16 @@ export class ExecuteTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteTransactionCommand)
   .de(de_ExecuteTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteTransactionInput;
+      output: ExecuteTransactionOutput;
+    };
+    sdk: {
+      input: ExecuteTransactionCommandInput;
+      output: ExecuteTransactionCommandOutput;
+    };
+  };
+}

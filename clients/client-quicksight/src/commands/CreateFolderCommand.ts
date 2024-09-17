@@ -132,4 +132,16 @@ export class CreateFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFolderCommand)
   .de(de_CreateFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFolderRequest;
+      output: CreateFolderResponse;
+    };
+    sdk: {
+      input: CreateFolderCommandInput;
+      output: CreateFolderCommandOutput;
+    };
+  };
+}

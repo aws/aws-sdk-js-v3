@@ -109,4 +109,16 @@ export class DescribeReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservationCommand)
   .de(de_DescribeReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservationRequest;
+      output: DescribeReservationResponse;
+    };
+    sdk: {
+      input: DescribeReservationCommandInput;
+      output: DescribeReservationCommandOutput;
+    };
+  };
+}

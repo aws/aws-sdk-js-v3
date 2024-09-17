@@ -103,4 +103,16 @@ export class DescribeTestCasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestCasesCommand)
   .de(de_DescribeTestCasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestCasesInput;
+      output: DescribeTestCasesOutput;
+    };
+    sdk: {
+      input: DescribeTestCasesCommandInput;
+      output: DescribeTestCasesCommandOutput;
+    };
+  };
+}

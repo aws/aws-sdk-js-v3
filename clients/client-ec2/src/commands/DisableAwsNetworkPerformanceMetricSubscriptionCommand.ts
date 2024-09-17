@@ -90,4 +90,16 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_DisableAwsNetworkPerformanceMetricSubscriptionCommand)
   .de(de_DisableAwsNetworkPerformanceMetricSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAwsNetworkPerformanceMetricSubscriptionRequest;
+      output: DisableAwsNetworkPerformanceMetricSubscriptionResult;
+    };
+    sdk: {
+      input: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput;
+      output: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput;
+    };
+  };
+}

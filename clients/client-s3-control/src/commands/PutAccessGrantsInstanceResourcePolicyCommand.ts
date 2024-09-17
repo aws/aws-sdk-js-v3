@@ -104,4 +104,16 @@ export class PutAccessGrantsInstanceResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccessGrantsInstanceResourcePolicyCommand)
   .de(de_PutAccessGrantsInstanceResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccessGrantsInstanceResourcePolicyRequest;
+      output: PutAccessGrantsInstanceResourcePolicyResult;
+    };
+    sdk: {
+      input: PutAccessGrantsInstanceResourcePolicyCommandInput;
+      output: PutAccessGrantsInstanceResourcePolicyCommandOutput;
+    };
+  };
+}

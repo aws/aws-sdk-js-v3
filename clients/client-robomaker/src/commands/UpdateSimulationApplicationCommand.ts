@@ -149,4 +149,16 @@ export class UpdateSimulationApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSimulationApplicationCommand)
   .de(de_UpdateSimulationApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSimulationApplicationRequest;
+      output: UpdateSimulationApplicationResponse;
+    };
+    sdk: {
+      input: UpdateSimulationApplicationCommandInput;
+      output: UpdateSimulationApplicationCommandOutput;
+    };
+  };
+}

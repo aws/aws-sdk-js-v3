@@ -89,4 +89,16 @@ export class UnregisterConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnregisterConnectorCommand)
   .de(de_UnregisterConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnregisterConnectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnregisterConnectorCommandInput;
+      output: UnregisterConnectorCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class ListNotebookInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookInstancesCommand)
   .de(de_ListNotebookInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookInstancesInput;
+      output: ListNotebookInstancesOutput;
+    };
+    sdk: {
+      input: ListNotebookInstancesCommandInput;
+      output: ListNotebookInstancesCommandOutput;
+    };
+  };
+}

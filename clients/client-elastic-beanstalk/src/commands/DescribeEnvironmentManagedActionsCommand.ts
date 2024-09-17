@@ -95,4 +95,16 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentManagedActionsCommand)
   .de(de_DescribeEnvironmentManagedActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentManagedActionsRequest;
+      output: DescribeEnvironmentManagedActionsResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentManagedActionsCommandInput;
+      output: DescribeEnvironmentManagedActionsCommandOutput;
+    };
+  };
+}

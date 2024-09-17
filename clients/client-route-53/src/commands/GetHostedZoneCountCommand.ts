@@ -78,4 +78,16 @@ export class GetHostedZoneCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHostedZoneCountCommand)
   .de(de_GetHostedZoneCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetHostedZoneCountResponse;
+    };
+    sdk: {
+      input: GetHostedZoneCountCommandInput;
+      output: GetHostedZoneCountCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DeleteUserByPrincipalIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserByPrincipalIdCommand)
   .de(de_DeleteUserByPrincipalIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserByPrincipalIdRequest;
+      output: DeleteUserByPrincipalIdResponse;
+    };
+    sdk: {
+      input: DeleteUserByPrincipalIdCommandInput;
+      output: DeleteUserByPrincipalIdCommandOutput;
+    };
+  };
+}

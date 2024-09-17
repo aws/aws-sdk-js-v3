@@ -113,4 +113,16 @@ export class UpdateDirectorySetupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDirectorySetupCommand)
   .de(de_UpdateDirectorySetupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDirectorySetupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDirectorySetupCommandInput;
+      output: UpdateDirectorySetupCommandOutput;
+    };
+  };
+}

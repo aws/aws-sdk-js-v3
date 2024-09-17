@@ -164,4 +164,16 @@ export class UpdateNetworkSitePlanCommand extends $Command
   .f(void 0, UpdateNetworkSiteResponseFilterSensitiveLog)
   .ser(se_UpdateNetworkSitePlanCommand)
   .de(de_UpdateNetworkSitePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNetworkSitePlanRequest;
+      output: UpdateNetworkSiteResponse;
+    };
+    sdk: {
+      input: UpdateNetworkSitePlanCommandInput;
+      output: UpdateNetworkSitePlanCommandOutput;
+    };
+  };
+}

@@ -155,4 +155,16 @@ export class DeleteSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecretCommand)
   .de(de_DeleteSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecretRequest;
+      output: DeleteSecretResponse;
+    };
+    sdk: {
+      input: DeleteSecretCommandInput;
+      output: DeleteSecretCommandOutput;
+    };
+  };
+}

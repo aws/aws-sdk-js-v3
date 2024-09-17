@@ -106,4 +106,16 @@ export class StartFHIRImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFHIRImportJobCommand)
   .de(de_StartFHIRImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFHIRImportJobRequest;
+      output: StartFHIRImportJobResponse;
+    };
+    sdk: {
+      input: StartFHIRImportJobCommandInput;
+      output: StartFHIRImportJobCommandOutput;
+    };
+  };
+}

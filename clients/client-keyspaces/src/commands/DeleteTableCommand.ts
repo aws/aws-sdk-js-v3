@@ -101,4 +101,16 @@ export class DeleteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTableCommand)
   .de(de_DeleteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTableRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTableCommandInput;
+      output: DeleteTableCommandOutput;
+    };
+  };
+}

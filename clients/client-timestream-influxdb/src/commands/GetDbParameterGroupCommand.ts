@@ -110,4 +110,16 @@ export class GetDbParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDbParameterGroupCommand)
   .de(de_GetDbParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDbParameterGroupInput;
+      output: GetDbParameterGroupOutput;
+    };
+    sdk: {
+      input: GetDbParameterGroupCommandInput;
+      output: GetDbParameterGroupCommandOutput;
+    };
+  };
+}

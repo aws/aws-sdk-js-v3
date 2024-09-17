@@ -176,4 +176,16 @@ export class CreateTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransformJobCommand)
   .de(de_CreateTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransformJobRequest;
+      output: CreateTransformJobResponse;
+    };
+    sdk: {
+      input: CreateTransformJobCommandInput;
+      output: CreateTransformJobCommandOutput;
+    };
+  };
+}

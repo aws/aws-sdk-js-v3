@@ -100,4 +100,16 @@ export class DescribeProtectedResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProtectedResourceCommand)
   .de(de_DescribeProtectedResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProtectedResourceInput;
+      output: DescribeProtectedResourceOutput;
+    };
+    sdk: {
+      input: DescribeProtectedResourceCommandInput;
+      output: DescribeProtectedResourceCommandOutput;
+    };
+  };
+}

@@ -182,4 +182,16 @@ export class CreateAppVersionResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppVersionResourceCommand)
   .de(de_CreateAppVersionResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppVersionResourceRequest;
+      output: CreateAppVersionResourceResponse;
+    };
+    sdk: {
+      input: CreateAppVersionResourceCommandInput;
+      output: CreateAppVersionResourceCommandOutput;
+    };
+  };
+}

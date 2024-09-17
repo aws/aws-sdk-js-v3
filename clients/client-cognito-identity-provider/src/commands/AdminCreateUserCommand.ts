@@ -291,4 +291,16 @@ export class AdminCreateUserCommand extends $Command
   .f(AdminCreateUserRequestFilterSensitiveLog, AdminCreateUserResponseFilterSensitiveLog)
   .ser(se_AdminCreateUserCommand)
   .de(de_AdminCreateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminCreateUserRequest;
+      output: AdminCreateUserResponse;
+    };
+    sdk: {
+      input: AdminCreateUserCommandInput;
+      output: AdminCreateUserCommandOutput;
+    };
+  };
+}

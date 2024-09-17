@@ -913,4 +913,16 @@ export class GetPresetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPresetCommand)
   .de(de_GetPresetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPresetRequest;
+      output: GetPresetResponse;
+    };
+    sdk: {
+      input: GetPresetCommandInput;
+      output: GetPresetCommandOutput;
+    };
+  };
+}

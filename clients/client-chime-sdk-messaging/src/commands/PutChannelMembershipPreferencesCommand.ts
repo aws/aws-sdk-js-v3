@@ -143,4 +143,16 @@ export class PutChannelMembershipPreferencesCommand extends $Command
   )
   .ser(se_PutChannelMembershipPreferencesCommand)
   .de(de_PutChannelMembershipPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutChannelMembershipPreferencesRequest;
+      output: PutChannelMembershipPreferencesResponse;
+    };
+    sdk: {
+      input: PutChannelMembershipPreferencesCommandInput;
+      output: PutChannelMembershipPreferencesCommandOutput;
+    };
+  };
+}

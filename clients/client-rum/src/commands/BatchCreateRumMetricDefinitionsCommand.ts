@@ -185,4 +185,16 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateRumMetricDefinitionsCommand)
   .de(de_BatchCreateRumMetricDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateRumMetricDefinitionsRequest;
+      output: BatchCreateRumMetricDefinitionsResponse;
+    };
+    sdk: {
+      input: BatchCreateRumMetricDefinitionsCommandInput;
+      output: BatchCreateRumMetricDefinitionsCommandOutput;
+    };
+  };
+}

@@ -253,4 +253,16 @@ export class DescribeScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduleCommand)
   .de(de_DescribeScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduleRequest;
+      output: DescribeScheduleResponse;
+    };
+    sdk: {
+      input: DescribeScheduleCommandInput;
+      output: DescribeScheduleCommandOutput;
+    };
+  };
+}

@@ -139,4 +139,16 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
   )
   .ser(se_PutVoiceConnectorEmergencyCallingConfigurationCommand)
   .de(de_PutVoiceConnectorEmergencyCallingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorEmergencyCallingConfigurationRequest;
+      output: PutVoiceConnectorEmergencyCallingConfigurationResponse;
+    };
+    sdk: {
+      input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput;
+      output: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput;
+    };
+  };
+}

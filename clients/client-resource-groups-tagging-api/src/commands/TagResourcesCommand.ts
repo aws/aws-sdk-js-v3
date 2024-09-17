@@ -171,4 +171,16 @@ export class TagResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourcesCommand)
   .de(de_TagResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourcesInput;
+      output: TagResourcesOutput;
+    };
+    sdk: {
+      input: TagResourcesCommandInput;
+      output: TagResourcesCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class ValidateMatchmakingRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateMatchmakingRuleSetCommand)
   .de(de_ValidateMatchmakingRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateMatchmakingRuleSetInput;
+      output: ValidateMatchmakingRuleSetOutput;
+    };
+    sdk: {
+      input: ValidateMatchmakingRuleSetCommandInput;
+      output: ValidateMatchmakingRuleSetCommandOutput;
+    };
+  };
+}

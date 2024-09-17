@@ -259,4 +259,16 @@ export class GetCelebrityRecognitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCelebrityRecognitionCommand)
   .de(de_GetCelebrityRecognitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCelebrityRecognitionRequest;
+      output: GetCelebrityRecognitionResponse;
+    };
+    sdk: {
+      input: GetCelebrityRecognitionCommandInput;
+      output: GetCelebrityRecognitionCommandOutput;
+    };
+  };
+}

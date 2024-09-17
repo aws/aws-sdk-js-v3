@@ -128,4 +128,16 @@ export class DeleteWorkflowTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkflowTypeCommand)
   .de(de_DeleteWorkflowTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkflowTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkflowTypeCommandInput;
+      output: DeleteWorkflowTypeCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class PutMetricFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricFilterCommand)
   .de(de_PutMetricFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMetricFilterCommandInput;
+      output: PutMetricFilterCommandOutput;
+    };
+  };
+}

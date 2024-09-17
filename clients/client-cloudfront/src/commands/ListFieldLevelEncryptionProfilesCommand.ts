@@ -114,4 +114,16 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFieldLevelEncryptionProfilesCommand)
   .de(de_ListFieldLevelEncryptionProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFieldLevelEncryptionProfilesRequest;
+      output: ListFieldLevelEncryptionProfilesResult;
+    };
+    sdk: {
+      input: ListFieldLevelEncryptionProfilesCommandInput;
+      output: ListFieldLevelEncryptionProfilesCommandOutput;
+    };
+  };
+}

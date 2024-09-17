@@ -150,4 +150,16 @@ export class ModifyEventSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyEventSubscriptionCommand)
   .de(de_ModifyEventSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyEventSubscriptionMessage;
+      output: ModifyEventSubscriptionResult;
+    };
+    sdk: {
+      input: ModifyEventSubscriptionCommandInput;
+      output: ModifyEventSubscriptionCommandOutput;
+    };
+  };
+}

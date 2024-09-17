@@ -127,4 +127,16 @@ export class ListSitesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSitesCommand)
   .de(de_ListSitesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSitesInput;
+      output: ListSitesOutput;
+    };
+    sdk: {
+      input: ListSitesCommandInput;
+      output: ListSitesCommandOutput;
+    };
+  };
+}

@@ -261,4 +261,16 @@ export class GetItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetItemCommand)
   .de(de_GetItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetItemInput;
+      output: GetItemOutput;
+    };
+    sdk: {
+      input: GetItemCommandInput;
+      output: GetItemCommandOutput;
+    };
+  };
+}

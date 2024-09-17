@@ -90,4 +90,16 @@ export class StopColumnStatisticsTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopColumnStatisticsTaskRunCommand)
   .de(de_StopColumnStatisticsTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopColumnStatisticsTaskRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopColumnStatisticsTaskRunCommandInput;
+      output: StopColumnStatisticsTaskRunCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class ListEffectiveDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEffectiveDeploymentsCommand)
   .de(de_ListEffectiveDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEffectiveDeploymentsRequest;
+      output: ListEffectiveDeploymentsResponse;
+    };
+    sdk: {
+      input: ListEffectiveDeploymentsCommandInput;
+      output: ListEffectiveDeploymentsCommandOutput;
+    };
+  };
+}

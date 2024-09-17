@@ -110,4 +110,16 @@ export class CreateLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLabelCommand)
   .de(de_CreateLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLabelRequest;
+      output: CreateLabelResponse;
+    };
+    sdk: {
+      input: CreateLabelCommandInput;
+      output: CreateLabelCommandOutput;
+    };
+  };
+}

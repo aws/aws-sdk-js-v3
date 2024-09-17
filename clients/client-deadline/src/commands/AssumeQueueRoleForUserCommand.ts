@@ -103,4 +103,16 @@ export class AssumeQueueRoleForUserCommand extends $Command
   .f(void 0, AssumeQueueRoleForUserResponseFilterSensitiveLog)
   .ser(se_AssumeQueueRoleForUserCommand)
   .de(de_AssumeQueueRoleForUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeQueueRoleForUserRequest;
+      output: AssumeQueueRoleForUserResponse;
+    };
+    sdk: {
+      input: AssumeQueueRoleForUserCommandInput;
+      output: AssumeQueueRoleForUserCommandOutput;
+    };
+  };
+}

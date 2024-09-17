@@ -117,4 +117,16 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoadBalancerTlsPoliciesCommand)
   .de(de_GetLoadBalancerTlsPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoadBalancerTlsPoliciesRequest;
+      output: GetLoadBalancerTlsPoliciesResult;
+    };
+    sdk: {
+      input: GetLoadBalancerTlsPoliciesCommandInput;
+      output: GetLoadBalancerTlsPoliciesCommandOutput;
+    };
+  };
+}

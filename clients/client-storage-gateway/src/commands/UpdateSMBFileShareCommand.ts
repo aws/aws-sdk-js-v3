@@ -128,4 +128,16 @@ export class UpdateSMBFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSMBFileShareCommand)
   .de(de_UpdateSMBFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSMBFileShareInput;
+      output: UpdateSMBFileShareOutput;
+    };
+    sdk: {
+      input: UpdateSMBFileShareCommandInput;
+      output: UpdateSMBFileShareCommandOutput;
+    };
+  };
+}

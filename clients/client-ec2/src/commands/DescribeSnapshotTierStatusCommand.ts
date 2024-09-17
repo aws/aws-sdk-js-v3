@@ -108,4 +108,16 @@ export class DescribeSnapshotTierStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotTierStatusCommand)
   .de(de_DescribeSnapshotTierStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotTierStatusRequest;
+      output: DescribeSnapshotTierStatusResult;
+    };
+    sdk: {
+      input: DescribeSnapshotTierStatusCommandInput;
+      output: DescribeSnapshotTierStatusCommandOutput;
+    };
+  };
+}

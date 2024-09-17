@@ -124,4 +124,16 @@ export class DescribeTopicsDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicsDetectionJobCommand)
   .de(de_DescribeTopicsDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicsDetectionJobRequest;
+      output: DescribeTopicsDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribeTopicsDetectionJobCommandInput;
+      output: DescribeTopicsDetectionJobCommandOutput;
+    };
+  };
+}

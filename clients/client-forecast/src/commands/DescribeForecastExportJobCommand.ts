@@ -123,4 +123,16 @@ export class DescribeForecastExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeForecastExportJobCommand)
   .de(de_DescribeForecastExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeForecastExportJobRequest;
+      output: DescribeForecastExportJobResponse;
+    };
+    sdk: {
+      input: DescribeForecastExportJobCommandInput;
+      output: DescribeForecastExportJobCommandOutput;
+    };
+  };
+}

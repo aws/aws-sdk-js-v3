@@ -130,4 +130,16 @@ export class ListAccessPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessPointsCommand)
   .de(de_ListAccessPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessPointsRequest;
+      output: ListAccessPointsResult;
+    };
+    sdk: {
+      input: ListAccessPointsCommandInput;
+      output: ListAccessPointsCommandOutput;
+    };
+  };
+}

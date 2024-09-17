@@ -95,4 +95,16 @@ export class UnshareApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnshareApplicationCommand)
   .de(de_UnshareApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnshareApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnshareApplicationCommandInput;
+      output: UnshareApplicationCommandOutput;
+    };
+  };
+}

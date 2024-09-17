@@ -147,4 +147,16 @@ export class BatchDetectTargetedSentimentCommand extends $Command
   .f(BatchDetectTargetedSentimentRequestFilterSensitiveLog, BatchDetectTargetedSentimentResponseFilterSensitiveLog)
   .ser(se_BatchDetectTargetedSentimentCommand)
   .de(de_BatchDetectTargetedSentimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDetectTargetedSentimentRequest;
+      output: BatchDetectTargetedSentimentResponse;
+    };
+    sdk: {
+      input: BatchDetectTargetedSentimentCommandInput;
+      output: BatchDetectTargetedSentimentCommandOutput;
+    };
+  };
+}

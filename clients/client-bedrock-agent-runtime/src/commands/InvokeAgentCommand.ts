@@ -709,4 +709,16 @@ export class InvokeAgentCommand extends $Command
   .f(InvokeAgentRequestFilterSensitiveLog, InvokeAgentResponseFilterSensitiveLog)
   .ser(se_InvokeAgentCommand)
   .de(de_InvokeAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeAgentRequest;
+      output: InvokeAgentResponse;
+    };
+    sdk: {
+      input: InvokeAgentCommandInput;
+      output: InvokeAgentCommandOutput;
+    };
+  };
+}

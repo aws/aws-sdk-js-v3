@@ -132,4 +132,16 @@ export class DescribeFlowExecutionRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFlowExecutionRecordsCommand)
   .de(de_DescribeFlowExecutionRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFlowExecutionRecordsRequest;
+      output: DescribeFlowExecutionRecordsResponse;
+    };
+    sdk: {
+      input: DescribeFlowExecutionRecordsCommandInput;
+      output: DescribeFlowExecutionRecordsCommandOutput;
+    };
+  };
+}

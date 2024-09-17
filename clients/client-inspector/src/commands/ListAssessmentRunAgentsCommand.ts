@@ -291,4 +291,16 @@ export class ListAssessmentRunAgentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssessmentRunAgentsCommand)
   .de(de_ListAssessmentRunAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentRunAgentsRequest;
+      output: ListAssessmentRunAgentsResponse;
+    };
+    sdk: {
+      input: ListAssessmentRunAgentsCommandInput;
+      output: ListAssessmentRunAgentsCommandOutput;
+    };
+  };
+}

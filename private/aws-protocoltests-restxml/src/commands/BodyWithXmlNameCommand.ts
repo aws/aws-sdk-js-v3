@@ -76,4 +76,16 @@ export class BodyWithXmlNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BodyWithXmlNameCommand)
   .de(de_BodyWithXmlNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BodyWithXmlNameInputOutput;
+      output: BodyWithXmlNameInputOutput;
+    };
+    sdk: {
+      input: BodyWithXmlNameCommandInput;
+      output: BodyWithXmlNameCommandOutput;
+    };
+  };
+}

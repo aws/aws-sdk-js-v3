@@ -80,4 +80,16 @@ export class ReplaceVpnTunnelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceVpnTunnelCommand)
   .de(de_ReplaceVpnTunnelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceVpnTunnelRequest;
+      output: ReplaceVpnTunnelResult;
+    };
+    sdk: {
+      input: ReplaceVpnTunnelCommandInput;
+      output: ReplaceVpnTunnelCommandOutput;
+    };
+  };
+}

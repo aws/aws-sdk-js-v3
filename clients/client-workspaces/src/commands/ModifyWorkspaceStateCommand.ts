@@ -93,4 +93,16 @@ export class ModifyWorkspaceStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyWorkspaceStateCommand)
   .de(de_ModifyWorkspaceStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyWorkspaceStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyWorkspaceStateCommandInput;
+      output: ModifyWorkspaceStateCommandOutput;
+    };
+  };
+}

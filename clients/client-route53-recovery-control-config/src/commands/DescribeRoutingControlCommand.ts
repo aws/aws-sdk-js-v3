@@ -105,4 +105,16 @@ export class DescribeRoutingControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRoutingControlCommand)
   .de(de_DescribeRoutingControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRoutingControlRequest;
+      output: DescribeRoutingControlResponse;
+    };
+    sdk: {
+      input: DescribeRoutingControlCommandInput;
+      output: DescribeRoutingControlCommandOutput;
+    };
+  };
+}

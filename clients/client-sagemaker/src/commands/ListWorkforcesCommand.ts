@@ -125,4 +125,16 @@ export class ListWorkforcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkforcesCommand)
   .de(de_ListWorkforcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkforcesRequest;
+      output: ListWorkforcesResponse;
+    };
+    sdk: {
+      input: ListWorkforcesCommandInput;
+      output: ListWorkforcesCommandOutput;
+    };
+  };
+}

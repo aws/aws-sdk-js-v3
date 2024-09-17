@@ -80,4 +80,16 @@ export class ResetFpgaImageAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetFpgaImageAttributeCommand)
   .de(de_ResetFpgaImageAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetFpgaImageAttributeRequest;
+      output: ResetFpgaImageAttributeResult;
+    };
+    sdk: {
+      input: ResetFpgaImageAttributeCommandInput;
+      output: ResetFpgaImageAttributeCommandOutput;
+    };
+  };
+}

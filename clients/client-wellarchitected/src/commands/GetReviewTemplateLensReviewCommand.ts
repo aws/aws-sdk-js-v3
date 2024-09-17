@@ -119,4 +119,16 @@ export class GetReviewTemplateLensReviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReviewTemplateLensReviewCommand)
   .de(de_GetReviewTemplateLensReviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReviewTemplateLensReviewInput;
+      output: GetReviewTemplateLensReviewOutput;
+    };
+    sdk: {
+      input: GetReviewTemplateLensReviewCommandInput;
+      output: GetReviewTemplateLensReviewCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class UpdateTrafficDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrafficDistributionCommand)
   .de(de_UpdateTrafficDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrafficDistributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTrafficDistributionCommandInput;
+      output: UpdateTrafficDistributionCommandOutput;
+    };
+  };
+}

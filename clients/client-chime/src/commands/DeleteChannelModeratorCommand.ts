@@ -109,4 +109,16 @@ export class DeleteChannelModeratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelModeratorCommand)
   .de(de_DeleteChannelModeratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelModeratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelModeratorCommandInput;
+      output: DeleteChannelModeratorCommandOutput;
+    };
+  };
+}

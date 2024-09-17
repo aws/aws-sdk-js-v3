@@ -119,4 +119,16 @@ export class RefreshSchemasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RefreshSchemasCommand)
   .de(de_RefreshSchemasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshSchemasMessage;
+      output: RefreshSchemasResponse;
+    };
+    sdk: {
+      input: RefreshSchemasCommandInput;
+      output: RefreshSchemasCommandOutput;
+    };
+  };
+}

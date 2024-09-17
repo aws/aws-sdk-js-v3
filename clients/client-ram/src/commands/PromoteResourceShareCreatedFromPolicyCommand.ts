@@ -135,4 +135,16 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteResourceShareCreatedFromPolicyCommand)
   .de(de_PromoteResourceShareCreatedFromPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteResourceShareCreatedFromPolicyRequest;
+      output: PromoteResourceShareCreatedFromPolicyResponse;
+    };
+    sdk: {
+      input: PromoteResourceShareCreatedFromPolicyCommandInput;
+      output: PromoteResourceShareCreatedFromPolicyCommandOutput;
+    };
+  };
+}

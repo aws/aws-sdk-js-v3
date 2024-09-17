@@ -97,4 +97,16 @@ export class DeleteDataIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataIntegrationCommand)
   .de(de_DeleteDataIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataIntegrationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataIntegrationCommandInput;
+      output: DeleteDataIntegrationCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class PutImageScanningConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutImageScanningConfigurationCommand)
   .de(de_PutImageScanningConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutImageScanningConfigurationRequest;
+      output: PutImageScanningConfigurationResponse;
+    };
+    sdk: {
+      input: PutImageScanningConfigurationCommandInput;
+      output: PutImageScanningConfigurationCommandOutput;
+    };
+  };
+}

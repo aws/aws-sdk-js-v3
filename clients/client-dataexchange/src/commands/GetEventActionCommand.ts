@@ -109,4 +109,16 @@ export class GetEventActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventActionCommand)
   .de(de_GetEventActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventActionRequest;
+      output: GetEventActionResponse;
+    };
+    sdk: {
+      input: GetEventActionCommandInput;
+      output: GetEventActionCommandOutput;
+    };
+  };
+}

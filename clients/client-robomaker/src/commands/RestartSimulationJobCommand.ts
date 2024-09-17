@@ -92,4 +92,16 @@ export class RestartSimulationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestartSimulationJobCommand)
   .de(de_RestartSimulationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestartSimulationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestartSimulationJobCommandInput;
+      output: RestartSimulationJobCommandOutput;
+    };
+  };
+}

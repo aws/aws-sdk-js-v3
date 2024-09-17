@@ -90,4 +90,16 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityDkimAttributesCommand)
   .de(de_PutEmailIdentityDkimAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityDkimAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityDkimAttributesCommandInput;
+      output: PutEmailIdentityDkimAttributesCommandOutput;
+    };
+  };
+}

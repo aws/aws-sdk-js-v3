@@ -225,4 +225,16 @@ export class GetRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRunCommand)
   .de(de_GetRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRunRequest;
+      output: GetRunResult;
+    };
+    sdk: {
+      input: GetRunCommandInput;
+      output: GetRunCommandOutput;
+    };
+  };
+}

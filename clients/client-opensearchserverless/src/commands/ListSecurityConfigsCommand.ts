@@ -102,4 +102,16 @@ export class ListSecurityConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityConfigsCommand)
   .de(de_ListSecurityConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityConfigsRequest;
+      output: ListSecurityConfigsResponse;
+    };
+    sdk: {
+      input: ListSecurityConfigsCommandInput;
+      output: ListSecurityConfigsCommandOutput;
+    };
+  };
+}

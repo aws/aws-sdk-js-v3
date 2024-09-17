@@ -111,4 +111,16 @@ export class GetPendingJobExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPendingJobExecutionsCommand)
   .de(de_GetPendingJobExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPendingJobExecutionsRequest;
+      output: GetPendingJobExecutionsResponse;
+    };
+    sdk: {
+      input: GetPendingJobExecutionsCommandInput;
+      output: GetPendingJobExecutionsCommandOutput;
+    };
+  };
+}

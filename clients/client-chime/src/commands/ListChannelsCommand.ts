@@ -142,4 +142,16 @@ export class ListChannelsCommand extends $Command
   .f(ListChannelsRequestFilterSensitiveLog, ListChannelsResponseFilterSensitiveLog)
   .ser(se_ListChannelsCommand)
   .de(de_ListChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelsRequest;
+      output: ListChannelsResponse;
+    };
+    sdk: {
+      input: ListChannelsCommandInput;
+      output: ListChannelsCommandOutput;
+    };
+  };
+}

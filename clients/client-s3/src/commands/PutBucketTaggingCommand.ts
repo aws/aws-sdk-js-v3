@@ -179,4 +179,16 @@ export class PutBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketTaggingCommand)
   .de(de_PutBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketTaggingCommandInput;
+      output: PutBucketTaggingCommandOutput;
+    };
+  };
+}

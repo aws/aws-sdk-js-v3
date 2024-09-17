@@ -83,4 +83,16 @@ export class DeleteRouteSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRouteSettingsCommand)
   .de(de_DeleteRouteSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRouteSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRouteSettingsCommandInput;
+      output: DeleteRouteSettingsCommandOutput;
+    };
+  };
+}

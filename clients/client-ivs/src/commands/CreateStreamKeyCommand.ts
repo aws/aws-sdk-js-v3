@@ -109,4 +109,16 @@ export class CreateStreamKeyCommand extends $Command
   .f(void 0, CreateStreamKeyResponseFilterSensitiveLog)
   .ser(se_CreateStreamKeyCommand)
   .de(de_CreateStreamKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamKeyRequest;
+      output: CreateStreamKeyResponse;
+    };
+    sdk: {
+      input: CreateStreamKeyCommandInput;
+      output: CreateStreamKeyCommandOutput;
+    };
+  };
+}

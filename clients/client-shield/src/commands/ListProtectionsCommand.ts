@@ -117,4 +117,16 @@ export class ListProtectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProtectionsCommand)
   .de(de_ListProtectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProtectionsRequest;
+      output: ListProtectionsResponse;
+    };
+    sdk: {
+      input: ListProtectionsCommandInput;
+      output: ListProtectionsCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class CreateEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEvaluationCommand)
   .de(de_CreateEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEvaluationInput;
+      output: CreateEvaluationOutput;
+    };
+    sdk: {
+      input: CreateEvaluationCommandInput;
+      output: CreateEvaluationCommandOutput;
+    };
+  };
+}

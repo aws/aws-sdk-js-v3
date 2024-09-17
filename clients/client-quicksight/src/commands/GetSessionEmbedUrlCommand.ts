@@ -147,4 +147,16 @@ export class GetSessionEmbedUrlCommand extends $Command
   .f(void 0, GetSessionEmbedUrlResponseFilterSensitiveLog)
   .ser(se_GetSessionEmbedUrlCommand)
   .de(de_GetSessionEmbedUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionEmbedUrlRequest;
+      output: GetSessionEmbedUrlResponse;
+    };
+    sdk: {
+      input: GetSessionEmbedUrlCommandInput;
+      output: GetSessionEmbedUrlCommandOutput;
+    };
+  };
+}

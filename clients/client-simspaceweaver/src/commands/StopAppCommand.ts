@@ -92,4 +92,16 @@ export class StopAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopAppCommand)
   .de(de_StopAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopAppInput;
+      output: {};
+    };
+    sdk: {
+      input: StopAppCommandInput;
+      output: StopAppCommandOutput;
+    };
+  };
+}

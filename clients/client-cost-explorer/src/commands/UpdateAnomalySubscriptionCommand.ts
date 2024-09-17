@@ -171,4 +171,16 @@ export class UpdateAnomalySubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnomalySubscriptionCommand)
   .de(de_UpdateAnomalySubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnomalySubscriptionRequest;
+      output: UpdateAnomalySubscriptionResponse;
+    };
+    sdk: {
+      input: UpdateAnomalySubscriptionCommandInput;
+      output: UpdateAnomalySubscriptionCommandOutput;
+    };
+  };
+}

@@ -351,4 +351,16 @@ export class DescribeTopicCommand extends $Command
   .f(void 0, DescribeTopicResponseFilterSensitiveLog)
   .ser(se_DescribeTopicCommand)
   .de(de_DescribeTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicRequest;
+      output: DescribeTopicResponse;
+    };
+    sdk: {
+      input: DescribeTopicCommandInput;
+      output: DescribeTopicCommandOutput;
+    };
+  };
+}

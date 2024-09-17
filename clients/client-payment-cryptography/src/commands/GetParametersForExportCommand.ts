@@ -132,4 +132,16 @@ export class GetParametersForExportCommand extends $Command
   .f(void 0, GetParametersForExportOutputFilterSensitiveLog)
   .ser(se_GetParametersForExportCommand)
   .de(de_GetParametersForExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersForExportInput;
+      output: GetParametersForExportOutput;
+    };
+    sdk: {
+      input: GetParametersForExportCommandInput;
+      output: GetParametersForExportCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class CreateGUISessionAccessDetailsCommand extends $Command
   .f(void 0, CreateGUISessionAccessDetailsResultFilterSensitiveLog)
   .ser(se_CreateGUISessionAccessDetailsCommand)
   .de(de_CreateGUISessionAccessDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGUISessionAccessDetailsRequest;
+      output: CreateGUISessionAccessDetailsResult;
+    };
+    sdk: {
+      input: CreateGUISessionAccessDetailsCommandInput;
+      output: CreateGUISessionAccessDetailsCommandOutput;
+    };
+  };
+}

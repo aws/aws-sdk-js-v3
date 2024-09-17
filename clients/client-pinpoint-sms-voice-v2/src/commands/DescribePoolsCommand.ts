@@ -136,4 +136,16 @@ export class DescribePoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePoolsCommand)
   .de(de_DescribePoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePoolsRequest;
+      output: DescribePoolsResult;
+    };
+    sdk: {
+      input: DescribePoolsCommandInput;
+      output: DescribePoolsCommandOutput;
+    };
+  };
+}

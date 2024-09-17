@@ -119,4 +119,16 @@ export class ListAssetFiltersCommand extends $Command
   .f(void 0, ListAssetFiltersOutputFilterSensitiveLog)
   .ser(se_ListAssetFiltersCommand)
   .de(de_ListAssetFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetFiltersInput;
+      output: ListAssetFiltersOutput;
+    };
+    sdk: {
+      input: ListAssetFiltersCommandInput;
+      output: ListAssetFiltersCommandOutput;
+    };
+  };
+}

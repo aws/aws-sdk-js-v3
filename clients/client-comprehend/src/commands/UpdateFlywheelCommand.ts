@@ -147,4 +147,16 @@ export class UpdateFlywheelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlywheelCommand)
   .de(de_UpdateFlywheelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlywheelRequest;
+      output: UpdateFlywheelResponse;
+    };
+    sdk: {
+      input: UpdateFlywheelCommandInput;
+      output: UpdateFlywheelCommandOutput;
+    };
+  };
+}

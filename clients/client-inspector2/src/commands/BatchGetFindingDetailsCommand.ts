@@ -136,4 +136,16 @@ export class BatchGetFindingDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetFindingDetailsCommand)
   .de(de_BatchGetFindingDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetFindingDetailsRequest;
+      output: BatchGetFindingDetailsResponse;
+    };
+    sdk: {
+      input: BatchGetFindingDetailsCommandInput;
+      output: BatchGetFindingDetailsCommandOutput;
+    };
+  };
+}

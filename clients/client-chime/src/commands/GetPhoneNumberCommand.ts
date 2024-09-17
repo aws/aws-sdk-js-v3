@@ -129,4 +129,16 @@ export class GetPhoneNumberCommand extends $Command
   .f(void 0, GetPhoneNumberResponseFilterSensitiveLog)
   .ser(se_GetPhoneNumberCommand)
   .de(de_GetPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPhoneNumberRequest;
+      output: GetPhoneNumberResponse;
+    };
+    sdk: {
+      input: GetPhoneNumberCommandInput;
+      output: GetPhoneNumberCommandOutput;
+    };
+  };
+}

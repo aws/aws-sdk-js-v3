@@ -181,4 +181,16 @@ export class TerminateInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateInstancesCommand)
   .de(de_TerminateInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateInstancesRequest;
+      output: TerminateInstancesResult;
+    };
+    sdk: {
+      input: TerminateInstancesCommandInput;
+      output: TerminateInstancesCommandOutput;
+    };
+  };
+}

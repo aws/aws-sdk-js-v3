@@ -127,4 +127,16 @@ export class GetAuthorizationTokenCommand extends $Command
   .f(void 0, GetAuthorizationTokenResultFilterSensitiveLog)
   .ser(se_GetAuthorizationTokenCommand)
   .de(de_GetAuthorizationTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAuthorizationTokenRequest;
+      output: GetAuthorizationTokenResult;
+    };
+    sdk: {
+      input: GetAuthorizationTokenCommandInput;
+      output: GetAuthorizationTokenCommandOutput;
+    };
+  };
+}

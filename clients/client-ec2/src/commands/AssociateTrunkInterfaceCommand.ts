@@ -100,4 +100,16 @@ export class AssociateTrunkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrunkInterfaceCommand)
   .de(de_AssociateTrunkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrunkInterfaceRequest;
+      output: AssociateTrunkInterfaceResult;
+    };
+    sdk: {
+      input: AssociateTrunkInterfaceCommandInput;
+      output: AssociateTrunkInterfaceCommandOutput;
+    };
+  };
+}

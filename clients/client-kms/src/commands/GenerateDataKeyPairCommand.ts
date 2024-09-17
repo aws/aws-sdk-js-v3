@@ -300,4 +300,16 @@ export class GenerateDataKeyPairCommand extends $Command
   .f(void 0, GenerateDataKeyPairResponseFilterSensitiveLog)
   .ser(se_GenerateDataKeyPairCommand)
   .de(de_GenerateDataKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyPairRequest;
+      output: GenerateDataKeyPairResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyPairCommandInput;
+      output: GenerateDataKeyPairCommandOutput;
+    };
+  };
+}

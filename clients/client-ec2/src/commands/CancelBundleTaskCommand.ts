@@ -102,4 +102,16 @@ export class CancelBundleTaskCommand extends $Command
   .f(void 0, CancelBundleTaskResultFilterSensitiveLog)
   .ser(se_CancelBundleTaskCommand)
   .de(de_CancelBundleTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelBundleTaskRequest;
+      output: CancelBundleTaskResult;
+    };
+    sdk: {
+      input: CancelBundleTaskCommandInput;
+      output: CancelBundleTaskCommandOutput;
+    };
+  };
+}

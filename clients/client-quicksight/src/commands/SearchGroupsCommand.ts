@@ -124,4 +124,16 @@ export class SearchGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchGroupsCommand)
   .de(de_SearchGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchGroupsRequest;
+      output: SearchGroupsResponse;
+    };
+    sdk: {
+      input: SearchGroupsCommandInput;
+      output: SearchGroupsCommandOutput;
+    };
+  };
+}

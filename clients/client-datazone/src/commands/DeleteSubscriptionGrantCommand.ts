@@ -134,4 +134,16 @@ export class DeleteSubscriptionGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriptionGrantCommand)
   .de(de_DeleteSubscriptionGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriptionGrantInput;
+      output: DeleteSubscriptionGrantOutput;
+    };
+    sdk: {
+      input: DeleteSubscriptionGrantCommandInput;
+      output: DeleteSubscriptionGrantCommandOutput;
+    };
+  };
+}

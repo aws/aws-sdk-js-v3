@@ -99,4 +99,16 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationSetTrackingOptionsCommand)
   .de(de_DeleteConfigurationSetTrackingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationSetTrackingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationSetTrackingOptionsCommandInput;
+      output: DeleteConfigurationSetTrackingOptionsCommandOutput;
+    };
+  };
+}

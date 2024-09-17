@@ -105,4 +105,16 @@ export class ListSupportedResourceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSupportedResourceTypesCommand)
   .de(de_ListSupportedResourceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSupportedResourceTypesInput;
+      output: ListSupportedResourceTypesOutput;
+    };
+    sdk: {
+      input: ListSupportedResourceTypesCommandInput;
+      output: ListSupportedResourceTypesCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class ListBackendJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackendJobsCommand)
   .de(de_ListBackendJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackendJobsRequest;
+      output: ListBackendJobsResponse;
+    };
+    sdk: {
+      input: ListBackendJobsCommandInput;
+      output: ListBackendJobsCommandOutput;
+    };
+  };
+}

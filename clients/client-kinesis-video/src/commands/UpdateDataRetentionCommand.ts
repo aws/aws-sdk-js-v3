@@ -138,4 +138,16 @@ export class UpdateDataRetentionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataRetentionCommand)
   .de(de_UpdateDataRetentionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataRetentionInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDataRetentionCommandInput;
+      output: UpdateDataRetentionCommandOutput;
+    };
+  };
+}

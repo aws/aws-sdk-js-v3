@@ -147,4 +147,16 @@ export class CreateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResolverRuleCommand)
   .de(de_CreateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResolverRuleRequest;
+      output: CreateResolverRuleResponse;
+    };
+    sdk: {
+      input: CreateResolverRuleCommandInput;
+      output: CreateResolverRuleCommandOutput;
+    };
+  };
+}

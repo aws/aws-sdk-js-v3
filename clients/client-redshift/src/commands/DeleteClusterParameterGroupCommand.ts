@@ -87,4 +87,16 @@ export class DeleteClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterParameterGroupCommand)
   .de(de_DeleteClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterParameterGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteClusterParameterGroupCommandInput;
+      output: DeleteClusterParameterGroupCommandOutput;
+    };
+  };
+}

@@ -172,4 +172,16 @@ export class DescribeLabelingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLabelingJobCommand)
   .de(de_DescribeLabelingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLabelingJobRequest;
+      output: DescribeLabelingJobResponse;
+    };
+    sdk: {
+      input: DescribeLabelingJobCommandInput;
+      output: DescribeLabelingJobCommandOutput;
+    };
+  };
+}

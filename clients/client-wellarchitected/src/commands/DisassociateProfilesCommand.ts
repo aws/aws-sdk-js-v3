@@ -96,4 +96,16 @@ export class DisassociateProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateProfilesCommand)
   .de(de_DisassociateProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateProfilesInput;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateProfilesCommandInput;
+      output: DisassociateProfilesCommandOutput;
+    };
+  };
+}

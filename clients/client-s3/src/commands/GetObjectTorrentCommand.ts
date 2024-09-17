@@ -121,4 +121,16 @@ export class GetObjectTorrentCommand extends $Command
   .f(void 0, GetObjectTorrentOutputFilterSensitiveLog)
   .ser(se_GetObjectTorrentCommand)
   .de(de_GetObjectTorrentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectTorrentRequest;
+      output: GetObjectTorrentOutput;
+    };
+    sdk: {
+      input: GetObjectTorrentCommandInput;
+      output: GetObjectTorrentCommandOutput;
+    };
+  };
+}

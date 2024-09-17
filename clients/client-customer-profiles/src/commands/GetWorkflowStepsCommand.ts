@@ -111,4 +111,16 @@ export class GetWorkflowStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowStepsCommand)
   .de(de_GetWorkflowStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowStepsRequest;
+      output: GetWorkflowStepsResponse;
+    };
+    sdk: {
+      input: GetWorkflowStepsCommandInput;
+      output: GetWorkflowStepsCommandOutput;
+    };
+  };
+}

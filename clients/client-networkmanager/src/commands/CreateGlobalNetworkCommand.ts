@@ -114,4 +114,16 @@ export class CreateGlobalNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGlobalNetworkCommand)
   .de(de_CreateGlobalNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlobalNetworkRequest;
+      output: CreateGlobalNetworkResponse;
+    };
+    sdk: {
+      input: CreateGlobalNetworkCommandInput;
+      output: CreateGlobalNetworkCommandOutput;
+    };
+  };
+}

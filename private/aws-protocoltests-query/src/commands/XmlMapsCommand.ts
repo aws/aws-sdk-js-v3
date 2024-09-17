@@ -73,4 +73,16 @@ export class XmlMapsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlMapsCommand)
   .de(de_XmlMapsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlMapsOutput;
+    };
+    sdk: {
+      input: XmlMapsCommandInput;
+      output: XmlMapsCommandOutput;
+    };
+  };
+}

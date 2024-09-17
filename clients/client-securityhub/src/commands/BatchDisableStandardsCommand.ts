@@ -136,4 +136,16 @@ export class BatchDisableStandardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDisableStandardsCommand)
   .de(de_BatchDisableStandardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisableStandardsRequest;
+      output: BatchDisableStandardsResponse;
+    };
+    sdk: {
+      input: BatchDisableStandardsCommandInput;
+      output: BatchDisableStandardsCommandOutput;
+    };
+  };
+}

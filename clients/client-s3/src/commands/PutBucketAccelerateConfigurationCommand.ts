@@ -134,4 +134,16 @@ export class PutBucketAccelerateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAccelerateConfigurationCommand)
   .de(de_PutBucketAccelerateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAccelerateConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAccelerateConfigurationCommandInput;
+      output: PutBucketAccelerateConfigurationCommandOutput;
+    };
+  };
+}

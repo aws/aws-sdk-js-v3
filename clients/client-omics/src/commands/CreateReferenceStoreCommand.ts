@@ -112,4 +112,16 @@ export class CreateReferenceStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReferenceStoreCommand)
   .de(de_CreateReferenceStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReferenceStoreRequest;
+      output: CreateReferenceStoreResponse;
+    };
+    sdk: {
+      input: CreateReferenceStoreCommandInput;
+      output: CreateReferenceStoreCommandOutput;
+    };
+  };
+}

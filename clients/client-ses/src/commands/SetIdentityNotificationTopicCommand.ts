@@ -100,4 +100,16 @@ export class SetIdentityNotificationTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityNotificationTopicCommand)
   .de(de_SetIdentityNotificationTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityNotificationTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetIdentityNotificationTopicCommandInput;
+      output: SetIdentityNotificationTopicCommandOutput;
+    };
+  };
+}

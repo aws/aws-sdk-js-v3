@@ -117,4 +117,16 @@ export class GetVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVaultAccessPolicyCommand)
   .de(de_GetVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVaultAccessPolicyInput;
+      output: GetVaultAccessPolicyOutput;
+    };
+    sdk: {
+      input: GetVaultAccessPolicyCommandInput;
+      output: GetVaultAccessPolicyCommandOutput;
+    };
+  };
+}

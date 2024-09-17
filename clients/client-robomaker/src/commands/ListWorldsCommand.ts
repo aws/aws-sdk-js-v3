@@ -104,4 +104,16 @@ export class ListWorldsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorldsCommand)
   .de(de_ListWorldsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorldsRequest;
+      output: ListWorldsResponse;
+    };
+    sdk: {
+      input: ListWorldsCommandInput;
+      output: ListWorldsCommandOutput;
+    };
+  };
+}

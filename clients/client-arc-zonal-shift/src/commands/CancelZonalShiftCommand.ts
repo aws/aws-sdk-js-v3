@@ -104,4 +104,16 @@ export class CancelZonalShiftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelZonalShiftCommand)
   .de(de_CancelZonalShiftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelZonalShiftRequest;
+      output: ZonalShift;
+    };
+    sdk: {
+      input: CancelZonalShiftCommandInput;
+      output: CancelZonalShiftCommandOutput;
+    };
+  };
+}

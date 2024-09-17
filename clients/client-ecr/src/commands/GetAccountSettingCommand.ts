@@ -88,4 +88,16 @@ export class GetAccountSettingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSettingCommand)
   .de(de_GetAccountSettingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccountSettingRequest;
+      output: GetAccountSettingResponse;
+    };
+    sdk: {
+      input: GetAccountSettingCommandInput;
+      output: GetAccountSettingCommandOutput;
+    };
+  };
+}

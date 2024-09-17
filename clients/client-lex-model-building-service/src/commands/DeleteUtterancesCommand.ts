@@ -106,4 +106,16 @@ export class DeleteUtterancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUtterancesCommand)
   .de(de_DeleteUtterancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUtterancesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUtterancesCommandInput;
+      output: DeleteUtterancesCommandOutput;
+    };
+  };
+}

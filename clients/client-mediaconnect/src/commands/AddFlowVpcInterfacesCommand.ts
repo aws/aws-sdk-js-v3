@@ -120,4 +120,16 @@ export class AddFlowVpcInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddFlowVpcInterfacesCommand)
   .de(de_AddFlowVpcInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddFlowVpcInterfacesRequest;
+      output: AddFlowVpcInterfacesResponse;
+    };
+    sdk: {
+      input: AddFlowVpcInterfacesCommandInput;
+      output: AddFlowVpcInterfacesCommandOutput;
+    };
+  };
+}

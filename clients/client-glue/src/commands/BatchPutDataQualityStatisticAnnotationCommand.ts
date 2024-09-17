@@ -111,4 +111,16 @@ export class BatchPutDataQualityStatisticAnnotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutDataQualityStatisticAnnotationCommand)
   .de(de_BatchPutDataQualityStatisticAnnotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutDataQualityStatisticAnnotationRequest;
+      output: BatchPutDataQualityStatisticAnnotationResponse;
+    };
+    sdk: {
+      input: BatchPutDataQualityStatisticAnnotationCommandInput;
+      output: BatchPutDataQualityStatisticAnnotationCommandOutput;
+    };
+  };
+}

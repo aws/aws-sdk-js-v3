@@ -139,4 +139,16 @@ export class ListOriginRequestPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOriginRequestPoliciesCommand)
   .de(de_ListOriginRequestPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOriginRequestPoliciesRequest;
+      output: ListOriginRequestPoliciesResult;
+    };
+    sdk: {
+      input: ListOriginRequestPoliciesCommandInput;
+      output: ListOriginRequestPoliciesCommandOutput;
+    };
+  };
+}

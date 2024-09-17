@@ -260,4 +260,16 @@ export class DescribeContactCommand extends $Command
   .f(void 0, DescribeContactResponseFilterSensitiveLog)
   .ser(se_DescribeContactCommand)
   .de(de_DescribeContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactRequest;
+      output: DescribeContactResponse;
+    };
+    sdk: {
+      input: DescribeContactCommandInput;
+      output: DescribeContactCommandOutput;
+    };
+  };
+}

@@ -69,4 +69,16 @@ export class XmlBlobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_XmlBlobsCommand)
   .de(de_XmlBlobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: XmlBlobsOutput;
+    };
+    sdk: {
+      input: XmlBlobsCommandInput;
+      output: XmlBlobsCommandOutput;
+    };
+  };
+}

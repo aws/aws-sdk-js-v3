@@ -105,4 +105,16 @@ export class DescribeEcsClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEcsClustersCommand)
   .de(de_DescribeEcsClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEcsClustersRequest;
+      output: DescribeEcsClustersResult;
+    };
+    sdk: {
+      input: DescribeEcsClustersCommandInput;
+      output: DescribeEcsClustersCommandOutput;
+    };
+  };
+}

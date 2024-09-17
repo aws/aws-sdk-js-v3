@@ -253,4 +253,16 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateDataKeyPairWithoutPlaintextCommand)
   .de(de_GenerateDataKeyPairWithoutPlaintextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyPairWithoutPlaintextRequest;
+      output: GenerateDataKeyPairWithoutPlaintextResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyPairWithoutPlaintextCommandInput;
+      output: GenerateDataKeyPairWithoutPlaintextCommandOutput;
+    };
+  };
+}

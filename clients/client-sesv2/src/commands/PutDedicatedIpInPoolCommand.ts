@@ -93,4 +93,16 @@ export class PutDedicatedIpInPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDedicatedIpInPoolCommand)
   .de(de_PutDedicatedIpInPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDedicatedIpInPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDedicatedIpInPoolCommandInput;
+      output: PutDedicatedIpInPoolCommandOutput;
+    };
+  };
+}

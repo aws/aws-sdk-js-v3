@@ -89,4 +89,16 @@ export class StartWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkspacesCommand)
   .de(de_StartWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWorkspacesRequest;
+      output: StartWorkspacesResult;
+    };
+    sdk: {
+      input: StartWorkspacesCommandInput;
+      output: StartWorkspacesCommandOutput;
+    };
+  };
+}

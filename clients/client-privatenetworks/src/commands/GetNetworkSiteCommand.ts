@@ -143,4 +143,16 @@ export class GetNetworkSiteCommand extends $Command
   .f(void 0, GetNetworkSiteResponseFilterSensitiveLog)
   .ser(se_GetNetworkSiteCommand)
   .de(de_GetNetworkSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkSiteRequest;
+      output: GetNetworkSiteResponse;
+    };
+    sdk: {
+      input: GetNetworkSiteCommandInput;
+      output: GetNetworkSiteCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class GetAgentCommand extends $Command
   .f(void 0, GetAgentResponseFilterSensitiveLog)
   .ser(se_GetAgentCommand)
   .de(de_GetAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAgentRequest;
+      output: GetAgentResponse;
+    };
+    sdk: {
+      input: GetAgentCommandInput;
+      output: GetAgentCommandOutput;
+    };
+  };
+}

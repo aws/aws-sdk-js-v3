@@ -105,4 +105,16 @@ export class DeleteTapeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTapeCommand)
   .de(de_DeleteTapeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTapeInput;
+      output: DeleteTapeOutput;
+    };
+    sdk: {
+      input: DeleteTapeCommandInput;
+      output: DeleteTapeCommandOutput;
+    };
+  };
+}

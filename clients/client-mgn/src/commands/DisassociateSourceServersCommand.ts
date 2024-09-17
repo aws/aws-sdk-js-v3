@@ -88,4 +88,16 @@ export class DisassociateSourceServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateSourceServersCommand)
   .de(de_DisassociateSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateSourceServersRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateSourceServersCommandInput;
+      output: DisassociateSourceServersCommandOutput;
+    };
+  };
+}

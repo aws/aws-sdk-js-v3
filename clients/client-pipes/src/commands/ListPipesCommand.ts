@@ -111,4 +111,16 @@ export class ListPipesCommand extends $Command
   .f(ListPipesRequestFilterSensitiveLog, ListPipesResponseFilterSensitiveLog)
   .ser(se_ListPipesCommand)
   .de(de_ListPipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipesRequest;
+      output: ListPipesResponse;
+    };
+    sdk: {
+      input: ListPipesCommandInput;
+      output: ListPipesCommandOutput;
+    };
+  };
+}

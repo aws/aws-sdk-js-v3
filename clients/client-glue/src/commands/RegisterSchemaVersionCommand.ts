@@ -104,4 +104,16 @@ export class RegisterSchemaVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterSchemaVersionCommand)
   .de(de_RegisterSchemaVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterSchemaVersionInput;
+      output: RegisterSchemaVersionResponse;
+    };
+    sdk: {
+      input: RegisterSchemaVersionCommandInput;
+      output: RegisterSchemaVersionCommandOutput;
+    };
+  };
+}

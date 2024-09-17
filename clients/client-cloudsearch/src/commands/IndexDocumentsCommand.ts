@@ -92,4 +92,16 @@ export class IndexDocumentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IndexDocumentsCommand)
   .de(de_IndexDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IndexDocumentsRequest;
+      output: IndexDocumentsResponse;
+    };
+    sdk: {
+      input: IndexDocumentsCommandInput;
+      output: IndexDocumentsCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class UpdateCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCollectionCommand)
   .de(de_UpdateCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCollectionRequest;
+      output: UpdateCollectionResponse;
+    };
+    sdk: {
+      input: UpdateCollectionCommandInput;
+      output: UpdateCollectionCommandOutput;
+    };
+  };
+}

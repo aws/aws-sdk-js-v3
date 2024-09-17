@@ -129,4 +129,16 @@ export class DeletePropertygraphStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePropertygraphStatisticsCommand)
   .de(de_DeletePropertygraphStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeletePropertygraphStatisticsOutput;
+    };
+    sdk: {
+      input: DeletePropertygraphStatisticsCommandInput;
+      output: DeletePropertygraphStatisticsCommandOutput;
+    };
+  };
+}

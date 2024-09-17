@@ -5091,4 +5091,16 @@ export class UpdateAnalysisCommand extends $Command
   .f(UpdateAnalysisRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAnalysisCommand)
   .de(de_UpdateAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnalysisRequest;
+      output: UpdateAnalysisResponse;
+    };
+    sdk: {
+      input: UpdateAnalysisCommandInput;
+      output: UpdateAnalysisCommandOutput;
+    };
+  };
+}

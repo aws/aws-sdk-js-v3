@@ -94,4 +94,16 @@ export class GetOpsMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOpsMetadataCommand)
   .de(de_GetOpsMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOpsMetadataRequest;
+      output: GetOpsMetadataResult;
+    };
+    sdk: {
+      input: GetOpsMetadataCommandInput;
+      output: GetOpsMetadataCommandOutput;
+    };
+  };
+}

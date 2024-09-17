@@ -111,4 +111,16 @@ export class DeleteFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFolderCommand)
   .de(de_DeleteFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFolderRequest;
+      output: DeleteFolderResponse;
+    };
+    sdk: {
+      input: DeleteFolderCommandInput;
+      output: DeleteFolderCommandOutput;
+    };
+  };
+}

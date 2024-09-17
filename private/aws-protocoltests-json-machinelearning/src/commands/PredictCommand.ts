@@ -95,4 +95,16 @@ export class PredictCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PredictCommand)
   .de(de_PredictCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PredictInput;
+      output: PredictOutput;
+    };
+    sdk: {
+      input: PredictCommandInput;
+      output: PredictCommandOutput;
+    };
+  };
+}

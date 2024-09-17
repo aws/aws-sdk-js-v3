@@ -131,4 +131,16 @@ export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   .f(void 0, UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog)
   .ser(se_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMediaPipelineKinesisVideoStreamPoolRequest;
+      output: UpdateMediaPipelineKinesisVideoStreamPoolResponse;
+    };
+    sdk: {
+      input: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

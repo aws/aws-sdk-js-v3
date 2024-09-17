@@ -102,4 +102,16 @@ export class GetResolverDnssecConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResolverDnssecConfigCommand)
   .de(de_GetResolverDnssecConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResolverDnssecConfigRequest;
+      output: GetResolverDnssecConfigResponse;
+    };
+    sdk: {
+      input: GetResolverDnssecConfigCommandInput;
+      output: GetResolverDnssecConfigCommandOutput;
+    };
+  };
+}

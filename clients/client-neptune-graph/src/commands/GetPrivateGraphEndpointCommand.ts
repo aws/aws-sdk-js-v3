@@ -98,4 +98,16 @@ export class GetPrivateGraphEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPrivateGraphEndpointCommand)
   .de(de_GetPrivateGraphEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrivateGraphEndpointInput;
+      output: GetPrivateGraphEndpointOutput;
+    };
+    sdk: {
+      input: GetPrivateGraphEndpointCommandInput;
+      output: GetPrivateGraphEndpointCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJournalKinesisStreamsForLedgerCommand)
   .de(de_ListJournalKinesisStreamsForLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJournalKinesisStreamsForLedgerRequest;
+      output: ListJournalKinesisStreamsForLedgerResponse;
+    };
+    sdk: {
+      input: ListJournalKinesisStreamsForLedgerCommandInput;
+      output: ListJournalKinesisStreamsForLedgerCommandOutput;
+    };
+  };
+}

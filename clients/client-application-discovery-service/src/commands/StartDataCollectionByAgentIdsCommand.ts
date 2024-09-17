@@ -111,4 +111,16 @@ export class StartDataCollectionByAgentIdsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDataCollectionByAgentIdsCommand)
   .de(de_StartDataCollectionByAgentIdsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDataCollectionByAgentIdsRequest;
+      output: StartDataCollectionByAgentIdsResponse;
+    };
+    sdk: {
+      input: StartDataCollectionByAgentIdsCommandInput;
+      output: StartDataCollectionByAgentIdsCommandOutput;
+    };
+  };
+}

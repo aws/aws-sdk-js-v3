@@ -247,4 +247,16 @@ export class BatchGetDeploymentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetDeploymentTargetsCommand)
   .de(de_BatchGetDeploymentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDeploymentTargetsInput;
+      output: BatchGetDeploymentTargetsOutput;
+    };
+    sdk: {
+      input: BatchGetDeploymentTargetsCommandInput;
+      output: BatchGetDeploymentTargetsCommandOutput;
+    };
+  };
+}

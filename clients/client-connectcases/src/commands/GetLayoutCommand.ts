@@ -135,4 +135,16 @@ export class GetLayoutCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLayoutCommand)
   .de(de_GetLayoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLayoutRequest;
+      output: GetLayoutResponse;
+    };
+    sdk: {
+      input: GetLayoutCommandInput;
+      output: GetLayoutCommandOutput;
+    };
+  };
+}

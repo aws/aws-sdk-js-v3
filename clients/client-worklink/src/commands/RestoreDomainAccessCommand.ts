@@ -93,4 +93,16 @@ export class RestoreDomainAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDomainAccessCommand)
   .de(de_RestoreDomainAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDomainAccessRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestoreDomainAccessCommandInput;
+      output: RestoreDomainAccessCommandOutput;
+    };
+  };
+}

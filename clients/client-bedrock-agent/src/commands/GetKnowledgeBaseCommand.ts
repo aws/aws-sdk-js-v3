@@ -171,4 +171,16 @@ export class GetKnowledgeBaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKnowledgeBaseCommand)
   .de(de_GetKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKnowledgeBaseRequest;
+      output: GetKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: GetKnowledgeBaseCommandInput;
+      output: GetKnowledgeBaseCommandOutput;
+    };
+  };
+}

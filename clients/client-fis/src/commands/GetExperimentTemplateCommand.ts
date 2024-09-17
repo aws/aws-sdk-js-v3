@@ -152,4 +152,16 @@ export class GetExperimentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExperimentTemplateCommand)
   .de(de_GetExperimentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExperimentTemplateRequest;
+      output: GetExperimentTemplateResponse;
+    };
+    sdk: {
+      input: GetExperimentTemplateCommandInput;
+      output: GetExperimentTemplateCommandOutput;
+    };
+  };
+}

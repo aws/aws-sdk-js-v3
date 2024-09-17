@@ -125,4 +125,16 @@ export class AdminForgetDeviceCommand extends $Command
   .f(AdminForgetDeviceRequestFilterSensitiveLog, void 0)
   .ser(se_AdminForgetDeviceCommand)
   .de(de_AdminForgetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminForgetDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminForgetDeviceCommandInput;
+      output: AdminForgetDeviceCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class UpdatePricingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePricingPlanCommand)
   .de(de_UpdatePricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePricingPlanRequest;
+      output: UpdatePricingPlanResponse;
+    };
+    sdk: {
+      input: UpdatePricingPlanCommandInput;
+      output: UpdatePricingPlanCommandOutput;
+    };
+  };
+}

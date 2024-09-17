@@ -129,4 +129,16 @@ export class GetAnnotationImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnnotationImportJobCommand)
   .de(de_GetAnnotationImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnnotationImportRequest;
+      output: GetAnnotationImportResponse;
+    };
+    sdk: {
+      input: GetAnnotationImportJobCommandInput;
+      output: GetAnnotationImportJobCommandOutput;
+    };
+  };
+}

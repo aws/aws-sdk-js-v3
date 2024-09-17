@@ -112,4 +112,16 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetAdvisorSchemaObjectSummaryCommand)
   .de(de_DescribeFleetAdvisorSchemaObjectSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetAdvisorSchemaObjectSummaryRequest;
+      output: DescribeFleetAdvisorSchemaObjectSummaryResponse;
+    };
+    sdk: {
+      input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput;
+      output: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput;
+    };
+  };
+}

@@ -153,4 +153,16 @@ export class GetTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTableOptimizerCommand)
   .de(de_GetTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTableOptimizerRequest;
+      output: GetTableOptimizerResponse;
+    };
+    sdk: {
+      input: GetTableOptimizerCommandInput;
+      output: GetTableOptimizerCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class GetPartnershipCommand extends $Command
   .f(void 0, GetPartnershipResponseFilterSensitiveLog)
   .ser(se_GetPartnershipCommand)
   .de(de_GetPartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPartnershipRequest;
+      output: GetPartnershipResponse;
+    };
+    sdk: {
+      input: GetPartnershipCommandInput;
+      output: GetPartnershipCommandOutput;
+    };
+  };
+}

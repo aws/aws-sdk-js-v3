@@ -88,4 +88,16 @@ export class DeleteRestoreTestingSelectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRestoreTestingSelectionCommand)
   .de(de_DeleteRestoreTestingSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRestoreTestingSelectionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRestoreTestingSelectionCommandInput;
+      output: DeleteRestoreTestingSelectionCommandOutput;
+    };
+  };
+}

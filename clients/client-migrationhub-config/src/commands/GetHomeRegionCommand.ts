@@ -101,4 +101,16 @@ export class GetHomeRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHomeRegionCommand)
   .de(de_GetHomeRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetHomeRegionResult;
+    };
+    sdk: {
+      input: GetHomeRegionCommandInput;
+      output: GetHomeRegionCommandOutput;
+    };
+  };
+}

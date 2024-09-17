@@ -140,4 +140,16 @@ export class AddFlowMediaStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddFlowMediaStreamsCommand)
   .de(de_AddFlowMediaStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddFlowMediaStreamsRequest;
+      output: AddFlowMediaStreamsResponse;
+    };
+    sdk: {
+      input: AddFlowMediaStreamsCommandInput;
+      output: AddFlowMediaStreamsCommandOutput;
+    };
+  };
+}

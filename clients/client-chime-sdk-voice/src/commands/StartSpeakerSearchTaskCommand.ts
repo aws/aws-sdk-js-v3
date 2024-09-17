@@ -142,4 +142,16 @@ export class StartSpeakerSearchTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSpeakerSearchTaskCommand)
   .de(de_StartSpeakerSearchTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSpeakerSearchTaskRequest;
+      output: StartSpeakerSearchTaskResponse;
+    };
+    sdk: {
+      input: StartSpeakerSearchTaskCommandInput;
+      output: StartSpeakerSearchTaskCommandOutput;
+    };
+  };
+}

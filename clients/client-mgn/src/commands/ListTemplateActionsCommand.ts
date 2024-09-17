@@ -118,4 +118,16 @@ export class ListTemplateActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTemplateActionsCommand)
   .de(de_ListTemplateActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTemplateActionsRequest;
+      output: ListTemplateActionsResponse;
+    };
+    sdk: {
+      input: ListTemplateActionsCommandInput;
+      output: ListTemplateActionsCommandOutput;
+    };
+  };
+}

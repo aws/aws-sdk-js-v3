@@ -110,4 +110,16 @@ export class ListRescoreExecutionPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRescoreExecutionPlansCommand)
   .de(de_ListRescoreExecutionPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRescoreExecutionPlansRequest;
+      output: ListRescoreExecutionPlansResponse;
+    };
+    sdk: {
+      input: ListRescoreExecutionPlansCommandInput;
+      output: ListRescoreExecutionPlansCommandOutput;
+    };
+  };
+}

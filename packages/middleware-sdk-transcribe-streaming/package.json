@@ -23,10 +23,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-serde-browser": "^3.0.7",
-    "@smithy/protocol-http": "^4.1.1",
+    "@smithy/eventstream-serde-browser": "^3.0.9",
+    "@smithy/protocol-http": "^4.1.3",
     "@smithy/signature-v4": "^4.1.1",
-    "@smithy/types": "^3.4.0",
+    "@smithy/types": "^3.4.2",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },

@@ -89,4 +89,16 @@ export class GetConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfigurationCommand)
   .de(de_GetConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetConfigurationResponse;
+    };
+    sdk: {
+      input: GetConfigurationCommandInput;
+      output: GetConfigurationCommandOutput;
+    };
+  };
+}

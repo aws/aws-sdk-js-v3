@@ -174,4 +174,16 @@ export class CopyProjectVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyProjectVersionCommand)
   .de(de_CopyProjectVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyProjectVersionRequest;
+      output: CopyProjectVersionResponse;
+    };
+    sdk: {
+      input: CopyProjectVersionCommandInput;
+      output: CopyProjectVersionCommandOutput;
+    };
+  };
+}

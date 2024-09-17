@@ -210,4 +210,16 @@ export class DescribeBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBrokerCommand)
   .de(de_DescribeBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBrokerRequest;
+      output: DescribeBrokerResponse;
+    };
+    sdk: {
+      input: DescribeBrokerCommandInput;
+      output: DescribeBrokerCommandOutput;
+    };
+  };
+}

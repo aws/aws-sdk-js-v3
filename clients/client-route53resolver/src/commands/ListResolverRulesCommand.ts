@@ -127,4 +127,16 @@ export class ListResolverRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverRulesCommand)
   .de(de_ListResolverRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverRulesRequest;
+      output: ListResolverRulesResponse;
+    };
+    sdk: {
+      input: ListResolverRulesCommandInput;
+      output: ListResolverRulesCommandOutput;
+    };
+  };
+}

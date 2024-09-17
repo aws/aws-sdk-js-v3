@@ -231,4 +231,16 @@ export class DescribeImageScanFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImageScanFindingsCommand)
   .de(de_DescribeImageScanFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImageScanFindingsRequest;
+      output: DescribeImageScanFindingsResponse;
+    };
+    sdk: {
+      input: DescribeImageScanFindingsCommandInput;
+      output: DescribeImageScanFindingsCommandOutput;
+    };
+  };
+}

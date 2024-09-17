@@ -141,4 +141,16 @@ export class ChannelFlowCallbackCommand extends $Command
   .f(ChannelFlowCallbackRequestFilterSensitiveLog, void 0)
   .ser(se_ChannelFlowCallbackCommand)
   .de(de_ChannelFlowCallbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChannelFlowCallbackRequest;
+      output: ChannelFlowCallbackResponse;
+    };
+    sdk: {
+      input: ChannelFlowCallbackCommandInput;
+      output: ChannelFlowCallbackCommandOutput;
+    };
+  };
+}

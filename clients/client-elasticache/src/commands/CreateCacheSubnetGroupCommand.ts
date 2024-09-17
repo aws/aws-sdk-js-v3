@@ -183,4 +183,16 @@ export class CreateCacheSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheSubnetGroupCommand)
   .de(de_CreateCacheSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheSubnetGroupMessage;
+      output: CreateCacheSubnetGroupResult;
+    };
+    sdk: {
+      input: CreateCacheSubnetGroupCommandInput;
+      output: CreateCacheSubnetGroupCommandOutput;
+    };
+  };
+}

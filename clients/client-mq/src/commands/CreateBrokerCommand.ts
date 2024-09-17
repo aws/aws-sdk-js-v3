@@ -154,4 +154,16 @@ export class CreateBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBrokerCommand)
   .de(de_CreateBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBrokerRequest;
+      output: CreateBrokerResponse;
+    };
+    sdk: {
+      input: CreateBrokerCommandInput;
+      output: CreateBrokerCommandOutput;
+    };
+  };
+}

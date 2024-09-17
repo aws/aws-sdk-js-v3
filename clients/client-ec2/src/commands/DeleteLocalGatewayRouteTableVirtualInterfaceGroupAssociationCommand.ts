@@ -103,4 +103,16 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   .f(void 0, void 0)
   .ser(se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
   .de(de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+      output: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
+    };
+    sdk: {
+      input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput;
+      output: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput;
+    };
+  };
+}

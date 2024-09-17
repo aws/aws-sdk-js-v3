@@ -110,4 +110,16 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGatewayCapabilityConfigurationCommand)
   .de(de_DescribeGatewayCapabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGatewayCapabilityConfigurationRequest;
+      output: DescribeGatewayCapabilityConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeGatewayCapabilityConfigurationCommandInput;
+      output: DescribeGatewayCapabilityConfigurationCommandOutput;
+    };
+  };
+}

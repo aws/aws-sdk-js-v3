@@ -99,4 +99,16 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCostAllocationTagsStatusCommand)
   .de(de_UpdateCostAllocationTagsStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCostAllocationTagsStatusRequest;
+      output: UpdateCostAllocationTagsStatusResponse;
+    };
+    sdk: {
+      input: UpdateCostAllocationTagsStatusCommandInput;
+      output: UpdateCostAllocationTagsStatusCommandOutput;
+    };
+  };
+}

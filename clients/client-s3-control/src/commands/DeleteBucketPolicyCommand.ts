@@ -118,4 +118,16 @@ export class DeleteBucketPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketPolicyCommand)
   .de(de_DeleteBucketPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketPolicyCommandInput;
+      output: DeleteBucketPolicyCommandOutput;
+    };
+  };
+}

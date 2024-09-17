@@ -96,4 +96,16 @@ export class DeletePartitionIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePartitionIndexCommand)
   .de(de_DeletePartitionIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePartitionIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePartitionIndexCommandInput;
+      output: DeletePartitionIndexCommandOutput;
+    };
+  };
+}

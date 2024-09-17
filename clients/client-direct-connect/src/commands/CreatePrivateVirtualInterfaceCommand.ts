@@ -168,4 +168,16 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrivateVirtualInterfaceCommand)
   .de(de_CreatePrivateVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrivateVirtualInterfaceRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: CreatePrivateVirtualInterfaceCommandInput;
+      output: CreatePrivateVirtualInterfaceCommandOutput;
+    };
+  };
+}

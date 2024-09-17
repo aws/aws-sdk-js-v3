@@ -119,4 +119,16 @@ export class BatchSuspendUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchSuspendUserCommand)
   .de(de_BatchSuspendUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchSuspendUserRequest;
+      output: BatchSuspendUserResponse;
+    };
+    sdk: {
+      input: BatchSuspendUserCommandInput;
+      output: BatchSuspendUserCommandOutput;
+    };
+  };
+}

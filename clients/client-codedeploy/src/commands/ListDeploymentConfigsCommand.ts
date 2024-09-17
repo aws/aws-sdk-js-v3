@@ -83,4 +83,16 @@ export class ListDeploymentConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentConfigsCommand)
   .de(de_ListDeploymentConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentConfigsInput;
+      output: ListDeploymentConfigsOutput;
+    };
+    sdk: {
+      input: ListDeploymentConfigsCommandInput;
+      output: ListDeploymentConfigsCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteDevicePositionHistoryCommand)
   .de(de_BatchDeleteDevicePositionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteDevicePositionHistoryRequest;
+      output: BatchDeleteDevicePositionHistoryResponse;
+    };
+    sdk: {
+      input: BatchDeleteDevicePositionHistoryCommandInput;
+      output: BatchDeleteDevicePositionHistoryCommandOutput;
+    };
+  };
+}

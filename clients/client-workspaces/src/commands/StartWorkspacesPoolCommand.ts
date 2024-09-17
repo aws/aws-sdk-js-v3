@@ -98,4 +98,16 @@ export class StartWorkspacesPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartWorkspacesPoolCommand)
   .de(de_StartWorkspacesPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWorkspacesPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartWorkspacesPoolCommandInput;
+      output: StartWorkspacesPoolCommandOutput;
+    };
+  };
+}

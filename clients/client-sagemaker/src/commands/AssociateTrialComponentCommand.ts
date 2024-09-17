@@ -87,4 +87,16 @@ export class AssociateTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrialComponentCommand)
   .de(de_AssociateTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrialComponentRequest;
+      output: AssociateTrialComponentResponse;
+    };
+    sdk: {
+      input: AssociateTrialComponentCommandInput;
+      output: AssociateTrialComponentCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class LookupDeveloperIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LookupDeveloperIdentityCommand)
   .de(de_LookupDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LookupDeveloperIdentityInput;
+      output: LookupDeveloperIdentityResponse;
+    };
+    sdk: {
+      input: LookupDeveloperIdentityCommandInput;
+      output: LookupDeveloperIdentityCommandOutput;
+    };
+  };
+}

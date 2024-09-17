@@ -129,4 +129,16 @@ export class SendChatIntegrationEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendChatIntegrationEventCommand)
   .de(de_SendChatIntegrationEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendChatIntegrationEventRequest;
+      output: SendChatIntegrationEventResponse;
+    };
+    sdk: {
+      input: SendChatIntegrationEventCommandInput;
+      output: SendChatIntegrationEventCommandOutput;
+    };
+  };
+}

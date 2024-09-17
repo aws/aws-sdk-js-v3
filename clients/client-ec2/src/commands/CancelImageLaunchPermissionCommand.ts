@@ -81,4 +81,16 @@ export class CancelImageLaunchPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelImageLaunchPermissionCommand)
   .de(de_CancelImageLaunchPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelImageLaunchPermissionRequest;
+      output: CancelImageLaunchPermissionResult;
+    };
+    sdk: {
+      input: CancelImageLaunchPermissionCommandInput;
+      output: CancelImageLaunchPermissionCommandOutput;
+    };
+  };
+}

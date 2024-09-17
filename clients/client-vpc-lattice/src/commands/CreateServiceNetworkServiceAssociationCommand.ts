@@ -129,4 +129,16 @@ export class CreateServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceNetworkServiceAssociationCommand)
   .de(de_CreateServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceNetworkServiceAssociationRequest;
+      output: CreateServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: CreateServiceNetworkServiceAssociationCommandInput;
+      output: CreateServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

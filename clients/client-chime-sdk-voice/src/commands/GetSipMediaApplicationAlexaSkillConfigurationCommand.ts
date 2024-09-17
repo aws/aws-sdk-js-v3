@@ -119,4 +119,16 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   .f(void 0, GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog)
   .ser(se_GetSipMediaApplicationAlexaSkillConfigurationCommand)
   .de(de_GetSipMediaApplicationAlexaSkillConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSipMediaApplicationAlexaSkillConfigurationRequest;
+      output: GetSipMediaApplicationAlexaSkillConfigurationResponse;
+    };
+    sdk: {
+      input: GetSipMediaApplicationAlexaSkillConfigurationCommandInput;
+      output: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput;
+    };
+  };
+}

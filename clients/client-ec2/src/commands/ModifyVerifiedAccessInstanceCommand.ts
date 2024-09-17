@@ -103,4 +103,16 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessInstanceCommand)
   .de(de_ModifyVerifiedAccessInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessInstanceRequest;
+      output: ModifyVerifiedAccessInstanceResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessInstanceCommandInput;
+      output: ModifyVerifiedAccessInstanceCommandOutput;
+    };
+  };
+}

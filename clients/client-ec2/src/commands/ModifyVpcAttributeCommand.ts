@@ -112,4 +112,16 @@ export class ModifyVpcAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcAttributeCommand)
   .de(de_ModifyVpcAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyVpcAttributeCommandInput;
+      output: ModifyVpcAttributeCommandOutput;
+    };
+  };
+}

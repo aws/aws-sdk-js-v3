@@ -137,4 +137,16 @@ export class DeleteFargateProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFargateProfileCommand)
   .de(de_DeleteFargateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFargateProfileRequest;
+      output: DeleteFargateProfileResponse;
+    };
+    sdk: {
+      input: DeleteFargateProfileCommandInput;
+      output: DeleteFargateProfileCommandOutput;
+    };
+  };
+}

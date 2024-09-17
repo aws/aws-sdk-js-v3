@@ -94,4 +94,16 @@ export class GetRegionOptStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegionOptStatusCommand)
   .de(de_GetRegionOptStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRegionOptStatusRequest;
+      output: GetRegionOptStatusResponse;
+    };
+    sdk: {
+      input: GetRegionOptStatusCommandInput;
+      output: GetRegionOptStatusCommandOutput;
+    };
+  };
+}

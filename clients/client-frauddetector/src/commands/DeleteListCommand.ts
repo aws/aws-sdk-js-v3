@@ -93,4 +93,16 @@ export class DeleteListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteListCommand)
   .de(de_DeleteListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteListRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteListCommandInput;
+      output: DeleteListCommandOutput;
+    };
+  };
+}

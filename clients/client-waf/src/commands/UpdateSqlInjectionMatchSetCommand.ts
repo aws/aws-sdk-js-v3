@@ -265,4 +265,16 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSqlInjectionMatchSetCommand)
   .de(de_UpdateSqlInjectionMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSqlInjectionMatchSetRequest;
+      output: UpdateSqlInjectionMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateSqlInjectionMatchSetCommandInput;
+      output: UpdateSqlInjectionMatchSetCommandOutput;
+    };
+  };
+}

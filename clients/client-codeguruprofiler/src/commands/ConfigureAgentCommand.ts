@@ -103,4 +103,16 @@ export class ConfigureAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfigureAgentCommand)
   .de(de_ConfigureAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureAgentRequest;
+      output: ConfigureAgentResponse;
+    };
+    sdk: {
+      input: ConfigureAgentCommandInput;
+      output: ConfigureAgentCommandOutput;
+    };
+  };
+}

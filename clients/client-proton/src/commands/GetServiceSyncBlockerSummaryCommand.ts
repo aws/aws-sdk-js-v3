@@ -118,4 +118,16 @@ export class GetServiceSyncBlockerSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceSyncBlockerSummaryCommand)
   .de(de_GetServiceSyncBlockerSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceSyncBlockerSummaryInput;
+      output: GetServiceSyncBlockerSummaryOutput;
+    };
+    sdk: {
+      input: GetServiceSyncBlockerSummaryCommandInput;
+      output: GetServiceSyncBlockerSummaryCommandOutput;
+    };
+  };
+}

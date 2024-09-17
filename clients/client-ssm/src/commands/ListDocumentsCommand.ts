@@ -135,4 +135,16 @@ export class ListDocumentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDocumentsCommand)
   .de(de_ListDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDocumentsRequest;
+      output: ListDocumentsResult;
+    };
+    sdk: {
+      input: ListDocumentsCommandInput;
+      output: ListDocumentsCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class ProvisionIpamPoolCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ProvisionIpamPoolCidrCommand)
   .de(de_ProvisionIpamPoolCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ProvisionIpamPoolCidrRequest;
+      output: ProvisionIpamPoolCidrResult;
+    };
+    sdk: {
+      input: ProvisionIpamPoolCidrCommandInput;
+      output: ProvisionIpamPoolCidrCommandOutput;
+    };
+  };
+}

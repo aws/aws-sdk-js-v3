@@ -167,4 +167,16 @@ export class RevokeSubscriptionCommand extends $Command
   .f(void 0, RevokeSubscriptionOutputFilterSensitiveLog)
   .ser(se_RevokeSubscriptionCommand)
   .de(de_RevokeSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSubscriptionInput;
+      output: RevokeSubscriptionOutput;
+    };
+    sdk: {
+      input: RevokeSubscriptionCommandInput;
+      output: RevokeSubscriptionCommandOutput;
+    };
+  };
+}

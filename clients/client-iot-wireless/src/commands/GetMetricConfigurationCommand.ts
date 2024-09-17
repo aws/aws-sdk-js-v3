@@ -95,4 +95,16 @@ export class GetMetricConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricConfigurationCommand)
   .de(de_GetMetricConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetMetricConfigurationResponse;
+    };
+    sdk: {
+      input: GetMetricConfigurationCommandInput;
+      output: GetMetricConfigurationCommandOutput;
+    };
+  };
+}

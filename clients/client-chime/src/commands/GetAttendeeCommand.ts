@@ -116,4 +116,16 @@ export class GetAttendeeCommand extends $Command
   .f(void 0, GetAttendeeResponseFilterSensitiveLog)
   .ser(se_GetAttendeeCommand)
   .de(de_GetAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttendeeRequest;
+      output: GetAttendeeResponse;
+    };
+    sdk: {
+      input: GetAttendeeCommandInput;
+      output: GetAttendeeCommandOutput;
+    };
+  };
+}

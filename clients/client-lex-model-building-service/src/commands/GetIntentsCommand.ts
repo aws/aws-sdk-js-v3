@@ -146,4 +146,16 @@ export class GetIntentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntentsCommand)
   .de(de_GetIntentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntentsRequest;
+      output: GetIntentsResponse;
+    };
+    sdk: {
+      input: GetIntentsCommandInput;
+      output: GetIntentsCommandOutput;
+    };
+  };
+}

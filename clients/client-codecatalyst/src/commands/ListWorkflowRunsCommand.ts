@@ -118,4 +118,16 @@ export class ListWorkflowRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowRunsCommand)
   .de(de_ListWorkflowRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkflowRunsRequest;
+      output: ListWorkflowRunsResponse;
+    };
+    sdk: {
+      input: ListWorkflowRunsCommandInput;
+      output: ListWorkflowRunsCommandOutput;
+    };
+  };
+}

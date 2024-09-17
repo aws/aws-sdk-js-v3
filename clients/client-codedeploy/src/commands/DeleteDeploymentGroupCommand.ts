@@ -101,4 +101,16 @@ export class DeleteDeploymentGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeploymentGroupCommand)
   .de(de_DeleteDeploymentGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentGroupInput;
+      output: DeleteDeploymentGroupOutput;
+    };
+    sdk: {
+      input: DeleteDeploymentGroupCommandInput;
+      output: DeleteDeploymentGroupCommandOutput;
+    };
+  };
+}

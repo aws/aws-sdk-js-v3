@@ -261,4 +261,16 @@ export class DescribeCacheClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCacheClustersCommand)
   .de(de_DescribeCacheClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCacheClustersMessage;
+      output: CacheClusterMessage;
+    };
+    sdk: {
+      input: DescribeCacheClustersCommandInput;
+      output: DescribeCacheClustersCommandOutput;
+    };
+  };
+}

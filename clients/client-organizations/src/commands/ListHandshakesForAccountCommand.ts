@@ -310,4 +310,16 @@ export class ListHandshakesForAccountCommand extends $Command
   .f(void 0, ListHandshakesForAccountResponseFilterSensitiveLog)
   .ser(se_ListHandshakesForAccountCommand)
   .de(de_ListHandshakesForAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHandshakesForAccountRequest;
+      output: ListHandshakesForAccountResponse;
+    };
+    sdk: {
+      input: ListHandshakesForAccountCommandInput;
+      output: ListHandshakesForAccountCommandOutput;
+    };
+  };
+}

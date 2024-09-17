@@ -124,4 +124,16 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelationalDatabaseLogEventsCommand)
   .de(de_GetRelationalDatabaseLogEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelationalDatabaseLogEventsRequest;
+      output: GetRelationalDatabaseLogEventsResult;
+    };
+    sdk: {
+      input: GetRelationalDatabaseLogEventsCommandInput;
+      output: GetRelationalDatabaseLogEventsCommandOutput;
+    };
+  };
+}

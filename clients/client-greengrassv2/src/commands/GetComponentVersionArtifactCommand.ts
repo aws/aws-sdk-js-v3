@@ -104,4 +104,16 @@ export class GetComponentVersionArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentVersionArtifactCommand)
   .de(de_GetComponentVersionArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentVersionArtifactRequest;
+      output: GetComponentVersionArtifactResponse;
+    };
+    sdk: {
+      input: GetComponentVersionArtifactCommandInput;
+      output: GetComponentVersionArtifactCommandOutput;
+    };
+  };
+}

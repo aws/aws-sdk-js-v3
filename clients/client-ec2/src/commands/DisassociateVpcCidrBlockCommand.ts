@@ -102,4 +102,16 @@ export class DisassociateVpcCidrBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateVpcCidrBlockCommand)
   .de(de_DisassociateVpcCidrBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateVpcCidrBlockRequest;
+      output: DisassociateVpcCidrBlockResult;
+    };
+    sdk: {
+      input: DisassociateVpcCidrBlockCommandInput;
+      output: DisassociateVpcCidrBlockCommandOutput;
+    };
+  };
+}

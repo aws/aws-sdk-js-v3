@@ -139,4 +139,16 @@ export class StartFaceSearchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFaceSearchCommand)
   .de(de_StartFaceSearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFaceSearchRequest;
+      output: StartFaceSearchResponse;
+    };
+    sdk: {
+      input: StartFaceSearchCommandInput;
+      output: StartFaceSearchCommandOutput;
+    };
+  };
+}

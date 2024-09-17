@@ -82,4 +82,16 @@ export class DeleteAccessLogSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessLogSettingsCommand)
   .de(de_DeleteAccessLogSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessLogSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessLogSettingsCommandInput;
+      output: DeleteAccessLogSettingsCommandOutput;
+    };
+  };
+}

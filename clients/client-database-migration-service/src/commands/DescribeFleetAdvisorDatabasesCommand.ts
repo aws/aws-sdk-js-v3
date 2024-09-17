@@ -126,4 +126,16 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetAdvisorDatabasesCommand)
   .de(de_DescribeFleetAdvisorDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetAdvisorDatabasesRequest;
+      output: DescribeFleetAdvisorDatabasesResponse;
+    };
+    sdk: {
+      input: DescribeFleetAdvisorDatabasesCommandInput;
+      output: DescribeFleetAdvisorDatabasesCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class StopTriggerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTriggerCommand)
   .de(de_StopTriggerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTriggerRequest;
+      output: StopTriggerResponse;
+    };
+    sdk: {
+      input: StopTriggerCommandInput;
+      output: StopTriggerCommandOutput;
+    };
+  };
+}

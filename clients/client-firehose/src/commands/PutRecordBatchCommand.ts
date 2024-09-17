@@ -165,4 +165,16 @@ export class PutRecordBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordBatchCommand)
   .de(de_PutRecordBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordBatchInput;
+      output: PutRecordBatchOutput;
+    };
+    sdk: {
+      input: PutRecordBatchCommandInput;
+      output: PutRecordBatchCommandOutput;
+    };
+  };
+}

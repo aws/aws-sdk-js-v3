@@ -94,4 +94,16 @@ export class DeleteRouteCalculatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRouteCalculatorCommand)
   .de(de_DeleteRouteCalculatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRouteCalculatorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRouteCalculatorCommandInput;
+      output: DeleteRouteCalculatorCommandOutput;
+    };
+  };
+}

@@ -182,4 +182,16 @@ export class ListApplicationComponentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationComponentsCommand)
   .de(de_ListApplicationComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationComponentsRequest;
+      output: ListApplicationComponentsResponse;
+    };
+    sdk: {
+      input: ListApplicationComponentsCommandInput;
+      output: ListApplicationComponentsCommandOutput;
+    };
+  };
+}

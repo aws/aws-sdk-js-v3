@@ -268,4 +268,16 @@ export class DescribeContactEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContactEvaluationCommand)
   .de(de_DescribeContactEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactEvaluationRequest;
+      output: DescribeContactEvaluationResponse;
+    };
+    sdk: {
+      input: DescribeContactEvaluationCommandInput;
+      output: DescribeContactEvaluationCommandOutput;
+    };
+  };
+}

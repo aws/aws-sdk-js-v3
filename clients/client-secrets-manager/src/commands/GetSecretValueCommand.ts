@@ -161,4 +161,16 @@ export class GetSecretValueCommand extends $Command
   .f(void 0, GetSecretValueResponseFilterSensitiveLog)
   .ser(se_GetSecretValueCommand)
   .de(de_GetSecretValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecretValueRequest;
+      output: GetSecretValueResponse;
+    };
+    sdk: {
+      input: GetSecretValueCommandInput;
+      output: GetSecretValueCommandOutput;
+    };
+  };
+}

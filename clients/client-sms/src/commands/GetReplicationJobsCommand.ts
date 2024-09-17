@@ -137,4 +137,16 @@ export class GetReplicationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReplicationJobsCommand)
   .de(de_GetReplicationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReplicationJobsRequest;
+      output: GetReplicationJobsResponse;
+    };
+    sdk: {
+      input: GetReplicationJobsCommandInput;
+      output: GetReplicationJobsCommandOutput;
+    };
+  };
+}

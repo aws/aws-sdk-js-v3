@@ -140,4 +140,16 @@ export class UpdateDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDevicePoolCommand)
   .de(de_UpdateDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDevicePoolRequest;
+      output: UpdateDevicePoolResult;
+    };
+    sdk: {
+      input: UpdateDevicePoolCommandInput;
+      output: UpdateDevicePoolCommandOutput;
+    };
+  };
+}

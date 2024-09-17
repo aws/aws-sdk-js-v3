@@ -112,4 +112,16 @@ export class ListPositionConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPositionConfigurationsCommand)
   .de(de_ListPositionConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPositionConfigurationsRequest;
+      output: ListPositionConfigurationsResponse;
+    };
+    sdk: {
+      input: ListPositionConfigurationsCommandInput;
+      output: ListPositionConfigurationsCommandOutput;
+    };
+  };
+}

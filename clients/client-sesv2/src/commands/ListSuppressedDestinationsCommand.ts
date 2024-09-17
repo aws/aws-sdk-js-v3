@@ -100,4 +100,16 @@ export class ListSuppressedDestinationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSuppressedDestinationsCommand)
   .de(de_ListSuppressedDestinationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSuppressedDestinationsRequest;
+      output: ListSuppressedDestinationsResponse;
+    };
+    sdk: {
+      input: ListSuppressedDestinationsCommandInput;
+      output: ListSuppressedDestinationsCommandOutput;
+    };
+  };
+}

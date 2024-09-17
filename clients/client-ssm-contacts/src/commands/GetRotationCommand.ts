@@ -135,4 +135,16 @@ export class GetRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRotationCommand)
   .de(de_GetRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRotationRequest;
+      output: GetRotationResult;
+    };
+    sdk: {
+      input: GetRotationCommandInput;
+      output: GetRotationCommandOutput;
+    };
+  };
+}

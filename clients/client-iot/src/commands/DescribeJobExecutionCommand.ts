@@ -108,4 +108,16 @@ export class DescribeJobExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJobExecutionCommand)
   .de(de_DescribeJobExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobExecutionRequest;
+      output: DescribeJobExecutionResponse;
+    };
+    sdk: {
+      input: DescribeJobExecutionCommandInput;
+      output: DescribeJobExecutionCommandOutput;
+    };
+  };
+}

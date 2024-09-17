@@ -90,4 +90,16 @@ export class DeleteResponsePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResponsePlanCommand)
   .de(de_DeleteResponsePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResponsePlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResponsePlanCommandInput;
+      output: DeleteResponsePlanCommandOutput;
+    };
+  };
+}

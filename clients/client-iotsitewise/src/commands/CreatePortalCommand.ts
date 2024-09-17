@@ -132,4 +132,16 @@ export class CreatePortalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePortalCommand)
   .de(de_CreatePortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePortalRequest;
+      output: CreatePortalResponse;
+    };
+    sdk: {
+      input: CreatePortalCommandInput;
+      output: CreatePortalCommandOutput;
+    };
+  };
+}

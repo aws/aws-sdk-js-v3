@@ -112,4 +112,16 @@ export class BatchGetBlueprintsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetBlueprintsCommand)
   .de(de_BatchGetBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetBlueprintsRequest;
+      output: BatchGetBlueprintsResponse;
+    };
+    sdk: {
+      input: BatchGetBlueprintsCommandInput;
+      output: BatchGetBlueprintsCommandOutput;
+    };
+  };
+}

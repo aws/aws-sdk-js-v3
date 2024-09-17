@@ -118,4 +118,16 @@ export class GetTemplateGroupAccessControlEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateGroupAccessControlEntryCommand)
   .de(de_GetTemplateGroupAccessControlEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateGroupAccessControlEntryRequest;
+      output: GetTemplateGroupAccessControlEntryResponse;
+    };
+    sdk: {
+      input: GetTemplateGroupAccessControlEntryCommandInput;
+      output: GetTemplateGroupAccessControlEntryCommandOutput;
+    };
+  };
+}

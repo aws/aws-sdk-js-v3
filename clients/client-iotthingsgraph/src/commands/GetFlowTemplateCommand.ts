@@ -104,4 +104,16 @@ export class GetFlowTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFlowTemplateCommand)
   .de(de_GetFlowTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFlowTemplateRequest;
+      output: GetFlowTemplateResponse;
+    };
+    sdk: {
+      input: GetFlowTemplateCommandInput;
+      output: GetFlowTemplateCommandOutput;
+    };
+  };
+}

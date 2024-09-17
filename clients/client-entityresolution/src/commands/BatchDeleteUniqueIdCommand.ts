@@ -105,4 +105,16 @@ export class BatchDeleteUniqueIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteUniqueIdCommand)
   .de(de_BatchDeleteUniqueIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteUniqueIdInput;
+      output: BatchDeleteUniqueIdOutput;
+    };
+    sdk: {
+      input: BatchDeleteUniqueIdCommandInput;
+      output: BatchDeleteUniqueIdCommandOutput;
+    };
+  };
+}

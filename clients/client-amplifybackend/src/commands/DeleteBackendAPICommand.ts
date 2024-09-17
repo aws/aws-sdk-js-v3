@@ -132,4 +132,16 @@ export class DeleteBackendAPICommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackendAPICommand)
   .de(de_DeleteBackendAPICommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackendAPIRequest;
+      output: DeleteBackendAPIResponse;
+    };
+    sdk: {
+      input: DeleteBackendAPICommandInput;
+      output: DeleteBackendAPICommandOutput;
+    };
+  };
+}

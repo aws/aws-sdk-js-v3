@@ -137,4 +137,16 @@ export class BatchPutGeofenceCommand extends $Command
   .f(BatchPutGeofenceRequestFilterSensitiveLog, void 0)
   .ser(se_BatchPutGeofenceCommand)
   .de(de_BatchPutGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutGeofenceRequest;
+      output: BatchPutGeofenceResponse;
+    };
+    sdk: {
+      input: BatchPutGeofenceCommandInput;
+      output: BatchPutGeofenceCommandOutput;
+    };
+  };
+}

@@ -177,4 +177,16 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceTypesFromInstanceRequirementsCommand)
   .de(de_GetInstanceTypesFromInstanceRequirementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceTypesFromInstanceRequirementsRequest;
+      output: GetInstanceTypesFromInstanceRequirementsResult;
+    };
+    sdk: {
+      input: GetInstanceTypesFromInstanceRequirementsCommandInput;
+      output: GetInstanceTypesFromInstanceRequirementsCommandOutput;
+    };
+  };
+}

@@ -168,4 +168,16 @@ export class GetStreamSessionCommand extends $Command
   .f(void 0, GetStreamSessionResponseFilterSensitiveLog)
   .ser(se_GetStreamSessionCommand)
   .de(de_GetStreamSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamSessionRequest;
+      output: GetStreamSessionResponse;
+    };
+    sdk: {
+      input: GetStreamSessionCommandInput;
+      output: GetStreamSessionCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class DeleteReportPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReportPlanCommand)
   .de(de_DeleteReportPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReportPlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReportPlanCommandInput;
+      output: DeleteReportPlanCommandOutput;
+    };
+  };
+}

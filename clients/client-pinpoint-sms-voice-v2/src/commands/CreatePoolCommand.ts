@@ -143,4 +143,16 @@ export class CreatePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePoolCommand)
   .de(de_CreatePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePoolRequest;
+      output: CreatePoolResult;
+    };
+    sdk: {
+      input: CreatePoolCommandInput;
+      output: CreatePoolCommandOutput;
+    };
+  };
+}

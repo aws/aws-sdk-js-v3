@@ -221,4 +221,16 @@ export class CreateWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspacesCommand)
   .de(de_CreateWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspacesRequest;
+      output: CreateWorkspacesResult;
+    };
+    sdk: {
+      input: CreateWorkspacesCommandInput;
+      output: CreateWorkspacesCommandOutput;
+    };
+  };
+}

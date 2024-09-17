@@ -102,4 +102,16 @@ export class ListOpsMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOpsMetadataCommand)
   .de(de_ListOpsMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOpsMetadataRequest;
+      output: ListOpsMetadataResult;
+    };
+    sdk: {
+      input: ListOpsMetadataCommandInput;
+      output: ListOpsMetadataCommandOutput;
+    };
+  };
+}

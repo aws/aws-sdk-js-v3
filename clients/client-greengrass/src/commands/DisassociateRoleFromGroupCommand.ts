@@ -83,4 +83,16 @@ export class DisassociateRoleFromGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateRoleFromGroupCommand)
   .de(de_DisassociateRoleFromGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateRoleFromGroupRequest;
+      output: DisassociateRoleFromGroupResponse;
+    };
+    sdk: {
+      input: DisassociateRoleFromGroupCommandInput;
+      output: DisassociateRoleFromGroupCommandOutput;
+    };
+  };
+}

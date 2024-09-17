@@ -129,4 +129,16 @@ export class CreateIpamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIpamCommand)
   .de(de_CreateIpamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIpamRequest;
+      output: CreateIpamResult;
+    };
+    sdk: {
+      input: CreateIpamCommandInput;
+      output: CreateIpamCommandOutput;
+    };
+  };
+}

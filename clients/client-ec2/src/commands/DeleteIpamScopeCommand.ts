@@ -97,4 +97,16 @@ export class DeleteIpamScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpamScopeCommand)
   .de(de_DeleteIpamScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpamScopeRequest;
+      output: DeleteIpamScopeResult;
+    };
+    sdk: {
+      input: DeleteIpamScopeCommandInput;
+      output: DeleteIpamScopeCommandOutput;
+    };
+  };
+}

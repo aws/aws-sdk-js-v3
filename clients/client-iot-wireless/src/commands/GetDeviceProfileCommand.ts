@@ -134,4 +134,16 @@ export class GetDeviceProfileCommand extends $Command
   .f(void 0, GetDeviceProfileResponseFilterSensitiveLog)
   .ser(se_GetDeviceProfileCommand)
   .de(de_GetDeviceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceProfileRequest;
+      output: GetDeviceProfileResponse;
+    };
+    sdk: {
+      input: GetDeviceProfileCommandInput;
+      output: GetDeviceProfileCommandOutput;
+    };
+  };
+}

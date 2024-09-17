@@ -96,4 +96,16 @@ export class CreateSavingsPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSavingsPlanCommand)
   .de(de_CreateSavingsPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSavingsPlanRequest;
+      output: CreateSavingsPlanResponse;
+    };
+    sdk: {
+      input: CreateSavingsPlanCommandInput;
+      output: CreateSavingsPlanCommandOutput;
+    };
+  };
+}

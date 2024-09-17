@@ -131,4 +131,16 @@ export class UpdateViewCommand extends $Command
   .f(UpdateViewInputFilterSensitiveLog, UpdateViewOutputFilterSensitiveLog)
   .ser(se_UpdateViewCommand)
   .de(de_UpdateViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateViewInput;
+      output: UpdateViewOutput;
+    };
+    sdk: {
+      input: UpdateViewCommandInput;
+      output: UpdateViewCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class BatchDeleteEvaluationJobCommand extends $Command
   .f(BatchDeleteEvaluationJobRequestFilterSensitiveLog, BatchDeleteEvaluationJobResponseFilterSensitiveLog)
   .ser(se_BatchDeleteEvaluationJobCommand)
   .de(de_BatchDeleteEvaluationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteEvaluationJobRequest;
+      output: BatchDeleteEvaluationJobResponse;
+    };
+    sdk: {
+      input: BatchDeleteEvaluationJobCommandInput;
+      output: BatchDeleteEvaluationJobCommandOutput;
+    };
+  };
+}

@@ -86,4 +86,16 @@ export class GetSoftwareUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSoftwareUpdatesCommand)
   .de(de_GetSoftwareUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSoftwareUpdatesRequest;
+      output: GetSoftwareUpdatesResult;
+    };
+    sdk: {
+      input: GetSoftwareUpdatesCommandInput;
+      output: GetSoftwareUpdatesCommandOutput;
+    };
+  };
+}

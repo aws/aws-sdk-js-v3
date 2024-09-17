@@ -88,4 +88,16 @@ export class ListDedicatedIpPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDedicatedIpPoolsCommand)
   .de(de_ListDedicatedIpPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDedicatedIpPoolsRequest;
+      output: ListDedicatedIpPoolsResponse;
+    };
+    sdk: {
+      input: ListDedicatedIpPoolsCommandInput;
+      output: ListDedicatedIpPoolsCommandOutput;
+    };
+  };
+}

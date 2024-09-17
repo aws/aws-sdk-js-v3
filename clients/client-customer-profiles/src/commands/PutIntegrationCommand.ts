@@ -186,4 +186,16 @@ export class PutIntegrationCommand extends $Command
   .f(PutIntegrationRequestFilterSensitiveLog, void 0)
   .ser(se_PutIntegrationCommand)
   .de(de_PutIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIntegrationRequest;
+      output: PutIntegrationResponse;
+    };
+    sdk: {
+      input: PutIntegrationCommandInput;
+      output: PutIntegrationCommandOutput;
+    };
+  };
+}

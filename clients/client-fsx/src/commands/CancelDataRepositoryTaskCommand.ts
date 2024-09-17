@@ -108,4 +108,16 @@ export class CancelDataRepositoryTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelDataRepositoryTaskCommand)
   .de(de_CancelDataRepositoryTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelDataRepositoryTaskRequest;
+      output: CancelDataRepositoryTaskResponse;
+    };
+    sdk: {
+      input: CancelDataRepositoryTaskCommandInput;
+      output: CancelDataRepositoryTaskCommandOutput;
+    };
+  };
+}

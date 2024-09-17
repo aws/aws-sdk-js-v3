@@ -142,4 +142,16 @@ export class DeleteServerlessCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServerlessCacheCommand)
   .de(de_DeleteServerlessCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServerlessCacheRequest;
+      output: DeleteServerlessCacheResponse;
+    };
+    sdk: {
+      input: DeleteServerlessCacheCommandInput;
+      output: DeleteServerlessCacheCommandOutput;
+    };
+  };
+}

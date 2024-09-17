@@ -110,4 +110,16 @@ export class StartUserAccessTasksCommand extends $Command
   .f(StartUserAccessTasksRequestFilterSensitiveLog, void 0)
   .ser(se_StartUserAccessTasksCommand)
   .de(de_StartUserAccessTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartUserAccessTasksRequest;
+      output: StartUserAccessTasksResponse;
+    };
+    sdk: {
+      input: StartUserAccessTasksCommandInput;
+      output: StartUserAccessTasksCommandOutput;
+    };
+  };
+}

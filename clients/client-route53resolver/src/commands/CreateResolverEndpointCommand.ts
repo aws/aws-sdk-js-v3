@@ -158,4 +158,16 @@ export class CreateResolverEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResolverEndpointCommand)
   .de(de_CreateResolverEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResolverEndpointRequest;
+      output: CreateResolverEndpointResponse;
+    };
+    sdk: {
+      input: CreateResolverEndpointCommandInput;
+      output: CreateResolverEndpointCommandOutput;
+    };
+  };
+}

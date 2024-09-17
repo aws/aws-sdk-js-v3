@@ -112,4 +112,16 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTaskAssessmentResultsCommand)
   .de(de_DescribeReplicationTaskAssessmentResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTaskAssessmentResultsMessage;
+      output: DescribeReplicationTaskAssessmentResultsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTaskAssessmentResultsCommandInput;
+      output: DescribeReplicationTaskAssessmentResultsCommandOutput;
+    };
+  };
+}

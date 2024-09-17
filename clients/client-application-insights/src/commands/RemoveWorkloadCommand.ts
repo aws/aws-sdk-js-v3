@@ -90,4 +90,16 @@ export class RemoveWorkloadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveWorkloadCommand)
   .de(de_RemoveWorkloadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveWorkloadRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveWorkloadCommandInput;
+      output: RemoveWorkloadCommandOutput;
+    };
+  };
+}

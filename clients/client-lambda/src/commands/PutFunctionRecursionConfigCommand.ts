@@ -99,4 +99,16 @@ export class PutFunctionRecursionConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFunctionRecursionConfigCommand)
   .de(de_PutFunctionRecursionConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFunctionRecursionConfigRequest;
+      output: PutFunctionRecursionConfigResponse;
+    };
+    sdk: {
+      input: PutFunctionRecursionConfigCommandInput;
+      output: PutFunctionRecursionConfigCommandOutput;
+    };
+  };
+}

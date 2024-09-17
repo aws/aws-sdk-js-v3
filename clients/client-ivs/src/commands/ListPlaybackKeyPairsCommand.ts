@@ -94,4 +94,16 @@ export class ListPlaybackKeyPairsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPlaybackKeyPairsCommand)
   .de(de_ListPlaybackKeyPairsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPlaybackKeyPairsRequest;
+      output: ListPlaybackKeyPairsResponse;
+    };
+    sdk: {
+      input: ListPlaybackKeyPairsCommandInput;
+      output: ListPlaybackKeyPairsCommandOutput;
+    };
+  };
+}

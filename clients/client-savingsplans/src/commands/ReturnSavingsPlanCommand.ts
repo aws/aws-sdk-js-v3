@@ -90,4 +90,16 @@ export class ReturnSavingsPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReturnSavingsPlanCommand)
   .de(de_ReturnSavingsPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReturnSavingsPlanRequest;
+      output: ReturnSavingsPlanResponse;
+    };
+    sdk: {
+      input: ReturnSavingsPlanCommandInput;
+      output: ReturnSavingsPlanCommandOutput;
+    };
+  };
+}

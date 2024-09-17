@@ -114,4 +114,16 @@ export class ListQuickResponsesCommand extends $Command
   .f(void 0, ListQuickResponsesResponseFilterSensitiveLog)
   .ser(se_ListQuickResponsesCommand)
   .de(de_ListQuickResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQuickResponsesRequest;
+      output: ListQuickResponsesResponse;
+    };
+    sdk: {
+      input: ListQuickResponsesCommandInput;
+      output: ListQuickResponsesCommandOutput;
+    };
+  };
+}

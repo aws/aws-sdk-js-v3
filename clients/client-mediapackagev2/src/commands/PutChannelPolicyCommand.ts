@@ -108,4 +108,16 @@ export class PutChannelPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutChannelPolicyCommand)
   .de(de_PutChannelPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutChannelPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutChannelPolicyCommandInput;
+      output: PutChannelPolicyCommandOutput;
+    };
+  };
+}

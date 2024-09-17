@@ -97,4 +97,16 @@ export class DescribeAccountHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountHealthCommand)
   .de(de_DescribeAccountHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAccountHealthResponse;
+    };
+    sdk: {
+      input: DescribeAccountHealthCommandInput;
+      output: DescribeAccountHealthCommandOutput;
+    };
+  };
+}

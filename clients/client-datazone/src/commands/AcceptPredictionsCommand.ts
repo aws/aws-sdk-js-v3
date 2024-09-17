@@ -119,4 +119,16 @@ export class AcceptPredictionsCommand extends $Command
   .f(AcceptPredictionsInputFilterSensitiveLog, void 0)
   .ser(se_AcceptPredictionsCommand)
   .de(de_AcceptPredictionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptPredictionsInput;
+      output: AcceptPredictionsOutput;
+    };
+    sdk: {
+      input: AcceptPredictionsCommandInput;
+      output: AcceptPredictionsCommandOutput;
+    };
+  };
+}

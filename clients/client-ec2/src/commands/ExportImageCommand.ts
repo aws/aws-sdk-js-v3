@@ -116,4 +116,16 @@ export class ExportImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportImageCommand)
   .de(de_ExportImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportImageRequest;
+      output: ExportImageResult;
+    };
+    sdk: {
+      input: ExportImageCommandInput;
+      output: ExportImageCommandOutput;
+    };
+  };
+}

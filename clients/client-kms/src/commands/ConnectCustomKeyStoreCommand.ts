@@ -259,4 +259,16 @@ export class ConnectCustomKeyStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConnectCustomKeyStoreCommand)
   .de(de_ConnectCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConnectCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: ConnectCustomKeyStoreCommandInput;
+      output: ConnectCustomKeyStoreCommandOutput;
+    };
+  };
+}

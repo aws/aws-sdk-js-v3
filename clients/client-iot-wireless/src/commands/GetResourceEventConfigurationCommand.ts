@@ -128,4 +128,16 @@ export class GetResourceEventConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceEventConfigurationCommand)
   .de(de_GetResourceEventConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceEventConfigurationRequest;
+      output: GetResourceEventConfigurationResponse;
+    };
+    sdk: {
+      input: GetResourceEventConfigurationCommandInput;
+      output: GetResourceEventConfigurationCommandOutput;
+    };
+  };
+}

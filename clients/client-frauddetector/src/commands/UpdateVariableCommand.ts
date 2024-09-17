@@ -96,4 +96,16 @@ export class UpdateVariableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVariableCommand)
   .de(de_UpdateVariableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVariableRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateVariableCommandInput;
+      output: UpdateVariableCommandOutput;
+    };
+  };
+}

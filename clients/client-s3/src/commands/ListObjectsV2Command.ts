@@ -263,4 +263,16 @@ export class ListObjectsV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectsV2Command)
   .de(de_ListObjectsV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectsV2Request;
+      output: ListObjectsV2Output;
+    };
+    sdk: {
+      input: ListObjectsV2CommandInput;
+      output: ListObjectsV2CommandOutput;
+    };
+  };
+}

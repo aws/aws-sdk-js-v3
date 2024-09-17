@@ -108,4 +108,16 @@ export class DeleteServiceNetworkVpcAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceNetworkVpcAssociationCommand)
   .de(de_DeleteServiceNetworkVpcAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceNetworkVpcAssociationRequest;
+      output: DeleteServiceNetworkVpcAssociationResponse;
+    };
+    sdk: {
+      input: DeleteServiceNetworkVpcAssociationCommandInput;
+      output: DeleteServiceNetworkVpcAssociationCommandOutput;
+    };
+  };
+}

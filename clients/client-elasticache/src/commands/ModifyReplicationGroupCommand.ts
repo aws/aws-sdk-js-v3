@@ -389,4 +389,16 @@ export class ModifyReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationGroupCommand)
   .de(de_ModifyReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationGroupMessage;
+      output: ModifyReplicationGroupResult;
+    };
+    sdk: {
+      input: ModifyReplicationGroupCommandInput;
+      output: ModifyReplicationGroupCommandOutput;
+    };
+  };
+}

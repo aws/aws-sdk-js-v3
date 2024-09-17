@@ -96,4 +96,16 @@ export class ListEventSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventSourcesCommand)
   .de(de_ListEventSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventSourcesRequest;
+      output: ListEventSourcesResponse;
+    };
+    sdk: {
+      input: ListEventSourcesCommandInput;
+      output: ListEventSourcesCommandOutput;
+    };
+  };
+}

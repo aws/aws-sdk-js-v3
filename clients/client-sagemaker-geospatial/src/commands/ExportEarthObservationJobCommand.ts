@@ -121,4 +121,16 @@ export class ExportEarthObservationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportEarthObservationJobCommand)
   .de(de_ExportEarthObservationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportEarthObservationJobInput;
+      output: ExportEarthObservationJobOutput;
+    };
+    sdk: {
+      input: ExportEarthObservationJobCommandInput;
+      output: ExportEarthObservationJobCommandOutput;
+    };
+  };
+}

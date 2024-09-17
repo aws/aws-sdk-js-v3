@@ -87,4 +87,16 @@ export class GetV2LoggingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetV2LoggingOptionsCommand)
   .de(de_GetV2LoggingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetV2LoggingOptionsResponse;
+    };
+    sdk: {
+      input: GetV2LoggingOptionsCommandInput;
+      output: GetV2LoggingOptionsCommandOutput;
+    };
+  };
+}

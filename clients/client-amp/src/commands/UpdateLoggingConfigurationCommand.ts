@@ -99,4 +99,16 @@ export class UpdateLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLoggingConfigurationCommand)
   .de(de_UpdateLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLoggingConfigurationRequest;
+      output: UpdateLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateLoggingConfigurationCommandInput;
+      output: UpdateLoggingConfigurationCommandOutput;
+    };
+  };
+}

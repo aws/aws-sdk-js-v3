@@ -105,4 +105,16 @@ export class DeleteBucketEncryptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketEncryptionCommand)
   .de(de_DeleteBucketEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketEncryptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketEncryptionCommandInput;
+      output: DeleteBucketEncryptionCommandOutput;
+    };
+  };
+}

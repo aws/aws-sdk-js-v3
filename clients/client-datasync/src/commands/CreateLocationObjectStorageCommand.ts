@@ -109,4 +109,16 @@ export class CreateLocationObjectStorageCommand extends $Command
   .f(CreateLocationObjectStorageRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLocationObjectStorageCommand)
   .de(de_CreateLocationObjectStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationObjectStorageRequest;
+      output: CreateLocationObjectStorageResponse;
+    };
+    sdk: {
+      input: CreateLocationObjectStorageCommandInput;
+      output: CreateLocationObjectStorageCommandOutput;
+    };
+  };
+}

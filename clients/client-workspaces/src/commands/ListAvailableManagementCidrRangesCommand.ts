@@ -100,4 +100,16 @@ export class ListAvailableManagementCidrRangesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableManagementCidrRangesCommand)
   .de(de_ListAvailableManagementCidrRangesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableManagementCidrRangesRequest;
+      output: ListAvailableManagementCidrRangesResult;
+    };
+    sdk: {
+      input: ListAvailableManagementCidrRangesCommandInput;
+      output: ListAvailableManagementCidrRangesCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class DeleteVpcIngressConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVpcIngressConnectionCommand)
   .de(de_DeleteVpcIngressConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVpcIngressConnectionRequest;
+      output: DeleteVpcIngressConnectionResponse;
+    };
+    sdk: {
+      input: DeleteVpcIngressConnectionCommandInput;
+      output: DeleteVpcIngressConnectionCommandOutput;
+    };
+  };
+}

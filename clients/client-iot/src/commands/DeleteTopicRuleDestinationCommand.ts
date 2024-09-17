@@ -92,4 +92,16 @@ export class DeleteTopicRuleDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTopicRuleDestinationCommand)
   .de(de_DeleteTopicRuleDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTopicRuleDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTopicRuleDestinationCommandInput;
+      output: DeleteTopicRuleDestinationCommandOutput;
+    };
+  };
+}

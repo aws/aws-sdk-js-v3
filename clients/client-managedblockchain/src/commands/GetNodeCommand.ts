@@ -140,4 +140,16 @@ export class GetNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNodeCommand)
   .de(de_GetNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNodeInput;
+      output: GetNodeOutput;
+    };
+    sdk: {
+      input: GetNodeCommandInput;
+      output: GetNodeCommandOutput;
+    };
+  };
+}

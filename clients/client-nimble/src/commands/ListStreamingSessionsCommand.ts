@@ -142,4 +142,16 @@ export class ListStreamingSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamingSessionsCommand)
   .de(de_ListStreamingSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamingSessionsRequest;
+      output: ListStreamingSessionsResponse;
+    };
+    sdk: {
+      input: ListStreamingSessionsCommandInput;
+      output: ListStreamingSessionsCommandOutput;
+    };
+  };
+}

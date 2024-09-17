@@ -151,4 +151,16 @@ export class ListOpenCypherQueriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOpenCypherQueriesCommand)
   .de(de_ListOpenCypherQueriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOpenCypherQueriesInput;
+      output: ListOpenCypherQueriesOutput;
+    };
+    sdk: {
+      input: ListOpenCypherQueriesCommandInput;
+      output: ListOpenCypherQueriesCommandOutput;
+    };
+  };
+}

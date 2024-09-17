@@ -126,4 +126,16 @@ export class ListEnvironmentsCommand extends $Command
   .f(void 0, ListEnvironmentsResponseFilterSensitiveLog)
   .ser(se_ListEnvironmentsCommand)
   .de(de_ListEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentsRequest;
+      output: ListEnvironmentsResponse;
+    };
+    sdk: {
+      input: ListEnvironmentsCommandInput;
+      output: ListEnvironmentsCommandOutput;
+    };
+  };
+}

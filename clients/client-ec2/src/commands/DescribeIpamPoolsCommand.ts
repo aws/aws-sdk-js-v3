@@ -133,4 +133,16 @@ export class DescribeIpamPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIpamPoolsCommand)
   .de(de_DescribeIpamPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIpamPoolsRequest;
+      output: DescribeIpamPoolsResult;
+    };
+    sdk: {
+      input: DescribeIpamPoolsCommandInput;
+      output: DescribeIpamPoolsCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class ListEventTrackersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventTrackersCommand)
   .de(de_ListEventTrackersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventTrackersRequest;
+      output: ListEventTrackersResponse;
+    };
+    sdk: {
+      input: ListEventTrackersCommandInput;
+      output: ListEventTrackersCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class ListAudienceExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAudienceExportJobsCommand)
   .de(de_ListAudienceExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAudienceExportJobsRequest;
+      output: ListAudienceExportJobsResponse;
+    };
+    sdk: {
+      input: ListAudienceExportJobsCommandInput;
+      output: ListAudienceExportJobsCommandOutput;
+    };
+  };
+}

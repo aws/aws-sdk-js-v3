@@ -208,4 +208,16 @@ export class ListObjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectsCommand)
   .de(de_ListObjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectsRequest;
+      output: ListObjectsOutput;
+    };
+    sdk: {
+      input: ListObjectsCommandInput;
+      output: ListObjectsCommandOutput;
+    };
+  };
+}

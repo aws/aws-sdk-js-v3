@@ -82,4 +82,16 @@ export class DisableVpcClassicLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableVpcClassicLinkCommand)
   .de(de_DisableVpcClassicLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableVpcClassicLinkRequest;
+      output: DisableVpcClassicLinkResult;
+    };
+    sdk: {
+      input: DisableVpcClassicLinkCommandInput;
+      output: DisableVpcClassicLinkCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class UpdatePackageVersionCommand extends $Command
   .f(UpdatePackageVersionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePackageVersionCommand)
   .de(de_UpdatePackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePackageVersionCommandInput;
+      output: UpdatePackageVersionCommandOutput;
+    };
+  };
+}

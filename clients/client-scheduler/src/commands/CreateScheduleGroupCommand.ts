@@ -99,4 +99,16 @@ export class CreateScheduleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduleGroupCommand)
   .de(de_CreateScheduleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduleGroupInput;
+      output: CreateScheduleGroupOutput;
+    };
+    sdk: {
+      input: CreateScheduleGroupCommandInput;
+      output: CreateScheduleGroupCommandOutput;
+    };
+  };
+}

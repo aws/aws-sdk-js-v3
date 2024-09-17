@@ -118,4 +118,16 @@ export class UpdateApplicationComponentConfigCommand extends $Command
   .f(UpdateApplicationComponentConfigRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateApplicationComponentConfigCommand)
   .de(de_UpdateApplicationComponentConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationComponentConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateApplicationComponentConfigCommandInput;
+      output: UpdateApplicationComponentConfigCommandOutput;
+    };
+  };
+}

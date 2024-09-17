@@ -105,4 +105,16 @@ export class ListRepositorySyncDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRepositorySyncDefinitionsCommand)
   .de(de_ListRepositorySyncDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRepositorySyncDefinitionsInput;
+      output: ListRepositorySyncDefinitionsOutput;
+    };
+    sdk: {
+      input: ListRepositorySyncDefinitionsCommandInput;
+      output: ListRepositorySyncDefinitionsCommandOutput;
+    };
+  };
+}

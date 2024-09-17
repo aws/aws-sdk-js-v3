@@ -133,4 +133,16 @@ export class CreateInterconnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInterconnectCommand)
   .de(de_CreateInterconnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInterconnectRequest;
+      output: Interconnect;
+    };
+    sdk: {
+      input: CreateInterconnectCommandInput;
+      output: CreateInterconnectCommandOutput;
+    };
+  };
+}

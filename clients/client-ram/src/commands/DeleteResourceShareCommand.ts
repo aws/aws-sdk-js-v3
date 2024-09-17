@@ -115,4 +115,16 @@ export class DeleteResourceShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourceShareCommand)
   .de(de_DeleteResourceShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourceShareRequest;
+      output: DeleteResourceShareResponse;
+    };
+    sdk: {
+      input: DeleteResourceShareCommandInput;
+      output: DeleteResourceShareCommandOutput;
+    };
+  };
+}

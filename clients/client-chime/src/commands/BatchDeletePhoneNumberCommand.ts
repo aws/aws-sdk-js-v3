@@ -113,4 +113,16 @@ export class BatchDeletePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeletePhoneNumberCommand)
   .de(de_BatchDeletePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeletePhoneNumberRequest;
+      output: BatchDeletePhoneNumberResponse;
+    };
+    sdk: {
+      input: BatchDeletePhoneNumberCommandInput;
+      output: BatchDeletePhoneNumberCommandOutput;
+    };
+  };
+}

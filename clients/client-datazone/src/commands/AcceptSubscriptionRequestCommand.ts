@@ -181,4 +181,16 @@ export class AcceptSubscriptionRequestCommand extends $Command
   .f(AcceptSubscriptionRequestInputFilterSensitiveLog, AcceptSubscriptionRequestOutputFilterSensitiveLog)
   .ser(se_AcceptSubscriptionRequestCommand)
   .de(de_AcceptSubscriptionRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptSubscriptionRequestInput;
+      output: AcceptSubscriptionRequestOutput;
+    };
+    sdk: {
+      input: AcceptSubscriptionRequestCommandInput;
+      output: AcceptSubscriptionRequestCommandOutput;
+    };
+  };
+}

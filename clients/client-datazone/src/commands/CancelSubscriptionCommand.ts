@@ -166,4 +166,16 @@ export class CancelSubscriptionCommand extends $Command
   .f(void 0, CancelSubscriptionOutputFilterSensitiveLog)
   .ser(se_CancelSubscriptionCommand)
   .de(de_CancelSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelSubscriptionInput;
+      output: CancelSubscriptionOutput;
+    };
+    sdk: {
+      input: CancelSubscriptionCommandInput;
+      output: CancelSubscriptionCommandOutput;
+    };
+  };
+}

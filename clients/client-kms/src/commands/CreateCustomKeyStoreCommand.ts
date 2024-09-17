@@ -376,4 +376,16 @@ export class CreateCustomKeyStoreCommand extends $Command
   .f(CreateCustomKeyStoreRequestFilterSensitiveLog, void 0)
   .ser(se_CreateCustomKeyStoreCommand)
   .de(de_CreateCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomKeyStoreRequest;
+      output: CreateCustomKeyStoreResponse;
+    };
+    sdk: {
+      input: CreateCustomKeyStoreCommandInput;
+      output: CreateCustomKeyStoreCommandOutput;
+    };
+  };
+}

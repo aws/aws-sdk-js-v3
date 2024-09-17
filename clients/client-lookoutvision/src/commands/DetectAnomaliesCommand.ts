@@ -134,4 +134,16 @@ export class DetectAnomaliesCommand extends $Command
   .f(DetectAnomaliesRequestFilterSensitiveLog, void 0)
   .ser(se_DetectAnomaliesCommand)
   .de(de_DetectAnomaliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectAnomaliesRequest;
+      output: DetectAnomaliesResponse;
+    };
+    sdk: {
+      input: DetectAnomaliesCommandInput;
+      output: DetectAnomaliesCommandOutput;
+    };
+  };
+}

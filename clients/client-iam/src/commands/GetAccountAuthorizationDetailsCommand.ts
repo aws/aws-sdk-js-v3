@@ -249,4 +249,16 @@ export class GetAccountAuthorizationDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountAuthorizationDetailsCommand)
   .de(de_GetAccountAuthorizationDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccountAuthorizationDetailsRequest;
+      output: GetAccountAuthorizationDetailsResponse;
+    };
+    sdk: {
+      input: GetAccountAuthorizationDetailsCommandInput;
+      output: GetAccountAuthorizationDetailsCommandOutput;
+    };
+  };
+}

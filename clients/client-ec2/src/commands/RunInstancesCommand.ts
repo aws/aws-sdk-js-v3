@@ -598,4 +598,16 @@ export class RunInstancesCommand extends $Command
   .f(RunInstancesRequestFilterSensitiveLog, void 0)
   .ser(se_RunInstancesCommand)
   .de(de_RunInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunInstancesRequest;
+      output: Reservation;
+    };
+    sdk: {
+      input: RunInstancesCommandInput;
+      output: RunInstancesCommandOutput;
+    };
+  };
+}

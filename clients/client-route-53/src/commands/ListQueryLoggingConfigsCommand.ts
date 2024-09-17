@@ -103,4 +103,16 @@ export class ListQueryLoggingConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueryLoggingConfigsCommand)
   .de(de_ListQueryLoggingConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueryLoggingConfigsRequest;
+      output: ListQueryLoggingConfigsResponse;
+    };
+    sdk: {
+      input: ListQueryLoggingConfigsCommandInput;
+      output: ListQueryLoggingConfigsCommandOutput;
+    };
+  };
+}

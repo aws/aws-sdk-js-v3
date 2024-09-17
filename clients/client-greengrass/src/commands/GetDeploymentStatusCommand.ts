@@ -90,4 +90,16 @@ export class GetDeploymentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentStatusCommand)
   .de(de_GetDeploymentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentStatusRequest;
+      output: GetDeploymentStatusResponse;
+    };
+    sdk: {
+      input: GetDeploymentStatusCommandInput;
+      output: GetDeploymentStatusCommandOutput;
+    };
+  };
+}

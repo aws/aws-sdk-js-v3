@@ -107,4 +107,16 @@ export class DescribeReplayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplayCommand)
   .de(de_DescribeReplayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplayRequest;
+      output: DescribeReplayResponse;
+    };
+    sdk: {
+      input: DescribeReplayCommandInput;
+      output: DescribeReplayCommandOutput;
+    };
+  };
+}

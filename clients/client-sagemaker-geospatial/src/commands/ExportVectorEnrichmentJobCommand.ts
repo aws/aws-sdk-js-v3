@@ -119,4 +119,16 @@ export class ExportVectorEnrichmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportVectorEnrichmentJobCommand)
   .de(de_ExportVectorEnrichmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportVectorEnrichmentJobInput;
+      output: ExportVectorEnrichmentJobOutput;
+    };
+    sdk: {
+      input: ExportVectorEnrichmentJobCommandInput;
+      output: ExportVectorEnrichmentJobCommandOutput;
+    };
+  };
+}

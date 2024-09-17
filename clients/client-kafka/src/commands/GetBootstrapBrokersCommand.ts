@@ -101,4 +101,16 @@ export class GetBootstrapBrokersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBootstrapBrokersCommand)
   .de(de_GetBootstrapBrokersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBootstrapBrokersRequest;
+      output: GetBootstrapBrokersResponse;
+    };
+    sdk: {
+      input: GetBootstrapBrokersCommandInput;
+      output: GetBootstrapBrokersCommandOutput;
+    };
+  };
+}

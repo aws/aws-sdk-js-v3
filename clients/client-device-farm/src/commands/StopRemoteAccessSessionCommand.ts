@@ -173,4 +173,16 @@ export class StopRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopRemoteAccessSessionCommand)
   .de(de_StopRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopRemoteAccessSessionRequest;
+      output: StopRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: StopRemoteAccessSessionCommandInput;
+      output: StopRemoteAccessSessionCommandOutput;
+    };
+  };
+}

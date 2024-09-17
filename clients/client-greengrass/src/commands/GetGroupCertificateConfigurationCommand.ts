@@ -90,4 +90,16 @@ export class GetGroupCertificateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupCertificateConfigurationCommand)
   .de(de_GetGroupCertificateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupCertificateConfigurationRequest;
+      output: GetGroupCertificateConfigurationResponse;
+    };
+    sdk: {
+      input: GetGroupCertificateConfigurationCommandInput;
+      output: GetGroupCertificateConfigurationCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class ListAssociatedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedResourcesCommand)
   .de(de_ListAssociatedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedResourcesRequest;
+      output: ListAssociatedResourcesResponse;
+    };
+    sdk: {
+      input: ListAssociatedResourcesCommandInput;
+      output: ListAssociatedResourcesCommandOutput;
+    };
+  };
+}

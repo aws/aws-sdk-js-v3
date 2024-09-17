@@ -109,4 +109,16 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
   .f(void 0, void 0)
   .ser(se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand)
   .de(de_DeleteVoiceConnectorEmergencyCallingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceConnectorEmergencyCallingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput;
+      output: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput;
+    };
+  };
+}

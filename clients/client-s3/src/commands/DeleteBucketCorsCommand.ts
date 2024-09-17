@@ -114,4 +114,16 @@ export class DeleteBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketCorsCommand)
   .de(de_DeleteBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketCorsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketCorsCommandInput;
+      output: DeleteBucketCorsCommandOutput;
+    };
+  };
+}

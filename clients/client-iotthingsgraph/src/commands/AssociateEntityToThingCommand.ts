@@ -92,4 +92,16 @@ export class AssociateEntityToThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateEntityToThingCommand)
   .de(de_AssociateEntityToThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateEntityToThingRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateEntityToThingCommandInput;
+      output: AssociateEntityToThingCommandOutput;
+    };
+  };
+}

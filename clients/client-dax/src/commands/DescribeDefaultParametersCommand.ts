@@ -107,4 +107,16 @@ export class DescribeDefaultParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDefaultParametersCommand)
   .de(de_DescribeDefaultParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDefaultParametersRequest;
+      output: DescribeDefaultParametersResponse;
+    };
+    sdk: {
+      input: DescribeDefaultParametersCommandInput;
+      output: DescribeDefaultParametersCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class GetAnomaliesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnomaliesCommand)
   .de(de_GetAnomaliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnomaliesRequest;
+      output: GetAnomaliesResponse;
+    };
+    sdk: {
+      input: GetAnomaliesCommandInput;
+      output: GetAnomaliesCommandOutput;
+    };
+  };
+}

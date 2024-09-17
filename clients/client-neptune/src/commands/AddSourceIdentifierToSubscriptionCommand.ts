@@ -104,4 +104,16 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddSourceIdentifierToSubscriptionCommand)
   .de(de_AddSourceIdentifierToSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddSourceIdentifierToSubscriptionMessage;
+      output: AddSourceIdentifierToSubscriptionResult;
+    };
+    sdk: {
+      input: AddSourceIdentifierToSubscriptionCommandInput;
+      output: AddSourceIdentifierToSubscriptionCommandOutput;
+    };
+  };
+}

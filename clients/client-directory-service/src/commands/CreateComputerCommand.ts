@@ -123,4 +123,16 @@ export class CreateComputerCommand extends $Command
   .f(CreateComputerRequestFilterSensitiveLog, void 0)
   .ser(se_CreateComputerCommand)
   .de(de_CreateComputerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComputerRequest;
+      output: CreateComputerResult;
+    };
+    sdk: {
+      input: CreateComputerCommandInput;
+      output: CreateComputerCommandOutput;
+    };
+  };
+}

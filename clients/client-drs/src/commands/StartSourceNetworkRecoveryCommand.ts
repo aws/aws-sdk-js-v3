@@ -163,4 +163,16 @@ export class StartSourceNetworkRecoveryCommand extends $Command
   .f(StartSourceNetworkRecoveryRequestFilterSensitiveLog, StartSourceNetworkRecoveryResponseFilterSensitiveLog)
   .ser(se_StartSourceNetworkRecoveryCommand)
   .de(de_StartSourceNetworkRecoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSourceNetworkRecoveryRequest;
+      output: StartSourceNetworkRecoveryResponse;
+    };
+    sdk: {
+      input: StartSourceNetworkRecoveryCommandInput;
+      output: StartSourceNetworkRecoveryCommandOutput;
+    };
+  };
+}

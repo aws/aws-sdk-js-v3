@@ -112,4 +112,16 @@ export class DescribeDBSubnetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSubnetGroupsCommand)
   .de(de_DescribeDBSubnetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSubnetGroupsMessage;
+      output: DBSubnetGroupMessage;
+    };
+    sdk: {
+      input: DescribeDBSubnetGroupsCommandInput;
+      output: DescribeDBSubnetGroupsCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class GetRoomCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRoomCommand)
   .de(de_GetRoomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRoomRequest;
+      output: GetRoomResponse;
+    };
+    sdk: {
+      input: GetRoomCommandInput;
+      output: GetRoomCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class DeleteProjectPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectPolicyCommand)
   .de(de_DeleteProjectPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectPolicyCommandInput;
+      output: DeleteProjectPolicyCommandOutput;
+    };
+  };
+}

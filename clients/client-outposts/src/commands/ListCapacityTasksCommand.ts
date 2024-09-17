@@ -108,4 +108,16 @@ export class ListCapacityTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCapacityTasksCommand)
   .de(de_ListCapacityTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCapacityTasksInput;
+      output: ListCapacityTasksOutput;
+    };
+    sdk: {
+      input: ListCapacityTasksCommandInput;
+      output: ListCapacityTasksCommandOutput;
+    };
+  };
+}

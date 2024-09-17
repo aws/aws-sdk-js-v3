@@ -98,4 +98,16 @@ export class SendBonusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendBonusCommand)
   .de(de_SendBonusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendBonusRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendBonusCommandInput;
+      output: SendBonusCommandOutput;
+    };
+  };
+}

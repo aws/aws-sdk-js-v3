@@ -129,4 +129,16 @@ export class ListAttachedIndicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedIndicesCommand)
   .de(de_ListAttachedIndicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedIndicesRequest;
+      output: ListAttachedIndicesResponse;
+    };
+    sdk: {
+      input: ListAttachedIndicesCommandInput;
+      output: ListAttachedIndicesCommandOutput;
+    };
+  };
+}

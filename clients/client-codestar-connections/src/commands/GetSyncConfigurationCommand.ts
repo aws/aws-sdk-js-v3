@@ -109,4 +109,16 @@ export class GetSyncConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSyncConfigurationCommand)
   .de(de_GetSyncConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSyncConfigurationInput;
+      output: GetSyncConfigurationOutput;
+    };
+    sdk: {
+      input: GetSyncConfigurationCommandInput;
+      output: GetSyncConfigurationCommandOutput;
+    };
+  };
+}

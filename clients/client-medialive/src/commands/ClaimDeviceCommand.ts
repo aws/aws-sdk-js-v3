@@ -99,4 +99,16 @@ export class ClaimDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ClaimDeviceCommand)
   .de(de_ClaimDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ClaimDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ClaimDeviceCommandInput;
+      output: ClaimDeviceCommandOutput;
+    };
+  };
+}

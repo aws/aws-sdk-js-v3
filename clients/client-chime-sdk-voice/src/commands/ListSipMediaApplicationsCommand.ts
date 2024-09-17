@@ -115,4 +115,16 @@ export class ListSipMediaApplicationsCommand extends $Command
   .f(void 0, ListSipMediaApplicationsResponseFilterSensitiveLog)
   .ser(se_ListSipMediaApplicationsCommand)
   .de(de_ListSipMediaApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSipMediaApplicationsRequest;
+      output: ListSipMediaApplicationsResponse;
+    };
+    sdk: {
+      input: ListSipMediaApplicationsCommandInput;
+      output: ListSipMediaApplicationsCommandOutput;
+    };
+  };
+}

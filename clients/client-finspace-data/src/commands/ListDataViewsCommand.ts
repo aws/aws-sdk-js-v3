@@ -126,4 +126,16 @@ export class ListDataViewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataViewsCommand)
   .de(de_ListDataViewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataViewsRequest;
+      output: ListDataViewsResponse;
+    };
+    sdk: {
+      input: ListDataViewsCommandInput;
+      output: ListDataViewsCommandOutput;
+    };
+  };
+}

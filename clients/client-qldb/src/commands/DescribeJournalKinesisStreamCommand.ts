@@ -112,4 +112,16 @@ export class DescribeJournalKinesisStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJournalKinesisStreamCommand)
   .de(de_DescribeJournalKinesisStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJournalKinesisStreamRequest;
+      output: DescribeJournalKinesisStreamResponse;
+    };
+    sdk: {
+      input: DescribeJournalKinesisStreamCommandInput;
+      output: DescribeJournalKinesisStreamCommandOutput;
+    };
+  };
+}

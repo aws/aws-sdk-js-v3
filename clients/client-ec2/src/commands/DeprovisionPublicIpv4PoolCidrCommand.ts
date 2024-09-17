@@ -84,4 +84,16 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeprovisionPublicIpv4PoolCidrCommand)
   .de(de_DeprovisionPublicIpv4PoolCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeprovisionPublicIpv4PoolCidrRequest;
+      output: DeprovisionPublicIpv4PoolCidrResult;
+    };
+    sdk: {
+      input: DeprovisionPublicIpv4PoolCidrCommandInput;
+      output: DeprovisionPublicIpv4PoolCidrCommandOutput;
+    };
+  };
+}

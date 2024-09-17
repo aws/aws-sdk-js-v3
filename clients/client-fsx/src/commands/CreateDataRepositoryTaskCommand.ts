@@ -182,4 +182,16 @@ export class CreateDataRepositoryTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataRepositoryTaskCommand)
   .de(de_CreateDataRepositoryTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataRepositoryTaskRequest;
+      output: CreateDataRepositoryTaskResponse;
+    };
+    sdk: {
+      input: CreateDataRepositoryTaskCommandInput;
+      output: CreateDataRepositoryTaskCommandOutput;
+    };
+  };
+}

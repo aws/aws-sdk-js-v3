@@ -120,4 +120,16 @@ export class CreateDetectorVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDetectorVersionCommand)
   .de(de_CreateDetectorVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDetectorVersionRequest;
+      output: CreateDetectorVersionResult;
+    };
+    sdk: {
+      input: CreateDetectorVersionCommandInput;
+      output: CreateDetectorVersionCommandOutput;
+    };
+  };
+}

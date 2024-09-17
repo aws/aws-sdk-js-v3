@@ -104,4 +104,16 @@ export class DescribeCarrierGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCarrierGatewaysCommand)
   .de(de_DescribeCarrierGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCarrierGatewaysRequest;
+      output: DescribeCarrierGatewaysResult;
+    };
+    sdk: {
+      input: DescribeCarrierGatewaysCommandInput;
+      output: DescribeCarrierGatewaysCommandOutput;
+    };
+  };
+}

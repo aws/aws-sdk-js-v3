@@ -99,4 +99,16 @@ export class GetPrimaryEmailCommand extends $Command
   .f(void 0, GetPrimaryEmailResponseFilterSensitiveLog)
   .ser(se_GetPrimaryEmailCommand)
   .de(de_GetPrimaryEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrimaryEmailRequest;
+      output: GetPrimaryEmailResponse;
+    };
+    sdk: {
+      input: GetPrimaryEmailCommandInput;
+      output: GetPrimaryEmailCommandOutput;
+    };
+  };
+}

@@ -144,4 +144,16 @@ export class UpdateWorkflowCommand extends $Command
   .f(UpdateMigrationWorkflowRequestFilterSensitiveLog, UpdateMigrationWorkflowResponseFilterSensitiveLog)
   .ser(se_UpdateWorkflowCommand)
   .de(de_UpdateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMigrationWorkflowRequest;
+      output: UpdateMigrationWorkflowResponse;
+    };
+    sdk: {
+      input: UpdateWorkflowCommandInput;
+      output: UpdateWorkflowCommandOutput;
+    };
+  };
+}

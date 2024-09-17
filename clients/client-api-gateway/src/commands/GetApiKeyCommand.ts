@@ -103,4 +103,16 @@ export class GetApiKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApiKeyCommand)
   .de(de_GetApiKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApiKeyRequest;
+      output: ApiKey;
+    };
+    sdk: {
+      input: GetApiKeyCommandInput;
+      output: GetApiKeyCommandOutput;
+    };
+  };
+}

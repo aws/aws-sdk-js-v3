@@ -84,4 +84,16 @@ export class DeleteWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebhookCommand)
   .de(de_DeleteWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebhookInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWebhookCommandInput;
+      output: DeleteWebhookCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class StartMetadataModelAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMetadataModelAssessmentCommand)
   .de(de_StartMetadataModelAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMetadataModelAssessmentMessage;
+      output: StartMetadataModelAssessmentResponse;
+    };
+    sdk: {
+      input: StartMetadataModelAssessmentCommandInput;
+      output: StartMetadataModelAssessmentCommandOutput;
+    };
+  };
+}

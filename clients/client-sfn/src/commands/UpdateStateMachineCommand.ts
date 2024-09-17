@@ -194,4 +194,16 @@ export class UpdateStateMachineCommand extends $Command
   .f(UpdateStateMachineInputFilterSensitiveLog, void 0)
   .ser(se_UpdateStateMachineCommand)
   .de(de_UpdateStateMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStateMachineInput;
+      output: UpdateStateMachineOutput;
+    };
+    sdk: {
+      input: UpdateStateMachineCommandInput;
+      output: UpdateStateMachineCommandOutput;
+    };
+  };
+}

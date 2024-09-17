@@ -126,4 +126,16 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateInstanceInAutoScalingGroupCommand)
   .de(de_TerminateInstanceInAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateInstanceInAutoScalingGroupType;
+      output: ActivityType;
+    };
+    sdk: {
+      input: TerminateInstanceInAutoScalingGroupCommandInput;
+      output: TerminateInstanceInAutoScalingGroupCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class AdminSetUserMFAPreferenceCommand extends $Command
   .f(AdminSetUserMFAPreferenceRequestFilterSensitiveLog, void 0)
   .ser(se_AdminSetUserMFAPreferenceCommand)
   .de(de_AdminSetUserMFAPreferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminSetUserMFAPreferenceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminSetUserMFAPreferenceCommandInput;
+      output: AdminSetUserMFAPreferenceCommandOutput;
+    };
+  };
+}

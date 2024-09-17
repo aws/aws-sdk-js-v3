@@ -158,4 +158,16 @@ export class ListFileCommitHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFileCommitHistoryCommand)
   .de(de_ListFileCommitHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFileCommitHistoryRequest;
+      output: ListFileCommitHistoryResponse;
+    };
+    sdk: {
+      input: ListFileCommitHistoryCommandInput;
+      output: ListFileCommitHistoryCommandOutput;
+    };
+  };
+}

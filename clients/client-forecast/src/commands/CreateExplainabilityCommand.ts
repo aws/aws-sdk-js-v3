@@ -245,4 +245,16 @@ export class CreateExplainabilityCommand extends $Command
   .f(CreateExplainabilityRequestFilterSensitiveLog, void 0)
   .ser(se_CreateExplainabilityCommand)
   .de(de_CreateExplainabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExplainabilityRequest;
+      output: CreateExplainabilityResponse;
+    };
+    sdk: {
+      input: CreateExplainabilityCommandInput;
+      output: CreateExplainabilityCommandOutput;
+    };
+  };
+}

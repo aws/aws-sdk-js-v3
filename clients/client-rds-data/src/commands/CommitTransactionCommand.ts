@@ -134,4 +134,16 @@ export class CommitTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CommitTransactionCommand)
   .de(de_CommitTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CommitTransactionRequest;
+      output: CommitTransactionResponse;
+    };
+    sdk: {
+      input: CommitTransactionCommandInput;
+      output: CommitTransactionCommandOutput;
+    };
+  };
+}

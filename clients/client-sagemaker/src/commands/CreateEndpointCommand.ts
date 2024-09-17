@@ -199,4 +199,16 @@ export class CreateEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEndpointCommand)
   .de(de_CreateEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEndpointInput;
+      output: CreateEndpointOutput;
+    };
+    sdk: {
+      input: CreateEndpointCommandInput;
+      output: CreateEndpointCommandOutput;
+    };
+  };
+}

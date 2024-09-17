@@ -166,4 +166,16 @@ export class CreateOptionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOptionGroupCommand)
   .de(de_CreateOptionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOptionGroupMessage;
+      output: CreateOptionGroupResult;
+    };
+    sdk: {
+      input: CreateOptionGroupCommandInput;
+      output: CreateOptionGroupCommandOutput;
+    };
+  };
+}

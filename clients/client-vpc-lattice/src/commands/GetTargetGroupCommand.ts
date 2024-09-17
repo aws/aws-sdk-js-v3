@@ -126,4 +126,16 @@ export class GetTargetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTargetGroupCommand)
   .de(de_GetTargetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTargetGroupRequest;
+      output: GetTargetGroupResponse;
+    };
+    sdk: {
+      input: GetTargetGroupCommandInput;
+      output: GetTargetGroupCommandOutput;
+    };
+  };
+}

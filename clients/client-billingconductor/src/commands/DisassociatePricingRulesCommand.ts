@@ -105,4 +105,16 @@ export class DisassociatePricingRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociatePricingRulesCommand)
   .de(de_DisassociatePricingRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePricingRulesInput;
+      output: DisassociatePricingRulesOutput;
+    };
+    sdk: {
+      input: DisassociatePricingRulesCommandInput;
+      output: DisassociatePricingRulesCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class WithdrawByoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_WithdrawByoipCidrCommand)
   .de(de_WithdrawByoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: WithdrawByoipCidrRequest;
+      output: WithdrawByoipCidrResult;
+    };
+    sdk: {
+      input: WithdrawByoipCidrCommandInput;
+      output: WithdrawByoipCidrCommandOutput;
+    };
+  };
+}

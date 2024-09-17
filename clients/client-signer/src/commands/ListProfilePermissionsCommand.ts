@@ -104,4 +104,16 @@ export class ListProfilePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfilePermissionsCommand)
   .de(de_ListProfilePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfilePermissionsRequest;
+      output: ListProfilePermissionsResponse;
+    };
+    sdk: {
+      input: ListProfilePermissionsCommandInput;
+      output: ListProfilePermissionsCommandOutput;
+    };
+  };
+}

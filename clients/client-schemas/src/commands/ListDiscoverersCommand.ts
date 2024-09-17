@@ -102,4 +102,16 @@ export class ListDiscoverersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDiscoverersCommand)
   .de(de_ListDiscoverersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDiscoverersRequest;
+      output: ListDiscoverersResponse;
+    };
+    sdk: {
+      input: ListDiscoverersCommandInput;
+      output: ListDiscoverersCommandOutput;
+    };
+  };
+}

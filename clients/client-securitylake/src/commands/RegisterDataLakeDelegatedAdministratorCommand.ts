@@ -111,4 +111,16 @@ export class RegisterDataLakeDelegatedAdministratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDataLakeDelegatedAdministratorCommand)
   .de(de_RegisterDataLakeDelegatedAdministratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDataLakeDelegatedAdministratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterDataLakeDelegatedAdministratorCommandInput;
+      output: RegisterDataLakeDelegatedAdministratorCommandOutput;
+    };
+  };
+}

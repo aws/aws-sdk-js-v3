@@ -104,4 +104,16 @@ export class SendVoiceMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendVoiceMessageCommand)
   .de(de_SendVoiceMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendVoiceMessageRequest;
+      output: SendVoiceMessageResponse;
+    };
+    sdk: {
+      input: SendVoiceMessageCommandInput;
+      output: SendVoiceMessageCommandOutput;
+    };
+  };
+}

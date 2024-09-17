@@ -111,4 +111,16 @@ export class BatchGetLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetLifecyclePolicyCommand)
   .de(de_BatchGetLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetLifecyclePolicyRequest;
+      output: BatchGetLifecyclePolicyResponse;
+    };
+    sdk: {
+      input: BatchGetLifecyclePolicyCommandInput;
+      output: BatchGetLifecyclePolicyCommandOutput;
+    };
+  };
+}

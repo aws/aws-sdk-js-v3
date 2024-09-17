@@ -127,4 +127,16 @@ export class CreateVoiceProfileCommand extends $Command
   .f(void 0, CreateVoiceProfileResponseFilterSensitiveLog)
   .ser(se_CreateVoiceProfileCommand)
   .de(de_CreateVoiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVoiceProfileRequest;
+      output: CreateVoiceProfileResponse;
+    };
+    sdk: {
+      input: CreateVoiceProfileCommandInput;
+      output: CreateVoiceProfileCommandOutput;
+    };
+  };
+}

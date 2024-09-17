@@ -93,4 +93,16 @@ export class GetDataCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataCatalogCommand)
   .de(de_GetDataCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataCatalogInput;
+      output: GetDataCatalogOutput;
+    };
+    sdk: {
+      input: GetDataCatalogCommandInput;
+      output: GetDataCatalogCommandOutput;
+    };
+  };
+}

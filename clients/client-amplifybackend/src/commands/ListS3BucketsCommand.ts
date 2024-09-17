@@ -95,4 +95,16 @@ export class ListS3BucketsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListS3BucketsCommand)
   .de(de_ListS3BucketsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListS3BucketsRequest;
+      output: ListS3BucketsResponse;
+    };
+    sdk: {
+      input: ListS3BucketsCommandInput;
+      output: ListS3BucketsCommandOutput;
+    };
+  };
+}

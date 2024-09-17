@@ -115,4 +115,16 @@ export class DescribeFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFolderCommand)
   .de(de_DescribeFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFolderRequest;
+      output: DescribeFolderResponse;
+    };
+    sdk: {
+      input: DescribeFolderCommandInput;
+      output: DescribeFolderCommandOutput;
+    };
+  };
+}

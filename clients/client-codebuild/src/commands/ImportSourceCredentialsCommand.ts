@@ -96,4 +96,16 @@ export class ImportSourceCredentialsCommand extends $Command
   .f(ImportSourceCredentialsInputFilterSensitiveLog, void 0)
   .ser(se_ImportSourceCredentialsCommand)
   .de(de_ImportSourceCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportSourceCredentialsInput;
+      output: ImportSourceCredentialsOutput;
+    };
+    sdk: {
+      input: ImportSourceCredentialsCommandInput;
+      output: ImportSourceCredentialsCommandOutput;
+    };
+  };
+}

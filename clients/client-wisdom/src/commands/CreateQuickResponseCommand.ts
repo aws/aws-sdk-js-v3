@@ -158,4 +158,16 @@ export class CreateQuickResponseCommand extends $Command
   .f(CreateQuickResponseRequestFilterSensitiveLog, CreateQuickResponseResponseFilterSensitiveLog)
   .ser(se_CreateQuickResponseCommand)
   .de(de_CreateQuickResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQuickResponseRequest;
+      output: CreateQuickResponseResponse;
+    };
+    sdk: {
+      input: CreateQuickResponseCommandInput;
+      output: CreateQuickResponseCommandOutput;
+    };
+  };
+}

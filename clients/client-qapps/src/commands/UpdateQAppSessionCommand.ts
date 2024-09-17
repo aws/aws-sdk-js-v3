@@ -112,4 +112,16 @@ export class UpdateQAppSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateQAppSessionCommand)
   .de(de_UpdateQAppSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateQAppSessionInput;
+      output: UpdateQAppSessionOutput;
+    };
+    sdk: {
+      input: UpdateQAppSessionCommandInput;
+      output: UpdateQAppSessionCommandOutput;
+    };
+  };
+}

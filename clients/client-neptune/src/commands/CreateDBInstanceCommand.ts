@@ -336,4 +336,16 @@ export class CreateDBInstanceCommand extends $Command
   .f(CreateDBInstanceMessageFilterSensitiveLog, void 0)
   .ser(se_CreateDBInstanceCommand)
   .de(de_CreateDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBInstanceMessage;
+      output: CreateDBInstanceResult;
+    };
+    sdk: {
+      input: CreateDBInstanceCommandInput;
+      output: CreateDBInstanceCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class UpdateConnectClientAddInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectClientAddInCommand)
   .de(de_UpdateConnectClientAddInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectClientAddInRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConnectClientAddInCommandInput;
+      output: UpdateConnectClientAddInCommandOutput;
+    };
+  };
+}

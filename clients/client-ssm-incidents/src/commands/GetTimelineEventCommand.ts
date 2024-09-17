@@ -108,4 +108,16 @@ export class GetTimelineEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTimelineEventCommand)
   .de(de_GetTimelineEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTimelineEventInput;
+      output: GetTimelineEventOutput;
+    };
+    sdk: {
+      input: GetTimelineEventCommandInput;
+      output: GetTimelineEventCommandOutput;
+    };
+  };
+}

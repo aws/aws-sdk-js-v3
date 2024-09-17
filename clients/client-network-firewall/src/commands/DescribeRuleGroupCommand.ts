@@ -266,4 +266,16 @@ export class DescribeRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleGroupCommand)
   .de(de_DescribeRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleGroupRequest;
+      output: DescribeRuleGroupResponse;
+    };
+    sdk: {
+      input: DescribeRuleGroupCommandInput;
+      output: DescribeRuleGroupCommandOutput;
+    };
+  };
+}

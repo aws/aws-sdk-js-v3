@@ -113,4 +113,16 @@ export class DescribeThesaurusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeThesaurusCommand)
   .de(de_DescribeThesaurusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeThesaurusRequest;
+      output: DescribeThesaurusResponse;
+    };
+    sdk: {
+      input: DescribeThesaurusCommandInput;
+      output: DescribeThesaurusCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class JsonTimestampsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JsonTimestampsCommand)
   .de(de_JsonTimestampsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonTimestampsInputOutput;
+      output: JsonTimestampsInputOutput;
+    };
+    sdk: {
+      input: JsonTimestampsCommandInput;
+      output: JsonTimestampsCommandOutput;
+    };
+  };
+}

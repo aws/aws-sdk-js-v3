@@ -142,4 +142,16 @@ export class DescribeGameSessionPlacementCommand extends $Command
   .f(void 0, DescribeGameSessionPlacementOutputFilterSensitiveLog)
   .ser(se_DescribeGameSessionPlacementCommand)
   .de(de_DescribeGameSessionPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionPlacementInput;
+      output: DescribeGameSessionPlacementOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionPlacementCommandInput;
+      output: DescribeGameSessionPlacementCommandOutput;
+    };
+  };
+}

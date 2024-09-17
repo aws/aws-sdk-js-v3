@@ -88,4 +88,16 @@ export class DeleteHostCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHostCommand)
   .de(de_DeleteHostCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHostInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHostCommandInput;
+      output: DeleteHostCommandOutput;
+    };
+  };
+}

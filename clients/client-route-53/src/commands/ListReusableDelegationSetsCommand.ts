@@ -94,4 +94,16 @@ export class ListReusableDelegationSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReusableDelegationSetsCommand)
   .de(de_ListReusableDelegationSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReusableDelegationSetsRequest;
+      output: ListReusableDelegationSetsResponse;
+    };
+    sdk: {
+      input: ListReusableDelegationSetsCommandInput;
+      output: ListReusableDelegationSetsCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DescribeCustomerMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomerMetadataCommand)
   .de(de_DescribeCustomerMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeCustomerMetadataResponse;
+    };
+    sdk: {
+      input: DescribeCustomerMetadataCommandInput;
+      output: DescribeCustomerMetadataCommandOutput;
+    };
+  };
+}

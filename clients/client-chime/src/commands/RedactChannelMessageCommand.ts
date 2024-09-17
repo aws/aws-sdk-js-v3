@@ -113,4 +113,16 @@ export class RedactChannelMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RedactChannelMessageCommand)
   .de(de_RedactChannelMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RedactChannelMessageRequest;
+      output: RedactChannelMessageResponse;
+    };
+    sdk: {
+      input: RedactChannelMessageCommandInput;
+      output: RedactChannelMessageCommandOutput;
+    };
+  };
+}

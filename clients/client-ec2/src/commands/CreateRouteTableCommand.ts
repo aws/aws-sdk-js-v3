@@ -170,4 +170,16 @@ export class CreateRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRouteTableCommand)
   .de(de_CreateRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteTableRequest;
+      output: CreateRouteTableResult;
+    };
+    sdk: {
+      input: CreateRouteTableCommandInput;
+      output: CreateRouteTableCommandOutput;
+    };
+  };
+}

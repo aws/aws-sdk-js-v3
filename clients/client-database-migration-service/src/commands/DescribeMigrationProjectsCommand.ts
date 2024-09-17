@@ -182,4 +182,16 @@ export class DescribeMigrationProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMigrationProjectsCommand)
   .de(de_DescribeMigrationProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMigrationProjectsMessage;
+      output: DescribeMigrationProjectsResponse;
+    };
+    sdk: {
+      input: DescribeMigrationProjectsCommandInput;
+      output: DescribeMigrationProjectsCommandOutput;
+    };
+  };
+}

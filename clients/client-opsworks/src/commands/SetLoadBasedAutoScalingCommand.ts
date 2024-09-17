@@ -116,4 +116,16 @@ export class SetLoadBasedAutoScalingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetLoadBasedAutoScalingCommand)
   .de(de_SetLoadBasedAutoScalingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLoadBasedAutoScalingRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetLoadBasedAutoScalingCommandInput;
+      output: SetLoadBasedAutoScalingCommandOutput;
+    };
+  };
+}

@@ -143,4 +143,16 @@ export class UpdateGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGameServerCommand)
   .de(de_UpdateGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGameServerInput;
+      output: UpdateGameServerOutput;
+    };
+    sdk: {
+      input: UpdateGameServerCommandInput;
+      output: UpdateGameServerCommandOutput;
+    };
+  };
+}

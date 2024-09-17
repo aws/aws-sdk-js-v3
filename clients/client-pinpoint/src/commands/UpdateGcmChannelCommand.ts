@@ -118,4 +118,16 @@ export class UpdateGcmChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGcmChannelCommand)
   .de(de_UpdateGcmChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGcmChannelRequest;
+      output: UpdateGcmChannelResponse;
+    };
+    sdk: {
+      input: UpdateGcmChannelCommandInput;
+      output: UpdateGcmChannelCommandOutput;
+    };
+  };
+}

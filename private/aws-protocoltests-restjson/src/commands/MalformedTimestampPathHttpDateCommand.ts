@@ -72,4 +72,16 @@ export class MalformedTimestampPathHttpDateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedTimestampPathHttpDateCommand)
   .de(de_MalformedTimestampPathHttpDateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampPathHttpDateInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampPathHttpDateCommandInput;
+      output: MalformedTimestampPathHttpDateCommandOutput;
+    };
+  };
+}

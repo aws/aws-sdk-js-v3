@@ -82,4 +82,16 @@ export class DeleteTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrialComponentCommand)
   .de(de_DeleteTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrialComponentRequest;
+      output: DeleteTrialComponentResponse;
+    };
+    sdk: {
+      input: DeleteTrialComponentCommandInput;
+      output: DeleteTrialComponentCommandOutput;
+    };
+  };
+}

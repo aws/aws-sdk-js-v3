@@ -109,4 +109,16 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseSpecificationsForResourceCommand)
   .de(de_ListLicenseSpecificationsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseSpecificationsForResourceRequest;
+      output: ListLicenseSpecificationsForResourceResponse;
+    };
+    sdk: {
+      input: ListLicenseSpecificationsForResourceCommandInput;
+      output: ListLicenseSpecificationsForResourceCommandOutput;
+    };
+  };
+}

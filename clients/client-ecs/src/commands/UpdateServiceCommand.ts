@@ -693,4 +693,16 @@ export class UpdateServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceCommand)
   .de(de_UpdateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceRequest;
+      output: UpdateServiceResponse;
+    };
+    sdk: {
+      input: UpdateServiceCommandInput;
+      output: UpdateServiceCommandOutput;
+    };
+  };
+}

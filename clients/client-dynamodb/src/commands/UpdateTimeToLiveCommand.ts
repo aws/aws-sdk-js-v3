@@ -148,4 +148,16 @@ export class UpdateTimeToLiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTimeToLiveCommand)
   .de(de_UpdateTimeToLiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTimeToLiveInput;
+      output: UpdateTimeToLiveOutput;
+    };
+    sdk: {
+      input: UpdateTimeToLiveCommandInput;
+      output: UpdateTimeToLiveCommandOutput;
+    };
+  };
+}

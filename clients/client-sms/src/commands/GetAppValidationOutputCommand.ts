@@ -127,4 +127,16 @@ export class GetAppValidationOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppValidationOutputCommand)
   .de(de_GetAppValidationOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppValidationOutputRequest;
+      output: GetAppValidationOutputResponse;
+    };
+    sdk: {
+      input: GetAppValidationOutputCommandInput;
+      output: GetAppValidationOutputCommandOutput;
+    };
+  };
+}

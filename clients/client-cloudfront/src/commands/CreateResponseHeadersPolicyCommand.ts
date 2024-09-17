@@ -298,4 +298,16 @@ export class CreateResponseHeadersPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResponseHeadersPolicyCommand)
   .de(de_CreateResponseHeadersPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResponseHeadersPolicyRequest;
+      output: CreateResponseHeadersPolicyResult;
+    };
+    sdk: {
+      input: CreateResponseHeadersPolicyCommandInput;
+      output: CreateResponseHeadersPolicyCommandOutput;
+    };
+  };
+}

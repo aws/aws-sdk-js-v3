@@ -134,4 +134,16 @@ export class CreateEksAnywhereSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEksAnywhereSubscriptionCommand)
   .de(de_CreateEksAnywhereSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEksAnywhereSubscriptionRequest;
+      output: CreateEksAnywhereSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateEksAnywhereSubscriptionCommandInput;
+      output: CreateEksAnywhereSubscriptionCommandOutput;
+    };
+  };
+}

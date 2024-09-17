@@ -91,4 +91,16 @@ export class AttachClassicLinkVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachClassicLinkVpcCommand)
   .de(de_AttachClassicLinkVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachClassicLinkVpcRequest;
+      output: AttachClassicLinkVpcResult;
+    };
+    sdk: {
+      input: AttachClassicLinkVpcCommandInput;
+      output: AttachClassicLinkVpcCommandOutput;
+    };
+  };
+}

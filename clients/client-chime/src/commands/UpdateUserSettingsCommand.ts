@@ -104,4 +104,16 @@ export class UpdateUserSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserSettingsCommand)
   .de(de_UpdateUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserSettingsCommandInput;
+      output: UpdateUserSettingsCommandOutput;
+    };
+  };
+}

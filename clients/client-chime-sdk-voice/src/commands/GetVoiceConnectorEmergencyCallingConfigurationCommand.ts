@@ -116,4 +116,16 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
   .f(void 0, GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog)
   .ser(se_GetVoiceConnectorEmergencyCallingConfigurationCommand)
   .de(de_GetVoiceConnectorEmergencyCallingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceConnectorEmergencyCallingConfigurationRequest;
+      output: GetVoiceConnectorEmergencyCallingConfigurationResponse;
+    };
+    sdk: {
+      input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput;
+      output: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput;
+    };
+  };
+}

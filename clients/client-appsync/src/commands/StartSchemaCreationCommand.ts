@@ -97,4 +97,16 @@ export class StartSchemaCreationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSchemaCreationCommand)
   .de(de_StartSchemaCreationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSchemaCreationRequest;
+      output: StartSchemaCreationResponse;
+    };
+    sdk: {
+      input: StartSchemaCreationCommandInput;
+      output: StartSchemaCreationCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetEventBridgeRuleTemplateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventBridgeRuleTemplateGroupCommand)
   .de(de_GetEventBridgeRuleTemplateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventBridgeRuleTemplateGroupRequest;
+      output: GetEventBridgeRuleTemplateGroupResponse;
+    };
+    sdk: {
+      input: GetEventBridgeRuleTemplateGroupCommandInput;
+      output: GetEventBridgeRuleTemplateGroupCommandOutput;
+    };
+  };
+}

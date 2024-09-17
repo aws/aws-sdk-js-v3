@@ -124,4 +124,16 @@ export class DescribeRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecordCommand)
   .de(de_DescribeRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecordInput;
+      output: DescribeRecordOutput;
+    };
+    sdk: {
+      input: DescribeRecordCommandInput;
+      output: DescribeRecordCommandOutput;
+    };
+  };
+}

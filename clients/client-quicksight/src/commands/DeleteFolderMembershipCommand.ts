@@ -105,4 +105,16 @@ export class DeleteFolderMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFolderMembershipCommand)
   .de(de_DeleteFolderMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFolderMembershipRequest;
+      output: DeleteFolderMembershipResponse;
+    };
+    sdk: {
+      input: DeleteFolderMembershipCommandInput;
+      output: DeleteFolderMembershipCommandOutput;
+    };
+  };
+}

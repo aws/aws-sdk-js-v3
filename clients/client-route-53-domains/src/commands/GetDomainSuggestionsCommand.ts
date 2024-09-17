@@ -93,4 +93,16 @@ export class GetDomainSuggestionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainSuggestionsCommand)
   .de(de_GetDomainSuggestionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainSuggestionsRequest;
+      output: GetDomainSuggestionsResponse;
+    };
+    sdk: {
+      input: GetDomainSuggestionsCommandInput;
+      output: GetDomainSuggestionsCommandOutput;
+    };
+  };
+}

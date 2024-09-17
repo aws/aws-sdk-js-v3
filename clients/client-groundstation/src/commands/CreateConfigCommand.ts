@@ -159,4 +159,16 @@ export class CreateConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigCommand)
   .de(de_CreateConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: CreateConfigCommandInput;
+      output: CreateConfigCommandOutput;
+    };
+  };
+}

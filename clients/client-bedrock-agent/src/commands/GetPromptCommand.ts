@@ -135,4 +135,16 @@ export class GetPromptCommand extends $Command
   .f(void 0, GetPromptResponseFilterSensitiveLog)
   .ser(se_GetPromptCommand)
   .de(de_GetPromptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPromptRequest;
+      output: GetPromptResponse;
+    };
+    sdk: {
+      input: GetPromptCommandInput;
+      output: GetPromptCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class CancelPolicyGenerationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelPolicyGenerationCommand)
   .de(de_CancelPolicyGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelPolicyGenerationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelPolicyGenerationCommandInput;
+      output: CancelPolicyGenerationCommandOutput;
+    };
+  };
+}

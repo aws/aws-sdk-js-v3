@@ -90,4 +90,16 @@ export class DeleteFunctionConcurrencyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFunctionConcurrencyCommand)
   .de(de_DeleteFunctionConcurrencyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFunctionConcurrencyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFunctionConcurrencyCommandInput;
+      output: DeleteFunctionConcurrencyCommandOutput;
+    };
+  };
+}

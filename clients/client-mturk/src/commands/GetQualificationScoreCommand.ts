@@ -107,4 +107,16 @@ export class GetQualificationScoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQualificationScoreCommand)
   .de(de_GetQualificationScoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQualificationScoreRequest;
+      output: GetQualificationScoreResponse;
+    };
+    sdk: {
+      input: GetQualificationScoreCommandInput;
+      output: GetQualificationScoreCommandOutput;
+    };
+  };
+}

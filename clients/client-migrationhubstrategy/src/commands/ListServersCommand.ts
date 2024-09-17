@@ -160,4 +160,16 @@ export class ListServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServersCommand)
   .de(de_ListServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServersRequest;
+      output: ListServersResponse;
+    };
+    sdk: {
+      input: ListServersCommandInput;
+      output: ListServersCommandOutput;
+    };
+  };
+}

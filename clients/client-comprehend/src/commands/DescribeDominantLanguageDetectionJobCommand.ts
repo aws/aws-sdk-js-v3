@@ -131,4 +131,16 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDominantLanguageDetectionJobCommand)
   .de(de_DescribeDominantLanguageDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDominantLanguageDetectionJobRequest;
+      output: DescribeDominantLanguageDetectionJobResponse;
+    };
+    sdk: {
+      input: DescribeDominantLanguageDetectionJobCommandInput;
+      output: DescribeDominantLanguageDetectionJobCommandOutput;
+    };
+  };
+}

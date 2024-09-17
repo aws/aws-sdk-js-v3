@@ -160,4 +160,16 @@ export class PutParameterCommand extends $Command
   .f(PutParameterRequestFilterSensitiveLog, void 0)
   .ser(se_PutParameterCommand)
   .de(de_PutParameterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutParameterRequest;
+      output: PutParameterResult;
+    };
+    sdk: {
+      input: PutParameterCommandInput;
+      output: PutParameterCommandOutput;
+    };
+  };
+}

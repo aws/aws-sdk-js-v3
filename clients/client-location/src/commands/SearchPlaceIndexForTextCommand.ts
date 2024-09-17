@@ -180,4 +180,16 @@ export class SearchPlaceIndexForTextCommand extends $Command
   .f(SearchPlaceIndexForTextRequestFilterSensitiveLog, SearchPlaceIndexForTextResponseFilterSensitiveLog)
   .ser(se_SearchPlaceIndexForTextCommand)
   .de(de_SearchPlaceIndexForTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchPlaceIndexForTextRequest;
+      output: SearchPlaceIndexForTextResponse;
+    };
+    sdk: {
+      input: SearchPlaceIndexForTextCommandInput;
+      output: SearchPlaceIndexForTextCommandOutput;
+    };
+  };
+}

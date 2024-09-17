@@ -129,4 +129,16 @@ export class ListDataSourceRunActivitiesCommand extends $Command
   .f(void 0, ListDataSourceRunActivitiesOutputFilterSensitiveLog)
   .ser(se_ListDataSourceRunActivitiesCommand)
   .de(de_ListDataSourceRunActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourceRunActivitiesInput;
+      output: ListDataSourceRunActivitiesOutput;
+    };
+    sdk: {
+      input: ListDataSourceRunActivitiesCommandInput;
+      output: ListDataSourceRunActivitiesCommandOutput;
+    };
+  };
+}

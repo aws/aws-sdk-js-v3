@@ -398,4 +398,16 @@ export class CreateFleetCommand extends $Command
   .f(CreateFleetInputFilterSensitiveLog, CreateFleetOutputFilterSensitiveLog)
   .ser(se_CreateFleetCommand)
   .de(de_CreateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetInput;
+      output: CreateFleetOutput;
+    };
+    sdk: {
+      input: CreateFleetCommandInput;
+      output: CreateFleetCommandOutput;
+    };
+  };
+}

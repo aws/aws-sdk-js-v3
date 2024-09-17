@@ -88,4 +88,16 @@ export class DeleteDataProtectionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataProtectionPolicyCommand)
   .de(de_DeleteDataProtectionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataProtectionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataProtectionPolicyCommandInput;
+      output: DeleteDataProtectionPolicyCommandOutput;
+    };
+  };
+}

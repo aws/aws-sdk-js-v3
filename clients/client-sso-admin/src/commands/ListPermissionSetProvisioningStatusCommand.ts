@@ -115,4 +115,16 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionSetProvisioningStatusCommand)
   .de(de_ListPermissionSetProvisioningStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionSetProvisioningStatusRequest;
+      output: ListPermissionSetProvisioningStatusResponse;
+    };
+    sdk: {
+      input: ListPermissionSetProvisioningStatusCommandInput;
+      output: ListPermissionSetProvisioningStatusCommandOutput;
+    };
+  };
+}

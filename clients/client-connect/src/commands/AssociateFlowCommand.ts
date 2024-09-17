@@ -96,4 +96,16 @@ export class AssociateFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateFlowCommand)
   .de(de_AssociateFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateFlowCommandInput;
+      output: AssociateFlowCommandOutput;
+    };
+  };
+}

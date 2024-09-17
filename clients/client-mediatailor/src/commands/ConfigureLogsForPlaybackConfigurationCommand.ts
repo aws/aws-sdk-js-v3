@@ -88,4 +88,16 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfigureLogsForPlaybackConfigurationCommand)
   .de(de_ConfigureLogsForPlaybackConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureLogsForPlaybackConfigurationRequest;
+      output: ConfigureLogsForPlaybackConfigurationResponse;
+    };
+    sdk: {
+      input: ConfigureLogsForPlaybackConfigurationCommandInput;
+      output: ConfigureLogsForPlaybackConfigurationCommandOutput;
+    };
+  };
+}

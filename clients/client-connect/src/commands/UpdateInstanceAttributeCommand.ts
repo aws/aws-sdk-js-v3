@@ -93,4 +93,16 @@ export class UpdateInstanceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInstanceAttributeCommand)
   .de(de_UpdateInstanceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInstanceAttributeCommandInput;
+      output: UpdateInstanceAttributeCommandOutput;
+    };
+  };
+}

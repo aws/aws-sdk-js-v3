@@ -105,4 +105,16 @@ export class ListAccessTokensCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessTokensCommand)
   .de(de_ListAccessTokensCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessTokensRequest;
+      output: ListAccessTokensResponse;
+    };
+    sdk: {
+      input: ListAccessTokensCommandInput;
+      output: ListAccessTokensCommandOutput;
+    };
+  };
+}

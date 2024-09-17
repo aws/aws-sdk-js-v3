@@ -81,4 +81,16 @@ export class UpdateLongTermPricingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLongTermPricingCommand)
   .de(de_UpdateLongTermPricingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLongTermPricingRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLongTermPricingCommandInput;
+      output: UpdateLongTermPricingCommandOutput;
+    };
+  };
+}

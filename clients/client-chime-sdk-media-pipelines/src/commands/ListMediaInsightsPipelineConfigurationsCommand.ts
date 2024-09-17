@@ -120,4 +120,16 @@ export class ListMediaInsightsPipelineConfigurationsCommand extends $Command
   .f(void 0, ListMediaInsightsPipelineConfigurationsResponseFilterSensitiveLog)
   .ser(se_ListMediaInsightsPipelineConfigurationsCommand)
   .de(de_ListMediaInsightsPipelineConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMediaInsightsPipelineConfigurationsRequest;
+      output: ListMediaInsightsPipelineConfigurationsResponse;
+    };
+    sdk: {
+      input: ListMediaInsightsPipelineConfigurationsCommandInput;
+      output: ListMediaInsightsPipelineConfigurationsCommandOutput;
+    };
+  };
+}

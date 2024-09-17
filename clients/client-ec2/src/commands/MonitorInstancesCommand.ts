@@ -90,4 +90,16 @@ export class MonitorInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MonitorInstancesCommand)
   .de(de_MonitorInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MonitorInstancesRequest;
+      output: MonitorInstancesResult;
+    };
+    sdk: {
+      input: MonitorInstancesCommandInput;
+      output: MonitorInstancesCommandOutput;
+    };
+  };
+}

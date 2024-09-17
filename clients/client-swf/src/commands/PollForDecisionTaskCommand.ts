@@ -532,4 +532,16 @@ export class PollForDecisionTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PollForDecisionTaskCommand)
   .de(de_PollForDecisionTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PollForDecisionTaskInput;
+      output: DecisionTask;
+    };
+    sdk: {
+      input: PollForDecisionTaskCommandInput;
+      output: PollForDecisionTaskCommandOutput;
+    };
+  };
+}

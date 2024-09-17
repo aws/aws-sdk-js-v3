@@ -163,4 +163,16 @@ export class UpdateDataLakeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataLakeCommand)
   .de(de_UpdateDataLakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataLakeRequest;
+      output: UpdateDataLakeResponse;
+    };
+    sdk: {
+      input: UpdateDataLakeCommandInput;
+      output: UpdateDataLakeCommandOutput;
+    };
+  };
+}

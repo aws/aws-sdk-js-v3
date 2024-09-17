@@ -212,4 +212,16 @@ export class DescribeListenersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeListenersCommand)
   .de(de_DescribeListenersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeListenersInput;
+      output: DescribeListenersOutput;
+    };
+    sdk: {
+      input: DescribeListenersCommandInput;
+      output: DescribeListenersCommandOutput;
+    };
+  };
+}

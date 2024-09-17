@@ -89,4 +89,16 @@ export class DeleteLogStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLogStreamCommand)
   .de(de_DeleteLogStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLogStreamRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLogStreamCommandInput;
+      output: DeleteLogStreamCommandOutput;
+    };
+  };
+}

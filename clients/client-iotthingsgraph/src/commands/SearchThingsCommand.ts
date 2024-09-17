@@ -103,4 +103,16 @@ export class SearchThingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchThingsCommand)
   .de(de_SearchThingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchThingsRequest;
+      output: SearchThingsResponse;
+    };
+    sdk: {
+      input: SearchThingsCommandInput;
+      output: SearchThingsCommandOutput;
+    };
+  };
+}

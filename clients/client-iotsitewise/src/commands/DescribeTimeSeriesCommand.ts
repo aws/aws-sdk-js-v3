@@ -122,4 +122,16 @@ export class DescribeTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTimeSeriesCommand)
   .de(de_DescribeTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTimeSeriesRequest;
+      output: DescribeTimeSeriesResponse;
+    };
+    sdk: {
+      input: DescribeTimeSeriesCommandInput;
+      output: DescribeTimeSeriesCommandOutput;
+    };
+  };
+}

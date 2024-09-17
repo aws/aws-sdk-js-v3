@@ -120,4 +120,16 @@ export class GetClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClusterCommand)
   .de(de_GetClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterInput;
+      output: GetClusterOutput;
+    };
+    sdk: {
+      input: GetClusterCommandInput;
+      output: GetClusterCommandOutput;
+    };
+  };
+}

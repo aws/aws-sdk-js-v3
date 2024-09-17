@@ -114,4 +114,16 @@ export class UpdateSubscriberCommand extends $Command
   .f(UpdateSubscriberRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSubscriberCommand)
   .de(de_UpdateSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriberRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSubscriberCommandInput;
+      output: UpdateSubscriberCommandOutput;
+    };
+  };
+}

@@ -183,4 +183,16 @@ export class UpdatePromptCommand extends $Command
   .f(UpdatePromptRequestFilterSensitiveLog, UpdatePromptResponseFilterSensitiveLog)
   .ser(se_UpdatePromptCommand)
   .de(de_UpdatePromptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePromptRequest;
+      output: UpdatePromptResponse;
+    };
+    sdk: {
+      input: UpdatePromptCommandInput;
+      output: UpdatePromptCommandOutput;
+    };
+  };
+}

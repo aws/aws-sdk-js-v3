@@ -104,4 +104,16 @@ export class BatchDeleteReadSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteReadSetCommand)
   .de(de_BatchDeleteReadSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteReadSetRequest;
+      output: BatchDeleteReadSetResponse;
+    };
+    sdk: {
+      input: BatchDeleteReadSetCommandInput;
+      output: BatchDeleteReadSetCommandOutput;
+    };
+  };
+}

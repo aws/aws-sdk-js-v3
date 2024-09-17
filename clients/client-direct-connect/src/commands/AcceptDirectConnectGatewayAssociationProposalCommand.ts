@@ -119,4 +119,16 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_AcceptDirectConnectGatewayAssociationProposalCommand)
   .de(de_AcceptDirectConnectGatewayAssociationProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptDirectConnectGatewayAssociationProposalRequest;
+      output: AcceptDirectConnectGatewayAssociationProposalResult;
+    };
+    sdk: {
+      input: AcceptDirectConnectGatewayAssociationProposalCommandInput;
+      output: AcceptDirectConnectGatewayAssociationProposalCommandOutput;
+    };
+  };
+}

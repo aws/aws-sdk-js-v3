@@ -115,4 +115,16 @@ export class CreateManagedPrefixListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateManagedPrefixListCommand)
   .de(de_CreateManagedPrefixListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateManagedPrefixListRequest;
+      output: CreateManagedPrefixListResult;
+    };
+    sdk: {
+      input: CreateManagedPrefixListCommandInput;
+      output: CreateManagedPrefixListCommandOutput;
+    };
+  };
+}

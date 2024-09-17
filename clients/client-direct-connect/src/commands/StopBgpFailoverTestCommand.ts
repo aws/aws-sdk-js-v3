@@ -94,4 +94,16 @@ export class StopBgpFailoverTestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopBgpFailoverTestCommand)
   .de(de_StopBgpFailoverTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopBgpFailoverTestRequest;
+      output: StopBgpFailoverTestResponse;
+    };
+    sdk: {
+      input: StopBgpFailoverTestCommandInput;
+      output: StopBgpFailoverTestCommandOutput;
+    };
+  };
+}

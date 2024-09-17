@@ -91,4 +91,16 @@ export class StopCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCanaryCommand)
   .de(de_StopCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCanaryCommandInput;
+      output: StopCanaryCommandOutput;
+    };
+  };
+}

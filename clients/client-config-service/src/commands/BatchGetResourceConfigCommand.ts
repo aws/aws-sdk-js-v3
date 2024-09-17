@@ -137,4 +137,16 @@ export class BatchGetResourceConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetResourceConfigCommand)
   .de(de_BatchGetResourceConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetResourceConfigRequest;
+      output: BatchGetResourceConfigResponse;
+    };
+    sdk: {
+      input: BatchGetResourceConfigCommandInput;
+      output: BatchGetResourceConfigCommandOutput;
+    };
+  };
+}

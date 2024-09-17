@@ -73,4 +73,16 @@ export class LengthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_LengthCommand)
   .de(de_LengthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LengthInput;
+      output: LengthOutput;
+    };
+    sdk: {
+      input: LengthCommandInput;
+      output: LengthCommandOutput;
+    };
+  };
+}

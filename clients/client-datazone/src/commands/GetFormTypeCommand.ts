@@ -115,4 +115,16 @@ export class GetFormTypeCommand extends $Command
   .f(void 0, GetFormTypeOutputFilterSensitiveLog)
   .ser(se_GetFormTypeCommand)
   .de(de_GetFormTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFormTypeInput;
+      output: GetFormTypeOutput;
+    };
+    sdk: {
+      input: GetFormTypeCommandInput;
+      output: GetFormTypeCommandOutput;
+    };
+  };
+}

@@ -149,4 +149,16 @@ export class UpdatePartnershipCommand extends $Command
   .f(void 0, UpdatePartnershipResponseFilterSensitiveLog)
   .ser(se_UpdatePartnershipCommand)
   .de(de_UpdatePartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePartnershipRequest;
+      output: UpdatePartnershipResponse;
+    };
+    sdk: {
+      input: UpdatePartnershipCommandInput;
+      output: UpdatePartnershipCommandOutput;
+    };
+  };
+}

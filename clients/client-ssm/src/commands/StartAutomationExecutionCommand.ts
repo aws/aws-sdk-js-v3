@@ -179,4 +179,16 @@ export class StartAutomationExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAutomationExecutionCommand)
   .de(de_StartAutomationExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAutomationExecutionRequest;
+      output: StartAutomationExecutionResult;
+    };
+    sdk: {
+      input: StartAutomationExecutionCommandInput;
+      output: StartAutomationExecutionCommandOutput;
+    };
+  };
+}

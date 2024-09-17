@@ -96,4 +96,16 @@ export class ListSimulationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSimulationsCommand)
   .de(de_ListSimulationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSimulationsInput;
+      output: ListSimulationsOutput;
+    };
+    sdk: {
+      input: ListSimulationsCommandInput;
+      output: ListSimulationsCommandOutput;
+    };
+  };
+}

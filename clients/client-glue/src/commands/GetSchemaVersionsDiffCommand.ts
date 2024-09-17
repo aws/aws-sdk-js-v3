@@ -103,4 +103,16 @@ export class GetSchemaVersionsDiffCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaVersionsDiffCommand)
   .de(de_GetSchemaVersionsDiffCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaVersionsDiffInput;
+      output: GetSchemaVersionsDiffResponse;
+    };
+    sdk: {
+      input: GetSchemaVersionsDiffCommandInput;
+      output: GetSchemaVersionsDiffCommandOutput;
+    };
+  };
+}

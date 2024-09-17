@@ -147,4 +147,16 @@ export class GetContainerServiceDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerServiceDeploymentsCommand)
   .de(de_GetContainerServiceDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerServiceDeploymentsRequest;
+      output: GetContainerServiceDeploymentsResult;
+    };
+    sdk: {
+      input: GetContainerServiceDeploymentsCommandInput;
+      output: GetContainerServiceDeploymentsCommandOutput;
+    };
+  };
+}

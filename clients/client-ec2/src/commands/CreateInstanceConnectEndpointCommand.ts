@@ -125,4 +125,16 @@ export class CreateInstanceConnectEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceConnectEndpointCommand)
   .de(de_CreateInstanceConnectEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceConnectEndpointRequest;
+      output: CreateInstanceConnectEndpointResult;
+    };
+    sdk: {
+      input: CreateInstanceConnectEndpointCommandInput;
+      output: CreateInstanceConnectEndpointCommandOutput;
+    };
+  };
+}

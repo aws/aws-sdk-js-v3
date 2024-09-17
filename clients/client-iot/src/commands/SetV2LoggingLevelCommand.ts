@@ -95,4 +95,16 @@ export class SetV2LoggingLevelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetV2LoggingLevelCommand)
   .de(de_SetV2LoggingLevelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetV2LoggingLevelRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetV2LoggingLevelCommandInput;
+      output: SetV2LoggingLevelCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class CreateDynamicThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDynamicThingGroupCommand)
   .de(de_CreateDynamicThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDynamicThingGroupRequest;
+      output: CreateDynamicThingGroupResponse;
+    };
+    sdk: {
+      input: CreateDynamicThingGroupCommandInput;
+      output: CreateDynamicThingGroupCommandOutput;
+    };
+  };
+}

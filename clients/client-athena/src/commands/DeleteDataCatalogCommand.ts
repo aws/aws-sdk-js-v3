@@ -83,4 +83,16 @@ export class DeleteDataCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataCatalogCommand)
   .de(de_DeleteDataCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataCatalogInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataCatalogCommandInput;
+      output: DeleteDataCatalogCommandOutput;
+    };
+  };
+}

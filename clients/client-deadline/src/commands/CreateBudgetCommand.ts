@@ -117,4 +117,16 @@ export class CreateBudgetCommand extends $Command
   .f(CreateBudgetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBudgetCommand)
   .de(de_CreateBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBudgetRequest;
+      output: CreateBudgetResponse;
+    };
+    sdk: {
+      input: CreateBudgetCommandInput;
+      output: CreateBudgetCommandOutput;
+    };
+  };
+}

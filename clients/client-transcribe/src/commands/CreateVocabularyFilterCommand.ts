@@ -118,4 +118,16 @@ export class CreateVocabularyFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVocabularyFilterCommand)
   .de(de_CreateVocabularyFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVocabularyFilterRequest;
+      output: CreateVocabularyFilterResponse;
+    };
+    sdk: {
+      input: CreateVocabularyFilterCommandInput;
+      output: CreateVocabularyFilterCommandOutput;
+    };
+  };
+}

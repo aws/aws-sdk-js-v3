@@ -102,4 +102,16 @@ export class ListIpAccessSettingsCommand extends $Command
   .f(void 0, ListIpAccessSettingsResponseFilterSensitiveLog)
   .ser(se_ListIpAccessSettingsCommand)
   .de(de_ListIpAccessSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIpAccessSettingsRequest;
+      output: ListIpAccessSettingsResponse;
+    };
+    sdk: {
+      input: ListIpAccessSettingsCommandInput;
+      output: ListIpAccessSettingsCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class ListUserPoolClientsCommand extends $Command
   .f(void 0, ListUserPoolClientsResponseFilterSensitiveLog)
   .ser(se_ListUserPoolClientsCommand)
   .de(de_ListUserPoolClientsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserPoolClientsRequest;
+      output: ListUserPoolClientsResponse;
+    };
+    sdk: {
+      input: ListUserPoolClientsCommandInput;
+      output: ListUserPoolClientsCommandOutput;
+    };
+  };
+}

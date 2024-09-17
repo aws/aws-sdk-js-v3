@@ -86,4 +86,16 @@ export class StopRecommenderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopRecommenderCommand)
   .de(de_StopRecommenderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopRecommenderRequest;
+      output: StopRecommenderResponse;
+    };
+    sdk: {
+      input: StopRecommenderCommandInput;
+      output: StopRecommenderCommandOutput;
+    };
+  };
+}

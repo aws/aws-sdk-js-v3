@@ -130,4 +130,16 @@ export class GetPropertygraphStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPropertygraphStatisticsCommand)
   .de(de_GetPropertygraphStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPropertygraphStatisticsOutput;
+    };
+    sdk: {
+      input: GetPropertygraphStatisticsCommandInput;
+      output: GetPropertygraphStatisticsCommandOutput;
+    };
+  };
+}

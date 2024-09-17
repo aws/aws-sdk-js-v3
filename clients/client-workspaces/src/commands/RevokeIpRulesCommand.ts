@@ -90,4 +90,16 @@ export class RevokeIpRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeIpRulesCommand)
   .de(de_RevokeIpRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeIpRulesRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeIpRulesCommandInput;
+      output: RevokeIpRulesCommandOutput;
+    };
+  };
+}

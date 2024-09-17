@@ -178,4 +178,16 @@ export class GetOfferingStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOfferingStatusCommand)
   .de(de_GetOfferingStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOfferingStatusRequest;
+      output: GetOfferingStatusResult;
+    };
+    sdk: {
+      input: GetOfferingStatusCommandInput;
+      output: GetOfferingStatusCommandOutput;
+    };
+  };
+}

@@ -99,4 +99,16 @@ export class ListImpersonationRolesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImpersonationRolesCommand)
   .de(de_ListImpersonationRolesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImpersonationRolesRequest;
+      output: ListImpersonationRolesResponse;
+    };
+    sdk: {
+      input: ListImpersonationRolesCommandInput;
+      output: ListImpersonationRolesCommandOutput;
+    };
+  };
+}

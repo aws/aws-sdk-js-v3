@@ -105,4 +105,16 @@ export class ListTableStorageOptimizersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTableStorageOptimizersCommand)
   .de(de_ListTableStorageOptimizersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTableStorageOptimizersRequest;
+      output: ListTableStorageOptimizersResponse;
+    };
+    sdk: {
+      input: ListTableStorageOptimizersCommandInput;
+      output: ListTableStorageOptimizersCommandOutput;
+    };
+  };
+}

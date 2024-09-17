@@ -110,4 +110,16 @@ export class DescribeVirtualClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVirtualClusterCommand)
   .de(de_DescribeVirtualClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVirtualClusterRequest;
+      output: DescribeVirtualClusterResponse;
+    };
+    sdk: {
+      input: DescribeVirtualClusterCommandInput;
+      output: DescribeVirtualClusterCommandOutput;
+    };
+  };
+}

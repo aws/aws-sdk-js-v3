@@ -119,4 +119,16 @@ export class StartSourceNetworkReplicationCommand extends $Command
   .f(void 0, StartSourceNetworkReplicationResponseFilterSensitiveLog)
   .ser(se_StartSourceNetworkReplicationCommand)
   .de(de_StartSourceNetworkReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSourceNetworkReplicationRequest;
+      output: StartSourceNetworkReplicationResponse;
+    };
+    sdk: {
+      input: StartSourceNetworkReplicationCommandInput;
+      output: StartSourceNetworkReplicationCommandOutput;
+    };
+  };
+}

@@ -80,4 +80,16 @@ export class GetModelPackageGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetModelPackageGroupPolicyCommand)
   .de(de_GetModelPackageGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelPackageGroupPolicyInput;
+      output: GetModelPackageGroupPolicyOutput;
+    };
+    sdk: {
+      input: GetModelPackageGroupPolicyCommandInput;
+      output: GetModelPackageGroupPolicyCommandOutput;
+    };
+  };
+}

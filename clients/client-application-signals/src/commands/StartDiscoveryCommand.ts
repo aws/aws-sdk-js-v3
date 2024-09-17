@@ -129,4 +129,16 @@ export class StartDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDiscoveryCommand)
   .de(de_StartDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: StartDiscoveryCommandInput;
+      output: StartDiscoveryCommandOutput;
+    };
+  };
+}

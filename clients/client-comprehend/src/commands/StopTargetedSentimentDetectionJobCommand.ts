@@ -104,4 +104,16 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTargetedSentimentDetectionJobCommand)
   .de(de_StopTargetedSentimentDetectionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTargetedSentimentDetectionJobRequest;
+      output: StopTargetedSentimentDetectionJobResponse;
+    };
+    sdk: {
+      input: StopTargetedSentimentDetectionJobCommandInput;
+      output: StopTargetedSentimentDetectionJobCommandOutput;
+    };
+  };
+}

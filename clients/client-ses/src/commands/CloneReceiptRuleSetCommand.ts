@@ -103,4 +103,16 @@ export class CloneReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CloneReceiptRuleSetCommand)
   .de(de_CloneReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CloneReceiptRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CloneReceiptRuleSetCommandInput;
+      output: CloneReceiptRuleSetCommandOutput;
+    };
+  };
+}

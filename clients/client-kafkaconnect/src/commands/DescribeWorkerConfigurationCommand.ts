@@ -123,4 +123,16 @@ export class DescribeWorkerConfigurationCommand extends $Command
   .f(void 0, DescribeWorkerConfigurationResponseFilterSensitiveLog)
   .ser(se_DescribeWorkerConfigurationCommand)
   .de(de_DescribeWorkerConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkerConfigurationRequest;
+      output: DescribeWorkerConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeWorkerConfigurationCommandInput;
+      output: DescribeWorkerConfigurationCommandOutput;
+    };
+  };
+}

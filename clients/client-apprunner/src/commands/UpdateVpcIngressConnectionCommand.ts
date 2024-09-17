@@ -123,4 +123,16 @@ export class UpdateVpcIngressConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVpcIngressConnectionCommand)
   .de(de_UpdateVpcIngressConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVpcIngressConnectionRequest;
+      output: UpdateVpcIngressConnectionResponse;
+    };
+    sdk: {
+      input: UpdateVpcIngressConnectionCommandInput;
+      output: UpdateVpcIngressConnectionCommandOutput;
+    };
+  };
+}

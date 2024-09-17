@@ -263,4 +263,16 @@ export class IsAuthorizedWithTokenCommand extends $Command
   .f(IsAuthorizedWithTokenInputFilterSensitiveLog, IsAuthorizedWithTokenOutputFilterSensitiveLog)
   .ser(se_IsAuthorizedWithTokenCommand)
   .de(de_IsAuthorizedWithTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsAuthorizedWithTokenInput;
+      output: IsAuthorizedWithTokenOutput;
+    };
+    sdk: {
+      input: IsAuthorizedWithTokenCommandInput;
+      output: IsAuthorizedWithTokenCommandOutput;
+    };
+  };
+}

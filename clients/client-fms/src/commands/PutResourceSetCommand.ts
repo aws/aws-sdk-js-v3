@@ -125,4 +125,16 @@ export class PutResourceSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourceSetCommand)
   .de(de_PutResourceSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourceSetRequest;
+      output: PutResourceSetResponse;
+    };
+    sdk: {
+      input: PutResourceSetCommandInput;
+      output: PutResourceSetCommandOutput;
+    };
+  };
+}

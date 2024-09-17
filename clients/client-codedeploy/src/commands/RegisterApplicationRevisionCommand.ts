@@ -116,4 +116,16 @@ export class RegisterApplicationRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterApplicationRevisionCommand)
   .de(de_RegisterApplicationRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterApplicationRevisionInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterApplicationRevisionCommandInput;
+      output: RegisterApplicationRevisionCommandOutput;
+    };
+  };
+}

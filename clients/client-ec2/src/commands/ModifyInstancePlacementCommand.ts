@@ -109,4 +109,16 @@ export class ModifyInstancePlacementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstancePlacementCommand)
   .de(de_ModifyInstancePlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstancePlacementRequest;
+      output: ModifyInstancePlacementResult;
+    };
+    sdk: {
+      input: ModifyInstancePlacementCommandInput;
+      output: ModifyInstancePlacementCommandOutput;
+    };
+  };
+}

@@ -158,4 +158,16 @@ export class WriteGetObjectResponseCommand extends $Command
   .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
   .ser(se_WriteGetObjectResponseCommand)
   .de(de_WriteGetObjectResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: WriteGetObjectResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: WriteGetObjectResponseCommandInput;
+      output: WriteGetObjectResponseCommandOutput;
+    };
+  };
+}

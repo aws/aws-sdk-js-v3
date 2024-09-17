@@ -352,4 +352,16 @@ export class DescribeDataSetCommand extends $Command
   .f(void 0, DescribeDataSetResponseFilterSensitiveLog)
   .ser(se_DescribeDataSetCommand)
   .de(de_DescribeDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSetRequest;
+      output: DescribeDataSetResponse;
+    };
+    sdk: {
+      input: DescribeDataSetCommandInput;
+      output: DescribeDataSetCommandOutput;
+    };
+  };
+}

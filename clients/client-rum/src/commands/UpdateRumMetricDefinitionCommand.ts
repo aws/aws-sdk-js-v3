@@ -110,4 +110,16 @@ export class UpdateRumMetricDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRumMetricDefinitionCommand)
   .de(de_UpdateRumMetricDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRumMetricDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRumMetricDefinitionCommandInput;
+      output: UpdateRumMetricDefinitionCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class RegisterCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterCertificateCommand)
   .de(de_RegisterCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterCertificateRequest;
+      output: RegisterCertificateResponse;
+    };
+    sdk: {
+      input: RegisterCertificateCommandInput;
+      output: RegisterCertificateCommandOutput;
+    };
+  };
+}

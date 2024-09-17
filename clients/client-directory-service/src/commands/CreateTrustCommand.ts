@@ -109,4 +109,16 @@ export class CreateTrustCommand extends $Command
   .f(CreateTrustRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTrustCommand)
   .de(de_CreateTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustRequest;
+      output: CreateTrustResult;
+    };
+    sdk: {
+      input: CreateTrustCommandInput;
+      output: CreateTrustCommandOutput;
+    };
+  };
+}

@@ -137,4 +137,16 @@ export class VerifyDomainDkimCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyDomainDkimCommand)
   .de(de_VerifyDomainDkimCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyDomainDkimRequest;
+      output: VerifyDomainDkimResponse;
+    };
+    sdk: {
+      input: VerifyDomainDkimCommandInput;
+      output: VerifyDomainDkimCommandOutput;
+    };
+  };
+}

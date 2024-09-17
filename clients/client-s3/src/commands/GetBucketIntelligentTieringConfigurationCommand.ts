@@ -142,4 +142,16 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketIntelligentTieringConfigurationCommand)
   .de(de_GetBucketIntelligentTieringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketIntelligentTieringConfigurationRequest;
+      output: GetBucketIntelligentTieringConfigurationOutput;
+    };
+    sdk: {
+      input: GetBucketIntelligentTieringConfigurationCommandInput;
+      output: GetBucketIntelligentTieringConfigurationCommandOutput;
+    };
+  };
+}

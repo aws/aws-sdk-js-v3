@@ -178,4 +178,16 @@ export class ListAuditFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuditFindingsCommand)
   .de(de_ListAuditFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuditFindingsRequest;
+      output: ListAuditFindingsResponse;
+    };
+    sdk: {
+      input: ListAuditFindingsCommandInput;
+      output: ListAuditFindingsCommandOutput;
+    };
+  };
+}

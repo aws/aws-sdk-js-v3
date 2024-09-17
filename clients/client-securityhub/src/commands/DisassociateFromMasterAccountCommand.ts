@@ -103,4 +103,16 @@ export class DisassociateFromMasterAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateFromMasterAccountCommand)
   .de(de_DisassociateFromMasterAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DisassociateFromMasterAccountCommandInput;
+      output: DisassociateFromMasterAccountCommandOutput;
+    };
+  };
+}

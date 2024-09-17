@@ -98,4 +98,16 @@ export class ListDeploymentEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentEventsCommand)
   .de(de_ListDeploymentEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentEventsInput;
+      output: ListDeploymentEventsOutput;
+    };
+    sdk: {
+      input: ListDeploymentEventsCommandInput;
+      output: ListDeploymentEventsCommandOutput;
+    };
+  };
+}

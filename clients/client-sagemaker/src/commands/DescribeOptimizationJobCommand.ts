@@ -136,4 +136,16 @@ export class DescribeOptimizationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOptimizationJobCommand)
   .de(de_DescribeOptimizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOptimizationJobRequest;
+      output: DescribeOptimizationJobResponse;
+    };
+    sdk: {
+      input: DescribeOptimizationJobCommandInput;
+      output: DescribeOptimizationJobCommandOutput;
+    };
+  };
+}

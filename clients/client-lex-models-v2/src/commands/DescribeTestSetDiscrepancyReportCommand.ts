@@ -131,4 +131,16 @@ export class DescribeTestSetDiscrepancyReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTestSetDiscrepancyReportCommand)
   .de(de_DescribeTestSetDiscrepancyReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTestSetDiscrepancyReportRequest;
+      output: DescribeTestSetDiscrepancyReportResponse;
+    };
+    sdk: {
+      input: DescribeTestSetDiscrepancyReportCommandInput;
+      output: DescribeTestSetDiscrepancyReportCommandOutput;
+    };
+  };
+}

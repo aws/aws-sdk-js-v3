@@ -199,4 +199,16 @@ export class DetectEntitiesCommand extends $Command
   .f(DetectEntitiesRequestFilterSensitiveLog, DetectEntitiesResponseFilterSensitiveLog)
   .ser(se_DetectEntitiesCommand)
   .de(de_DetectEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectEntitiesRequest;
+      output: DetectEntitiesResponse;
+    };
+    sdk: {
+      input: DetectEntitiesCommandInput;
+      output: DetectEntitiesCommandOutput;
+    };
+  };
+}

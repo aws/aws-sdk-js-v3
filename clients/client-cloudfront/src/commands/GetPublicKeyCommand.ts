@@ -93,4 +93,16 @@ export class GetPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPublicKeyCommand)
   .de(de_GetPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPublicKeyRequest;
+      output: GetPublicKeyResult;
+    };
+    sdk: {
+      input: GetPublicKeyCommandInput;
+      output: GetPublicKeyCommandOutput;
+    };
+  };
+}

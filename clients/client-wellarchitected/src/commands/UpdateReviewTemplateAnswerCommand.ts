@@ -161,4 +161,16 @@ export class UpdateReviewTemplateAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReviewTemplateAnswerCommand)
   .de(de_UpdateReviewTemplateAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReviewTemplateAnswerInput;
+      output: UpdateReviewTemplateAnswerOutput;
+    };
+    sdk: {
+      input: UpdateReviewTemplateAnswerCommandInput;
+      output: UpdateReviewTemplateAnswerCommandOutput;
+    };
+  };
+}

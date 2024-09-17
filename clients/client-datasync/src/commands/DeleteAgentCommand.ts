@@ -86,4 +86,16 @@ export class DeleteAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAgentCommand)
   .de(de_DeleteAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAgentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAgentCommandInput;
+      output: DeleteAgentCommandOutput;
+    };
+  };
+}

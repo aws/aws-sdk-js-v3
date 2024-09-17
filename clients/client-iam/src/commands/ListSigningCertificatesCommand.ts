@@ -130,4 +130,16 @@ export class ListSigningCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSigningCertificatesCommand)
   .de(de_ListSigningCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSigningCertificatesRequest;
+      output: ListSigningCertificatesResponse;
+    };
+    sdk: {
+      input: ListSigningCertificatesCommandInput;
+      output: ListSigningCertificatesCommandOutput;
+    };
+  };
+}

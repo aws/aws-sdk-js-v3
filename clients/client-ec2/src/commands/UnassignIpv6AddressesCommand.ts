@@ -89,4 +89,16 @@ export class UnassignIpv6AddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignIpv6AddressesCommand)
   .de(de_UnassignIpv6AddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignIpv6AddressesRequest;
+      output: UnassignIpv6AddressesResult;
+    };
+    sdk: {
+      input: UnassignIpv6AddressesCommandInput;
+      output: UnassignIpv6AddressesCommandOutput;
+    };
+  };
+}

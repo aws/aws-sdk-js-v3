@@ -111,4 +111,16 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchTransitGatewayMulticastGroupsCommand)
   .de(de_SearchTransitGatewayMulticastGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTransitGatewayMulticastGroupsRequest;
+      output: SearchTransitGatewayMulticastGroupsResult;
+    };
+    sdk: {
+      input: SearchTransitGatewayMulticastGroupsCommandInput;
+      output: SearchTransitGatewayMulticastGroupsCommandOutput;
+    };
+  };
+}

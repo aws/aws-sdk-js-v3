@@ -99,4 +99,16 @@ export class ModifyIdFormatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIdFormatCommand)
   .de(de_ModifyIdFormatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIdFormatRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyIdFormatCommandInput;
+      output: ModifyIdFormatCommandOutput;
+    };
+  };
+}

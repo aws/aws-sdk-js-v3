@@ -94,4 +94,16 @@ export class CreateDatasetContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatasetContentCommand)
   .de(de_CreateDatasetContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatasetContentRequest;
+      output: CreateDatasetContentResponse;
+    };
+    sdk: {
+      input: CreateDatasetContentCommandInput;
+      output: CreateDatasetContentCommandOutput;
+    };
+  };
+}

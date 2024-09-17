@@ -185,4 +185,16 @@ export class DeletePolicyTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyTemplateCommand)
   .de(de_DeletePolicyTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyTemplateCommandInput;
+      output: DeletePolicyTemplateCommandOutput;
+    };
+  };
+}

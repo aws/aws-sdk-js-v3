@@ -120,4 +120,16 @@ export class DescribeAgreementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAgreementCommand)
   .de(de_DescribeAgreementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgreementInput;
+      output: DescribeAgreementOutput;
+    };
+    sdk: {
+      input: DescribeAgreementCommandInput;
+      output: DescribeAgreementCommandOutput;
+    };
+  };
+}

@@ -170,4 +170,16 @@ export class PutWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWebhookCommand)
   .de(de_PutWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWebhookInput;
+      output: PutWebhookOutput;
+    };
+    sdk: {
+      input: PutWebhookCommandInput;
+      output: PutWebhookCommandOutput;
+    };
+  };
+}

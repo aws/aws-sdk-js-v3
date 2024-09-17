@@ -127,4 +127,16 @@ export class GetEngineStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEngineStatusCommand)
   .de(de_GetEngineStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetEngineStatusOutput;
+    };
+    sdk: {
+      input: GetEngineStatusCommandInput;
+      output: GetEngineStatusCommandOutput;
+    };
+  };
+}

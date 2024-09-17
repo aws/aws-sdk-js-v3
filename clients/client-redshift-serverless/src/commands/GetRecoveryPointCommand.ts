@@ -100,4 +100,16 @@ export class GetRecoveryPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecoveryPointCommand)
   .de(de_GetRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecoveryPointRequest;
+      output: GetRecoveryPointResponse;
+    };
+    sdk: {
+      input: GetRecoveryPointCommandInput;
+      output: GetRecoveryPointCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class ListKxChangesetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxChangesetsCommand)
   .de(de_ListKxChangesetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxChangesetsRequest;
+      output: ListKxChangesetsResponse;
+    };
+    sdk: {
+      input: ListKxChangesetsCommandInput;
+      output: ListKxChangesetsCommandOutput;
+    };
+  };
+}

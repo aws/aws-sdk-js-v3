@@ -90,4 +90,16 @@ export class PutDataQualityProfileAnnotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDataQualityProfileAnnotationCommand)
   .de(de_PutDataQualityProfileAnnotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDataQualityProfileAnnotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDataQualityProfileAnnotationCommandInput;
+      output: PutDataQualityProfileAnnotationCommandOutput;
+    };
+  };
+}

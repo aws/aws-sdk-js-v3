@@ -102,4 +102,16 @@ export class ListDataDeletionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataDeletionJobsCommand)
   .de(de_ListDataDeletionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataDeletionJobsRequest;
+      output: ListDataDeletionJobsResponse;
+    };
+    sdk: {
+      input: ListDataDeletionJobsCommandInput;
+      output: ListDataDeletionJobsCommandOutput;
+    };
+  };
+}

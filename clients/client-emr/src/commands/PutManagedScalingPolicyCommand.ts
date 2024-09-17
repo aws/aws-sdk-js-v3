@@ -87,4 +87,16 @@ export class PutManagedScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutManagedScalingPolicyCommand)
   .de(de_PutManagedScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutManagedScalingPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutManagedScalingPolicyCommandInput;
+      output: PutManagedScalingPolicyCommandOutput;
+    };
+  };
+}

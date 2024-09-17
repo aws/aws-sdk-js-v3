@@ -116,4 +116,16 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMessagingStreamingConfigurationsCommand)
   .de(de_GetMessagingStreamingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMessagingStreamingConfigurationsRequest;
+      output: GetMessagingStreamingConfigurationsResponse;
+    };
+    sdk: {
+      input: GetMessagingStreamingConfigurationsCommandInput;
+      output: GetMessagingStreamingConfigurationsCommandOutput;
+    };
+  };
+}

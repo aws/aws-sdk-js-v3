@@ -165,4 +165,16 @@ export class InferSNOMEDCTCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InferSNOMEDCTCommand)
   .de(de_InferSNOMEDCTCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InferSNOMEDCTRequest;
+      output: InferSNOMEDCTResponse;
+    };
+    sdk: {
+      input: InferSNOMEDCTCommandInput;
+      output: InferSNOMEDCTCommandOutput;
+    };
+  };
+}

@@ -106,4 +106,16 @@ export class CreateTargetAccountConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTargetAccountConfigurationCommand)
   .de(de_CreateTargetAccountConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTargetAccountConfigurationRequest;
+      output: CreateTargetAccountConfigurationResponse;
+    };
+    sdk: {
+      input: CreateTargetAccountConfigurationCommandInput;
+      output: CreateTargetAccountConfigurationCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class DeleteRemediationExceptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRemediationExceptionsCommand)
   .de(de_DeleteRemediationExceptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRemediationExceptionsRequest;
+      output: DeleteRemediationExceptionsResponse;
+    };
+    sdk: {
+      input: DeleteRemediationExceptionsCommandInput;
+      output: DeleteRemediationExceptionsCommandOutput;
+    };
+  };
+}

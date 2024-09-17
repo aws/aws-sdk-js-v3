@@ -127,4 +127,16 @@ export class PutFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFunctionEventInvokeConfigCommand)
   .de(de_PutFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFunctionEventInvokeConfigRequest;
+      output: FunctionEventInvokeConfig;
+    };
+    sdk: {
+      input: PutFunctionEventInvokeConfigCommandInput;
+      output: PutFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class UpdatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageCommand)
   .de(de_UpdatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageRequest;
+      output: UpdatePackageResponse;
+    };
+    sdk: {
+      input: UpdatePackageCommandInput;
+      output: UpdatePackageCommandOutput;
+    };
+  };
+}

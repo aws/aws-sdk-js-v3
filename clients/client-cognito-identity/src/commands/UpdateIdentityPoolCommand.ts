@@ -150,4 +150,16 @@ export class UpdateIdentityPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdentityPoolCommand)
   .de(de_UpdateIdentityPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IdentityPool;
+      output: IdentityPool;
+    };
+    sdk: {
+      input: UpdateIdentityPoolCommandInput;
+      output: UpdateIdentityPoolCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class GetDevicePositionHistoryCommand extends $Command
   .f(void 0, GetDevicePositionHistoryResponseFilterSensitiveLog)
   .ser(se_GetDevicePositionHistoryCommand)
   .de(de_GetDevicePositionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePositionHistoryRequest;
+      output: GetDevicePositionHistoryResponse;
+    };
+    sdk: {
+      input: GetDevicePositionHistoryCommandInput;
+      output: GetDevicePositionHistoryCommandOutput;
+    };
+  };
+}

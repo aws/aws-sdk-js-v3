@@ -112,4 +112,16 @@ export class TestMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestMappingCommand)
   .de(de_TestMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestMappingRequest;
+      output: TestMappingResponse;
+    };
+    sdk: {
+      input: TestMappingCommandInput;
+      output: TestMappingCommandOutput;
+    };
+  };
+}

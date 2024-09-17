@@ -90,4 +90,16 @@ export class PutRegistryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRegistryPolicyCommand)
   .de(de_PutRegistryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRegistryPolicyRequest;
+      output: PutRegistryPolicyResponse;
+    };
+    sdk: {
+      input: PutRegistryPolicyCommandInput;
+      output: PutRegistryPolicyCommandOutput;
+    };
+  };
+}

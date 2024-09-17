@@ -112,4 +112,16 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInboundCrossClusterSearchConnectionCommand)
   .de(de_DeleteInboundCrossClusterSearchConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInboundCrossClusterSearchConnectionRequest;
+      output: DeleteInboundCrossClusterSearchConnectionResponse;
+    };
+    sdk: {
+      input: DeleteInboundCrossClusterSearchConnectionCommandInput;
+      output: DeleteInboundCrossClusterSearchConnectionCommandOutput;
+    };
+  };
+}

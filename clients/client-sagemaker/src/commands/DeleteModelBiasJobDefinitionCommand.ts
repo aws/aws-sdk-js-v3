@@ -81,4 +81,16 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelBiasJobDefinitionCommand)
   .de(de_DeleteModelBiasJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelBiasJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelBiasJobDefinitionCommandInput;
+      output: DeleteModelBiasJobDefinitionCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class DescribeLogStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLogStreamsCommand)
   .de(de_DescribeLogStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLogStreamsRequest;
+      output: DescribeLogStreamsResponse;
+    };
+    sdk: {
+      input: DescribeLogStreamsCommandInput;
+      output: DescribeLogStreamsCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class CopyServerlessCacheSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyServerlessCacheSnapshotCommand)
   .de(de_CopyServerlessCacheSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyServerlessCacheSnapshotRequest;
+      output: CopyServerlessCacheSnapshotResponse;
+    };
+    sdk: {
+      input: CopyServerlessCacheSnapshotCommandInput;
+      output: CopyServerlessCacheSnapshotCommandOutput;
+    };
+  };
+}

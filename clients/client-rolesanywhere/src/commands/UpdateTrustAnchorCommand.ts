@@ -126,4 +126,16 @@ export class UpdateTrustAnchorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrustAnchorCommand)
   .de(de_UpdateTrustAnchorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrustAnchorRequest;
+      output: TrustAnchorDetailResponse;
+    };
+    sdk: {
+      input: UpdateTrustAnchorCommandInput;
+      output: UpdateTrustAnchorCommandOutput;
+    };
+  };
+}

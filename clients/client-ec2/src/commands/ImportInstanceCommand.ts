@@ -189,4 +189,16 @@ export class ImportInstanceCommand extends $Command
   .f(ImportInstanceRequestFilterSensitiveLog, ImportInstanceResultFilterSensitiveLog)
   .ser(se_ImportInstanceCommand)
   .de(de_ImportInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportInstanceRequest;
+      output: ImportInstanceResult;
+    };
+    sdk: {
+      input: ImportInstanceCommandInput;
+      output: ImportInstanceCommandOutput;
+    };
+  };
+}

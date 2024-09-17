@@ -145,4 +145,16 @@ export class CreateDevEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDevEndpointCommand)
   .de(de_CreateDevEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDevEndpointRequest;
+      output: CreateDevEndpointResponse;
+    };
+    sdk: {
+      input: CreateDevEndpointCommandInput;
+      output: CreateDevEndpointCommandOutput;
+    };
+  };
+}

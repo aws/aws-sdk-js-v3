@@ -170,4 +170,16 @@ export class DeleteEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventSourceMappingCommand)
   .de(de_DeleteEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: DeleteEventSourceMappingCommandInput;
+      output: DeleteEventSourceMappingCommandOutput;
+    };
+  };
+}

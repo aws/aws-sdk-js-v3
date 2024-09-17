@@ -100,4 +100,16 @@ export class CreateImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageVersionCommand)
   .de(de_CreateImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageVersionRequest;
+      output: CreateImageVersionResponse;
+    };
+    sdk: {
+      input: CreateImageVersionCommandInput;
+      output: CreateImageVersionCommandOutput;
+    };
+  };
+}

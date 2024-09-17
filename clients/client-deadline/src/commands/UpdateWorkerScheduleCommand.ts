@@ -165,4 +165,16 @@ export class UpdateWorkerScheduleCommand extends $Command
   .f(UpdateWorkerScheduleRequestFilterSensitiveLog, UpdateWorkerScheduleResponseFilterSensitiveLog)
   .ser(se_UpdateWorkerScheduleCommand)
   .de(de_UpdateWorkerScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkerScheduleRequest;
+      output: UpdateWorkerScheduleResponse;
+    };
+    sdk: {
+      input: UpdateWorkerScheduleCommandInput;
+      output: UpdateWorkerScheduleCommandOutput;
+    };
+  };
+}

@@ -133,4 +133,16 @@ export class UpdateDomainCommand extends $Command
   .f(UpdateDomainRequestFilterSensitiveLog, UpdateDomainResponseFilterSensitiveLog)
   .ser(se_UpdateDomainCommand)
   .de(de_UpdateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainRequest;
+      output: UpdateDomainResponse;
+    };
+    sdk: {
+      input: UpdateDomainCommandInput;
+      output: UpdateDomainCommandOutput;
+    };
+  };
+}

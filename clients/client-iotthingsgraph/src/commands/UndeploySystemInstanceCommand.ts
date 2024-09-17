@@ -104,4 +104,16 @@ export class UndeploySystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UndeploySystemInstanceCommand)
   .de(de_UndeploySystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UndeploySystemInstanceRequest;
+      output: UndeploySystemInstanceResponse;
+    };
+    sdk: {
+      input: UndeploySystemInstanceCommandInput;
+      output: UndeploySystemInstanceCommandOutput;
+    };
+  };
+}

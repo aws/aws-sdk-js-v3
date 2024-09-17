@@ -93,4 +93,16 @@ export class RenderUiTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RenderUiTemplateCommand)
   .de(de_RenderUiTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RenderUiTemplateRequest;
+      output: RenderUiTemplateResponse;
+    };
+    sdk: {
+      input: RenderUiTemplateCommandInput;
+      output: RenderUiTemplateCommandOutput;
+    };
+  };
+}

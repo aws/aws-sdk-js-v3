@@ -115,4 +115,16 @@ export class CreateThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateThingGroupCommand)
   .de(de_CreateThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateThingGroupRequest;
+      output: CreateThingGroupResponse;
+    };
+    sdk: {
+      input: CreateThingGroupCommandInput;
+      output: CreateThingGroupCommandOutput;
+    };
+  };
+}

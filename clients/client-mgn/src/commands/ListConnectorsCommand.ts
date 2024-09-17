@@ -110,4 +110,16 @@ export class ListConnectorsCommand extends $Command
   .f(void 0, ListConnectorsResponseFilterSensitiveLog)
   .ser(se_ListConnectorsCommand)
   .de(de_ListConnectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectorsRequest;
+      output: ListConnectorsResponse;
+    };
+    sdk: {
+      input: ListConnectorsCommandInput;
+      output: ListConnectorsCommandOutput;
+    };
+  };
+}

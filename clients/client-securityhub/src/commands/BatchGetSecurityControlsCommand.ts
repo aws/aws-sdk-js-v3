@@ -193,4 +193,16 @@ export class BatchGetSecurityControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetSecurityControlsCommand)
   .de(de_BatchGetSecurityControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetSecurityControlsRequest;
+      output: BatchGetSecurityControlsResponse;
+    };
+    sdk: {
+      input: BatchGetSecurityControlsCommandInput;
+      output: BatchGetSecurityControlsCommandOutput;
+    };
+  };
+}

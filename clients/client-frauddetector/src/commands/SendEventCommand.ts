@@ -106,4 +106,16 @@ export class SendEventCommand extends $Command
   .f(SendEventRequestFilterSensitiveLog, void 0)
   .ser(se_SendEventCommand)
   .de(de_SendEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendEventCommandInput;
+      output: SendEventCommandOutput;
+    };
+  };
+}

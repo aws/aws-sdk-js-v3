@@ -97,4 +97,16 @@ export class UpdateMacieSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMacieSessionCommand)
   .de(de_UpdateMacieSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMacieSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMacieSessionCommandInput;
+      output: UpdateMacieSessionCommandOutput;
+    };
+  };
+}

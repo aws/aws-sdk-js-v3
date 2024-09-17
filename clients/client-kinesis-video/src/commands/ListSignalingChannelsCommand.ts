@@ -107,4 +107,16 @@ export class ListSignalingChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSignalingChannelsCommand)
   .de(de_ListSignalingChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSignalingChannelsInput;
+      output: ListSignalingChannelsOutput;
+    };
+    sdk: {
+      input: ListSignalingChannelsCommandInput;
+      output: ListSignalingChannelsCommandOutput;
+    };
+  };
+}

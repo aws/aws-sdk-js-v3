@@ -96,4 +96,16 @@ export class UpdateSolNetworkPackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSolNetworkPackageCommand)
   .de(de_UpdateSolNetworkPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSolNetworkPackageInput;
+      output: UpdateSolNetworkPackageOutput;
+    };
+    sdk: {
+      input: UpdateSolNetworkPackageCommandInput;
+      output: UpdateSolNetworkPackageCommandOutput;
+    };
+  };
+}

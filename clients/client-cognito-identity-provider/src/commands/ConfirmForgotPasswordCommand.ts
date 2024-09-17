@@ -164,4 +164,16 @@ export class ConfirmForgotPasswordCommand extends $Command
   .f(ConfirmForgotPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ConfirmForgotPasswordCommand)
   .de(de_ConfirmForgotPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmForgotPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: ConfirmForgotPasswordCommandInput;
+      output: ConfirmForgotPasswordCommandOutput;
+    };
+  };
+}

@@ -203,4 +203,16 @@ export class GetContainerServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerServicesCommand)
   .de(de_GetContainerServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerServicesRequest;
+      output: ContainerServicesListResult;
+    };
+    sdk: {
+      input: GetContainerServicesCommandInput;
+      output: GetContainerServicesCommandOutput;
+    };
+  };
+}

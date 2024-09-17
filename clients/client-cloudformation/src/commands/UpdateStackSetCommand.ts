@@ -158,4 +158,16 @@ export class UpdateStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStackSetCommand)
   .de(de_UpdateStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStackSetInput;
+      output: UpdateStackSetOutput;
+    };
+    sdk: {
+      input: UpdateStackSetCommandInput;
+      output: UpdateStackSetCommandOutput;
+    };
+  };
+}

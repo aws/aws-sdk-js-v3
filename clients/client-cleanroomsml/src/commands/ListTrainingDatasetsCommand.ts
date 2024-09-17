@@ -94,4 +94,16 @@ export class ListTrainingDatasetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrainingDatasetsCommand)
   .de(de_ListTrainingDatasetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrainingDatasetsRequest;
+      output: ListTrainingDatasetsResponse;
+    };
+    sdk: {
+      input: ListTrainingDatasetsCommandInput;
+      output: ListTrainingDatasetsCommandOutput;
+    };
+  };
+}

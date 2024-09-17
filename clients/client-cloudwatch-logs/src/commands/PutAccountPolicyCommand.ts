@@ -161,4 +161,16 @@ export class PutAccountPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountPolicyCommand)
   .de(de_PutAccountPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountPolicyRequest;
+      output: PutAccountPolicyResponse;
+    };
+    sdk: {
+      input: PutAccountPolicyCommandInput;
+      output: PutAccountPolicyCommandOutput;
+    };
+  };
+}

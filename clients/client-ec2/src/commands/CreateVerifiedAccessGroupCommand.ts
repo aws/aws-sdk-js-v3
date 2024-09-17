@@ -118,4 +118,16 @@ export class CreateVerifiedAccessGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVerifiedAccessGroupCommand)
   .de(de_CreateVerifiedAccessGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVerifiedAccessGroupRequest;
+      output: CreateVerifiedAccessGroupResult;
+    };
+    sdk: {
+      input: CreateVerifiedAccessGroupCommandInput;
+      output: CreateVerifiedAccessGroupCommandOutput;
+    };
+  };
+}

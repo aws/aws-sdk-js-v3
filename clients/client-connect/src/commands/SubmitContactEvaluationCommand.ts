@@ -113,4 +113,16 @@ export class SubmitContactEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitContactEvaluationCommand)
   .de(de_SubmitContactEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitContactEvaluationRequest;
+      output: SubmitContactEvaluationResponse;
+    };
+    sdk: {
+      input: SubmitContactEvaluationCommandInput;
+      output: SubmitContactEvaluationCommandOutput;
+    };
+  };
+}

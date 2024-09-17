@@ -141,4 +141,16 @@ export class DeletePackageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackageGroupCommand)
   .de(de_DeletePackageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackageGroupRequest;
+      output: DeletePackageGroupResult;
+    };
+    sdk: {
+      input: DeletePackageGroupCommandInput;
+      output: DeletePackageGroupCommandOutput;
+    };
+  };
+}

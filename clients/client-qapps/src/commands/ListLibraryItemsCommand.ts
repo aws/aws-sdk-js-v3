@@ -204,4 +204,16 @@ export class ListLibraryItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLibraryItemsCommand)
   .de(de_ListLibraryItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLibraryItemsInput;
+      output: ListLibraryItemsOutput;
+    };
+    sdk: {
+      input: ListLibraryItemsCommandInput;
+      output: ListLibraryItemsCommandOutput;
+    };
+  };
+}

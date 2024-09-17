@@ -90,4 +90,16 @@ export class DeleteMicrosoftTeamsUserIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMicrosoftTeamsUserIdentityCommand)
   .de(de_DeleteMicrosoftTeamsUserIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMicrosoftTeamsUserIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMicrosoftTeamsUserIdentityCommandInput;
+      output: DeleteMicrosoftTeamsUserIdentityCommandOutput;
+    };
+  };
+}

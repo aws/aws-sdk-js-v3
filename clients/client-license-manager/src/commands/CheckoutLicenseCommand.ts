@@ -137,4 +137,16 @@ export class CheckoutLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CheckoutLicenseCommand)
   .de(de_CheckoutLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckoutLicenseRequest;
+      output: CheckoutLicenseResponse;
+    };
+    sdk: {
+      input: CheckoutLicenseCommandInput;
+      output: CheckoutLicenseCommandOutput;
+    };
+  };
+}

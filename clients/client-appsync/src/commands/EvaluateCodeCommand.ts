@@ -114,4 +114,16 @@ export class EvaluateCodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EvaluateCodeCommand)
   .de(de_EvaluateCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluateCodeRequest;
+      output: EvaluateCodeResponse;
+    };
+    sdk: {
+      input: EvaluateCodeCommandInput;
+      output: EvaluateCodeCommandOutput;
+    };
+  };
+}

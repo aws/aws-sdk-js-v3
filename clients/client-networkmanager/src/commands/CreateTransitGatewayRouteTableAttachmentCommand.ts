@@ -165,4 +165,16 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransitGatewayRouteTableAttachmentCommand)
   .de(de_CreateTransitGatewayRouteTableAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransitGatewayRouteTableAttachmentRequest;
+      output: CreateTransitGatewayRouteTableAttachmentResponse;
+    };
+    sdk: {
+      input: CreateTransitGatewayRouteTableAttachmentCommandInput;
+      output: CreateTransitGatewayRouteTableAttachmentCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class SearchGroupProfilesCommand extends $Command
   .f(SearchGroupProfilesInputFilterSensitiveLog, SearchGroupProfilesOutputFilterSensitiveLog)
   .ser(se_SearchGroupProfilesCommand)
   .de(de_SearchGroupProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchGroupProfilesInput;
+      output: SearchGroupProfilesOutput;
+    };
+    sdk: {
+      input: SearchGroupProfilesCommandInput;
+      output: SearchGroupProfilesCommandOutput;
+    };
+  };
+}

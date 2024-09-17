@@ -97,4 +97,16 @@ export class ListAvailableMeteredProductsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableMeteredProductsCommand)
   .de(de_ListAvailableMeteredProductsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableMeteredProductsRequest;
+      output: ListAvailableMeteredProductsResponse;
+    };
+    sdk: {
+      input: ListAvailableMeteredProductsCommandInput;
+      output: ListAvailableMeteredProductsCommandOutput;
+    };
+  };
+}

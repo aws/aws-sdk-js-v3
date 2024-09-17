@@ -128,4 +128,16 @@ export class UpdateResourceShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResourceShareCommand)
   .de(de_UpdateResourceShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResourceShareRequest;
+      output: UpdateResourceShareResponse;
+    };
+    sdk: {
+      input: UpdateResourceShareCommandInput;
+      output: UpdateResourceShareCommandOutput;
+    };
+  };
+}

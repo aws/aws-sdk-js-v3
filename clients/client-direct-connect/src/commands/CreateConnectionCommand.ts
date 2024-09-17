@@ -140,4 +140,16 @@ export class CreateConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectionCommand)
   .de(de_CreateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectionRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: CreateConnectionCommandInput;
+      output: CreateConnectionCommandOutput;
+    };
+  };
+}

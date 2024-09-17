@@ -125,4 +125,16 @@ export class StartAnnotationImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAnnotationImportJobCommand)
   .de(de_StartAnnotationImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAnnotationImportRequest;
+      output: StartAnnotationImportResponse;
+    };
+    sdk: {
+      input: StartAnnotationImportJobCommandInput;
+      output: StartAnnotationImportJobCommandOutput;
+    };
+  };
+}

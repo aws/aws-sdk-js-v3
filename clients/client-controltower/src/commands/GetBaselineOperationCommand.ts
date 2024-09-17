@@ -101,4 +101,16 @@ export class GetBaselineOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBaselineOperationCommand)
   .de(de_GetBaselineOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBaselineOperationInput;
+      output: GetBaselineOperationOutput;
+    };
+    sdk: {
+      input: GetBaselineOperationCommandInput;
+      output: GetBaselineOperationCommandOutput;
+    };
+  };
+}

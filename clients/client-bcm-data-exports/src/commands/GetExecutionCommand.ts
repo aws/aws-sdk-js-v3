@@ -128,4 +128,16 @@ export class GetExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExecutionCommand)
   .de(de_GetExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExecutionRequest;
+      output: GetExecutionResponse;
+    };
+    sdk: {
+      input: GetExecutionCommandInput;
+      output: GetExecutionCommandOutput;
+    };
+  };
+}

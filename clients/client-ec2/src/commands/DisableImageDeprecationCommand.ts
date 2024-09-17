@@ -80,4 +80,16 @@ export class DisableImageDeprecationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImageDeprecationCommand)
   .de(de_DisableImageDeprecationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImageDeprecationRequest;
+      output: DisableImageDeprecationResult;
+    };
+    sdk: {
+      input: DisableImageDeprecationCommandInput;
+      output: DisableImageDeprecationCommandOutput;
+    };
+  };
+}

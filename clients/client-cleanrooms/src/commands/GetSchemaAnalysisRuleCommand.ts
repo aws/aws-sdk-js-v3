@@ -177,4 +177,16 @@ export class GetSchemaAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaAnalysisRuleCommand)
   .de(de_GetSchemaAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaAnalysisRuleInput;
+      output: GetSchemaAnalysisRuleOutput;
+    };
+    sdk: {
+      input: GetSchemaAnalysisRuleCommandInput;
+      output: GetSchemaAnalysisRuleCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class UpdateGlobalSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGlobalSettingsCommand)
   .de(de_UpdateGlobalSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGlobalSettingsInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateGlobalSettingsCommandInput;
+      output: UpdateGlobalSettingsCommandOutput;
+    };
+  };
+}

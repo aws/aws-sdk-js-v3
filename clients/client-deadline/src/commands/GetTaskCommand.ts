@@ -115,4 +115,16 @@ export class GetTaskCommand extends $Command
   .f(void 0, GetTaskResponseFilterSensitiveLog)
   .ser(se_GetTaskCommand)
   .de(de_GetTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaskRequest;
+      output: GetTaskResponse;
+    };
+    sdk: {
+      input: GetTaskCommandInput;
+      output: GetTaskCommandOutput;
+    };
+  };
+}

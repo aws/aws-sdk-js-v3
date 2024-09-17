@@ -129,4 +129,16 @@ export class GetRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegionsCommand)
   .de(de_GetRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRegionsRequest;
+      output: GetRegionsResult;
+    };
+    sdk: {
+      input: GetRegionsCommandInput;
+      output: GetRegionsCommandOutput;
+    };
+  };
+}

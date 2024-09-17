@@ -413,4 +413,16 @@ export class CreateAssociationBatchCommand extends $Command
   .f(CreateAssociationBatchRequestFilterSensitiveLog, CreateAssociationBatchResultFilterSensitiveLog)
   .ser(se_CreateAssociationBatchCommand)
   .de(de_CreateAssociationBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssociationBatchRequest;
+      output: CreateAssociationBatchResult;
+    };
+    sdk: {
+      input: CreateAssociationBatchCommandInput;
+      output: CreateAssociationBatchCommandOutput;
+    };
+  };
+}

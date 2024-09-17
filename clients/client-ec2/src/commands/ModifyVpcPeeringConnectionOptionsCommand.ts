@@ -112,4 +112,16 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcPeeringConnectionOptionsCommand)
   .de(de_ModifyVpcPeeringConnectionOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcPeeringConnectionOptionsRequest;
+      output: ModifyVpcPeeringConnectionOptionsResult;
+    };
+    sdk: {
+      input: ModifyVpcPeeringConnectionOptionsCommandInput;
+      output: ModifyVpcPeeringConnectionOptionsCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class DescribeLDAPSSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLDAPSSettingsCommand)
   .de(de_DescribeLDAPSSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLDAPSSettingsRequest;
+      output: DescribeLDAPSSettingsResult;
+    };
+    sdk: {
+      input: DescribeLDAPSSettingsCommandInput;
+      output: DescribeLDAPSSettingsCommandOutput;
+    };
+  };
+}

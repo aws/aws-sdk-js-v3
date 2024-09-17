@@ -163,4 +163,16 @@ export class AssociateSourceNetworkStackCommand extends $Command
   .f(AssociateSourceNetworkStackRequestFilterSensitiveLog, AssociateSourceNetworkStackResponseFilterSensitiveLog)
   .ser(se_AssociateSourceNetworkStackCommand)
   .de(de_AssociateSourceNetworkStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSourceNetworkStackRequest;
+      output: AssociateSourceNetworkStackResponse;
+    };
+    sdk: {
+      input: AssociateSourceNetworkStackCommandInput;
+      output: AssociateSourceNetworkStackCommandOutput;
+    };
+  };
+}

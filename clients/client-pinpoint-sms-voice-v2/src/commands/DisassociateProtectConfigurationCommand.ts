@@ -114,4 +114,16 @@ export class DisassociateProtectConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateProtectConfigurationCommand)
   .de(de_DisassociateProtectConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateProtectConfigurationRequest;
+      output: DisassociateProtectConfigurationResult;
+    };
+    sdk: {
+      input: DisassociateProtectConfigurationCommandInput;
+      output: DisassociateProtectConfigurationCommandOutput;
+    };
+  };
+}

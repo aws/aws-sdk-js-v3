@@ -95,4 +95,16 @@ export class PutLoggingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLoggingOptionsCommand)
   .de(de_PutLoggingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLoggingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutLoggingOptionsCommandInput;
+      output: PutLoggingOptionsCommandOutput;
+    };
+  };
+}

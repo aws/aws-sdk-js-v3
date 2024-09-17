@@ -108,4 +108,16 @@ export class GetStorageProfileForQueueCommand extends $Command
   .f(void 0, GetStorageProfileForQueueResponseFilterSensitiveLog)
   .ser(se_GetStorageProfileForQueueCommand)
   .de(de_GetStorageProfileForQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStorageProfileForQueueRequest;
+      output: GetStorageProfileForQueueResponse;
+    };
+    sdk: {
+      input: GetStorageProfileForQueueCommandInput;
+      output: GetStorageProfileForQueueCommandOutput;
+    };
+  };
+}

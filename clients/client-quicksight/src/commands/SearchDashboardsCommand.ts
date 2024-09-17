@@ -123,4 +123,16 @@ export class SearchDashboardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchDashboardsCommand)
   .de(de_SearchDashboardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchDashboardsRequest;
+      output: SearchDashboardsResponse;
+    };
+    sdk: {
+      input: SearchDashboardsCommandInput;
+      output: SearchDashboardsCommandOutput;
+    };
+  };
+}

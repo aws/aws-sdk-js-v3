@@ -110,4 +110,16 @@ export class DescribePredefinedAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePredefinedAttributeCommand)
   .de(de_DescribePredefinedAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePredefinedAttributeRequest;
+      output: DescribePredefinedAttributeResponse;
+    };
+    sdk: {
+      input: DescribePredefinedAttributeCommandInput;
+      output: DescribePredefinedAttributeCommandOutput;
+    };
+  };
+}

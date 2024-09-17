@@ -113,4 +113,16 @@ export class GetThingShadowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetThingShadowCommand)
   .de(de_GetThingShadowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThingShadowRequest;
+      output: GetThingShadowResponse;
+    };
+    sdk: {
+      input: GetThingShadowCommandInput;
+      output: GetThingShadowCommandOutput;
+    };
+  };
+}

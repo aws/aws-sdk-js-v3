@@ -96,4 +96,16 @@ export class DeprecateThingTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeprecateThingTypeCommand)
   .de(de_DeprecateThingTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeprecateThingTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeprecateThingTypeCommandInput;
+      output: DeprecateThingTypeCommandOutput;
+    };
+  };
+}

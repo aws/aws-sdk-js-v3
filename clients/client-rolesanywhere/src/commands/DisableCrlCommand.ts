@@ -96,4 +96,16 @@ export class DisableCrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableCrlCommand)
   .de(de_DisableCrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarCrlRequest;
+      output: CrlDetailResponse;
+    };
+    sdk: {
+      input: DisableCrlCommandInput;
+      output: DisableCrlCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class DeleteSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSignalCatalogCommand)
   .de(de_DeleteSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSignalCatalogRequest;
+      output: DeleteSignalCatalogResponse;
+    };
+    sdk: {
+      input: DeleteSignalCatalogCommandInput;
+      output: DeleteSignalCatalogCommandOutput;
+    };
+  };
+}

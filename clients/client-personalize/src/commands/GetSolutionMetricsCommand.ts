@@ -89,4 +89,16 @@ export class GetSolutionMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSolutionMetricsCommand)
   .de(de_GetSolutionMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSolutionMetricsRequest;
+      output: GetSolutionMetricsResponse;
+    };
+    sdk: {
+      input: GetSolutionMetricsCommandInput;
+      output: GetSolutionMetricsCommandOutput;
+    };
+  };
+}

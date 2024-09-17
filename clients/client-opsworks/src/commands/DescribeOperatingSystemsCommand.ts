@@ -90,4 +90,16 @@ export class DescribeOperatingSystemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOperatingSystemsCommand)
   .de(de_DescribeOperatingSystemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeOperatingSystemsResponse;
+    };
+    sdk: {
+      input: DescribeOperatingSystemsCommandInput;
+      output: DescribeOperatingSystemsCommandOutput;
+    };
+  };
+}

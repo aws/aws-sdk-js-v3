@@ -114,4 +114,16 @@ export class ListResolverDnssecConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverDnssecConfigsCommand)
   .de(de_ListResolverDnssecConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverDnssecConfigsRequest;
+      output: ListResolverDnssecConfigsResponse;
+    };
+    sdk: {
+      input: ListResolverDnssecConfigsCommandInput;
+      output: ListResolverDnssecConfigsCommandOutput;
+    };
+  };
+}

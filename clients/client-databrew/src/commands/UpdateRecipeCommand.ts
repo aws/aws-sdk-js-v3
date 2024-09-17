@@ -102,4 +102,16 @@ export class UpdateRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRecipeCommand)
   .de(de_UpdateRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRecipeRequest;
+      output: UpdateRecipeResponse;
+    };
+    sdk: {
+      input: UpdateRecipeCommandInput;
+      output: UpdateRecipeCommandOutput;
+    };
+  };
+}

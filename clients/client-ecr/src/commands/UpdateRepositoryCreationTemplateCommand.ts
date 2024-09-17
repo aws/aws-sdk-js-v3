@@ -183,4 +183,16 @@ export class UpdateRepositoryCreationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRepositoryCreationTemplateCommand)
   .de(de_UpdateRepositoryCreationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRepositoryCreationTemplateRequest;
+      output: UpdateRepositoryCreationTemplateResponse;
+    };
+    sdk: {
+      input: UpdateRepositoryCreationTemplateCommandInput;
+      output: UpdateRepositoryCreationTemplateCommandOutput;
+    };
+  };
+}

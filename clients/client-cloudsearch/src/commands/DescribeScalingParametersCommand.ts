@@ -100,4 +100,16 @@ export class DescribeScalingParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingParametersCommand)
   .de(de_DescribeScalingParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingParametersRequest;
+      output: DescribeScalingParametersResponse;
+    };
+    sdk: {
+      input: DescribeScalingParametersCommandInput;
+      output: DescribeScalingParametersCommandOutput;
+    };
+  };
+}

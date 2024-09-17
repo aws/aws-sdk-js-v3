@@ -122,4 +122,16 @@ export class RestoreGraphFromSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreGraphFromSnapshotCommand)
   .de(de_RestoreGraphFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreGraphFromSnapshotInput;
+      output: RestoreGraphFromSnapshotOutput;
+    };
+    sdk: {
+      input: RestoreGraphFromSnapshotCommandInput;
+      output: RestoreGraphFromSnapshotCommandOutput;
+    };
+  };
+}

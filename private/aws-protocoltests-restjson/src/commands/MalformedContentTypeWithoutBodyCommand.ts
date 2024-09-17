@@ -69,4 +69,16 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MalformedContentTypeWithoutBodyCommand)
   .de(de_MalformedContentTypeWithoutBodyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: MalformedContentTypeWithoutBodyCommandInput;
+      output: MalformedContentTypeWithoutBodyCommandOutput;
+    };
+  };
+}

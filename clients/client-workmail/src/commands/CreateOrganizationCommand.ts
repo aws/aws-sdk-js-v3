@@ -110,4 +110,16 @@ export class CreateOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOrganizationCommand)
   .de(de_CreateOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOrganizationRequest;
+      output: CreateOrganizationResponse;
+    };
+    sdk: {
+      input: CreateOrganizationCommandInput;
+      output: CreateOrganizationCommandOutput;
+    };
+  };
+}

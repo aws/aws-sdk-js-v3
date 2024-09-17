@@ -100,4 +100,16 @@ export class AssociateMemberToFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateMemberToFleetCommand)
   .de(de_AssociateMemberToFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateMemberToFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateMemberToFleetCommandInput;
+      output: AssociateMemberToFleetCommandOutput;
+    };
+  };
+}

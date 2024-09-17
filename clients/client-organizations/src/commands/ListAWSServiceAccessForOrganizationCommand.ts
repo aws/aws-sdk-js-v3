@@ -421,4 +421,16 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAWSServiceAccessForOrganizationCommand)
   .de(de_ListAWSServiceAccessForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAWSServiceAccessForOrganizationRequest;
+      output: ListAWSServiceAccessForOrganizationResponse;
+    };
+    sdk: {
+      input: ListAWSServiceAccessForOrganizationCommandInput;
+      output: ListAWSServiceAccessForOrganizationCommandOutput;
+    };
+  };
+}

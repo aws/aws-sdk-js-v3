@@ -109,4 +109,16 @@ export class UpdateModelManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateModelManifestCommand)
   .de(de_UpdateModelManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelManifestRequest;
+      output: UpdateModelManifestResponse;
+    };
+    sdk: {
+      input: UpdateModelManifestCommandInput;
+      output: UpdateModelManifestCommandOutput;
+    };
+  };
+}

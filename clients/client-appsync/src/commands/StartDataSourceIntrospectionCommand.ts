@@ -102,4 +102,16 @@ export class StartDataSourceIntrospectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDataSourceIntrospectionCommand)
   .de(de_StartDataSourceIntrospectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDataSourceIntrospectionRequest;
+      output: StartDataSourceIntrospectionResponse;
+    };
+    sdk: {
+      input: StartDataSourceIntrospectionCommandInput;
+      output: StartDataSourceIntrospectionCommandOutput;
+    };
+  };
+}

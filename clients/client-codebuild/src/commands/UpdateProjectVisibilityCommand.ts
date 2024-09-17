@@ -123,4 +123,16 @@ export class UpdateProjectVisibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProjectVisibilityCommand)
   .de(de_UpdateProjectVisibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProjectVisibilityInput;
+      output: UpdateProjectVisibilityOutput;
+    };
+    sdk: {
+      input: UpdateProjectVisibilityCommandInput;
+      output: UpdateProjectVisibilityCommandOutput;
+    };
+  };
+}

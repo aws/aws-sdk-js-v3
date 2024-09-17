@@ -92,4 +92,16 @@ export class RegisterDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterDevicesCommand)
   .de(de_RegisterDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterDevicesRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterDevicesCommandInput;
+      output: RegisterDevicesCommandOutput;
+    };
+  };
+}

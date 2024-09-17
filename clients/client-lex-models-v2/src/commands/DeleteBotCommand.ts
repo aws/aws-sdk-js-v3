@@ -113,4 +113,16 @@ export class DeleteBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBotCommand)
   .de(de_DeleteBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBotRequest;
+      output: DeleteBotResponse;
+    };
+    sdk: {
+      input: DeleteBotCommandInput;
+      output: DeleteBotCommandOutput;
+    };
+  };
+}

@@ -131,4 +131,16 @@ export class GetScalingConfigurationRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetScalingConfigurationRecommendationCommand)
   .de(de_GetScalingConfigurationRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetScalingConfigurationRecommendationRequest;
+      output: GetScalingConfigurationRecommendationResponse;
+    };
+    sdk: {
+      input: GetScalingConfigurationRecommendationCommandInput;
+      output: GetScalingConfigurationRecommendationCommandOutput;
+    };
+  };
+}

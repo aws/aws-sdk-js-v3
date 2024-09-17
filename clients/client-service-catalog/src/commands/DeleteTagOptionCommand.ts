@@ -87,4 +87,16 @@ export class DeleteTagOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagOptionCommand)
   .de(de_DeleteTagOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagOptionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagOptionCommandInput;
+      output: DeleteTagOptionCommandOutput;
+    };
+  };
+}

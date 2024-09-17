@@ -134,4 +134,16 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand)
   .de(de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest;
+      output: DescribeVerifiedAccessInstanceLoggingConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput;
+      output: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput;
+    };
+  };
+}

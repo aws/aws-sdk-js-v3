@@ -225,4 +225,16 @@ export class ListObjectVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectVersionsCommand)
   .de(de_ListObjectVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectVersionsRequest;
+      output: ListObjectVersionsOutput;
+    };
+    sdk: {
+      input: ListObjectVersionsCommandInput;
+      output: ListObjectVersionsCommandOutput;
+    };
+  };
+}

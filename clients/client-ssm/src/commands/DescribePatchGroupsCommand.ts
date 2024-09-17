@@ -101,4 +101,16 @@ export class DescribePatchGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePatchGroupsCommand)
   .de(de_DescribePatchGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePatchGroupsRequest;
+      output: DescribePatchGroupsResult;
+    };
+    sdk: {
+      input: DescribePatchGroupsCommandInput;
+      output: DescribePatchGroupsCommandOutput;
+    };
+  };
+}

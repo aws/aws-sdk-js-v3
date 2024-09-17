@@ -96,4 +96,16 @@ export class AssociateProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateProfilesCommand)
   .de(de_AssociateProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateProfilesInput;
+      output: {};
+    };
+    sdk: {
+      input: AssociateProfilesCommandInput;
+      output: AssociateProfilesCommandOutput;
+    };
+  };
+}

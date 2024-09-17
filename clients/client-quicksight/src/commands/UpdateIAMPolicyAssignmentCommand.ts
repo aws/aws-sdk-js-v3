@@ -123,4 +123,16 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIAMPolicyAssignmentCommand)
   .de(de_UpdateIAMPolicyAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIAMPolicyAssignmentRequest;
+      output: UpdateIAMPolicyAssignmentResponse;
+    };
+    sdk: {
+      input: UpdateIAMPolicyAssignmentCommandInput;
+      output: UpdateIAMPolicyAssignmentCommandOutput;
+    };
+  };
+}

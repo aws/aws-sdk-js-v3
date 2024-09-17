@@ -494,4 +494,16 @@ export class StartConversationCommand extends $Command
   .f(StartConversationRequestFilterSensitiveLog, StartConversationResponseFilterSensitiveLog)
   .ser(se_StartConversationCommand)
   .de(de_StartConversationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConversationRequest;
+      output: StartConversationResponse;
+    };
+    sdk: {
+      input: StartConversationCommandInput;
+      output: StartConversationCommandOutput;
+    };
+  };
+}

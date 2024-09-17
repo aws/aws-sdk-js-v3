@@ -96,4 +96,16 @@ export class ListKafkaVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKafkaVersionsCommand)
   .de(de_ListKafkaVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKafkaVersionsRequest;
+      output: ListKafkaVersionsResponse;
+    };
+    sdk: {
+      input: ListKafkaVersionsCommandInput;
+      output: ListKafkaVersionsCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class ListMeetingsCommand extends $Command
   .f(void 0, ListMeetingsResponseFilterSensitiveLog)
   .ser(se_ListMeetingsCommand)
   .de(de_ListMeetingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMeetingsRequest;
+      output: ListMeetingsResponse;
+    };
+    sdk: {
+      input: ListMeetingsCommandInput;
+      output: ListMeetingsCommandOutput;
+    };
+  };
+}

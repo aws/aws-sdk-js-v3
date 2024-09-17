@@ -153,4 +153,16 @@ export class CreateSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSafetyRuleCommand)
   .de(de_CreateSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSafetyRuleRequest;
+      output: CreateSafetyRuleResponse;
+    };
+    sdk: {
+      input: CreateSafetyRuleCommandInput;
+      output: CreateSafetyRuleCommandOutput;
+    };
+  };
+}

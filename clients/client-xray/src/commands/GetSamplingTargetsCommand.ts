@@ -109,4 +109,16 @@ export class GetSamplingTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSamplingTargetsCommand)
   .de(de_GetSamplingTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSamplingTargetsRequest;
+      output: GetSamplingTargetsResult;
+    };
+    sdk: {
+      input: GetSamplingTargetsCommandInput;
+      output: GetSamplingTargetsCommandOutput;
+    };
+  };
+}

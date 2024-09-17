@@ -90,4 +90,16 @@ export class DeleteTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTokenCommand)
   .de(de_DeleteTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTokenRequest;
+      output: DeleteTokenResponse;
+    };
+    sdk: {
+      input: DeleteTokenCommandInput;
+      output: DeleteTokenCommandOutput;
+    };
+  };
+}

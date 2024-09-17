@@ -97,4 +97,16 @@ export class ListDataCatalogsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataCatalogsCommand)
   .de(de_ListDataCatalogsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataCatalogsInput;
+      output: ListDataCatalogsOutput;
+    };
+    sdk: {
+      input: ListDataCatalogsCommandInput;
+      output: ListDataCatalogsCommandOutput;
+    };
+  };
+}

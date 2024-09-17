@@ -105,4 +105,16 @@ export class UpdateAcceleratorAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAcceleratorAttributesCommand)
   .de(de_UpdateAcceleratorAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAcceleratorAttributesRequest;
+      output: UpdateAcceleratorAttributesResponse;
+    };
+    sdk: {
+      input: UpdateAcceleratorAttributesCommandInput;
+      output: UpdateAcceleratorAttributesCommandOutput;
+    };
+  };
+}

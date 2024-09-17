@@ -131,4 +131,16 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMultiRegionAccessPointRoutesCommand)
   .de(de_GetMultiRegionAccessPointRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMultiRegionAccessPointRoutesRequest;
+      output: GetMultiRegionAccessPointRoutesResult;
+    };
+    sdk: {
+      input: GetMultiRegionAccessPointRoutesCommandInput;
+      output: GetMultiRegionAccessPointRoutesCommandOutput;
+    };
+  };
+}

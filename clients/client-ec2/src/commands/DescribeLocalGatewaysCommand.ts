@@ -105,4 +105,16 @@ export class DescribeLocalGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewaysCommand)
   .de(de_DescribeLocalGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewaysRequest;
+      output: DescribeLocalGatewaysResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewaysCommandInput;
+      output: DescribeLocalGatewaysCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class DeletePhoneNumberCommand extends $Command
   .f(DeletePhoneNumberRequestFilterSensitiveLog, void 0)
   .ser(se_DeletePhoneNumberCommand)
   .de(de_DeletePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePhoneNumberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePhoneNumberCommandInput;
+      output: DeletePhoneNumberCommandOutput;
+    };
+  };
+}

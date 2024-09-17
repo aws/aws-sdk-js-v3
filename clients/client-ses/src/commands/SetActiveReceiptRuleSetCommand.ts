@@ -96,4 +96,16 @@ export class SetActiveReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetActiveReceiptRuleSetCommand)
   .de(de_SetActiveReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetActiveReceiptRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetActiveReceiptRuleSetCommandInput;
+      output: SetActiveReceiptRuleSetCommandOutput;
+    };
+  };
+}

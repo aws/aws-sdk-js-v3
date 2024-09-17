@@ -96,4 +96,16 @@ export class CreateAccountLinkInvitationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccountLinkInvitationCommand)
   .de(de_CreateAccountLinkInvitationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountLinkInvitationRequest;
+      output: CreateAccountLinkInvitationResult;
+    };
+    sdk: {
+      input: CreateAccountLinkInvitationCommandInput;
+      output: CreateAccountLinkInvitationCommandOutput;
+    };
+  };
+}

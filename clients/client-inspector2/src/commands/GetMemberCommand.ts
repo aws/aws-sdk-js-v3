@@ -101,4 +101,16 @@ export class GetMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMemberCommand)
   .de(de_GetMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMemberRequest;
+      output: GetMemberResponse;
+    };
+    sdk: {
+      input: GetMemberCommandInput;
+      output: GetMemberCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class CreateAvailabilityConfigurationCommand extends $Command
   .f(CreateAvailabilityConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAvailabilityConfigurationCommand)
   .de(de_CreateAvailabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAvailabilityConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAvailabilityConfigurationCommandInput;
+      output: CreateAvailabilityConfigurationCommandOutput;
+    };
+  };
+}

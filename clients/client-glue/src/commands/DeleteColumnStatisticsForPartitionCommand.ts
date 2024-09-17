@@ -105,4 +105,16 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteColumnStatisticsForPartitionCommand)
   .de(de_DeleteColumnStatisticsForPartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteColumnStatisticsForPartitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteColumnStatisticsForPartitionCommandInput;
+      output: DeleteColumnStatisticsForPartitionCommandOutput;
+    };
+  };
+}

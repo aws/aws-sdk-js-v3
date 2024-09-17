@@ -100,4 +100,16 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateIpamResourceDiscoveryCommand)
   .de(de_DisassociateIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateIpamResourceDiscoveryRequest;
+      output: DisassociateIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: DisassociateIpamResourceDiscoveryCommandInput;
+      output: DisassociateIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class DeletePredefinedAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePredefinedAttributeCommand)
   .de(de_DeletePredefinedAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePredefinedAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePredefinedAttributeCommandInput;
+      output: DeletePredefinedAttributeCommandOutput;
+    };
+  };
+}

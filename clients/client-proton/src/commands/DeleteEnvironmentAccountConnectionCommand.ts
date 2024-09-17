@@ -117,4 +117,16 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentAccountConnectionCommand)
   .de(de_DeleteEnvironmentAccountConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentAccountConnectionInput;
+      output: DeleteEnvironmentAccountConnectionOutput;
+    };
+    sdk: {
+      input: DeleteEnvironmentAccountConnectionCommandInput;
+      output: DeleteEnvironmentAccountConnectionCommandOutput;
+    };
+  };
+}

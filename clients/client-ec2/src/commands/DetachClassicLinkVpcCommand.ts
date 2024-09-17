@@ -84,4 +84,16 @@ export class DetachClassicLinkVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachClassicLinkVpcCommand)
   .de(de_DetachClassicLinkVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachClassicLinkVpcRequest;
+      output: DetachClassicLinkVpcResult;
+    };
+    sdk: {
+      input: DetachClassicLinkVpcCommandInput;
+      output: DetachClassicLinkVpcCommandOutput;
+    };
+  };
+}

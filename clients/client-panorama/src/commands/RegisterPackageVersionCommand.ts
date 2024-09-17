@@ -91,4 +91,16 @@ export class RegisterPackageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterPackageVersionCommand)
   .de(de_RegisterPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterPackageVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterPackageVersionCommandInput;
+      output: RegisterPackageVersionCommandOutput;
+    };
+  };
+}

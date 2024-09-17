@@ -118,4 +118,16 @@ export class ExportServerEngineAttributeCommand extends $Command
   .f(ExportServerEngineAttributeRequestFilterSensitiveLog, ExportServerEngineAttributeResponseFilterSensitiveLog)
   .ser(se_ExportServerEngineAttributeCommand)
   .de(de_ExportServerEngineAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportServerEngineAttributeRequest;
+      output: ExportServerEngineAttributeResponse;
+    };
+    sdk: {
+      input: ExportServerEngineAttributeCommandInput;
+      output: ExportServerEngineAttributeCommandOutput;
+    };
+  };
+}

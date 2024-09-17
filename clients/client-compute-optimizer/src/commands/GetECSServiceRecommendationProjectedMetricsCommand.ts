@@ -136,4 +136,16 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetECSServiceRecommendationProjectedMetricsCommand)
   .de(de_GetECSServiceRecommendationProjectedMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetECSServiceRecommendationProjectedMetricsRequest;
+      output: GetECSServiceRecommendationProjectedMetricsResponse;
+    };
+    sdk: {
+      input: GetECSServiceRecommendationProjectedMetricsCommandInput;
+      output: GetECSServiceRecommendationProjectedMetricsCommandOutput;
+    };
+  };
+}

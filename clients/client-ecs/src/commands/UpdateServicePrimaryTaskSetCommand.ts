@@ -194,4 +194,16 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServicePrimaryTaskSetCommand)
   .de(de_UpdateServicePrimaryTaskSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServicePrimaryTaskSetRequest;
+      output: UpdateServicePrimaryTaskSetResponse;
+    };
+    sdk: {
+      input: UpdateServicePrimaryTaskSetCommandInput;
+      output: UpdateServicePrimaryTaskSetCommandOutput;
+    };
+  };
+}

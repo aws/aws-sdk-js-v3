@@ -151,4 +151,16 @@ export class DescribeMetadataModelExportsToTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetadataModelExportsToTargetCommand)
   .de(de_DescribeMetadataModelExportsToTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetadataModelExportsToTargetMessage;
+      output: DescribeMetadataModelExportsToTargetResponse;
+    };
+    sdk: {
+      input: DescribeMetadataModelExportsToTargetCommandInput;
+      output: DescribeMetadataModelExportsToTargetCommandOutput;
+    };
+  };
+}

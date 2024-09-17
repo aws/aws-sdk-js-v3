@@ -104,4 +104,16 @@ export class SendMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendMessageCommand)
   .de(de_SendMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendMessageRequest;
+      output: SendMessageResponse;
+    };
+    sdk: {
+      input: SendMessageCommandInput;
+      output: SendMessageCommandOutput;
+    };
+  };
+}

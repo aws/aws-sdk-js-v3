@@ -149,4 +149,16 @@ export class BatchEvaluateGeofencesCommand extends $Command
   .f(BatchEvaluateGeofencesRequestFilterSensitiveLog, void 0)
   .ser(se_BatchEvaluateGeofencesCommand)
   .de(de_BatchEvaluateGeofencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchEvaluateGeofencesRequest;
+      output: BatchEvaluateGeofencesResponse;
+    };
+    sdk: {
+      input: BatchEvaluateGeofencesCommandInput;
+      output: BatchEvaluateGeofencesCommandOutput;
+    };
+  };
+}

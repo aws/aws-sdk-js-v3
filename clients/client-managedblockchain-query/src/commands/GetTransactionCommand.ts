@@ -131,4 +131,16 @@ export class GetTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransactionCommand)
   .de(de_GetTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransactionInput;
+      output: GetTransactionOutput;
+    };
+    sdk: {
+      input: GetTransactionCommandInput;
+      output: GetTransactionCommandOutput;
+    };
+  };
+}

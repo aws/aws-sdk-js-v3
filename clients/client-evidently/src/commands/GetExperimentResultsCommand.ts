@@ -137,4 +137,16 @@ export class GetExperimentResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExperimentResultsCommand)
   .de(de_GetExperimentResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExperimentResultsRequest;
+      output: GetExperimentResultsResponse;
+    };
+    sdk: {
+      input: GetExperimentResultsCommandInput;
+      output: GetExperimentResultsCommandOutput;
+    };
+  };
+}

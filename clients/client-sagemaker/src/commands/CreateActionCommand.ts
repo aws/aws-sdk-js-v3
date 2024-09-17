@@ -108,4 +108,16 @@ export class CreateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActionCommand)
   .de(de_CreateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActionRequest;
+      output: CreateActionResponse;
+    };
+    sdk: {
+      input: CreateActionCommandInput;
+      output: CreateActionCommandOutput;
+    };
+  };
+}

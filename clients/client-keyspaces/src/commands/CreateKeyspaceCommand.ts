@@ -113,4 +113,16 @@ export class CreateKeyspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyspaceCommand)
   .de(de_CreateKeyspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyspaceRequest;
+      output: CreateKeyspaceResponse;
+    };
+    sdk: {
+      input: CreateKeyspaceCommandInput;
+      output: CreateKeyspaceCommandOutput;
+    };
+  };
+}

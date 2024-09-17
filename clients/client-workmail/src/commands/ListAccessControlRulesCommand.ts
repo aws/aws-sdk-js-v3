@@ -117,4 +117,16 @@ export class ListAccessControlRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessControlRulesCommand)
   .de(de_ListAccessControlRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessControlRulesRequest;
+      output: ListAccessControlRulesResponse;
+    };
+    sdk: {
+      input: ListAccessControlRulesCommandInput;
+      output: ListAccessControlRulesCommandOutput;
+    };
+  };
+}

@@ -214,4 +214,16 @@ export class CreateComponentVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateComponentVersionCommand)
   .de(de_CreateComponentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComponentVersionRequest;
+      output: CreateComponentVersionResponse;
+    };
+    sdk: {
+      input: CreateComponentVersionCommandInput;
+      output: CreateComponentVersionCommandOutput;
+    };
+  };
+}

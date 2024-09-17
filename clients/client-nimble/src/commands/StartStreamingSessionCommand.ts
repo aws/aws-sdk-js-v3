@@ -140,4 +140,16 @@ export class StartStreamingSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartStreamingSessionCommand)
   .de(de_StartStreamingSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartStreamingSessionRequest;
+      output: StartStreamingSessionResponse;
+    };
+    sdk: {
+      input: StartStreamingSessionCommandInput;
+      output: StartStreamingSessionCommandOutput;
+    };
+  };
+}

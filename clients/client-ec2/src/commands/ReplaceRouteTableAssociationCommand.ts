@@ -106,4 +106,16 @@ export class ReplaceRouteTableAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceRouteTableAssociationCommand)
   .de(de_ReplaceRouteTableAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceRouteTableAssociationRequest;
+      output: ReplaceRouteTableAssociationResult;
+    };
+    sdk: {
+      input: ReplaceRouteTableAssociationCommandInput;
+      output: ReplaceRouteTableAssociationCommandOutput;
+    };
+  };
+}

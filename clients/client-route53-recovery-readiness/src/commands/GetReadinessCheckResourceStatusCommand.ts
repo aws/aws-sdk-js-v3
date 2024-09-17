@@ -117,4 +117,16 @@ export class GetReadinessCheckResourceStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReadinessCheckResourceStatusCommand)
   .de(de_GetReadinessCheckResourceStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReadinessCheckResourceStatusRequest;
+      output: GetReadinessCheckResourceStatusResponse;
+    };
+    sdk: {
+      input: GetReadinessCheckResourceStatusCommandInput;
+      output: GetReadinessCheckResourceStatusCommandOutput;
+    };
+  };
+}

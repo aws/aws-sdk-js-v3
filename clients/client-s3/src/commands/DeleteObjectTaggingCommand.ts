@@ -142,4 +142,16 @@ export class DeleteObjectTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteObjectTaggingCommand)
   .de(de_DeleteObjectTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteObjectTaggingRequest;
+      output: DeleteObjectTaggingOutput;
+    };
+    sdk: {
+      input: DeleteObjectTaggingCommandInput;
+      output: DeleteObjectTaggingCommandOutput;
+    };
+  };
+}

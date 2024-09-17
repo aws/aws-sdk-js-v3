@@ -92,4 +92,16 @@ export class StopEntitiesDetectionV2JobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopEntitiesDetectionV2JobCommand)
   .de(de_StopEntitiesDetectionV2JobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopEntitiesDetectionV2JobRequest;
+      output: StopEntitiesDetectionV2JobResponse;
+    };
+    sdk: {
+      input: StopEntitiesDetectionV2JobCommandInput;
+      output: StopEntitiesDetectionV2JobCommandOutput;
+    };
+  };
+}

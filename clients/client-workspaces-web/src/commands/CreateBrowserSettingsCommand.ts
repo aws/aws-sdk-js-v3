@@ -115,4 +115,16 @@ export class CreateBrowserSettingsCommand extends $Command
   .f(CreateBrowserSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBrowserSettingsCommand)
   .de(de_CreateBrowserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBrowserSettingsRequest;
+      output: CreateBrowserSettingsResponse;
+    };
+    sdk: {
+      input: CreateBrowserSettingsCommandInput;
+      output: CreateBrowserSettingsCommandOutput;
+    };
+  };
+}

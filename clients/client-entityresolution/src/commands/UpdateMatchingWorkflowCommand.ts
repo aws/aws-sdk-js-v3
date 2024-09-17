@@ -190,4 +190,16 @@ export class UpdateMatchingWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMatchingWorkflowCommand)
   .de(de_UpdateMatchingWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMatchingWorkflowInput;
+      output: UpdateMatchingWorkflowOutput;
+    };
+    sdk: {
+      input: UpdateMatchingWorkflowCommandInput;
+      output: UpdateMatchingWorkflowCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class GetSendStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSendStatisticsCommand)
   .de(de_GetSendStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSendStatisticsResponse;
+    };
+    sdk: {
+      input: GetSendStatisticsCommandInput;
+      output: GetSendStatisticsCommandOutput;
+    };
+  };
+}

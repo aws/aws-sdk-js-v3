@@ -159,4 +159,16 @@ export class CreateDataProductRevisionCommand extends $Command
   .f(CreateDataProductRevisionInputFilterSensitiveLog, CreateDataProductRevisionOutputFilterSensitiveLog)
   .ser(se_CreateDataProductRevisionCommand)
   .de(de_CreateDataProductRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataProductRevisionInput;
+      output: CreateDataProductRevisionOutput;
+    };
+    sdk: {
+      input: CreateDataProductRevisionCommandInput;
+      output: CreateDataProductRevisionCommandOutput;
+    };
+  };
+}

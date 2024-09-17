@@ -132,4 +132,16 @@ export class AllocateConnectionOnInterconnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllocateConnectionOnInterconnectCommand)
   .de(de_AllocateConnectionOnInterconnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllocateConnectionOnInterconnectRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AllocateConnectionOnInterconnectCommandInput;
+      output: AllocateConnectionOnInterconnectCommandOutput;
+    };
+  };
+}

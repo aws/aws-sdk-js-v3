@@ -117,4 +117,16 @@ export class DescribeAuthenticationProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuthenticationProfileCommand)
   .de(de_DescribeAuthenticationProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuthenticationProfileRequest;
+      output: DescribeAuthenticationProfileResponse;
+    };
+    sdk: {
+      input: DescribeAuthenticationProfileCommandInput;
+      output: DescribeAuthenticationProfileCommandOutput;
+    };
+  };
+}

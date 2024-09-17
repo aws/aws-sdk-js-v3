@@ -217,4 +217,16 @@ export class DescribeMergeConflictsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMergeConflictsCommand)
   .de(de_DescribeMergeConflictsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMergeConflictsInput;
+      output: DescribeMergeConflictsOutput;
+    };
+    sdk: {
+      input: DescribeMergeConflictsCommandInput;
+      output: DescribeMergeConflictsCommandOutput;
+    };
+  };
+}

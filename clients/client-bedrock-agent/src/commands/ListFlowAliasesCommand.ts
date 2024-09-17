@@ -110,4 +110,16 @@ export class ListFlowAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFlowAliasesCommand)
   .de(de_ListFlowAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFlowAliasesRequest;
+      output: ListFlowAliasesResponse;
+    };
+    sdk: {
+      input: ListFlowAliasesCommandInput;
+      output: ListFlowAliasesCommandOutput;
+    };
+  };
+}

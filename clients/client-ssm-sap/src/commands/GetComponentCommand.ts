@@ -146,4 +146,16 @@ export class GetComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentCommand)
   .de(de_GetComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentInput;
+      output: GetComponentOutput;
+    };
+    sdk: {
+      input: GetComponentCommandInput;
+      output: GetComponentCommandOutput;
+    };
+  };
+}

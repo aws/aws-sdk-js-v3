@@ -102,4 +102,16 @@ export class DescribeVpcClassicLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcClassicLinkCommand)
   .de(de_DescribeVpcClassicLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcClassicLinkRequest;
+      output: DescribeVpcClassicLinkResult;
+    };
+    sdk: {
+      input: DescribeVpcClassicLinkCommandInput;
+      output: DescribeVpcClassicLinkCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecycleEventHookExecutionStatusCommand)
   .de(de_PutLifecycleEventHookExecutionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecycleEventHookExecutionStatusInput;
+      output: PutLifecycleEventHookExecutionStatusOutput;
+    };
+    sdk: {
+      input: PutLifecycleEventHookExecutionStatusCommandInput;
+      output: PutLifecycleEventHookExecutionStatusCommandOutput;
+    };
+  };
+}

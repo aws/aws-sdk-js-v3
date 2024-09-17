@@ -96,4 +96,16 @@ export class ListInstanceProfileTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceProfileTagsCommand)
   .de(de_ListInstanceProfileTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceProfileTagsRequest;
+      output: ListInstanceProfileTagsResponse;
+    };
+    sdk: {
+      input: ListInstanceProfileTagsCommandInput;
+      output: ListInstanceProfileTagsCommandOutput;
+    };
+  };
+}

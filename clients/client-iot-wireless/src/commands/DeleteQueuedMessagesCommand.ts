@@ -92,4 +92,16 @@ export class DeleteQueuedMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueuedMessagesCommand)
   .de(de_DeleteQueuedMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueuedMessagesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQueuedMessagesCommandInput;
+      output: DeleteQueuedMessagesCommandOutput;
+    };
+  };
+}

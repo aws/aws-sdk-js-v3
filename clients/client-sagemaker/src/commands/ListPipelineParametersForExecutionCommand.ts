@@ -96,4 +96,16 @@ export class ListPipelineParametersForExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelineParametersForExecutionCommand)
   .de(de_ListPipelineParametersForExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipelineParametersForExecutionRequest;
+      output: ListPipelineParametersForExecutionResponse;
+    };
+    sdk: {
+      input: ListPipelineParametersForExecutionCommandInput;
+      output: ListPipelineParametersForExecutionCommandOutput;
+    };
+  };
+}

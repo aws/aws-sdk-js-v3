@@ -136,4 +136,16 @@ export class BatchPutContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutContactCommand)
   .de(de_BatchPutContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutContactRequest;
+      output: BatchPutContactResponse;
+    };
+    sdk: {
+      input: BatchPutContactCommandInput;
+      output: BatchPutContactCommandOutput;
+    };
+  };
+}

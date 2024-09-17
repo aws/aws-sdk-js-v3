@@ -115,4 +115,16 @@ export class ListSipRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSipRulesCommand)
   .de(de_ListSipRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSipRulesRequest;
+      output: ListSipRulesResponse;
+    };
+    sdk: {
+      input: ListSipRulesCommandInput;
+      output: ListSipRulesCommandOutput;
+    };
+  };
+}

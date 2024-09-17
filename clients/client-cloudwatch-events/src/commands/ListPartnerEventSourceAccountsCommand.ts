@@ -103,4 +103,16 @@ export class ListPartnerEventSourceAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartnerEventSourceAccountsCommand)
   .de(de_ListPartnerEventSourceAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnerEventSourceAccountsRequest;
+      output: ListPartnerEventSourceAccountsResponse;
+    };
+    sdk: {
+      input: ListPartnerEventSourceAccountsCommandInput;
+      output: ListPartnerEventSourceAccountsCommandOutput;
+    };
+  };
+}

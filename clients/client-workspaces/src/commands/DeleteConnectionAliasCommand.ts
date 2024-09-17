@@ -108,4 +108,16 @@ export class DeleteConnectionAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectionAliasCommand)
   .de(de_DeleteConnectionAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectionAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConnectionAliasCommandInput;
+      output: DeleteConnectionAliasCommandOutput;
+    };
+  };
+}

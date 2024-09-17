@@ -102,4 +102,16 @@ export class GetCalculationExecutionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCalculationExecutionStatusCommand)
   .de(de_GetCalculationExecutionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCalculationExecutionStatusRequest;
+      output: GetCalculationExecutionStatusResponse;
+    };
+    sdk: {
+      input: GetCalculationExecutionStatusCommandInput;
+      output: GetCalculationExecutionStatusCommandOutput;
+    };
+  };
+}

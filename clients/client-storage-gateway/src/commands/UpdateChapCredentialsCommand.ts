@@ -120,4 +120,16 @@ export class UpdateChapCredentialsCommand extends $Command
   .f(UpdateChapCredentialsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateChapCredentialsCommand)
   .de(de_UpdateChapCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChapCredentialsInput;
+      output: UpdateChapCredentialsOutput;
+    };
+    sdk: {
+      input: UpdateChapCredentialsCommandInput;
+      output: UpdateChapCredentialsCommandOutput;
+    };
+  };
+}

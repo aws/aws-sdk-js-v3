@@ -108,4 +108,16 @@ export class BatchDeletePartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeletePartitionCommand)
   .de(de_BatchDeletePartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeletePartitionRequest;
+      output: BatchDeletePartitionResponse;
+    };
+    sdk: {
+      input: BatchDeletePartitionCommandInput;
+      output: BatchDeletePartitionCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class GetContainerAPIMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerAPIMetadataCommand)
   .de(de_GetContainerAPIMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetContainerAPIMetadataResult;
+    };
+    sdk: {
+      input: GetContainerAPIMetadataCommandInput;
+      output: GetContainerAPIMetadataCommandOutput;
+    };
+  };
+}

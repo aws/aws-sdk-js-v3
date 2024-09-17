@@ -96,4 +96,16 @@ export class DescribeContainerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContainerCommand)
   .de(de_DescribeContainerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContainerInput;
+      output: DescribeContainerOutput;
+    };
+    sdk: {
+      input: DescribeContainerCommandInput;
+      output: DescribeContainerCommandOutput;
+    };
+  };
+}

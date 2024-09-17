@@ -111,4 +111,16 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcEndpointServiceConfigurationCommand)
   .de(de_ModifyVpcEndpointServiceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcEndpointServiceConfigurationRequest;
+      output: ModifyVpcEndpointServiceConfigurationResult;
+    };
+    sdk: {
+      input: ModifyVpcEndpointServiceConfigurationCommandInput;
+      output: ModifyVpcEndpointServiceConfigurationCommandOutput;
+    };
+  };
+}

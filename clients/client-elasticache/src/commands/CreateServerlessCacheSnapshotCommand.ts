@@ -130,4 +130,16 @@ export class CreateServerlessCacheSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServerlessCacheSnapshotCommand)
   .de(de_CreateServerlessCacheSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServerlessCacheSnapshotRequest;
+      output: CreateServerlessCacheSnapshotResponse;
+    };
+    sdk: {
+      input: CreateServerlessCacheSnapshotCommandInput;
+      output: CreateServerlessCacheSnapshotCommandOutput;
+    };
+  };
+}

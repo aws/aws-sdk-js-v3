@@ -110,4 +110,16 @@ export class ListWorldExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorldExportJobsCommand)
   .de(de_ListWorldExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorldExportJobsRequest;
+      output: ListWorldExportJobsResponse;
+    };
+    sdk: {
+      input: ListWorldExportJobsCommandInput;
+      output: ListWorldExportJobsCommandOutput;
+    };
+  };
+}

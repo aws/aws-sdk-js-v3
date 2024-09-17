@@ -97,4 +97,16 @@ export class DeleteTimeSeriesDataPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTimeSeriesDataPointsCommand)
   .de(de_DeleteTimeSeriesDataPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTimeSeriesDataPointsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTimeSeriesDataPointsCommandInput;
+      output: DeleteTimeSeriesDataPointsCommandOutput;
+    };
+  };
+}

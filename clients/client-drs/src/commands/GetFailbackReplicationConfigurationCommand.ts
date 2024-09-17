@@ -100,4 +100,16 @@ export class GetFailbackReplicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFailbackReplicationConfigurationCommand)
   .de(de_GetFailbackReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFailbackReplicationConfigurationRequest;
+      output: GetFailbackReplicationConfigurationResponse;
+    };
+    sdk: {
+      input: GetFailbackReplicationConfigurationCommandInput;
+      output: GetFailbackReplicationConfigurationCommandOutput;
+    };
+  };
+}

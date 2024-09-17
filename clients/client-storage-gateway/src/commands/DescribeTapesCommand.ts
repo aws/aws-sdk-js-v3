@@ -152,4 +152,16 @@ export class DescribeTapesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTapesCommand)
   .de(de_DescribeTapesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTapesInput;
+      output: DescribeTapesOutput;
+    };
+    sdk: {
+      input: DescribeTapesCommandInput;
+      output: DescribeTapesCommandOutput;
+    };
+  };
+}

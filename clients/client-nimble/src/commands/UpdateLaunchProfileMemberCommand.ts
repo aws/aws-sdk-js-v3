@@ -110,4 +110,16 @@ export class UpdateLaunchProfileMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLaunchProfileMemberCommand)
   .de(de_UpdateLaunchProfileMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLaunchProfileMemberRequest;
+      output: UpdateLaunchProfileMemberResponse;
+    };
+    sdk: {
+      input: UpdateLaunchProfileMemberCommandInput;
+      output: UpdateLaunchProfileMemberCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class DeleteArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArtifactCommand)
   .de(de_DeleteArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArtifactRequest;
+      output: DeleteArtifactResponse;
+    };
+    sdk: {
+      input: DeleteArtifactCommandInput;
+      output: DeleteArtifactCommandOutput;
+    };
+  };
+}

@@ -84,4 +84,16 @@ export class DeleteRestoreTestingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRestoreTestingPlanCommand)
   .de(de_DeleteRestoreTestingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRestoreTestingPlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRestoreTestingPlanCommandInput;
+      output: DeleteRestoreTestingPlanCommandOutput;
+    };
+  };
+}

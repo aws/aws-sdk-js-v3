@@ -100,4 +100,16 @@ export class ListClusterNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClusterNodesCommand)
   .de(de_ListClusterNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClusterNodesRequest;
+      output: ListClusterNodesResponse;
+    };
+    sdk: {
+      input: ListClusterNodesCommandInput;
+      output: ListClusterNodesCommandOutput;
+    };
+  };
+}

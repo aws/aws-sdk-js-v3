@@ -177,4 +177,16 @@ export class UpdateLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLagCommand)
   .de(de_UpdateLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLagRequest;
+      output: Lag;
+    };
+    sdk: {
+      input: UpdateLagCommandInput;
+      output: UpdateLagCommandOutput;
+    };
+  };
+}

@@ -126,4 +126,16 @@ export class StopFleetActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopFleetActionsCommand)
   .de(de_StopFleetActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopFleetActionsInput;
+      output: StopFleetActionsOutput;
+    };
+    sdk: {
+      input: StopFleetActionsCommandInput;
+      output: StopFleetActionsCommandOutput;
+    };
+  };
+}

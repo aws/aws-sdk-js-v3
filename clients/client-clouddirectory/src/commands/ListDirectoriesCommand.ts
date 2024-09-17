@@ -109,4 +109,16 @@ export class ListDirectoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDirectoriesCommand)
   .de(de_ListDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDirectoriesRequest;
+      output: ListDirectoriesResponse;
+    };
+    sdk: {
+      input: ListDirectoriesCommandInput;
+      output: ListDirectoriesCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class RevokeSignatureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeSignatureCommand)
   .de(de_RevokeSignatureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeSignatureRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeSignatureCommandInput;
+      output: RevokeSignatureCommandOutput;
+    };
+  };
+}

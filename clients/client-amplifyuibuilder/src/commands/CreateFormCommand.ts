@@ -402,4 +402,16 @@ export class CreateFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFormCommand)
   .de(de_CreateFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFormRequest;
+      output: CreateFormResponse;
+    };
+    sdk: {
+      input: CreateFormCommandInput;
+      output: CreateFormCommandOutput;
+    };
+  };
+}

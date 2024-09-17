@@ -116,4 +116,16 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFlowLogsIntegrationTemplateCommand)
   .de(de_GetFlowLogsIntegrationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFlowLogsIntegrationTemplateRequest;
+      output: GetFlowLogsIntegrationTemplateResult;
+    };
+    sdk: {
+      input: GetFlowLogsIntegrationTemplateCommandInput;
+      output: GetFlowLogsIntegrationTemplateCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class GetAccountSendingEnabledCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSendingEnabledCommand)
   .de(de_GetAccountSendingEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountSendingEnabledResponse;
+    };
+    sdk: {
+      input: GetAccountSendingEnabledCommandInput;
+      output: GetAccountSendingEnabledCommandOutput;
+    };
+  };
+}

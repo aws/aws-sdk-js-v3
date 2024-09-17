@@ -125,4 +125,16 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EvaluatePullRequestApprovalRulesCommand)
   .de(de_EvaluatePullRequestApprovalRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluatePullRequestApprovalRulesInput;
+      output: EvaluatePullRequestApprovalRulesOutput;
+    };
+    sdk: {
+      input: EvaluatePullRequestApprovalRulesCommandInput;
+      output: EvaluatePullRequestApprovalRulesCommandOutput;
+    };
+  };
+}

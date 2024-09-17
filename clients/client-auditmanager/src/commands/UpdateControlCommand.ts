@@ -149,4 +149,16 @@ export class UpdateControlCommand extends $Command
   .f(UpdateControlRequestFilterSensitiveLog, UpdateControlResponseFilterSensitiveLog)
   .ser(se_UpdateControlCommand)
   .de(de_UpdateControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateControlRequest;
+      output: UpdateControlResponse;
+    };
+    sdk: {
+      input: UpdateControlCommandInput;
+      output: UpdateControlCommandOutput;
+    };
+  };
+}

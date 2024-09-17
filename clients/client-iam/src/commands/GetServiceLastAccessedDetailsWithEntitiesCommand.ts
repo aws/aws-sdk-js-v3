@@ -183,4 +183,16 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceLastAccessedDetailsWithEntitiesCommand)
   .de(de_GetServiceLastAccessedDetailsWithEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceLastAccessedDetailsWithEntitiesRequest;
+      output: GetServiceLastAccessedDetailsWithEntitiesResponse;
+    };
+    sdk: {
+      input: GetServiceLastAccessedDetailsWithEntitiesCommandInput;
+      output: GetServiceLastAccessedDetailsWithEntitiesCommandOutput;
+    };
+  };
+}

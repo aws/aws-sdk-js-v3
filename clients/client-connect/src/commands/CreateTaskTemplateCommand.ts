@@ -146,4 +146,16 @@ export class CreateTaskTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTaskTemplateCommand)
   .de(de_CreateTaskTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTaskTemplateRequest;
+      output: CreateTaskTemplateResponse;
+    };
+    sdk: {
+      input: CreateTaskTemplateCommandInput;
+      output: CreateTaskTemplateCommandOutput;
+    };
+  };
+}

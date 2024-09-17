@@ -102,4 +102,16 @@ export class CreateSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSyncJobCommand)
   .de(de_CreateSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSyncJobRequest;
+      output: CreateSyncJobResponse;
+    };
+    sdk: {
+      input: CreateSyncJobCommandInput;
+      output: CreateSyncJobCommandOutput;
+    };
+  };
+}

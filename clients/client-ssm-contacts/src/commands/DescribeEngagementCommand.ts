@@ -106,4 +106,16 @@ export class DescribeEngagementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEngagementCommand)
   .de(de_DescribeEngagementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEngagementRequest;
+      output: DescribeEngagementResult;
+    };
+    sdk: {
+      input: DescribeEngagementCommandInput;
+      output: DescribeEngagementCommandOutput;
+    };
+  };
+}

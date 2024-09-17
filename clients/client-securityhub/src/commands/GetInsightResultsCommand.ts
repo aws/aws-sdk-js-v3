@@ -132,4 +132,16 @@ export class GetInsightResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightResultsCommand)
   .de(de_GetInsightResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightResultsRequest;
+      output: GetInsightResultsResponse;
+    };
+    sdk: {
+      input: GetInsightResultsCommandInput;
+      output: GetInsightResultsCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDataCatalogEncryptionSettingsCommand)
   .de(de_PutDataCatalogEncryptionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDataCatalogEncryptionSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDataCatalogEncryptionSettingsCommandInput;
+      output: PutDataCatalogEncryptionSettingsCommandOutput;
+    };
+  };
+}

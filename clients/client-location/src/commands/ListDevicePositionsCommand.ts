@@ -121,4 +121,16 @@ export class ListDevicePositionsCommand extends $Command
   .f(ListDevicePositionsRequestFilterSensitiveLog, ListDevicePositionsResponseFilterSensitiveLog)
   .ser(se_ListDevicePositionsCommand)
   .de(de_ListDevicePositionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicePositionsRequest;
+      output: ListDevicePositionsResponse;
+    };
+    sdk: {
+      input: ListDevicePositionsCommandInput;
+      output: ListDevicePositionsCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class PutMethodResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMethodResponseCommand)
   .de(de_PutMethodResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMethodResponseRequest;
+      output: MethodResponse;
+    };
+    sdk: {
+      input: PutMethodResponseCommandInput;
+      output: PutMethodResponseCommandOutput;
+    };
+  };
+}

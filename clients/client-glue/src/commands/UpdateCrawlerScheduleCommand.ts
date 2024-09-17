@@ -91,4 +91,16 @@ export class UpdateCrawlerScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCrawlerScheduleCommand)
   .de(de_UpdateCrawlerScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCrawlerScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCrawlerScheduleCommandInput;
+      output: UpdateCrawlerScheduleCommandOutput;
+    };
+  };
+}

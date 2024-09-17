@@ -114,4 +114,16 @@ export class DescribeEphemerisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEphemerisCommand)
   .de(de_DescribeEphemerisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEphemerisRequest;
+      output: DescribeEphemerisResponse;
+    };
+    sdk: {
+      input: DescribeEphemerisCommandInput;
+      output: DescribeEphemerisCommandOutput;
+    };
+  };
+}

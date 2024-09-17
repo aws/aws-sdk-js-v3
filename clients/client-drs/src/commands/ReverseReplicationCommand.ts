@@ -101,4 +101,16 @@ export class ReverseReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReverseReplicationCommand)
   .de(de_ReverseReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReverseReplicationRequest;
+      output: ReverseReplicationResponse;
+    };
+    sdk: {
+      input: ReverseReplicationCommandInput;
+      output: ReverseReplicationCommandOutput;
+    };
+  };
+}

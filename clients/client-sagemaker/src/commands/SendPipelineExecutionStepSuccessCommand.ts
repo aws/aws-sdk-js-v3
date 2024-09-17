@@ -102,4 +102,16 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendPipelineExecutionStepSuccessCommand)
   .de(de_SendPipelineExecutionStepSuccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendPipelineExecutionStepSuccessRequest;
+      output: SendPipelineExecutionStepSuccessResponse;
+    };
+    sdk: {
+      input: SendPipelineExecutionStepSuccessCommandInput;
+      output: SendPipelineExecutionStepSuccessCommandOutput;
+    };
+  };
+}

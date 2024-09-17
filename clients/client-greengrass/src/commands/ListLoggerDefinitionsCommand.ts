@@ -92,4 +92,16 @@ export class ListLoggerDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLoggerDefinitionsCommand)
   .de(de_ListLoggerDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLoggerDefinitionsRequest;
+      output: ListLoggerDefinitionsResponse;
+    };
+    sdk: {
+      input: ListLoggerDefinitionsCommandInput;
+      output: ListLoggerDefinitionsCommandOutput;
+    };
+  };
+}

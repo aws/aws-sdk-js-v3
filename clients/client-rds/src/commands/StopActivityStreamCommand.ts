@@ -124,4 +124,16 @@ export class StopActivityStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopActivityStreamCommand)
   .de(de_StopActivityStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopActivityStreamRequest;
+      output: StopActivityStreamResponse;
+    };
+    sdk: {
+      input: StopActivityStreamCommandInput;
+      output: StopActivityStreamCommandOutput;
+    };
+  };
+}

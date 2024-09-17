@@ -146,4 +146,16 @@ export class UpdateFleetPortSettingsCommand extends $Command
   .f(UpdateFleetPortSettingsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateFleetPortSettingsCommand)
   .de(de_UpdateFleetPortSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetPortSettingsInput;
+      output: UpdateFleetPortSettingsOutput;
+    };
+    sdk: {
+      input: UpdateFleetPortSettingsCommandInput;
+      output: UpdateFleetPortSettingsCommandOutput;
+    };
+  };
+}

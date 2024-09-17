@@ -102,4 +102,16 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTransitGatewayMulticastGroupSourcesCommand)
   .de(de_RegisterTransitGatewayMulticastGroupSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTransitGatewayMulticastGroupSourcesRequest;
+      output: RegisterTransitGatewayMulticastGroupSourcesResult;
+    };
+    sdk: {
+      input: RegisterTransitGatewayMulticastGroupSourcesCommandInput;
+      output: RegisterTransitGatewayMulticastGroupSourcesCommandOutput;
+    };
+  };
+}

@@ -142,4 +142,16 @@ export class BatchGetCommitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCommitsCommand)
   .de(de_BatchGetCommitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCommitsInput;
+      output: BatchGetCommitsOutput;
+    };
+    sdk: {
+      input: BatchGetCommitsCommandInput;
+      output: BatchGetCommitsCommandOutput;
+    };
+  };
+}

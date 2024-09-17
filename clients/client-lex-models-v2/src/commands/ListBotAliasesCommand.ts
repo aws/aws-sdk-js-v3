@@ -106,4 +106,16 @@ export class ListBotAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotAliasesCommand)
   .de(de_ListBotAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotAliasesRequest;
+      output: ListBotAliasesResponse;
+    };
+    sdk: {
+      input: ListBotAliasesCommandInput;
+      output: ListBotAliasesCommandOutput;
+    };
+  };
+}

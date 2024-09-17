@@ -148,4 +148,16 @@ export class DisassociateResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateResourceCommand)
   .de(de_DisassociateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateResourceRequest;
+      output: DisassociateResourceResponse;
+    };
+    sdk: {
+      input: DisassociateResourceCommandInput;
+      output: DisassociateResourceCommandOutput;
+    };
+  };
+}

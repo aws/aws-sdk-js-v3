@@ -104,4 +104,16 @@ export class GetInferenceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInferenceProfileCommand)
   .de(de_GetInferenceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInferenceProfileRequest;
+      output: GetInferenceProfileResponse;
+    };
+    sdk: {
+      input: GetInferenceProfileCommandInput;
+      output: GetInferenceProfileCommandOutput;
+    };
+  };
+}

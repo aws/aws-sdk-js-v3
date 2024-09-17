@@ -111,4 +111,16 @@ export class ListApplicationProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationProvidersCommand)
   .de(de_ListApplicationProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationProvidersRequest;
+      output: ListApplicationProvidersResponse;
+    };
+    sdk: {
+      input: ListApplicationProvidersCommandInput;
+      output: ListApplicationProvidersCommandOutput;
+    };
+  };
+}

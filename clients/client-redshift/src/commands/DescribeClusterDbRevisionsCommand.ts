@@ -100,4 +100,16 @@ export class DescribeClusterDbRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterDbRevisionsCommand)
   .de(de_DescribeClusterDbRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterDbRevisionsMessage;
+      output: ClusterDbRevisionsMessage;
+    };
+    sdk: {
+      input: DescribeClusterDbRevisionsCommandInput;
+      output: DescribeClusterDbRevisionsCommandOutput;
+    };
+  };
+}

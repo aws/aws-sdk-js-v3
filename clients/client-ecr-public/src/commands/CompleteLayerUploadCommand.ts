@@ -126,4 +126,16 @@ export class CompleteLayerUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteLayerUploadCommand)
   .de(de_CompleteLayerUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteLayerUploadRequest;
+      output: CompleteLayerUploadResponse;
+    };
+    sdk: {
+      input: CompleteLayerUploadCommandInput;
+      output: CompleteLayerUploadCommandOutput;
+    };
+  };
+}

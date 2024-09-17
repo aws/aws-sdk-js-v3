@@ -114,4 +114,16 @@ export class UpdateBandwidthRateLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBandwidthRateLimitCommand)
   .de(de_UpdateBandwidthRateLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBandwidthRateLimitInput;
+      output: UpdateBandwidthRateLimitOutput;
+    };
+    sdk: {
+      input: UpdateBandwidthRateLimitCommandInput;
+      output: UpdateBandwidthRateLimitCommandOutput;
+    };
+  };
+}

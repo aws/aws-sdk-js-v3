@@ -91,4 +91,16 @@ export class RetrieveDomainAuthCodeCommand extends $Command
   .f(void 0, RetrieveDomainAuthCodeResponseFilterSensitiveLog)
   .ser(se_RetrieveDomainAuthCodeCommand)
   .de(de_RetrieveDomainAuthCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveDomainAuthCodeRequest;
+      output: RetrieveDomainAuthCodeResponse;
+    };
+    sdk: {
+      input: RetrieveDomainAuthCodeCommandInput;
+      output: RetrieveDomainAuthCodeCommandOutput;
+    };
+  };
+}

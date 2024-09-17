@@ -145,4 +145,16 @@ export class CreateDataSourceFromRedshiftCommand extends $Command
   .f(CreateDataSourceFromRedshiftInputFilterSensitiveLog, void 0)
   .ser(se_CreateDataSourceFromRedshiftCommand)
   .de(de_CreateDataSourceFromRedshiftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceFromRedshiftInput;
+      output: CreateDataSourceFromRedshiftOutput;
+    };
+    sdk: {
+      input: CreateDataSourceFromRedshiftCommandInput;
+      output: CreateDataSourceFromRedshiftCommandOutput;
+    };
+  };
+}

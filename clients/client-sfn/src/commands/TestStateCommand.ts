@@ -173,4 +173,16 @@ export class TestStateCommand extends $Command
   .f(TestStateInputFilterSensitiveLog, TestStateOutputFilterSensitiveLog)
   .ser(se_TestStateCommand)
   .de(de_TestStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestStateInput;
+      output: TestStateOutput;
+    };
+    sdk: {
+      input: TestStateCommandInput;
+      output: TestStateCommandOutput;
+    };
+  };
+}

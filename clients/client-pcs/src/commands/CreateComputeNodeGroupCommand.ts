@@ -264,4 +264,16 @@ export class CreateComputeNodeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateComputeNodeGroupCommand)
   .de(de_CreateComputeNodeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComputeNodeGroupRequest;
+      output: CreateComputeNodeGroupResponse;
+    };
+    sdk: {
+      input: CreateComputeNodeGroupCommandInput;
+      output: CreateComputeNodeGroupCommandOutput;
+    };
+  };
+}

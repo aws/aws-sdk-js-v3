@@ -179,4 +179,16 @@ export class DescribeGameSessionsCommand extends $Command
   .f(void 0, DescribeGameSessionsOutputFilterSensitiveLog)
   .ser(se_DescribeGameSessionsCommand)
   .de(de_DescribeGameSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionsInput;
+      output: DescribeGameSessionsOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionsCommandInput;
+      output: DescribeGameSessionsCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class ListPolicyAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPolicyAttachmentsCommand)
   .de(de_ListPolicyAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyAttachmentsRequest;
+      output: ListPolicyAttachmentsResponse;
+    };
+    sdk: {
+      input: ListPolicyAttachmentsCommandInput;
+      output: ListPolicyAttachmentsCommandOutput;
+    };
+  };
+}

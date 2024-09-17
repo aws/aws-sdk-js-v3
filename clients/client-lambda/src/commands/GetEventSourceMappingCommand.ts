@@ -161,4 +161,16 @@ export class GetEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventSourceMappingCommand)
   .de(de_GetEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: GetEventSourceMappingCommandInput;
+      output: GetEventSourceMappingCommandOutput;
+    };
+  };
+}

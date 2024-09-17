@@ -312,4 +312,16 @@ export class BatchIsAuthorizedWithTokenCommand extends $Command
   .f(BatchIsAuthorizedWithTokenInputFilterSensitiveLog, BatchIsAuthorizedWithTokenOutputFilterSensitiveLog)
   .ser(se_BatchIsAuthorizedWithTokenCommand)
   .de(de_BatchIsAuthorizedWithTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchIsAuthorizedWithTokenInput;
+      output: BatchIsAuthorizedWithTokenOutput;
+    };
+    sdk: {
+      input: BatchIsAuthorizedWithTokenCommandInput;
+      output: BatchIsAuthorizedWithTokenCommandOutput;
+    };
+  };
+}

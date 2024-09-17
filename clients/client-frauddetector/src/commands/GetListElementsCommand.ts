@@ -103,4 +103,16 @@ export class GetListElementsCommand extends $Command
   .f(void 0, GetListElementsResultFilterSensitiveLog)
   .ser(se_GetListElementsCommand)
   .de(de_GetListElementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetListElementsRequest;
+      output: GetListElementsResult;
+    };
+    sdk: {
+      input: GetListElementsCommandInput;
+      output: GetListElementsCommandOutput;
+    };
+  };
+}

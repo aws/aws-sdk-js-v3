@@ -123,4 +123,16 @@ export class UpdateDataSourcePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataSourcePermissionsCommand)
   .de(de_UpdateDataSourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSourcePermissionsRequest;
+      output: UpdateDataSourcePermissionsResponse;
+    };
+    sdk: {
+      input: UpdateDataSourcePermissionsCommandInput;
+      output: UpdateDataSourcePermissionsCommandOutput;
+    };
+  };
+}

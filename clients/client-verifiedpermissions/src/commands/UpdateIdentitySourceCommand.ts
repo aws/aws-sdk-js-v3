@@ -230,4 +230,16 @@ export class UpdateIdentitySourceCommand extends $Command
   .f(UpdateIdentitySourceInputFilterSensitiveLog, void 0)
   .ser(se_UpdateIdentitySourceCommand)
   .de(de_UpdateIdentitySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdentitySourceInput;
+      output: UpdateIdentitySourceOutput;
+    };
+    sdk: {
+      input: UpdateIdentitySourceCommandInput;
+      output: UpdateIdentitySourceCommandOutput;
+    };
+  };
+}

@@ -117,4 +117,16 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWirelessGatewayTaskDefinitionCommand)
   .de(de_GetWirelessGatewayTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWirelessGatewayTaskDefinitionRequest;
+      output: GetWirelessGatewayTaskDefinitionResponse;
+    };
+    sdk: {
+      input: GetWirelessGatewayTaskDefinitionCommandInput;
+      output: GetWirelessGatewayTaskDefinitionCommandOutput;
+    };
+  };
+}

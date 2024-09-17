@@ -209,4 +209,16 @@ export class DescribeDirectoriesCommand extends $Command
   .f(void 0, DescribeDirectoriesResultFilterSensitiveLog)
   .ser(se_DescribeDirectoriesCommand)
   .de(de_DescribeDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectoriesRequest;
+      output: DescribeDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeDirectoriesCommandInput;
+      output: DescribeDirectoriesCommandOutput;
+    };
+  };
+}

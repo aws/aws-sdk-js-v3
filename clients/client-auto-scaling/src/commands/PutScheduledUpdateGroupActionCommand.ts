@@ -123,4 +123,16 @@ export class PutScheduledUpdateGroupActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutScheduledUpdateGroupActionCommand)
   .de(de_PutScheduledUpdateGroupActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutScheduledUpdateGroupActionType;
+      output: {};
+    };
+    sdk: {
+      input: PutScheduledUpdateGroupActionCommandInput;
+      output: PutScheduledUpdateGroupActionCommandOutput;
+    };
+  };
+}

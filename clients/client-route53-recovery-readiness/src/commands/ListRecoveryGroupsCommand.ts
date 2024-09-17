@@ -106,4 +106,16 @@ export class ListRecoveryGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecoveryGroupsCommand)
   .de(de_ListRecoveryGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecoveryGroupsRequest;
+      output: ListRecoveryGroupsResponse;
+    };
+    sdk: {
+      input: ListRecoveryGroupsCommandInput;
+      output: ListRecoveryGroupsCommandOutput;
+    };
+  };
+}

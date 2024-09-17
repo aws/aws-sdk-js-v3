@@ -179,4 +179,16 @@ export class DescribeContainerGroupDefinitionCommand extends $Command
   .f(void 0, DescribeContainerGroupDefinitionOutputFilterSensitiveLog)
   .ser(se_DescribeContainerGroupDefinitionCommand)
   .de(de_DescribeContainerGroupDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContainerGroupDefinitionInput;
+      output: DescribeContainerGroupDefinitionOutput;
+    };
+    sdk: {
+      input: DescribeContainerGroupDefinitionCommandInput;
+      output: DescribeContainerGroupDefinitionCommandOutput;
+    };
+  };
+}

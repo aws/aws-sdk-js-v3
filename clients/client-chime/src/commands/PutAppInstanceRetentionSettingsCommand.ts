@@ -126,4 +126,16 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAppInstanceRetentionSettingsCommand)
   .de(de_PutAppInstanceRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAppInstanceRetentionSettingsRequest;
+      output: PutAppInstanceRetentionSettingsResponse;
+    };
+    sdk: {
+      input: PutAppInstanceRetentionSettingsCommandInput;
+      output: PutAppInstanceRetentionSettingsCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class DeleteReferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReferenceCommand)
   .de(de_DeleteReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReferenceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReferenceCommandInput;
+      output: DeleteReferenceCommandOutput;
+    };
+  };
+}

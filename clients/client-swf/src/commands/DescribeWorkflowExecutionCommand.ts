@@ -155,4 +155,16 @@ export class DescribeWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkflowExecutionCommand)
   .de(de_DescribeWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkflowExecutionInput;
+      output: WorkflowExecutionDetail;
+    };
+    sdk: {
+      input: DescribeWorkflowExecutionCommandInput;
+      output: DescribeWorkflowExecutionCommandOutput;
+    };
+  };
+}

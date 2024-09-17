@@ -124,4 +124,16 @@ export class EvaluateExpressionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EvaluateExpressionCommand)
   .de(de_EvaluateExpressionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluateExpressionInput;
+      output: EvaluateExpressionOutput;
+    };
+    sdk: {
+      input: EvaluateExpressionCommandInput;
+      output: EvaluateExpressionCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class DeregisterVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterVolumeCommand)
   .de(de_DeregisterVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterVolumeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterVolumeCommandInput;
+      output: DeregisterVolumeCommandOutput;
+    };
+  };
+}

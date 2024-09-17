@@ -123,4 +123,16 @@ export class RotateChannelCredentialsCommand extends $Command
   .f(void 0, RotateChannelCredentialsResponseFilterSensitiveLog)
   .ser(se_RotateChannelCredentialsCommand)
   .de(de_RotateChannelCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateChannelCredentialsRequest;
+      output: RotateChannelCredentialsResponse;
+    };
+    sdk: {
+      input: RotateChannelCredentialsCommandInput;
+      output: RotateChannelCredentialsCommandOutput;
+    };
+  };
+}

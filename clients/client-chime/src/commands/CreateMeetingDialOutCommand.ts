@@ -116,4 +116,16 @@ export class CreateMeetingDialOutCommand extends $Command
   .f(CreateMeetingDialOutRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMeetingDialOutCommand)
   .de(de_CreateMeetingDialOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMeetingDialOutRequest;
+      output: CreateMeetingDialOutResponse;
+    };
+    sdk: {
+      input: CreateMeetingDialOutCommandInput;
+      output: CreateMeetingDialOutCommandOutput;
+    };
+  };
+}

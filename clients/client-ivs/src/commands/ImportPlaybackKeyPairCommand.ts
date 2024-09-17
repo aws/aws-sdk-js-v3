@@ -107,4 +107,16 @@ export class ImportPlaybackKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportPlaybackKeyPairCommand)
   .de(de_ImportPlaybackKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportPlaybackKeyPairRequest;
+      output: ImportPlaybackKeyPairResponse;
+    };
+    sdk: {
+      input: ImportPlaybackKeyPairCommandInput;
+      output: ImportPlaybackKeyPairCommandOutput;
+    };
+  };
+}

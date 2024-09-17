@@ -113,4 +113,16 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAdditionalAssignmentsForHITCommand)
   .de(de_CreateAdditionalAssignmentsForHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAdditionalAssignmentsForHITRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAdditionalAssignmentsForHITCommandInput;
+      output: CreateAdditionalAssignmentsForHITCommandOutput;
+    };
+  };
+}

@@ -139,4 +139,16 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchAssociateResourcesToCustomLineItemCommand)
   .de(de_BatchAssociateResourcesToCustomLineItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchAssociateResourcesToCustomLineItemInput;
+      output: BatchAssociateResourcesToCustomLineItemOutput;
+    };
+    sdk: {
+      input: BatchAssociateResourcesToCustomLineItemCommandInput;
+      output: BatchAssociateResourcesToCustomLineItemCommandOutput;
+    };
+  };
+}

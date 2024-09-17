@@ -99,4 +99,16 @@ export class GetAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAliasCommand)
   .de(de_GetAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAliasRequest;
+      output: AliasConfiguration;
+    };
+    sdk: {
+      input: GetAliasCommandInput;
+      output: GetAliasCommandOutput;
+    };
+  };
+}

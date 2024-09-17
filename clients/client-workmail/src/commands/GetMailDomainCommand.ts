@@ -102,4 +102,16 @@ export class GetMailDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMailDomainCommand)
   .de(de_GetMailDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMailDomainRequest;
+      output: GetMailDomainResponse;
+    };
+    sdk: {
+      input: GetMailDomainCommandInput;
+      output: GetMailDomainCommandOutput;
+    };
+  };
+}

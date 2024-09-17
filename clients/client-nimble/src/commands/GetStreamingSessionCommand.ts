@@ -138,4 +138,16 @@ export class GetStreamingSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStreamingSessionCommand)
   .de(de_GetStreamingSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamingSessionRequest;
+      output: GetStreamingSessionResponse;
+    };
+    sdk: {
+      input: GetStreamingSessionCommandInput;
+      output: GetStreamingSessionCommandOutput;
+    };
+  };
+}

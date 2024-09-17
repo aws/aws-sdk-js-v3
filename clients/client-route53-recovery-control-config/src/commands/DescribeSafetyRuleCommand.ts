@@ -121,4 +121,16 @@ export class DescribeSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSafetyRuleCommand)
   .de(de_DescribeSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSafetyRuleRequest;
+      output: DescribeSafetyRuleResponse;
+    };
+    sdk: {
+      input: DescribeSafetyRuleCommandInput;
+      output: DescribeSafetyRuleCommandOutput;
+    };
+  };
+}

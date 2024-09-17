@@ -120,4 +120,16 @@ export class AssociateSbomWithPackageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSbomWithPackageVersionCommand)
   .de(de_AssociateSbomWithPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSbomWithPackageVersionRequest;
+      output: AssociateSbomWithPackageVersionResponse;
+    };
+    sdk: {
+      input: AssociateSbomWithPackageVersionCommandInput;
+      output: AssociateSbomWithPackageVersionCommandOutput;
+    };
+  };
+}

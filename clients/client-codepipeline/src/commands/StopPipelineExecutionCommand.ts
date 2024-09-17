@@ -106,4 +106,16 @@ export class StopPipelineExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopPipelineExecutionCommand)
   .de(de_StopPipelineExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopPipelineExecutionInput;
+      output: StopPipelineExecutionOutput;
+    };
+    sdk: {
+      input: StopPipelineExecutionCommandInput;
+      output: StopPipelineExecutionCommandOutput;
+    };
+  };
+}

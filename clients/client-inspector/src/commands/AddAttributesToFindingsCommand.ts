@@ -132,4 +132,16 @@ export class AddAttributesToFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddAttributesToFindingsCommand)
   .de(de_AddAttributesToFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddAttributesToFindingsRequest;
+      output: AddAttributesToFindingsResponse;
+    };
+    sdk: {
+      input: AddAttributesToFindingsCommandInput;
+      output: AddAttributesToFindingsCommandOutput;
+    };
+  };
+}

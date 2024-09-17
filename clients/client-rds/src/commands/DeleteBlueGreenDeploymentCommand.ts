@@ -259,4 +259,16 @@ export class DeleteBlueGreenDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBlueGreenDeploymentCommand)
   .de(de_DeleteBlueGreenDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBlueGreenDeploymentRequest;
+      output: DeleteBlueGreenDeploymentResponse;
+    };
+    sdk: {
+      input: DeleteBlueGreenDeploymentCommandInput;
+      output: DeleteBlueGreenDeploymentCommandOutput;
+    };
+  };
+}

@@ -111,4 +111,16 @@ export class ListImportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImportsCommand)
   .de(de_ListImportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImportsInput;
+      output: ListImportsOutput;
+    };
+    sdk: {
+      input: ListImportsCommandInput;
+      output: ListImportsCommandOutput;
+    };
+  };
+}

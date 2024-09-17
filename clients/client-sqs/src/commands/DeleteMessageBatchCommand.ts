@@ -145,4 +145,16 @@ export class DeleteMessageBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMessageBatchCommand)
   .de(de_DeleteMessageBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMessageBatchRequest;
+      output: DeleteMessageBatchResult;
+    };
+    sdk: {
+      input: DeleteMessageBatchCommandInput;
+      output: DeleteMessageBatchCommandOutput;
+    };
+  };
+}

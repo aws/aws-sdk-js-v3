@@ -91,4 +91,16 @@ export class DeleteDeploymentConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeploymentConfigCommand)
   .de(de_DeleteDeploymentConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentConfigInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeploymentConfigCommandInput;
+      output: DeleteDeploymentConfigCommandOutput;
+    };
+  };
+}

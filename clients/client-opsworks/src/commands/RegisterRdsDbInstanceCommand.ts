@@ -89,4 +89,16 @@ export class RegisterRdsDbInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterRdsDbInstanceCommand)
   .de(de_RegisterRdsDbInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterRdsDbInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterRdsDbInstanceCommandInput;
+      output: RegisterRdsDbInstanceCommandOutput;
+    };
+  };
+}

@@ -102,4 +102,16 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContinuousDeploymentPolicyCommand)
   .de(de_DeleteContinuousDeploymentPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContinuousDeploymentPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContinuousDeploymentPolicyCommandInput;
+      output: DeleteContinuousDeploymentPolicyCommandOutput;
+    };
+  };
+}

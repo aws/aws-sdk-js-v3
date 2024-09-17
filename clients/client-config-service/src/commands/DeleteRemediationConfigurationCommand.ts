@@ -116,4 +116,16 @@ export class DeleteRemediationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRemediationConfigurationCommand)
   .de(de_DeleteRemediationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRemediationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRemediationConfigurationCommandInput;
+      output: DeleteRemediationConfigurationCommandOutput;
+    };
+  };
+}

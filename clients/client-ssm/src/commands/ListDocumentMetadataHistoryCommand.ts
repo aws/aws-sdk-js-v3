@@ -114,4 +114,16 @@ export class ListDocumentMetadataHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDocumentMetadataHistoryCommand)
   .de(de_ListDocumentMetadataHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDocumentMetadataHistoryRequest;
+      output: ListDocumentMetadataHistoryResponse;
+    };
+    sdk: {
+      input: ListDocumentMetadataHistoryCommandInput;
+      output: ListDocumentMetadataHistoryCommandOutput;
+    };
+  };
+}

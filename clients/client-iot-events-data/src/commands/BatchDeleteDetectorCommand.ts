@@ -101,4 +101,16 @@ export class BatchDeleteDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteDetectorCommand)
   .de(de_BatchDeleteDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteDetectorRequest;
+      output: BatchDeleteDetectorResponse;
+    };
+    sdk: {
+      input: BatchDeleteDetectorCommandInput;
+      output: BatchDeleteDetectorCommandOutput;
+    };
+  };
+}

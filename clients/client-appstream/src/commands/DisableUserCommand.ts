@@ -79,4 +79,16 @@ export class DisableUserCommand extends $Command
   .f(DisableUserRequestFilterSensitiveLog, void 0)
   .ser(se_DisableUserCommand)
   .de(de_DisableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableUserCommandInput;
+      output: DisableUserCommandOutput;
+    };
+  };
+}

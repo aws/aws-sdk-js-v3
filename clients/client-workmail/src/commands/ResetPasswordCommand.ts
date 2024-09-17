@@ -113,4 +113,16 @@ export class ResetPasswordCommand extends $Command
   .f(ResetPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ResetPasswordCommand)
   .de(de_ResetPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetPasswordCommandInput;
+      output: ResetPasswordCommandOutput;
+    };
+  };
+}

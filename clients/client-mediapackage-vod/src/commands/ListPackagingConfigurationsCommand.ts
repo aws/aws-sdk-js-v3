@@ -241,4 +241,16 @@ export class ListPackagingConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackagingConfigurationsCommand)
   .de(de_ListPackagingConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackagingConfigurationsRequest;
+      output: ListPackagingConfigurationsResponse;
+    };
+    sdk: {
+      input: ListPackagingConfigurationsCommandInput;
+      output: ListPackagingConfigurationsCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class UpdatePermissionGroupCommand extends $Command
   .f(UpdatePermissionGroupRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePermissionGroupCommand)
   .de(de_UpdatePermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePermissionGroupRequest;
+      output: UpdatePermissionGroupResponse;
+    };
+    sdk: {
+      input: UpdatePermissionGroupCommandInput;
+      output: UpdatePermissionGroupCommandOutput;
+    };
+  };
+}

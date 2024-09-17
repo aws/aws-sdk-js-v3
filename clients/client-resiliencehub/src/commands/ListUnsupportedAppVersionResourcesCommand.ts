@@ -135,4 +135,16 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUnsupportedAppVersionResourcesCommand)
   .de(de_ListUnsupportedAppVersionResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUnsupportedAppVersionResourcesRequest;
+      output: ListUnsupportedAppVersionResourcesResponse;
+    };
+    sdk: {
+      input: ListUnsupportedAppVersionResourcesCommandInput;
+      output: ListUnsupportedAppVersionResourcesCommandOutput;
+    };
+  };
+}

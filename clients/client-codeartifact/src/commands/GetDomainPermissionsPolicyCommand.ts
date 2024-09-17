@@ -114,4 +114,16 @@ export class GetDomainPermissionsPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainPermissionsPolicyCommand)
   .de(de_GetDomainPermissionsPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainPermissionsPolicyRequest;
+      output: GetDomainPermissionsPolicyResult;
+    };
+    sdk: {
+      input: GetDomainPermissionsPolicyCommandInput;
+      output: GetDomainPermissionsPolicyCommandOutput;
+    };
+  };
+}

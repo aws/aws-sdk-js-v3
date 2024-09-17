@@ -143,4 +143,16 @@ export class UpdateStateMachineAliasCommand extends $Command
   .f(UpdateStateMachineAliasInputFilterSensitiveLog, void 0)
   .ser(se_UpdateStateMachineAliasCommand)
   .de(de_UpdateStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStateMachineAliasInput;
+      output: UpdateStateMachineAliasOutput;
+    };
+    sdk: {
+      input: UpdateStateMachineAliasCommandInput;
+      output: UpdateStateMachineAliasCommandOutput;
+    };
+  };
+}

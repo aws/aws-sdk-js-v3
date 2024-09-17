@@ -95,4 +95,16 @@ export class PutAccountDetailsCommand extends $Command
   .f(PutAccountDetailsRequestFilterSensitiveLog, void 0)
   .ser(se_PutAccountDetailsCommand)
   .de(de_PutAccountDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountDetailsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccountDetailsCommandInput;
+      output: PutAccountDetailsCommandOutput;
+    };
+  };
+}

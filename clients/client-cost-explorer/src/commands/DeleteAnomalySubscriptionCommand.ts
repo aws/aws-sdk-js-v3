@@ -81,4 +81,16 @@ export class DeleteAnomalySubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnomalySubscriptionCommand)
   .de(de_DeleteAnomalySubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnomalySubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAnomalySubscriptionCommandInput;
+      output: DeleteAnomalySubscriptionCommandOutput;
+    };
+  };
+}

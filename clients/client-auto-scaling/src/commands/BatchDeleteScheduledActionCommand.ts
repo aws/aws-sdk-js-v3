@@ -90,4 +90,16 @@ export class BatchDeleteScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteScheduledActionCommand)
   .de(de_BatchDeleteScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteScheduledActionType;
+      output: BatchDeleteScheduledActionAnswer;
+    };
+    sdk: {
+      input: BatchDeleteScheduledActionCommandInput;
+      output: BatchDeleteScheduledActionCommandOutput;
+    };
+  };
+}

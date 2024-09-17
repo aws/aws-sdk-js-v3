@@ -124,4 +124,16 @@ export class CreatePackageVersionCommand extends $Command
   .f(CreatePackageVersionRequestFilterSensitiveLog, CreatePackageVersionResponseFilterSensitiveLog)
   .ser(se_CreatePackageVersionCommand)
   .de(de_CreatePackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageVersionRequest;
+      output: CreatePackageVersionResponse;
+    };
+    sdk: {
+      input: CreatePackageVersionCommandInput;
+      output: CreatePackageVersionCommandOutput;
+    };
+  };
+}

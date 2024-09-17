@@ -110,4 +110,16 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   .f(void 0, ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog)
   .ser(se_ListVoiceConnectorTerminationCredentialsCommand)
   .de(de_ListVoiceConnectorTerminationCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVoiceConnectorTerminationCredentialsRequest;
+      output: ListVoiceConnectorTerminationCredentialsResponse;
+    };
+    sdk: {
+      input: ListVoiceConnectorTerminationCredentialsCommandInput;
+      output: ListVoiceConnectorTerminationCredentialsCommandOutput;
+    };
+  };
+}

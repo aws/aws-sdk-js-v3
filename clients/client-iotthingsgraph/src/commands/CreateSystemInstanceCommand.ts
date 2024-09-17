@@ -129,4 +129,16 @@ export class CreateSystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSystemInstanceCommand)
   .de(de_CreateSystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSystemInstanceRequest;
+      output: CreateSystemInstanceResponse;
+    };
+    sdk: {
+      input: CreateSystemInstanceCommandInput;
+      output: CreateSystemInstanceCommandOutput;
+    };
+  };
+}

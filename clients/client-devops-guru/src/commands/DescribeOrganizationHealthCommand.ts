@@ -102,4 +102,16 @@ export class DescribeOrganizationHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationHealthCommand)
   .de(de_DescribeOrganizationHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationHealthRequest;
+      output: DescribeOrganizationHealthResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationHealthCommandInput;
+      output: DescribeOrganizationHealthCommandOutput;
+    };
+  };
+}

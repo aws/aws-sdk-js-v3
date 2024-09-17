@@ -98,4 +98,16 @@ export class DisconnectUserCommand extends $Command
   .f(DisconnectUserRequestFilterSensitiveLog, void 0)
   .ser(se_DisconnectUserCommand)
   .de(de_DisconnectUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectUserCommandInput;
+      output: DisconnectUserCommandOutput;
+    };
+  };
+}

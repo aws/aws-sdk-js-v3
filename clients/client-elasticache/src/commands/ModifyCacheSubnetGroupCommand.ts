@@ -178,4 +178,16 @@ export class ModifyCacheSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCacheSubnetGroupCommand)
   .de(de_ModifyCacheSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCacheSubnetGroupMessage;
+      output: ModifyCacheSubnetGroupResult;
+    };
+    sdk: {
+      input: ModifyCacheSubnetGroupCommandInput;
+      output: ModifyCacheSubnetGroupCommandOutput;
+    };
+  };
+}

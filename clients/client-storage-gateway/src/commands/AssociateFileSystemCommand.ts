@@ -111,4 +111,16 @@ export class AssociateFileSystemCommand extends $Command
   .f(AssociateFileSystemInputFilterSensitiveLog, void 0)
   .ser(se_AssociateFileSystemCommand)
   .de(de_AssociateFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateFileSystemInput;
+      output: AssociateFileSystemOutput;
+    };
+    sdk: {
+      input: AssociateFileSystemCommandInput;
+      output: AssociateFileSystemCommandOutput;
+    };
+  };
+}

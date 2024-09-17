@@ -98,4 +98,16 @@ export class CreateCustomDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomDomainAssociationCommand)
   .de(de_CreateCustomDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomDomainAssociationMessage;
+      output: CreateCustomDomainAssociationResult;
+    };
+    sdk: {
+      input: CreateCustomDomainAssociationCommandInput;
+      output: CreateCustomDomainAssociationCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class ListMonitoringAlertHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMonitoringAlertHistoryCommand)
   .de(de_ListMonitoringAlertHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMonitoringAlertHistoryRequest;
+      output: ListMonitoringAlertHistoryResponse;
+    };
+    sdk: {
+      input: ListMonitoringAlertHistoryCommandInput;
+      output: ListMonitoringAlertHistoryCommandOutput;
+    };
+  };
+}

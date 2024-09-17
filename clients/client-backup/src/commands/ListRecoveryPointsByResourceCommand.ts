@@ -118,4 +118,16 @@ export class ListRecoveryPointsByResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecoveryPointsByResourceCommand)
   .de(de_ListRecoveryPointsByResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecoveryPointsByResourceInput;
+      output: ListRecoveryPointsByResourceOutput;
+    };
+    sdk: {
+      input: ListRecoveryPointsByResourceCommandInput;
+      output: ListRecoveryPointsByResourceCommandOutput;
+    };
+  };
+}

@@ -202,4 +202,16 @@ export class GetSecurityControlDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSecurityControlDefinitionCommand)
   .de(de_GetSecurityControlDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecurityControlDefinitionRequest;
+      output: GetSecurityControlDefinitionResponse;
+    };
+    sdk: {
+      input: GetSecurityControlDefinitionCommandInput;
+      output: GetSecurityControlDefinitionCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class ListArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArtifactsCommand)
   .de(de_ListArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArtifactsRequest;
+      output: ListArtifactsResult;
+    };
+    sdk: {
+      input: ListArtifactsCommandInput;
+      output: ListArtifactsCommandOutput;
+    };
+  };
+}

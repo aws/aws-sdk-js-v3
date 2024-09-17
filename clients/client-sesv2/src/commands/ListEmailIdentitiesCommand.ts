@@ -95,4 +95,16 @@ export class ListEmailIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEmailIdentitiesCommand)
   .de(de_ListEmailIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEmailIdentitiesRequest;
+      output: ListEmailIdentitiesResponse;
+    };
+    sdk: {
+      input: ListEmailIdentitiesCommandInput;
+      output: ListEmailIdentitiesCommandOutput;
+    };
+  };
+}

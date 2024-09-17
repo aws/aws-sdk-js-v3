@@ -129,4 +129,16 @@ export class GetUserSettingsCommand extends $Command
   .f(void 0, GetUserSettingsResponseFilterSensitiveLog)
   .ser(se_GetUserSettingsCommand)
   .de(de_GetUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserSettingsRequest;
+      output: GetUserSettingsResponse;
+    };
+    sdk: {
+      input: GetUserSettingsCommandInput;
+      output: GetUserSettingsCommandOutput;
+    };
+  };
+}

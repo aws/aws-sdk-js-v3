@@ -99,4 +99,16 @@ export class GetCognitoEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCognitoEventsCommand)
   .de(de_GetCognitoEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCognitoEventsRequest;
+      output: GetCognitoEventsResponse;
+    };
+    sdk: {
+      input: GetCognitoEventsCommandInput;
+      output: GetCognitoEventsCommandOutput;
+    };
+  };
+}

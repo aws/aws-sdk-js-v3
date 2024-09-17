@@ -96,4 +96,16 @@ export class CreateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGatewayCommand)
   .de(de_CreateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGatewayInput;
+      output: CreateGatewayOutput;
+    };
+    sdk: {
+      input: CreateGatewayCommandInput;
+      output: CreateGatewayCommandOutput;
+    };
+  };
+}

@@ -115,4 +115,16 @@ export class UpdateBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBuildCommand)
   .de(de_UpdateBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBuildInput;
+      output: UpdateBuildOutput;
+    };
+    sdk: {
+      input: UpdateBuildCommandInput;
+      output: UpdateBuildCommandOutput;
+    };
+  };
+}

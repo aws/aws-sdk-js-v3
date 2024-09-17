@@ -98,4 +98,16 @@ export class ModifyListenerAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyListenerAttributesCommand)
   .de(de_ModifyListenerAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyListenerAttributesInput;
+      output: ModifyListenerAttributesOutput;
+    };
+    sdk: {
+      input: ModifyListenerAttributesCommandInput;
+      output: ModifyListenerAttributesCommandOutput;
+    };
+  };
+}

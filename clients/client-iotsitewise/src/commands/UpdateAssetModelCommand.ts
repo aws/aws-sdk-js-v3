@@ -308,4 +308,16 @@ export class UpdateAssetModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssetModelCommand)
   .de(de_UpdateAssetModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssetModelRequest;
+      output: UpdateAssetModelResponse;
+    };
+    sdk: {
+      input: UpdateAssetModelCommandInput;
+      output: UpdateAssetModelCommandOutput;
+    };
+  };
+}

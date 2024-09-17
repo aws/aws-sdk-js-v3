@@ -118,4 +118,16 @@ export class ListDevicesForWirelessDeviceImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicesForWirelessDeviceImportTaskCommand)
   .de(de_ListDevicesForWirelessDeviceImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesForWirelessDeviceImportTaskRequest;
+      output: ListDevicesForWirelessDeviceImportTaskResponse;
+    };
+    sdk: {
+      input: ListDevicesForWirelessDeviceImportTaskCommandInput;
+      output: ListDevicesForWirelessDeviceImportTaskCommandOutput;
+    };
+  };
+}

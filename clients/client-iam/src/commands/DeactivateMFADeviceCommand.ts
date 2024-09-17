@@ -102,4 +102,16 @@ export class DeactivateMFADeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateMFADeviceCommand)
   .de(de_DeactivateMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateMFADeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateMFADeviceCommandInput;
+      output: DeactivateMFADeviceCommandOutput;
+    };
+  };
+}

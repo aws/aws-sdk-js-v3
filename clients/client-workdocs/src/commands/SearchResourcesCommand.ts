@@ -250,4 +250,16 @@ export class SearchResourcesCommand extends $Command
   .f(SearchResourcesRequestFilterSensitiveLog, SearchResourcesResponseFilterSensitiveLog)
   .ser(se_SearchResourcesCommand)
   .de(de_SearchResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchResourcesRequest;
+      output: SearchResourcesResponse;
+    };
+    sdk: {
+      input: SearchResourcesCommandInput;
+      output: SearchResourcesCommandOutput;
+    };
+  };
+}

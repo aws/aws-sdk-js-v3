@@ -101,4 +101,16 @@ export class GetGameSessionLogUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGameSessionLogUrlCommand)
   .de(de_GetGameSessionLogUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGameSessionLogUrlInput;
+      output: GetGameSessionLogUrlOutput;
+    };
+    sdk: {
+      input: GetGameSessionLogUrlCommandInput;
+      output: GetGameSessionLogUrlCommandOutput;
+    };
+  };
+}

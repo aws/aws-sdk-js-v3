@@ -112,4 +112,16 @@ export class ListResourceProfileDetectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceProfileDetectionsCommand)
   .de(de_ListResourceProfileDetectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceProfileDetectionsRequest;
+      output: ListResourceProfileDetectionsResponse;
+    };
+    sdk: {
+      input: ListResourceProfileDetectionsCommandInput;
+      output: ListResourceProfileDetectionsCommandOutput;
+    };
+  };
+}

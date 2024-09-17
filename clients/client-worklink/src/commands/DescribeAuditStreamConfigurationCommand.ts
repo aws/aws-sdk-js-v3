@@ -99,4 +99,16 @@ export class DescribeAuditStreamConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAuditStreamConfigurationCommand)
   .de(de_DescribeAuditStreamConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAuditStreamConfigurationRequest;
+      output: DescribeAuditStreamConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeAuditStreamConfigurationCommandInput;
+      output: DescribeAuditStreamConfigurationCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class UpdateWirelessGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWirelessGatewayCommand)
   .de(de_UpdateWirelessGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWirelessGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWirelessGatewayCommandInput;
+      output: UpdateWirelessGatewayCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationSetEventDestinationCommand)
   .de(de_UpdateConfigurationSetEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationSetEventDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationSetEventDestinationCommandInput;
+      output: UpdateConfigurationSetEventDestinationCommandOutput;
+    };
+  };
+}

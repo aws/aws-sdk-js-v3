@@ -130,4 +130,16 @@ export class DescribeFlywheelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFlywheelCommand)
   .de(de_DescribeFlywheelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFlywheelRequest;
+      output: DescribeFlywheelResponse;
+    };
+    sdk: {
+      input: DescribeFlywheelCommandInput;
+      output: DescribeFlywheelCommandOutput;
+    };
+  };
+}

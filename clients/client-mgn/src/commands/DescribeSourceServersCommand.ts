@@ -224,4 +224,16 @@ export class DescribeSourceServersCommand extends $Command
   .f(void 0, DescribeSourceServersResponseFilterSensitiveLog)
   .ser(se_DescribeSourceServersCommand)
   .de(de_DescribeSourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSourceServersRequest;
+      output: DescribeSourceServersResponse;
+    };
+    sdk: {
+      input: DescribeSourceServersCommandInput;
+      output: DescribeSourceServersCommandOutput;
+    };
+  };
+}

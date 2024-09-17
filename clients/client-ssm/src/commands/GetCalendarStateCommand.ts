@@ -103,4 +103,16 @@ export class GetCalendarStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCalendarStateCommand)
   .de(de_GetCalendarStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCalendarStateRequest;
+      output: GetCalendarStateResponse;
+    };
+    sdk: {
+      input: GetCalendarStateCommandInput;
+      output: GetCalendarStateCommandOutput;
+    };
+  };
+}

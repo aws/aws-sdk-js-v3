@@ -106,4 +106,16 @@ export class ListHoursOfOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHoursOfOperationsCommand)
   .de(de_ListHoursOfOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHoursOfOperationsRequest;
+      output: ListHoursOfOperationsResponse;
+    };
+    sdk: {
+      input: ListHoursOfOperationsCommandInput;
+      output: ListHoursOfOperationsCommandOutput;
+    };
+  };
+}

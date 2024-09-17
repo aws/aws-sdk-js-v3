@@ -103,4 +103,16 @@ export class UpdateComponentConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateComponentConfigurationCommand)
   .de(de_UpdateComponentConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateComponentConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateComponentConfigurationCommandInput;
+      output: UpdateComponentConfigurationCommandOutput;
+    };
+  };
+}

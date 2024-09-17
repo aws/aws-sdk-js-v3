@@ -109,4 +109,16 @@ export class RegisterThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterThingCommand)
   .de(de_RegisterThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterThingRequest;
+      output: RegisterThingResponse;
+    };
+    sdk: {
+      input: RegisterThingCommandInput;
+      output: RegisterThingCommandOutput;
+    };
+  };
+}

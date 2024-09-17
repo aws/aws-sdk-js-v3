@@ -177,4 +177,16 @@ export class SendTemplatedEmailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendTemplatedEmailCommand)
   .de(de_SendTemplatedEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTemplatedEmailRequest;
+      output: SendTemplatedEmailResponse;
+    };
+    sdk: {
+      input: SendTemplatedEmailCommandInput;
+      output: SendTemplatedEmailCommandOutput;
+    };
+  };
+}

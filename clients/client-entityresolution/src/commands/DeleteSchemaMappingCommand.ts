@@ -98,4 +98,16 @@ export class DeleteSchemaMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSchemaMappingCommand)
   .de(de_DeleteSchemaMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSchemaMappingInput;
+      output: DeleteSchemaMappingOutput;
+    };
+    sdk: {
+      input: DeleteSchemaMappingCommandInput;
+      output: DeleteSchemaMappingCommandOutput;
+    };
+  };
+}

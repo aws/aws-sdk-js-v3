@@ -170,4 +170,16 @@ export class CreateTransitVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTransitVirtualInterfaceCommand)
   .de(de_CreateTransitVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTransitVirtualInterfaceRequest;
+      output: CreateTransitVirtualInterfaceResult;
+    };
+    sdk: {
+      input: CreateTransitVirtualInterfaceCommandInput;
+      output: CreateTransitVirtualInterfaceCommandOutput;
+    };
+  };
+}

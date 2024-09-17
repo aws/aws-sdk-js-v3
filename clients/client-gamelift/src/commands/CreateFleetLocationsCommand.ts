@@ -155,4 +155,16 @@ export class CreateFleetLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFleetLocationsCommand)
   .de(de_CreateFleetLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetLocationsInput;
+      output: CreateFleetLocationsOutput;
+    };
+    sdk: {
+      input: CreateFleetLocationsCommandInput;
+      output: CreateFleetLocationsCommandOutput;
+    };
+  };
+}

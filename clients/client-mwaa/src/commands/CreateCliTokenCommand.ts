@@ -85,4 +85,16 @@ export class CreateCliTokenCommand extends $Command
   .f(void 0, CreateCliTokenResponseFilterSensitiveLog)
   .ser(se_CreateCliTokenCommand)
   .de(de_CreateCliTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCliTokenRequest;
+      output: CreateCliTokenResponse;
+    };
+    sdk: {
+      input: CreateCliTokenCommandInput;
+      output: CreateCliTokenCommandOutput;
+    };
+  };
+}

@@ -161,4 +161,16 @@ export class ListResourcesCommand extends $Command
   .f(ListResourcesInputFilterSensitiveLog, ListResourcesOutputFilterSensitiveLog)
   .ser(se_ListResourcesCommand)
   .de(de_ListResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesInput;
+      output: ListResourcesOutput;
+    };
+    sdk: {
+      input: ListResourcesCommandInput;
+      output: ListResourcesCommandOutput;
+    };
+  };
+}

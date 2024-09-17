@@ -95,4 +95,16 @@ export class ListThemesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThemesCommand)
   .de(de_ListThemesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThemesRequest;
+      output: ListThemesResponse;
+    };
+    sdk: {
+      input: ListThemesCommandInput;
+      output: ListThemesCommandOutput;
+    };
+  };
+}

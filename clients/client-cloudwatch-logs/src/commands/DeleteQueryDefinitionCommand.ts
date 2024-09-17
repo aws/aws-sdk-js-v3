@@ -90,4 +90,16 @@ export class DeleteQueryDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueryDefinitionCommand)
   .de(de_DeleteQueryDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueryDefinitionRequest;
+      output: DeleteQueryDefinitionResponse;
+    };
+    sdk: {
+      input: DeleteQueryDefinitionCommandInput;
+      output: DeleteQueryDefinitionCommandOutput;
+    };
+  };
+}

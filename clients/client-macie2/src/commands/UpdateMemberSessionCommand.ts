@@ -97,4 +97,16 @@ export class UpdateMemberSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMemberSessionCommand)
   .de(de_UpdateMemberSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMemberSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMemberSessionCommandInput;
+      output: UpdateMemberSessionCommandOutput;
+    };
+  };
+}

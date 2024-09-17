@@ -126,4 +126,16 @@ export class ListManagedResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedResourcesCommand)
   .de(de_ListManagedResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedResourcesRequest;
+      output: ListManagedResourcesResponse;
+    };
+    sdk: {
+      input: ListManagedResourcesCommandInput;
+      output: ListManagedResourcesCommandOutput;
+    };
+  };
+}

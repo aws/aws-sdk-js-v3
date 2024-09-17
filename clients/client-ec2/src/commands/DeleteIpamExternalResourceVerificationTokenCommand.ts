@@ -105,4 +105,16 @@ export class DeleteIpamExternalResourceVerificationTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpamExternalResourceVerificationTokenCommand)
   .de(de_DeleteIpamExternalResourceVerificationTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpamExternalResourceVerificationTokenRequest;
+      output: DeleteIpamExternalResourceVerificationTokenResult;
+    };
+    sdk: {
+      input: DeleteIpamExternalResourceVerificationTokenCommandInput;
+      output: DeleteIpamExternalResourceVerificationTokenCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class GetBucketRequestPaymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketRequestPaymentCommand)
   .de(de_GetBucketRequestPaymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketRequestPaymentRequest;
+      output: GetBucketRequestPaymentOutput;
+    };
+    sdk: {
+      input: GetBucketRequestPaymentCommandInput;
+      output: GetBucketRequestPaymentCommandOutput;
+    };
+  };
+}

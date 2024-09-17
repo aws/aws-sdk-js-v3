@@ -96,4 +96,16 @@ export class UpdateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGatewayCommand)
   .de(de_UpdateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateGatewayCommandInput;
+      output: UpdateGatewayCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class UpdateTestConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTestConfigurationCommand)
   .de(de_UpdateTestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTestConfigurationRequest;
+      output: UpdateTestConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateTestConfigurationCommandInput;
+      output: UpdateTestConfigurationCommandOutput;
+    };
+  };
+}

@@ -686,4 +686,16 @@ export class CopySnapshotAndUpdateVolumeCommand extends $Command
   .f(void 0, CopySnapshotAndUpdateVolumeResponseFilterSensitiveLog)
   .ser(se_CopySnapshotAndUpdateVolumeCommand)
   .de(de_CopySnapshotAndUpdateVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopySnapshotAndUpdateVolumeRequest;
+      output: CopySnapshotAndUpdateVolumeResponse;
+    };
+    sdk: {
+      input: CopySnapshotAndUpdateVolumeCommandInput;
+      output: CopySnapshotAndUpdateVolumeCommandOutput;
+    };
+  };
+}

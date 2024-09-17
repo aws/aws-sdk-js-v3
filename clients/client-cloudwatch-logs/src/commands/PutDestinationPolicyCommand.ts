@@ -88,4 +88,16 @@ export class PutDestinationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDestinationPolicyCommand)
   .de(de_PutDestinationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDestinationPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDestinationPolicyCommandInput;
+      output: PutDestinationPolicyCommandOutput;
+    };
+  };
+}

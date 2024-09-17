@@ -84,4 +84,16 @@ export class DeleteHubContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHubContentCommand)
   .de(de_DeleteHubContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHubContentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHubContentCommandInput;
+      output: DeleteHubContentCommandOutput;
+    };
+  };
+}

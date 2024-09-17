@@ -127,4 +127,16 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEvidenceByEvidenceFolderCommand)
   .de(de_GetEvidenceByEvidenceFolderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEvidenceByEvidenceFolderRequest;
+      output: GetEvidenceByEvidenceFolderResponse;
+    };
+    sdk: {
+      input: GetEvidenceByEvidenceFolderCommandInput;
+      output: GetEvidenceByEvidenceFolderCommandOutput;
+    };
+  };
+}

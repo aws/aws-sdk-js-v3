@@ -166,4 +166,16 @@ export class BatchUpdateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateClusterCommand)
   .de(de_BatchUpdateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateClusterRequest;
+      output: BatchUpdateClusterResponse;
+    };
+    sdk: {
+      input: BatchUpdateClusterCommandInput;
+      output: BatchUpdateClusterCommandOutput;
+    };
+  };
+}

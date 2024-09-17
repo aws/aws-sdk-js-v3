@@ -720,4 +720,16 @@ export class UpdateVolumeCommand extends $Command
   .f(void 0, UpdateVolumeResponseFilterSensitiveLog)
   .ser(se_UpdateVolumeCommand)
   .de(de_UpdateVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVolumeRequest;
+      output: UpdateVolumeResponse;
+    };
+    sdk: {
+      input: UpdateVolumeCommandInput;
+      output: UpdateVolumeCommandOutput;
+    };
+  };
+}

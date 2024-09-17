@@ -107,4 +107,16 @@ export class DeleteAdapterVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAdapterVersionCommand)
   .de(de_DeleteAdapterVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAdapterVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAdapterVersionCommandInput;
+      output: DeleteAdapterVersionCommandOutput;
+    };
+  };
+}

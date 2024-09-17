@@ -122,4 +122,16 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetRepositoryScanningConfigurationCommand)
   .de(de_BatchGetRepositoryScanningConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetRepositoryScanningConfigurationRequest;
+      output: BatchGetRepositoryScanningConfigurationResponse;
+    };
+    sdk: {
+      input: BatchGetRepositoryScanningConfigurationCommandInput;
+      output: BatchGetRepositoryScanningConfigurationCommandOutput;
+    };
+  };
+}

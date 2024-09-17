@@ -97,4 +97,16 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAutomatedDiscoveryConfigurationCommand)
   .de(de_UpdateAutomatedDiscoveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAutomatedDiscoveryConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAutomatedDiscoveryConfigurationCommandInput;
+      output: UpdateAutomatedDiscoveryConfigurationCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class GetOpenIdTokenCommand extends $Command
   .f(GetOpenIdTokenInputFilterSensitiveLog, GetOpenIdTokenResponseFilterSensitiveLog)
   .ser(se_GetOpenIdTokenCommand)
   .de(de_GetOpenIdTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOpenIdTokenInput;
+      output: GetOpenIdTokenResponse;
+    };
+    sdk: {
+      input: GetOpenIdTokenCommandInput;
+      output: GetOpenIdTokenCommandOutput;
+    };
+  };
+}

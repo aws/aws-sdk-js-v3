@@ -82,4 +82,16 @@ export class DeleteHumanTaskUiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHumanTaskUiCommand)
   .de(de_DeleteHumanTaskUiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHumanTaskUiRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHumanTaskUiCommandInput;
+      output: DeleteHumanTaskUiCommandOutput;
+    };
+  };
+}

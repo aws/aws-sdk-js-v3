@@ -107,4 +107,16 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterCrossAccountAccessRoleCommand)
   .de(de_RegisterCrossAccountAccessRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterCrossAccountAccessRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterCrossAccountAccessRoleCommandInput;
+      output: RegisterCrossAccountAccessRoleCommandOutput;
+    };
+  };
+}

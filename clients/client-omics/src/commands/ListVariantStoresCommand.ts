@@ -119,4 +119,16 @@ export class ListVariantStoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVariantStoresCommand)
   .de(de_ListVariantStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVariantStoresRequest;
+      output: ListVariantStoresResponse;
+    };
+    sdk: {
+      input: ListVariantStoresCommandInput;
+      output: ListVariantStoresCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class GetObjectInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectInformationCommand)
   .de(de_GetObjectInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectInformationRequest;
+      output: GetObjectInformationResponse;
+    };
+    sdk: {
+      input: GetObjectInformationCommandInput;
+      output: GetObjectInformationCommandOutput;
+    };
+  };
+}

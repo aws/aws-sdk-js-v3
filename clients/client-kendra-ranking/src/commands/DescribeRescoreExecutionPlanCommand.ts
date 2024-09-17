@@ -120,4 +120,16 @@ export class DescribeRescoreExecutionPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRescoreExecutionPlanCommand)
   .de(de_DescribeRescoreExecutionPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRescoreExecutionPlanRequest;
+      output: DescribeRescoreExecutionPlanResponse;
+    };
+    sdk: {
+      input: DescribeRescoreExecutionPlanCommandInput;
+      output: DescribeRescoreExecutionPlanCommandOutput;
+    };
+  };
+}

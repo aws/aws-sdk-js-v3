@@ -104,4 +104,16 @@ export class ListAnalyzableServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzableServersCommand)
   .de(de_ListAnalyzableServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzableServersRequest;
+      output: ListAnalyzableServersResponse;
+    };
+    sdk: {
+      input: ListAnalyzableServersCommandInput;
+      output: ListAnalyzableServersCommandOutput;
+    };
+  };
+}

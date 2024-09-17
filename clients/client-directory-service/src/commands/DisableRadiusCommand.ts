@@ -85,4 +85,16 @@ export class DisableRadiusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableRadiusCommand)
   .de(de_DisableRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableRadiusCommandInput;
+      output: DisableRadiusCommandOutput;
+    };
+  };
+}

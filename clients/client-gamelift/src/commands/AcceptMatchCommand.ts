@@ -127,4 +127,16 @@ export class AcceptMatchCommand extends $Command
   .f(AcceptMatchInputFilterSensitiveLog, void 0)
   .ser(se_AcceptMatchCommand)
   .de(de_AcceptMatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptMatchInput;
+      output: {};
+    };
+    sdk: {
+      input: AcceptMatchCommandInput;
+      output: AcceptMatchCommandOutput;
+    };
+  };
+}

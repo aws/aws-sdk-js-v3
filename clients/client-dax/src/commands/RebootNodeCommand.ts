@@ -157,4 +157,16 @@ export class RebootNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootNodeCommand)
   .de(de_RebootNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootNodeRequest;
+      output: RebootNodeResponse;
+    };
+    sdk: {
+      input: RebootNodeCommandInput;
+      output: RebootNodeCommandOutput;
+    };
+  };
+}

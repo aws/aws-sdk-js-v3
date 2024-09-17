@@ -150,4 +150,16 @@ export class CreateProxySessionCommand extends $Command
   .f(CreateProxySessionRequestFilterSensitiveLog, CreateProxySessionResponseFilterSensitiveLog)
   .ser(se_CreateProxySessionCommand)
   .de(de_CreateProxySessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProxySessionRequest;
+      output: CreateProxySessionResponse;
+    };
+    sdk: {
+      input: CreateProxySessionCommandInput;
+      output: CreateProxySessionCommandOutput;
+    };
+  };
+}

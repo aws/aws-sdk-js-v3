@@ -93,4 +93,16 @@ export class ListBlueprintsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBlueprintsCommand)
   .de(de_ListBlueprintsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBlueprintsRequest;
+      output: ListBlueprintsResponse;
+    };
+    sdk: {
+      input: ListBlueprintsCommandInput;
+      output: ListBlueprintsCommandOutput;
+    };
+  };
+}

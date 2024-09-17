@@ -128,4 +128,16 @@ export class UpdateAppAuthorizationCommand extends $Command
   .f(UpdateAppAuthorizationRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAppAuthorizationCommand)
   .de(de_UpdateAppAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppAuthorizationRequest;
+      output: UpdateAppAuthorizationResponse;
+    };
+    sdk: {
+      input: UpdateAppAuthorizationCommandInput;
+      output: UpdateAppAuthorizationCommandOutput;
+    };
+  };
+}

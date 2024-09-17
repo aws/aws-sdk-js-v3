@@ -116,4 +116,16 @@ export class PutRegistryScanningConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRegistryScanningConfigurationCommand)
   .de(de_PutRegistryScanningConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRegistryScanningConfigurationRequest;
+      output: PutRegistryScanningConfigurationResponse;
+    };
+    sdk: {
+      input: PutRegistryScanningConfigurationCommandInput;
+      output: PutRegistryScanningConfigurationCommandOutput;
+    };
+  };
+}

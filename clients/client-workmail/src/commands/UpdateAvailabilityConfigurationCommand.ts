@@ -108,4 +108,16 @@ export class UpdateAvailabilityConfigurationCommand extends $Command
   .f(UpdateAvailabilityConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateAvailabilityConfigurationCommand)
   .de(de_UpdateAvailabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAvailabilityConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAvailabilityConfigurationCommandInput;
+      output: UpdateAvailabilityConfigurationCommandOutput;
+    };
+  };
+}

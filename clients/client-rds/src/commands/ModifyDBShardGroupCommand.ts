@@ -101,4 +101,16 @@ export class ModifyDBShardGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBShardGroupCommand)
   .de(de_ModifyDBShardGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBShardGroupMessage;
+      output: DBShardGroup;
+    };
+    sdk: {
+      input: ModifyDBShardGroupCommandInput;
+      output: ModifyDBShardGroupCommandOutput;
+    };
+  };
+}

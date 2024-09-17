@@ -100,4 +100,16 @@ export class ModifyVolumeAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVolumeAttributeCommand)
   .de(de_ModifyVolumeAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVolumeAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyVolumeAttributeCommandInput;
+      output: ModifyVolumeAttributeCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class GetClassifiersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClassifiersCommand)
   .de(de_GetClassifiersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClassifiersRequest;
+      output: GetClassifiersResponse;
+    };
+    sdk: {
+      input: GetClassifiersCommandInput;
+      output: GetClassifiersCommandOutput;
+    };
+  };
+}

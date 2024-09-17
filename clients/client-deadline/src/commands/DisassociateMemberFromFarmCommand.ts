@@ -92,4 +92,16 @@ export class DisassociateMemberFromFarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMemberFromFarmCommand)
   .de(de_DisassociateMemberFromFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMemberFromFarmRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMemberFromFarmCommandInput;
+      output: DisassociateMemberFromFarmCommandOutput;
+    };
+  };
+}

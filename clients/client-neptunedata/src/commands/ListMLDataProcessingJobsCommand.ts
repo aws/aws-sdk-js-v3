@@ -118,4 +118,16 @@ export class ListMLDataProcessingJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLDataProcessingJobsCommand)
   .de(de_ListMLDataProcessingJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLDataProcessingJobsInput;
+      output: ListMLDataProcessingJobsOutput;
+    };
+    sdk: {
+      input: ListMLDataProcessingJobsCommandInput;
+      output: ListMLDataProcessingJobsCommandOutput;
+    };
+  };
+}

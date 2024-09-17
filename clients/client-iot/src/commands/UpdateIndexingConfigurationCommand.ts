@@ -139,4 +139,16 @@ export class UpdateIndexingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIndexingConfigurationCommand)
   .de(de_UpdateIndexingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIndexingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateIndexingConfigurationCommandInput;
+      output: UpdateIndexingConfigurationCommandOutput;
+    };
+  };
+}

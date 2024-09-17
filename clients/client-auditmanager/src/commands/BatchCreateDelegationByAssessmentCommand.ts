@@ -138,4 +138,16 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command
   )
   .ser(se_BatchCreateDelegationByAssessmentCommand)
   .de(de_BatchCreateDelegationByAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateDelegationByAssessmentRequest;
+      output: BatchCreateDelegationByAssessmentResponse;
+    };
+    sdk: {
+      input: BatchCreateDelegationByAssessmentCommandInput;
+      output: BatchCreateDelegationByAssessmentCommandOutput;
+    };
+  };
+}

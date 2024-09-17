@@ -140,4 +140,16 @@ export class GetPortfolioSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPortfolioSummaryCommand)
   .de(de_GetPortfolioSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPortfolioSummaryResponse;
+    };
+    sdk: {
+      input: GetPortfolioSummaryCommandInput;
+      output: GetPortfolioSummaryCommandOutput;
+    };
+  };
+}

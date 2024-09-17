@@ -90,4 +90,16 @@ export class GetClusterPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClusterPolicyCommand)
   .de(de_GetClusterPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterPolicyRequest;
+      output: GetClusterPolicyResponse;
+    };
+    sdk: {
+      input: GetClusterPolicyCommandInput;
+      output: GetClusterPolicyCommandOutput;
+    };
+  };
+}

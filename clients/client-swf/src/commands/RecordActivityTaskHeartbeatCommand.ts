@@ -131,4 +131,16 @@ export class RecordActivityTaskHeartbeatCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RecordActivityTaskHeartbeatCommand)
   .de(de_RecordActivityTaskHeartbeatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecordActivityTaskHeartbeatInput;
+      output: ActivityTaskStatus;
+    };
+    sdk: {
+      input: RecordActivityTaskHeartbeatCommandInput;
+      output: RecordActivityTaskHeartbeatCommandOutput;
+    };
+  };
+}

@@ -138,4 +138,16 @@ export class BatchCreateAttendeeCommand extends $Command
   .f(BatchCreateAttendeeRequestFilterSensitiveLog, BatchCreateAttendeeResponseFilterSensitiveLog)
   .ser(se_BatchCreateAttendeeCommand)
   .de(de_BatchCreateAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateAttendeeRequest;
+      output: BatchCreateAttendeeResponse;
+    };
+    sdk: {
+      input: BatchCreateAttendeeCommandInput;
+      output: BatchCreateAttendeeCommandOutput;
+    };
+  };
+}

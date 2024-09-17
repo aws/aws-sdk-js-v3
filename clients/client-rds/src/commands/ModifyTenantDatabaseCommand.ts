@@ -123,4 +123,16 @@ export class ModifyTenantDatabaseCommand extends $Command
   .f(ModifyTenantDatabaseMessageFilterSensitiveLog, ModifyTenantDatabaseResultFilterSensitiveLog)
   .ser(se_ModifyTenantDatabaseCommand)
   .de(de_ModifyTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTenantDatabaseMessage;
+      output: ModifyTenantDatabaseResult;
+    };
+    sdk: {
+      input: ModifyTenantDatabaseCommandInput;
+      output: ModifyTenantDatabaseCommandOutput;
+    };
+  };
+}

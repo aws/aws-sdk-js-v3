@@ -112,4 +112,16 @@ export class ListBotVersionReplicasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotVersionReplicasCommand)
   .de(de_ListBotVersionReplicasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotVersionReplicasRequest;
+      output: ListBotVersionReplicasResponse;
+    };
+    sdk: {
+      input: ListBotVersionReplicasCommandInput;
+      output: ListBotVersionReplicasCommandOutput;
+    };
+  };
+}

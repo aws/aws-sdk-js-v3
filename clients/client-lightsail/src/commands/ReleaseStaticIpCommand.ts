@@ -125,4 +125,16 @@ export class ReleaseStaticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseStaticIpCommand)
   .de(de_ReleaseStaticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseStaticIpRequest;
+      output: ReleaseStaticIpResult;
+    };
+    sdk: {
+      input: ReleaseStaticIpCommandInput;
+      output: ReleaseStaticIpCommandOutput;
+    };
+  };
+}

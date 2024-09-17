@@ -228,4 +228,16 @@ export class SetRiskConfigurationCommand extends $Command
   .f(SetRiskConfigurationRequestFilterSensitiveLog, SetRiskConfigurationResponseFilterSensitiveLog)
   .ser(se_SetRiskConfigurationCommand)
   .de(de_SetRiskConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetRiskConfigurationRequest;
+      output: SetRiskConfigurationResponse;
+    };
+    sdk: {
+      input: SetRiskConfigurationCommandInput;
+      output: SetRiskConfigurationCommandOutput;
+    };
+  };
+}

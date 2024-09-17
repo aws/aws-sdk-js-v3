@@ -142,4 +142,16 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVirtualInterfaceAttributesCommand)
   .de(de_UpdateVirtualInterfaceAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVirtualInterfaceAttributesRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: UpdateVirtualInterfaceAttributesCommandInput;
+      output: UpdateVirtualInterfaceAttributesCommandOutput;
+    };
+  };
+}

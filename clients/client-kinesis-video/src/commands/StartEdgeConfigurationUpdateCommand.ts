@@ -196,4 +196,16 @@ export class StartEdgeConfigurationUpdateCommand extends $Command
   .f(StartEdgeConfigurationUpdateInputFilterSensitiveLog, StartEdgeConfigurationUpdateOutputFilterSensitiveLog)
   .ser(se_StartEdgeConfigurationUpdateCommand)
   .de(de_StartEdgeConfigurationUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEdgeConfigurationUpdateInput;
+      output: StartEdgeConfigurationUpdateOutput;
+    };
+    sdk: {
+      input: StartEdgeConfigurationUpdateCommandInput;
+      output: StartEdgeConfigurationUpdateCommandOutput;
+    };
+  };
+}

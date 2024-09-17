@@ -166,4 +166,16 @@ export class CopyOptionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyOptionGroupCommand)
   .de(de_CopyOptionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyOptionGroupMessage;
+      output: CopyOptionGroupResult;
+    };
+    sdk: {
+      input: CopyOptionGroupCommandInput;
+      output: CopyOptionGroupCommandOutput;
+    };
+  };
+}

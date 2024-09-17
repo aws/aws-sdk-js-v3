@@ -96,4 +96,16 @@ export class TerminateClientVpnConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateClientVpnConnectionsCommand)
   .de(de_TerminateClientVpnConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateClientVpnConnectionsRequest;
+      output: TerminateClientVpnConnectionsResult;
+    };
+    sdk: {
+      input: TerminateClientVpnConnectionsCommandInput;
+      output: TerminateClientVpnConnectionsCommandOutput;
+    };
+  };
+}

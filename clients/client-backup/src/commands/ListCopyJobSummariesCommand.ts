@@ -110,4 +110,16 @@ export class ListCopyJobSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCopyJobSummariesCommand)
   .de(de_ListCopyJobSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCopyJobSummariesInput;
+      output: ListCopyJobSummariesOutput;
+    };
+    sdk: {
+      input: ListCopyJobSummariesCommandInput;
+      output: ListCopyJobSummariesCommandOutput;
+    };
+  };
+}

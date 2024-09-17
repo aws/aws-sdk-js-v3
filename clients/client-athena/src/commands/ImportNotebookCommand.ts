@@ -98,4 +98,16 @@ export class ImportNotebookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportNotebookCommand)
   .de(de_ImportNotebookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportNotebookInput;
+      output: ImportNotebookOutput;
+    };
+    sdk: {
+      input: ImportNotebookCommandInput;
+      output: ImportNotebookCommandOutput;
+    };
+  };
+}

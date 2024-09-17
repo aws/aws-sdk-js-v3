@@ -88,4 +88,16 @@ export class DeleteCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCodeSigningConfigCommand)
   .de(de_DeleteCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCodeSigningConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCodeSigningConfigCommandInput;
+      output: DeleteCodeSigningConfigCommandOutput;
+    };
+  };
+}

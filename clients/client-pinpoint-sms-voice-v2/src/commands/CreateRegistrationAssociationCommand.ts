@@ -121,4 +121,16 @@ export class CreateRegistrationAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRegistrationAssociationCommand)
   .de(de_CreateRegistrationAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRegistrationAssociationRequest;
+      output: CreateRegistrationAssociationResult;
+    };
+    sdk: {
+      input: CreateRegistrationAssociationCommandInput;
+      output: CreateRegistrationAssociationCommandOutput;
+    };
+  };
+}

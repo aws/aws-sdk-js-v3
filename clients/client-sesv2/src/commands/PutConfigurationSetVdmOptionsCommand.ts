@@ -98,4 +98,16 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutConfigurationSetVdmOptionsCommand)
   .de(de_PutConfigurationSetVdmOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutConfigurationSetVdmOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutConfigurationSetVdmOptionsCommandInput;
+      output: PutConfigurationSetVdmOptionsCommandOutput;
+    };
+  };
+}

@@ -90,4 +90,16 @@ export class GetSnapshotLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSnapshotLimitsCommand)
   .de(de_GetSnapshotLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSnapshotLimitsRequest;
+      output: GetSnapshotLimitsResult;
+    };
+    sdk: {
+      input: GetSnapshotLimitsCommandInput;
+      output: GetSnapshotLimitsCommandOutput;
+    };
+  };
+}

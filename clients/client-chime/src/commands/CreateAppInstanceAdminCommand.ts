@@ -131,4 +131,16 @@ export class CreateAppInstanceAdminCommand extends $Command
   .f(void 0, CreateAppInstanceAdminResponseFilterSensitiveLog)
   .ser(se_CreateAppInstanceAdminCommand)
   .de(de_CreateAppInstanceAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppInstanceAdminRequest;
+      output: CreateAppInstanceAdminResponse;
+    };
+    sdk: {
+      input: CreateAppInstanceAdminCommandInput;
+      output: CreateAppInstanceAdminCommandOutput;
+    };
+  };
+}

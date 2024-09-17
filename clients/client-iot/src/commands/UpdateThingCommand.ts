@@ -108,4 +108,16 @@ export class UpdateThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThingCommand)
   .de(de_UpdateThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThingRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateThingCommandInput;
+      output: UpdateThingCommandOutput;
+    };
+  };
+}

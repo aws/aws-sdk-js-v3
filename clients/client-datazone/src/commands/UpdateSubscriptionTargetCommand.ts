@@ -143,4 +143,16 @@ export class UpdateSubscriptionTargetCommand extends $Command
   .f(UpdateSubscriptionTargetInputFilterSensitiveLog, UpdateSubscriptionTargetOutputFilterSensitiveLog)
   .ser(se_UpdateSubscriptionTargetCommand)
   .de(de_UpdateSubscriptionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriptionTargetInput;
+      output: UpdateSubscriptionTargetOutput;
+    };
+    sdk: {
+      input: UpdateSubscriptionTargetCommandInput;
+      output: UpdateSubscriptionTargetCommandOutput;
+    };
+  };
+}

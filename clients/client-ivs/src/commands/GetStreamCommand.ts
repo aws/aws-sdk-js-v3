@@ -97,4 +97,16 @@ export class GetStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStreamCommand)
   .de(de_GetStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamRequest;
+      output: GetStreamResponse;
+    };
+    sdk: {
+      input: GetStreamCommandInput;
+      output: GetStreamCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class ListLayersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLayersCommand)
   .de(de_ListLayersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLayersRequest;
+      output: ListLayersResponse;
+    };
+    sdk: {
+      input: ListLayersCommandInput;
+      output: ListLayersCommandOutput;
+    };
+  };
+}

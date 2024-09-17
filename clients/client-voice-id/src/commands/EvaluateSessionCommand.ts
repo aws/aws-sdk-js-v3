@@ -145,4 +145,16 @@ export class EvaluateSessionCommand extends $Command
   .f(void 0, EvaluateSessionResponseFilterSensitiveLog)
   .ser(se_EvaluateSessionCommand)
   .de(de_EvaluateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluateSessionRequest;
+      output: EvaluateSessionResponse;
+    };
+    sdk: {
+      input: EvaluateSessionCommandInput;
+      output: EvaluateSessionCommandOutput;
+    };
+  };
+}

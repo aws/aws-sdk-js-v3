@@ -140,4 +140,16 @@ export class GetRandomPasswordCommand extends $Command
   .f(void 0, GetRandomPasswordResponseFilterSensitiveLog)
   .ser(se_GetRandomPasswordCommand)
   .de(de_GetRandomPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRandomPasswordRequest;
+      output: GetRandomPasswordResponse;
+    };
+    sdk: {
+      input: GetRandomPasswordCommandInput;
+      output: GetRandomPasswordCommandOutput;
+    };
+  };
+}

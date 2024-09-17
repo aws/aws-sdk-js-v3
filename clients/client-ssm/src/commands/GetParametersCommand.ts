@@ -105,4 +105,16 @@ export class GetParametersCommand extends $Command
   .f(void 0, GetParametersResultFilterSensitiveLog)
   .ser(se_GetParametersCommand)
   .de(de_GetParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetParametersRequest;
+      output: GetParametersResult;
+    };
+    sdk: {
+      input: GetParametersCommandInput;
+      output: GetParametersCommandOutput;
+    };
+  };
+}

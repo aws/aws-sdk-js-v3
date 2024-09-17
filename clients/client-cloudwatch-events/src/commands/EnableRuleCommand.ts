@@ -95,4 +95,16 @@ export class EnableRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableRuleCommand)
   .de(de_EnableRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableRuleCommandInput;
+      output: EnableRuleCommandOutput;
+    };
+  };
+}

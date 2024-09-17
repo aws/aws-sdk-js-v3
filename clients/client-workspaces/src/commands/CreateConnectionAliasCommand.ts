@@ -103,4 +103,16 @@ export class CreateConnectionAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConnectionAliasCommand)
   .de(de_CreateConnectionAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectionAliasRequest;
+      output: CreateConnectionAliasResult;
+    };
+    sdk: {
+      input: CreateConnectionAliasCommandInput;
+      output: CreateConnectionAliasCommandOutput;
+    };
+  };
+}

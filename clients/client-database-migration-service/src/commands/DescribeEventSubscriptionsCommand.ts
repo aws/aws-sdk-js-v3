@@ -116,4 +116,16 @@ export class DescribeEventSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventSubscriptionsCommand)
   .de(de_DescribeEventSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventSubscriptionsMessage;
+      output: DescribeEventSubscriptionsResponse;
+    };
+    sdk: {
+      input: DescribeEventSubscriptionsCommandInput;
+      output: DescribeEventSubscriptionsCommandOutput;
+    };
+  };
+}

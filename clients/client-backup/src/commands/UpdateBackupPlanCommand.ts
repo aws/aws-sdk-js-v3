@@ -145,4 +145,16 @@ export class UpdateBackupPlanCommand extends $Command
   .f(UpdateBackupPlanInputFilterSensitiveLog, void 0)
   .ser(se_UpdateBackupPlanCommand)
   .de(de_UpdateBackupPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackupPlanInput;
+      output: UpdateBackupPlanOutput;
+    };
+    sdk: {
+      input: UpdateBackupPlanCommandInput;
+      output: UpdateBackupPlanCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainDeliverabilityCampaignCommand)
   .de(de_GetDomainDeliverabilityCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainDeliverabilityCampaignRequest;
+      output: GetDomainDeliverabilityCampaignResponse;
+    };
+    sdk: {
+      input: GetDomainDeliverabilityCampaignCommandInput;
+      output: GetDomainDeliverabilityCampaignCommandOutput;
+    };
+  };
+}

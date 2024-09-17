@@ -131,4 +131,16 @@ export class DescribeServerlessCachesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServerlessCachesCommand)
   .de(de_DescribeServerlessCachesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServerlessCachesRequest;
+      output: DescribeServerlessCachesResponse;
+    };
+    sdk: {
+      input: DescribeServerlessCachesCommandInput;
+      output: DescribeServerlessCachesCommandOutput;
+    };
+  };
+}

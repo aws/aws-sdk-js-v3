@@ -102,4 +102,16 @@ export class ListProvisioningTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisioningTemplatesCommand)
   .de(de_ListProvisioningTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisioningTemplatesRequest;
+      output: ListProvisioningTemplatesResponse;
+    };
+    sdk: {
+      input: ListProvisioningTemplatesCommandInput;
+      output: ListProvisioningTemplatesCommandOutput;
+    };
+  };
+}

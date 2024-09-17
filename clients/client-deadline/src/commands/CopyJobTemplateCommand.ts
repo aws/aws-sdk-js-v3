@@ -99,4 +99,16 @@ export class CopyJobTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyJobTemplateCommand)
   .de(de_CopyJobTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyJobTemplateRequest;
+      output: CopyJobTemplateResponse;
+    };
+    sdk: {
+      input: CopyJobTemplateCommandInput;
+      output: CopyJobTemplateCommandOutput;
+    };
+  };
+}

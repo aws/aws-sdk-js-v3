@@ -122,4 +122,16 @@ export class DescribeTransitGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTransitGatewaysCommand)
   .de(de_DescribeTransitGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTransitGatewaysRequest;
+      output: DescribeTransitGatewaysResult;
+    };
+    sdk: {
+      input: DescribeTransitGatewaysCommandInput;
+      output: DescribeTransitGatewaysCommandOutput;
+    };
+  };
+}

@@ -325,4 +325,16 @@ export class PutBucketAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAclCommand)
   .de(de_PutBucketAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAclRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAclCommandInput;
+      output: PutBucketAclCommandOutput;
+    };
+  };
+}

@@ -158,4 +158,16 @@ export class GetListingCommand extends $Command
   .f(void 0, GetListingOutputFilterSensitiveLog)
   .ser(se_GetListingCommand)
   .de(de_GetListingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetListingInput;
+      output: GetListingOutput;
+    };
+    sdk: {
+      input: GetListingCommandInput;
+      output: GetListingCommandOutput;
+    };
+  };
+}

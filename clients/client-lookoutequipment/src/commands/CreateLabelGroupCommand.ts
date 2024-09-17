@@ -110,4 +110,16 @@ export class CreateLabelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLabelGroupCommand)
   .de(de_CreateLabelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLabelGroupRequest;
+      output: CreateLabelGroupResponse;
+    };
+    sdk: {
+      input: CreateLabelGroupCommandInput;
+      output: CreateLabelGroupCommandOutput;
+    };
+  };
+}

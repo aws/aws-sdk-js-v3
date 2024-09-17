@@ -137,4 +137,16 @@ export class StartMLModelTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMLModelTransformJobCommand)
   .de(de_StartMLModelTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMLModelTransformJobInput;
+      output: StartMLModelTransformJobOutput;
+    };
+    sdk: {
+      input: StartMLModelTransformJobCommandInput;
+      output: StartMLModelTransformJobCommandOutput;
+    };
+  };
+}

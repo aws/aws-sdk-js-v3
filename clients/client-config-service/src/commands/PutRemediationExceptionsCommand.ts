@@ -163,4 +163,16 @@ export class PutRemediationExceptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRemediationExceptionsCommand)
   .de(de_PutRemediationExceptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRemediationExceptionsRequest;
+      output: PutRemediationExceptionsResponse;
+    };
+    sdk: {
+      input: PutRemediationExceptionsCommandInput;
+      output: PutRemediationExceptionsCommandOutput;
+    };
+  };
+}

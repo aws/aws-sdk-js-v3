@@ -109,4 +109,16 @@ export class DeleteAdmChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAdmChannelCommand)
   .de(de_DeleteAdmChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAdmChannelRequest;
+      output: DeleteAdmChannelResponse;
+    };
+    sdk: {
+      input: DeleteAdmChannelCommandInput;
+      output: DeleteAdmChannelCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class StartEntitiesDetectionV2JobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartEntitiesDetectionV2JobCommand)
   .de(de_StartEntitiesDetectionV2JobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartEntitiesDetectionV2JobRequest;
+      output: StartEntitiesDetectionV2JobResponse;
+    };
+    sdk: {
+      input: StartEntitiesDetectionV2JobCommandInput;
+      output: StartEntitiesDetectionV2JobCommandOutput;
+    };
+  };
+}

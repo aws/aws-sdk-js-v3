@@ -310,4 +310,16 @@ export class CancelHandshakeCommand extends $Command
   .f(void 0, CancelHandshakeResponseFilterSensitiveLog)
   .ser(se_CancelHandshakeCommand)
   .de(de_CancelHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelHandshakeRequest;
+      output: CancelHandshakeResponse;
+    };
+    sdk: {
+      input: CancelHandshakeCommandInput;
+      output: CancelHandshakeCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class GetSourceApiAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSourceApiAssociationCommand)
   .de(de_GetSourceApiAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSourceApiAssociationRequest;
+      output: GetSourceApiAssociationResponse;
+    };
+    sdk: {
+      input: GetSourceApiAssociationCommandInput;
+      output: GetSourceApiAssociationCommandOutput;
+    };
+  };
+}

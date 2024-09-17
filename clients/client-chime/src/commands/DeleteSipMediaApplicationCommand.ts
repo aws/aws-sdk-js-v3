@@ -109,4 +109,16 @@ export class DeleteSipMediaApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSipMediaApplicationCommand)
   .de(de_DeleteSipMediaApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSipMediaApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSipMediaApplicationCommandInput;
+      output: DeleteSipMediaApplicationCommandOutput;
+    };
+  };
+}

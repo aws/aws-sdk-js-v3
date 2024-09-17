@@ -129,4 +129,16 @@ export class UpdateJobPriorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJobPriorityCommand)
   .de(de_UpdateJobPriorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobPriorityRequest;
+      output: UpdateJobPriorityResult;
+    };
+    sdk: {
+      input: UpdateJobPriorityCommandInput;
+      output: UpdateJobPriorityCommandOutput;
+    };
+  };
+}

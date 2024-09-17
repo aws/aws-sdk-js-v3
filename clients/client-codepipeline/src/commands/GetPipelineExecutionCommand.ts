@@ -121,4 +121,16 @@ export class GetPipelineExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPipelineExecutionCommand)
   .de(de_GetPipelineExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPipelineExecutionInput;
+      output: GetPipelineExecutionOutput;
+    };
+    sdk: {
+      input: GetPipelineExecutionCommandInput;
+      output: GetPipelineExecutionCommandOutput;
+    };
+  };
+}

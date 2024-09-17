@@ -91,4 +91,16 @@ export class DeleteDocumentationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDocumentationVersionCommand)
   .de(de_DeleteDocumentationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDocumentationVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDocumentationVersionCommandInput;
+      output: DeleteDocumentationVersionCommandOutput;
+    };
+  };
+}

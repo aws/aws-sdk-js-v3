@@ -129,4 +129,16 @@ export class CreateLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoggingConfigurationCommand)
   .de(de_CreateLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoggingConfigurationRequest;
+      output: CreateLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLoggingConfigurationCommandInput;
+      output: CreateLoggingConfigurationCommandOutput;
+    };
+  };
+}

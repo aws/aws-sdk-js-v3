@@ -106,4 +106,16 @@ export class GetServiceTemplateCommand extends $Command
   .f(void 0, GetServiceTemplateOutputFilterSensitiveLog)
   .ser(se_GetServiceTemplateCommand)
   .de(de_GetServiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceTemplateInput;
+      output: GetServiceTemplateOutput;
+    };
+    sdk: {
+      input: GetServiceTemplateCommandInput;
+      output: GetServiceTemplateCommandOutput;
+    };
+  };
+}

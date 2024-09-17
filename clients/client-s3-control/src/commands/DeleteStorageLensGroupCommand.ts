@@ -88,4 +88,16 @@ export class DeleteStorageLensGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStorageLensGroupCommand)
   .de(de_DeleteStorageLensGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStorageLensGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStorageLensGroupCommandInput;
+      output: DeleteStorageLensGroupCommandOutput;
+    };
+  };
+}

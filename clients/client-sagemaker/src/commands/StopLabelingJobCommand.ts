@@ -79,4 +79,16 @@ export class StopLabelingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopLabelingJobCommand)
   .de(de_StopLabelingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopLabelingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopLabelingJobCommandInput;
+      output: StopLabelingJobCommandOutput;
+    };
+  };
+}

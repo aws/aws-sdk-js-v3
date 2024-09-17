@@ -105,4 +105,16 @@ export class UpdateRoleCustomPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoleCustomPermissionCommand)
   .de(de_UpdateRoleCustomPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoleCustomPermissionRequest;
+      output: UpdateRoleCustomPermissionResponse;
+    };
+    sdk: {
+      input: UpdateRoleCustomPermissionCommandInput;
+      output: UpdateRoleCustomPermissionCommandOutput;
+    };
+  };
+}

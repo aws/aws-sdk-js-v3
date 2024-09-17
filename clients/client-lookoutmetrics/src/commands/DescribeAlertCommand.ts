@@ -129,4 +129,16 @@ export class DescribeAlertCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlertCommand)
   .de(de_DescribeAlertCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlertRequest;
+      output: DescribeAlertResponse;
+    };
+    sdk: {
+      input: DescribeAlertCommandInput;
+      output: DescribeAlertCommandOutput;
+    };
+  };
+}

@@ -86,4 +86,16 @@ export class DeactivateTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateTypeCommand)
   .de(de_DeactivateTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeactivateTypeCommandInput;
+      output: DeactivateTypeCommandOutput;
+    };
+  };
+}

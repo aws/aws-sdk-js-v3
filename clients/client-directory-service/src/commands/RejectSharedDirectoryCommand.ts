@@ -92,4 +92,16 @@ export class RejectSharedDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectSharedDirectoryCommand)
   .de(de_RejectSharedDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectSharedDirectoryRequest;
+      output: RejectSharedDirectoryResult;
+    };
+    sdk: {
+      input: RejectSharedDirectoryCommandInput;
+      output: RejectSharedDirectoryCommandOutput;
+    };
+  };
+}

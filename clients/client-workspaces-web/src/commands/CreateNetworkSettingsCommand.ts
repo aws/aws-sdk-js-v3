@@ -114,4 +114,16 @@ export class CreateNetworkSettingsCommand extends $Command
   .f(CreateNetworkSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateNetworkSettingsCommand)
   .de(de_CreateNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkSettingsRequest;
+      output: CreateNetworkSettingsResponse;
+    };
+    sdk: {
+      input: CreateNetworkSettingsCommandInput;
+      output: CreateNetworkSettingsCommandOutput;
+    };
+  };
+}

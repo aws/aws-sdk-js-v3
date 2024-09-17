@@ -94,4 +94,16 @@ export class DeleteTestGridProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTestGridProjectCommand)
   .de(de_DeleteTestGridProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTestGridProjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTestGridProjectCommandInput;
+      output: DeleteTestGridProjectCommandOutput;
+    };
+  };
+}

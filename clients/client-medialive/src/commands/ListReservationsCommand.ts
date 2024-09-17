@@ -141,4 +141,16 @@ export class ListReservationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReservationsCommand)
   .de(de_ListReservationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReservationsRequest;
+      output: ListReservationsResponse;
+    };
+    sdk: {
+      input: ListReservationsCommandInput;
+      output: ListReservationsCommandOutput;
+    };
+  };
+}

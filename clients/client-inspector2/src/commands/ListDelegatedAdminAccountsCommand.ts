@@ -101,4 +101,16 @@ export class ListDelegatedAdminAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDelegatedAdminAccountsCommand)
   .de(de_ListDelegatedAdminAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDelegatedAdminAccountsRequest;
+      output: ListDelegatedAdminAccountsResponse;
+    };
+    sdk: {
+      input: ListDelegatedAdminAccountsCommandInput;
+      output: ListDelegatedAdminAccountsCommandOutput;
+    };
+  };
+}

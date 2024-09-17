@@ -117,4 +117,16 @@ export class GetDomainAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainAssociationCommand)
   .de(de_GetDomainAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainAssociationRequest;
+      output: GetDomainAssociationResult;
+    };
+    sdk: {
+      input: GetDomainAssociationCommandInput;
+      output: GetDomainAssociationCommandOutput;
+    };
+  };
+}

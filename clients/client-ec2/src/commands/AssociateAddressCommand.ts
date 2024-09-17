@@ -134,4 +134,16 @@ export class AssociateAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAddressCommand)
   .de(de_AssociateAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAddressRequest;
+      output: AssociateAddressResult;
+    };
+    sdk: {
+      input: AssociateAddressCommandInput;
+      output: AssociateAddressCommandOutput;
+    };
+  };
+}

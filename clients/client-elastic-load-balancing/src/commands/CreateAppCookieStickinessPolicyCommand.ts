@@ -119,4 +119,16 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppCookieStickinessPolicyCommand)
   .de(de_CreateAppCookieStickinessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppCookieStickinessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateAppCookieStickinessPolicyCommandInput;
+      output: CreateAppCookieStickinessPolicyCommandOutput;
+    };
+  };
+}

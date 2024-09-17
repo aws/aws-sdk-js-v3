@@ -111,4 +111,16 @@ export class ListAnomalyGroupRelatedMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomalyGroupRelatedMetricsCommand)
   .de(de_ListAnomalyGroupRelatedMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomalyGroupRelatedMetricsRequest;
+      output: ListAnomalyGroupRelatedMetricsResponse;
+    };
+    sdk: {
+      input: ListAnomalyGroupRelatedMetricsCommandInput;
+      output: ListAnomalyGroupRelatedMetricsCommandOutput;
+    };
+  };
+}

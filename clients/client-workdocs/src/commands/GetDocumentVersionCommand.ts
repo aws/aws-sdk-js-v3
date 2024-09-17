@@ -130,4 +130,16 @@ export class GetDocumentVersionCommand extends $Command
   .f(GetDocumentVersionRequestFilterSensitiveLog, GetDocumentVersionResponseFilterSensitiveLog)
   .ser(se_GetDocumentVersionCommand)
   .de(de_GetDocumentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentVersionRequest;
+      output: GetDocumentVersionResponse;
+    };
+    sdk: {
+      input: GetDocumentVersionCommandInput;
+      output: GetDocumentVersionCommandOutput;
+    };
+  };
+}

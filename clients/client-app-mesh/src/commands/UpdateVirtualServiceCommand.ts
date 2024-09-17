@@ -144,4 +144,16 @@ export class UpdateVirtualServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVirtualServiceCommand)
   .de(de_UpdateVirtualServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVirtualServiceInput;
+      output: UpdateVirtualServiceOutput;
+    };
+    sdk: {
+      input: UpdateVirtualServiceCommandInput;
+      output: UpdateVirtualServiceCommandOutput;
+    };
+  };
+}

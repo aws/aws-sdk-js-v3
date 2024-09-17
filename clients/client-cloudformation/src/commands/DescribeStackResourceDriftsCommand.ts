@@ -118,4 +118,16 @@ export class DescribeStackResourceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackResourceDriftsCommand)
   .de(de_DescribeStackResourceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackResourceDriftsInput;
+      output: DescribeStackResourceDriftsOutput;
+    };
+    sdk: {
+      input: DescribeStackResourceDriftsCommandInput;
+      output: DescribeStackResourceDriftsCommandOutput;
+    };
+  };
+}

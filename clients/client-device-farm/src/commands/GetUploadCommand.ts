@@ -116,4 +116,16 @@ export class GetUploadCommand extends $Command
   .f(void 0, GetUploadResultFilterSensitiveLog)
   .ser(se_GetUploadCommand)
   .de(de_GetUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUploadRequest;
+      output: GetUploadResult;
+    };
+    sdk: {
+      input: GetUploadCommandInput;
+      output: GetUploadCommandOutput;
+    };
+  };
+}

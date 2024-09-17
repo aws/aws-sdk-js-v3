@@ -103,4 +103,16 @@ export class UpdateAgentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentStatusCommand)
   .de(de_UpdateAgentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAgentStatusCommandInput;
+      output: UpdateAgentStatusCommandOutput;
+    };
+  };
+}

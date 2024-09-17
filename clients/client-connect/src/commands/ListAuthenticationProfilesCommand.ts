@@ -106,4 +106,16 @@ export class ListAuthenticationProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuthenticationProfilesCommand)
   .de(de_ListAuthenticationProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuthenticationProfilesRequest;
+      output: ListAuthenticationProfilesResponse;
+    };
+    sdk: {
+      input: ListAuthenticationProfilesCommandInput;
+      output: ListAuthenticationProfilesCommandOutput;
+    };
+  };
+}

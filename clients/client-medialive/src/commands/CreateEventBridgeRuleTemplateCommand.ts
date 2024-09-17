@@ -126,4 +126,16 @@ export class CreateEventBridgeRuleTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventBridgeRuleTemplateCommand)
   .de(de_CreateEventBridgeRuleTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventBridgeRuleTemplateRequest;
+      output: CreateEventBridgeRuleTemplateResponse;
+    };
+    sdk: {
+      input: CreateEventBridgeRuleTemplateCommandInput;
+      output: CreateEventBridgeRuleTemplateCommandOutput;
+    };
+  };
+}

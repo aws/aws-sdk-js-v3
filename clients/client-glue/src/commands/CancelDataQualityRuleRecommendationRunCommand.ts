@@ -96,4 +96,16 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelDataQualityRuleRecommendationRunCommand)
   .de(de_CancelDataQualityRuleRecommendationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelDataQualityRuleRecommendationRunRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelDataQualityRuleRecommendationRunCommandInput;
+      output: CancelDataQualityRuleRecommendationRunCommandOutput;
+    };
+  };
+}

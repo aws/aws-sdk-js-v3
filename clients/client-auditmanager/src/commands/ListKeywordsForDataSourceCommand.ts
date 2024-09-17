@@ -94,4 +94,16 @@ export class ListKeywordsForDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeywordsForDataSourceCommand)
   .de(de_ListKeywordsForDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeywordsForDataSourceRequest;
+      output: ListKeywordsForDataSourceResponse;
+    };
+    sdk: {
+      input: ListKeywordsForDataSourceCommandInput;
+      output: ListKeywordsForDataSourceCommandOutput;
+    };
+  };
+}

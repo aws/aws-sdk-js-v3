@@ -226,4 +226,16 @@ export class CreateClassificationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClassificationJobCommand)
   .de(de_CreateClassificationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClassificationJobRequest;
+      output: CreateClassificationJobResponse;
+    };
+    sdk: {
+      input: CreateClassificationJobCommandInput;
+      output: CreateClassificationJobCommandOutput;
+    };
+  };
+}

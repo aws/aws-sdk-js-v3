@@ -134,4 +134,16 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand)
   .de(de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRequestedServiceQuotaChangeHistoryByQuotaRequest;
+      output: ListRequestedServiceQuotaChangeHistoryByQuotaResponse;
+    };
+    sdk: {
+      input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput;
+      output: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput;
+    };
+  };
+}

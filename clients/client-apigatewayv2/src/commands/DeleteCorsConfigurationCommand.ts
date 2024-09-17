@@ -81,4 +81,16 @@ export class DeleteCorsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCorsConfigurationCommand)
   .de(de_DeleteCorsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCorsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCorsConfigurationCommandInput;
+      output: DeleteCorsConfigurationCommandOutput;
+    };
+  };
+}

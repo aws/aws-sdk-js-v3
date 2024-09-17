@@ -198,4 +198,16 @@ export class SignUpCommand extends $Command
   .f(SignUpRequestFilterSensitiveLog, void 0)
   .ser(se_SignUpCommand)
   .de(de_SignUpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignUpRequest;
+      output: SignUpResponse;
+    };
+    sdk: {
+      input: SignUpCommandInput;
+      output: SignUpCommandOutput;
+    };
+  };
+}

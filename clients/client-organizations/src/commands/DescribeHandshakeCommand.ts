@@ -293,4 +293,16 @@ export class DescribeHandshakeCommand extends $Command
   .f(void 0, DescribeHandshakeResponseFilterSensitiveLog)
   .ser(se_DescribeHandshakeCommand)
   .de(de_DescribeHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHandshakeRequest;
+      output: DescribeHandshakeResponse;
+    };
+    sdk: {
+      input: DescribeHandshakeCommandInput;
+      output: DescribeHandshakeCommandOutput;
+    };
+  };
+}

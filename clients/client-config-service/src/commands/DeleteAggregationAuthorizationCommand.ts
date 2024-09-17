@@ -84,4 +84,16 @@ export class DeleteAggregationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAggregationAuthorizationCommand)
   .de(de_DeleteAggregationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAggregationAuthorizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAggregationAuthorizationCommandInput;
+      output: DeleteAggregationAuthorizationCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class ListDataQualityRulesetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataQualityRulesetsCommand)
   .de(de_ListDataQualityRulesetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataQualityRulesetsRequest;
+      output: ListDataQualityRulesetsResponse;
+    };
+    sdk: {
+      input: ListDataQualityRulesetsCommandInput;
+      output: ListDataQualityRulesetsCommandOutput;
+    };
+  };
+}

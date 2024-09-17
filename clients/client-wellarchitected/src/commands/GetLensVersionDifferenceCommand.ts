@@ -114,4 +114,16 @@ export class GetLensVersionDifferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLensVersionDifferenceCommand)
   .de(de_GetLensVersionDifferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLensVersionDifferenceInput;
+      output: GetLensVersionDifferenceOutput;
+    };
+    sdk: {
+      input: GetLensVersionDifferenceCommandInput;
+      output: GetLensVersionDifferenceCommandOutput;
+    };
+  };
+}

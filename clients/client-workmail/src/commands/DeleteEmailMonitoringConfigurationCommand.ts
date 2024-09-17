@@ -94,4 +94,16 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEmailMonitoringConfigurationCommand)
   .de(de_DeleteEmailMonitoringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEmailMonitoringConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEmailMonitoringConfigurationCommandInput;
+      output: DeleteEmailMonitoringConfigurationCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class UpdateReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReportDefinitionCommand)
   .de(de_UpdateReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReportDefinitionRequest;
+      output: UpdateReportDefinitionResult;
+    };
+    sdk: {
+      input: UpdateReportDefinitionCommandInput;
+      output: UpdateReportDefinitionCommandOutput;
+    };
+  };
+}

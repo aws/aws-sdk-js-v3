@@ -114,4 +114,16 @@ export class CreateIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIpamResourceDiscoveryCommand)
   .de(de_CreateIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIpamResourceDiscoveryRequest;
+      output: CreateIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: CreateIpamResourceDiscoveryCommandInput;
+      output: CreateIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

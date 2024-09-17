@@ -106,4 +106,16 @@ export class DescribeCoipPoolsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCoipPoolsCommand)
   .de(de_DescribeCoipPoolsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCoipPoolsRequest;
+      output: DescribeCoipPoolsResult;
+    };
+    sdk: {
+      input: DescribeCoipPoolsCommandInput;
+      output: DescribeCoipPoolsCommandOutput;
+    };
+  };
+}

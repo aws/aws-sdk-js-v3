@@ -96,4 +96,16 @@ export class DeletePlacementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlacementCommand)
   .de(de_DeletePlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlacementRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlacementCommandInput;
+      output: DeletePlacementCommandOutput;
+    };
+  };
+}

@@ -146,4 +146,16 @@ export class UpdateRestoreTestingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRestoreTestingPlanCommand)
   .de(de_UpdateRestoreTestingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRestoreTestingPlanInput;
+      output: UpdateRestoreTestingPlanOutput;
+    };
+    sdk: {
+      input: UpdateRestoreTestingPlanCommandInput;
+      output: UpdateRestoreTestingPlanCommandOutput;
+    };
+  };
+}

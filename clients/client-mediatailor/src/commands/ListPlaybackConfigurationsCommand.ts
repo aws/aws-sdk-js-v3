@@ -133,4 +133,16 @@ export class ListPlaybackConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPlaybackConfigurationsCommand)
   .de(de_ListPlaybackConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPlaybackConfigurationsRequest;
+      output: ListPlaybackConfigurationsResponse;
+    };
+    sdk: {
+      input: ListPlaybackConfigurationsCommandInput;
+      output: ListPlaybackConfigurationsCommandOutput;
+    };
+  };
+}

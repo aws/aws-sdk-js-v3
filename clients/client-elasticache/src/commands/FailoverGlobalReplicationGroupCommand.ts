@@ -124,4 +124,16 @@ export class FailoverGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverGlobalReplicationGroupCommand)
   .de(de_FailoverGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverGlobalReplicationGroupMessage;
+      output: FailoverGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: FailoverGlobalReplicationGroupCommandInput;
+      output: FailoverGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

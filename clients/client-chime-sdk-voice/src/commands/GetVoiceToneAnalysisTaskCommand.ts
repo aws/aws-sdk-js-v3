@@ -118,4 +118,16 @@ export class GetVoiceToneAnalysisTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceToneAnalysisTaskCommand)
   .de(de_GetVoiceToneAnalysisTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceToneAnalysisTaskRequest;
+      output: GetVoiceToneAnalysisTaskResponse;
+    };
+    sdk: {
+      input: GetVoiceToneAnalysisTaskCommandInput;
+      output: GetVoiceToneAnalysisTaskCommandOutput;
+    };
+  };
+}

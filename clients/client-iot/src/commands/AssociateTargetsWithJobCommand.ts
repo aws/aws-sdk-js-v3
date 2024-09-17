@@ -112,4 +112,16 @@ export class AssociateTargetsWithJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTargetsWithJobCommand)
   .de(de_AssociateTargetsWithJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTargetsWithJobRequest;
+      output: AssociateTargetsWithJobResponse;
+    };
+    sdk: {
+      input: AssociateTargetsWithJobCommandInput;
+      output: AssociateTargetsWithJobCommandOutput;
+    };
+  };
+}

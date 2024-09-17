@@ -162,4 +162,16 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRelatedResourcesForAuditFindingCommand)
   .de(de_ListRelatedResourcesForAuditFindingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRelatedResourcesForAuditFindingRequest;
+      output: ListRelatedResourcesForAuditFindingResponse;
+    };
+    sdk: {
+      input: ListRelatedResourcesForAuditFindingCommandInput;
+      output: ListRelatedResourcesForAuditFindingCommandOutput;
+    };
+  };
+}

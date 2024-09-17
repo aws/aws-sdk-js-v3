@@ -145,4 +145,16 @@ export class RegisterWorkflowTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterWorkflowTypeCommand)
   .de(de_RegisterWorkflowTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterWorkflowTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: RegisterWorkflowTypeCommandInput;
+      output: RegisterWorkflowTypeCommandOutput;
+    };
+  };
+}

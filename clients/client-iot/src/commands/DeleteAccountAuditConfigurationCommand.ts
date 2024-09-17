@@ -95,4 +95,16 @@ export class DeleteAccountAuditConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccountAuditConfigurationCommand)
   .de(de_DeleteAccountAuditConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccountAuditConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccountAuditConfigurationCommandInput;
+      output: DeleteAccountAuditConfigurationCommandOutput;
+    };
+  };
+}

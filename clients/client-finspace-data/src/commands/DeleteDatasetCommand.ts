@@ -102,4 +102,16 @@ export class DeleteDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDatasetCommand)
   .de(de_DeleteDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDatasetRequest;
+      output: DeleteDatasetResponse;
+    };
+    sdk: {
+      input: DeleteDatasetCommandInput;
+      output: DeleteDatasetCommandOutput;
+    };
+  };
+}

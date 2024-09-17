@@ -109,4 +109,16 @@ export class GetLayerVersionByArnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLayerVersionByArnCommand)
   .de(de_GetLayerVersionByArnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLayerVersionByArnRequest;
+      output: GetLayerVersionResponse;
+    };
+    sdk: {
+      input: GetLayerVersionByArnCommandInput;
+      output: GetLayerVersionByArnCommandOutput;
+    };
+  };
+}

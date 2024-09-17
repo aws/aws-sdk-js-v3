@@ -97,4 +97,16 @@ export class UpdateArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateArchiveCommand)
   .de(de_UpdateArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateArchiveRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateArchiveCommandInput;
+      output: UpdateArchiveCommandOutput;
+    };
+  };
+}

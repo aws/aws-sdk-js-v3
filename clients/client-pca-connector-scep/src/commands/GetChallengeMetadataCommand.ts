@@ -102,4 +102,16 @@ export class GetChallengeMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChallengeMetadataCommand)
   .de(de_GetChallengeMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChallengeMetadataRequest;
+      output: GetChallengeMetadataResponse;
+    };
+    sdk: {
+      input: GetChallengeMetadataCommandInput;
+      output: GetChallengeMetadataCommandOutput;
+    };
+  };
+}

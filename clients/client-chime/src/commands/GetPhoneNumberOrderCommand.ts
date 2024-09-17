@@ -115,4 +115,16 @@ export class GetPhoneNumberOrderCommand extends $Command
   .f(void 0, GetPhoneNumberOrderResponseFilterSensitiveLog)
   .ser(se_GetPhoneNumberOrderCommand)
   .de(de_GetPhoneNumberOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPhoneNumberOrderRequest;
+      output: GetPhoneNumberOrderResponse;
+    };
+    sdk: {
+      input: GetPhoneNumberOrderCommandInput;
+      output: GetPhoneNumberOrderCommandOutput;
+    };
+  };
+}

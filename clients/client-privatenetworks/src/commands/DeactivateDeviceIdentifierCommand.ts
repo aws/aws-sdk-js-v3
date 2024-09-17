@@ -101,4 +101,16 @@ export class DeactivateDeviceIdentifierCommand extends $Command
   .f(void 0, DeactivateDeviceIdentifierResponseFilterSensitiveLog)
   .ser(se_DeactivateDeviceIdentifierCommand)
   .de(de_DeactivateDeviceIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateDeviceIdentifierRequest;
+      output: DeactivateDeviceIdentifierResponse;
+    };
+    sdk: {
+      input: DeactivateDeviceIdentifierCommandInput;
+      output: DeactivateDeviceIdentifierCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class GetBucketBundlesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketBundlesCommand)
   .de(de_GetBucketBundlesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketBundlesRequest;
+      output: GetBucketBundlesResult;
+    };
+    sdk: {
+      input: GetBucketBundlesCommandInput;
+      output: GetBucketBundlesCommandOutput;
+    };
+  };
+}

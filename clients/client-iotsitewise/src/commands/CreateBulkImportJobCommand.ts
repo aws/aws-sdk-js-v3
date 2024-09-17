@@ -139,4 +139,16 @@ export class CreateBulkImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBulkImportJobCommand)
   .de(de_CreateBulkImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBulkImportJobRequest;
+      output: CreateBulkImportJobResponse;
+    };
+    sdk: {
+      input: CreateBulkImportJobCommandInput;
+      output: CreateBulkImportJobCommandOutput;
+    };
+  };
+}

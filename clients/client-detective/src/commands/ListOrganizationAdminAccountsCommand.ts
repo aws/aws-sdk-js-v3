@@ -105,4 +105,16 @@ export class ListOrganizationAdminAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationAdminAccountsCommand)
   .de(de_ListOrganizationAdminAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationAdminAccountsRequest;
+      output: ListOrganizationAdminAccountsResponse;
+    };
+    sdk: {
+      input: ListOrganizationAdminAccountsCommandInput;
+      output: ListOrganizationAdminAccountsCommandOutput;
+    };
+  };
+}

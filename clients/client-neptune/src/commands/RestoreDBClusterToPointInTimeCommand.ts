@@ -278,4 +278,16 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBClusterToPointInTimeCommand)
   .de(de_RestoreDBClusterToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBClusterToPointInTimeMessage;
+      output: RestoreDBClusterToPointInTimeResult;
+    };
+    sdk: {
+      input: RestoreDBClusterToPointInTimeCommandInput;
+      output: RestoreDBClusterToPointInTimeCommandOutput;
+    };
+  };
+}

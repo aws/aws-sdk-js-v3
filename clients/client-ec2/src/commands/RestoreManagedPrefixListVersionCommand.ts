@@ -101,4 +101,16 @@ export class RestoreManagedPrefixListVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreManagedPrefixListVersionCommand)
   .de(de_RestoreManagedPrefixListVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreManagedPrefixListVersionRequest;
+      output: RestoreManagedPrefixListVersionResult;
+    };
+    sdk: {
+      input: RestoreManagedPrefixListVersionCommandInput;
+      output: RestoreManagedPrefixListVersionCommandOutput;
+    };
+  };
+}

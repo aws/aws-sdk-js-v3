@@ -96,4 +96,16 @@ export class ListResourcesInProtectionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcesInProtectionGroupCommand)
   .de(de_ListResourcesInProtectionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesInProtectionGroupRequest;
+      output: ListResourcesInProtectionGroupResponse;
+    };
+    sdk: {
+      input: ListResourcesInProtectionGroupCommandInput;
+      output: ListResourcesInProtectionGroupCommandOutput;
+    };
+  };
+}

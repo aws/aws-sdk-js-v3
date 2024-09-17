@@ -114,4 +114,16 @@ export class ListProposalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProposalsCommand)
   .de(de_ListProposalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProposalsInput;
+      output: ListProposalsOutput;
+    };
+    sdk: {
+      input: ListProposalsCommandInput;
+      output: ListProposalsCommandOutput;
+    };
+  };
+}

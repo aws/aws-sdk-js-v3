@@ -102,4 +102,16 @@ export class DescribeBackupVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBackupVaultCommand)
   .de(de_DescribeBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBackupVaultInput;
+      output: DescribeBackupVaultOutput;
+    };
+    sdk: {
+      input: DescribeBackupVaultCommandInput;
+      output: DescribeBackupVaultCommandOutput;
+    };
+  };
+}

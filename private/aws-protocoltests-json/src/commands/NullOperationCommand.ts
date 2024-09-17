@@ -71,4 +71,16 @@ export class NullOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NullOperationCommand)
   .de(de_NullOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NullOperationInputOutput;
+      output: NullOperationInputOutput;
+    };
+    sdk: {
+      input: NullOperationCommandInput;
+      output: NullOperationCommandOutput;
+    };
+  };
+}

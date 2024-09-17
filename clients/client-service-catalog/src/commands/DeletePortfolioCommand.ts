@@ -93,4 +93,16 @@ export class DeletePortfolioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePortfolioCommand)
   .de(de_DeletePortfolioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePortfolioInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePortfolioCommandInput;
+      output: DeletePortfolioCommandOutput;
+    };
+  };
+}

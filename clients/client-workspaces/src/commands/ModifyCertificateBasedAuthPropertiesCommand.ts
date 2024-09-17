@@ -103,4 +103,16 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCertificateBasedAuthPropertiesCommand)
   .de(de_ModifyCertificateBasedAuthPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCertificateBasedAuthPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyCertificateBasedAuthPropertiesCommandInput;
+      output: ModifyCertificateBasedAuthPropertiesCommandOutput;
+    };
+  };
+}

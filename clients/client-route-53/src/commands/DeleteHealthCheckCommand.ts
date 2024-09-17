@@ -98,4 +98,16 @@ export class DeleteHealthCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHealthCheckCommand)
   .de(de_DeleteHealthCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHealthCheckRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHealthCheckCommandInput;
+      output: DeleteHealthCheckCommandOutput;
+    };
+  };
+}

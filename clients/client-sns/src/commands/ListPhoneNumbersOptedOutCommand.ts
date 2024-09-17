@@ -104,4 +104,16 @@ export class ListPhoneNumbersOptedOutCommand extends $Command
   .f(void 0, ListPhoneNumbersOptedOutResponseFilterSensitiveLog)
   .ser(se_ListPhoneNumbersOptedOutCommand)
   .de(de_ListPhoneNumbersOptedOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPhoneNumbersOptedOutInput;
+      output: ListPhoneNumbersOptedOutResponse;
+    };
+    sdk: {
+      input: ListPhoneNumbersOptedOutCommandInput;
+      output: ListPhoneNumbersOptedOutCommandOutput;
+    };
+  };
+}

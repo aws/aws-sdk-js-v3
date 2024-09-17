@@ -139,4 +139,16 @@ export class ListMultiRegionAccessPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultiRegionAccessPointsCommand)
   .de(de_ListMultiRegionAccessPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultiRegionAccessPointsRequest;
+      output: ListMultiRegionAccessPointsResult;
+    };
+    sdk: {
+      input: ListMultiRegionAccessPointsCommandInput;
+      output: ListMultiRegionAccessPointsCommandOutput;
+    };
+  };
+}

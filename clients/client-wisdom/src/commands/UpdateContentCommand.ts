@@ -122,4 +122,16 @@ export class UpdateContentCommand extends $Command
   .f(void 0, UpdateContentResponseFilterSensitiveLog)
   .ser(se_UpdateContentCommand)
   .de(de_UpdateContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContentRequest;
+      output: UpdateContentResponse;
+    };
+    sdk: {
+      input: UpdateContentCommandInput;
+      output: UpdateContentCommandOutput;
+    };
+  };
+}

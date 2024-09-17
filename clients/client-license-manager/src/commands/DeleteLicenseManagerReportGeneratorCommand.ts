@@ -110,4 +110,16 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLicenseManagerReportGeneratorCommand)
   .de(de_DeleteLicenseManagerReportGeneratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLicenseManagerReportGeneratorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLicenseManagerReportGeneratorCommandInput;
+      output: DeleteLicenseManagerReportGeneratorCommandOutput;
+    };
+  };
+}

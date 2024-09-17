@@ -126,4 +126,16 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
   .f(void 0, void 0)
   .ser(se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand)
   .de(de_ListAssociatedApprovalRuleTemplatesForRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedApprovalRuleTemplatesForRepositoryInput;
+      output: ListAssociatedApprovalRuleTemplatesForRepositoryOutput;
+    };
+    sdk: {
+      input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput;
+      output: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput;
+    };
+  };
+}

@@ -452,4 +452,16 @@ export class RestoreDBClusterFromS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBClusterFromS3Command)
   .de(de_RestoreDBClusterFromS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBClusterFromS3Message;
+      output: RestoreDBClusterFromS3Result;
+    };
+    sdk: {
+      input: RestoreDBClusterFromS3CommandInput;
+      output: RestoreDBClusterFromS3CommandOutput;
+    };
+  };
+}

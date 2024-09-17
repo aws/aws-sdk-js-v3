@@ -212,4 +212,16 @@ export class GetMediaInsightsPipelineConfigurationCommand extends $Command
   .f(void 0, GetMediaInsightsPipelineConfigurationResponseFilterSensitiveLog)
   .ser(se_GetMediaInsightsPipelineConfigurationCommand)
   .de(de_GetMediaInsightsPipelineConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaInsightsPipelineConfigurationRequest;
+      output: GetMediaInsightsPipelineConfigurationResponse;
+    };
+    sdk: {
+      input: GetMediaInsightsPipelineConfigurationCommandInput;
+      output: GetMediaInsightsPipelineConfigurationCommandOutput;
+    };
+  };
+}

@@ -84,4 +84,16 @@ export class SetTypeDefaultVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTypeDefaultVersionCommand)
   .de(de_SetTypeDefaultVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTypeDefaultVersionInput;
+      output: {};
+    };
+    sdk: {
+      input: SetTypeDefaultVersionCommandInput;
+      output: SetTypeDefaultVersionCommandOutput;
+    };
+  };
+}

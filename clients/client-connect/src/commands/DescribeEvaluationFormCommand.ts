@@ -233,4 +233,16 @@ export class DescribeEvaluationFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEvaluationFormCommand)
   .de(de_DescribeEvaluationFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEvaluationFormRequest;
+      output: DescribeEvaluationFormResponse;
+    };
+    sdk: {
+      input: DescribeEvaluationFormCommandInput;
+      output: DescribeEvaluationFormCommandOutput;
+    };
+  };
+}

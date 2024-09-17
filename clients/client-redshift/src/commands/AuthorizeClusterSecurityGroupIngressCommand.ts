@@ -151,4 +151,16 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeClusterSecurityGroupIngressCommand)
   .de(de_AuthorizeClusterSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeClusterSecurityGroupIngressMessage;
+      output: AuthorizeClusterSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: AuthorizeClusterSecurityGroupIngressCommandInput;
+      output: AuthorizeClusterSecurityGroupIngressCommandOutput;
+    };
+  };
+}

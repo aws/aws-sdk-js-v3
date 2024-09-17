@@ -145,4 +145,16 @@ export class StartConfigurationPolicyAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConfigurationPolicyAssociationCommand)
   .de(de_StartConfigurationPolicyAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConfigurationPolicyAssociationRequest;
+      output: StartConfigurationPolicyAssociationResponse;
+    };
+    sdk: {
+      input: StartConfigurationPolicyAssociationCommandInput;
+      output: StartConfigurationPolicyAssociationCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class DeleteSecurityConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecurityConfigCommand)
   .de(de_DeleteSecurityConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecurityConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSecurityConfigCommandInput;
+      output: DeleteSecurityConfigCommandOutput;
+    };
+  };
+}

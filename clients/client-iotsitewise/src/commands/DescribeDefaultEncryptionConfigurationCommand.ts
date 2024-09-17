@@ -107,4 +107,16 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDefaultEncryptionConfigurationCommand)
   .de(de_DescribeDefaultEncryptionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeDefaultEncryptionConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeDefaultEncryptionConfigurationCommandInput;
+      output: DescribeDefaultEncryptionConfigurationCommandOutput;
+    };
+  };
+}

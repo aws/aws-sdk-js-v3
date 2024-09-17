@@ -117,4 +117,16 @@ export class CancelFlowExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelFlowExecutionsCommand)
   .de(de_CancelFlowExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelFlowExecutionsRequest;
+      output: CancelFlowExecutionsResponse;
+    };
+    sdk: {
+      input: CancelFlowExecutionsCommandInput;
+      output: CancelFlowExecutionsCommandOutput;
+    };
+  };
+}

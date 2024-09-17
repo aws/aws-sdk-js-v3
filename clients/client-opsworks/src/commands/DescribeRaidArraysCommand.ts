@@ -111,4 +111,16 @@ export class DescribeRaidArraysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRaidArraysCommand)
   .de(de_DescribeRaidArraysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRaidArraysRequest;
+      output: DescribeRaidArraysResult;
+    };
+    sdk: {
+      input: DescribeRaidArraysCommandInput;
+      output: DescribeRaidArraysCommandOutput;
+    };
+  };
+}

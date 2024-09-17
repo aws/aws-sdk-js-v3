@@ -136,4 +136,16 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateSecurityProfileBehaviorsCommand)
   .de(de_ValidateSecurityProfileBehaviorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateSecurityProfileBehaviorsRequest;
+      output: ValidateSecurityProfileBehaviorsResponse;
+    };
+    sdk: {
+      input: ValidateSecurityProfileBehaviorsCommandInput;
+      output: ValidateSecurityProfileBehaviorsCommandOutput;
+    };
+  };
+}

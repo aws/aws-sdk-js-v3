@@ -104,4 +104,16 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationLayerAutomaticResponseCommand)
   .de(de_UpdateApplicationLayerAutomaticResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationLayerAutomaticResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateApplicationLayerAutomaticResponseCommandInput;
+      output: UpdateApplicationLayerAutomaticResponseCommandOutput;
+    };
+  };
+}

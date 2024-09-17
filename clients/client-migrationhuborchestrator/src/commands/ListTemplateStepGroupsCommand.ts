@@ -107,4 +107,16 @@ export class ListTemplateStepGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTemplateStepGroupsCommand)
   .de(de_ListTemplateStepGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTemplateStepGroupsRequest;
+      output: ListTemplateStepGroupsResponse;
+    };
+    sdk: {
+      input: ListTemplateStepGroupsCommandInput;
+      output: ListTemplateStepGroupsCommandOutput;
+    };
+  };
+}

@@ -86,4 +86,16 @@ export class DeleteManagedEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteManagedEndpointCommand)
   .de(de_DeleteManagedEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteManagedEndpointRequest;
+      output: DeleteManagedEndpointResponse;
+    };
+    sdk: {
+      input: DeleteManagedEndpointCommandInput;
+      output: DeleteManagedEndpointCommandOutput;
+    };
+  };
+}

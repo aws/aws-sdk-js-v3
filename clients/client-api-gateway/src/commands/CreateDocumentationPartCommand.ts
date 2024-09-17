@@ -111,4 +111,16 @@ export class CreateDocumentationPartCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDocumentationPartCommand)
   .de(de_CreateDocumentationPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDocumentationPartRequest;
+      output: DocumentationPart;
+    };
+    sdk: {
+      input: CreateDocumentationPartCommandInput;
+      output: CreateDocumentationPartCommandOutput;
+    };
+  };
+}

@@ -121,4 +121,16 @@ export class StartImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartImportTaskCommand)
   .de(de_StartImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportTaskInput;
+      output: StartImportTaskOutput;
+    };
+    sdk: {
+      input: StartImportTaskCommandInput;
+      output: StartImportTaskCommandOutput;
+    };
+  };
+}

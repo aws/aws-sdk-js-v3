@@ -124,4 +124,16 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointConfigurationForObjectLambdaCommand)
   .de(de_GetAccessPointConfigurationForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointConfigurationForObjectLambdaRequest;
+      output: GetAccessPointConfigurationForObjectLambdaResult;
+    };
+    sdk: {
+      input: GetAccessPointConfigurationForObjectLambdaCommandInput;
+      output: GetAccessPointConfigurationForObjectLambdaCommandOutput;
+    };
+  };
+}

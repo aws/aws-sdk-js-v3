@@ -455,4 +455,16 @@ export class DescribeKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyCommand)
   .de(de_DescribeKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyRequest;
+      output: DescribeKeyResponse;
+    };
+    sdk: {
+      input: DescribeKeyCommandInput;
+      output: DescribeKeyCommandOutput;
+    };
+  };
+}

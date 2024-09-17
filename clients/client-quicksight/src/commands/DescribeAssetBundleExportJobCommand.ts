@@ -192,4 +192,16 @@ export class DescribeAssetBundleExportJobCommand extends $Command
   .f(void 0, DescribeAssetBundleExportJobResponseFilterSensitiveLog)
   .ser(se_DescribeAssetBundleExportJobCommand)
   .de(de_DescribeAssetBundleExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssetBundleExportJobRequest;
+      output: DescribeAssetBundleExportJobResponse;
+    };
+    sdk: {
+      input: DescribeAssetBundleExportJobCommandInput;
+      output: DescribeAssetBundleExportJobCommandOutput;
+    };
+  };
+}

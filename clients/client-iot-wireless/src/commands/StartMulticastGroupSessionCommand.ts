@@ -100,4 +100,16 @@ export class StartMulticastGroupSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMulticastGroupSessionCommand)
   .de(de_StartMulticastGroupSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMulticastGroupSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMulticastGroupSessionCommandInput;
+      output: StartMulticastGroupSessionCommandOutput;
+    };
+  };
+}

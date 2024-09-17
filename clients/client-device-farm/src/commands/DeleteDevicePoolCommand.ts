@@ -99,4 +99,16 @@ export class DeleteDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDevicePoolCommand)
   .de(de_DeleteDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDevicePoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDevicePoolCommandInput;
+      output: DeleteDevicePoolCommandOutput;
+    };
+  };
+}

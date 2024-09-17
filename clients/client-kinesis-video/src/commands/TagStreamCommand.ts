@@ -108,4 +108,16 @@ export class TagStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagStreamCommand)
   .de(de_TagStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: TagStreamCommandInput;
+      output: TagStreamCommandOutput;
+    };
+  };
+}

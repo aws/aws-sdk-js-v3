@@ -97,4 +97,16 @@ export class UpdateBlueprintCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBlueprintCommand)
   .de(de_UpdateBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBlueprintRequest;
+      output: UpdateBlueprintResponse;
+    };
+    sdk: {
+      input: UpdateBlueprintCommandInput;
+      output: UpdateBlueprintCommandOutput;
+    };
+  };
+}

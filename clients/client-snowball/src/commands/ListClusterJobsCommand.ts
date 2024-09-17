@@ -163,4 +163,16 @@ export class ListClusterJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClusterJobsCommand)
   .de(de_ListClusterJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClusterJobsRequest;
+      output: ListClusterJobsResult;
+    };
+    sdk: {
+      input: ListClusterJobsCommandInput;
+      output: ListClusterJobsCommandOutput;
+    };
+  };
+}

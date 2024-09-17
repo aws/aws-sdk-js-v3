@@ -126,4 +126,16 @@ export class CreateServiceTemplateCommand extends $Command
   .f(CreateServiceTemplateInputFilterSensitiveLog, CreateServiceTemplateOutputFilterSensitiveLog)
   .ser(se_CreateServiceTemplateCommand)
   .de(de_CreateServiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceTemplateInput;
+      output: CreateServiceTemplateOutput;
+    };
+    sdk: {
+      input: CreateServiceTemplateCommandInput;
+      output: CreateServiceTemplateCommandOutput;
+    };
+  };
+}

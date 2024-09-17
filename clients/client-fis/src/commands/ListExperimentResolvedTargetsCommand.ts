@@ -100,4 +100,16 @@ export class ListExperimentResolvedTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExperimentResolvedTargetsCommand)
   .de(de_ListExperimentResolvedTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperimentResolvedTargetsRequest;
+      output: ListExperimentResolvedTargetsResponse;
+    };
+    sdk: {
+      input: ListExperimentResolvedTargetsCommandInput;
+      output: ListExperimentResolvedTargetsCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class GetEncoderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEncoderConfigurationCommand)
   .de(de_GetEncoderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEncoderConfigurationRequest;
+      output: GetEncoderConfigurationResponse;
+    };
+    sdk: {
+      input: GetEncoderConfigurationCommandInput;
+      output: GetEncoderConfigurationCommandOutput;
+    };
+  };
+}

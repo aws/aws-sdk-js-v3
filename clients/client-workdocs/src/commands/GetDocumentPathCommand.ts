@@ -115,4 +115,16 @@ export class GetDocumentPathCommand extends $Command
   .f(GetDocumentPathRequestFilterSensitiveLog, GetDocumentPathResponseFilterSensitiveLog)
   .ser(se_GetDocumentPathCommand)
   .de(de_GetDocumentPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentPathRequest;
+      output: GetDocumentPathResponse;
+    };
+    sdk: {
+      input: GetDocumentPathCommandInput;
+      output: GetDocumentPathCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class GetOrganizationAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOrganizationAdminAccountCommand)
   .de(de_GetOrganizationAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetOrganizationAdminAccountResponse;
+    };
+    sdk: {
+      input: GetOrganizationAdminAccountCommandInput;
+      output: GetOrganizationAdminAccountCommandOutput;
+    };
+  };
+}

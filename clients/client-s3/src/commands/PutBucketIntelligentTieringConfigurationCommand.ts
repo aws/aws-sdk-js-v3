@@ -167,4 +167,16 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketIntelligentTieringConfigurationCommand)
   .de(de_PutBucketIntelligentTieringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketIntelligentTieringConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketIntelligentTieringConfigurationCommandInput;
+      output: PutBucketIntelligentTieringConfigurationCommandOutput;
+    };
+  };
+}

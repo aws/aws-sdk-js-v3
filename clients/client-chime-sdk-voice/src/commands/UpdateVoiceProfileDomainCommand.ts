@@ -117,4 +117,16 @@ export class UpdateVoiceProfileDomainCommand extends $Command
   .f(void 0, UpdateVoiceProfileDomainResponseFilterSensitiveLog)
   .ser(se_UpdateVoiceProfileDomainCommand)
   .de(de_UpdateVoiceProfileDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceProfileDomainRequest;
+      output: UpdateVoiceProfileDomainResponse;
+    };
+    sdk: {
+      input: UpdateVoiceProfileDomainCommandInput;
+      output: UpdateVoiceProfileDomainCommandOutput;
+    };
+  };
+}

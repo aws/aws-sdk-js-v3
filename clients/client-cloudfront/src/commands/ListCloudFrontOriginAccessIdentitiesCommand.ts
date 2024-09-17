@@ -102,4 +102,16 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCloudFrontOriginAccessIdentitiesCommand)
   .de(de_ListCloudFrontOriginAccessIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCloudFrontOriginAccessIdentitiesRequest;
+      output: ListCloudFrontOriginAccessIdentitiesResult;
+    };
+    sdk: {
+      input: ListCloudFrontOriginAccessIdentitiesCommandInput;
+      output: ListCloudFrontOriginAccessIdentitiesCommandOutput;
+    };
+  };
+}

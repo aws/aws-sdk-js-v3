@@ -129,4 +129,16 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTransitGatewayConnectPeersCommand)
   .de(de_DescribeTransitGatewayConnectPeersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTransitGatewayConnectPeersRequest;
+      output: DescribeTransitGatewayConnectPeersResult;
+    };
+    sdk: {
+      input: DescribeTransitGatewayConnectPeersCommandInput;
+      output: DescribeTransitGatewayConnectPeersCommandOutput;
+    };
+  };
+}

@@ -100,4 +100,16 @@ export class GetVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVehicleCommand)
   .de(de_GetVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVehicleRequest;
+      output: GetVehicleResponse;
+    };
+    sdk: {
+      input: GetVehicleCommandInput;
+      output: GetVehicleCommandOutput;
+    };
+  };
+}

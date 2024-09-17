@@ -84,4 +84,16 @@ export class DeleteChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChangeSetCommand)
   .de(de_DeleteChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChangeSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChangeSetCommandInput;
+      output: DeleteChangeSetCommandOutput;
+    };
+  };
+}

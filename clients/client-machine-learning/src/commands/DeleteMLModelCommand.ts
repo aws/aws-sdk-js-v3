@@ -91,4 +91,16 @@ export class DeleteMLModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMLModelCommand)
   .de(de_DeleteMLModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMLModelInput;
+      output: DeleteMLModelOutput;
+    };
+    sdk: {
+      input: DeleteMLModelCommandInput;
+      output: DeleteMLModelCommandOutput;
+    };
+  };
+}

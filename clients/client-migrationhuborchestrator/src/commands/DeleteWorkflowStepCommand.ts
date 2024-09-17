@@ -97,4 +97,16 @@ export class DeleteWorkflowStepCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkflowStepCommand)
   .de(de_DeleteWorkflowStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkflowStepRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkflowStepCommandInput;
+      output: DeleteWorkflowStepCommandOutput;
+    };
+  };
+}

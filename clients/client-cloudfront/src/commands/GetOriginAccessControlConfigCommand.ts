@@ -95,4 +95,16 @@ export class GetOriginAccessControlConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginAccessControlConfigCommand)
   .de(de_GetOriginAccessControlConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginAccessControlConfigRequest;
+      output: GetOriginAccessControlConfigResult;
+    };
+    sdk: {
+      input: GetOriginAccessControlConfigCommandInput;
+      output: GetOriginAccessControlConfigCommandOutput;
+    };
+  };
+}

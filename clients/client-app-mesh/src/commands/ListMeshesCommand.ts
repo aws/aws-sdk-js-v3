@@ -110,4 +110,16 @@ export class ListMeshesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMeshesCommand)
   .de(de_ListMeshesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMeshesInput;
+      output: ListMeshesOutput;
+    };
+    sdk: {
+      input: ListMeshesCommandInput;
+      output: ListMeshesCommandOutput;
+    };
+  };
+}

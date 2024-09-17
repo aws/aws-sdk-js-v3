@@ -105,4 +105,16 @@ export class UpdateServiceSyncConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceSyncConfigCommand)
   .de(de_UpdateServiceSyncConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceSyncConfigInput;
+      output: UpdateServiceSyncConfigOutput;
+    };
+    sdk: {
+      input: UpdateServiceSyncConfigCommandInput;
+      output: UpdateServiceSyncConfigCommandOutput;
+    };
+  };
+}

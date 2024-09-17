@@ -105,4 +105,16 @@ export class RejectInboundConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectInboundConnectionCommand)
   .de(de_RejectInboundConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectInboundConnectionRequest;
+      output: RejectInboundConnectionResponse;
+    };
+    sdk: {
+      input: RejectInboundConnectionCommandInput;
+      output: RejectInboundConnectionCommandOutput;
+    };
+  };
+}

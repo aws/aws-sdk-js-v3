@@ -95,4 +95,16 @@ export class DeleteDetectorVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDetectorVersionCommand)
   .de(de_DeleteDetectorVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDetectorVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDetectorVersionCommandInput;
+      output: DeleteDetectorVersionCommandOutput;
+    };
+  };
+}

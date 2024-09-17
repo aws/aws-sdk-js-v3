@@ -170,4 +170,16 @@ export class CreateEvaluationJobCommand extends $Command
   .f(CreateEvaluationJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateEvaluationJobCommand)
   .de(de_CreateEvaluationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEvaluationJobRequest;
+      output: CreateEvaluationJobResponse;
+    };
+    sdk: {
+      input: CreateEvaluationJobCommandInput;
+      output: CreateEvaluationJobCommandOutput;
+    };
+  };
+}

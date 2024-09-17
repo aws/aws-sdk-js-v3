@@ -126,4 +126,16 @@ export class DescribeDBSnapshotTenantDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSnapshotTenantDatabasesCommand)
   .de(de_DescribeDBSnapshotTenantDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSnapshotTenantDatabasesMessage;
+      output: DBSnapshotTenantDatabasesMessage;
+    };
+    sdk: {
+      input: DescribeDBSnapshotTenantDatabasesCommandInput;
+      output: DescribeDBSnapshotTenantDatabasesCommandOutput;
+    };
+  };
+}

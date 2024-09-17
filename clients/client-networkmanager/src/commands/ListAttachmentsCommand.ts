@@ -145,4 +145,16 @@ export class ListAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachmentsCommand)
   .de(de_ListAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachmentsRequest;
+      output: ListAttachmentsResponse;
+    };
+    sdk: {
+      input: ListAttachmentsCommandInput;
+      output: ListAttachmentsCommandOutput;
+    };
+  };
+}

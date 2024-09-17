@@ -122,4 +122,16 @@ export class GetTerminologyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTerminologyCommand)
   .de(de_GetTerminologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTerminologyRequest;
+      output: GetTerminologyResponse;
+    };
+    sdk: {
+      input: GetTerminologyCommandInput;
+      output: GetTerminologyCommandOutput;
+    };
+  };
+}

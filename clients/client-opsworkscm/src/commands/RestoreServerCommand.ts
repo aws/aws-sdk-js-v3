@@ -144,4 +144,16 @@ export class RestoreServerCommand extends $Command
   .f(void 0, RestoreServerResponseFilterSensitiveLog)
   .ser(se_RestoreServerCommand)
   .de(de_RestoreServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreServerRequest;
+      output: RestoreServerResponse;
+    };
+    sdk: {
+      input: RestoreServerCommandInput;
+      output: RestoreServerCommandOutput;
+    };
+  };
+}

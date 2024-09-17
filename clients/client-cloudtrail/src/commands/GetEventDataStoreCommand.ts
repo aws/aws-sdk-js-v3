@@ -142,4 +142,16 @@ export class GetEventDataStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventDataStoreCommand)
   .de(de_GetEventDataStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventDataStoreRequest;
+      output: GetEventDataStoreResponse;
+    };
+    sdk: {
+      input: GetEventDataStoreCommandInput;
+      output: GetEventDataStoreCommandOutput;
+    };
+  };
+}

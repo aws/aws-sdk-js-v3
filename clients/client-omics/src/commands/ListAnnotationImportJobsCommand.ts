@@ -116,4 +116,16 @@ export class ListAnnotationImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnnotationImportJobsCommand)
   .de(de_ListAnnotationImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnnotationImportJobsRequest;
+      output: ListAnnotationImportJobsResponse;
+    };
+    sdk: {
+      input: ListAnnotationImportJobsCommandInput;
+      output: ListAnnotationImportJobsCommandOutput;
+    };
+  };
+}

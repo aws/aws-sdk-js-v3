@@ -164,4 +164,16 @@ export class DeleteMigrationProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMigrationProjectCommand)
   .de(de_DeleteMigrationProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMigrationProjectMessage;
+      output: DeleteMigrationProjectResponse;
+    };
+    sdk: {
+      input: DeleteMigrationProjectCommandInput;
+      output: DeleteMigrationProjectCommandOutput;
+    };
+  };
+}

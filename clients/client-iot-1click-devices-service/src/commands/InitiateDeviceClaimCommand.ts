@@ -93,4 +93,16 @@ export class InitiateDeviceClaimCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateDeviceClaimCommand)
   .de(de_InitiateDeviceClaimCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateDeviceClaimRequest;
+      output: InitiateDeviceClaimResponse;
+    };
+    sdk: {
+      input: InitiateDeviceClaimCommandInput;
+      output: InitiateDeviceClaimCommandOutput;
+    };
+  };
+}

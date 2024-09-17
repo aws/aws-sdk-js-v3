@@ -101,4 +101,16 @@ export class DeleteEntityRecognizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEntityRecognizerCommand)
   .de(de_DeleteEntityRecognizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEntityRecognizerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEntityRecognizerCommandInput;
+      output: DeleteEntityRecognizerCommandOutput;
+    };
+  };
+}

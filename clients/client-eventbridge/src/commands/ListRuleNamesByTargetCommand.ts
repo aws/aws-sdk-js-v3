@@ -91,4 +91,16 @@ export class ListRuleNamesByTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleNamesByTargetCommand)
   .de(de_ListRuleNamesByTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleNamesByTargetRequest;
+      output: ListRuleNamesByTargetResponse;
+    };
+    sdk: {
+      input: ListRuleNamesByTargetCommandInput;
+      output: ListRuleNamesByTargetCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class CreateMaintenanceWindowCommand extends $Command
   .f(CreateMaintenanceWindowRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMaintenanceWindowCommand)
   .de(de_CreateMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMaintenanceWindowRequest;
+      output: CreateMaintenanceWindowResult;
+    };
+    sdk: {
+      input: CreateMaintenanceWindowCommandInput;
+      output: CreateMaintenanceWindowCommandOutput;
+    };
+  };
+}

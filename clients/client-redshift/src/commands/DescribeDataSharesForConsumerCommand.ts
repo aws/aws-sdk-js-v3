@@ -107,4 +107,16 @@ export class DescribeDataSharesForConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSharesForConsumerCommand)
   .de(de_DescribeDataSharesForConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSharesForConsumerMessage;
+      output: DescribeDataSharesForConsumerResult;
+    };
+    sdk: {
+      input: DescribeDataSharesForConsumerCommandInput;
+      output: DescribeDataSharesForConsumerCommandOutput;
+    };
+  };
+}

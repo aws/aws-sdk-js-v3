@@ -91,4 +91,16 @@ export class UpdateProblemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProblemCommand)
   .de(de_UpdateProblemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProblemRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateProblemCommandInput;
+      output: UpdateProblemCommandOutput;
+    };
+  };
+}

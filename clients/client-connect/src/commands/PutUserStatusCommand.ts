@@ -98,4 +98,16 @@ export class PutUserStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutUserStatusCommand)
   .de(de_PutUserStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutUserStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutUserStatusCommandInput;
+      output: PutUserStatusCommandOutput;
+    };
+  };
+}

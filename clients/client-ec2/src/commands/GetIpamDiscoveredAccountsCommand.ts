@@ -101,4 +101,16 @@ export class GetIpamDiscoveredAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamDiscoveredAccountsCommand)
   .de(de_GetIpamDiscoveredAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamDiscoveredAccountsRequest;
+      output: GetIpamDiscoveredAccountsResult;
+    };
+    sdk: {
+      input: GetIpamDiscoveredAccountsCommandInput;
+      output: GetIpamDiscoveredAccountsCommandOutput;
+    };
+  };
+}

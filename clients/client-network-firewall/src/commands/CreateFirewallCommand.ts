@@ -196,4 +196,16 @@ export class CreateFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallCommand)
   .de(de_CreateFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallRequest;
+      output: CreateFirewallResponse;
+    };
+    sdk: {
+      input: CreateFirewallCommandInput;
+      output: CreateFirewallCommandOutput;
+    };
+  };
+}

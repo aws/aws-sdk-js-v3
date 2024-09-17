@@ -155,4 +155,16 @@ export class CreateSessionCommand extends $Command
   .f(void 0, CreateSessionOutputFilterSensitiveLog)
   .ser(se_CreateSessionCommand)
   .de(de_CreateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSessionRequest;
+      output: CreateSessionOutput;
+    };
+    sdk: {
+      input: CreateSessionCommandInput;
+      output: CreateSessionCommandOutput;
+    };
+  };
+}

@@ -135,4 +135,16 @@ export class GetResourceSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceSharesCommand)
   .de(de_GetResourceSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceSharesRequest;
+      output: GetResourceSharesResponse;
+    };
+    sdk: {
+      input: GetResourceSharesCommandInput;
+      output: GetResourceSharesCommandOutput;
+    };
+  };
+}

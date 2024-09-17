@@ -97,4 +97,16 @@ export class DeleteJobExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteJobExecutionCommand)
   .de(de_DeleteJobExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteJobExecutionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteJobExecutionCommandInput;
+      output: DeleteJobExecutionCommandOutput;
+    };
+  };
+}

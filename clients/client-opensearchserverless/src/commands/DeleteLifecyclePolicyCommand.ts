@@ -96,4 +96,16 @@ export class DeleteLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLifecyclePolicyCommand)
   .de(de_DeleteLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLifecyclePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLifecyclePolicyCommandInput;
+      output: DeleteLifecyclePolicyCommandOutput;
+    };
+  };
+}

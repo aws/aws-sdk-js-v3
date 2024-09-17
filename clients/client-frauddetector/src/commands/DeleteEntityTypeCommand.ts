@@ -92,4 +92,16 @@ export class DeleteEntityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEntityTypeCommand)
   .de(de_DeleteEntityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEntityTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEntityTypeCommandInput;
+      output: DeleteEntityTypeCommandOutput;
+    };
+  };
+}

@@ -132,4 +132,16 @@ export class DescribeAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAnalysisCommand)
   .de(de_DescribeAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnalysisRequest;
+      output: DescribeAnalysisResponse;
+    };
+    sdk: {
+      input: DescribeAnalysisCommandInput;
+      output: DescribeAnalysisCommandOutput;
+    };
+  };
+}

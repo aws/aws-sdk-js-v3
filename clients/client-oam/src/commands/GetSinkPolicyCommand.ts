@@ -92,4 +92,16 @@ export class GetSinkPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSinkPolicyCommand)
   .de(de_GetSinkPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSinkPolicyInput;
+      output: GetSinkPolicyOutput;
+    };
+    sdk: {
+      input: GetSinkPolicyCommandInput;
+      output: GetSinkPolicyCommandOutput;
+    };
+  };
+}

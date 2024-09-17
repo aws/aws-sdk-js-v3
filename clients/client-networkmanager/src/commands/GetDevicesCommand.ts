@@ -128,4 +128,16 @@ export class GetDevicesCommand extends $Command
   .f(void 0, GetDevicesResponseFilterSensitiveLog)
   .ser(se_GetDevicesCommand)
   .de(de_GetDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicesRequest;
+      output: GetDevicesResponse;
+    };
+    sdk: {
+      input: GetDevicesCommandInput;
+      output: GetDevicesCommandOutput;
+    };
+  };
+}

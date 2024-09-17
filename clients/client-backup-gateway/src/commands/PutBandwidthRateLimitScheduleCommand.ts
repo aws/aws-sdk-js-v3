@@ -110,4 +110,16 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBandwidthRateLimitScheduleCommand)
   .de(de_PutBandwidthRateLimitScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBandwidthRateLimitScheduleInput;
+      output: PutBandwidthRateLimitScheduleOutput;
+    };
+    sdk: {
+      input: PutBandwidthRateLimitScheduleCommandInput;
+      output: PutBandwidthRateLimitScheduleCommandOutput;
+    };
+  };
+}

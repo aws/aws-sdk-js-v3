@@ -92,4 +92,16 @@ export class GetLatestAssessmentIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLatestAssessmentIdCommand)
   .de(de_GetLatestAssessmentIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetLatestAssessmentIdResponse;
+    };
+    sdk: {
+      input: GetLatestAssessmentIdCommandInput;
+      output: GetLatestAssessmentIdCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class DescribeWorldTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorldTemplateCommand)
   .de(de_DescribeWorldTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorldTemplateRequest;
+      output: DescribeWorldTemplateResponse;
+    };
+    sdk: {
+      input: DescribeWorldTemplateCommandInput;
+      output: DescribeWorldTemplateCommandOutput;
+    };
+  };
+}

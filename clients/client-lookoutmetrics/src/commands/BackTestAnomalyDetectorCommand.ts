@@ -91,4 +91,16 @@ export class BackTestAnomalyDetectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BackTestAnomalyDetectorCommand)
   .de(de_BackTestAnomalyDetectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BackTestAnomalyDetectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: BackTestAnomalyDetectorCommandInput;
+      output: BackTestAnomalyDetectorCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class UpdateThreatIntelSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateThreatIntelSetCommand)
   .de(de_UpdateThreatIntelSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateThreatIntelSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateThreatIntelSetCommandInput;
+      output: UpdateThreatIntelSetCommandOutput;
+    };
+  };
+}

@@ -85,4 +85,16 @@ export class DeactivateOrganizationsAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateOrganizationsAccessCommand)
   .de(de_DeactivateOrganizationsAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: DeactivateOrganizationsAccessCommandInput;
+      output: DeactivateOrganizationsAccessCommandOutput;
+    };
+  };
+}

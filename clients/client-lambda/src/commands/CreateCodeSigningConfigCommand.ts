@@ -106,4 +106,16 @@ export class CreateCodeSigningConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCodeSigningConfigCommand)
   .de(de_CreateCodeSigningConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCodeSigningConfigRequest;
+      output: CreateCodeSigningConfigResponse;
+    };
+    sdk: {
+      input: CreateCodeSigningConfigCommandInput;
+      output: CreateCodeSigningConfigCommandOutput;
+    };
+  };
+}

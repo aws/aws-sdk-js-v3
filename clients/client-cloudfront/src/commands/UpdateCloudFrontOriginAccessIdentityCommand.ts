@@ -125,4 +125,16 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCloudFrontOriginAccessIdentityCommand)
   .de(de_UpdateCloudFrontOriginAccessIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCloudFrontOriginAccessIdentityRequest;
+      output: UpdateCloudFrontOriginAccessIdentityResult;
+    };
+    sdk: {
+      input: UpdateCloudFrontOriginAccessIdentityCommandInput;
+      output: UpdateCloudFrontOriginAccessIdentityCommandOutput;
+    };
+  };
+}

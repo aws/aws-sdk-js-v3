@@ -87,4 +87,16 @@ export class StopCrawlerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCrawlerCommand)
   .de(de_StopCrawlerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCrawlerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCrawlerCommandInput;
+      output: StopCrawlerCommandOutput;
+    };
+  };
+}

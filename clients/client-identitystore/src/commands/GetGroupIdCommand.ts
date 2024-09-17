@@ -108,4 +108,16 @@ export class GetGroupIdCommand extends $Command
   .f(GetGroupIdRequestFilterSensitiveLog, void 0)
   .ser(se_GetGroupIdCommand)
   .de(de_GetGroupIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupIdRequest;
+      output: GetGroupIdResponse;
+    };
+    sdk: {
+      input: GetGroupIdCommandInput;
+      output: GetGroupIdCommandOutput;
+    };
+  };
+}

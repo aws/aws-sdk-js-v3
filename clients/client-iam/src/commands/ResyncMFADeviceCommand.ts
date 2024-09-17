@@ -101,4 +101,16 @@ export class ResyncMFADeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResyncMFADeviceCommand)
   .de(de_ResyncMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResyncMFADeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResyncMFADeviceCommandInput;
+      output: ResyncMFADeviceCommandOutput;
+    };
+  };
+}

@@ -97,4 +97,16 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTransitGatewayRouteTableCommand)
   .de(de_DeleteTransitGatewayRouteTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTransitGatewayRouteTableRequest;
+      output: DeleteTransitGatewayRouteTableResult;
+    };
+    sdk: {
+      input: DeleteTransitGatewayRouteTableCommandInput;
+      output: DeleteTransitGatewayRouteTableCommandOutput;
+    };
+  };
+}

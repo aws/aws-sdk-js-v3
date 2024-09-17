@@ -89,4 +89,16 @@ export class DeleteContentAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContentAssociationCommand)
   .de(de_DeleteContentAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContentAssociationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContentAssociationCommandInput;
+      output: DeleteContentAssociationCommandOutput;
+    };
+  };
+}

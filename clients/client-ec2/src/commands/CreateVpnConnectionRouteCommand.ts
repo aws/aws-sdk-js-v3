@@ -80,4 +80,16 @@ export class CreateVpnConnectionRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpnConnectionRouteCommand)
   .de(de_CreateVpnConnectionRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpnConnectionRouteRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateVpnConnectionRouteCommandInput;
+      output: CreateVpnConnectionRouteCommandOutput;
+    };
+  };
+}

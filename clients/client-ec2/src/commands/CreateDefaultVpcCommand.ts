@@ -121,4 +121,16 @@ export class CreateDefaultVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDefaultVpcCommand)
   .de(de_CreateDefaultVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDefaultVpcRequest;
+      output: CreateDefaultVpcResult;
+    };
+    sdk: {
+      input: CreateDefaultVpcCommandInput;
+      output: CreateDefaultVpcCommandOutput;
+    };
+  };
+}

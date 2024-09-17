@@ -135,4 +135,16 @@ export class QueryAssistantCommand extends $Command
   .f(QueryAssistantRequestFilterSensitiveLog, QueryAssistantResponseFilterSensitiveLog)
   .ser(se_QueryAssistantCommand)
   .de(de_QueryAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryAssistantRequest;
+      output: QueryAssistantResponse;
+    };
+    sdk: {
+      input: QueryAssistantCommandInput;
+      output: QueryAssistantCommandOutput;
+    };
+  };
+}

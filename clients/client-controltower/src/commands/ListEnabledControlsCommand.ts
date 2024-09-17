@@ -122,4 +122,16 @@ export class ListEnabledControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnabledControlsCommand)
   .de(de_ListEnabledControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnabledControlsInput;
+      output: ListEnabledControlsOutput;
+    };
+    sdk: {
+      input: ListEnabledControlsCommandInput;
+      output: ListEnabledControlsCommandOutput;
+    };
+  };
+}

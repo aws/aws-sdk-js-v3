@@ -152,4 +152,16 @@ export class GetAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnswerCommand)
   .de(de_GetAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnswerInput;
+      output: GetAnswerOutput;
+    };
+    sdk: {
+      input: GetAnswerCommandInput;
+      output: GetAnswerCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DescribeClusterNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterNodeCommand)
   .de(de_DescribeClusterNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterNodeRequest;
+      output: DescribeClusterNodeResponse;
+    };
+    sdk: {
+      input: DescribeClusterNodeCommandInput;
+      output: DescribeClusterNodeCommandOutput;
+    };
+  };
+}

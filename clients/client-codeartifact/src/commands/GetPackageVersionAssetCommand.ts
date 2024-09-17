@@ -128,4 +128,16 @@ export class GetPackageVersionAssetCommand extends $Command
   .f(void 0, GetPackageVersionAssetResultFilterSensitiveLog)
   .ser(se_GetPackageVersionAssetCommand)
   .de(de_GetPackageVersionAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionAssetRequest;
+      output: GetPackageVersionAssetResult;
+    };
+    sdk: {
+      input: GetPackageVersionAssetCommandInput;
+      output: GetPackageVersionAssetCommandOutput;
+    };
+  };
+}

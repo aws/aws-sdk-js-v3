@@ -117,4 +117,16 @@ export class StartBatchDeleteConfigurationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBatchDeleteConfigurationTaskCommand)
   .de(de_StartBatchDeleteConfigurationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBatchDeleteConfigurationTaskRequest;
+      output: StartBatchDeleteConfigurationTaskResponse;
+    };
+    sdk: {
+      input: StartBatchDeleteConfigurationTaskCommandInput;
+      output: StartBatchDeleteConfigurationTaskCommandOutput;
+    };
+  };
+}

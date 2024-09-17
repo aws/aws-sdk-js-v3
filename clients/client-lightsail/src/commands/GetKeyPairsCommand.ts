@@ -128,4 +128,16 @@ export class GetKeyPairsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyPairsCommand)
   .de(de_GetKeyPairsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyPairsRequest;
+      output: GetKeyPairsResult;
+    };
+    sdk: {
+      input: GetKeyPairsCommandInput;
+      output: GetKeyPairsCommandOutput;
+    };
+  };
+}

@@ -195,4 +195,16 @@ export class PutFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFileCommand)
   .de(de_PutFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFileInput;
+      output: PutFileOutput;
+    };
+    sdk: {
+      input: PutFileCommandInput;
+      output: PutFileCommandOutput;
+    };
+  };
+}

@@ -134,4 +134,16 @@ export class GetCommitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommitCommand)
   .de(de_GetCommitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommitInput;
+      output: GetCommitOutput;
+    };
+    sdk: {
+      input: GetCommitCommandInput;
+      output: GetCommitCommandOutput;
+    };
+  };
+}

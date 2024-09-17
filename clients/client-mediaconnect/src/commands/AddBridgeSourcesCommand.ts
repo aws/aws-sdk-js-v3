@@ -135,4 +135,16 @@ export class AddBridgeSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddBridgeSourcesCommand)
   .de(de_AddBridgeSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddBridgeSourcesRequest;
+      output: AddBridgeSourcesResponse;
+    };
+    sdk: {
+      input: AddBridgeSourcesCommandInput;
+      output: AddBridgeSourcesCommandOutput;
+    };
+  };
+}

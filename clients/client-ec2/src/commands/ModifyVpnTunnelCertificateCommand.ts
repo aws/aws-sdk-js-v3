@@ -188,4 +188,16 @@ export class ModifyVpnTunnelCertificateCommand extends $Command
   .f(void 0, ModifyVpnTunnelCertificateResultFilterSensitiveLog)
   .ser(se_ModifyVpnTunnelCertificateCommand)
   .de(de_ModifyVpnTunnelCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpnTunnelCertificateRequest;
+      output: ModifyVpnTunnelCertificateResult;
+    };
+    sdk: {
+      input: ModifyVpnTunnelCertificateCommandInput;
+      output: ModifyVpnTunnelCertificateCommandOutput;
+    };
+  };
+}

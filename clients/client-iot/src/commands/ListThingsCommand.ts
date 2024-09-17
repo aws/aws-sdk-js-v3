@@ -116,4 +116,16 @@ export class ListThingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThingsCommand)
   .de(de_ListThingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThingsRequest;
+      output: ListThingsResponse;
+    };
+    sdk: {
+      input: ListThingsCommandInput;
+      output: ListThingsCommandOutput;
+    };
+  };
+}

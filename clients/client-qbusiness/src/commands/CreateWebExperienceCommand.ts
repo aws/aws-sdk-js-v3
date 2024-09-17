@@ -126,4 +126,16 @@ export class CreateWebExperienceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebExperienceCommand)
   .de(de_CreateWebExperienceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebExperienceRequest;
+      output: CreateWebExperienceResponse;
+    };
+    sdk: {
+      input: CreateWebExperienceCommandInput;
+      output: CreateWebExperienceCommandOutput;
+    };
+  };
+}

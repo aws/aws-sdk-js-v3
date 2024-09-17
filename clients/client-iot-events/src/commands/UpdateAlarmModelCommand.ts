@@ -245,4 +245,16 @@ export class UpdateAlarmModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAlarmModelCommand)
   .de(de_UpdateAlarmModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAlarmModelRequest;
+      output: UpdateAlarmModelResponse;
+    };
+    sdk: {
+      input: UpdateAlarmModelCommandInput;
+      output: UpdateAlarmModelCommandOutput;
+    };
+  };
+}

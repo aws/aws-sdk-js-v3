@@ -98,4 +98,16 @@ export class DeleteFHIRDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFHIRDatastoreCommand)
   .de(de_DeleteFHIRDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFHIRDatastoreRequest;
+      output: DeleteFHIRDatastoreResponse;
+    };
+    sdk: {
+      input: DeleteFHIRDatastoreCommandInput;
+      output: DeleteFHIRDatastoreCommandOutput;
+    };
+  };
+}

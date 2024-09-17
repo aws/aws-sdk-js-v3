@@ -115,4 +115,16 @@ export class DescribeRemediationExceptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRemediationExceptionsCommand)
   .de(de_DescribeRemediationExceptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRemediationExceptionsRequest;
+      output: DescribeRemediationExceptionsResponse;
+    };
+    sdk: {
+      input: DescribeRemediationExceptionsCommandInput;
+      output: DescribeRemediationExceptionsCommandOutput;
+    };
+  };
+}

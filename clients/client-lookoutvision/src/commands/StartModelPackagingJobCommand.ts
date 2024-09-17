@@ -174,4 +174,16 @@ export class StartModelPackagingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartModelPackagingJobCommand)
   .de(de_StartModelPackagingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartModelPackagingJobRequest;
+      output: StartModelPackagingJobResponse;
+    };
+    sdk: {
+      input: StartModelPackagingJobCommandInput;
+      output: StartModelPackagingJobCommandOutput;
+    };
+  };
+}

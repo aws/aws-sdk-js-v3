@@ -95,4 +95,16 @@ export class ListVerifiedEmailAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVerifiedEmailAddressesCommand)
   .de(de_ListVerifiedEmailAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListVerifiedEmailAddressesResponse;
+    };
+    sdk: {
+      input: ListVerifiedEmailAddressesCommandInput;
+      output: ListVerifiedEmailAddressesCommandOutput;
+    };
+  };
+}

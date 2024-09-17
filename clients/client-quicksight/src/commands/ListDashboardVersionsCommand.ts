@@ -113,4 +113,16 @@ export class ListDashboardVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDashboardVersionsCommand)
   .de(de_ListDashboardVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDashboardVersionsRequest;
+      output: ListDashboardVersionsResponse;
+    };
+    sdk: {
+      input: ListDashboardVersionsCommandInput;
+      output: ListDashboardVersionsCommandOutput;
+    };
+  };
+}

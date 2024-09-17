@@ -115,4 +115,16 @@ export class DescribeOptOutListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOptOutListsCommand)
   .de(de_DescribeOptOutListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOptOutListsRequest;
+      output: DescribeOptOutListsResult;
+    };
+    sdk: {
+      input: DescribeOptOutListsCommandInput;
+      output: DescribeOptOutListsCommandOutput;
+    };
+  };
+}

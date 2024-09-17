@@ -147,4 +147,16 @@ export class StartChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartChangeSetCommand)
   .de(de_StartChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartChangeSetRequest;
+      output: StartChangeSetResponse;
+    };
+    sdk: {
+      input: StartChangeSetCommandInput;
+      output: StartChangeSetCommandOutput;
+    };
+  };
+}

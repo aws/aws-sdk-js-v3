@@ -437,4 +437,16 @@ export class DescribeFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetsCommand)
   .de(de_DescribeFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetsRequest;
+      output: DescribeFleetsResult;
+    };
+    sdk: {
+      input: DescribeFleetsCommandInput;
+      output: DescribeFleetsCommandOutput;
+    };
+  };
+}

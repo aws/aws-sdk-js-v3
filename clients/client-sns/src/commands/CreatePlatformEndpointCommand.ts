@@ -108,4 +108,16 @@ export class CreatePlatformEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlatformEndpointCommand)
   .de(de_CreatePlatformEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlatformEndpointInput;
+      output: CreateEndpointResponse;
+    };
+    sdk: {
+      input: CreatePlatformEndpointCommandInput;
+      output: CreatePlatformEndpointCommandOutput;
+    };
+  };
+}

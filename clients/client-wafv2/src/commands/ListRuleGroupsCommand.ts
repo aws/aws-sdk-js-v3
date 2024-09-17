@@ -117,4 +117,16 @@ export class ListRuleGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleGroupsCommand)
   .de(de_ListRuleGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleGroupsRequest;
+      output: ListRuleGroupsResponse;
+    };
+    sdk: {
+      input: ListRuleGroupsCommandInput;
+      output: ListRuleGroupsCommandOutput;
+    };
+  };
+}

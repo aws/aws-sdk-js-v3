@@ -104,4 +104,16 @@ export class ListImportedModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImportedModelsCommand)
   .de(de_ListImportedModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImportedModelsRequest;
+      output: ListImportedModelsResponse;
+    };
+    sdk: {
+      input: ListImportedModelsCommandInput;
+      output: ListImportedModelsCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutScheduledUpdateGroupActionCommand)
   .de(de_BatchPutScheduledUpdateGroupActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutScheduledUpdateGroupActionType;
+      output: BatchPutScheduledUpdateGroupActionAnswer;
+    };
+    sdk: {
+      input: BatchPutScheduledUpdateGroupActionCommandInput;
+      output: BatchPutScheduledUpdateGroupActionCommandOutput;
+    };
+  };
+}

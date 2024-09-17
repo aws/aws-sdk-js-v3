@@ -89,4 +89,16 @@ export class DeleteApiKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApiKeyCommand)
   .de(de_DeleteApiKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApiKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApiKeyCommandInput;
+      output: DeleteApiKeyCommandOutput;
+    };
+  };
+}

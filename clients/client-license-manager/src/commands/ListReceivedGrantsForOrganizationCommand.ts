@@ -136,4 +136,16 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReceivedGrantsForOrganizationCommand)
   .de(de_ListReceivedGrantsForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReceivedGrantsForOrganizationRequest;
+      output: ListReceivedGrantsForOrganizationResponse;
+    };
+    sdk: {
+      input: ListReceivedGrantsForOrganizationCommandInput;
+      output: ListReceivedGrantsForOrganizationCommandOutput;
+    };
+  };
+}

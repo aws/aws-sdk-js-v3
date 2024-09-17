@@ -150,4 +150,16 @@ export class PutCompositeAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutCompositeAlarmCommand)
   .de(de_PutCompositeAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutCompositeAlarmInput;
+      output: {};
+    };
+    sdk: {
+      input: PutCompositeAlarmCommandInput;
+      output: PutCompositeAlarmCommandOutput;
+    };
+  };
+}

@@ -110,4 +110,16 @@ export class ListSyncJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSyncJobsCommand)
   .de(de_ListSyncJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSyncJobsRequest;
+      output: ListSyncJobsResponse;
+    };
+    sdk: {
+      input: ListSyncJobsCommandInput;
+      output: ListSyncJobsCommandOutput;
+    };
+  };
+}

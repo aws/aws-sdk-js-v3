@@ -101,4 +101,16 @@ export class UpdateManagedInstanceRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateManagedInstanceRoleCommand)
   .de(de_UpdateManagedInstanceRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateManagedInstanceRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateManagedInstanceRoleCommandInput;
+      output: UpdateManagedInstanceRoleCommandOutput;
+    };
+  };
+}

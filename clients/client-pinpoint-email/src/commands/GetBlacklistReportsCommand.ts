@@ -96,4 +96,16 @@ export class GetBlacklistReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBlacklistReportsCommand)
   .de(de_GetBlacklistReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBlacklistReportsRequest;
+      output: GetBlacklistReportsResponse;
+    };
+    sdk: {
+      input: GetBlacklistReportsCommandInput;
+      output: GetBlacklistReportsCommandOutput;
+    };
+  };
+}

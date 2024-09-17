@@ -99,4 +99,16 @@ export class UpdatePreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePreferencesCommand)
   .de(de_UpdatePreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePreferencesRequest;
+      output: UpdatePreferencesResponse;
+    };
+    sdk: {
+      input: UpdatePreferencesCommandInput;
+      output: UpdatePreferencesCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class GetBudgetCommand extends $Command
   .f(void 0, GetBudgetResponseFilterSensitiveLog)
   .ser(se_GetBudgetCommand)
   .de(de_GetBudgetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBudgetRequest;
+      output: GetBudgetResponse;
+    };
+    sdk: {
+      input: GetBudgetCommandInput;
+      output: GetBudgetCommandOutput;
+    };
+  };
+}

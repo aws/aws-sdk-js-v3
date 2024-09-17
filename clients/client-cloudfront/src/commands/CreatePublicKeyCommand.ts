@@ -103,4 +103,16 @@ export class CreatePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicKeyCommand)
   .de(de_CreatePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicKeyRequest;
+      output: CreatePublicKeyResult;
+    };
+    sdk: {
+      input: CreatePublicKeyCommandInput;
+      output: CreatePublicKeyCommandOutput;
+    };
+  };
+}

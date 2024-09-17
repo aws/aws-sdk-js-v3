@@ -135,4 +135,16 @@ export class NotifyMigrationTaskStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyMigrationTaskStateCommand)
   .de(de_NotifyMigrationTaskStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyMigrationTaskStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: NotifyMigrationTaskStateCommandInput;
+      output: NotifyMigrationTaskStateCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class RetryStageExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetryStageExecutionCommand)
   .de(de_RetryStageExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetryStageExecutionInput;
+      output: RetryStageExecutionOutput;
+    };
+    sdk: {
+      input: RetryStageExecutionCommandInput;
+      output: RetryStageExecutionCommandOutput;
+    };
+  };
+}

@@ -92,4 +92,16 @@ export class ListTaskExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskExecutionsCommand)
   .de(de_ListTaskExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskExecutionsRequest;
+      output: ListTaskExecutionsResponse;
+    };
+    sdk: {
+      input: ListTaskExecutionsCommandInput;
+      output: ListTaskExecutionsCommandOutput;
+    };
+  };
+}

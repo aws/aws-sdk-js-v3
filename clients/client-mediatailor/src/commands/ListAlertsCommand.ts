@@ -91,4 +91,16 @@ export class ListAlertsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAlertsCommand)
   .de(de_ListAlertsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAlertsRequest;
+      output: ListAlertsResponse;
+    };
+    sdk: {
+      input: ListAlertsCommandInput;
+      output: ListAlertsCommandOutput;
+    };
+  };
+}

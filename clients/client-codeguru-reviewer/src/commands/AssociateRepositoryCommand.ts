@@ -164,4 +164,16 @@ export class AssociateRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateRepositoryCommand)
   .de(de_AssociateRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateRepositoryRequest;
+      output: AssociateRepositoryResponse;
+    };
+    sdk: {
+      input: AssociateRepositoryCommandInput;
+      output: AssociateRepositoryCommandOutput;
+    };
+  };
+}

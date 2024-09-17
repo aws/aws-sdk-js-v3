@@ -147,4 +147,16 @@ export class UpdateLinkAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLinkAttributesCommand)
   .de(de_UpdateLinkAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLinkAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLinkAttributesCommandInput;
+      output: UpdateLinkAttributesCommandOutput;
+    };
+  };
+}

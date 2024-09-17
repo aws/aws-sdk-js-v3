@@ -116,4 +116,16 @@ export class AssociateNodeCommand extends $Command
   .f(AssociateNodeRequestFilterSensitiveLog, void 0)
   .ser(se_AssociateNodeCommand)
   .de(de_AssociateNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateNodeRequest;
+      output: AssociateNodeResponse;
+    };
+    sdk: {
+      input: AssociateNodeCommandInput;
+      output: AssociateNodeCommandOutput;
+    };
+  };
+}

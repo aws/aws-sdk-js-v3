@@ -84,4 +84,16 @@ export class GetAccessKeyLastUsedCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessKeyLastUsedCommand)
   .de(de_GetAccessKeyLastUsedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessKeyLastUsedRequest;
+      output: GetAccessKeyLastUsedResponse;
+    };
+    sdk: {
+      input: GetAccessKeyLastUsedCommandInput;
+      output: GetAccessKeyLastUsedCommandOutput;
+    };
+  };
+}

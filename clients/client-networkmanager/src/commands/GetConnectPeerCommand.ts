@@ -130,4 +130,16 @@ export class GetConnectPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectPeerCommand)
   .de(de_GetConnectPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectPeerRequest;
+      output: GetConnectPeerResponse;
+    };
+    sdk: {
+      input: GetConnectPeerCommandInput;
+      output: GetConnectPeerCommandOutput;
+    };
+  };
+}

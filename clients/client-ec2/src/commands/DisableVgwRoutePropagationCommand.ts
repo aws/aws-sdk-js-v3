@@ -90,4 +90,16 @@ export class DisableVgwRoutePropagationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableVgwRoutePropagationCommand)
   .de(de_DisableVgwRoutePropagationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableVgwRoutePropagationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableVgwRoutePropagationCommandInput;
+      output: DisableVgwRoutePropagationCommandOutput;
+    };
+  };
+}

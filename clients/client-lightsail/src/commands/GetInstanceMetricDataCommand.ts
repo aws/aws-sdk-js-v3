@@ -130,4 +130,16 @@ export class GetInstanceMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstanceMetricDataCommand)
   .de(de_GetInstanceMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceMetricDataRequest;
+      output: GetInstanceMetricDataResult;
+    };
+    sdk: {
+      input: GetInstanceMetricDataCommandInput;
+      output: GetInstanceMetricDataCommandOutput;
+    };
+  };
+}

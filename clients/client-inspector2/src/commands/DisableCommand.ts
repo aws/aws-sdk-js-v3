@@ -127,4 +127,16 @@ export class DisableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableCommand)
   .de(de_DisableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRequest;
+      output: DisableResponse;
+    };
+    sdk: {
+      input: DisableCommandInput;
+      output: DisableCommandOutput;
+    };
+  };
+}

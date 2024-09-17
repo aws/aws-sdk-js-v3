@@ -152,4 +152,16 @@ export class DescribeProductAsAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProductAsAdminCommand)
   .de(de_DescribeProductAsAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProductAsAdminInput;
+      output: DescribeProductAsAdminOutput;
+    };
+    sdk: {
+      input: DescribeProductAsAdminCommandInput;
+      output: DescribeProductAsAdminCommandOutput;
+    };
+  };
+}

@@ -124,4 +124,16 @@ export class DescribeDBClusterSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterSnapshotsCommand)
   .de(de_DescribeDBClusterSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterSnapshotsMessage;
+      output: DBClusterSnapshotMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterSnapshotsCommandInput;
+      output: DescribeDBClusterSnapshotsCommandOutput;
+    };
+  };
+}

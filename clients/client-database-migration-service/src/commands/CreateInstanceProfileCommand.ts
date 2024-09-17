@@ -174,4 +174,16 @@ export class CreateInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceProfileCommand)
   .de(de_CreateInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceProfileMessage;
+      output: CreateInstanceProfileResponse;
+    };
+    sdk: {
+      input: CreateInstanceProfileCommandInput;
+      output: CreateInstanceProfileCommandOutput;
+    };
+  };
+}

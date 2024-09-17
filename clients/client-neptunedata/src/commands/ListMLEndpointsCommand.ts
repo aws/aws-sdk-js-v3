@@ -118,4 +118,16 @@ export class ListMLEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMLEndpointsCommand)
   .de(de_ListMLEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMLEndpointsInput;
+      output: ListMLEndpointsOutput;
+    };
+    sdk: {
+      input: ListMLEndpointsCommandInput;
+      output: ListMLEndpointsCommandOutput;
+    };
+  };
+}

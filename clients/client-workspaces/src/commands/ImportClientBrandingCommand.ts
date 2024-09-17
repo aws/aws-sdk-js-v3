@@ -223,4 +223,16 @@ export class ImportClientBrandingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportClientBrandingCommand)
   .de(de_ImportClientBrandingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportClientBrandingRequest;
+      output: ImportClientBrandingResult;
+    };
+    sdk: {
+      input: ImportClientBrandingCommandInput;
+      output: ImportClientBrandingCommandOutput;
+    };
+  };
+}

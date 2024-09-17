@@ -174,4 +174,16 @@ export class CreateProfileJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProfileJobCommand)
   .de(de_CreateProfileJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProfileJobRequest;
+      output: CreateProfileJobResponse;
+    };
+    sdk: {
+      input: CreateProfileJobCommandInput;
+      output: CreateProfileJobCommandOutput;
+    };
+  };
+}

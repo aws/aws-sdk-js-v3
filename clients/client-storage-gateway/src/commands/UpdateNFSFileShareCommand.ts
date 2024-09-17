@@ -132,4 +132,16 @@ export class UpdateNFSFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNFSFileShareCommand)
   .de(de_UpdateNFSFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNFSFileShareInput;
+      output: UpdateNFSFileShareOutput;
+    };
+    sdk: {
+      input: UpdateNFSFileShareCommandInput;
+      output: UpdateNFSFileShareCommandOutput;
+    };
+  };
+}

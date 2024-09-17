@@ -101,4 +101,16 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSensitiveDataOccurrencesAvailabilityCommand)
   .de(de_GetSensitiveDataOccurrencesAvailabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSensitiveDataOccurrencesAvailabilityRequest;
+      output: GetSensitiveDataOccurrencesAvailabilityResponse;
+    };
+    sdk: {
+      input: GetSensitiveDataOccurrencesAvailabilityCommandInput;
+      output: GetSensitiveDataOccurrencesAvailabilityCommandOutput;
+    };
+  };
+}

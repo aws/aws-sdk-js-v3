@@ -118,4 +118,16 @@ export class GetMigrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMigrationCommand)
   .de(de_GetMigrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMigrationRequest;
+      output: GetMigrationResponse;
+    };
+    sdk: {
+      input: GetMigrationCommandInput;
+      output: GetMigrationCommandOutput;
+    };
+  };
+}

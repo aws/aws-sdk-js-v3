@@ -97,4 +97,16 @@ export class DisableLoggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableLoggingCommand)
   .de(de_DisableLoggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableLoggingMessage;
+      output: LoggingStatus;
+    };
+    sdk: {
+      input: DisableLoggingCommandInput;
+      output: DisableLoggingCommandOutput;
+    };
+  };
+}

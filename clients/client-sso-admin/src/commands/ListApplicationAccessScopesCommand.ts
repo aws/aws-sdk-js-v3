@@ -106,4 +106,16 @@ export class ListApplicationAccessScopesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAccessScopesCommand)
   .de(de_ListApplicationAccessScopesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAccessScopesRequest;
+      output: ListApplicationAccessScopesResponse;
+    };
+    sdk: {
+      input: ListApplicationAccessScopesCommandInput;
+      output: ListApplicationAccessScopesCommandOutput;
+    };
+  };
+}

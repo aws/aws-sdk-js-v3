@@ -86,4 +86,16 @@ export class DeleteV2LoggingLevelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteV2LoggingLevelCommand)
   .de(de_DeleteV2LoggingLevelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteV2LoggingLevelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteV2LoggingLevelCommandInput;
+      output: DeleteV2LoggingLevelCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class BatchUpdateRecommendationResourceExclusionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateRecommendationResourceExclusionCommand)
   .de(de_BatchUpdateRecommendationResourceExclusionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateRecommendationResourceExclusionRequest;
+      output: BatchUpdateRecommendationResourceExclusionResponse;
+    };
+    sdk: {
+      input: BatchUpdateRecommendationResourceExclusionCommandInput;
+      output: BatchUpdateRecommendationResourceExclusionCommandOutput;
+    };
+  };
+}

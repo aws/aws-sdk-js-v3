@@ -83,4 +83,16 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkInsightsAccessScopeCommand)
   .de(de_DeleteNetworkInsightsAccessScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkInsightsAccessScopeRequest;
+      output: DeleteNetworkInsightsAccessScopeResult;
+    };
+    sdk: {
+      input: DeleteNetworkInsightsAccessScopeCommandInput;
+      output: DeleteNetworkInsightsAccessScopeCommandOutput;
+    };
+  };
+}

@@ -122,4 +122,16 @@ export class DeletePullRequestApprovalRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePullRequestApprovalRuleCommand)
   .de(de_DeletePullRequestApprovalRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePullRequestApprovalRuleInput;
+      output: DeletePullRequestApprovalRuleOutput;
+    };
+    sdk: {
+      input: DeletePullRequestApprovalRuleCommandInput;
+      output: DeletePullRequestApprovalRuleCommandOutput;
+    };
+  };
+}

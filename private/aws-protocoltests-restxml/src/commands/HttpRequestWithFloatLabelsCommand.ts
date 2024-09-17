@@ -70,4 +70,16 @@ export class HttpRequestWithFloatLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpRequestWithFloatLabelsCommand)
   .de(de_HttpRequestWithFloatLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithFloatLabelsInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithFloatLabelsCommandInput;
+      output: HttpRequestWithFloatLabelsCommandOutput;
+    };
+  };
+}

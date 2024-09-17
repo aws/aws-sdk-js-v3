@@ -155,4 +155,16 @@ export class UpdateDashboardPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDashboardPermissionsCommand)
   .de(de_UpdateDashboardPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDashboardPermissionsRequest;
+      output: UpdateDashboardPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateDashboardPermissionsCommandInput;
+      output: UpdateDashboardPermissionsCommandOutput;
+    };
+  };
+}

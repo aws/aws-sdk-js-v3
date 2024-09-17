@@ -109,4 +109,16 @@ export class UpdateContactCommand extends $Command
   .f(UpdateContactRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateContactCommand)
   .de(de_UpdateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactCommandInput;
+      output: UpdateContactCommandOutput;
+    };
+  };
+}

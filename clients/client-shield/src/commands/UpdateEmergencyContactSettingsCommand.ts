@@ -99,4 +99,16 @@ export class UpdateEmergencyContactSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEmergencyContactSettingsCommand)
   .de(de_UpdateEmergencyContactSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEmergencyContactSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEmergencyContactSettingsCommandInput;
+      output: UpdateEmergencyContactSettingsCommandOutput;
+    };
+  };
+}

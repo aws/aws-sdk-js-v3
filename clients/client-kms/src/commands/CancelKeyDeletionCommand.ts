@@ -144,4 +144,16 @@ export class CancelKeyDeletionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelKeyDeletionCommand)
   .de(de_CancelKeyDeletionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelKeyDeletionRequest;
+      output: CancelKeyDeletionResponse;
+    };
+    sdk: {
+      input: CancelKeyDeletionCommandInput;
+      output: CancelKeyDeletionCommandOutput;
+    };
+  };
+}

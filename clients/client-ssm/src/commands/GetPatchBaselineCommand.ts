@@ -149,4 +149,16 @@ export class GetPatchBaselineCommand extends $Command
   .f(void 0, GetPatchBaselineResultFilterSensitiveLog)
   .ser(se_GetPatchBaselineCommand)
   .de(de_GetPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPatchBaselineRequest;
+      output: GetPatchBaselineResult;
+    };
+    sdk: {
+      input: GetPatchBaselineCommandInput;
+      output: GetPatchBaselineCommandOutput;
+    };
+  };
+}

@@ -127,4 +127,16 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeCacheSecurityGroupIngressCommand)
   .de(de_RevokeCacheSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeCacheSecurityGroupIngressMessage;
+      output: RevokeCacheSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: RevokeCacheSecurityGroupIngressCommandInput;
+      output: RevokeCacheSecurityGroupIngressCommandOutput;
+    };
+  };
+}

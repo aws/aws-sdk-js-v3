@@ -86,4 +86,16 @@ export class DeleteNotebookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNotebookCommand)
   .de(de_DeleteNotebookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNotebookInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNotebookCommandInput;
+      output: DeleteNotebookCommandOutput;
+    };
+  };
+}

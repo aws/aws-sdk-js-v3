@@ -133,4 +133,16 @@ export class StopImageBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopImageBuilderCommand)
   .de(de_StopImageBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopImageBuilderRequest;
+      output: StopImageBuilderResult;
+    };
+    sdk: {
+      input: StopImageBuilderCommandInput;
+      output: StopImageBuilderCommandOutput;
+    };
+  };
+}

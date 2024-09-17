@@ -95,4 +95,16 @@ export class CreatePlacementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePlacementCommand)
   .de(de_CreatePlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlacementRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreatePlacementCommandInput;
+      output: CreatePlacementCommandOutput;
+    };
+  };
+}

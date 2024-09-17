@@ -117,4 +117,16 @@ export class ListAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAliasesCommand)
   .de(de_ListAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAliasesInput;
+      output: ListAliasesOutput;
+    };
+    sdk: {
+      input: ListAliasesCommandInput;
+      output: ListAliasesCommandOutput;
+    };
+  };
+}

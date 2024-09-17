@@ -106,4 +106,16 @@ export class UpdateArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateArchiveRuleCommand)
   .de(de_UpdateArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateArchiveRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateArchiveRuleCommandInput;
+      output: UpdateArchiveRuleCommandOutput;
+    };
+  };
+}

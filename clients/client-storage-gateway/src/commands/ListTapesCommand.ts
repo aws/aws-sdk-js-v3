@@ -110,4 +110,16 @@ export class ListTapesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTapesCommand)
   .de(de_ListTapesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTapesInput;
+      output: ListTapesOutput;
+    };
+    sdk: {
+      input: ListTapesCommandInput;
+      output: ListTapesCommandOutput;
+    };
+  };
+}

@@ -141,4 +141,16 @@ export class GetCampaignCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCampaignCommand)
   .de(de_GetCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignRequest;
+      output: GetCampaignResponse;
+    };
+    sdk: {
+      input: GetCampaignCommandInput;
+      output: GetCampaignCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class DeleteIdentityPropagationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityPropagationConfigCommand)
   .de(de_DeleteIdentityPropagationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityPropagationConfigRequest;
+      output: DeleteIdentityPropagationConfigResponse;
+    };
+    sdk: {
+      input: DeleteIdentityPropagationConfigCommandInput;
+      output: DeleteIdentityPropagationConfigCommandOutput;
+    };
+  };
+}

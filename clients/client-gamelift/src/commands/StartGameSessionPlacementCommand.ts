@@ -193,4 +193,16 @@ export class StartGameSessionPlacementCommand extends $Command
   .f(StartGameSessionPlacementInputFilterSensitiveLog, StartGameSessionPlacementOutputFilterSensitiveLog)
   .ser(se_StartGameSessionPlacementCommand)
   .de(de_StartGameSessionPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartGameSessionPlacementInput;
+      output: StartGameSessionPlacementOutput;
+    };
+    sdk: {
+      input: StartGameSessionPlacementCommandInput;
+      output: StartGameSessionPlacementCommandOutput;
+    };
+  };
+}

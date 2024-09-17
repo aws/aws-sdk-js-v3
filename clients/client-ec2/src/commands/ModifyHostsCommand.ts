@@ -103,4 +103,16 @@ export class ModifyHostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyHostsCommand)
   .de(de_ModifyHostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyHostsRequest;
+      output: ModifyHostsResult;
+    };
+    sdk: {
+      input: ModifyHostsCommandInput;
+      output: ModifyHostsCommandOutput;
+    };
+  };
+}

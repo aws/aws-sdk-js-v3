@@ -102,4 +102,16 @@ export class EnableLDAPSCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableLDAPSCommand)
   .de(de_EnableLDAPSCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableLDAPSRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableLDAPSCommandInput;
+      output: EnableLDAPSCommandOutput;
+    };
+  };
+}

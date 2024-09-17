@@ -89,4 +89,16 @@ export class CreateGroupCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCertificateAuthorityCommand)
   .de(de_CreateGroupCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupCertificateAuthorityRequest;
+      output: CreateGroupCertificateAuthorityResponse;
+    };
+    sdk: {
+      input: CreateGroupCertificateAuthorityCommandInput;
+      output: CreateGroupCertificateAuthorityCommandOutput;
+    };
+  };
+}

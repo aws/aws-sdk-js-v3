@@ -107,4 +107,16 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateClientVpnTargetNetworkCommand)
   .de(de_DisassociateClientVpnTargetNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateClientVpnTargetNetworkRequest;
+      output: DisassociateClientVpnTargetNetworkResult;
+    };
+    sdk: {
+      input: DisassociateClientVpnTargetNetworkCommandInput;
+      output: DisassociateClientVpnTargetNetworkCommandOutput;
+    };
+  };
+}

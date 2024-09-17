@@ -100,4 +100,16 @@ export class ListPlacementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPlacementsCommand)
   .de(de_ListPlacementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPlacementsRequest;
+      output: ListPlacementsResponse;
+    };
+    sdk: {
+      input: ListPlacementsCommandInput;
+      output: ListPlacementsCommandOutput;
+    };
+  };
+}

@@ -93,4 +93,16 @@ export class GetCrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCrlCommand)
   .de(de_GetCrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalarCrlRequest;
+      output: CrlDetailResponse;
+    };
+    sdk: {
+      input: GetCrlCommandInput;
+      output: GetCrlCommandOutput;
+    };
+  };
+}

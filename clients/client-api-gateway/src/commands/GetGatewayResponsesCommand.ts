@@ -104,4 +104,16 @@ export class GetGatewayResponsesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGatewayResponsesCommand)
   .de(de_GetGatewayResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGatewayResponsesRequest;
+      output: GatewayResponses;
+    };
+    sdk: {
+      input: GetGatewayResponsesCommandInput;
+      output: GetGatewayResponsesCommandOutput;
+    };
+  };
+}

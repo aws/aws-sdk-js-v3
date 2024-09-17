@@ -93,4 +93,16 @@ export class CreateBackendConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackendConfigCommand)
   .de(de_CreateBackendConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendConfigRequest;
+      output: CreateBackendConfigResponse;
+    };
+    sdk: {
+      input: CreateBackendConfigCommandInput;
+      output: CreateBackendConfigCommandOutput;
+    };
+  };
+}

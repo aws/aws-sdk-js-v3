@@ -108,4 +108,16 @@ export class ListTestConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestConfigurationsCommand)
   .de(de_ListTestConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestConfigurationsRequest;
+      output: ListTestConfigurationsResponse;
+    };
+    sdk: {
+      input: ListTestConfigurationsCommandInput;
+      output: ListTestConfigurationsCommandOutput;
+    };
+  };
+}

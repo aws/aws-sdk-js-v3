@@ -99,4 +99,16 @@ export class DescribeStackResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackResourceCommand)
   .de(de_DescribeStackResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackResourceInput;
+      output: DescribeStackResourceOutput;
+    };
+    sdk: {
+      input: DescribeStackResourceCommandInput;
+      output: DescribeStackResourceCommandOutput;
+    };
+  };
+}

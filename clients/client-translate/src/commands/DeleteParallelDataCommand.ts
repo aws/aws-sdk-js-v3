@@ -94,4 +94,16 @@ export class DeleteParallelDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteParallelDataCommand)
   .de(de_DeleteParallelDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteParallelDataRequest;
+      output: DeleteParallelDataResponse;
+    };
+    sdk: {
+      input: DeleteParallelDataCommandInput;
+      output: DeleteParallelDataCommandOutput;
+    };
+  };
+}

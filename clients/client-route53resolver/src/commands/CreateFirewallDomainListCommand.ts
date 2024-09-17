@@ -113,4 +113,16 @@ export class CreateFirewallDomainListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallDomainListCommand)
   .de(de_CreateFirewallDomainListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallDomainListRequest;
+      output: CreateFirewallDomainListResponse;
+    };
+    sdk: {
+      input: CreateFirewallDomainListCommandInput;
+      output: CreateFirewallDomainListCommandOutput;
+    };
+  };
+}

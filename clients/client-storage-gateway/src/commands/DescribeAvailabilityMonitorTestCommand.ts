@@ -94,4 +94,16 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAvailabilityMonitorTestCommand)
   .de(de_DescribeAvailabilityMonitorTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAvailabilityMonitorTestInput;
+      output: DescribeAvailabilityMonitorTestOutput;
+    };
+    sdk: {
+      input: DescribeAvailabilityMonitorTestCommandInput;
+      output: DescribeAvailabilityMonitorTestCommandOutput;
+    };
+  };
+}

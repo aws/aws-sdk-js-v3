@@ -107,4 +107,16 @@ export class GetMissionProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMissionProfileCommand)
   .de(de_GetMissionProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMissionProfileRequest;
+      output: GetMissionProfileResponse;
+    };
+    sdk: {
+      input: GetMissionProfileCommandInput;
+      output: GetMissionProfileCommandOutput;
+    };
+  };
+}

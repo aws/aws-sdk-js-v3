@@ -110,4 +110,16 @@ export class GetLayerVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLayerVersionCommand)
   .de(de_GetLayerVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLayerVersionRequest;
+      output: GetLayerVersionResponse;
+    };
+    sdk: {
+      input: GetLayerVersionCommandInput;
+      output: GetLayerVersionCommandOutput;
+    };
+  };
+}

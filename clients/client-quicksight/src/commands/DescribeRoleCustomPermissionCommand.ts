@@ -110,4 +110,16 @@ export class DescribeRoleCustomPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRoleCustomPermissionCommand)
   .de(de_DescribeRoleCustomPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRoleCustomPermissionRequest;
+      output: DescribeRoleCustomPermissionResponse;
+    };
+    sdk: {
+      input: DescribeRoleCustomPermissionCommandInput;
+      output: DescribeRoleCustomPermissionCommandOutput;
+    };
+  };
+}

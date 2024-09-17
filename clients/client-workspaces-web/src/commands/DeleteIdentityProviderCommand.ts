@@ -90,4 +90,16 @@ export class DeleteIdentityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityProviderCommand)
   .de(de_DeleteIdentityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentityProviderCommandInput;
+      output: DeleteIdentityProviderCommandOutput;
+    };
+  };
+}

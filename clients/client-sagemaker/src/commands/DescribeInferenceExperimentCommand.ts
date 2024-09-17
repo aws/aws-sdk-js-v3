@@ -137,4 +137,16 @@ export class DescribeInferenceExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInferenceExperimentCommand)
   .de(de_DescribeInferenceExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInferenceExperimentRequest;
+      output: DescribeInferenceExperimentResponse;
+    };
+    sdk: {
+      input: DescribeInferenceExperimentCommandInput;
+      output: DescribeInferenceExperimentCommandOutput;
+    };
+  };
+}

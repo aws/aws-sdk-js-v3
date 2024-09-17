@@ -287,4 +287,16 @@ export class CreateVpnConnectionCommand extends $Command
   .f(CreateVpnConnectionRequestFilterSensitiveLog, CreateVpnConnectionResultFilterSensitiveLog)
   .ser(se_CreateVpnConnectionCommand)
   .de(de_CreateVpnConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpnConnectionRequest;
+      output: CreateVpnConnectionResult;
+    };
+    sdk: {
+      input: CreateVpnConnectionCommandInput;
+      output: CreateVpnConnectionCommandOutput;
+    };
+  };
+}

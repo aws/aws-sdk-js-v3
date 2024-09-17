@@ -84,4 +84,16 @@ export class DeleteStudioLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStudioLifecycleConfigCommand)
   .de(de_DeleteStudioLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStudioLifecycleConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStudioLifecycleConfigCommandInput;
+      output: DeleteStudioLifecycleConfigCommandOutput;
+    };
+  };
+}

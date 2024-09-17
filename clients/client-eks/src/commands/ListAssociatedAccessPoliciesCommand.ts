@@ -112,4 +112,16 @@ export class ListAssociatedAccessPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssociatedAccessPoliciesCommand)
   .de(de_ListAssociatedAccessPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociatedAccessPoliciesRequest;
+      output: ListAssociatedAccessPoliciesResponse;
+    };
+    sdk: {
+      input: ListAssociatedAccessPoliciesCommandInput;
+      output: ListAssociatedAccessPoliciesCommandOutput;
+    };
+  };
+}

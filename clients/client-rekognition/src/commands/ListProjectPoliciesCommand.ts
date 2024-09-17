@@ -145,4 +145,16 @@ export class ListProjectPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProjectPoliciesCommand)
   .de(de_ListProjectPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectPoliciesRequest;
+      output: ListProjectPoliciesResponse;
+    };
+    sdk: {
+      input: ListProjectPoliciesCommandInput;
+      output: ListProjectPoliciesCommandOutput;
+    };
+  };
+}

@@ -105,4 +105,16 @@ export class ListVocabulariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVocabulariesCommand)
   .de(de_ListVocabulariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVocabulariesRequest;
+      output: ListVocabulariesResponse;
+    };
+    sdk: {
+      input: ListVocabulariesCommandInput;
+      output: ListVocabulariesCommandOutput;
+    };
+  };
+}

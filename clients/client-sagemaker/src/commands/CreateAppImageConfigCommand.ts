@@ -137,4 +137,16 @@ export class CreateAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppImageConfigCommand)
   .de(de_CreateAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppImageConfigRequest;
+      output: CreateAppImageConfigResponse;
+    };
+    sdk: {
+      input: CreateAppImageConfigCommandInput;
+      output: CreateAppImageConfigCommandOutput;
+    };
+  };
+}

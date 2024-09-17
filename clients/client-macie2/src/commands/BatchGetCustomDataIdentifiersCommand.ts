@@ -117,4 +117,16 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCustomDataIdentifiersCommand)
   .de(de_BatchGetCustomDataIdentifiersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCustomDataIdentifiersRequest;
+      output: BatchGetCustomDataIdentifiersResponse;
+    };
+    sdk: {
+      input: BatchGetCustomDataIdentifiersCommandInput;
+      output: BatchGetCustomDataIdentifiersCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class GetIdMappingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdMappingJobCommand)
   .de(de_GetIdMappingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdMappingJobInput;
+      output: GetIdMappingJobOutput;
+    };
+    sdk: {
+      input: GetIdMappingJobCommandInput;
+      output: GetIdMappingJobCommandOutput;
+    };
+  };
+}

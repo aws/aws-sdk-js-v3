@@ -107,4 +107,16 @@ export class ListAssetRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetRevisionsCommand)
   .de(de_ListAssetRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetRevisionsInput;
+      output: ListAssetRevisionsOutput;
+    };
+    sdk: {
+      input: ListAssetRevisionsCommandInput;
+      output: ListAssetRevisionsCommandOutput;
+    };
+  };
+}

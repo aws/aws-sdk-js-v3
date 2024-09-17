@@ -107,4 +107,16 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   .f(void 0, void 0)
   .ser(se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand)
   .de(de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput;
+      output: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput;
+    };
+  };
+}

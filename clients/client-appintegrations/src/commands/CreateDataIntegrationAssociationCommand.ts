@@ -126,4 +126,16 @@ export class CreateDataIntegrationAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataIntegrationAssociationCommand)
   .de(de_CreateDataIntegrationAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataIntegrationAssociationRequest;
+      output: CreateDataIntegrationAssociationResponse;
+    };
+    sdk: {
+      input: CreateDataIntegrationAssociationCommandInput;
+      output: CreateDataIntegrationAssociationCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class UpdateTrainingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrainingJobCommand)
   .de(de_UpdateTrainingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrainingJobRequest;
+      output: UpdateTrainingJobResponse;
+    };
+    sdk: {
+      input: UpdateTrainingJobCommandInput;
+      output: UpdateTrainingJobCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class CreateExtensionAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExtensionAssociationCommand)
   .de(de_CreateExtensionAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExtensionAssociationRequest;
+      output: ExtensionAssociation;
+    };
+    sdk: {
+      input: CreateExtensionAssociationCommandInput;
+      output: CreateExtensionAssociationCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class UpdateSolutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSolutionCommand)
   .de(de_UpdateSolutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSolutionRequest;
+      output: UpdateSolutionResponse;
+    };
+    sdk: {
+      input: UpdateSolutionCommandInput;
+      output: UpdateSolutionCommandOutput;
+    };
+  };
+}

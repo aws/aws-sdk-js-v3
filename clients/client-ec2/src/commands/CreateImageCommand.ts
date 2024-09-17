@@ -147,4 +147,16 @@ export class CreateImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageCommand)
   .de(de_CreateImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageRequest;
+      output: CreateImageResult;
+    };
+    sdk: {
+      input: CreateImageCommandInput;
+      output: CreateImageCommandOutput;
+    };
+  };
+}

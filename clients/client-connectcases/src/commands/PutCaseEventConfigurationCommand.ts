@@ -110,4 +110,16 @@ export class PutCaseEventConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutCaseEventConfigurationCommand)
   .de(de_PutCaseEventConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutCaseEventConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutCaseEventConfigurationCommandInput;
+      output: PutCaseEventConfigurationCommandOutput;
+    };
+  };
+}

@@ -88,4 +88,16 @@ export class DeregisterEventTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterEventTopicCommand)
   .de(de_DeregisterEventTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterEventTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterEventTopicCommandInput;
+      output: DeregisterEventTopicCommandOutput;
+    };
+  };
+}

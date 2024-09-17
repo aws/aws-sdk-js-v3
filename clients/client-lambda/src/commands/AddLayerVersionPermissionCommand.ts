@@ -120,4 +120,16 @@ export class AddLayerVersionPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddLayerVersionPermissionCommand)
   .de(de_AddLayerVersionPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddLayerVersionPermissionRequest;
+      output: AddLayerVersionPermissionResponse;
+    };
+    sdk: {
+      input: AddLayerVersionPermissionCommandInput;
+      output: AddLayerVersionPermissionCommandOutput;
+    };
+  };
+}

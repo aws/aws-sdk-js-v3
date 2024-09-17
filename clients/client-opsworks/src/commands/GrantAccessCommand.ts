@@ -92,4 +92,16 @@ export class GrantAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GrantAccessCommand)
   .de(de_GrantAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GrantAccessRequest;
+      output: GrantAccessResult;
+    };
+    sdk: {
+      input: GrantAccessCommandInput;
+      output: GrantAccessCommandOutput;
+    };
+  };
+}

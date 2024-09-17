@@ -124,4 +124,16 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
   .f(void 0, void 0)
   .ser(se_UpdateInstanceAccessControlAttributeConfigurationCommand)
   .de(de_UpdateInstanceAccessControlAttributeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceAccessControlAttributeConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInstanceAccessControlAttributeConfigurationCommandInput;
+      output: UpdateInstanceAccessControlAttributeConfigurationCommandOutput;
+    };
+  };
+}

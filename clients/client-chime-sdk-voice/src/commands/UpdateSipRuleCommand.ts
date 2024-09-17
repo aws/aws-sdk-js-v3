@@ -128,4 +128,16 @@ export class UpdateSipRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSipRuleCommand)
   .de(de_UpdateSipRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSipRuleRequest;
+      output: UpdateSipRuleResponse;
+    };
+    sdk: {
+      input: UpdateSipRuleCommandInput;
+      output: UpdateSipRuleCommandOutput;
+    };
+  };
+}

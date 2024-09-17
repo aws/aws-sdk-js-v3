@@ -90,4 +90,16 @@ export class ListServiceActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceActionsCommand)
   .de(de_ListServiceActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceActionsInput;
+      output: ListServiceActionsOutput;
+    };
+    sdk: {
+      input: ListServiceActionsCommandInput;
+      output: ListServiceActionsCommandOutput;
+    };
+  };
+}

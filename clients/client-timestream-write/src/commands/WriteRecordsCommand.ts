@@ -226,4 +226,16 @@ export class WriteRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_WriteRecordsCommand)
   .de(de_WriteRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: WriteRecordsRequest;
+      output: WriteRecordsResponse;
+    };
+    sdk: {
+      input: WriteRecordsCommandInput;
+      output: WriteRecordsCommandOutput;
+    };
+  };
+}

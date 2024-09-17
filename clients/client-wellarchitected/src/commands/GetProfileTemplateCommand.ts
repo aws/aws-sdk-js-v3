@@ -110,4 +110,16 @@ export class GetProfileTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProfileTemplateCommand)
   .de(de_GetProfileTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetProfileTemplateOutput;
+    };
+    sdk: {
+      input: GetProfileTemplateCommandInput;
+      output: GetProfileTemplateCommandOutput;
+    };
+  };
+}

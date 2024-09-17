@@ -94,4 +94,16 @@ export class DeleteAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessPolicyCommand)
   .de(de_DeleteAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessPolicyCommandInput;
+      output: DeleteAccessPolicyCommandOutput;
+    };
+  };
+}

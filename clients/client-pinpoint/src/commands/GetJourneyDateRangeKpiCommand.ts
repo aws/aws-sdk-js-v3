@@ -131,4 +131,16 @@ export class GetJourneyDateRangeKpiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyDateRangeKpiCommand)
   .de(de_GetJourneyDateRangeKpiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyDateRangeKpiRequest;
+      output: GetJourneyDateRangeKpiResponse;
+    };
+    sdk: {
+      input: GetJourneyDateRangeKpiCommandInput;
+      output: GetJourneyDateRangeKpiCommandOutput;
+    };
+  };
+}

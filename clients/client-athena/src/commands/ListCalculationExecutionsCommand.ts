@@ -104,4 +104,16 @@ export class ListCalculationExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCalculationExecutionsCommand)
   .de(de_ListCalculationExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCalculationExecutionsRequest;
+      output: ListCalculationExecutionsResponse;
+    };
+    sdk: {
+      input: ListCalculationExecutionsCommandInput;
+      output: ListCalculationExecutionsCommandOutput;
+    };
+  };
+}

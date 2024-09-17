@@ -97,4 +97,16 @@ export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extend
   .f(void 0, void 0)
   .ser(se_NotifyTerminateProvisionedProductEngineWorkflowResultCommand)
   .de(de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyTerminateProvisionedProductEngineWorkflowResultInput;
+      output: {};
+    };
+    sdk: {
+      input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput;
+      output: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput;
+    };
+  };
+}

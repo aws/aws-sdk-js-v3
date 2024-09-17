@@ -136,4 +136,16 @@ export class DescribeResourceCollectionHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceCollectionHealthCommand)
   .de(de_DescribeResourceCollectionHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceCollectionHealthRequest;
+      output: DescribeResourceCollectionHealthResponse;
+    };
+    sdk: {
+      input: DescribeResourceCollectionHealthCommandInput;
+      output: DescribeResourceCollectionHealthCommandOutput;
+    };
+  };
+}

@@ -138,4 +138,16 @@ export class StartArchiveSearchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartArchiveSearchCommand)
   .de(de_StartArchiveSearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartArchiveSearchRequest;
+      output: StartArchiveSearchResponse;
+    };
+    sdk: {
+      input: StartArchiveSearchCommandInput;
+      output: StartArchiveSearchCommandOutput;
+    };
+  };
+}

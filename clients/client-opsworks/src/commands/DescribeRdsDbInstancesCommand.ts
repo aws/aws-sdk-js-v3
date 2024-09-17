@@ -104,4 +104,16 @@ export class DescribeRdsDbInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRdsDbInstancesCommand)
   .de(de_DescribeRdsDbInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRdsDbInstancesRequest;
+      output: DescribeRdsDbInstancesResult;
+    };
+    sdk: {
+      input: DescribeRdsDbInstancesCommandInput;
+      output: DescribeRdsDbInstancesCommandOutput;
+    };
+  };
+}

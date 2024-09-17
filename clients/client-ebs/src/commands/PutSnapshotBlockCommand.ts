@@ -119,4 +119,16 @@ export class PutSnapshotBlockCommand extends $Command
   .f(PutSnapshotBlockRequestFilterSensitiveLog, void 0)
   .ser(se_PutSnapshotBlockCommand)
   .de(de_PutSnapshotBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSnapshotBlockRequest;
+      output: PutSnapshotBlockResponse;
+    };
+    sdk: {
+      input: PutSnapshotBlockCommandInput;
+      output: PutSnapshotBlockCommandOutput;
+    };
+  };
+}

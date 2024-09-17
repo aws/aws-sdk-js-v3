@@ -167,4 +167,16 @@ export class ExecuteSqlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteSqlCommand)
   .de(de_ExecuteSqlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteSqlRequest;
+      output: ExecuteSqlResponse;
+    };
+    sdk: {
+      input: ExecuteSqlCommandInput;
+      output: ExecuteSqlCommandOutput;
+    };
+  };
+}

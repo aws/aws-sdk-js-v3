@@ -125,4 +125,16 @@ export class CreateDomainConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainConfigurationCommand)
   .de(de_CreateDomainConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainConfigurationRequest;
+      output: CreateDomainConfigurationResponse;
+    };
+    sdk: {
+      input: CreateDomainConfigurationCommandInput;
+      output: CreateDomainConfigurationCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class PutBucketRequestPaymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketRequestPaymentCommand)
   .de(de_PutBucketRequestPaymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketRequestPaymentRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketRequestPaymentCommandInput;
+      output: PutBucketRequestPaymentCommandOutput;
+    };
+  };
+}

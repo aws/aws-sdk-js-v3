@@ -112,4 +112,16 @@ export class GetContainerImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerImagesCommand)
   .de(de_GetContainerImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerImagesRequest;
+      output: GetContainerImagesResult;
+    };
+    sdk: {
+      input: GetContainerImagesCommandInput;
+      output: GetContainerImagesCommandOutput;
+    };
+  };
+}

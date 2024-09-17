@@ -87,4 +87,16 @@ export class DeleteDataQualityRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataQualityRulesetCommand)
   .de(de_DeleteDataQualityRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataQualityRulesetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDataQualityRulesetCommandInput;
+      output: DeleteDataQualityRulesetCommandOutput;
+    };
+  };
+}

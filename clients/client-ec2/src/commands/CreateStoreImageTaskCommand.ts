@@ -89,4 +89,16 @@ export class CreateStoreImageTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStoreImageTaskCommand)
   .de(de_CreateStoreImageTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStoreImageTaskRequest;
+      output: CreateStoreImageTaskResult;
+    };
+    sdk: {
+      input: CreateStoreImageTaskCommandInput;
+      output: CreateStoreImageTaskCommandOutput;
+    };
+  };
+}

@@ -108,4 +108,16 @@ export class GetFindingsReportAccountSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsReportAccountSummaryCommand)
   .de(de_GetFindingsReportAccountSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsReportAccountSummaryRequest;
+      output: GetFindingsReportAccountSummaryResponse;
+    };
+    sdk: {
+      input: GetFindingsReportAccountSummaryCommandInput;
+      output: GetFindingsReportAccountSummaryCommandOutput;
+    };
+  };
+}

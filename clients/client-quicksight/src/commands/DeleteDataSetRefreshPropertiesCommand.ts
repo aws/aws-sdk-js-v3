@@ -108,4 +108,16 @@ export class DeleteDataSetRefreshPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataSetRefreshPropertiesCommand)
   .de(de_DeleteDataSetRefreshPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSetRefreshPropertiesRequest;
+      output: DeleteDataSetRefreshPropertiesResponse;
+    };
+    sdk: {
+      input: DeleteDataSetRefreshPropertiesCommandInput;
+      output: DeleteDataSetRefreshPropertiesCommandOutput;
+    };
+  };
+}

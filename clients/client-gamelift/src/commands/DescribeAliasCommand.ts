@@ -112,4 +112,16 @@ export class DescribeAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAliasCommand)
   .de(de_DescribeAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAliasInput;
+      output: DescribeAliasOutput;
+    };
+    sdk: {
+      input: DescribeAliasCommandInput;
+      output: DescribeAliasCommandOutput;
+    };
+  };
+}

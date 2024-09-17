@@ -126,4 +126,16 @@ export class ActivateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateGatewayCommand)
   .de(de_ActivateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateGatewayInput;
+      output: ActivateGatewayOutput;
+    };
+    sdk: {
+      input: ActivateGatewayCommandInput;
+      output: ActivateGatewayCommandOutput;
+    };
+  };
+}

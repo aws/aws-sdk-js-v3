@@ -103,4 +103,16 @@ export class StartQueryPlanningCommand extends $Command
   .f(StartQueryPlanningRequestFilterSensitiveLog, void 0)
   .ser(se_StartQueryPlanningCommand)
   .de(de_StartQueryPlanningCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartQueryPlanningRequest;
+      output: StartQueryPlanningResponse;
+    };
+    sdk: {
+      input: StartQueryPlanningCommandInput;
+      output: StartQueryPlanningCommandOutput;
+    };
+  };
+}

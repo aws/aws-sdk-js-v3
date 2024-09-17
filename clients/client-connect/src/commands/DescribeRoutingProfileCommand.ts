@@ -121,4 +121,16 @@ export class DescribeRoutingProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRoutingProfileCommand)
   .de(de_DescribeRoutingProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRoutingProfileRequest;
+      output: DescribeRoutingProfileResponse;
+    };
+    sdk: {
+      input: DescribeRoutingProfileCommandInput;
+      output: DescribeRoutingProfileCommandOutput;
+    };
+  };
+}

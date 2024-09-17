@@ -131,4 +131,16 @@ export class ListBillingGroupsCommand extends $Command
   .f(void 0, ListBillingGroupsOutputFilterSensitiveLog)
   .ser(se_ListBillingGroupsCommand)
   .de(de_ListBillingGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBillingGroupsInput;
+      output: ListBillingGroupsOutput;
+    };
+    sdk: {
+      input: ListBillingGroupsCommandInput;
+      output: ListBillingGroupsCommandOutput;
+    };
+  };
+}

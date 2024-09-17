@@ -111,4 +111,16 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPrefixListReferencesCommand)
   .de(de_GetTransitGatewayPrefixListReferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPrefixListReferencesRequest;
+      output: GetTransitGatewayPrefixListReferencesResult;
+    };
+    sdk: {
+      input: GetTransitGatewayPrefixListReferencesCommandInput;
+      output: GetTransitGatewayPrefixListReferencesCommandOutput;
+    };
+  };
+}

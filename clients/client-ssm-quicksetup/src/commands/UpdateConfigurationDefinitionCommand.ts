@@ -104,4 +104,16 @@ export class UpdateConfigurationDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationDefinitionCommand)
   .de(de_UpdateConfigurationDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationDefinitionInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationDefinitionCommandInput;
+      output: UpdateConfigurationDefinitionCommandOutput;
+    };
+  };
+}

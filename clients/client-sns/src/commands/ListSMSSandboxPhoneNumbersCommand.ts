@@ -114,4 +114,16 @@ export class ListSMSSandboxPhoneNumbersCommand extends $Command
   .f(void 0, ListSMSSandboxPhoneNumbersResultFilterSensitiveLog)
   .ser(se_ListSMSSandboxPhoneNumbersCommand)
   .de(de_ListSMSSandboxPhoneNumbersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSMSSandboxPhoneNumbersInput;
+      output: ListSMSSandboxPhoneNumbersResult;
+    };
+    sdk: {
+      input: ListSMSSandboxPhoneNumbersCommandInput;
+      output: ListSMSSandboxPhoneNumbersCommandOutput;
+    };
+  };
+}

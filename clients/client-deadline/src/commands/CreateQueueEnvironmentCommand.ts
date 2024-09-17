@@ -106,4 +106,16 @@ export class CreateQueueEnvironmentCommand extends $Command
   .f(CreateQueueEnvironmentRequestFilterSensitiveLog, void 0)
   .ser(se_CreateQueueEnvironmentCommand)
   .de(de_CreateQueueEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueEnvironmentRequest;
+      output: CreateQueueEnvironmentResponse;
+    };
+    sdk: {
+      input: CreateQueueEnvironmentCommandInput;
+      output: CreateQueueEnvironmentCommandOutput;
+    };
+  };
+}

@@ -114,4 +114,16 @@ export class PutIntegrationResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutIntegrationResponseCommand)
   .de(de_PutIntegrationResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIntegrationResponseRequest;
+      output: IntegrationResponse;
+    };
+    sdk: {
+      input: PutIntegrationResponseCommandInput;
+      output: PutIntegrationResponseCommandOutput;
+    };
+  };
+}

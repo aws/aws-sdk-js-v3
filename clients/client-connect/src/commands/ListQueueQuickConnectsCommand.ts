@@ -108,4 +108,16 @@ export class ListQueueQuickConnectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueueQuickConnectsCommand)
   .de(de_ListQueueQuickConnectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueueQuickConnectsRequest;
+      output: ListQueueQuickConnectsResponse;
+    };
+    sdk: {
+      input: ListQueueQuickConnectsCommandInput;
+      output: ListQueueQuickConnectsCommandOutput;
+    };
+  };
+}

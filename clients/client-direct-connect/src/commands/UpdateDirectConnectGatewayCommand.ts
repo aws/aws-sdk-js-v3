@@ -91,4 +91,16 @@ export class UpdateDirectConnectGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDirectConnectGatewayCommand)
   .de(de_UpdateDirectConnectGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDirectConnectGatewayRequest;
+      output: UpdateDirectConnectGatewayResponse;
+    };
+    sdk: {
+      input: UpdateDirectConnectGatewayCommandInput;
+      output: UpdateDirectConnectGatewayCommandOutput;
+    };
+  };
+}

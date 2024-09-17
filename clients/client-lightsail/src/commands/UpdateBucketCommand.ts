@@ -176,4 +176,16 @@ export class UpdateBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBucketCommand)
   .de(de_UpdateBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBucketRequest;
+      output: UpdateBucketResult;
+    };
+    sdk: {
+      input: UpdateBucketCommandInput;
+      output: UpdateBucketCommandOutput;
+    };
+  };
+}

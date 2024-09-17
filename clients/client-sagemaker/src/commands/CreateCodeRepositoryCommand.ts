@@ -94,4 +94,16 @@ export class CreateCodeRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCodeRepositoryCommand)
   .de(de_CreateCodeRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCodeRepositoryInput;
+      output: CreateCodeRepositoryOutput;
+    };
+    sdk: {
+      input: CreateCodeRepositoryCommandInput;
+      output: CreateCodeRepositoryCommandOutput;
+    };
+  };
+}

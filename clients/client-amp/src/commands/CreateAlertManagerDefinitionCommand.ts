@@ -112,4 +112,16 @@ export class CreateAlertManagerDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAlertManagerDefinitionCommand)
   .de(de_CreateAlertManagerDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAlertManagerDefinitionRequest;
+      output: CreateAlertManagerDefinitionResponse;
+    };
+    sdk: {
+      input: CreateAlertManagerDefinitionCommandInput;
+      output: CreateAlertManagerDefinitionCommandOutput;
+    };
+  };
+}

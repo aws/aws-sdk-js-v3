@@ -136,4 +136,16 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterOrganizationDelegatedAdminCommand)
   .de(de_RegisterOrganizationDelegatedAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterOrganizationDelegatedAdminRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterOrganizationDelegatedAdminCommandInput;
+      output: RegisterOrganizationDelegatedAdminCommandOutput;
+    };
+  };
+}

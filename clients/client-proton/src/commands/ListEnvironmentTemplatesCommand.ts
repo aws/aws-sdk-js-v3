@@ -106,4 +106,16 @@ export class ListEnvironmentTemplatesCommand extends $Command
   .f(void 0, ListEnvironmentTemplatesOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentTemplatesCommand)
   .de(de_ListEnvironmentTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentTemplatesInput;
+      output: ListEnvironmentTemplatesOutput;
+    };
+    sdk: {
+      input: ListEnvironmentTemplatesCommandInput;
+      output: ListEnvironmentTemplatesCommandOutput;
+    };
+  };
+}

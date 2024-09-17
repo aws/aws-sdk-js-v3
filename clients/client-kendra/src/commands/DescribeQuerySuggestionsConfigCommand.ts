@@ -124,4 +124,16 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQuerySuggestionsConfigCommand)
   .de(de_DescribeQuerySuggestionsConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQuerySuggestionsConfigRequest;
+      output: DescribeQuerySuggestionsConfigResponse;
+    };
+    sdk: {
+      input: DescribeQuerySuggestionsConfigCommandInput;
+      output: DescribeQuerySuggestionsConfigCommandOutput;
+    };
+  };
+}

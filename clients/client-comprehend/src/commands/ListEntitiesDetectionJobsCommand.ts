@@ -136,4 +136,16 @@ export class ListEntitiesDetectionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitiesDetectionJobsCommand)
   .de(de_ListEntitiesDetectionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitiesDetectionJobsRequest;
+      output: ListEntitiesDetectionJobsResponse;
+    };
+    sdk: {
+      input: ListEntitiesDetectionJobsCommandInput;
+      output: ListEntitiesDetectionJobsCommandOutput;
+    };
+  };
+}

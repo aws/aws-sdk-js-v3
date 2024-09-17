@@ -94,4 +94,16 @@ export class ModifyInstanceMetadataDefaultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceMetadataDefaultsCommand)
   .de(de_ModifyInstanceMetadataDefaultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceMetadataDefaultsRequest;
+      output: ModifyInstanceMetadataDefaultsResult;
+    };
+    sdk: {
+      input: ModifyInstanceMetadataDefaultsCommandInput;
+      output: ModifyInstanceMetadataDefaultsCommandOutput;
+    };
+  };
+}

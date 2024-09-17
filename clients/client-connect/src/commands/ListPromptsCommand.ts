@@ -103,4 +103,16 @@ export class ListPromptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPromptsCommand)
   .de(de_ListPromptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPromptsRequest;
+      output: ListPromptsResponse;
+    };
+    sdk: {
+      input: ListPromptsCommandInput;
+      output: ListPromptsCommandOutput;
+    };
+  };
+}

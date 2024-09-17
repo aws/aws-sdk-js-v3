@@ -129,4 +129,16 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   )
   .ser(se_PutSipMediaApplicationAlexaSkillConfigurationCommand)
   .de(de_PutSipMediaApplicationAlexaSkillConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSipMediaApplicationAlexaSkillConfigurationRequest;
+      output: PutSipMediaApplicationAlexaSkillConfigurationResponse;
+    };
+    sdk: {
+      input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput;
+      output: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput;
+    };
+  };
+}

@@ -107,4 +107,16 @@ export class UpdateViewMetadataCommand extends $Command
   .f(UpdateViewMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateViewMetadataCommand)
   .de(de_UpdateViewMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateViewMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateViewMetadataCommandInput;
+      output: UpdateViewMetadataCommandOutput;
+    };
+  };
+}

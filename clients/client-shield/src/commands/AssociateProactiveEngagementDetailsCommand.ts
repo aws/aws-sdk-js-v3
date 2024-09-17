@@ -110,4 +110,16 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateProactiveEngagementDetailsCommand)
   .de(de_AssociateProactiveEngagementDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateProactiveEngagementDetailsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateProactiveEngagementDetailsCommandInput;
+      output: AssociateProactiveEngagementDetailsCommandOutput;
+    };
+  };
+}

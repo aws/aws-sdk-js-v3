@@ -105,4 +105,16 @@ export class GetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGatewayCommand)
   .de(de_GetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGatewayInput;
+      output: GetGatewayOutput;
+    };
+    sdk: {
+      input: GetGatewayCommandInput;
+      output: GetGatewayCommandOutput;
+    };
+  };
+}

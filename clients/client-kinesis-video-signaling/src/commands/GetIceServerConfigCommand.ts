@@ -127,4 +127,16 @@ export class GetIceServerConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIceServerConfigCommand)
   .de(de_GetIceServerConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIceServerConfigRequest;
+      output: GetIceServerConfigResponse;
+    };
+    sdk: {
+      input: GetIceServerConfigCommandInput;
+      output: GetIceServerConfigCommandOutput;
+    };
+  };
+}

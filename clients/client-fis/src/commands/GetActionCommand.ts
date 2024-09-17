@@ -101,4 +101,16 @@ export class GetActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetActionCommand)
   .de(de_GetActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActionRequest;
+      output: GetActionResponse;
+    };
+    sdk: {
+      input: GetActionCommandInput;
+      output: GetActionCommandOutput;
+    };
+  };
+}

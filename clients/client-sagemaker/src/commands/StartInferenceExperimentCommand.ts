@@ -84,4 +84,16 @@ export class StartInferenceExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInferenceExperimentCommand)
   .de(de_StartInferenceExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInferenceExperimentRequest;
+      output: StartInferenceExperimentResponse;
+    };
+    sdk: {
+      input: StartInferenceExperimentCommandInput;
+      output: StartInferenceExperimentCommandOutput;
+    };
+  };
+}

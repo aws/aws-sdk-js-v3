@@ -87,4 +87,16 @@ export class UpdateDeviceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDeviceFleetCommand)
   .de(de_UpdateDeviceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDeviceFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDeviceFleetCommandInput;
+      output: UpdateDeviceFleetCommandOutput;
+    };
+  };
+}

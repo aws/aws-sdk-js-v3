@@ -110,4 +110,16 @@ export class SwitchoverGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SwitchoverGlobalClusterCommand)
   .de(de_SwitchoverGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SwitchoverGlobalClusterMessage;
+      output: SwitchoverGlobalClusterResult;
+    };
+    sdk: {
+      input: SwitchoverGlobalClusterCommandInput;
+      output: SwitchoverGlobalClusterCommandOutput;
+    };
+  };
+}

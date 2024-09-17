@@ -103,4 +103,16 @@ export class GetResourcePositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcePositionCommand)
   .de(de_GetResourcePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcePositionRequest;
+      output: GetResourcePositionResponse;
+    };
+    sdk: {
+      input: GetResourcePositionCommandInput;
+      output: GetResourcePositionCommandOutput;
+    };
+  };
+}

@@ -86,4 +86,16 @@ export class DeleteExplainabilityExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExplainabilityExportCommand)
   .de(de_DeleteExplainabilityExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExplainabilityExportRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteExplainabilityExportCommandInput;
+      output: DeleteExplainabilityExportCommandOutput;
+    };
+  };
+}

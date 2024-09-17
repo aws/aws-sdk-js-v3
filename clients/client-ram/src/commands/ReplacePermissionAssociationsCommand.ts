@@ -138,4 +138,16 @@ export class ReplacePermissionAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplacePermissionAssociationsCommand)
   .de(de_ReplacePermissionAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplacePermissionAssociationsRequest;
+      output: ReplacePermissionAssociationsResponse;
+    };
+    sdk: {
+      input: ReplacePermissionAssociationsCommandInput;
+      output: ReplacePermissionAssociationsCommandOutput;
+    };
+  };
+}

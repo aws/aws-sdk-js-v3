@@ -122,4 +122,16 @@ export class GetPackageVersionCommand extends $Command
   .f(void 0, GetPackageVersionResponseFilterSensitiveLog)
   .ser(se_GetPackageVersionCommand)
   .de(de_GetPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionRequest;
+      output: GetPackageVersionResponse;
+    };
+    sdk: {
+      input: GetPackageVersionCommandInput;
+      output: GetPackageVersionCommandOutput;
+    };
+  };
+}

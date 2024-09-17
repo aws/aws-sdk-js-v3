@@ -105,4 +105,16 @@ export class UntagRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagRoleCommand)
   .de(de_UntagRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagRoleCommandInput;
+      output: UntagRoleCommandOutput;
+    };
+  };
+}

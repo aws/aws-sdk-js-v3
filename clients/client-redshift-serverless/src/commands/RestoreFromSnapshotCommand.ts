@@ -126,4 +126,16 @@ export class RestoreFromSnapshotCommand extends $Command
   .f(void 0, RestoreFromSnapshotResponseFilterSensitiveLog)
   .ser(se_RestoreFromSnapshotCommand)
   .de(de_RestoreFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreFromSnapshotRequest;
+      output: RestoreFromSnapshotResponse;
+    };
+    sdk: {
+      input: RestoreFromSnapshotCommandInput;
+      output: RestoreFromSnapshotCommandOutput;
+    };
+  };
+}

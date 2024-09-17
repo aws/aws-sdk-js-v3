@@ -151,4 +151,16 @@ export class ImportTerminologyCommand extends $Command
   .f(ImportTerminologyRequestFilterSensitiveLog, void 0)
   .ser(se_ImportTerminologyCommand)
   .de(de_ImportTerminologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportTerminologyRequest;
+      output: ImportTerminologyResponse;
+    };
+    sdk: {
+      input: ImportTerminologyCommandInput;
+      output: ImportTerminologyCommandOutput;
+    };
+  };
+}

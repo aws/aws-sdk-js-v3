@@ -132,4 +132,16 @@ export class UpdateObjectAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateObjectAttributesCommand)
   .de(de_UpdateObjectAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateObjectAttributesRequest;
+      output: UpdateObjectAttributesResponse;
+    };
+    sdk: {
+      input: UpdateObjectAttributesCommandInput;
+      output: UpdateObjectAttributesCommandOutput;
+    };
+  };
+}

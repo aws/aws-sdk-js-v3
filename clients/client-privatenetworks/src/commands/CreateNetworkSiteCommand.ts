@@ -172,4 +172,16 @@ export class CreateNetworkSiteCommand extends $Command
   .f(CreateNetworkSiteRequestFilterSensitiveLog, CreateNetworkSiteResponseFilterSensitiveLog)
   .ser(se_CreateNetworkSiteCommand)
   .de(de_CreateNetworkSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkSiteRequest;
+      output: CreateNetworkSiteResponse;
+    };
+    sdk: {
+      input: CreateNetworkSiteCommandInput;
+      output: CreateNetworkSiteCommandOutput;
+    };
+  };
+}

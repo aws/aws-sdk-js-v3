@@ -84,4 +84,16 @@ export class DeleteObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteObjectCommand)
   .de(de_DeleteObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteObjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteObjectCommandInput;
+      output: DeleteObjectCommandOutput;
+    };
+  };
+}

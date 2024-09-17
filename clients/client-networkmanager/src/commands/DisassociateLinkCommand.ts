@@ -104,4 +104,16 @@ export class DisassociateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateLinkCommand)
   .de(de_DisassociateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLinkRequest;
+      output: DisassociateLinkResponse;
+    };
+    sdk: {
+      input: DisassociateLinkCommandInput;
+      output: DisassociateLinkCommandOutput;
+    };
+  };
+}

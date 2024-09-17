@@ -140,4 +140,16 @@ export class PutRolePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRolePolicyCommand)
   .de(de_PutRolePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRolePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRolePolicyCommandInput;
+      output: PutRolePolicyCommandOutput;
+    };
+  };
+}

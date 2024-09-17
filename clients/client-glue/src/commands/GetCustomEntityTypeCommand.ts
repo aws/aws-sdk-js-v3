@@ -96,4 +96,16 @@ export class GetCustomEntityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCustomEntityTypeCommand)
   .de(de_GetCustomEntityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCustomEntityTypeRequest;
+      output: GetCustomEntityTypeResponse;
+    };
+    sdk: {
+      input: GetCustomEntityTypeCommandInput;
+      output: GetCustomEntityTypeCommandOutput;
+    };
+  };
+}

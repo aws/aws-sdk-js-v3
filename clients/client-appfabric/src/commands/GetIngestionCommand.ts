@@ -103,4 +103,16 @@ export class GetIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIngestionCommand)
   .de(de_GetIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIngestionRequest;
+      output: GetIngestionResponse;
+    };
+    sdk: {
+      input: GetIngestionCommandInput;
+      output: GetIngestionCommandOutput;
+    };
+  };
+}

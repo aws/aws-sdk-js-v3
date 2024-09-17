@@ -82,4 +82,16 @@ export class DeleteClientVpnEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClientVpnEndpointCommand)
   .de(de_DeleteClientVpnEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClientVpnEndpointRequest;
+      output: DeleteClientVpnEndpointResult;
+    };
+    sdk: {
+      input: DeleteClientVpnEndpointCommandInput;
+      output: DeleteClientVpnEndpointCommandOutput;
+    };
+  };
+}

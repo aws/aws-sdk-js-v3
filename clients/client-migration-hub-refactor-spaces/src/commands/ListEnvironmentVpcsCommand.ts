@@ -113,4 +113,16 @@ export class ListEnvironmentVpcsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentVpcsCommand)
   .de(de_ListEnvironmentVpcsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentVpcsRequest;
+      output: ListEnvironmentVpcsResponse;
+    };
+    sdk: {
+      input: ListEnvironmentVpcsCommandInput;
+      output: ListEnvironmentVpcsCommandOutput;
+    };
+  };
+}

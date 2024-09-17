@@ -78,4 +78,16 @@ export class PingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PingCommand)
   .de(de_PingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: PingResponse;
+    };
+    sdk: {
+      input: PingCommandInput;
+      output: PingCommandOutput;
+    };
+  };
+}

@@ -253,4 +253,16 @@ export class ModifyReplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationInstanceCommand)
   .de(de_ModifyReplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationInstanceMessage;
+      output: ModifyReplicationInstanceResponse;
+    };
+    sdk: {
+      input: ModifyReplicationInstanceCommandInput;
+      output: ModifyReplicationInstanceCommandOutput;
+    };
+  };
+}

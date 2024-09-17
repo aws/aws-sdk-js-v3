@@ -134,4 +134,16 @@ export class DescribeAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAddressesCommand)
   .de(de_DescribeAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAddressesRequest;
+      output: DescribeAddressesResult;
+    };
+    sdk: {
+      input: DescribeAddressesCommandInput;
+      output: DescribeAddressesCommandOutput;
+    };
+  };
+}

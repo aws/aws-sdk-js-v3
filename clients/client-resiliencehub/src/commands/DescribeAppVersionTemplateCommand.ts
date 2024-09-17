@@ -98,4 +98,16 @@ export class DescribeAppVersionTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppVersionTemplateCommand)
   .de(de_DescribeAppVersionTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppVersionTemplateRequest;
+      output: DescribeAppVersionTemplateResponse;
+    };
+    sdk: {
+      input: DescribeAppVersionTemplateCommandInput;
+      output: DescribeAppVersionTemplateCommandOutput;
+    };
+  };
+}

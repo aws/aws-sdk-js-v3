@@ -152,4 +152,16 @@ export class ListConfigurationPolicyAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigurationPolicyAssociationsCommand)
   .de(de_ListConfigurationPolicyAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigurationPolicyAssociationsRequest;
+      output: ListConfigurationPolicyAssociationsResponse;
+    };
+    sdk: {
+      input: ListConfigurationPolicyAssociationsCommandInput;
+      output: ListConfigurationPolicyAssociationsCommandOutput;
+    };
+  };
+}

@@ -128,4 +128,16 @@ export class UpdateRobotApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRobotApplicationCommand)
   .de(de_UpdateRobotApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRobotApplicationRequest;
+      output: UpdateRobotApplicationResponse;
+    };
+    sdk: {
+      input: UpdateRobotApplicationCommandInput;
+      output: UpdateRobotApplicationCommandOutput;
+    };
+  };
+}

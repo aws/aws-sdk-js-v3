@@ -142,4 +142,16 @@ export class CreateDBProxyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBProxyCommand)
   .de(de_CreateDBProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBProxyRequest;
+      output: CreateDBProxyResponse;
+    };
+    sdk: {
+      input: CreateDBProxyCommandInput;
+      output: CreateDBProxyCommandOutput;
+    };
+  };
+}

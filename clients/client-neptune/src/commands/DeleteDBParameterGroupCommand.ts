@@ -85,4 +85,16 @@ export class DeleteDBParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBParameterGroupCommand)
   .de(de_DeleteDBParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBParameterGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDBParameterGroupCommandInput;
+      output: DeleteDBParameterGroupCommandOutput;
+    };
+  };
+}

@@ -112,4 +112,16 @@ export class TerminateSolNetworkInstanceCommand extends $Command
   .f(TerminateSolNetworkInstanceInputFilterSensitiveLog, TerminateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_TerminateSolNetworkInstanceCommand)
   .de(de_TerminateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateSolNetworkInstanceInput;
+      output: TerminateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: TerminateSolNetworkInstanceCommandInput;
+      output: TerminateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

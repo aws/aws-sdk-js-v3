@@ -114,4 +114,16 @@ export class StartMigrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMigrationCommand)
   .de(de_StartMigrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMigrationRequest;
+      output: StartMigrationResponse;
+    };
+    sdk: {
+      input: StartMigrationCommandInput;
+      output: StartMigrationCommandOutput;
+    };
+  };
+}

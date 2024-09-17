@@ -116,4 +116,16 @@ export class DescribeAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccessCommand)
   .de(de_DescribeAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccessRequest;
+      output: DescribeAccessResponse;
+    };
+    sdk: {
+      input: DescribeAccessCommandInput;
+      output: DescribeAccessCommandOutput;
+    };
+  };
+}

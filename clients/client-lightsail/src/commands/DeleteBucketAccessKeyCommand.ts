@@ -122,4 +122,16 @@ export class DeleteBucketAccessKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketAccessKeyCommand)
   .de(de_DeleteBucketAccessKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketAccessKeyRequest;
+      output: DeleteBucketAccessKeyResult;
+    };
+    sdk: {
+      input: DeleteBucketAccessKeyCommandInput;
+      output: DeleteBucketAccessKeyCommandOutput;
+    };
+  };
+}

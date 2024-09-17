@@ -85,4 +85,16 @@ export class DisableEbsEncryptionByDefaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableEbsEncryptionByDefaultCommand)
   .de(de_DisableEbsEncryptionByDefaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableEbsEncryptionByDefaultRequest;
+      output: DisableEbsEncryptionByDefaultResult;
+    };
+    sdk: {
+      input: DisableEbsEncryptionByDefaultCommandInput;
+      output: DisableEbsEncryptionByDefaultCommandOutput;
+    };
+  };
+}

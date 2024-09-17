@@ -90,4 +90,16 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateClientVpnTargetNetworkCommand)
   .de(de_AssociateClientVpnTargetNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateClientVpnTargetNetworkRequest;
+      output: AssociateClientVpnTargetNetworkResult;
+    };
+    sdk: {
+      input: AssociateClientVpnTargetNetworkCommandInput;
+      output: AssociateClientVpnTargetNetworkCommandOutput;
+    };
+  };
+}

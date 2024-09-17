@@ -116,4 +116,16 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command
   .f(NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog, void 0)
   .ser(se_NotifyResourceDeploymentStatusChangeCommand)
   .de(de_NotifyResourceDeploymentStatusChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyResourceDeploymentStatusChangeInput;
+      output: {};
+    };
+    sdk: {
+      input: NotifyResourceDeploymentStatusChangeCommandInput;
+      output: NotifyResourceDeploymentStatusChangeCommandOutput;
+    };
+  };
+}

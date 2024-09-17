@@ -109,4 +109,16 @@ export class DeleteGlobalNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGlobalNetworkCommand)
   .de(de_DeleteGlobalNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGlobalNetworkRequest;
+      output: DeleteGlobalNetworkResponse;
+    };
+    sdk: {
+      input: DeleteGlobalNetworkCommandInput;
+      output: DeleteGlobalNetworkCommandOutput;
+    };
+  };
+}

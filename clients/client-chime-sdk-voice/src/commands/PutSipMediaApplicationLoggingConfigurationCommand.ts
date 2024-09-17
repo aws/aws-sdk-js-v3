@@ -112,4 +112,16 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSipMediaApplicationLoggingConfigurationCommand)
   .de(de_PutSipMediaApplicationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSipMediaApplicationLoggingConfigurationRequest;
+      output: PutSipMediaApplicationLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: PutSipMediaApplicationLoggingConfigurationCommandInput;
+      output: PutSipMediaApplicationLoggingConfigurationCommandOutput;
+    };
+  };
+}

@@ -123,4 +123,16 @@ export class ListAssessmentControlInsightsByControlDomainCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_ListAssessmentControlInsightsByControlDomainCommand)
   .de(de_ListAssessmentControlInsightsByControlDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentControlInsightsByControlDomainRequest;
+      output: ListAssessmentControlInsightsByControlDomainResponse;
+    };
+    sdk: {
+      input: ListAssessmentControlInsightsByControlDomainCommandInput;
+      output: ListAssessmentControlInsightsByControlDomainCommandOutput;
+    };
+  };
+}

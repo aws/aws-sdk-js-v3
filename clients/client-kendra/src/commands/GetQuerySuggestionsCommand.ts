@@ -255,4 +255,16 @@ export class GetQuerySuggestionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQuerySuggestionsCommand)
   .de(de_GetQuerySuggestionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQuerySuggestionsRequest;
+      output: GetQuerySuggestionsResponse;
+    };
+    sdk: {
+      input: GetQuerySuggestionsCommandInput;
+      output: GetQuerySuggestionsCommandOutput;
+    };
+  };
+}

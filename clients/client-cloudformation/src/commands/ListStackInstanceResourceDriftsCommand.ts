@@ -129,4 +129,16 @@ export class ListStackInstanceResourceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackInstanceResourceDriftsCommand)
   .de(de_ListStackInstanceResourceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackInstanceResourceDriftsInput;
+      output: ListStackInstanceResourceDriftsOutput;
+    };
+    sdk: {
+      input: ListStackInstanceResourceDriftsCommandInput;
+      output: ListStackInstanceResourceDriftsCommandOutput;
+    };
+  };
+}

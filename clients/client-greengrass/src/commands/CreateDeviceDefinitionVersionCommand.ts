@@ -97,4 +97,16 @@ export class CreateDeviceDefinitionVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeviceDefinitionVersionCommand)
   .de(de_CreateDeviceDefinitionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeviceDefinitionVersionRequest;
+      output: CreateDeviceDefinitionVersionResponse;
+    };
+    sdk: {
+      input: CreateDeviceDefinitionVersionCommandInput;
+      output: CreateDeviceDefinitionVersionCommandOutput;
+    };
+  };
+}

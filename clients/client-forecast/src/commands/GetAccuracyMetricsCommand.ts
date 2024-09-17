@@ -138,4 +138,16 @@ export class GetAccuracyMetricsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccuracyMetricsCommand)
   .de(de_GetAccuracyMetricsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccuracyMetricsRequest;
+      output: GetAccuracyMetricsResponse;
+    };
+    sdk: {
+      input: GetAccuracyMetricsCommandInput;
+      output: GetAccuracyMetricsCommandOutput;
+    };
+  };
+}

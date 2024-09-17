@@ -104,4 +104,16 @@ export class GetSourceRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSourceRepositoryCommand)
   .de(de_GetSourceRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSourceRepositoryRequest;
+      output: GetSourceRepositoryResponse;
+    };
+    sdk: {
+      input: GetSourceRepositoryCommandInput;
+      output: GetSourceRepositoryCommandOutput;
+    };
+  };
+}

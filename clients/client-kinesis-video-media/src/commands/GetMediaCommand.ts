@@ -160,4 +160,16 @@ export class GetMediaCommand extends $Command
   .f(void 0, GetMediaOutputFilterSensitiveLog)
   .ser(se_GetMediaCommand)
   .de(de_GetMediaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaInput;
+      output: GetMediaOutput;
+    };
+    sdk: {
+      input: GetMediaCommandInput;
+      output: GetMediaCommandOutput;
+    };
+  };
+}

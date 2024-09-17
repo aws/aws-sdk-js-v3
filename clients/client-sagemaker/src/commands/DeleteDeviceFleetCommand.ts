@@ -78,4 +78,16 @@ export class DeleteDeviceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeviceFleetCommand)
   .de(de_DeleteDeviceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeviceFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeviceFleetCommandInput;
+      output: DeleteDeviceFleetCommandOutput;
+    };
+  };
+}

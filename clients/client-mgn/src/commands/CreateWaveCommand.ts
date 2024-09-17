@@ -112,4 +112,16 @@ export class CreateWaveCommand extends $Command
   .f(CreateWaveRequestFilterSensitiveLog, WaveFilterSensitiveLog)
   .ser(se_CreateWaveCommand)
   .de(de_CreateWaveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWaveRequest;
+      output: Wave;
+    };
+    sdk: {
+      input: CreateWaveCommandInput;
+      output: CreateWaveCommandOutput;
+    };
+  };
+}

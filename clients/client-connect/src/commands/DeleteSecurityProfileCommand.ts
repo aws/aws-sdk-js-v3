@@ -97,4 +97,16 @@ export class DeleteSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSecurityProfileCommand)
   .de(de_DeleteSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSecurityProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSecurityProfileCommandInput;
+      output: DeleteSecurityProfileCommandOutput;
+    };
+  };
+}

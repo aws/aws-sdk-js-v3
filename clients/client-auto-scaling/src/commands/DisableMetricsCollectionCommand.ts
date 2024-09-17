@@ -96,4 +96,16 @@ export class DisableMetricsCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableMetricsCollectionCommand)
   .de(de_DisableMetricsCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableMetricsCollectionQuery;
+      output: {};
+    };
+    sdk: {
+      input: DisableMetricsCollectionCommandInput;
+      output: DisableMetricsCollectionCommandOutput;
+    };
+  };
+}

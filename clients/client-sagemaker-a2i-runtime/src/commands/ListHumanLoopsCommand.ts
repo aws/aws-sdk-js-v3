@@ -112,4 +112,16 @@ export class ListHumanLoopsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHumanLoopsCommand)
   .de(de_ListHumanLoopsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHumanLoopsRequest;
+      output: ListHumanLoopsResponse;
+    };
+    sdk: {
+      input: ListHumanLoopsCommandInput;
+      output: ListHumanLoopsCommandOutput;
+    };
+  };
+}

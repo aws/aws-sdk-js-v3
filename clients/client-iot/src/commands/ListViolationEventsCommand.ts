@@ -165,4 +165,16 @@ export class ListViolationEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListViolationEventsCommand)
   .de(de_ListViolationEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListViolationEventsRequest;
+      output: ListViolationEventsResponse;
+    };
+    sdk: {
+      input: ListViolationEventsCommandInput;
+      output: ListViolationEventsCommandOutput;
+    };
+  };
+}

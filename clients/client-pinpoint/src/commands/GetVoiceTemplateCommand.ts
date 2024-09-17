@@ -114,4 +114,16 @@ export class GetVoiceTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVoiceTemplateCommand)
   .de(de_GetVoiceTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceTemplateRequest;
+      output: GetVoiceTemplateResponse;
+    };
+    sdk: {
+      input: GetVoiceTemplateCommandInput;
+      output: GetVoiceTemplateCommandOutput;
+    };
+  };
+}

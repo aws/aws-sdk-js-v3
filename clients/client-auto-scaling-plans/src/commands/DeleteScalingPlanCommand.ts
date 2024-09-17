@@ -93,4 +93,16 @@ export class DeleteScalingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScalingPlanCommand)
   .de(de_DeleteScalingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScalingPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScalingPlanCommandInput;
+      output: DeleteScalingPlanCommandOutput;
+    };
+  };
+}

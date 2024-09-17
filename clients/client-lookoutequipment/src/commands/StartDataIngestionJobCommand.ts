@@ -113,4 +113,16 @@ export class StartDataIngestionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDataIngestionJobCommand)
   .de(de_StartDataIngestionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDataIngestionJobRequest;
+      output: StartDataIngestionJobResponse;
+    };
+    sdk: {
+      input: StartDataIngestionJobCommandInput;
+      output: StartDataIngestionJobCommandOutput;
+    };
+  };
+}

@@ -130,4 +130,16 @@ export class DescribeOutboundConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOutboundConnectionsCommand)
   .de(de_DescribeOutboundConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOutboundConnectionsRequest;
+      output: DescribeOutboundConnectionsResponse;
+    };
+    sdk: {
+      input: DescribeOutboundConnectionsCommandInput;
+      output: DescribeOutboundConnectionsCommandOutput;
+    };
+  };
+}

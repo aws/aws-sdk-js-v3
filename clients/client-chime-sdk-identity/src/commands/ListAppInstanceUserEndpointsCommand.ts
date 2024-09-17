@@ -120,4 +120,16 @@ export class ListAppInstanceUserEndpointsCommand extends $Command
   .f(ListAppInstanceUserEndpointsRequestFilterSensitiveLog, ListAppInstanceUserEndpointsResponseFilterSensitiveLog)
   .ser(se_ListAppInstanceUserEndpointsCommand)
   .de(de_ListAppInstanceUserEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInstanceUserEndpointsRequest;
+      output: ListAppInstanceUserEndpointsResponse;
+    };
+    sdk: {
+      input: ListAppInstanceUserEndpointsCommandInput;
+      output: ListAppInstanceUserEndpointsCommandOutput;
+    };
+  };
+}

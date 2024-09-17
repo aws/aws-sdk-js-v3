@@ -384,4 +384,16 @@ export class ModifyListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyListenerCommand)
   .de(de_ModifyListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyListenerInput;
+      output: ModifyListenerOutput;
+    };
+    sdk: {
+      input: ModifyListenerCommandInput;
+      output: ModifyListenerCommandOutput;
+    };
+  };
+}

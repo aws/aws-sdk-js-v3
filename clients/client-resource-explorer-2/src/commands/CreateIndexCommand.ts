@@ -162,4 +162,16 @@ export class CreateIndexCommand extends $Command
   .f(CreateIndexInputFilterSensitiveLog, void 0)
   .ser(se_CreateIndexCommand)
   .de(de_CreateIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIndexInput;
+      output: CreateIndexOutput;
+    };
+    sdk: {
+      input: CreateIndexCommandInput;
+      output: CreateIndexCommandOutput;
+    };
+  };
+}

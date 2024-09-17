@@ -114,4 +114,16 @@ export class UpdateGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGraphCommand)
   .de(de_UpdateGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGraphInput;
+      output: UpdateGraphOutput;
+    };
+    sdk: {
+      input: UpdateGraphCommandInput;
+      output: UpdateGraphCommandOutput;
+    };
+  };
+}

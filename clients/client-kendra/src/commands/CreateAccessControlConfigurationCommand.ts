@@ -153,4 +153,16 @@ export class CreateAccessControlConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessControlConfigurationCommand)
   .de(de_CreateAccessControlConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessControlConfigurationRequest;
+      output: CreateAccessControlConfigurationResponse;
+    };
+    sdk: {
+      input: CreateAccessControlConfigurationCommandInput;
+      output: CreateAccessControlConfigurationCommandOutput;
+    };
+  };
+}

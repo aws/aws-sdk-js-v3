@@ -102,4 +102,16 @@ export class DescribeClientVpnRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientVpnRoutesCommand)
   .de(de_DescribeClientVpnRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientVpnRoutesRequest;
+      output: DescribeClientVpnRoutesResult;
+    };
+    sdk: {
+      input: DescribeClientVpnRoutesCommandInput;
+      output: DescribeClientVpnRoutesCommandOutput;
+    };
+  };
+}

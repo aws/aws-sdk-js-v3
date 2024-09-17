@@ -132,4 +132,16 @@ export class GetObjectAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectAttributesCommand)
   .de(de_GetObjectAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectAttributesRequest;
+      output: GetObjectAttributesResponse;
+    };
+    sdk: {
+      input: GetObjectAttributesCommandInput;
+      output: GetObjectAttributesCommandOutput;
+    };
+  };
+}

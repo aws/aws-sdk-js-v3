@@ -120,4 +120,16 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTransitGatewayMulticastDomainsCommand)
   .de(de_DescribeTransitGatewayMulticastDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTransitGatewayMulticastDomainsRequest;
+      output: DescribeTransitGatewayMulticastDomainsResult;
+    };
+    sdk: {
+      input: DescribeTransitGatewayMulticastDomainsCommandInput;
+      output: DescribeTransitGatewayMulticastDomainsCommandOutput;
+    };
+  };
+}

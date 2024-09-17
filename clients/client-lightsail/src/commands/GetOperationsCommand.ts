@@ -129,4 +129,16 @@ export class GetOperationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOperationsCommand)
   .de(de_GetOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOperationsRequest;
+      output: GetOperationsResult;
+    };
+    sdk: {
+      input: GetOperationsCommandInput;
+      output: GetOperationsCommandOutput;
+    };
+  };
+}

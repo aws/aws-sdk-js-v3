@@ -102,4 +102,16 @@ export class GetNetworkProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkProfileCommand)
   .de(de_GetNetworkProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkProfileRequest;
+      output: GetNetworkProfileResult;
+    };
+    sdk: {
+      input: GetNetworkProfileCommandInput;
+      output: GetNetworkProfileCommandOutput;
+    };
+  };
+}

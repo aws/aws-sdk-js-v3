@@ -105,4 +105,16 @@ export class CreateAccountAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccountAliasCommand)
   .de(de_CreateAccountAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAccountAliasCommandInput;
+      output: CreateAccountAliasCommandOutput;
+    };
+  };
+}

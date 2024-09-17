@@ -211,4 +211,16 @@ export class CopyDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBSnapshotCommand)
   .de(de_CopyDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBSnapshotMessage;
+      output: CopyDBSnapshotResult;
+    };
+    sdk: {
+      input: CopyDBSnapshotCommandInput;
+      output: CopyDBSnapshotCommandOutput;
+    };
+  };
+}

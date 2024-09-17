@@ -173,4 +173,16 @@ export class InvokeFlowCommand extends $Command
   .f(InvokeFlowRequestFilterSensitiveLog, InvokeFlowResponseFilterSensitiveLog)
   .ser(se_InvokeFlowCommand)
   .de(de_InvokeFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeFlowRequest;
+      output: InvokeFlowResponse;
+    };
+    sdk: {
+      input: InvokeFlowCommandInput;
+      output: InvokeFlowCommandOutput;
+    };
+  };
+}

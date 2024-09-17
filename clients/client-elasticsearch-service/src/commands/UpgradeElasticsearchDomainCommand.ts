@@ -111,4 +111,16 @@ export class UpgradeElasticsearchDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpgradeElasticsearchDomainCommand)
   .de(de_UpgradeElasticsearchDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpgradeElasticsearchDomainRequest;
+      output: UpgradeElasticsearchDomainResponse;
+    };
+    sdk: {
+      input: UpgradeElasticsearchDomainCommandInput;
+      output: UpgradeElasticsearchDomainCommandOutput;
+    };
+  };
+}

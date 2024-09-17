@@ -111,4 +111,16 @@ export class GetBucketOwnershipControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketOwnershipControlsCommand)
   .de(de_GetBucketOwnershipControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketOwnershipControlsRequest;
+      output: GetBucketOwnershipControlsOutput;
+    };
+    sdk: {
+      input: GetBucketOwnershipControlsCommandInput;
+      output: GetBucketOwnershipControlsCommandOutput;
+    };
+  };
+}

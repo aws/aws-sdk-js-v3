@@ -109,4 +109,16 @@ export class DescribePackagingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePackagingGroupCommand)
   .de(de_DescribePackagingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePackagingGroupRequest;
+      output: DescribePackagingGroupResponse;
+    };
+    sdk: {
+      input: DescribePackagingGroupCommandInput;
+      output: DescribePackagingGroupCommandOutput;
+    };
+  };
+}

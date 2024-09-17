@@ -103,4 +103,16 @@ export class UpdateUploadCommand extends $Command
   .f(void 0, UpdateUploadResultFilterSensitiveLog)
   .ser(se_UpdateUploadCommand)
   .de(de_UpdateUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUploadRequest;
+      output: UpdateUploadResult;
+    };
+    sdk: {
+      input: UpdateUploadCommandInput;
+      output: UpdateUploadCommandOutput;
+    };
+  };
+}

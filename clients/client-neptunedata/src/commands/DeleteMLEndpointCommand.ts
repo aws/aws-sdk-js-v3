@@ -118,4 +118,16 @@ export class DeleteMLEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMLEndpointCommand)
   .de(de_DeleteMLEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMLEndpointInput;
+      output: DeleteMLEndpointOutput;
+    };
+    sdk: {
+      input: DeleteMLEndpointCommandInput;
+      output: DeleteMLEndpointCommandOutput;
+    };
+  };
+}

@@ -96,4 +96,16 @@ export class GetDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainNameCommand)
   .de(de_GetDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainNameRequest;
+      output: GetDomainNameResponse;
+    };
+    sdk: {
+      input: GetDomainNameCommandInput;
+      output: GetDomainNameCommandOutput;
+    };
+  };
+}

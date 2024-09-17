@@ -98,4 +98,16 @@ export class SampleChannelDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SampleChannelDataCommand)
   .de(de_SampleChannelDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SampleChannelDataRequest;
+      output: SampleChannelDataResponse;
+    };
+    sdk: {
+      input: SampleChannelDataCommandInput;
+      output: SampleChannelDataCommandOutput;
+    };
+  };
+}

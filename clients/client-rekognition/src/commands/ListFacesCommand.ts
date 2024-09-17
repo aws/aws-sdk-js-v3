@@ -184,4 +184,16 @@ export class ListFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFacesCommand)
   .de(de_ListFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFacesRequest;
+      output: ListFacesResponse;
+    };
+    sdk: {
+      input: ListFacesCommandInput;
+      output: ListFacesCommandOutput;
+    };
+  };
+}

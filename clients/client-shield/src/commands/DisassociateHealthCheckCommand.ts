@@ -93,4 +93,16 @@ export class DisassociateHealthCheckCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateHealthCheckCommand)
   .de(de_DisassociateHealthCheckCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateHealthCheckRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateHealthCheckCommandInput;
+      output: DisassociateHealthCheckCommandOutput;
+    };
+  };
+}

@@ -162,4 +162,16 @@ export class DeleteWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebACLCommand)
   .de(de_DeleteWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebACLRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWebACLCommandInput;
+      output: DeleteWebACLCommandOutput;
+    };
+  };
+}

@@ -103,4 +103,16 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetVoiceMessageSpendLimitOverrideCommand)
   .de(de_SetVoiceMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetVoiceMessageSpendLimitOverrideRequest;
+      output: SetVoiceMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: SetVoiceMessageSpendLimitOverrideCommandInput;
+      output: SetVoiceMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

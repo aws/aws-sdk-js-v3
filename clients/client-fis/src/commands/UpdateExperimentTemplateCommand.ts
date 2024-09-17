@@ -214,4 +214,16 @@ export class UpdateExperimentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateExperimentTemplateCommand)
   .de(de_UpdateExperimentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateExperimentTemplateRequest;
+      output: UpdateExperimentTemplateResponse;
+    };
+    sdk: {
+      input: UpdateExperimentTemplateCommandInput;
+      output: UpdateExperimentTemplateCommandOutput;
+    };
+  };
+}

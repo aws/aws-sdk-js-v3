@@ -92,4 +92,16 @@ export class DisableImageDeregistrationProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImageDeregistrationProtectionCommand)
   .de(de_DisableImageDeregistrationProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImageDeregistrationProtectionRequest;
+      output: DisableImageDeregistrationProtectionResult;
+    };
+    sdk: {
+      input: DisableImageDeregistrationProtectionCommandInput;
+      output: DisableImageDeregistrationProtectionCommandOutput;
+    };
+  };
+}

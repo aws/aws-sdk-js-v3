@@ -143,4 +143,16 @@ export class UpdateWorkteamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkteamCommand)
   .de(de_UpdateWorkteamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkteamRequest;
+      output: UpdateWorkteamResponse;
+    };
+    sdk: {
+      input: UpdateWorkteamCommandInput;
+      output: UpdateWorkteamCommandOutput;
+    };
+  };
+}

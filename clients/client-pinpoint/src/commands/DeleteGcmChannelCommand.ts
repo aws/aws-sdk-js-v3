@@ -112,4 +112,16 @@ export class DeleteGcmChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGcmChannelCommand)
   .de(de_DeleteGcmChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGcmChannelRequest;
+      output: DeleteGcmChannelResponse;
+    };
+    sdk: {
+      input: DeleteGcmChannelCommandInput;
+      output: DeleteGcmChannelCommandOutput;
+    };
+  };
+}

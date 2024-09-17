@@ -104,4 +104,16 @@ export class ListKxUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxUsersCommand)
   .de(de_ListKxUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxUsersRequest;
+      output: ListKxUsersResponse;
+    };
+    sdk: {
+      input: ListKxUsersCommandInput;
+      output: ListKxUsersCommandOutput;
+    };
+  };
+}

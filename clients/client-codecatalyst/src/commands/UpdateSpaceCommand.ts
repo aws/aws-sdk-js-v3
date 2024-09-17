@@ -100,4 +100,16 @@ export class UpdateSpaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSpaceCommand)
   .de(de_UpdateSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSpaceRequest;
+      output: UpdateSpaceResponse;
+    };
+    sdk: {
+      input: UpdateSpaceCommandInput;
+      output: UpdateSpaceCommandOutput;
+    };
+  };
+}

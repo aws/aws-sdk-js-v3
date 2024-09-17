@@ -129,4 +129,16 @@ export class UpdateAnalysisPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnalysisPermissionsCommand)
   .de(de_UpdateAnalysisPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnalysisPermissionsRequest;
+      output: UpdateAnalysisPermissionsResponse;
+    };
+    sdk: {
+      input: UpdateAnalysisPermissionsCommandInput;
+      output: UpdateAnalysisPermissionsCommandOutput;
+    };
+  };
+}

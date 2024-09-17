@@ -103,4 +103,16 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayAttachmentPropagationsCommand)
   .de(de_GetTransitGatewayAttachmentPropagationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayAttachmentPropagationsRequest;
+      output: GetTransitGatewayAttachmentPropagationsResult;
+    };
+    sdk: {
+      input: GetTransitGatewayAttachmentPropagationsCommandInput;
+      output: GetTransitGatewayAttachmentPropagationsCommandOutput;
+    };
+  };
+}

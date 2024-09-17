@@ -113,4 +113,16 @@ export class DescribeRestoreJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRestoreJobCommand)
   .de(de_DescribeRestoreJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRestoreJobInput;
+      output: DescribeRestoreJobOutput;
+    };
+    sdk: {
+      input: DescribeRestoreJobCommandInput;
+      output: DescribeRestoreJobCommandOutput;
+    };
+  };
+}

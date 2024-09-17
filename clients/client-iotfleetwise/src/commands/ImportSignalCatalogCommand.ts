@@ -114,4 +114,16 @@ export class ImportSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportSignalCatalogCommand)
   .de(de_ImportSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportSignalCatalogRequest;
+      output: ImportSignalCatalogResponse;
+    };
+    sdk: {
+      input: ImportSignalCatalogCommandInput;
+      output: ImportSignalCatalogCommandOutput;
+    };
+  };
+}

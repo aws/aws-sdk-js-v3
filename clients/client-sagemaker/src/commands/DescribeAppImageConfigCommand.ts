@@ -132,4 +132,16 @@ export class DescribeAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppImageConfigCommand)
   .de(de_DescribeAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppImageConfigRequest;
+      output: DescribeAppImageConfigResponse;
+    };
+    sdk: {
+      input: DescribeAppImageConfigCommandInput;
+      output: DescribeAppImageConfigCommandOutput;
+    };
+  };
+}

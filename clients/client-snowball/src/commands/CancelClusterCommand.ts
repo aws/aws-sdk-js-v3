@@ -100,4 +100,16 @@ export class CancelClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelClusterCommand)
   .de(de_CancelClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelClusterRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelClusterCommandInput;
+      output: CancelClusterCommandOutput;
+    };
+  };
+}

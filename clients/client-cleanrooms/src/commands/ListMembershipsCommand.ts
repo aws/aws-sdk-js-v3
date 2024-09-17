@@ -113,4 +113,16 @@ export class ListMembershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMembershipsCommand)
   .de(de_ListMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMembershipsInput;
+      output: ListMembershipsOutput;
+    };
+    sdk: {
+      input: ListMembershipsCommandInput;
+      output: ListMembershipsCommandOutput;
+    };
+  };
+}

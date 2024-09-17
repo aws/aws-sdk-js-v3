@@ -314,4 +314,16 @@ export class AssumeRoleWithWebIdentityCommand extends $Command
   .f(AssumeRoleWithWebIdentityRequestFilterSensitiveLog, AssumeRoleWithWebIdentityResponseFilterSensitiveLog)
   .ser(se_AssumeRoleWithWebIdentityCommand)
   .de(de_AssumeRoleWithWebIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssumeRoleWithWebIdentityRequest;
+      output: AssumeRoleWithWebIdentityResponse;
+    };
+    sdk: {
+      input: AssumeRoleWithWebIdentityCommandInput;
+      output: AssumeRoleWithWebIdentityCommandOutput;
+    };
+  };
+}

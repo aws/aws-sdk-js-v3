@@ -112,4 +112,16 @@ export class DeleteUserGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserGroupCommand)
   .de(de_DeleteUserGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserGroupMessage;
+      output: UserGroup;
+    };
+    sdk: {
+      input: DeleteUserGroupCommandInput;
+      output: DeleteUserGroupCommandOutput;
+    };
+  };
+}

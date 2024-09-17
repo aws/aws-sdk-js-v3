@@ -143,4 +143,16 @@ export class CreateClusterCommand extends $Command
   .f(CreateClusterInputFilterSensitiveLog, void 0)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterInput;
+      output: CreateClusterOutput;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

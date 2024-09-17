@@ -132,4 +132,16 @@ export class DescribeDataSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSourcesCommand)
   .de(de_DescribeDataSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSourcesInput;
+      output: DescribeDataSourcesOutput;
+    };
+    sdk: {
+      input: DescribeDataSourcesCommandInput;
+      output: DescribeDataSourcesCommandOutput;
+    };
+  };
+}

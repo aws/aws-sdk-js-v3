@@ -138,4 +138,16 @@ export class ListUserImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserImportJobsCommand)
   .de(de_ListUserImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserImportJobsRequest;
+      output: ListUserImportJobsResponse;
+    };
+    sdk: {
+      input: ListUserImportJobsCommandInput;
+      output: ListUserImportJobsCommandOutput;
+    };
+  };
+}

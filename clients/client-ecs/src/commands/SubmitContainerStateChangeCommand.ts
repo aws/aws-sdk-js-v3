@@ -117,4 +117,16 @@ export class SubmitContainerStateChangeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitContainerStateChangeCommand)
   .de(de_SubmitContainerStateChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitContainerStateChangeRequest;
+      output: SubmitContainerStateChangeResponse;
+    };
+    sdk: {
+      input: SubmitContainerStateChangeCommandInput;
+      output: SubmitContainerStateChangeCommandOutput;
+    };
+  };
+}

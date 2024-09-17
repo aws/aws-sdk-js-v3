@@ -102,4 +102,16 @@ export class GetHypervisorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHypervisorCommand)
   .de(de_GetHypervisorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHypervisorInput;
+      output: GetHypervisorOutput;
+    };
+    sdk: {
+      input: GetHypervisorCommandInput;
+      output: GetHypervisorCommandOutput;
+    };
+  };
+}

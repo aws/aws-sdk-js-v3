@@ -93,4 +93,16 @@ export class DeleteVariableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVariableCommand)
   .de(de_DeleteVariableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVariableRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVariableCommandInput;
+      output: DeleteVariableCommandOutput;
+    };
+  };
+}

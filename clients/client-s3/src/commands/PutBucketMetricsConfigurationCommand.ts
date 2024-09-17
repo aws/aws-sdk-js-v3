@@ -154,4 +154,16 @@ export class PutBucketMetricsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketMetricsConfigurationCommand)
   .de(de_PutBucketMetricsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketMetricsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketMetricsConfigurationCommandInput;
+      output: PutBucketMetricsConfigurationCommandOutput;
+    };
+  };
+}

@@ -199,4 +199,16 @@ export class InitiateJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateJobCommand)
   .de(de_InitiateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateJobInput;
+      output: InitiateJobOutput;
+    };
+    sdk: {
+      input: InitiateJobCommandInput;
+      output: InitiateJobCommandOutput;
+    };
+  };
+}

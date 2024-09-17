@@ -100,4 +100,16 @@ export class GetIngressPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIngressPointCommand)
   .de(de_GetIngressPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIngressPointRequest;
+      output: GetIngressPointResponse;
+    };
+    sdk: {
+      input: GetIngressPointCommandInput;
+      output: GetIngressPointCommandOutput;
+    };
+  };
+}

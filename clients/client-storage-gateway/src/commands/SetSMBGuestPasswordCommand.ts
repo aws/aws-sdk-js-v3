@@ -92,4 +92,16 @@ export class SetSMBGuestPasswordCommand extends $Command
   .f(SetSMBGuestPasswordInputFilterSensitiveLog, void 0)
   .ser(se_SetSMBGuestPasswordCommand)
   .de(de_SetSMBGuestPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSMBGuestPasswordInput;
+      output: SetSMBGuestPasswordOutput;
+    };
+    sdk: {
+      input: SetSMBGuestPasswordCommandInput;
+      output: SetSMBGuestPasswordCommandOutput;
+    };
+  };
+}

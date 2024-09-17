@@ -86,4 +86,16 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateEnvironmentOperationsRoleCommand)
   .de(de_DisassociateEnvironmentOperationsRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateEnvironmentOperationsRoleMessage;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateEnvironmentOperationsRoleCommandInput;
+      output: DisassociateEnvironmentOperationsRoleCommandOutput;
+    };
+  };
+}

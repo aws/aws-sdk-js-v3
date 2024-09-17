@@ -121,4 +121,16 @@ export class UnpeerVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnpeerVpcCommand)
   .de(de_UnpeerVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: UnpeerVpcResult;
+    };
+    sdk: {
+      input: UnpeerVpcCommandInput;
+      output: UnpeerVpcCommandOutput;
+    };
+  };
+}

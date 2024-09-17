@@ -92,4 +92,16 @@ export class ListResourceCatalogsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceCatalogsCommand)
   .de(de_ListResourceCatalogsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceCatalogsRequest;
+      output: ListResourceCatalogsResponse;
+    };
+    sdk: {
+      input: ListResourceCatalogsCommandInput;
+      output: ListResourceCatalogsCommandOutput;
+    };
+  };
+}

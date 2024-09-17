@@ -159,4 +159,16 @@ export class DescribeAvailabilityZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAvailabilityZonesCommand)
   .de(de_DescribeAvailabilityZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAvailabilityZonesRequest;
+      output: DescribeAvailabilityZonesResult;
+    };
+    sdk: {
+      input: DescribeAvailabilityZonesCommandInput;
+      output: DescribeAvailabilityZonesCommandOutput;
+    };
+  };
+}

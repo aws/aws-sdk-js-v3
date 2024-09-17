@@ -80,4 +80,16 @@ export class HttpPayloadWithStructureCommand extends $Command
   .f(void 0, void 0)
   .ser(se_HttpPayloadWithStructureCommand)
   .de(de_HttpPayloadWithStructureCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPayloadWithStructureInputOutput;
+      output: HttpPayloadWithStructureInputOutput;
+    };
+    sdk: {
+      input: HttpPayloadWithStructureCommandInput;
+      output: HttpPayloadWithStructureCommandOutput;
+    };
+  };
+}

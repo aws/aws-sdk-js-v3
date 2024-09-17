@@ -96,4 +96,16 @@ export class AcceptAddressTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AcceptAddressTransferCommand)
   .de(de_AcceptAddressTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptAddressTransferRequest;
+      output: AcceptAddressTransferResult;
+    };
+    sdk: {
+      input: AcceptAddressTransferCommandInput;
+      output: AcceptAddressTransferCommandOutput;
+    };
+  };
+}

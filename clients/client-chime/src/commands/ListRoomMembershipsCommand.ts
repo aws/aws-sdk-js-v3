@@ -121,4 +121,16 @@ export class ListRoomMembershipsCommand extends $Command
   .f(void 0, ListRoomMembershipsResponseFilterSensitiveLog)
   .ser(se_ListRoomMembershipsCommand)
   .de(de_ListRoomMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoomMembershipsRequest;
+      output: ListRoomMembershipsResponse;
+    };
+    sdk: {
+      input: ListRoomMembershipsCommandInput;
+      output: ListRoomMembershipsCommandOutput;
+    };
+  };
+}

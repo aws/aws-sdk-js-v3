@@ -97,4 +97,16 @@ export class ListSubscriptionDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSubscriptionDefinitionsCommand)
   .de(de_ListSubscriptionDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionDefinitionsRequest;
+      output: ListSubscriptionDefinitionsResponse;
+    };
+    sdk: {
+      input: ListSubscriptionDefinitionsCommandInput;
+      output: ListSubscriptionDefinitionsCommandOutput;
+    };
+  };
+}

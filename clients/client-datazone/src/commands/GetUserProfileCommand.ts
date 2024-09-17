@@ -110,4 +110,16 @@ export class GetUserProfileCommand extends $Command
   .f(void 0, GetUserProfileOutputFilterSensitiveLog)
   .ser(se_GetUserProfileCommand)
   .de(de_GetUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserProfileInput;
+      output: GetUserProfileOutput;
+    };
+    sdk: {
+      input: GetUserProfileCommandInput;
+      output: GetUserProfileCommandOutput;
+    };
+  };
+}

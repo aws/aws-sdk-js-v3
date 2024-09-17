@@ -104,4 +104,16 @@ export class GetCatalogItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCatalogItemCommand)
   .de(de_GetCatalogItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCatalogItemInput;
+      output: GetCatalogItemOutput;
+    };
+    sdk: {
+      input: GetCatalogItemCommandInput;
+      output: GetCatalogItemCommandOutput;
+    };
+  };
+}

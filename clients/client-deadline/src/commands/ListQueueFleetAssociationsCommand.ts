@@ -104,4 +104,16 @@ export class ListQueueFleetAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueueFleetAssociationsCommand)
   .de(de_ListQueueFleetAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueueFleetAssociationsRequest;
+      output: ListQueueFleetAssociationsResponse;
+    };
+    sdk: {
+      input: ListQueueFleetAssociationsCommandInput;
+      output: ListQueueFleetAssociationsCommandOutput;
+    };
+  };
+}

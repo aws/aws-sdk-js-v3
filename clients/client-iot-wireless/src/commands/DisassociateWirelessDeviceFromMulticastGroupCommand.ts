@@ -100,4 +100,16 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DisassociateWirelessDeviceFromMulticastGroupCommand)
   .de(de_DisassociateWirelessDeviceFromMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWirelessDeviceFromMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateWirelessDeviceFromMulticastGroupCommandInput;
+      output: DisassociateWirelessDeviceFromMulticastGroupCommandOutput;
+    };
+  };
+}

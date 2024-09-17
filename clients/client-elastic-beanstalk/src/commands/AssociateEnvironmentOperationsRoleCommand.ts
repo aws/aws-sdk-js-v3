@@ -86,4 +86,16 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateEnvironmentOperationsRoleCommand)
   .de(de_AssociateEnvironmentOperationsRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateEnvironmentOperationsRoleMessage;
+      output: {};
+    };
+    sdk: {
+      input: AssociateEnvironmentOperationsRoleCommandInput;
+      output: AssociateEnvironmentOperationsRoleCommandOutput;
+    };
+  };
+}

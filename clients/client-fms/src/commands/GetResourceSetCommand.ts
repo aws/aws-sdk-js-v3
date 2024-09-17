@@ -105,4 +105,16 @@ export class GetResourceSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourceSetCommand)
   .de(de_GetResourceSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceSetRequest;
+      output: GetResourceSetResponse;
+    };
+    sdk: {
+      input: GetResourceSetCommandInput;
+      output: GetResourceSetCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class UpdateBrokerTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBrokerTypeCommand)
   .de(de_UpdateBrokerTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBrokerTypeRequest;
+      output: UpdateBrokerTypeResponse;
+    };
+    sdk: {
+      input: UpdateBrokerTypeCommandInput;
+      output: UpdateBrokerTypeCommandOutput;
+    };
+  };
+}

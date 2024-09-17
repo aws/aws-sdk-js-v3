@@ -91,4 +91,16 @@ export class AddThingToBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddThingToBillingGroupCommand)
   .de(de_AddThingToBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddThingToBillingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddThingToBillingGroupCommandInput;
+      output: AddThingToBillingGroupCommandOutput;
+    };
+  };
+}

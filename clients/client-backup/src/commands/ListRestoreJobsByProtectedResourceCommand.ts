@@ -129,4 +129,16 @@ export class ListRestoreJobsByProtectedResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRestoreJobsByProtectedResourceCommand)
   .de(de_ListRestoreJobsByProtectedResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRestoreJobsByProtectedResourceInput;
+      output: ListRestoreJobsByProtectedResourceOutput;
+    };
+    sdk: {
+      input: ListRestoreJobsByProtectedResourceCommandInput;
+      output: ListRestoreJobsByProtectedResourceCommandOutput;
+    };
+  };
+}

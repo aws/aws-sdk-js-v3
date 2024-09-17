@@ -112,4 +112,16 @@ export class UpdateFileSystemProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFileSystemProtectionCommand)
   .de(de_UpdateFileSystemProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFileSystemProtectionRequest;
+      output: FileSystemProtectionDescription;
+    };
+    sdk: {
+      input: UpdateFileSystemProtectionCommandInput;
+      output: UpdateFileSystemProtectionCommandOutput;
+    };
+  };
+}

@@ -118,4 +118,16 @@ export class ReleasePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleasePhoneNumberCommand)
   .de(de_ReleasePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleasePhoneNumberRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReleasePhoneNumberCommandInput;
+      output: ReleasePhoneNumberCommandOutput;
+    };
+  };
+}

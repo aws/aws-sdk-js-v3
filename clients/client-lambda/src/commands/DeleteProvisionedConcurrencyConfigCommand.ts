@@ -94,4 +94,16 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisionedConcurrencyConfigCommand)
   .de(de_DeleteProvisionedConcurrencyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisionedConcurrencyConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisionedConcurrencyConfigCommandInput;
+      output: DeleteProvisionedConcurrencyConfigCommandOutput;
+    };
+  };
+}

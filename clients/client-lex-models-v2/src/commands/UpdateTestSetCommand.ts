@@ -117,4 +117,16 @@ export class UpdateTestSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTestSetCommand)
   .de(de_UpdateTestSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTestSetRequest;
+      output: UpdateTestSetResponse;
+    };
+    sdk: {
+      input: UpdateTestSetCommandInput;
+      output: UpdateTestSetCommandOutput;
+    };
+  };
+}

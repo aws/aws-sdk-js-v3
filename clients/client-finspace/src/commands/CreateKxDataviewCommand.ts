@@ -144,4 +144,16 @@ export class CreateKxDataviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxDataviewCommand)
   .de(de_CreateKxDataviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxDataviewRequest;
+      output: CreateKxDataviewResponse;
+    };
+    sdk: {
+      input: CreateKxDataviewCommandInput;
+      output: CreateKxDataviewCommandOutput;
+    };
+  };
+}

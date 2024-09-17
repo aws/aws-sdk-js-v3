@@ -368,4 +368,16 @@ export class RecognizeTextCommand extends $Command
   .f(RecognizeTextRequestFilterSensitiveLog, RecognizeTextResponseFilterSensitiveLog)
   .ser(se_RecognizeTextCommand)
   .de(de_RecognizeTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecognizeTextRequest;
+      output: RecognizeTextResponse;
+    };
+    sdk: {
+      input: RecognizeTextCommandInput;
+      output: RecognizeTextCommandOutput;
+    };
+  };
+}

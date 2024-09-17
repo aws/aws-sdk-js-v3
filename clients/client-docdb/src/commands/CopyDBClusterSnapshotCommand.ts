@@ -138,4 +138,16 @@ export class CopyDBClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterSnapshotCommand)
   .de(de_CopyDBClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterSnapshotMessage;
+      output: CopyDBClusterSnapshotResult;
+    };
+    sdk: {
+      input: CopyDBClusterSnapshotCommandInput;
+      output: CopyDBClusterSnapshotCommandOutput;
+    };
+  };
+}

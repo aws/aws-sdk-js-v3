@@ -125,4 +125,16 @@ export class GetRemainingFreeTrialDaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRemainingFreeTrialDaysCommand)
   .de(de_GetRemainingFreeTrialDaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRemainingFreeTrialDaysRequest;
+      output: GetRemainingFreeTrialDaysResponse;
+    };
+    sdk: {
+      input: GetRemainingFreeTrialDaysCommandInput;
+      output: GetRemainingFreeTrialDaysCommandOutput;
+    };
+  };
+}

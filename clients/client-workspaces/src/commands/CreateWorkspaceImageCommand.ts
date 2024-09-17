@@ -115,4 +115,16 @@ export class CreateWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspaceImageCommand)
   .de(de_CreateWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceImageRequest;
+      output: CreateWorkspaceImageResult;
+    };
+    sdk: {
+      input: CreateWorkspaceImageCommandInput;
+      output: CreateWorkspaceImageCommandOutput;
+    };
+  };
+}

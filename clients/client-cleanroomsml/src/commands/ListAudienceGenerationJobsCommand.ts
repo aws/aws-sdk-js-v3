@@ -99,4 +99,16 @@ export class ListAudienceGenerationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAudienceGenerationJobsCommand)
   .de(de_ListAudienceGenerationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAudienceGenerationJobsRequest;
+      output: ListAudienceGenerationJobsResponse;
+    };
+    sdk: {
+      input: ListAudienceGenerationJobsCommandInput;
+      output: ListAudienceGenerationJobsCommandOutput;
+    };
+  };
+}

@@ -94,4 +94,16 @@ export class PutMetricPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricPolicyCommand)
   .de(de_PutMetricPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutMetricPolicyCommandInput;
+      output: PutMetricPolicyCommandOutput;
+    };
+  };
+}

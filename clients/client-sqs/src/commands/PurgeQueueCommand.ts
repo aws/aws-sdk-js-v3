@@ -123,4 +123,16 @@ export class PurgeQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurgeQueueCommand)
   .de(de_PurgeQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurgeQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: PurgeQueueCommandInput;
+      output: PurgeQueueCommandOutput;
+    };
+  };
+}

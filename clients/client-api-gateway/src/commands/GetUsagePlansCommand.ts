@@ -123,4 +123,16 @@ export class GetUsagePlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsagePlansCommand)
   .de(de_GetUsagePlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsagePlansRequest;
+      output: UsagePlans;
+    };
+    sdk: {
+      input: GetUsagePlansCommandInput;
+      output: GetUsagePlansCommandOutput;
+    };
+  };
+}

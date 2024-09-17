@@ -100,4 +100,16 @@ export class ListImageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImageVersionsCommand)
   .de(de_ListImageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImageVersionsRequest;
+      output: ListImageVersionsResponse;
+    };
+    sdk: {
+      input: ListImageVersionsCommandInput;
+      output: ListImageVersionsCommandOutput;
+    };
+  };
+}

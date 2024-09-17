@@ -148,4 +148,16 @@ export class DescribeMetadataModelImportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetadataModelImportsCommand)
   .de(de_DescribeMetadataModelImportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetadataModelImportsMessage;
+      output: DescribeMetadataModelImportsResponse;
+    };
+    sdk: {
+      input: DescribeMetadataModelImportsCommandInput;
+      output: DescribeMetadataModelImportsCommandOutput;
+    };
+  };
+}

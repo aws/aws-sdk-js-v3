@@ -106,4 +106,16 @@ export class ListTestGridSessionArtifactsCommand extends $Command
   .f(void 0, ListTestGridSessionArtifactsResultFilterSensitiveLog)
   .ser(se_ListTestGridSessionArtifactsCommand)
   .de(de_ListTestGridSessionArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestGridSessionArtifactsRequest;
+      output: ListTestGridSessionArtifactsResult;
+    };
+    sdk: {
+      input: ListTestGridSessionArtifactsCommandInput;
+      output: ListTestGridSessionArtifactsCommandOutput;
+    };
+  };
+}

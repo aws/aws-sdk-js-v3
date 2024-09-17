@@ -110,4 +110,16 @@ export class ListUsageTotalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUsageTotalsCommand)
   .de(de_ListUsageTotalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsageTotalsRequest;
+      output: ListUsageTotalsResponse;
+    };
+    sdk: {
+      input: ListUsageTotalsCommandInput;
+      output: ListUsageTotalsCommandOutput;
+    };
+  };
+}

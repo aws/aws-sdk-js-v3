@@ -91,4 +91,16 @@ export class GetManagedPrefixListAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetManagedPrefixListAssociationsCommand)
   .de(de_GetManagedPrefixListAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetManagedPrefixListAssociationsRequest;
+      output: GetManagedPrefixListAssociationsResult;
+    };
+    sdk: {
+      input: GetManagedPrefixListAssociationsCommandInput;
+      output: GetManagedPrefixListAssociationsCommandOutput;
+    };
+  };
+}

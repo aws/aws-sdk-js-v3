@@ -140,4 +140,16 @@ export class DescribeStandardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStandardsCommand)
   .de(de_DescribeStandardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStandardsRequest;
+      output: DescribeStandardsResponse;
+    };
+    sdk: {
+      input: DescribeStandardsCommandInput;
+      output: DescribeStandardsCommandOutput;
+    };
+  };
+}

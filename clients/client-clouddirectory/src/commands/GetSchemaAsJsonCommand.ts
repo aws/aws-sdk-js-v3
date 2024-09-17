@@ -100,4 +100,16 @@ export class GetSchemaAsJsonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaAsJsonCommand)
   .de(de_GetSchemaAsJsonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaAsJsonRequest;
+      output: GetSchemaAsJsonResponse;
+    };
+    sdk: {
+      input: GetSchemaAsJsonCommandInput;
+      output: GetSchemaAsJsonCommandOutput;
+    };
+  };
+}

@@ -113,4 +113,16 @@ export class ListVirtualServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualServicesCommand)
   .de(de_ListVirtualServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualServicesInput;
+      output: ListVirtualServicesOutput;
+    };
+    sdk: {
+      input: ListVirtualServicesCommandInput;
+      output: ListVirtualServicesCommandOutput;
+    };
+  };
+}

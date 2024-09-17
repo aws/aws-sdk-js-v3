@@ -101,4 +101,16 @@ export class DescribeSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSchemaCommand)
   .de(de_DescribeSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSchemaRequest;
+      output: DescribeSchemaResponse;
+    };
+    sdk: {
+      input: DescribeSchemaCommandInput;
+      output: DescribeSchemaCommandOutput;
+    };
+  };
+}

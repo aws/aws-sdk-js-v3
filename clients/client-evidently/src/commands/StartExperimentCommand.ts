@@ -98,4 +98,16 @@ export class StartExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExperimentCommand)
   .de(de_StartExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExperimentRequest;
+      output: StartExperimentResponse;
+    };
+    sdk: {
+      input: StartExperimentCommandInput;
+      output: StartExperimentCommandOutput;
+    };
+  };
+}

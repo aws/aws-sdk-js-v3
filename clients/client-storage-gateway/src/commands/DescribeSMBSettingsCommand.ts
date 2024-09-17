@@ -96,4 +96,16 @@ export class DescribeSMBSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSMBSettingsCommand)
   .de(de_DescribeSMBSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSMBSettingsInput;
+      output: DescribeSMBSettingsOutput;
+    };
+    sdk: {
+      input: DescribeSMBSettingsCommandInput;
+      output: DescribeSMBSettingsCommandOutput;
+    };
+  };
+}

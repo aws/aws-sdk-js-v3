@@ -116,4 +116,16 @@ export class CreateLakeFormationIdentityCenterConfigurationCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_CreateLakeFormationIdentityCenterConfigurationCommand)
   .de(de_CreateLakeFormationIdentityCenterConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLakeFormationIdentityCenterConfigurationRequest;
+      output: CreateLakeFormationIdentityCenterConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLakeFormationIdentityCenterConfigurationCommandInput;
+      output: CreateLakeFormationIdentityCenterConfigurationCommandOutput;
+    };
+  };
+}

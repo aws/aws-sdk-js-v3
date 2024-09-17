@@ -139,4 +139,16 @@ export class CreateIdNamespaceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIdNamespaceAssociationCommand)
   .de(de_CreateIdNamespaceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdNamespaceAssociationInput;
+      output: CreateIdNamespaceAssociationOutput;
+    };
+    sdk: {
+      input: CreateIdNamespaceAssociationCommandInput;
+      output: CreateIdNamespaceAssociationCommandOutput;
+    };
+  };
+}

@@ -120,4 +120,16 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
   .f(void 0, void 0)
   .ser(se_DescribeDirectConnectGatewayAssociationProposalsCommand)
   .de(de_DescribeDirectConnectGatewayAssociationProposalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectConnectGatewayAssociationProposalsRequest;
+      output: DescribeDirectConnectGatewayAssociationProposalsResult;
+    };
+    sdk: {
+      input: DescribeDirectConnectGatewayAssociationProposalsCommandInput;
+      output: DescribeDirectConnectGatewayAssociationProposalsCommandOutput;
+    };
+  };
+}

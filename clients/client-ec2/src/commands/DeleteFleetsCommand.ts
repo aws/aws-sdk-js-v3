@@ -128,4 +128,16 @@ export class DeleteFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetsCommand)
   .de(de_DeleteFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetsRequest;
+      output: DeleteFleetsResult;
+    };
+    sdk: {
+      input: DeleteFleetsCommandInput;
+      output: DeleteFleetsCommandOutput;
+    };
+  };
+}

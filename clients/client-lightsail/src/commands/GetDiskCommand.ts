@@ -143,4 +143,16 @@ export class GetDiskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDiskCommand)
   .de(de_GetDiskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDiskRequest;
+      output: GetDiskResult;
+    };
+    sdk: {
+      input: GetDiskCommandInput;
+      output: GetDiskCommandOutput;
+    };
+  };
+}

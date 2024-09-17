@@ -102,4 +102,16 @@ export class UploadDocumentsCommand extends $Command
   .f(UploadDocumentsRequestFilterSensitiveLog, void 0)
   .ser(se_UploadDocumentsCommand)
   .de(de_UploadDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadDocumentsRequest;
+      output: UploadDocumentsResponse;
+    };
+    sdk: {
+      input: UploadDocumentsCommandInput;
+      output: UploadDocumentsCommandOutput;
+    };
+  };
+}

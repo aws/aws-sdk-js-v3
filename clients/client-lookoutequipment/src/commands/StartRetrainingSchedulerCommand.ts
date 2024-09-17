@@ -120,4 +120,16 @@ export class StartRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRetrainingSchedulerCommand)
   .de(de_StartRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRetrainingSchedulerRequest;
+      output: StartRetrainingSchedulerResponse;
+    };
+    sdk: {
+      input: StartRetrainingSchedulerCommandInput;
+      output: StartRetrainingSchedulerCommandOutput;
+    };
+  };
+}

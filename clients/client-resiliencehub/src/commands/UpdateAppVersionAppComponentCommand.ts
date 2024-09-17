@@ -130,4 +130,16 @@ export class UpdateAppVersionAppComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppVersionAppComponentCommand)
   .de(de_UpdateAppVersionAppComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppVersionAppComponentRequest;
+      output: UpdateAppVersionAppComponentResponse;
+    };
+    sdk: {
+      input: UpdateAppVersionAppComponentCommandInput;
+      output: UpdateAppVersionAppComponentCommandOutput;
+    };
+  };
+}

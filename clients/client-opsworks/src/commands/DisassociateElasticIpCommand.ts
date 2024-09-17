@@ -87,4 +87,16 @@ export class DisassociateElasticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateElasticIpCommand)
   .de(de_DisassociateElasticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateElasticIpRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateElasticIpCommandInput;
+      output: DisassociateElasticIpCommandOutput;
+    };
+  };
+}

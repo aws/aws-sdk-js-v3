@@ -103,4 +103,16 @@ export class BatchDisassociateResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDisassociateResourceCommand)
   .de(de_BatchDisassociateResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDisassociateResourceRequest;
+      output: BatchDisassociateResourceResponse;
+    };
+    sdk: {
+      input: BatchDisassociateResourceCommandInput;
+      output: BatchDisassociateResourceCommandOutput;
+    };
+  };
+}

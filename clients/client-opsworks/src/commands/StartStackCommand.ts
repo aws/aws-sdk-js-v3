@@ -86,4 +86,16 @@ export class StartStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartStackCommand)
   .de(de_StartStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartStackRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartStackCommandInput;
+      output: StartStackCommandOutput;
+    };
+  };
+}

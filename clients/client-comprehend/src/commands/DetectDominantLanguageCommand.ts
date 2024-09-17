@@ -97,4 +97,16 @@ export class DetectDominantLanguageCommand extends $Command
   .f(DetectDominantLanguageRequestFilterSensitiveLog, DetectDominantLanguageResponseFilterSensitiveLog)
   .ser(se_DetectDominantLanguageCommand)
   .de(de_DetectDominantLanguageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectDominantLanguageRequest;
+      output: DetectDominantLanguageResponse;
+    };
+    sdk: {
+      input: DetectDominantLanguageCommandInput;
+      output: DetectDominantLanguageCommandOutput;
+    };
+  };
+}

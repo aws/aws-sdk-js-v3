@@ -98,4 +98,16 @@ export class UpdateLocationObjectStorageCommand extends $Command
   .f(UpdateLocationObjectStorageRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLocationObjectStorageCommand)
   .de(de_UpdateLocationObjectStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationObjectStorageRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationObjectStorageCommandInput;
+      output: UpdateLocationObjectStorageCommandOutput;
+    };
+  };
+}

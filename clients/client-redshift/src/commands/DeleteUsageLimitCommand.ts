@@ -81,4 +81,16 @@ export class DeleteUsageLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUsageLimitCommand)
   .de(de_DeleteUsageLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUsageLimitMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUsageLimitCommandInput;
+      output: DeleteUsageLimitCommandOutput;
+    };
+  };
+}

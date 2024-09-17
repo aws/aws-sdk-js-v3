@@ -135,4 +135,16 @@ export class DeleteOrganizationConformancePackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationConformancePackCommand)
   .de(de_DeleteOrganizationConformancePackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOrganizationConformancePackRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOrganizationConformancePackCommandInput;
+      output: DeleteOrganizationConformancePackCommandOutput;
+    };
+  };
+}

@@ -109,4 +109,16 @@ export class DisassociateWorkspaceApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateWorkspaceApplicationCommand)
   .de(de_DisassociateWorkspaceApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateWorkspaceApplicationRequest;
+      output: DisassociateWorkspaceApplicationResult;
+    };
+    sdk: {
+      input: DisassociateWorkspaceApplicationCommandInput;
+      output: DisassociateWorkspaceApplicationCommandOutput;
+    };
+  };
+}

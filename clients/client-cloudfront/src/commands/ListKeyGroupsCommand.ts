@@ -105,4 +105,16 @@ export class ListKeyGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyGroupsCommand)
   .de(de_ListKeyGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyGroupsRequest;
+      output: ListKeyGroupsResult;
+    };
+    sdk: {
+      input: ListKeyGroupsCommandInput;
+      output: ListKeyGroupsCommandOutput;
+    };
+  };
+}

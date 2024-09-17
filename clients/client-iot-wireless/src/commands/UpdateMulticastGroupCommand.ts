@@ -99,4 +99,16 @@ export class UpdateMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMulticastGroupCommand)
   .de(de_UpdateMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMulticastGroupCommandInput;
+      output: UpdateMulticastGroupCommandOutput;
+    };
+  };
+}

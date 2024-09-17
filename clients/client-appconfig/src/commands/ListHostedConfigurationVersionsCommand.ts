@@ -129,4 +129,16 @@ export class ListHostedConfigurationVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHostedConfigurationVersionsCommand)
   .de(de_ListHostedConfigurationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHostedConfigurationVersionsRequest;
+      output: HostedConfigurationVersions;
+    };
+    sdk: {
+      input: ListHostedConfigurationVersionsCommandInput;
+      output: ListHostedConfigurationVersionsCommandOutput;
+    };
+  };
+}

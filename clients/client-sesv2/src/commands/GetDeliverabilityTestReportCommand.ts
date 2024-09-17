@@ -124,4 +124,16 @@ export class GetDeliverabilityTestReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeliverabilityTestReportCommand)
   .de(de_GetDeliverabilityTestReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeliverabilityTestReportRequest;
+      output: GetDeliverabilityTestReportResponse;
+    };
+    sdk: {
+      input: GetDeliverabilityTestReportCommandInput;
+      output: GetDeliverabilityTestReportCommandOutput;
+    };
+  };
+}

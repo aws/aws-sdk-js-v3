@@ -254,4 +254,16 @@ export class AdminRespondToAuthChallengeCommand extends $Command
   .f(AdminRespondToAuthChallengeRequestFilterSensitiveLog, AdminRespondToAuthChallengeResponseFilterSensitiveLog)
   .ser(se_AdminRespondToAuthChallengeCommand)
   .de(de_AdminRespondToAuthChallengeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminRespondToAuthChallengeRequest;
+      output: AdminRespondToAuthChallengeResponse;
+    };
+    sdk: {
+      input: AdminRespondToAuthChallengeCommandInput;
+      output: AdminRespondToAuthChallengeCommandOutput;
+    };
+  };
+}

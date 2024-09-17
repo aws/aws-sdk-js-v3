@@ -85,4 +85,16 @@ export class DisassociateIpamByoasnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateIpamByoasnCommand)
   .de(de_DisassociateIpamByoasnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateIpamByoasnRequest;
+      output: DisassociateIpamByoasnResult;
+    };
+    sdk: {
+      input: DisassociateIpamByoasnCommandInput;
+      output: DisassociateIpamByoasnCommandOutput;
+    };
+  };
+}

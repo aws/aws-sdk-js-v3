@@ -112,4 +112,16 @@ export class GetSettingsCommand extends $Command
   .f(void 0, GetSettingsResponseFilterSensitiveLog)
   .ser(se_GetSettingsCommand)
   .de(de_GetSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSettingsRequest;
+      output: GetSettingsResponse;
+    };
+    sdk: {
+      input: GetSettingsCommandInput;
+      output: GetSettingsCommandOutput;
+    };
+  };
+}

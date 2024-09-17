@@ -90,4 +90,16 @@ export class DeleteIdNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdNamespaceCommand)
   .de(de_DeleteIdNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdNamespaceInput;
+      output: DeleteIdNamespaceOutput;
+    };
+    sdk: {
+      input: DeleteIdNamespaceCommandInput;
+      output: DeleteIdNamespaceCommandOutput;
+    };
+  };
+}

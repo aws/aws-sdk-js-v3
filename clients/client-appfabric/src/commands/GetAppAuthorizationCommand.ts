@@ -108,4 +108,16 @@ export class GetAppAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppAuthorizationCommand)
   .de(de_GetAppAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppAuthorizationRequest;
+      output: GetAppAuthorizationResponse;
+    };
+    sdk: {
+      input: GetAppAuthorizationCommandInput;
+      output: GetAppAuthorizationCommandOutput;
+    };
+  };
+}

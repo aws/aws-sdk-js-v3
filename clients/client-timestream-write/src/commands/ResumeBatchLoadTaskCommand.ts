@@ -104,4 +104,16 @@ export class ResumeBatchLoadTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeBatchLoadTaskCommand)
   .de(de_ResumeBatchLoadTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeBatchLoadTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeBatchLoadTaskCommandInput;
+      output: ResumeBatchLoadTaskCommandOutput;
+    };
+  };
+}

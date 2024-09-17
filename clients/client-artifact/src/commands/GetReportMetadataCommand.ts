@@ -149,4 +149,16 @@ export class GetReportMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReportMetadataCommand)
   .de(de_GetReportMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReportMetadataRequest;
+      output: GetReportMetadataResponse;
+    };
+    sdk: {
+      input: GetReportMetadataCommandInput;
+      output: GetReportMetadataCommandOutput;
+    };
+  };
+}

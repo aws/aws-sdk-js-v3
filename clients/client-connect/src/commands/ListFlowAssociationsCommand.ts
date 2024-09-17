@@ -105,4 +105,16 @@ export class ListFlowAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFlowAssociationsCommand)
   .de(de_ListFlowAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFlowAssociationsRequest;
+      output: ListFlowAssociationsResponse;
+    };
+    sdk: {
+      input: ListFlowAssociationsCommandInput;
+      output: ListFlowAssociationsCommandOutput;
+    };
+  };
+}

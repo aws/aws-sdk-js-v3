@@ -114,4 +114,16 @@ export class CancelInstanceRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelInstanceRefreshCommand)
   .de(de_CancelInstanceRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelInstanceRefreshType;
+      output: CancelInstanceRefreshAnswer;
+    };
+    sdk: {
+      input: CancelInstanceRefreshCommandInput;
+      output: CancelInstanceRefreshCommandOutput;
+    };
+  };
+}

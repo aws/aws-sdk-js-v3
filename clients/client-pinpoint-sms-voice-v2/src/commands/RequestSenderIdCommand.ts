@@ -131,4 +131,16 @@ export class RequestSenderIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestSenderIdCommand)
   .de(de_RequestSenderIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestSenderIdRequest;
+      output: RequestSenderIdResult;
+    };
+    sdk: {
+      input: RequestSenderIdCommandInput;
+      output: RequestSenderIdCommandOutput;
+    };
+  };
+}

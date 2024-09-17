@@ -117,4 +117,16 @@ export class BatchGetMemberEc2DeepInspectionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetMemberEc2DeepInspectionStatusCommand)
   .de(de_BatchGetMemberEc2DeepInspectionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetMemberEc2DeepInspectionStatusRequest;
+      output: BatchGetMemberEc2DeepInspectionStatusResponse;
+    };
+    sdk: {
+      input: BatchGetMemberEc2DeepInspectionStatusCommandInput;
+      output: BatchGetMemberEc2DeepInspectionStatusCommandOutput;
+    };
+  };
+}

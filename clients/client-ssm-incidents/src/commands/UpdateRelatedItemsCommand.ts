@@ -128,4 +128,16 @@ export class UpdateRelatedItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRelatedItemsCommand)
   .de(de_UpdateRelatedItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRelatedItemsInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRelatedItemsCommandInput;
+      output: UpdateRelatedItemsCommandOutput;
+    };
+  };
+}

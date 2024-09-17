@@ -112,4 +112,16 @@ export class CreateGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGrantCommand)
   .de(de_CreateGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGrantRequest;
+      output: CreateGrantResponse;
+    };
+    sdk: {
+      input: CreateGrantCommandInput;
+      output: CreateGrantCommandOutput;
+    };
+  };
+}

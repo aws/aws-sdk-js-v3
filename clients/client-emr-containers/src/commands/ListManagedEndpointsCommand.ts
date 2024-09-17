@@ -159,4 +159,16 @@ export class ListManagedEndpointsCommand extends $Command
   .f(void 0, ListManagedEndpointsResponseFilterSensitiveLog)
   .ser(se_ListManagedEndpointsCommand)
   .de(de_ListManagedEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedEndpointsRequest;
+      output: ListManagedEndpointsResponse;
+    };
+    sdk: {
+      input: ListManagedEndpointsCommandInput;
+      output: ListManagedEndpointsCommandOutput;
+    };
+  };
+}

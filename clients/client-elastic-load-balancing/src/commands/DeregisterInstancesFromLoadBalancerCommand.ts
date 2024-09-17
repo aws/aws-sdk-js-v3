@@ -132,4 +132,16 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterInstancesFromLoadBalancerCommand)
   .de(de_DeregisterInstancesFromLoadBalancerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterEndPointsInput;
+      output: DeregisterEndPointsOutput;
+    };
+    sdk: {
+      input: DeregisterInstancesFromLoadBalancerCommandInput;
+      output: DeregisterInstancesFromLoadBalancerCommandOutput;
+    };
+  };
+}

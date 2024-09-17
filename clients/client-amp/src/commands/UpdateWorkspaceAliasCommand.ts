@@ -99,4 +99,16 @@ export class UpdateWorkspaceAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceAliasCommand)
   .de(de_UpdateWorkspaceAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkspaceAliasCommandInput;
+      output: UpdateWorkspaceAliasCommandOutput;
+    };
+  };
+}

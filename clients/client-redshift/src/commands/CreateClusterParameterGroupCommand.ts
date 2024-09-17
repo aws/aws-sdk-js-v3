@@ -119,4 +119,16 @@ export class CreateClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterParameterGroupCommand)
   .de(de_CreateClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterParameterGroupMessage;
+      output: CreateClusterParameterGroupResult;
+    };
+    sdk: {
+      input: CreateClusterParameterGroupCommandInput;
+      output: CreateClusterParameterGroupCommandOutput;
+    };
+  };
+}

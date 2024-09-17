@@ -97,4 +97,16 @@ export class CreateHubContentReferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHubContentReferenceCommand)
   .de(de_CreateHubContentReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHubContentReferenceRequest;
+      output: CreateHubContentReferenceResponse;
+    };
+    sdk: {
+      input: CreateHubContentReferenceCommandInput;
+      output: CreateHubContentReferenceCommandOutput;
+    };
+  };
+}

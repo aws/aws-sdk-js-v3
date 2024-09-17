@@ -94,4 +94,16 @@ export class CancelBatchJobExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelBatchJobExecutionCommand)
   .de(de_CancelBatchJobExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelBatchJobExecutionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelBatchJobExecutionCommandInput;
+      output: CancelBatchJobExecutionCommandOutput;
+    };
+  };
+}

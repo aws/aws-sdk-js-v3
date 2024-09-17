@@ -157,4 +157,16 @@ export class GetBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketCorsCommand)
   .de(de_GetBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketCorsRequest;
+      output: GetBucketCorsOutput;
+    };
+    sdk: {
+      input: GetBucketCorsCommandInput;
+      output: GetBucketCorsCommandOutput;
+    };
+  };
+}

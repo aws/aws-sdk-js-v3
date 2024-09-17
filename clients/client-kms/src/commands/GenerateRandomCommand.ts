@@ -199,4 +199,16 @@ export class GenerateRandomCommand extends $Command
   .f(void 0, GenerateRandomResponseFilterSensitiveLog)
   .ser(se_GenerateRandomCommand)
   .de(de_GenerateRandomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateRandomRequest;
+      output: GenerateRandomResponse;
+    };
+    sdk: {
+      input: GenerateRandomCommandInput;
+      output: GenerateRandomCommandOutput;
+    };
+  };
+}

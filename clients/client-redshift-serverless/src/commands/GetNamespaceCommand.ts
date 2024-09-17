@@ -108,4 +108,16 @@ export class GetNamespaceCommand extends $Command
   .f(void 0, GetNamespaceResponseFilterSensitiveLog)
   .ser(se_GetNamespaceCommand)
   .de(de_GetNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNamespaceRequest;
+      output: GetNamespaceResponse;
+    };
+    sdk: {
+      input: GetNamespaceCommandInput;
+      output: GetNamespaceCommandOutput;
+    };
+  };
+}

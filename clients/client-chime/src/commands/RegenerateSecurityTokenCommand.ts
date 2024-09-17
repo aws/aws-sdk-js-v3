@@ -113,4 +113,16 @@ export class RegenerateSecurityTokenCommand extends $Command
   .f(void 0, RegenerateSecurityTokenResponseFilterSensitiveLog)
   .ser(se_RegenerateSecurityTokenCommand)
   .de(de_RegenerateSecurityTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegenerateSecurityTokenRequest;
+      output: RegenerateSecurityTokenResponse;
+    };
+    sdk: {
+      input: RegenerateSecurityTokenCommandInput;
+      output: RegenerateSecurityTokenCommandOutput;
+    };
+  };
+}

@@ -82,4 +82,16 @@ export class DeleteVpcPeeringConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVpcPeeringConnectionCommand)
   .de(de_DeleteVpcPeeringConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVpcPeeringConnectionRequest;
+      output: DeleteVpcPeeringConnectionResult;
+    };
+    sdk: {
+      input: DeleteVpcPeeringConnectionCommandInput;
+      output: DeleteVpcPeeringConnectionCommandOutput;
+    };
+  };
+}

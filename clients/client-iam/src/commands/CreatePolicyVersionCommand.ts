@@ -111,4 +111,16 @@ export class CreatePolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePolicyVersionCommand)
   .de(de_CreatePolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePolicyVersionRequest;
+      output: CreatePolicyVersionResponse;
+    };
+    sdk: {
+      input: CreatePolicyVersionCommandInput;
+      output: CreatePolicyVersionCommandOutput;
+    };
+  };
+}

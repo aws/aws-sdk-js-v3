@@ -111,4 +111,16 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationSetTrackingOptionsCommand)
   .de(de_CreateConfigurationSetTrackingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationSetTrackingOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConfigurationSetTrackingOptionsCommandInput;
+      output: CreateConfigurationSetTrackingOptionsCommandOutput;
+    };
+  };
+}

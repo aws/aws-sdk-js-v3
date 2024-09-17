@@ -127,4 +127,16 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
   .f(PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_PutEmailIdentityDkimSigningAttributesCommand)
   .de(de_PutEmailIdentityDkimSigningAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityDkimSigningAttributesRequest;
+      output: PutEmailIdentityDkimSigningAttributesResponse;
+    };
+    sdk: {
+      input: PutEmailIdentityDkimSigningAttributesCommandInput;
+      output: PutEmailIdentityDkimSigningAttributesCommandOutput;
+    };
+  };
+}

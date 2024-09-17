@@ -94,4 +94,16 @@ export class DeleteDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryStreamCommand)
   .de(de_DeleteDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryStreamCommandInput;
+      output: DeleteDeliveryStreamCommandOutput;
+    };
+  };
+}

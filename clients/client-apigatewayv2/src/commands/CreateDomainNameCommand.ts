@@ -137,4 +137,16 @@ export class CreateDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainNameCommand)
   .de(de_CreateDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainNameRequest;
+      output: CreateDomainNameResponse;
+    };
+    sdk: {
+      input: CreateDomainNameCommandInput;
+      output: CreateDomainNameCommandOutput;
+    };
+  };
+}

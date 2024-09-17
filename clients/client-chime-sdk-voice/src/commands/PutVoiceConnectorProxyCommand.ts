@@ -119,4 +119,16 @@ export class PutVoiceConnectorProxyCommand extends $Command
   .f(PutVoiceConnectorProxyRequestFilterSensitiveLog, PutVoiceConnectorProxyResponseFilterSensitiveLog)
   .ser(se_PutVoiceConnectorProxyCommand)
   .de(de_PutVoiceConnectorProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutVoiceConnectorProxyRequest;
+      output: PutVoiceConnectorProxyResponse;
+    };
+    sdk: {
+      input: PutVoiceConnectorProxyCommandInput;
+      output: PutVoiceConnectorProxyCommandOutput;
+    };
+  };
+}

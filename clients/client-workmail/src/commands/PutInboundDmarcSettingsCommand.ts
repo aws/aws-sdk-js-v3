@@ -84,4 +84,16 @@ export class PutInboundDmarcSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInboundDmarcSettingsCommand)
   .de(de_PutInboundDmarcSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInboundDmarcSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutInboundDmarcSettingsCommandInput;
+      output: PutInboundDmarcSettingsCommandOutput;
+    };
+  };
+}

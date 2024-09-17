@@ -141,4 +141,16 @@ export class DescribeDeviceEc2InstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeviceEc2InstancesCommand)
   .de(de_DescribeDeviceEc2InstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeviceEc2Input;
+      output: DescribeDeviceEc2Output;
+    };
+    sdk: {
+      input: DescribeDeviceEc2InstancesCommandInput;
+      output: DescribeDeviceEc2InstancesCommandOutput;
+    };
+  };
+}

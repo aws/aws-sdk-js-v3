@@ -175,4 +175,16 @@ export class ListAssociationVersionsCommand extends $Command
   .f(void 0, ListAssociationVersionsResultFilterSensitiveLog)
   .ser(se_ListAssociationVersionsCommand)
   .de(de_ListAssociationVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssociationVersionsRequest;
+      output: ListAssociationVersionsResult;
+    };
+    sdk: {
+      input: ListAssociationVersionsCommandInput;
+      output: ListAssociationVersionsCommandOutput;
+    };
+  };
+}

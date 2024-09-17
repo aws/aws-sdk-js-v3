@@ -268,4 +268,16 @@ export class CreateTokenWithIAMCommand extends $Command
   .f(CreateTokenWithIAMRequestFilterSensitiveLog, CreateTokenWithIAMResponseFilterSensitiveLog)
   .ser(se_CreateTokenWithIAMCommand)
   .de(de_CreateTokenWithIAMCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTokenWithIAMRequest;
+      output: CreateTokenWithIAMResponse;
+    };
+    sdk: {
+      input: CreateTokenWithIAMCommandInput;
+      output: CreateTokenWithIAMCommandOutput;
+    };
+  };
+}

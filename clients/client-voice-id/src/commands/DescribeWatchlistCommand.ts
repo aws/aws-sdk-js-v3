@@ -111,4 +111,16 @@ export class DescribeWatchlistCommand extends $Command
   .f(void 0, DescribeWatchlistResponseFilterSensitiveLog)
   .ser(se_DescribeWatchlistCommand)
   .de(de_DescribeWatchlistCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWatchlistRequest;
+      output: DescribeWatchlistResponse;
+    };
+    sdk: {
+      input: DescribeWatchlistCommandInput;
+      output: DescribeWatchlistCommandOutput;
+    };
+  };
+}

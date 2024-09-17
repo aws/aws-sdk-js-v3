@@ -241,4 +241,16 @@ export class UpdateRuleSetCommand extends $Command
   .f(UpdateRuleSetRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRuleSetCommand)
   .de(de_UpdateRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRuleSetCommandInput;
+      output: UpdateRuleSetCommandOutput;
+    };
+  };
+}

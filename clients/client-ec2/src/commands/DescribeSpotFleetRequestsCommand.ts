@@ -485,4 +485,16 @@ export class DescribeSpotFleetRequestsCommand extends $Command
   .f(void 0, DescribeSpotFleetRequestsResponseFilterSensitiveLog)
   .ser(se_DescribeSpotFleetRequestsCommand)
   .de(de_DescribeSpotFleetRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotFleetRequestsRequest;
+      output: DescribeSpotFleetRequestsResponse;
+    };
+    sdk: {
+      input: DescribeSpotFleetRequestsCommandInput;
+      output: DescribeSpotFleetRequestsCommandOutput;
+    };
+  };
+}

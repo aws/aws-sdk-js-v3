@@ -108,4 +108,16 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterWorkspaceDirectoryCommand)
   .de(de_DeregisterWorkspaceDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterWorkspaceDirectoryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterWorkspaceDirectoryCommandInput;
+      output: DeregisterWorkspaceDirectoryCommandOutput;
+    };
+  };
+}

@@ -938,4 +938,16 @@ export class CreateFileSystemCommand extends $Command
   .f(CreateFileSystemRequestFilterSensitiveLog, CreateFileSystemResponseFilterSensitiveLog)
   .ser(se_CreateFileSystemCommand)
   .de(de_CreateFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileSystemRequest;
+      output: CreateFileSystemResponse;
+    };
+    sdk: {
+      input: CreateFileSystemCommandInput;
+      output: CreateFileSystemCommandOutput;
+    };
+  };
+}

@@ -104,4 +104,16 @@ export class DeletePortalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePortalCommand)
   .de(de_DeletePortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePortalRequest;
+      output: DeletePortalResponse;
+    };
+    sdk: {
+      input: DeletePortalCommandInput;
+      output: DeletePortalCommandOutput;
+    };
+  };
+}

@@ -140,4 +140,16 @@ export class DescribePackageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePackageVersionCommand)
   .de(de_DescribePackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePackageVersionRequest;
+      output: DescribePackageVersionResult;
+    };
+    sdk: {
+      input: DescribePackageVersionCommandInput;
+      output: DescribePackageVersionCommandOutput;
+    };
+  };
+}

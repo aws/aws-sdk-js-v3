@@ -104,4 +104,16 @@ export class EnableDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableDirectoryCommand)
   .de(de_EnableDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableDirectoryRequest;
+      output: EnableDirectoryResponse;
+    };
+    sdk: {
+      input: EnableDirectoryCommandInput;
+      output: EnableDirectoryCommandOutput;
+    };
+  };
+}

@@ -87,4 +87,16 @@ export class DescribeIpamByoasnCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIpamByoasnCommand)
   .de(de_DescribeIpamByoasnCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIpamByoasnRequest;
+      output: DescribeIpamByoasnResult;
+    };
+    sdk: {
+      input: DescribeIpamByoasnCommandInput;
+      output: DescribeIpamByoasnCommandOutput;
+    };
+  };
+}

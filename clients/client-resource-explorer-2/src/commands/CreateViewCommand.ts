@@ -151,4 +151,16 @@ export class CreateViewCommand extends $Command
   .f(CreateViewInputFilterSensitiveLog, CreateViewOutputFilterSensitiveLog)
   .ser(se_CreateViewCommand)
   .de(de_CreateViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateViewInput;
+      output: CreateViewOutput;
+    };
+    sdk: {
+      input: CreateViewCommandInput;
+      output: CreateViewCommandOutput;
+    };
+  };
+}

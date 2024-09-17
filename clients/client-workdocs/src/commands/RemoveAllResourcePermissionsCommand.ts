@@ -96,4 +96,16 @@ export class RemoveAllResourcePermissionsCommand extends $Command
   .f(RemoveAllResourcePermissionsRequestFilterSensitiveLog, void 0)
   .ser(se_RemoveAllResourcePermissionsCommand)
   .de(de_RemoveAllResourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAllResourcePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveAllResourcePermissionsCommandInput;
+      output: RemoveAllResourcePermissionsCommandOutput;
+    };
+  };
+}

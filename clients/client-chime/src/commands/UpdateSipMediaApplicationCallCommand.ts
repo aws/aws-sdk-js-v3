@@ -126,4 +126,16 @@ export class UpdateSipMediaApplicationCallCommand extends $Command
   .f(UpdateSipMediaApplicationCallRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSipMediaApplicationCallCommand)
   .de(de_UpdateSipMediaApplicationCallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSipMediaApplicationCallRequest;
+      output: UpdateSipMediaApplicationCallResponse;
+    };
+    sdk: {
+      input: UpdateSipMediaApplicationCallCommandInput;
+      output: UpdateSipMediaApplicationCallCommandOutput;
+    };
+  };
+}

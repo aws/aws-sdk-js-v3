@@ -126,4 +126,16 @@ export class DescribeBotVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBotVersionCommand)
   .de(de_DescribeBotVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotVersionRequest;
+      output: DescribeBotVersionResponse;
+    };
+    sdk: {
+      input: DescribeBotVersionCommandInput;
+      output: DescribeBotVersionCommandOutput;
+    };
+  };
+}

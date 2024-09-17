@@ -123,4 +123,16 @@ export class DescribeArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeArtifactCommand)
   .de(de_DescribeArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeArtifactRequest;
+      output: DescribeArtifactResponse;
+    };
+    sdk: {
+      input: DescribeArtifactCommandInput;
+      output: DescribeArtifactCommandOutput;
+    };
+  };
+}

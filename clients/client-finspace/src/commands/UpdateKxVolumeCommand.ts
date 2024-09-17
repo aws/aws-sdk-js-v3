@@ -132,4 +132,16 @@ export class UpdateKxVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKxVolumeCommand)
   .de(de_UpdateKxVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKxVolumeRequest;
+      output: UpdateKxVolumeResponse;
+    };
+    sdk: {
+      input: UpdateKxVolumeCommandInput;
+      output: UpdateKxVolumeCommandOutput;
+    };
+  };
+}

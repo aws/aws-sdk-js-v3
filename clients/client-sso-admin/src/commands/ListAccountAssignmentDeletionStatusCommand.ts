@@ -115,4 +115,16 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccountAssignmentDeletionStatusCommand)
   .de(de_ListAccountAssignmentDeletionStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountAssignmentDeletionStatusRequest;
+      output: ListAccountAssignmentDeletionStatusResponse;
+    };
+    sdk: {
+      input: ListAccountAssignmentDeletionStatusCommandInput;
+      output: ListAccountAssignmentDeletionStatusCommandOutput;
+    };
+  };
+}

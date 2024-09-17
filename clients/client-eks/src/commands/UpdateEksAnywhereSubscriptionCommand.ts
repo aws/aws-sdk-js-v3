@@ -126,4 +126,16 @@ export class UpdateEksAnywhereSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEksAnywhereSubscriptionCommand)
   .de(de_UpdateEksAnywhereSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEksAnywhereSubscriptionRequest;
+      output: UpdateEksAnywhereSubscriptionResponse;
+    };
+    sdk: {
+      input: UpdateEksAnywhereSubscriptionCommandInput;
+      output: UpdateEksAnywhereSubscriptionCommandOutput;
+    };
+  };
+}

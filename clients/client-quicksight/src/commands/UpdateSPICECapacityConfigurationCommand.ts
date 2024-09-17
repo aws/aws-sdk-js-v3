@@ -102,4 +102,16 @@ export class UpdateSPICECapacityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSPICECapacityConfigurationCommand)
   .de(de_UpdateSPICECapacityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSPICECapacityConfigurationRequest;
+      output: UpdateSPICECapacityConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateSPICECapacityConfigurationCommandInput;
+      output: UpdateSPICECapacityConfigurationCommandOutput;
+    };
+  };
+}

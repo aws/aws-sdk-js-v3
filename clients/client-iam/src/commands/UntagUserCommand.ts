@@ -105,4 +105,16 @@ export class UntagUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagUserCommand)
   .de(de_UntagUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagUserCommandInput;
+      output: UntagUserCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class GetGeofenceCommand extends $Command
   .f(void 0, GetGeofenceResponseFilterSensitiveLog)
   .ser(se_GetGeofenceCommand)
   .de(de_GetGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGeofenceRequest;
+      output: GetGeofenceResponse;
+    };
+    sdk: {
+      input: GetGeofenceCommandInput;
+      output: GetGeofenceCommandOutput;
+    };
+  };
+}

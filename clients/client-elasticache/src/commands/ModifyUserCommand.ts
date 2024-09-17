@@ -117,4 +117,16 @@ export class ModifyUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyUserCommand)
   .de(de_ModifyUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyUserMessage;
+      output: User;
+    };
+    sdk: {
+      input: ModifyUserCommandInput;
+      output: ModifyUserCommandOutput;
+    };
+  };
+}

@@ -98,4 +98,16 @@ export class UpdateWorkspaceBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceBundleCommand)
   .de(de_UpdateWorkspaceBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceBundleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkspaceBundleCommandInput;
+      output: UpdateWorkspaceBundleCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class GetServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceNetworkServiceAssociationCommand)
   .de(de_GetServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceNetworkServiceAssociationRequest;
+      output: GetServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: GetServiceNetworkServiceAssociationCommandInput;
+      output: GetServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

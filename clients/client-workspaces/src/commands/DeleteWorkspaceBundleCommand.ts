@@ -89,4 +89,16 @@ export class DeleteWorkspaceBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkspaceBundleCommand)
   .de(de_DeleteWorkspaceBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkspaceBundleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkspaceBundleCommandInput;
+      output: DeleteWorkspaceBundleCommandOutput;
+    };
+  };
+}

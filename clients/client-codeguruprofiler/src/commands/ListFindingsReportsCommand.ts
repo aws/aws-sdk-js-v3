@@ -103,4 +103,16 @@ export class ListFindingsReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingsReportsCommand)
   .de(de_ListFindingsReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingsReportsRequest;
+      output: ListFindingsReportsResponse;
+    };
+    sdk: {
+      input: ListFindingsReportsCommandInput;
+      output: ListFindingsReportsCommandOutput;
+    };
+  };
+}

@@ -125,4 +125,16 @@ export class DetachStaticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachStaticIpCommand)
   .de(de_DetachStaticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachStaticIpRequest;
+      output: DetachStaticIpResult;
+    };
+    sdk: {
+      input: DetachStaticIpCommandInput;
+      output: DetachStaticIpCommandOutput;
+    };
+  };
+}

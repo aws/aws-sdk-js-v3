@@ -133,4 +133,16 @@ export class UpdateFlowMediaStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowMediaStreamCommand)
   .de(de_UpdateFlowMediaStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowMediaStreamRequest;
+      output: UpdateFlowMediaStreamResponse;
+    };
+    sdk: {
+      input: UpdateFlowMediaStreamCommandInput;
+      output: UpdateFlowMediaStreamCommandOutput;
+    };
+  };
+}

@@ -152,4 +152,16 @@ export class GetProtectedQueryCommand extends $Command
   .f(void 0, GetProtectedQueryOutputFilterSensitiveLog)
   .ser(se_GetProtectedQueryCommand)
   .de(de_GetProtectedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProtectedQueryInput;
+      output: GetProtectedQueryOutput;
+    };
+    sdk: {
+      input: GetProtectedQueryCommandInput;
+      output: GetProtectedQueryCommandOutput;
+    };
+  };
+}

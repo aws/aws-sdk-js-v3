@@ -170,4 +170,16 @@ export class SynthesizeSpeechCommand extends $Command
   .f(void 0, SynthesizeSpeechOutputFilterSensitiveLog)
   .ser(se_SynthesizeSpeechCommand)
   .de(de_SynthesizeSpeechCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SynthesizeSpeechInput;
+      output: SynthesizeSpeechOutput;
+    };
+    sdk: {
+      input: SynthesizeSpeechCommandInput;
+      output: SynthesizeSpeechCommandOutput;
+    };
+  };
+}

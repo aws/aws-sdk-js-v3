@@ -226,4 +226,16 @@ export class DeleteOrganizationalUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationalUnitCommand)
   .de(de_DeleteOrganizationalUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOrganizationalUnitRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOrganizationalUnitCommandInput;
+      output: DeleteOrganizationalUnitCommandOutput;
+    };
+  };
+}

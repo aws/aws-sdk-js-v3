@@ -95,4 +95,16 @@ export class ListCidrBlocksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCidrBlocksCommand)
   .de(de_ListCidrBlocksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCidrBlocksRequest;
+      output: ListCidrBlocksResponse;
+    };
+    sdk: {
+      input: ListCidrBlocksCommandInput;
+      output: ListCidrBlocksCommandOutput;
+    };
+  };
+}

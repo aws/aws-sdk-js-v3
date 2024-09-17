@@ -152,4 +152,16 @@ export class CreateStateMachineAliasCommand extends $Command
   .f(CreateStateMachineAliasInputFilterSensitiveLog, void 0)
   .ser(se_CreateStateMachineAliasCommand)
   .de(de_CreateStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStateMachineAliasInput;
+      output: CreateStateMachineAliasOutput;
+    };
+    sdk: {
+      input: CreateStateMachineAliasCommandInput;
+      output: CreateStateMachineAliasCommandOutput;
+    };
+  };
+}

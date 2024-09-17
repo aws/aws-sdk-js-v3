@@ -103,4 +103,16 @@ export class GetContactChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContactChannelCommand)
   .de(de_GetContactChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContactChannelRequest;
+      output: GetContactChannelResult;
+    };
+    sdk: {
+      input: GetContactChannelCommandInput;
+      output: GetContactChannelCommandOutput;
+    };
+  };
+}

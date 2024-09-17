@@ -90,4 +90,16 @@ export class GetApiMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApiMappingCommand)
   .de(de_GetApiMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApiMappingRequest;
+      output: GetApiMappingResponse;
+    };
+    sdk: {
+      input: GetApiMappingCommandInput;
+      output: GetApiMappingCommandOutput;
+    };
+  };
+}

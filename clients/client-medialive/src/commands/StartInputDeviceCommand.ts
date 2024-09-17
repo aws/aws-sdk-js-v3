@@ -99,4 +99,16 @@ export class StartInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInputDeviceCommand)
   .de(de_StartInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInputDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartInputDeviceCommandInput;
+      output: StartInputDeviceCommandOutput;
+    };
+  };
+}

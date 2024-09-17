@@ -91,4 +91,16 @@ export class RejectVpcEndpointConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectVpcEndpointConnectionsCommand)
   .de(de_RejectVpcEndpointConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectVpcEndpointConnectionsRequest;
+      output: RejectVpcEndpointConnectionsResult;
+    };
+    sdk: {
+      input: RejectVpcEndpointConnectionsCommandInput;
+      output: RejectVpcEndpointConnectionsCommandOutput;
+    };
+  };
+}

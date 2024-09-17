@@ -172,4 +172,16 @@ export class TestRepositoryTriggersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestRepositoryTriggersCommand)
   .de(de_TestRepositoryTriggersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestRepositoryTriggersInput;
+      output: TestRepositoryTriggersOutput;
+    };
+    sdk: {
+      input: TestRepositoryTriggersCommandInput;
+      output: TestRepositoryTriggersCommandOutput;
+    };
+  };
+}

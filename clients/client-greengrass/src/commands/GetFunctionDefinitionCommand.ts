@@ -89,4 +89,16 @@ export class GetFunctionDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionDefinitionCommand)
   .de(de_GetFunctionDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionDefinitionRequest;
+      output: GetFunctionDefinitionResponse;
+    };
+    sdk: {
+      input: GetFunctionDefinitionCommandInput;
+      output: GetFunctionDefinitionCommandOutput;
+    };
+  };
+}

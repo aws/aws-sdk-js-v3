@@ -171,4 +171,16 @@ export class DescribeBudgetActionHistoriesCommand extends $Command
   .f(void 0, DescribeBudgetActionHistoriesResponseFilterSensitiveLog)
   .ser(se_DescribeBudgetActionHistoriesCommand)
   .de(de_DescribeBudgetActionHistoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetActionHistoriesRequest;
+      output: DescribeBudgetActionHistoriesResponse;
+    };
+    sdk: {
+      input: DescribeBudgetActionHistoriesCommandInput;
+      output: DescribeBudgetActionHistoriesCommandOutput;
+    };
+  };
+}

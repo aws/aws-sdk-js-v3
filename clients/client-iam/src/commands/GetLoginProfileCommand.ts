@@ -117,4 +117,16 @@ export class GetLoginProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoginProfileCommand)
   .de(de_GetLoginProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoginProfileRequest;
+      output: GetLoginProfileResponse;
+    };
+    sdk: {
+      input: GetLoginProfileCommandInput;
+      output: GetLoginProfileCommandOutput;
+    };
+  };
+}

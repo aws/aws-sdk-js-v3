@@ -177,4 +177,16 @@ export class BatchUpdatePartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdatePartitionCommand)
   .de(de_BatchUpdatePartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdatePartitionRequest;
+      output: BatchUpdatePartitionResponse;
+    };
+    sdk: {
+      input: BatchUpdatePartitionCommandInput;
+      output: BatchUpdatePartitionCommandOutput;
+    };
+  };
+}

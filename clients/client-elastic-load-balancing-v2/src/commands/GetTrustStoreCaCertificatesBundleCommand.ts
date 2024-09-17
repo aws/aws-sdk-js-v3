@@ -91,4 +91,16 @@ export class GetTrustStoreCaCertificatesBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrustStoreCaCertificatesBundleCommand)
   .de(de_GetTrustStoreCaCertificatesBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrustStoreCaCertificatesBundleInput;
+      output: GetTrustStoreCaCertificatesBundleOutput;
+    };
+    sdk: {
+      input: GetTrustStoreCaCertificatesBundleCommandInput;
+      output: GetTrustStoreCaCertificatesBundleCommandOutput;
+    };
+  };
+}

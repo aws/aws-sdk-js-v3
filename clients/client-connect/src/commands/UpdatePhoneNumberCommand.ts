@@ -112,4 +112,16 @@ export class UpdatePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePhoneNumberCommand)
   .de(de_UpdatePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberRequest;
+      output: UpdatePhoneNumberResponse;
+    };
+    sdk: {
+      input: UpdatePhoneNumberCommandInput;
+      output: UpdatePhoneNumberCommandOutput;
+    };
+  };
+}

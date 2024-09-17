@@ -128,4 +128,16 @@ export class UpdateVoiceProfileCommand extends $Command
   .f(void 0, UpdateVoiceProfileResponseFilterSensitiveLog)
   .ser(se_UpdateVoiceProfileCommand)
   .de(de_UpdateVoiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceProfileRequest;
+      output: UpdateVoiceProfileResponse;
+    };
+    sdk: {
+      input: UpdateVoiceProfileCommandInput;
+      output: UpdateVoiceProfileCommandOutput;
+    };
+  };
+}

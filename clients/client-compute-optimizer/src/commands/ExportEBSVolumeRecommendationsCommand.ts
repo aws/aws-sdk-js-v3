@@ -136,4 +136,16 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportEBSVolumeRecommendationsCommand)
   .de(de_ExportEBSVolumeRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportEBSVolumeRecommendationsRequest;
+      output: ExportEBSVolumeRecommendationsResponse;
+    };
+    sdk: {
+      input: ExportEBSVolumeRecommendationsCommandInput;
+      output: ExportEBSVolumeRecommendationsCommandOutput;
+    };
+  };
+}

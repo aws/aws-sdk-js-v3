@@ -206,4 +206,16 @@ export class CreatePolicyTemplateCommand extends $Command
   .f(CreatePolicyTemplateInputFilterSensitiveLog, void 0)
   .ser(se_CreatePolicyTemplateCommand)
   .de(de_CreatePolicyTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePolicyTemplateInput;
+      output: CreatePolicyTemplateOutput;
+    };
+    sdk: {
+      input: CreatePolicyTemplateCommandInput;
+      output: CreatePolicyTemplateCommandOutput;
+    };
+  };
+}

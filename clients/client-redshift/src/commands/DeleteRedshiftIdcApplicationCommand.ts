@@ -88,4 +88,16 @@ export class DeleteRedshiftIdcApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRedshiftIdcApplicationCommand)
   .de(de_DeleteRedshiftIdcApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRedshiftIdcApplicationMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRedshiftIdcApplicationCommandInput;
+      output: DeleteRedshiftIdcApplicationCommandOutput;
+    };
+  };
+}

@@ -145,4 +145,16 @@ export class StartTestCommand extends $Command
   .f(StartTestRequestFilterSensitiveLog, StartTestResponseFilterSensitiveLog)
   .ser(se_StartTestCommand)
   .de(de_StartTestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTestRequest;
+      output: StartTestResponse;
+    };
+    sdk: {
+      input: StartTestCommandInput;
+      output: StartTestCommandOutput;
+    };
+  };
+}

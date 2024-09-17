@@ -267,4 +267,16 @@ export class StopBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopBuildCommand)
   .de(de_StopBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopBuildInput;
+      output: StopBuildOutput;
+    };
+    sdk: {
+      input: StopBuildCommandInput;
+      output: StopBuildCommandOutput;
+    };
+  };
+}

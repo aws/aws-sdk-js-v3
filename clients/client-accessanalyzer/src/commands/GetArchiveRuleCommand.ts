@@ -112,4 +112,16 @@ export class GetArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArchiveRuleCommand)
   .de(de_GetArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveRuleRequest;
+      output: GetArchiveRuleResponse;
+    };
+    sdk: {
+      input: GetArchiveRuleCommandInput;
+      output: GetArchiveRuleCommandOutput;
+    };
+  };
+}

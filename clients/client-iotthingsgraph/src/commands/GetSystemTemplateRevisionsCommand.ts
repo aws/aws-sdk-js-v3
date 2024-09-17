@@ -102,4 +102,16 @@ export class GetSystemTemplateRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSystemTemplateRevisionsCommand)
   .de(de_GetSystemTemplateRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSystemTemplateRevisionsRequest;
+      output: GetSystemTemplateRevisionsResponse;
+    };
+    sdk: {
+      input: GetSystemTemplateRevisionsCommandInput;
+      output: GetSystemTemplateRevisionsCommandOutput;
+    };
+  };
+}

@@ -171,4 +171,16 @@ export class GetComplianceSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComplianceSummaryCommand)
   .de(de_GetComplianceSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComplianceSummaryInput;
+      output: GetComplianceSummaryOutput;
+    };
+    sdk: {
+      input: GetComplianceSummaryCommandInput;
+      output: GetComplianceSummaryCommandOutput;
+    };
+  };
+}

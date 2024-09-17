@@ -117,4 +117,16 @@ export class GetAccountCommand extends $Command
   .f(void 0, GetAccountResponseFilterSensitiveLog)
   .ser(se_GetAccountCommand)
   .de(de_GetAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountResponse;
+    };
+    sdk: {
+      input: GetAccountCommandInput;
+      output: GetAccountCommandOutput;
+    };
+  };
+}

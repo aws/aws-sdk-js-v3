@@ -92,4 +92,16 @@ export class DisassociateMacSecKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMacSecKeyCommand)
   .de(de_DisassociateMacSecKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMacSecKeyRequest;
+      output: DisassociateMacSecKeyResponse;
+    };
+    sdk: {
+      input: DisassociateMacSecKeyCommandInput;
+      output: DisassociateMacSecKeyCommandOutput;
+    };
+  };
+}

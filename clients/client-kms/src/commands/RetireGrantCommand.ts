@@ -183,4 +183,16 @@ export class RetireGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetireGrantCommand)
   .de(de_RetireGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetireGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: RetireGrantCommandInput;
+      output: RetireGrantCommandOutput;
+    };
+  };
+}

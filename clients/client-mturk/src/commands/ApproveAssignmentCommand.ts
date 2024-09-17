@@ -112,4 +112,16 @@ export class ApproveAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApproveAssignmentCommand)
   .de(de_ApproveAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApproveAssignmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: ApproveAssignmentCommandInput;
+      output: ApproveAssignmentCommandOutput;
+    };
+  };
+}

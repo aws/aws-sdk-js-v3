@@ -172,4 +172,16 @@ export class SearchQuickResponsesCommand extends $Command
   .f(SearchQuickResponsesRequestFilterSensitiveLog, SearchQuickResponsesResponseFilterSensitiveLog)
   .ser(se_SearchQuickResponsesCommand)
   .de(de_SearchQuickResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchQuickResponsesRequest;
+      output: SearchQuickResponsesResponse;
+    };
+    sdk: {
+      input: SearchQuickResponsesCommandInput;
+      output: SearchQuickResponsesCommandOutput;
+    };
+  };
+}

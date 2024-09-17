@@ -118,4 +118,16 @@ export class DescribeApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationsCommand)
   .de(de_DescribeApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationsRequest;
+      output: DescribeApplicationsResult;
+    };
+    sdk: {
+      input: DescribeApplicationsCommandInput;
+      output: DescribeApplicationsCommandOutput;
+    };
+  };
+}

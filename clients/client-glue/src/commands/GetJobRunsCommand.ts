@@ -133,4 +133,16 @@ export class GetJobRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobRunsCommand)
   .de(de_GetJobRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRunsRequest;
+      output: GetJobRunsResponse;
+    };
+    sdk: {
+      input: GetJobRunsCommandInput;
+      output: GetJobRunsCommandOutput;
+    };
+  };
+}

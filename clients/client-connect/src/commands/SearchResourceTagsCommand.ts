@@ -115,4 +115,16 @@ export class SearchResourceTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchResourceTagsCommand)
   .de(de_SearchResourceTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchResourceTagsRequest;
+      output: SearchResourceTagsResponse;
+    };
+    sdk: {
+      input: SearchResourceTagsCommandInput;
+      output: SearchResourceTagsCommandOutput;
+    };
+  };
+}

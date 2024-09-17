@@ -125,4 +125,16 @@ export class ListOrganizationRecommendationResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationRecommendationResourcesCommand)
   .de(de_ListOrganizationRecommendationResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationRecommendationResourcesRequest;
+      output: ListOrganizationRecommendationResourcesResponse;
+    };
+    sdk: {
+      input: ListOrganizationRecommendationResourcesCommandInput;
+      output: ListOrganizationRecommendationResourcesCommandOutput;
+    };
+  };
+}

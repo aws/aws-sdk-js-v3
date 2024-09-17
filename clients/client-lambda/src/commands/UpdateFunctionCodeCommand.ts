@@ -250,4 +250,16 @@ export class UpdateFunctionCodeCommand extends $Command
   .f(UpdateFunctionCodeRequestFilterSensitiveLog, FunctionConfigurationFilterSensitiveLog)
   .ser(se_UpdateFunctionCodeCommand)
   .de(de_UpdateFunctionCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionCodeRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: UpdateFunctionCodeCommandInput;
+      output: UpdateFunctionCodeCommandOutput;
+    };
+  };
+}

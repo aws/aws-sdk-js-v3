@@ -96,4 +96,16 @@ export class DeleteDeliveryDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryDestinationCommand)
   .de(de_DeleteDeliveryDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryDestinationCommandInput;
+      output: DeleteDeliveryDestinationCommandOutput;
+    };
+  };
+}

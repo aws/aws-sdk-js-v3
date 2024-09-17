@@ -344,4 +344,16 @@ export class DescribeBlueGreenDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBlueGreenDeploymentsCommand)
   .de(de_DescribeBlueGreenDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBlueGreenDeploymentsRequest;
+      output: DescribeBlueGreenDeploymentsResponse;
+    };
+    sdk: {
+      input: DescribeBlueGreenDeploymentsCommandInput;
+      output: DescribeBlueGreenDeploymentsCommandOutput;
+    };
+  };
+}

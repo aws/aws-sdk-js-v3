@@ -100,4 +100,16 @@ export class UpdatePositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePositionCommand)
   .de(de_UpdatePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePositionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePositionCommandInput;
+      output: UpdatePositionCommandOutput;
+    };
+  };
+}

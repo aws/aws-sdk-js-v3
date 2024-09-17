@@ -156,4 +156,16 @@ export class CreateControlCommand extends $Command
   .f(CreateControlRequestFilterSensitiveLog, CreateControlResponseFilterSensitiveLog)
   .ser(se_CreateControlCommand)
   .de(de_CreateControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateControlRequest;
+      output: CreateControlResponse;
+    };
+    sdk: {
+      input: CreateControlCommandInput;
+      output: CreateControlCommandOutput;
+    };
+  };
+}

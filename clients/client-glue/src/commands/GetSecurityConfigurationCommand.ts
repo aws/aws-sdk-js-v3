@@ -108,4 +108,16 @@ export class GetSecurityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSecurityConfigurationCommand)
   .de(de_GetSecurityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecurityConfigurationRequest;
+      output: GetSecurityConfigurationResponse;
+    };
+    sdk: {
+      input: GetSecurityConfigurationCommandInput;
+      output: GetSecurityConfigurationCommandOutput;
+    };
+  };
+}

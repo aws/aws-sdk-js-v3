@@ -106,4 +106,16 @@ export class DeleteExpressionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExpressionCommand)
   .de(de_DeleteExpressionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExpressionRequest;
+      output: DeleteExpressionResponse;
+    };
+    sdk: {
+      input: DeleteExpressionCommandInput;
+      output: DeleteExpressionCommandOutput;
+    };
+  };
+}

@@ -119,4 +119,16 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
   .f(void 0, ListOrganizationRecommendationAccountsResponseFilterSensitiveLog)
   .ser(se_ListOrganizationRecommendationAccountsCommand)
   .de(de_ListOrganizationRecommendationAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationRecommendationAccountsRequest;
+      output: ListOrganizationRecommendationAccountsResponse;
+    };
+    sdk: {
+      input: ListOrganizationRecommendationAccountsCommandInput;
+      output: ListOrganizationRecommendationAccountsCommandOutput;
+    };
+  };
+}

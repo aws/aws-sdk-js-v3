@@ -316,4 +316,16 @@ export class BatchIsAuthorizedCommand extends $Command
   .f(BatchIsAuthorizedInputFilterSensitiveLog, BatchIsAuthorizedOutputFilterSensitiveLog)
   .ser(se_BatchIsAuthorizedCommand)
   .de(de_BatchIsAuthorizedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchIsAuthorizedInput;
+      output: BatchIsAuthorizedOutput;
+    };
+    sdk: {
+      input: BatchIsAuthorizedCommandInput;
+      output: BatchIsAuthorizedCommandOutput;
+    };
+  };
+}

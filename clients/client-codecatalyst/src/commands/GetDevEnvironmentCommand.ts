@@ -124,4 +124,16 @@ export class GetDevEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDevEnvironmentCommand)
   .de(de_GetDevEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevEnvironmentRequest;
+      output: GetDevEnvironmentResponse;
+    };
+    sdk: {
+      input: GetDevEnvironmentCommandInput;
+      output: GetDevEnvironmentCommandOutput;
+    };
+  };
+}

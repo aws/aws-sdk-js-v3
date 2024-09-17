@@ -141,4 +141,16 @@ export class CreateSlotTypeVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSlotTypeVersionCommand)
   .de(de_CreateSlotTypeVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlotTypeVersionRequest;
+      output: CreateSlotTypeVersionResponse;
+    };
+    sdk: {
+      input: CreateSlotTypeVersionCommandInput;
+      output: CreateSlotTypeVersionCommandOutput;
+    };
+  };
+}

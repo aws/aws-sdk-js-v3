@@ -103,4 +103,16 @@ export class DescribePromptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePromptCommand)
   .de(de_DescribePromptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePromptRequest;
+      output: DescribePromptResponse;
+    };
+    sdk: {
+      input: DescribePromptCommandInput;
+      output: DescribePromptCommandOutput;
+    };
+  };
+}

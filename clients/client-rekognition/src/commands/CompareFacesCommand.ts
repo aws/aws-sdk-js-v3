@@ -305,4 +305,16 @@ export class CompareFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompareFacesCommand)
   .de(de_CompareFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompareFacesRequest;
+      output: CompareFacesResponse;
+    };
+    sdk: {
+      input: CompareFacesCommandInput;
+      output: CompareFacesCommandOutput;
+    };
+  };
+}

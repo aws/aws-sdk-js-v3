@@ -257,4 +257,16 @@ export class CreateRateBasedRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRateBasedRuleCommand)
   .de(de_CreateRateBasedRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRateBasedRuleRequest;
+      output: CreateRateBasedRuleResponse;
+    };
+    sdk: {
+      input: CreateRateBasedRuleCommandInput;
+      output: CreateRateBasedRuleCommandOutput;
+    };
+  };
+}

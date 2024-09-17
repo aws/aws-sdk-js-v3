@@ -90,4 +90,16 @@ export class UpdateImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateImageCommand)
   .de(de_UpdateImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImageRequest;
+      output: UpdateImageResponse;
+    };
+    sdk: {
+      input: UpdateImageCommandInput;
+      output: UpdateImageCommandOutput;
+    };
+  };
+}

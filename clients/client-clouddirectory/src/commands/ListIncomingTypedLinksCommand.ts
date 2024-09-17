@@ -170,4 +170,16 @@ export class ListIncomingTypedLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIncomingTypedLinksCommand)
   .de(de_ListIncomingTypedLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIncomingTypedLinksRequest;
+      output: ListIncomingTypedLinksResponse;
+    };
+    sdk: {
+      input: ListIncomingTypedLinksCommandInput;
+      output: ListIncomingTypedLinksCommandOutput;
+    };
+  };
+}

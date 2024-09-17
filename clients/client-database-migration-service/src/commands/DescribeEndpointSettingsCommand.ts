@@ -99,4 +99,16 @@ export class DescribeEndpointSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointSettingsCommand)
   .de(de_DescribeEndpointSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointSettingsMessage;
+      output: DescribeEndpointSettingsResponse;
+    };
+    sdk: {
+      input: DescribeEndpointSettingsCommandInput;
+      output: DescribeEndpointSettingsCommandOutput;
+    };
+  };
+}

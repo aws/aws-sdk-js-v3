@@ -106,4 +106,16 @@ export class UpdateApiCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApiCacheCommand)
   .de(de_UpdateApiCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApiCacheRequest;
+      output: UpdateApiCacheResponse;
+    };
+    sdk: {
+      input: UpdateApiCacheCommandInput;
+      output: UpdateApiCacheCommandOutput;
+    };
+  };
+}

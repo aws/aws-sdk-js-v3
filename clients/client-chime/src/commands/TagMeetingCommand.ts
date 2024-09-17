@@ -114,4 +114,16 @@ export class TagMeetingCommand extends $Command
   .f(TagMeetingRequestFilterSensitiveLog, void 0)
   .ser(se_TagMeetingCommand)
   .de(de_TagMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagMeetingRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagMeetingCommandInput;
+      output: TagMeetingCommandOutput;
+    };
+  };
+}

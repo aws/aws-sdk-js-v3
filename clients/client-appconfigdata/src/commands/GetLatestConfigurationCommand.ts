@@ -127,4 +127,16 @@ export class GetLatestConfigurationCommand extends $Command
   .f(void 0, GetLatestConfigurationResponseFilterSensitiveLog)
   .ser(se_GetLatestConfigurationCommand)
   .de(de_GetLatestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLatestConfigurationRequest;
+      output: GetLatestConfigurationResponse;
+    };
+    sdk: {
+      input: GetLatestConfigurationCommandInput;
+      output: GetLatestConfigurationCommandOutput;
+    };
+  };
+}

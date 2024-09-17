@@ -103,4 +103,16 @@ export class DescribeNotificationSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotificationSubscriptionsCommand)
   .de(de_DescribeNotificationSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotificationSubscriptionsRequest;
+      output: DescribeNotificationSubscriptionsResponse;
+    };
+    sdk: {
+      input: DescribeNotificationSubscriptionsCommandInput;
+      output: DescribeNotificationSubscriptionsCommandOutput;
+    };
+  };
+}

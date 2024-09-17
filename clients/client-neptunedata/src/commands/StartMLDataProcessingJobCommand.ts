@@ -136,4 +136,16 @@ export class StartMLDataProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMLDataProcessingJobCommand)
   .de(de_StartMLDataProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMLDataProcessingJobInput;
+      output: StartMLDataProcessingJobOutput;
+    };
+    sdk: {
+      input: StartMLDataProcessingJobCommandInput;
+      output: StartMLDataProcessingJobCommandOutput;
+    };
+  };
+}

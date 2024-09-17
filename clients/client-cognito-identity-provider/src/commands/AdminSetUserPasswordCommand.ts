@@ -154,4 +154,16 @@ export class AdminSetUserPasswordCommand extends $Command
   .f(AdminSetUserPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_AdminSetUserPasswordCommand)
   .de(de_AdminSetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminSetUserPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminSetUserPasswordCommandInput;
+      output: AdminSetUserPasswordCommandOutput;
+    };
+  };
+}

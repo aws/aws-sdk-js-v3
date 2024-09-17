@@ -123,4 +123,16 @@ export class GetCustomModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCustomModelCommand)
   .de(de_GetCustomModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCustomModelRequest;
+      output: GetCustomModelResponse;
+    };
+    sdk: {
+      input: GetCustomModelCommandInput;
+      output: GetCustomModelCommandOutput;
+    };
+  };
+}

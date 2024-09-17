@@ -138,4 +138,16 @@ export class CreateWirelessGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWirelessGatewayCommand)
   .de(de_CreateWirelessGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWirelessGatewayRequest;
+      output: CreateWirelessGatewayResponse;
+    };
+    sdk: {
+      input: CreateWirelessGatewayCommandInput;
+      output: CreateWirelessGatewayCommandOutput;
+    };
+  };
+}

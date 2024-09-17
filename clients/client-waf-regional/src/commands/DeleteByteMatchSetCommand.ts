@@ -159,4 +159,16 @@ export class DeleteByteMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteByteMatchSetCommand)
   .de(de_DeleteByteMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteByteMatchSetRequest;
+      output: DeleteByteMatchSetResponse;
+    };
+    sdk: {
+      input: DeleteByteMatchSetCommandInput;
+      output: DeleteByteMatchSetCommandOutput;
+    };
+  };
+}

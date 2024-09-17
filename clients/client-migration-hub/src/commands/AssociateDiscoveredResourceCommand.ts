@@ -121,4 +121,16 @@ export class AssociateDiscoveredResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDiscoveredResourceCommand)
   .de(de_AssociateDiscoveredResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDiscoveredResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDiscoveredResourceCommandInput;
+      output: AssociateDiscoveredResourceCommandOutput;
+    };
+  };
+}

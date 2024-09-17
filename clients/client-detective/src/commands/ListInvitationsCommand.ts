@@ -124,4 +124,16 @@ export class ListInvitationsCommand extends $Command
   .f(void 0, ListInvitationsResponseFilterSensitiveLog)
   .ser(se_ListInvitationsCommand)
   .de(de_ListInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInvitationsRequest;
+      output: ListInvitationsResponse;
+    };
+    sdk: {
+      input: ListInvitationsCommandInput;
+      output: ListInvitationsCommandOutput;
+    };
+  };
+}

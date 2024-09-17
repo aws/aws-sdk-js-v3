@@ -166,4 +166,16 @@ export class GetMetricStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricStatisticsCommand)
   .de(de_GetMetricStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricStatisticsInput;
+      output: GetMetricStatisticsOutput;
+    };
+    sdk: {
+      input: GetMetricStatisticsCommandInput;
+      output: GetMetricStatisticsCommandOutput;
+    };
+  };
+}

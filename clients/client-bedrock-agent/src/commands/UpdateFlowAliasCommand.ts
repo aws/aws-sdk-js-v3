@@ -117,4 +117,16 @@ export class UpdateFlowAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowAliasCommand)
   .de(de_UpdateFlowAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowAliasRequest;
+      output: UpdateFlowAliasResponse;
+    };
+    sdk: {
+      input: UpdateFlowAliasCommandInput;
+      output: UpdateFlowAliasCommandOutput;
+    };
+  };
+}

@@ -116,4 +116,16 @@ export class ListShareInvitationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListShareInvitationsCommand)
   .de(de_ListShareInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListShareInvitationsInput;
+      output: ListShareInvitationsOutput;
+    };
+    sdk: {
+      input: ListShareInvitationsCommandInput;
+      output: ListShareInvitationsCommandOutput;
+    };
+  };
+}

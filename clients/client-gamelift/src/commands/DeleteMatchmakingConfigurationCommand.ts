@@ -101,4 +101,16 @@ export class DeleteMatchmakingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMatchmakingConfigurationCommand)
   .de(de_DeleteMatchmakingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMatchmakingConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMatchmakingConfigurationCommandInput;
+      output: DeleteMatchmakingConfigurationCommandOutput;
+    };
+  };
+}

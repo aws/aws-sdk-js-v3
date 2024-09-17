@@ -110,4 +110,16 @@ export class DescribeExportTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeExportTasksCommand)
   .de(de_DescribeExportTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeExportTasksRequest;
+      output: DescribeExportTasksResult;
+    };
+    sdk: {
+      input: DescribeExportTasksCommandInput;
+      output: DescribeExportTasksCommandOutput;
+    };
+  };
+}

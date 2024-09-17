@@ -103,4 +103,16 @@ export class GetReferenceStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReferenceStoreCommand)
   .de(de_GetReferenceStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReferenceStoreRequest;
+      output: GetReferenceStoreResponse;
+    };
+    sdk: {
+      input: GetReferenceStoreCommandInput;
+      output: GetReferenceStoreCommandOutput;
+    };
+  };
+}

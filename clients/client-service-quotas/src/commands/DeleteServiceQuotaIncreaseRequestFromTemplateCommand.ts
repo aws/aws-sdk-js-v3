@@ -116,4 +116,16 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand)
   .de(de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput;
+      output: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput;
+    };
+  };
+}

@@ -101,4 +101,16 @@ export class GetDataSetImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSetImportTaskCommand)
   .de(de_GetDataSetImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSetImportTaskRequest;
+      output: GetDataSetImportTaskResponse;
+    };
+    sdk: {
+      input: GetDataSetImportTaskCommandInput;
+      output: GetDataSetImportTaskCommandOutput;
+    };
+  };
+}
