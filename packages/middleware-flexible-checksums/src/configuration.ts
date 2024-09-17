@@ -38,11 +38,6 @@ export interface PreviouslyResolved {
   requestChecksumCalculation: Provider<string>;
 
   /**
-   * Determines when a checksum will be calculated for response payloads
-   */
-  responseChecksumValidation: Provider<string>;
-
-  /**
    * A constructor for a class implementing the {@link Hash} interface that computes SHA1 hashes.
    * @internal
    */
