@@ -83,7 +83,7 @@ export const flexibleChecksumsResponseMiddleware =
         commandName === "GetObjectCommand" &&
         getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
           const responseHeader = getChecksumLocationName(algorithm);
-          const checksumFromResponse = response.headers[responseHeader];
+          const checksumFromResponse = response.headers?.[responseHeader];
           return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
         });
       if (isS3WholeObjectMultipartGetResponseChecksum) {
