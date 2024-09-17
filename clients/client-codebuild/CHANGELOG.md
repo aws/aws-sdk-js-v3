@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
+
+
+### Features
+
+* **client-codebuild:** GitLab Enhancements - Add support for Self-Hosted GitLab runners in CodeBuild. Add group webhooks ([42807fe](https://github.com/aws/aws-sdk-js-v3/commit/42807fe487095378f0b8ec2d82ad493c4de43188))
+
+
+
+
+
 ## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild
