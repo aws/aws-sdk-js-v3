@@ -4,6 +4,7 @@ import {
   Encoder,
   GetAwsChunkedEncodingStream,
   HashConstructor,
+  Provider,
   StreamCollector,
   StreamHasher,
 } from "@smithy/types";
@@ -30,6 +31,11 @@ export interface PreviouslyResolved {
    * @internal
    */
   md5: ChecksumConstructor | HashConstructor;
+
+  /**
+   * Determines when a checksum will be calculated for request payloads
+   */
+  requestChecksumCalculation: Provider<string>;
 
   /**
    * A constructor for a class implementing the {@link Hash} interface that computes SHA1 hashes.

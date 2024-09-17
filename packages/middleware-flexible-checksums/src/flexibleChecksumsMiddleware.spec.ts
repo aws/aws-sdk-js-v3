@@ -3,7 +3,7 @@ import { BuildHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, RequestChecksumCalculation } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
@@ -30,8 +30,10 @@ describe(flexibleChecksumsMiddleware.name, () => {
   const mockChecksumLocationName = "mock-checksum-location-name";
 
   const mockInput = {};
-  const mockConfig = {} as PreviouslyResolved;
-  const mockMiddlewareConfig = { requestChecksumRequired: false };
+  const mockConfig = {
+    requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_REQUIRED),
+  } as PreviouslyResolved;
+  const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
 
   const mockBody = { body: "mockRequestBody" };
   const mockHeaders = { "content-length": 100, "content-encoding": "gzip" };

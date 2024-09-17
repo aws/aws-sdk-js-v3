@@ -72,13 +72,19 @@ export const flexibleChecksumsMiddleware =
     const { request, input } = args;
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
+    const requestChecksumCalculation = await config.requestChecksumCalculation();
     const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(
       input,
       {
         requestChecksumRequired,
+<<<<<<< HEAD
         requestAlgorithmMember: requestAlgorithmMember?.name,
+=======
+        requestAlgorithmMember,
+        requestChecksumCalculation,
+>>>>>>> 30ab0599837 (chore(middleware-flexible-checksums): use RequestChecksumCalculation)
       },
       !!context.isS3ExpressBucket
     );
