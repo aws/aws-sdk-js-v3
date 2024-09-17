@@ -20,7 +20,7 @@ export interface GetChecksumAlgorithmForRequestOptions {
   /**
    * Determines when a checksum will be calculated for request payloads
    */
-  requestChecksumCalculation: string;
+  requestChecksumCalculation: RequestChecksumCalculation;
 }
 
 /**
