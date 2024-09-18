@@ -5087,6 +5087,12 @@ export interface EcsTaskDetails {
    * @public
    */
   Group?: string;
+
+  /**
+   * <p>A capacity on which the task is running. For example, <code>Fargate</code> and <code>EC2</code>.</p>
+   * @public
+   */
+  LaunchType?: string;
 }
 
 /**
