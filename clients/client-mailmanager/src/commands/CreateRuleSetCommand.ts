@@ -56,6 +56,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           StringExpression: { // RuleStringExpression
  *             Evaluate: { // RuleStringToEvaluate Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // RuleStringList // required
@@ -110,6 +111,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           StringExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // required
