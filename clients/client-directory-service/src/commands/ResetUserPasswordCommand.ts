@@ -33,7 +33,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
 
 /**
  * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
- *       directory.</p>
+ *       directory. Disabled users will become enabled and can be authenticated following the API call.</p>
  *          <p>You can reset the password for any user in your directory with the following
  *       exceptions:</p>
  *          <ul>
@@ -77,7 +77,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>

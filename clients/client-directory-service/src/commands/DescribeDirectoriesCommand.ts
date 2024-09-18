@@ -72,7 +72,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //       DnsIpAddrs: [ // DnsIpAddrs
  * //         "STRING_VALUE",
  * //       ],
- * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
  * //       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
  * //       ShareNotes: "STRING_VALUE",

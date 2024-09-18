@@ -81,7 +81,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The specified entity already exists.</p>

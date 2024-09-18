@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableClientAuthenticationRequest, EnableClientAuthenticationResult } from "../models/models_0";
-import { de_EnableClientAuthenticationCommand, se_EnableClientAuthenticationCommand } from "../protocols/Aws_json1_1";
+import { DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult } from "../models/models_0";
+import { de_DisableDirectoryDataAccessCommand, se_DisableDirectoryDataAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,38 +17,37 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link EnableClientAuthenticationCommand}.
+ * The input for {@link DisableDirectoryDataAccessCommand}.
  */
-export interface EnableClientAuthenticationCommandInput extends EnableClientAuthenticationRequest {}
+export interface DisableDirectoryDataAccessCommandInput extends DisableDirectoryDataAccessRequest {}
 /**
  * @public
  *
- * The output of {@link EnableClientAuthenticationCommand}.
+ * The output of {@link DisableDirectoryDataAccessCommand}.
  */
-export interface EnableClientAuthenticationCommandOutput extends EnableClientAuthenticationResult, __MetadataBearer {}
+export interface DisableDirectoryDataAccessCommandOutput extends DisableDirectoryDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Enables alternative client authentication methods for the specified directory.</p>
+ * <p>Deactivates access to directory data via the Directory Service Data API for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, EnableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, EnableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DisableDirectoryDataAccessCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DisableDirectoryDataAccessCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = { // EnableClientAuthenticationRequest
+ * const input = { // DisableDirectoryDataAccessRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   Type: "SmartCard" || "SmartCardOrPassword", // required
  * };
- * const command = new EnableClientAuthenticationCommand(input);
+ * const command = new DisableDirectoryDataAccessCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param EnableClientAuthenticationCommandInput - {@link EnableClientAuthenticationCommandInput}
- * @returns {@link EnableClientAuthenticationCommandOutput}
- * @see {@link EnableClientAuthenticationCommandInput} for command's `input` shape.
- * @see {@link EnableClientAuthenticationCommandOutput} for command's `response` shape.
+ * @param DisableDirectoryDataAccessCommandInput - {@link DisableDirectoryDataAccessCommandInput}
+ * @returns {@link DisableDirectoryDataAccessCommandOutput}
+ * @see {@link DisableDirectoryDataAccessCommandInput} for command's `input` shape.
+ * @see {@link DisableDirectoryDataAccessCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -60,12 +59,13 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  * @throws {@link DirectoryDoesNotExistException} (client fault)
  *  <p>The specified directory does not exist in the system.</p>
  *
- * @throws {@link InvalidClientAuthStatusException} (client fault)
- *  <p>Client authentication is already enabled.</p>
+ * @throws {@link DirectoryInDesiredStateException} (client fault)
+ *  <p>
+ *       The directory is already updated to desired update type settings.
+ *     </p>
  *
- * @throws {@link NoAvailableCertificateException} (client fault)
- *  <p>Client authentication setup could not be completed because at least one valid certificate must be
- *       registered in the system.</p>
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
@@ -78,10 +78,10 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  *
  * @public
  */
-export class EnableClientAuthenticationCommand extends $Command
+export class DisableDirectoryDataAccessCommand extends $Command
   .classBuilder<
-    EnableClientAuthenticationCommandInput,
-    EnableClientAuthenticationCommandOutput,
+    DisableDirectoryDataAccessCommandInput,
+    DisableDirectoryDataAccessCommandOutput,
     DirectoryServiceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +93,21 @@ export class EnableClientAuthenticationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DirectoryService_20150416", "EnableClientAuthentication", {})
-  .n("DirectoryServiceClient", "EnableClientAuthenticationCommand")
+  .s("DirectoryService_20150416", "DisableDirectoryDataAccess", {})
+  .n("DirectoryServiceClient", "DisableDirectoryDataAccessCommand")
   .f(void 0, void 0)
-  .ser(se_EnableClientAuthenticationCommand)
-  .de(de_EnableClientAuthenticationCommand)
+  .ser(se_DisableDirectoryDataAccessCommand)
+  .de(de_DisableDirectoryDataAccessCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: EnableClientAuthenticationRequest;
+      input: DisableDirectoryDataAccessRequest;
       output: {};
     };
     sdk: {
-      input: EnableClientAuthenticationCommandInput;
-      output: EnableClientAuthenticationCommandOutput;
+      input: DisableDirectoryDataAccessCommandInput;
+      output: DisableDirectoryDataAccessCommandOutput;
     };
   };
 }

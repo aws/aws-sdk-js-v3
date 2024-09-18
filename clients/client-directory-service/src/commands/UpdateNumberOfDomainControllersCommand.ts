@@ -64,7 +64,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link DomainControllerLimitExceededException} (client fault)
  *  <p>The maximum allowed number of domain controllers per directory was exceeded. The
