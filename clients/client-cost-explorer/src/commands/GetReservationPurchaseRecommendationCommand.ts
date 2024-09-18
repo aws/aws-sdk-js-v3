@@ -231,6 +231,16 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //           EstimatedReservationCostForLookbackPeriod: "STRING_VALUE",
  * //           UpfrontCost: "STRING_VALUE",
  * //           RecurringStandardMonthlyCost: "STRING_VALUE",
+ * //           ReservedCapacityDetails: { // ReservedCapacityDetails
+ * //             DynamoDBCapacityDetails: { // DynamoDBCapacityDetails
+ * //               CapacityUnits: "STRING_VALUE",
+ * //               Region: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           RecommendedNumberOfCapacityUnitsToPurchase: "STRING_VALUE",
+ * //           MinimumNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
+ * //           MaximumNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
+ * //           AverageNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
  * //         },
  * //       ],
  * //       RecommendationSummary: { // ReservationPurchaseRecommendationSummary

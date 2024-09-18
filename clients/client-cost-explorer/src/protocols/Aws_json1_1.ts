@@ -2615,6 +2615,8 @@ const de_DescribeCostCategoryDefinitionResponse = (
 
 // de_DiskResourceUtilization omitted.
 
+// de_DynamoDBCapacityDetails omitted.
+
 // de_EBSResourceUtilization omitted.
 
 // de_EC2InstanceDetails omitted.
@@ -2821,6 +2823,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_ReservationUtilizationGroup omitted.
 
 // de_ReservationUtilizationGroups omitted.
+
+// de_ReservedCapacityDetails omitted.
 
 // de_ResourceDetails omitted.
 

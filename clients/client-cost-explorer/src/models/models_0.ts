@@ -93,14 +93,14 @@ export interface Impact {
 }
 
 /**
- * <p>The combination of Amazon Web Service, linked account, linked account name,
+ * <p>The combination of Amazon Web Servicesservice, linked account, linked account name,
  *             Region, and usage type where a cost anomaly is observed. The linked account name will
  *             only be available when the account name can be identified.</p>
  * @public
  */
 export interface RootCause {
   /**
-   * <p>The Amazon Web Service name that's associated with the cost anomaly. </p>
+   * <p>The Amazon Web Servicesservice name that's associated with the cost anomaly. </p>
    * @public
    */
   Service?: string;
@@ -155,7 +155,7 @@ export interface Anomaly {
   AnomalyEndDate?: string;
 
   /**
-   * <p>The dimension for the anomaly (for example, an Amazon Web Service in a service
+   * <p>The dimension for the anomaly (for example, an Amazon Web Servicesservice in a service
    *             monitor). </p>
    * @public
    */
@@ -2398,6 +2398,37 @@ export interface InstanceDetails {
 }
 
 /**
+ * <p>The DynamoDB reservations that Amazon Web Services recommends that you purchase.</p>
+ * @public
+ */
+export interface DynamoDBCapacityDetails {
+  /**
+   * <p>The capacity unit of the recommended reservation.</p>
+   * @public
+   */
+  CapacityUnits?: string;
+
+  /**
+   * <p>The Amazon Web Services Region of the recommended reservation.</p>
+   * @public
+   */
+  Region?: string;
+}
+
+/**
+ * <p>Details about the reservations that Amazon Web Services recommends that you
+ *             purchase.</p>
+ * @public
+ */
+export interface ReservedCapacityDetails {
+  /**
+   * <p>The DynamoDB reservations that Amazon Web Services recommends that you purchase.</p>
+   * @public
+   */
+  DynamoDBCapacityDetails?: DynamoDBCapacityDetails;
+}
+
+/**
  * <p>Details about your recommended reservation purchase.</p>
  * @public
  */
@@ -2477,22 +2508,22 @@ export interface ReservationPurchaseRecommendationDetail {
   AverageNormalizedUnitsUsedPerHour?: string;
 
   /**
-   * <p>The average utilization of your instances. Amazon Web Services uses this to calculate
-   *             your recommended reservation purchases.</p>
+   * <p>The average utilization of your recommendations. Amazon Web Services uses this to
+   *             calculate your recommended reservation purchases.</p>
    * @public
    */
   AverageUtilization?: string;
 
   /**
-   * <p>How long Amazon Web Services estimates that it takes for this instance to start saving
-   *             you money, in months.</p>
+   * <p>How long Amazon Web Services estimates that it takes for this recommendation to start
+   *             saving you money, in months.</p>
    * @public
    */
   EstimatedBreakEvenInMonths?: string;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
-   *             instance.</p>
+   *             recommendation.</p>
    * @public
    */
   CurrencyCode?: string;
@@ -2526,16 +2557,54 @@ export interface ReservationPurchaseRecommendationDetail {
   EstimatedReservationCostForLookbackPeriod?: string;
 
   /**
-   * <p>How much purchasing this instance costs you upfront.</p>
+   * <p>How much purchasing this recommendation costs you upfront.</p>
    * @public
    */
   UpfrontCost?: string;
 
   /**
-   * <p>How much purchasing this instance costs you on a monthly basis.</p>
+   * <p>How much purchasing this recommendation costs you on a monthly basis.</p>
    * @public
    */
   RecurringStandardMonthlyCost?: string;
+
+  /**
+   * <p>Details about the reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
+   * @public
+   */
+  ReservedCapacityDetails?: ReservedCapacityDetails;
+
+  /**
+   * <p>The number of reserved capacity units that Amazon Web Services recommends that you
+   *             purchase.</p>
+   * @public
+   */
+  RecommendedNumberOfCapacityUnitsToPurchase?: string;
+
+  /**
+   * <p>The minimum number of provisioned capacity units that you used in an hour during the
+   *             historical period. Amazon Web Services uses this to calculate your recommended
+   *             reservation purchases.</p>
+   * @public
+   */
+  MinimumNumberOfCapacityUnitsUsedPerHour?: string;
+
+  /**
+   * <p>The maximum number of provisioned capacity units that you used in an hour during the
+   *             historical period. Amazon Web Services uses this to calculate your recommended
+   *             reservation purchases.</p>
+   * @public
+   */
+  MaximumNumberOfCapacityUnitsUsedPerHour?: string;
+
+  /**
+   * <p>The average number of provisioned capacity units that you used in an hour during the
+   *             historical period. Amazon Web Services uses this to calculate your recommended
+   *             reservation purchases.</p>
+   * @public
+   */
+  AverageNumberOfCapacityUnitsUsedPerHour?: string;
 }
 
 /**
@@ -6421,9 +6490,9 @@ export interface GetDimensionValuesRequest {
    *             <li>
    *                <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
    *           values are the following:</p>
-   *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services.</p>
+   *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Servicesservices.</p>
    *                <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
-   *           reseller for Amazon Web Services in India.</p>
+   *           reseller for Amazon Web Servicesservices in India.</p>
    *                <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions that are built on
    *             Amazon Web Services by third-party software providers.</p>
    *             </li>
