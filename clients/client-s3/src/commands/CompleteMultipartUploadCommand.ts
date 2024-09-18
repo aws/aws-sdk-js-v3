@@ -85,6 +85,11 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                         information about permissions required to use the multipart upload API, see
  *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum
+ *                         value</a> in your <code>MultipartUpload</code> requests and the
+ *                         object is encrypted with Key Management Service, you must have permission to use the
+ *                         <code>kms:Decrypt</code> action for the
+ *                         <code>CompleteMultipartUpload</code> request to succeed.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -94,13 +99,9 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
- *                   </li>
- *                   <li>
- *                      <p> If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum
- *                            value</a> in your <code>MultipartUpload</code> requests and the
- *                         object is encrypted with Key Management Service, you must have permission to use the
- *                            <code>kms:Decrypt</code> action for the
- *                            <code>CompleteMultipartUpload</code> request to succeed.</p>
+ *                      <p>If the object is encrypted with
+ *                         SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>

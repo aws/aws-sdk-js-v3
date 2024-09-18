@@ -132,6 +132,9 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                               key can't be set to <code>ReadOnly</code> on the copy destination bucket. </p>
  *                         </li>
  *                      </ul>
+ *                      <p>If the object is encrypted with
+ *                         SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                      <p>For example policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the
  *                            <i>Amazon S3 User Guide</i>.</p>
  *                   </li>

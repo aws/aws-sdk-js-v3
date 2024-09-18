@@ -92,6 +92,9 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                      <p>If the object is encrypted using
+ *                      SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -114,6 +117,9 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *                   be sent for the <code>GetObject</code> requests, if your object uses server-side encryption with Amazon S3 managed encryption keys (SSE-S3), server-side encryption with Key Management Service (KMS)
  *                   keys (SSE-KMS), or dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS). If you include the header in your <code>GetObject</code> requests for the object that uses
  *                   these types of keys, you’ll get an HTTP <code>400 Bad Request</code> error.</p>
+ *                <p>
+ *                   <b>Directory buckets</b> - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. SSE-C isn't supported. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>Overriding response header values through the request</dt>
  *             <dd>

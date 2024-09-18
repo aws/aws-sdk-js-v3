@@ -80,6 +80,9 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                      <p>If you enable <code>x-amz-checksum-mode</code> in the request and the object is encrypted with
+ *                         Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -119,7 +122,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                   User Guide</i>.</p>
  *                <note>
  *                   <p>
- *                      <b>Directory bucket permissions</b> - For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+ *                      <b>Directory bucket </b> - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. SSE-C isn't supported. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. </p>
  *                </note>
  *             </dd>
  *             <dt>Versioning</dt>
