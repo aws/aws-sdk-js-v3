@@ -58,7 +58,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidLDAPSStatusException} (client fault)
  *  <p>The LDAP activities could not be performed because they are limited by the LDAPS

@@ -49,7 +49,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * //       DirectoryId: "STRING_VALUE",
  * //       RegionName: "STRING_VALUE",
  * //       RegionType: "Primary" || "Additional",
- * //       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       VpcSettings: { // DirectoryVpcSettings
  * //         VpcId: "STRING_VALUE", // required
  * //         SubnetIds: [ // SubnetIds // required
@@ -74,7 +74,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>

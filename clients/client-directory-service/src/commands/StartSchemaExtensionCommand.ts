@@ -59,7 +59,7 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>

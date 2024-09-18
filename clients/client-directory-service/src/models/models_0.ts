@@ -295,7 +295,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>Client authentication is not available in this region at this time.</p>
+ * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -372,57 +372,57 @@ export interface AddIpRoutesRequest {
    *          <p>Inbound:</p>
    *          <ul>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
    *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:
-   *                0.0.0.0/0</p>
+   *                Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
    *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:
-   *                0.0.0.0/0</p>
+   *                Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</p>
+   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</p>
+   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</p>
+   *                <p>Type: LDAP, Protocol: TCP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</p>
+   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *          </ul>
    *          <p></p>
@@ -445,7 +445,7 @@ export interface AddIpRoutesRequest {
 export interface AddIpRoutesResult {}
 
 /**
- * <p>The specified directory is unavailable or could not be found.</p>
+ * <p>The specified directory is unavailable.</p>
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -735,7 +735,7 @@ export interface Tag {
   /**
    * <p>Required name of the tag. The string value can be Unicode characters and cannot be
    *       prefixed with "aws:". The string can contain only the set of Unicode letters, digits,
-   *       white-space, '_', '.', '/', '=', '+', '-' (Java regex:
+   *       white-space, '_', '.', '/', '=', '+', '-', ':', '@'(Java regex:
    *       "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
@@ -743,7 +743,7 @@ export interface Tag {
 
   /**
    * <p>The optional value of the tag. The string value can be Unicode characters. The string
-   *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-'
+   *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@'
    *       (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
@@ -1901,7 +1901,7 @@ export interface CreateTrustRequest {
   RemoteDomainName: string | undefined;
 
   /**
-   * <p>The trust password. The must be the same password that was used when creating the trust
+   * <p>The trust password. The trust password must be the same password that was used when creating the trust
    *       relationship on the external domain.</p>
    * @public
    */
@@ -1943,6 +1943,23 @@ export interface CreateTrustResult {
    */
   TrustId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DataAccessStatus = {
+  DISABLED: "Disabled",
+  DISABLING: "Disabling",
+  ENABLED: "Enabled",
+  ENABLING: "Enabling",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type DataAccessStatus = (typeof DataAccessStatus)[keyof typeof DataAccessStatus];
 
 /**
  * <p>Deletes a conditional forwarder.</p>
@@ -2349,8 +2366,7 @@ export interface RadiusSettings {
   RadiusTimeout?: number;
 
   /**
-   * <p>The maximum number of times that communication with the RADIUS server is
-   *          attempted.</p>
+   * <p>The maximum number of times that communication with the RADIUS server is retried after the initial attempt.</p>
    * @public
    */
   RadiusRetries?: number;
@@ -2506,6 +2522,7 @@ export const DirectoryStage = {
   REQUESTED: "Requested",
   RESTOREFAILED: "RestoreFailed",
   RESTORING: "Restoring",
+  UPDATING: "Updating",
 } as const;
 
 /**
@@ -2636,7 +2653,7 @@ export interface DirectoryDescription {
   StageLastUpdatedDateTime?: Date;
 
   /**
-   * <p>The directory size.</p>
+   * <p>The directory type.</p>
    * @public
    */
   Type?: DirectoryType;
@@ -2768,6 +2785,28 @@ export class InvalidNextTokenException extends __BaseException {
 /**
  * @public
  */
+export interface DescribeDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDirectoryDataAccessResult {
+  /**
+   * <p>The current status of data access through the Directory Service Data API.</p>
+   * @public
+   */
+  DataAccessStatus?: DataAccessStatus;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDomainControllersRequest {
   /**
    * <p>Identifier of the directory for which to retrieve the domain controller
@@ -2810,6 +2849,7 @@ export const DomainControllerStatus = {
   FAILED: "Failed",
   IMPAIRED: "Impaired",
   RESTORING: "Restoring",
+  UPDATING: "Updating",
 } as const;
 
 /**
@@ -3348,7 +3388,9 @@ export interface DescribeSettingsResult {
   SettingEntries?: SettingEntry[];
 
   /**
-   * <p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
+   * <p>If not null, token that indicates that more results are available.
+   *       Pass this value for the <code>NextToken</code> parameter in a subsequent
+   *       call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
    * @public
    */
   NextToken?: string;
@@ -4015,7 +4057,7 @@ export interface DisableClientAuthenticationRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>
+   * <p>The type of client authentication to disable. Currently the only parameter <code>"SmartCard"</code> is supported.</p>
    * @public
    */
   Type: ClientAuthenticationType | undefined;
@@ -4058,6 +4100,22 @@ export class InvalidClientAuthStatusException extends __BaseException {
     this.RequestId = opts.RequestId;
   }
 }
+
+/**
+ * @public
+ */
+export interface DisableDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableDirectoryDataAccessResult {}
 
 /**
  * @public
@@ -4231,6 +4289,22 @@ export class NoAvailableCertificateException extends __BaseException {
     this.RequestId = opts.RequestId;
   }
 }
+
+/**
+ * @public
+ */
+export interface EnableDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableDirectoryDataAccessResult {}
 
 /**
  * @public

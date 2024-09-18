@@ -65,7 +65,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link IncompatibleSettingsException} (client fault)
  *  <p>The specified directory setting is not compatible with other settings.</p>

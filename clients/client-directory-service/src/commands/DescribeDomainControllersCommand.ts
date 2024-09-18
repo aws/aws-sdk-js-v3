@@ -54,7 +54,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * //       VpcId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",
- * //       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed",
+ * //       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       StatusReason: "STRING_VALUE",
  * //       LaunchTime: new Date("TIMESTAMP"),
  * //       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),

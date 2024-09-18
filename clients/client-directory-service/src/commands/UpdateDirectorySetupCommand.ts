@@ -58,7 +58,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -72,7 +72,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  *     </p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid.</p>

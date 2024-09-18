@@ -115,6 +115,10 @@ import {
   DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand";
 import {
+  DescribeDirectoryDataAccessCommandInput,
+  DescribeDirectoryDataAccessCommandOutput,
+} from "./commands/DescribeDirectoryDataAccessCommand";
+import {
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
 } from "./commands/DescribeDomainControllersCommand";
@@ -142,6 +146,10 @@ import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
+import {
+  DisableDirectoryDataAccessCommandInput,
+  DisableDirectoryDataAccessCommandOutput,
+} from "./commands/DisableDirectoryDataAccessCommand";
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
@@ -149,6 +157,10 @@ import {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
 } from "./commands/EnableClientAuthenticationCommand";
+import {
+  EnableDirectoryDataAccessCommandInput,
+  EnableDirectoryDataAccessCommandOutput,
+} from "./commands/EnableDirectoryDataAccessCommand";
 import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand";
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
@@ -250,6 +262,7 @@ export type ServiceInputTypes =
   | DescribeClientAuthenticationSettingsCommandInput
   | DescribeConditionalForwardersCommandInput
   | DescribeDirectoriesCommandInput
+  | DescribeDirectoryDataAccessCommandInput
   | DescribeDomainControllersCommandInput
   | DescribeEventTopicsCommandInput
   | DescribeLDAPSSettingsCommandInput
@@ -260,10 +273,12 @@ export type ServiceInputTypes =
   | DescribeTrustsCommandInput
   | DescribeUpdateDirectoryCommandInput
   | DisableClientAuthenticationCommandInput
+  | DisableDirectoryDataAccessCommandInput
   | DisableLDAPSCommandInput
   | DisableRadiusCommandInput
   | DisableSsoCommandInput
   | EnableClientAuthenticationCommandInput
+  | EnableDirectoryDataAccessCommandInput
   | EnableLDAPSCommandInput
   | EnableRadiusCommandInput
   | EnableSsoCommandInput
@@ -322,6 +337,7 @@ export type ServiceOutputTypes =
   | DescribeClientAuthenticationSettingsCommandOutput
   | DescribeConditionalForwardersCommandOutput
   | DescribeDirectoriesCommandOutput
+  | DescribeDirectoryDataAccessCommandOutput
   | DescribeDomainControllersCommandOutput
   | DescribeEventTopicsCommandOutput
   | DescribeLDAPSSettingsCommandOutput
@@ -332,10 +348,12 @@ export type ServiceOutputTypes =
   | DescribeTrustsCommandOutput
   | DescribeUpdateDirectoryCommandOutput
   | DisableClientAuthenticationCommandOutput
+  | DisableDirectoryDataAccessCommandOutput
   | DisableLDAPSCommandOutput
   | DisableRadiusCommandOutput
   | DisableSsoCommandOutput
   | EnableClientAuthenticationCommandOutput
+  | EnableDirectoryDataAccessCommandOutput
   | EnableLDAPSCommandOutput
   | EnableRadiusCommandOutput
   | EnableSsoCommandOutput
