@@ -324,6 +324,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //             ],
  * //             Group: "STRING_VALUE",
+ * //             LaunchType: "STRING_VALUE",
  * //           },
  * //         },
  * //         ContainerDetails: {
