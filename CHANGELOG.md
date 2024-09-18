@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+
+### Bug Fixes
+
+* **codegen:** fix setting of default signing name ([#6487](https://github.com/aws/aws-sdk-js-v3/issues/6487)) ([108bb99](https://github.com/aws/aws-sdk-js-v3/commit/108bb991927df4a9645545fc6fcb2648682f83ff))
+* **middleware-flexible-checksums:** use union for new config types ([#6489](https://github.com/aws/aws-sdk-js-v3/issues/6489)) ([c43103f](https://github.com/aws/aws-sdk-js-v3/commit/c43103fb71e2894db3c895ff3c8ba25ba07e4fbd))
+
+
+### Features
+
+* **client-cost-explorer:** This release extends the GetReservationPurchaseRecommendation API to support recommendations for Amazon DynamoDB reservations. ([6976388](https://github.com/aws/aws-sdk-js-v3/commit/697638820bdc733e2ad019f576ffa7c43dedd989))
+* **client-directory-service-data:** Added new AWS Directory Service Data API, enabling you to manage data stored in AWS Directory Service directories. This includes APIs for creating, reading, updating, and deleting directory users, groups, and group memberships. ([8c9372b](https://github.com/aws/aws-sdk-js-v3/commit/8c9372bde465b86ecfe48579584d5aa59745d9d3))
+* **client-directory-service:** Added new APIs for enabling, disabling, and describing access to the AWS Directory Service Data API ([cca80dd](https://github.com/aws/aws-sdk-js-v3/commit/cca80ddfd8df7ac58af6c067bcc98170a1cc5007))
+* **client-guardduty:** Add `launchType` and `sourceIPs` fields to GuardDuty findings. ([13c3582](https://github.com/aws/aws-sdk-js-v3/commit/13c35828916459e84fbe5d397084fa4619349a25))
+* **client-mailmanager:** Introduce a new RuleSet condition evaluation, where customers can set up a StringExpression with a MimeHeader condition. This condition will perform the necessary validation based on the X-header provided by customers. ([900a39e](https://github.com/aws/aws-sdk-js-v3/commit/900a39ed0d8c01d0e6a6e93296ba2bbdb6316e4b))
+* **client-s3:** Added SSE-KMS support for directory buckets. ([a00b8b0](https://github.com/aws/aws-sdk-js-v3/commit/a00b8b018fd294496a1fe6350011e43cfe09927c))
+
+
+
+
+
 # [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
 
 
