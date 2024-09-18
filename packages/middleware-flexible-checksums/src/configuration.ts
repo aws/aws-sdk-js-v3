@@ -9,7 +9,7 @@ import {
   StreamHasher,
 } from "@smithy/types";
 
-import { RequestChecksumCalculation } from "./constants";
+import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
 export interface PreviouslyResolved {
   /**
@@ -38,6 +38,11 @@ export interface PreviouslyResolved {
    * Determines when a checksum will be calculated for request payloads
    */
   requestChecksumCalculation: Provider<RequestChecksumCalculation>;
+
+  /**
+   * Determines when a checksum will be calculated for response payloads
+   */
+  responseChecksumValidation: Provider<ResponseChecksumValidation>;
 
   /**
    * A constructor for a class implementing the {@link Hash} interface that computes SHA1 hashes.
