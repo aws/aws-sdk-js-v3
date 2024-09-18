@@ -2083,7 +2083,10 @@ export type RuleStringEmailAttribute = (typeof RuleStringEmailAttribute)[keyof t
  * <p>The string to evaluate in a string condition expression.</p>
  * @public
  */
-export type RuleStringToEvaluate = RuleStringToEvaluate.AttributeMember | RuleStringToEvaluate.$UnknownMember;
+export type RuleStringToEvaluate =
+  | RuleStringToEvaluate.AttributeMember
+  | RuleStringToEvaluate.MimeHeaderAttributeMember
+  | RuleStringToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -2095,6 +2098,17 @@ export namespace RuleStringToEvaluate {
    */
   export interface AttributeMember {
     Attribute: RuleStringEmailAttribute;
+    MimeHeaderAttribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The email MIME X-Header attribute to evaluate in a string condition expression.</p>
+   * @public
+   */
+  export interface MimeHeaderAttributeMember {
+    Attribute?: never;
+    MimeHeaderAttribute: string;
     $unknown?: never;
   }
 
@@ -2103,16 +2117,19 @@ export namespace RuleStringToEvaluate {
    */
   export interface $UnknownMember {
     Attribute?: never;
+    MimeHeaderAttribute?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Attribute: (value: RuleStringEmailAttribute) => T;
+    MimeHeaderAttribute: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RuleStringToEvaluate, visitor: Visitor<T>): T => {
     if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
+    if (value.MimeHeaderAttribute !== undefined) return visitor.MimeHeaderAttribute(value.MimeHeaderAttribute);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
