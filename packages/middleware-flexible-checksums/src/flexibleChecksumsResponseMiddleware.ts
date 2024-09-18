@@ -1,12 +1,12 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 import {
-  DeserializeHandler,
-  DeserializeHandlerArguments,
-  DeserializeHandlerOutput,
-  DeserializeMiddleware,
   HandlerExecutionContext,
   MetadataBearer,
   RelativeMiddlewareOptions,
+  SerializeHandler,
+  SerializeHandlerArguments,
+  SerializeHandlerOutput,
+  SerializeMiddleware,
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
@@ -52,12 +52,12 @@ export const flexibleChecksumsResponseMiddleware =
   (
     config: PreviouslyResolved,
     middlewareConfig: FlexibleChecksumsResponseMiddlewareConfig
-  ): DeserializeMiddleware<any, any> =>
+  ): SerializeMiddleware<any, any> =>
   <Output extends MetadataBearer>(
-    next: DeserializeHandler<any, Output>,
+    next: SerializeHandler<any, Output>,
     context: HandlerExecutionContext
-  ): DeserializeHandler<any, Output> =>
-  async (args: DeserializeHandlerArguments<any>): Promise<DeserializeHandlerOutput<Output>> => {
+  ): SerializeHandler<any, Output> =>
+  async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
     const input = args.input;
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
     const responseChecksumValidation = await config.responseChecksumValidation();
