@@ -142,6 +142,9 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                               key cannot be set to <code>ReadOnly</code> on the copy destination. </p>
  *                         </li>
  *                      </ul>
+ *                      <p>If the object is encrypted with
+ *                         SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                      <p>For example policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the
  *                         <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
@@ -160,7 +163,14 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory buckets </b> - For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+ *                         <b>Directory buckets </b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <note>
+ *                         <p>For directory buckets, when you perform a <code>CreateMultipartUpload</code> operation and an <code>UploadPartCopy</code> operation,
+ *                         the request headers you provide in the <code>CreateMultipartUpload</code> request must match the default encryption configuration of the destination bucket. </p>
+ *                      </note>
+ *                      <p>S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets
+ * to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
  *                   </li>
  *                </ul>
  *             </dd>

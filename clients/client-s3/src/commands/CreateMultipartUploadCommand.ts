@@ -216,7 +216,27 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory buckets</b> -For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+ *                         <b>Directory buckets</b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
+ *             <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects
+ *  are automatically encrypted with the desired encryption settings. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
+ *                      <p>In the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>) using the REST API, the encryption request headers must match the encryption settings that are specified in the <code>CreateSession</code> request.
+ *                             You can't override the values of the encryption settings (<code>x-amz-server-side-encryption</code>, <code>x-amz-server-side-encryption-aws-kms-key-id</code>, <code>x-amz-server-side-encryption-context</code>, and <code>x-amz-server-side-encryption-bucket-key-enabled</code>) that are specified in the <code>CreateSession</code> request.
+ *                             You don't need to explicitly specify these encryption settings values in Zonal endpoint API calls, and
+ *                             Amazon S3 will use the encryption settings values from the <code>CreateSession</code> request to protect new objects in the directory bucket.
+ *                            </p>
+ *                      <note>
+ *                         <p>When you use the CLI or the Amazon Web Services SDKs, for <code>CreateSession</code>, the session token refreshes automatically to avoid service interruptions when a session expires. The CLI or the Amazon Web Services SDKs use the bucket's default encryption configuration for the
+ *                             <code>CreateSession</code> request. It's not supported to override the encryption settings values in the <code>CreateSession</code> request.
+ *                             So in the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>),
+ *           the encryption request headers must match the default encryption configuration of the directory bucket.
+ *
+ * </p>
+ *                      </note>
+ *                      <note>
+ *                         <p>For directory buckets, when you perform a <code>CreateMultipartUpload</code> operation and an <code>UploadPartCopy</code> operation,
+ *                         the request headers you provide in the <code>CreateMultipartUpload</code> request must match the default encryption configuration of the destination bucket. </p>
+ *                      </note>
  *                   </li>
  *                </ul>
  *             </dd>

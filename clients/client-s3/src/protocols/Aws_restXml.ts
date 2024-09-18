@@ -669,6 +669,10 @@ export const se_CreateSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xacsm]: input[_SM]!,
+    [_xasse]: input[_SSE]!,
+    [_xasseakki]: input[_SSEKMSKI]!,
+    [_xassec]: input[_SSEKMSEC]!,
+    [_xassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3286,6 +3290,10 @@ export const de_CreateSessionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_SSEKMSEC]: [, output.headers[_xassec]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data[_C] != null) {

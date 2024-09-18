@@ -127,6 +127,9 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                      <p>If the object is encrypted with
+ *                         SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>

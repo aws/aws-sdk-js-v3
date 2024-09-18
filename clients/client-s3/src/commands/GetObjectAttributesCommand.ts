@@ -53,7 +53,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                   <li>
  *                      <p>
  *                         <b>General purpose bucket permissions</b> - To use
- *                         <code>GetObjectAttributes</code>, you must have READ access to the object. The permissions that you need to use this operation with depend on whether the
+ *                         <code>GetObjectAttributes</code>, you must have READ access to the object. The permissions that you need to use this operation depend on whether the
  *                         bucket is versioned. If the bucket is versioned, you need both the
  *                         <code>s3:GetObjectVersion</code> and <code>s3:GetObjectVersionAttributes</code>
  *                         permissions for this operation. If the bucket is not versioned, you need the
@@ -83,6 +83,9 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                      <p>If the object is encrypted with
+ *                      SSE-KMS, you must also have the
+ *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -122,7 +125,10 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                      User Guide</i>.</p>
  *                <note>
  *                   <p>
- *                      <b>Directory bucket permissions</b> - For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+ *                      <b>Directory bucket permissions</b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
+ *             <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects
+ *  are automatically encrypted with the desired encryption settings. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
  *                </note>
  *             </dd>
  *             <dt>Versioning</dt>
