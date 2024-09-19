@@ -28,7 +28,11 @@ export interface PutPublicAccessBlockConfigCommandInput extends PutPublicAccessB
 export interface PutPublicAccessBlockConfigCommandOutput extends PutPublicAccessBlockConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Configure your function's public-access settings.</p>
+ * <note>
+ *             <p>The option to configure public-access settings, and to use the PutPublicAccessBlock and GetPublicAccessBlock APIs, won't be
+ *       available in all Amazon Web Services Regions until September 30, 2024.</p>
+ *          </note>
+ *          <p>Configure your function's public-access settings.</p>
  *          <p>To control public access to a Lambda function, you can choose whether to allow the creation of
  *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based policies</a> that
  *       allow public access to that function. You can also block public access to a function, even if it has an existing resource-based

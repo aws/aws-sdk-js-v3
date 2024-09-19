@@ -28,7 +28,7 @@ export interface AddPermissionCommandInput extends AddPermissionRequest {}
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Grants an Amazon Web Servicesservice, Amazon Web Services account, or Amazon Web Services organization
+ * <p>Grants a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">principal</a>
  *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
  *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
  *       (ARN) of that version or alias to invoke the function. Note: Lambda does not support adding policies
@@ -92,6 +92,11 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
  *             </li>
  *          </ul>
+ *
+ * @throws {@link PublicPolicyException} (client fault)
+ *  <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
+ *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
+ *       to allow public policies.</p>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>

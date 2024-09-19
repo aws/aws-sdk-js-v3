@@ -47,6 +47,9 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  *   CodeSigningPolicies: { // CodeSigningPolicies
  *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
  *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCodeSigningConfigCommand(input);
  * const response = await client.send(command);
