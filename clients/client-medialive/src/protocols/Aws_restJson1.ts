@@ -474,6 +474,7 @@ import {
   AvailSettings,
   BadGatewayException,
   BadRequestException,
+  BandwidthReductionFilterSettings,
   BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
   BatchScheduleActionDeleteRequest,
@@ -499,7 +500,6 @@ import {
   FrameCaptureS3Settings,
   FrameCaptureSettings,
   GatewayTimeoutException,
-  GlobalConfiguration,
   H264ColorSpaceSettings,
   H264FilterSettings,
   H264Settings,
@@ -517,7 +517,6 @@ import {
   HlsSettings,
   HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
-  HtmlMotionGraphicsSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputLossBehavior,
@@ -529,14 +528,14 @@ import {
   MediaPackageGroupSettings,
   MediaPackageOutputSettings,
   MotionGraphicsActivateScheduleActionSettings,
-  MotionGraphicsConfiguration,
   MotionGraphicsDeactivateScheduleActionSettings,
-  MotionGraphicsSettings,
   Mpeg2FilterSettings,
   Mpeg2Settings,
   MsSmoothGroupSettings,
   MsSmoothOutputSettings,
+  MultiplexContainerSettings,
   MultiplexGroupSettings,
+  MultiplexM2tsSettings,
   MultiplexOutputSettings,
   NotFoundException,
   Output,
@@ -603,6 +602,8 @@ import {
   ClusterNetworkSettingsCreateRequest,
   ClusterNetworkSettingsUpdateRequest,
   EncoderSettings,
+  GlobalConfiguration,
+  HtmlMotionGraphicsSettings,
   InputDeviceConfigurableSettings,
   InputDeviceMediaConnectConfigurableSettings,
   InputVpcRequest,
@@ -610,6 +611,8 @@ import {
   MaintenanceUpdateSettings,
   MediaResource,
   MonitorDeployment,
+  MotionGraphicsConfiguration,
+  MotionGraphicsSettings,
   MulticastSettingsCreateRequest,
   MulticastSettingsUpdateRequest,
   Multiplex,
@@ -7023,6 +7026,16 @@ const se_AvailSettings = (input: AvailSettings, context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restJson1BandwidthReductionFilterSettings
+ */
+const se_BandwidthReductionFilterSettings = (input: BandwidthReductionFilterSettings, context: __SerdeContext): any => {
+  return take(input, {
+    postFilterSharpening: [, , `PostFilterSharpening`],
+    strength: [, , `Strength`],
+  });
+};
+
+/**
  * serializeAws_restJson1BatchScheduleActionCreateRequest
  */
 const se_BatchScheduleActionCreateRequest = (input: BatchScheduleActionCreateRequest, context: __SerdeContext): any => {
@@ -7597,6 +7610,11 @@ const se_H264ColorSpaceSettings = (input: H264ColorSpaceSettings, context: __Ser
  */
 const se_H264FilterSettings = (input: H264FilterSettings, context: __SerdeContext): any => {
   return take(input, {
+    bandwidthReductionFilterSettings: [
+      ,
+      (_) => se_BandwidthReductionFilterSettings(_, context),
+      `BandwidthReductionFilterSettings`,
+    ],
     temporalFilterSettings: [, (_) => se_TemporalFilterSettings(_, context), `TemporalFilterSettings`],
   });
 };
@@ -7670,6 +7688,11 @@ const se_H265ColorSpaceSettings = (input: H265ColorSpaceSettings, context: __Ser
  */
 const se_H265FilterSettings = (input: H265FilterSettings, context: __SerdeContext): any => {
   return take(input, {
+    bandwidthReductionFilterSettings: [
+      ,
+      (_) => se_BandwidthReductionFilterSettings(_, context),
+      `BandwidthReductionFilterSettings`,
+    ],
     temporalFilterSettings: [, (_) => se_TemporalFilterSettings(_, context), `TemporalFilterSettings`],
   });
 };
@@ -8514,13 +8537,45 @@ const se_MulticastSourceUpdateRequest = (input: MulticastSourceUpdateRequest, co
   });
 };
 
+/**
+ * serializeAws_restJson1MultiplexContainerSettings
+ */
+const se_MultiplexContainerSettings = (input: MultiplexContainerSettings, context: __SerdeContext): any => {
+  return take(input, {
+    multiplexM2tsSettings: [, (_) => se_MultiplexM2tsSettings(_, context), `MultiplexM2tsSettings`],
+  });
+};
+
 // se_MultiplexGroupSettings omitted.
+
+/**
+ * serializeAws_restJson1MultiplexM2tsSettings
+ */
+const se_MultiplexM2tsSettings = (input: MultiplexM2tsSettings, context: __SerdeContext): any => {
+  return take(input, {
+    absentInputAudioBehavior: [, , `AbsentInputAudioBehavior`],
+    arib: [, , `Arib`],
+    audioBufferModel: [, , `AudioBufferModel`],
+    audioFramesPerPes: [, , `AudioFramesPerPes`],
+    audioStreamType: [, , `AudioStreamType`],
+    ccDescriptor: [, , `CcDescriptor`],
+    ebif: [, , `Ebif`],
+    esRateInPes: [, , `EsRateInPes`],
+    klv: [, , `Klv`],
+    nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    pcrControl: [, , `PcrControl`],
+    pcrPeriod: [, , `PcrPeriod`],
+    scte35Control: [, , `Scte35Control`],
+    scte35PrerollPullupMilliseconds: [, __serializeFloat, `Scte35PrerollPullupMilliseconds`],
+  });
+};
 
 /**
  * serializeAws_restJson1MultiplexOutputSettings
  */
 const se_MultiplexOutputSettings = (input: MultiplexOutputSettings, context: __SerdeContext): any => {
   return take(input, {
+    containerSettings: [, (_) => se_MultiplexContainerSettings(_, context), `ContainerSettings`],
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
   });
 };
@@ -10715,6 +10770,19 @@ const de_AvailSettings = (output: any, context: __SerdeContext): AvailSettings =
 };
 
 /**
+ * deserializeAws_restJson1BandwidthReductionFilterSettings
+ */
+const de_BandwidthReductionFilterSettings = (
+  output: any,
+  context: __SerdeContext
+): BandwidthReductionFilterSettings => {
+  return take(output, {
+    PostFilterSharpening: [, __expectString, `postFilterSharpening`],
+    Strength: [, __expectString, `strength`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1BatchFailedResultModel
  */
 const de_BatchFailedResultModel = (output: any, context: __SerdeContext): BatchFailedResultModel => {
@@ -11533,6 +11601,11 @@ const de_H264ColorSpaceSettings = (output: any, context: __SerdeContext): H264Co
  */
 const de_H264FilterSettings = (output: any, context: __SerdeContext): H264FilterSettings => {
   return take(output, {
+    BandwidthReductionFilterSettings: [
+      ,
+      (_: any) => de_BandwidthReductionFilterSettings(_, context),
+      `bandwidthReductionFilterSettings`,
+    ],
     TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
@@ -11606,6 +11679,11 @@ const de_H265ColorSpaceSettings = (output: any, context: __SerdeContext): H265Co
  */
 const de_H265FilterSettings = (output: any, context: __SerdeContext): H265FilterSettings => {
   return take(output, {
+    BandwidthReductionFilterSettings: [
+      ,
+      (_: any) => de_BandwidthReductionFilterSettings(_, context),
+      `bandwidthReductionFilterSettings`,
+    ],
     TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
@@ -12553,7 +12631,38 @@ const de_Multiplex = (output: any, context: __SerdeContext): Multiplex => {
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1MultiplexContainerSettings
+ */
+const de_MultiplexContainerSettings = (output: any, context: __SerdeContext): MultiplexContainerSettings => {
+  return take(output, {
+    MultiplexM2tsSettings: [, (_: any) => de_MultiplexM2tsSettings(_, context), `multiplexM2tsSettings`],
+  }) as any;
+};
+
 // de_MultiplexGroupSettings omitted.
+
+/**
+ * deserializeAws_restJson1MultiplexM2tsSettings
+ */
+const de_MultiplexM2tsSettings = (output: any, context: __SerdeContext): MultiplexM2tsSettings => {
+  return take(output, {
+    AbsentInputAudioBehavior: [, __expectString, `absentInputAudioBehavior`],
+    Arib: [, __expectString, `arib`],
+    AudioBufferModel: [, __expectString, `audioBufferModel`],
+    AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
+    AudioStreamType: [, __expectString, `audioStreamType`],
+    CcDescriptor: [, __expectString, `ccDescriptor`],
+    Ebif: [, __expectString, `ebif`],
+    EsRateInPes: [, __expectString, `esRateInPes`],
+    Klv: [, __expectString, `klv`],
+    NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    PcrControl: [, __expectString, `pcrControl`],
+    PcrPeriod: [, __expectInt32, `pcrPeriod`],
+    Scte35Control: [, __expectString, `scte35Control`],
+    Scte35PrerollPullupMilliseconds: [, __limitedParseDouble, `scte35PrerollPullupMilliseconds`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1MultiplexMediaConnectOutputDestinationSettings
@@ -12585,6 +12694,7 @@ const de_MultiplexOutputDestination = (output: any, context: __SerdeContext): Mu
  */
 const de_MultiplexOutputSettings = (output: any, context: __SerdeContext): MultiplexOutputSettings => {
   return take(output, {
+    ContainerSettings: [, (_: any) => de_MultiplexContainerSettings(_, context), `containerSettings`],
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
   }) as any;
 };
