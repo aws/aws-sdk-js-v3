@@ -13588,6 +13588,23 @@
           "method": "GET",
           "uri": "/indices/{indexName}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "IndexIsActive": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "indexStatus",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
