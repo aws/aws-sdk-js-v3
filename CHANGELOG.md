@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.655.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.654.0...v3.655.0) (2024-09-19)
+
+
+### Features
+
+* **client-codeconnections:** This release adds the PullRequestComment field to CreateSyncConfiguration API input, UpdateSyncConfiguration API input, GetSyncConfiguration API output and ListSyncConfiguration API output ([0b63507](https://github.com/aws/aws-sdk-js-v3/commit/0b63507df8f717c628105a8a28425066f7070824))
+* **client-glue:** This change is for releasing TestConnection api SDK model ([ddea9dd](https://github.com/aws/aws-sdk-js-v3/commit/ddea9dd52a97a12ad2cd977d5b08d2c9e814b324))
+* **client-lambda:** Tagging support for Lambda event source mapping, and code signing configuration resources. ([97088ae](https://github.com/aws/aws-sdk-js-v3/commit/97088ae81c64333d7571b9702497d18a64b2985d))
+* **client-mediaconvert:** This release provides support for additional DRM configurations per SPEKE Version 2.0. ([f7cca48](https://github.com/aws/aws-sdk-js-v3/commit/f7cca4807cd23e5fd833740e7107b23b94007c60))
+* **client-medialive:** Adds Bandwidth Reduction Filtering for HD AVC and HEVC encodes, multiplex container settings. ([dacf7b5](https://github.com/aws/aws-sdk-js-v3/commit/dacf7b55b14d6d11af10696b8a22081263a4187e))
+* **client-quicksight:** QuickSight: 1. Add new API - ListFoldersForResource. 2. Commit mode adds visibility configuration of Apply button on multi-select controls for authors. ([31b656f](https://github.com/aws/aws-sdk-js-v3/commit/31b656fc0cbcad1daac325f67a4e8694566f2272))
+* **client-sagemaker:** Introduced support for G6e instance types on SageMaker Studio for JupyterLab and CodeEditor applications. ([380c0de](https://github.com/aws/aws-sdk-js-v3/commit/380c0de956d70d4a5d42d6cf5c5d27777bcc0fa5))
+* **client-workspaces-web:** WorkSpaces Secure Browser now enables Administrators to view and manage end-user browsing sessions via Session Management APIs. ([7913a4b](https://github.com/aws/aws-sdk-js-v3/commit/7913a4b63ff4c83f4ac127498004549e8de8fcbf))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 
