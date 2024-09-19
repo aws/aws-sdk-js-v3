@@ -120,6 +120,7 @@ import {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
 } from "../commands/DisassociateUserSettingsCommand";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
 import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "../commands/GetBrowserSettingsCommand";
 import {
   GetIdentityProviderCommandInput,
@@ -135,6 +136,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "../commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -162,6 +164,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "../commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -216,6 +219,8 @@ import {
   PortalSummary,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  Session,
+  SessionSummary,
   Tag,
   ThrottlingException,
   TooManyTagsException,
@@ -785,6 +790,23 @@ export const se_DisassociateUserSettingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ExpireSessionCommand
+ */
+export const se_ExpireSessionCommand = async (
+  input: ExpireSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions/{sessionId}");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetBrowserSettingsCommand
  */
 export const se_GetBrowserSettingsCommand = async (
@@ -875,6 +897,23 @@ export const se_GetPortalServiceProviderMetadataCommand = async (
   const headers: any = {};
   b.bp("/portalIdp/{portalArn+}");
   b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
+  input: GetSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions/{sessionId}");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1042,6 +1081,30 @@ export const se_ListPortalsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSessionsCommand
+ */
+export const se_ListSessionsCommand = async (
+  input: ListSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalId}/sessions");
+  b.p("portalId", () => input.portalId!, "{portalId}", false);
+  const query: any = map({
+    [_u]: [, input[_u]!],
+    [_sI]: [, input[_sI]!],
+    [_sB]: [, input[_sB]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1941,6 +2004,23 @@ export const de_DisassociateUserSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ExpireSessionCommand
+ */
+export const de_ExpireSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExpireSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetBrowserSettingsCommand
  */
 export const de_GetBrowserSettingsCommand = async (
@@ -2062,6 +2142,27 @@ export const de_GetPortalServiceProviderMetadataCommand = async (
   const doc = take(data, {
     portalArn: __expectString,
     serviceProviderSamlMetadata: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    session: (_) => de_Session(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2257,6 +2358,28 @@ export const de_ListPortalsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     portals: (_) => de_PortalList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSessionsCommand
+ */
+export const de_ListSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessions: (_) => de_SessionSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2925,6 +3048,8 @@ const de_IpAccessSettingsSummary = (output: any, context: __SerdeContext): IpAcc
   }) as any;
 };
 
+// de_IpAddressList omitted.
+
 // de_IpRule omitted.
 
 // de_IpRuleList omitted.
@@ -3000,6 +3125,47 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
 
 // de_SecurityGroupIdList omitted.
 
+/**
+ * deserializeAws_restJson1Session
+ */
+const de_Session = (output: any, context: __SerdeContext): Session => {
+  return take(output, {
+    clientIpAddresses: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalArn: __expectString,
+    sessionId: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionSummary
+ */
+const de_SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    portalArn: __expectString,
+    sessionId: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionSummaryList
+ */
+const de_SessionSummaryList = (output: any, context: __SerdeContext): SessionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SessionSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_SubnetIdList omitted.
 
 // de_Tag omitted.
@@ -3054,8 +3220,12 @@ const _nSA = "networkSettingsArn";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";
+const _s = "status";
+const _sB = "sortBy";
+const _sI = "sessionId";
 const _t = "thumbprint";
 const _tK = "tagKeys";
 const _tSA = "trustStoreArn";
+const _u = "username";
 const _uALSA = "userAccessLoggingSettingsArn";
 const _uSA = "userSettingsArn";

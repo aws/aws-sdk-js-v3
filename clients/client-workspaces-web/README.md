@@ -6,12 +6,13 @@
 
 AWS SDK for JavaScript WorkSpacesWeb Client for Node.js, Browser and React Native.
 
-<p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built specifically to facilitate
-secure, web-based workloads. WorkSpaces Secure Browser makes it easy for customers to safely provide
-their employees with access to internal websites and SaaS web applications without the
-administrative burden of appliances or specialized client software. WorkSpaces Secure Browser provides
-simple policy tools tailored for user interactions, while offloading common tasks like
-capacity management, scaling, and maintaining browser images.</p>
+<p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+easy for customers to safely provide their employees with access to internal websites and
+SaaS web applications without the administrative burden of appliances or specialized client
+software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+interactions, while offloading common tasks like capacity management, scaling, and
+maintaining browser images.</p>
 
 ## Installing
 
@@ -434,6 +435,14 @@ DisassociateUserSettings
 </details>
 <details>
 <summary>
+ExpireSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ExpireSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ExpireSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ExpireSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetBrowserSettings
 </summary>
 
@@ -478,6 +487,14 @@ GetPortalServiceProviderMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetPortalServiceProviderMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetPortalServiceProviderMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetPortalServiceProviderMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionCommandOutput/)
 
 </details>
 <details>
@@ -550,6 +567,14 @@ ListPortals
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListPortalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionsCommandOutput/)
 
 </details>
 <details>

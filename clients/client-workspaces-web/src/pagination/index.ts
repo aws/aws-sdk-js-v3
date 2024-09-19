@@ -5,6 +5,7 @@ export * from "./ListIdentityProvidersPaginator";
 export * from "./ListIpAccessSettingsPaginator";
 export * from "./ListNetworkSettingsPaginator";
 export * from "./ListPortalsPaginator";
+export * from "./ListSessionsPaginator";
 export * from "./ListTrustStoreCertificatesPaginator";
 export * from "./ListTrustStoresPaginator";
 export * from "./ListUserAccessLoggingSettingsPaginator";
