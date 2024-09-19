@@ -91,7 +91,7 @@ import {
   WorkerType,
 } from "./models_0";
 
-import { Permission, ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
+import { Permission, ProfileConfiguration, TableIdentifier, TableInput, UserDefinedFunctionInput } from "./models_1";
 
 import {
   ColumnRowFilter,
@@ -101,6 +101,91 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateSourceControlFromJobResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   * @public
+   */
+  JobName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ViewUpdateAction = {
+  ADD: "ADD",
+  ADD_OR_REPLACE: "ADD_OR_REPLACE",
+  DROP: "DROP",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewUpdateAction = (typeof ViewUpdateAction)[keyof typeof ViewUpdateAction];
+
+/**
+ * @public
+ */
+export interface UpdateTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>An updated <code>TableInput</code> object to define the metadata table
+   *       in the catalog.</p>
+   * @public
+   */
+  TableInput: TableInput | undefined;
+
+  /**
+   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
+   *       before updating it. However, if <code>skipArchive</code> is set to true,
+   *         <code>UpdateTable</code> does not create the archived version.</p>
+   * @public
+   */
+  SkipArchive?: boolean;
+
+  /**
+   * <p>The transaction ID at which to update the table contents. </p>
+   * @public
+   */
+  TransactionId?: string;
+
+  /**
+   * <p>The version ID at which to update the table contents. </p>
+   * @public
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The operation to be performed when updating the view.</p>
+   * @public
+   */
+  ViewUpdateAction?: ViewUpdateAction;
+
+  /**
+   * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
+   * @public
+   */
+  Force?: boolean;
+}
 
 /**
  * @public

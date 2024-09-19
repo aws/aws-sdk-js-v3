@@ -496,6 +496,7 @@ import { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/St
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
 import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
@@ -759,6 +760,7 @@ export type ServiceInputTypes =
   | StopTriggerCommandInput
   | StopWorkflowRunCommandInput
   | TagResourceCommandInput
+  | TestConnectionCommandInput
   | UntagResourceCommandInput
   | UpdateBlueprintCommandInput
   | UpdateClassifierCommandInput
@@ -988,6 +990,7 @@ export type ServiceOutputTypes =
   | StopTriggerCommandOutput
   | StopWorkflowRunCommandOutput
   | TagResourceCommandOutput
+  | TestConnectionCommandOutput
   | UntagResourceCommandOutput
   | UpdateBlueprintCommandOutput
   | UpdateClassifierCommandOutput

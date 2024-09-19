@@ -199,6 +199,7 @@ export * from "./StopSessionCommand";
 export * from "./StopTriggerCommand";
 export * from "./StopWorkflowRunCommand";
 export * from "./TagResourceCommand";
+export * from "./TestConnectionCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateBlueprintCommand";
 export * from "./UpdateClassifierCommand";

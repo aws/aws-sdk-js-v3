@@ -1807,6 +1807,14 @@ TagResource
 </details>
 <details>
 <summary>
+TestConnection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/TestConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/TestConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/TestConnectionCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 

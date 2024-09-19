@@ -883,6 +883,11 @@ import {
 } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TestConnectionCommand,
+  TestConnectionCommandInput,
+  TestConnectionCommandOutput,
+} from "./commands/TestConnectionCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -1197,6 +1202,7 @@ const commands = {
   StopTriggerCommand,
   StopWorkflowRunCommand,
   TagResourceCommand,
+  TestConnectionCommand,
   UntagResourceCommand,
   UpdateBlueprintCommand,
   UpdateClassifierCommand,
@@ -4234,6 +4240,21 @@ export interface Glue {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestConnectionCommand}
+   */
+  testConnection(): Promise<TestConnectionCommandOutput>;
+  testConnection(
+    args: TestConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestConnectionCommandOutput>;
+  testConnection(args: TestConnectionCommandInput, cb: (err: any, data?: TestConnectionCommandOutput) => void): void;
+  testConnection(
+    args: TestConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestConnectionCommandOutput) => void
   ): void;
 
   /**
