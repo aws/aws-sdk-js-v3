@@ -11,7 +11,7 @@ import {
 import { PreviouslyResolved } from "./configuration";
 import { ResponseChecksumValidation } from "./constants";
 
-export interface FlexibleChecksumsInterceptorMiddlewareConfig {
+export interface FlexibleChecksumsInputMiddlewareConfig {
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation
    * of a checksum returned in the HTTP response of the operation.
@@ -22,8 +22,8 @@ export interface FlexibleChecksumsInterceptorMiddlewareConfig {
 /**
  * @internal
  */
-export const flexibleChecksumsInterceptorMiddlewareOptions: RelativeMiddlewareOptions = {
-  name: "flexibleChecksumsInterceptorMiddleware",
+export const flexibleChecksumsInputMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "flexibleChecksumsInputMiddleware",
   toMiddleware: "serializerMiddleware",
   relation: "before",
   tags: ["BODY_CHECKSUM"],
@@ -33,12 +33,12 @@ export const flexibleChecksumsInterceptorMiddlewareOptions: RelativeMiddlewareOp
 /**
  * @internal
  *
- * The interceptor counterpart to the flexibleChecksumsMiddleware.
+ * The input counterpart to the flexibleChecksumsMiddleware.
  */
-export const flexibleChecksumsInterceptorMiddleware =
+export const flexibleChecksumsInputMiddleware =
   (
     config: PreviouslyResolved,
-    middlewareConfig: FlexibleChecksumsInterceptorMiddlewareConfig
+    middlewareConfig: FlexibleChecksumsInputMiddlewareConfig
   ): SerializeMiddleware<any, any> =>
   <Output extends MetadataBearer>(
     next: SerializeHandler<any, Output>,
@@ -49,12 +49,7 @@ export const flexibleChecksumsInterceptorMiddleware =
     const { requestValidationModeMember } = middlewareConfig;
     const responseChecksumValidation = await config.responseChecksumValidation();
 
-    const isResponseChecksumValidationNeeded =
-      requestValidationModeMember &&
-      (input[requestValidationModeMember] === "ENABLED" ||
-        responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED);
-
-    if (isResponseChecksumValidationNeeded) {
+    if (requestValidationModeMember && responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED) {
       input[requestValidationModeMember] = "ENABLED";
     }
 
