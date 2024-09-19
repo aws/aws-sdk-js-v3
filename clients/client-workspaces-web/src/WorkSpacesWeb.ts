@@ -143,6 +143,11 @@ import {
   DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
 import {
+  ExpireSessionCommand,
+  ExpireSessionCommandInput,
+  ExpireSessionCommandOutput,
+} from "./commands/ExpireSessionCommand";
+import {
   GetBrowserSettingsCommand,
   GetBrowserSettingsCommandInput,
   GetBrowserSettingsCommandOutput,
@@ -168,6 +173,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommand,
   GetTrustStoreCertificateCommandInput,
@@ -209,6 +215,11 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -311,12 +322,14 @@ const commands = {
   DisassociateTrustStoreCommand,
   DisassociateUserAccessLoggingSettingsCommand,
   DisassociateUserSettingsCommand,
+  ExpireSessionCommand,
   GetBrowserSettingsCommand,
   GetIdentityProviderCommand,
   GetIpAccessSettingsCommand,
   GetNetworkSettingsCommand,
   GetPortalCommand,
   GetPortalServiceProviderMetadataCommand,
+  GetSessionCommand,
   GetTrustStoreCommand,
   GetTrustStoreCertificateCommand,
   GetUserAccessLoggingSettingsCommand,
@@ -326,6 +339,7 @@ const commands = {
   ListIpAccessSettingsCommand,
   ListNetworkSettingsCommand,
   ListPortalsCommand,
+  ListSessionsCommand,
   ListTagsForResourceCommand,
   ListTrustStoreCertificatesCommand,
   ListTrustStoresCommand,
@@ -810,6 +824,17 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link ExpireSessionCommand}
+   */
+  expireSession(args: ExpireSessionCommandInput, options?: __HttpHandlerOptions): Promise<ExpireSessionCommandOutput>;
+  expireSession(args: ExpireSessionCommandInput, cb: (err: any, data?: ExpireSessionCommandOutput) => void): void;
+  expireSession(
+    args: ExpireSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExpireSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBrowserSettingsCommand}
    */
   getBrowserSettings(
@@ -903,6 +928,17 @@ export interface WorkSpacesWeb {
     args: GetPortalServiceProviderMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPortalServiceProviderMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
   /**
@@ -1045,6 +1081,17 @@ export interface WorkSpacesWeb {
     args: ListPortalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
+  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -1286,12 +1333,13 @@ export interface WorkSpacesWeb {
 }
 
 /**
- * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built specifically to facilitate
- *          secure, web-based workloads. WorkSpaces Secure Browser makes it easy for customers to safely provide
- *          their employees with access to internal websites and SaaS web applications without the
- *          administrative burden of appliances or specialized client software. WorkSpaces Secure Browser provides
- *          simple policy tools tailored for user interactions, while offloading common tasks like
- *          capacity management, scaling, and maintaining browser images.</p>
+ * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+ *          specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+ *          easy for customers to safely provide their employees with access to internal websites and
+ *          SaaS web applications without the administrative burden of appliances or specialized client
+ *          software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+ *          interactions, while offloading common tasks like capacity management, scaling, and
+ *          maintaining browser images.</p>
  * @public
  */
 export class WorkSpacesWeb extends WorkSpacesWebClient implements WorkSpacesWeb {}

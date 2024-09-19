@@ -147,6 +147,7 @@ import {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
 import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "./commands/GetBrowserSettingsCommand";
 import {
   GetIdentityProviderCommandInput,
@@ -162,6 +163,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -189,6 +191,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -271,12 +274,14 @@ export type ServiceInputTypes =
   | DisassociateTrustStoreCommandInput
   | DisassociateUserAccessLoggingSettingsCommandInput
   | DisassociateUserSettingsCommandInput
+  | ExpireSessionCommandInput
   | GetBrowserSettingsCommandInput
   | GetIdentityProviderCommandInput
   | GetIpAccessSettingsCommandInput
   | GetNetworkSettingsCommandInput
   | GetPortalCommandInput
   | GetPortalServiceProviderMetadataCommandInput
+  | GetSessionCommandInput
   | GetTrustStoreCertificateCommandInput
   | GetTrustStoreCommandInput
   | GetUserAccessLoggingSettingsCommandInput
@@ -286,6 +291,7 @@ export type ServiceInputTypes =
   | ListIpAccessSettingsCommandInput
   | ListNetworkSettingsCommandInput
   | ListPortalsCommandInput
+  | ListSessionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustStoreCertificatesCommandInput
   | ListTrustStoresCommandInput
@@ -334,12 +340,14 @@ export type ServiceOutputTypes =
   | DisassociateTrustStoreCommandOutput
   | DisassociateUserAccessLoggingSettingsCommandOutput
   | DisassociateUserSettingsCommandOutput
+  | ExpireSessionCommandOutput
   | GetBrowserSettingsCommandOutput
   | GetIdentityProviderCommandOutput
   | GetIpAccessSettingsCommandOutput
   | GetNetworkSettingsCommandOutput
   | GetPortalCommandOutput
   | GetPortalServiceProviderMetadataCommandOutput
+  | GetSessionCommandOutput
   | GetTrustStoreCertificateCommandOutput
   | GetTrustStoreCommandOutput
   | GetUserAccessLoggingSettingsCommandOutput
@@ -349,6 +357,7 @@ export type ServiceOutputTypes =
   | ListIpAccessSettingsCommandOutput
   | ListNetworkSettingsCommandOutput
   | ListPortalsCommandOutput
+  | ListSessionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustStoreCertificatesCommandOutput
   | ListTrustStoresCommandOutput
@@ -537,12 +546,13 @@ export type WorkSpacesWebClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface WorkSpacesWebClientResolvedConfig extends WorkSpacesWebClientResolvedConfigType {}
 
 /**
- * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built specifically to facilitate
- *          secure, web-based workloads. WorkSpaces Secure Browser makes it easy for customers to safely provide
- *          their employees with access to internal websites and SaaS web applications without the
- *          administrative burden of appliances or specialized client software. WorkSpaces Secure Browser provides
- *          simple policy tools tailored for user interactions, while offloading common tasks like
- *          capacity management, scaling, and maintaining browser images.</p>
+ * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+ *          specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+ *          easy for customers to safely provide their employees with access to internal websites and
+ *          SaaS web applications without the administrative burden of appliances or specialized client
+ *          software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+ *          interactions, while offloading common tasks like capacity management, scaling, and
+ *          maintaining browser images.</p>
  * @public
  */
 export class WorkSpacesWebClient extends __Client<
