@@ -518,6 +518,20 @@ export type PublishDeploymentStatus = (typeof PublishDeploymentStatus)[keyof typ
  * @public
  * @enum
  */
+export const PullRequestComment = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PullRequestComment = (typeof PullRequestComment)[keyof typeof PullRequestComment];
+
+/**
+ * @public
+ * @enum
+ */
 export const SyncConfigurationType = {
   CFN_STACK_SYNC: "CFN_STACK_SYNC",
 } as const;
@@ -595,6 +609,12 @@ export interface CreateSyncConfigurationInput {
    * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
+
+  /**
+   * <p>A toggle that specifies whether to enable or disable pull request comments for the sync configuration to be created.</p>
+   * @public
+   */
+  PullRequestComment?: PullRequestComment;
 }
 
 /**
@@ -669,6 +689,12 @@ export interface SyncConfiguration {
    * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
+
+  /**
+   * <p>A toggle that specifies whether to enable or disable pull request comments for the sync configuration to be created.</p>
+   * @public
+   */
+  PullRequestComment?: PullRequestComment;
 }
 
 /**
@@ -842,7 +868,7 @@ export interface Connection {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
-   *       reference when the connection is shared between Amazon Web Services.</p>
+   *       reference when the connection is shared between Amazon Web Servicesservices.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
@@ -2082,6 +2108,12 @@ export interface UpdateSyncConfigurationInput {
    * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
+
+  /**
+   * <p>TA toggle that specifies whether to enable or disable pull request comments for the sync configuration to be updated.</p>
+   * @public
+   */
+  PullRequestComment?: PullRequestComment;
 }
 
 /**

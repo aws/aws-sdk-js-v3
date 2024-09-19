@@ -57,6 +57,7 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * //       SyncType: "CFN_STACK_SYNC", // required
  * //       PublishDeploymentStatus: "ENABLED" || "DISABLED",
  * //       TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ * //       PullRequestComment: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

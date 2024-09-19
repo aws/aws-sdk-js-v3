@@ -54,6 +54,7 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * //     SyncType: "CFN_STACK_SYNC", // required
  * //     PublishDeploymentStatus: "ENABLED" || "DISABLED",
  * //     TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ * //     PullRequestComment: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *
