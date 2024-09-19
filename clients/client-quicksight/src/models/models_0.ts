@@ -1906,6 +1906,20 @@ export interface CategoryFilterConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CommitMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CommitMode = (typeof CommitMode)[keyof typeof CommitMode];
+
+/**
  * <p>A control to display info icons for filters and parameters.</p>
  * @public
  */
@@ -2143,6 +2157,12 @@ export interface DefaultDateTimePickerControlOptions {
    * @public
    */
   DisplayOptions?: DateTimePickerControlDisplayOptions;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>DateTimePickerControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -2240,6 +2260,12 @@ export interface DefaultFilterDropDownControlOptions {
    * @public
    */
   SelectableValues?: FilterSelectableValues;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -2352,6 +2378,12 @@ export interface DefaultRelativeDateTimeControlOptions {
    * @public
    */
   DisplayOptions?: RelativeDateTimeControlDisplayOptions;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>RelativeDateTimeControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -4128,6 +4160,12 @@ export interface FilterDateTimePickerControl {
    * @public
    */
   Type?: SheetControlDateTimePickerType;
+
+  /**
+   * <p>The visibility configurationof the Apply button on a <code>DateTimePickerControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -4186,6 +4224,12 @@ export interface FilterDropDownControl {
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -4274,6 +4318,12 @@ export interface FilterRelativeDateTimeControl {
    * @public
    */
   DisplayOptions?: RelativeDateTimeControlDisplayOptions;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>FilterRelativeDateTimeControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -5168,6 +5218,12 @@ export interface ParameterDropDownControl {
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>ParameterDropDownControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode;
 }
 
 /**
@@ -7473,20 +7529,6 @@ export interface SmallMultiplesOptions {
    */
   YAxis?: SmallMultiplesAxisProperties;
 }
-
-/**
- * @public
- * @enum
- */
-export const OtherCategories = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
 
 /**
  * @internal

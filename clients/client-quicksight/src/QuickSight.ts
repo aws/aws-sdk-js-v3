@@ -506,6 +506,11 @@ import {
 } from "./commands/ListFolderMembersCommand";
 import { ListFoldersCommand, ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
 import {
+  ListFoldersForResourceCommand,
+  ListFoldersForResourceCommandInput,
+  ListFoldersForResourceCommandOutput,
+} from "./commands/ListFoldersForResourceCommand";
+import {
   ListGroupMembershipsCommand,
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
@@ -929,6 +934,7 @@ const commands = {
   ListDataSourcesCommand,
   ListFolderMembersCommand,
   ListFoldersCommand,
+  ListFoldersForResourceCommand,
   ListGroupMembershipsCommand,
   ListGroupsCommand,
   ListIAMPolicyAssignmentsCommand,
@@ -2669,6 +2675,23 @@ export interface QuickSight {
     args: ListFoldersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFoldersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFoldersForResourceCommand}
+   */
+  listFoldersForResource(
+    args: ListFoldersForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFoldersForResourceCommandOutput>;
+  listFoldersForResource(
+    args: ListFoldersForResourceCommandInput,
+    cb: (err: any, data?: ListFoldersForResourceCommandOutput) => void
+  ): void;
+  listFoldersForResource(
+    args: ListFoldersForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFoldersForResourceCommandOutput) => void
   ): void;
 
   /**

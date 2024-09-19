@@ -35,7 +35,6 @@ import {
   DataSetImportMode,
   DatasetParameter,
   DataSetUsageConfiguration,
-  DataSourceCredentials,
   DataSourceParameters,
   FieldFolder,
   FilterOperator,
@@ -67,6 +66,7 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
+  DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
   FolderType,
@@ -96,6 +96,25 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeVPCConnectionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
+   * 			you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that
+   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId: string | undefined;
+}
 
 /**
  * @public
@@ -1802,6 +1821,64 @@ export interface ListFoldersResponse {
    * @public
    */
   FolderSummaryList?: FolderSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFoldersForResourceRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the resource.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) the resource whose folders you need to list.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListFoldersForResourceResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>A list that contains the Amazon Resource Names (ARNs) of all folders that the resource is a member of.</p>
+   * @public
+   */
+  Folders?: string[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>

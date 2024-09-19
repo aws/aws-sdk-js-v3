@@ -25,7 +25,6 @@ import {
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
-  OtherCategories,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
   ReferenceLine,
@@ -39,6 +38,20 @@ import {
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const OtherCategories = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
 
 /**
  * <p>The limit configuration of the visual display for an axis.</p>
@@ -7751,72 +7764,6 @@ export interface TreeMapSortConfiguration {
 }
 
 /**
- * <p>The configuration of a tree map.</p>
- * @public
- */
-export interface TreeMapConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: TreeMapFieldWells;
-
-  /**
-   * <p>The sort configuration of a tree map.</p>
-   * @public
-   */
-  SortConfiguration?: TreeMapSortConfiguration;
-
-  /**
-   * <p>The label options (label text, label visibility) of the groups that are displayed in a tree map.</p>
-   * @public
-   */
-  GroupLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility) of the sizes that are displayed in a tree map.</p>
-   * @public
-   */
-  SizeLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility) for the colors displayed in a tree map.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The color options (gradient color, point of divergence) of a tree map.</p>
-   * @public
-   */
-  ColorScale?: ColorScale;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
  * @internal
  */
 export const DataPathValueFilterSensitiveLog = (obj: DataPathValue): any => ({
@@ -8972,12 +8919,4 @@ export const TreeMapAggregatedFieldWellsFilterSensitiveLog = (obj: TreeMapAggreg
  */
 export const TreeMapFieldWellsFilterSensitiveLog = (obj: TreeMapFieldWells): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
-  ...obj,
-  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
 });
