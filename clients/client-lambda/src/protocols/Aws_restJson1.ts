@@ -431,6 +431,7 @@ export const se_CreateCodeSigningConfigCommand = async (
       AllowedPublishers: (_) => _json(_),
       CodeSigningPolicies: (_) => _json(_),
       Description: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -474,6 +475,7 @@ export const se_CreateEventSourceMappingCommand = async (
       SourceAccessConfigurations: (_) => _json(_),
       StartingPosition: [],
       StartingPositionTimestamp: (_) => _.getTime() / 1_000,
+      Tags: (_) => _json(_),
       Topics: (_) => _json(_),
       TumblingWindowInSeconds: [],
     })
@@ -2056,6 +2058,7 @@ export const de_CreateEventSourceMappingCommand = async (
     DestinationConfig: _json,
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
+    EventSourceMappingArn: __expectString,
     FilterCriteria: _json,
     FilterCriteriaError: _json,
     FunctionArn: __expectString,
@@ -2221,6 +2224,7 @@ export const de_DeleteEventSourceMappingCommand = async (
     DestinationConfig: _json,
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
+    EventSourceMappingArn: __expectString,
     FilterCriteria: _json,
     FilterCriteriaError: _json,
     FunctionArn: __expectString,
@@ -2475,6 +2479,7 @@ export const de_GetEventSourceMappingCommand = async (
     DestinationConfig: _json,
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
+    EventSourceMappingArn: __expectString,
     FilterCriteria: _json,
     FilterCriteriaError: _json,
     FunctionArn: __expectString,
@@ -3625,6 +3630,7 @@ export const de_UpdateEventSourceMappingCommand = async (
     DestinationConfig: _json,
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
+    EventSourceMappingArn: __expectString,
     FilterCriteria: _json,
     FilterCriteriaError: _json,
     FunctionArn: __expectString,
@@ -3848,6 +3854,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyRequestsException":
     case "com.amazonaws.lambda#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "PublicPolicyException":
+    case "com.amazonaws.lambda#PublicPolicyException":
+      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
     case "CodeSigningConfigNotFoundException":
     case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
       throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
@@ -3941,9 +3950,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.lambda#UnsupportedMediaTypeException":
       throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
-    case "PublicPolicyException":
-    case "com.amazonaws.lambda#PublicPolicyException":
-      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5049,6 +5055,7 @@ const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext
     DestinationConfig: _json,
     DocumentDBEventSourceConfig: _json,
     EventSourceArn: __expectString,
+    EventSourceMappingArn: __expectString,
     FilterCriteria: _json,
     FilterCriteriaError: _json,
     FunctionArn: __expectString,

@@ -120,6 +120,7 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //         ErrorCode: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
  * //       },
+ * //       EventSourceMappingArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

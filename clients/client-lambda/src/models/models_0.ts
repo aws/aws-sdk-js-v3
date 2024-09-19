@@ -397,7 +397,7 @@ export interface AddPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>The Amazon Web Servicesservice or Amazon Web Services account that invokes the function. If you specify a
+   * <p>The Amazon Web Servicesservice, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a
    *       service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through
    *       that service.</p>
    * @public
@@ -464,6 +464,37 @@ export interface AddPermissionResponse {
    * @public
    */
   Statement?: string;
+}
+
+/**
+ * <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
+ *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
+ *       to allow public policies.</p>
+ * @public
+ */
+export class PublicPolicyException extends __BaseException {
+  readonly name: "PublicPolicyException" = "PublicPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string;
+
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicPolicyException, __BaseException>) {
+    super({
+      name: "PublicPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicPolicyException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -687,6 +718,12 @@ export interface CreateCodeSigningConfigRequest {
    * @public
    */
   CodeSigningPolicies?: CodeSigningPolicies;
+
+  /**
+   * <p>A list of tags to add to the code signing configuration.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -1205,6 +1242,12 @@ export interface CreateEventSourceMappingRequest {
   MaximumRetryAttempts?: number;
 
   /**
+   * <p>A list of tags to apply to the event source mapping.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
    * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    * @public
    */
@@ -1496,6 +1539,12 @@ export interface EventSourceMappingConfiguration {
    * @public
    */
   FilterCriteriaError?: FilterCriteriaError;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
+   * @public
+   */
+  EventSourceMappingArn?: string;
 }
 
 /**
@@ -6070,8 +6119,8 @@ export interface ListProvisionedConcurrencyConfigsResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>The function's Amazon Resource Name (ARN).
-   *       Note: Lambda does not support adding tags to aliases or versions.</p>
+   * <p>The resource's Amazon Resource Name (ARN).
+   *       Note: Lambda does not support adding tags to function aliases or versions.</p>
    * @public
    */
   Resource: string | undefined;
@@ -6718,37 +6767,6 @@ export interface PutPublicAccessBlockConfigResponse {
 }
 
 /**
- * <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
- *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
- *       to allow public policies.</p>
- * @public
- */
-export class PublicPolicyException extends __BaseException {
-  readonly name: "PublicPolicyException" = "PublicPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string;
-
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PublicPolicyException, __BaseException>) {
-    super({
-      name: "PublicPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PublicPolicyException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface PutResourcePolicyRequest {
@@ -6972,13 +6990,13 @@ export interface RemovePermissionRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
+   * <p>The resource's Amazon Resource Name (ARN).</p>
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>A list of tags to apply to the function.</p>
+   * <p>A list of tags to apply to the resource.</p>
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -6989,13 +7007,13 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
+   * <p>The resource's Amazon Resource Name (ARN).</p>
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the function.</p>
+   * <p>A list of tag keys to remove from the resource.</p>
    * @public
    */
   TagKeys: string[] | undefined;

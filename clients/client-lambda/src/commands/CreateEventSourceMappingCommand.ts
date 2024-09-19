@@ -175,6 +175,9 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   MaximumRecordAgeInSeconds: Number("int"),
  *   BisectBatchOnFunctionError: true || false,
  *   MaximumRetryAttempts: Number("int"),
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   TumblingWindowInSeconds: Number("int"),
  *   Topics: [ // Topics
  *     "STRING_VALUE",
@@ -289,6 +292,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     ErrorCode: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
  * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
  * // };
  *
  * ```

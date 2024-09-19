@@ -28,7 +28,11 @@ export interface GetPublicAccessBlockConfigCommandInput extends GetPublicAccessB
 export interface GetPublicAccessBlockConfigCommandOutput extends GetPublicAccessBlockConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the public-access settings for a function.</p>
+ * <note>
+ *             <p>The option to configure public-access settings, and to use the PutPublicAccessBlock and GetPublicAccessBlock APIs, won't be
+ *       available in all Amazon Web Services Regions until September 30, 2024.</p>
+ *          </note>
+ *          <p>Retrieve the public-access settings for a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

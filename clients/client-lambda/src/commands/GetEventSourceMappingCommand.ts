@@ -114,6 +114,7 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //     ErrorCode: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
  * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
  * // };
  *
  * ```

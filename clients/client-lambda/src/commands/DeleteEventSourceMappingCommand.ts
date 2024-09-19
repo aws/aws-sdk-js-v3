@@ -116,6 +116,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //     ErrorCode: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
  * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
  * // };
  *
  * ```

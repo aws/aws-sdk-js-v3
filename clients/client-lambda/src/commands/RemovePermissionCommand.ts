@@ -70,6 +70,11 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link PublicPolicyException} (client fault)
+ *  <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
+ *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
+ *       to allow public policies.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>
  *
