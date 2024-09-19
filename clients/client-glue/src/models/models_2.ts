@@ -5,6 +5,7 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 
 import {
   AuditContext,
+  AuthenticationConfigurationInput,
   CrawlerTargets,
   CustomEntityType,
   DataSource,
@@ -39,6 +40,8 @@ import {
   ColumnStatistics,
   Compatibility,
   ConnectionInput,
+  ConnectionPropertyKey,
+  ConnectionType,
   CsvHeaderOption,
   CsvSerdeOption,
   DatabaseInput,
@@ -62,7 +65,6 @@ import {
   SchemaVersionStatus,
   Session,
   SortDirectionType,
-  TableInput,
   TaskStatusType,
   TransformEncryption,
   TransformParameters,
@@ -6833,6 +6835,65 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
+ * <p>A structure that is used to specify testing a connection to a service.</p>
+ * @public
+ */
+export interface TestConnectionInput {
+  /**
+   * <p>The type of connection to test. This operation is only available for the <code>JDBC</code> or <code>SALESFORCE</code> connection types.</p>
+   * @public
+   */
+  ConnectionType: ConnectionType | undefined;
+
+  /**
+   * <p>The key-value pairs that define parameters for the connection.</p>
+   *          <p>JDBC connections use the following connection properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Required: All of (<code>HOST</code>, <code>PORT</code>, <code>JDBC_ENGINE</code>) or <code>JDBC_CONNECTION_URL</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Optional: <code>JDBC_ENFORCE_SSL</code>, <code>CUSTOM_JDBC_CERT</code>, <code>CUSTOM_JDBC_CERT_STRING</code>, <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code>. These parameters are used to configure SSL with JDBC.</p>
+   *             </li>
+   *          </ul>
+   *          <p>SALESFORCE connections require the <code>AuthenticationConfiguration</code> member to be configured.</p>
+   * @public
+   */
+  ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>> | undefined;
+
+  /**
+   * <p>A structure containing the authentication configuration in the TestConnection request. Required for a connection to Salesforce using OAuth authentication.</p>
+   * @public
+   */
+  AuthenticationConfiguration?: AuthenticationConfigurationInput;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionRequest {
+  /**
+   * <p>Optional. The name of the connection to test. If only name is provided, the operation will get the connection and use that for testing.</p>
+   * @public
+   */
+  ConnectionName?: string;
+
+  /**
+   * <p>A structure that is used to specify testing a connection to a service.</p>
+   * @public
+   */
+  TestConnectionInput?: TestConnectionInput;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionResponse {}
+
+/**
  * @public
  */
 export interface UntagResourceRequest {
@@ -7919,91 +7980,6 @@ export interface UpdateSourceControlFromJobRequest {
    * @public
    */
   AuthToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateSourceControlFromJobResponse {
-  /**
-   * <p>The name of the Glue job.</p>
-   * @public
-   */
-  JobName?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ViewUpdateAction = {
-  ADD: "ADD",
-  ADD_OR_REPLACE: "ADD_OR_REPLACE",
-  DROP: "DROP",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type ViewUpdateAction = (typeof ViewUpdateAction)[keyof typeof ViewUpdateAction];
-
-/**
- * @public
- */
-export interface UpdateTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   * @public
-   */
-  TableInput: TableInput | undefined;
-
-  /**
-   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
-   *       before updating it. However, if <code>skipArchive</code> is set to true,
-   *         <code>UpdateTable</code> does not create the archived version.</p>
-   * @public
-   */
-  SkipArchive?: boolean;
-
-  /**
-   * <p>The transaction ID at which to update the table contents. </p>
-   * @public
-   */
-  TransactionId?: string;
-
-  /**
-   * <p>The version ID at which to update the table contents. </p>
-   * @public
-   */
-  VersionId?: string;
-
-  /**
-   * <p>The operation to be performed when updating the view.</p>
-   * @public
-   */
-  ViewUpdateAction?: ViewUpdateAction;
-
-  /**
-   * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
-   * @public
-   */
-  Force?: boolean;
 }
 
 /**

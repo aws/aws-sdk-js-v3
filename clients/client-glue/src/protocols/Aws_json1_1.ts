@@ -469,6 +469,7 @@ import { StopSessionCommandInput, StopSessionCommandOutput } from "../commands/S
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "../commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "../commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "../commands/TestConnectionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "../commands/UpdateBlueprintCommand";
 import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "../commands/UpdateClassifierCommand";
@@ -1111,6 +1112,8 @@ import {
   SupportedDialect,
   TableAttributes,
   TagResourceRequest,
+  TestConnectionInput,
+  TestConnectionRequest,
   TimestampFilter,
   TransformFilterCriteria,
   TransformSortCriteria,
@@ -1137,7 +1140,6 @@ import {
   UpdateRegistryInput,
   UpdateSchemaInput,
   UpdateSourceControlFromJobRequest,
-  UpdateTableRequest,
   UpdateXMLClassifierRequest,
   UsageProfileDefinition,
   UserDefinedFunction,
@@ -1167,6 +1169,7 @@ import {
   TriggerUpdate,
   UpdateJobRequest,
   UpdateTableOptimizerRequest,
+  UpdateTableRequest,
   UpdateTriggerRequest,
   UpdateUsageProfileRequest,
   UpdateUserDefinedFunctionRequest,
@@ -3765,6 +3768,19 @@ export const se_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TestConnectionCommand
+ */
+export const se_TestConnectionCommand = async (
+  input: TestConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TestConnection");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8083,6 +8099,26 @@ export const de_TagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1TestConnectionCommand
+ */
+export const de_TestConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -11209,6 +11245,10 @@ const se_TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __Serde
 };
 
 // se_TaskRunSortCriteria omitted.
+
+// se_TestConnectionInput omitted.
+
+// se_TestConnectionRequest omitted.
 
 /**
  * serializeAws_json1_1TimestampFilter
@@ -15130,6 +15170,8 @@ const de_TaskRunList = (output: any, context: __SerdeContext): TaskRun[] => {
 };
 
 // de_TaskRunProperties omitted.
+
+// de_TestConnectionResponse omitted.
 
 // de_ThrottlingException omitted.
 
