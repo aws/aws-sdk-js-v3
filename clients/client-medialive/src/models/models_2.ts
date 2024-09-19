@@ -103,9 +103,13 @@ import {
   BlackoutSlate,
   ColorCorrectionSettings,
   FeatureActivations,
-  GlobalConfiguration,
-  MotionGraphicsConfiguration,
+  GlobalConfigurationInputEndAction,
+  GlobalConfigurationLowFramerateInputs,
+  GlobalConfigurationOutputLockingMode,
+  GlobalConfigurationOutputTimingSource,
+  InputLossBehavior,
   OutputGroup,
+  OutputLockingSettings,
   PipelineDetail,
   RenewalSettings,
   Reservation,
@@ -121,6 +125,107 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Global Configuration
+ * @public
+ */
+export interface GlobalConfiguration {
+  /**
+   * Value to set the initial audio gain for the Live Event.
+   * @public
+   */
+  InitialAudioGain?: number;
+
+  /**
+   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+   * @public
+   */
+  InputEndAction?: GlobalConfigurationInputEndAction;
+
+  /**
+   * Settings for system actions when input is lost.
+   * @public
+   */
+  InputLossBehavior?: InputLossBehavior;
+
+  /**
+   * Indicates how MediaLive pipelines are synchronized.
+   *
+   * PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
+   * EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+   * @public
+   */
+  OutputLockingMode?: GlobalConfigurationOutputLockingMode;
+
+  /**
+   * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+   * @public
+   */
+  OutputTimingSource?: GlobalConfigurationOutputTimingSource;
+
+  /**
+   * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+   * @public
+   */
+  SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs;
+
+  /**
+   * Advanced output locking settings
+   * @public
+   */
+  OutputLockingSettings?: OutputLockingSettings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MotionGraphicsInsertion = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MotionGraphicsInsertion = (typeof MotionGraphicsInsertion)[keyof typeof MotionGraphicsInsertion];
+
+/**
+ * Html Motion Graphics Settings
+ * @public
+ */
+export interface HtmlMotionGraphicsSettings {}
+
+/**
+ * Motion Graphics Settings
+ * @public
+ */
+export interface MotionGraphicsSettings {
+  /**
+   * Html Motion Graphics Settings
+   * @public
+   */
+  HtmlMotionGraphicsSettings?: HtmlMotionGraphicsSettings;
+}
+
+/**
+ * Motion Graphics Configuration
+ * @public
+ */
+export interface MotionGraphicsConfiguration {
+  /**
+   * Motion Graphics Insertion
+   * @public
+   */
+  MotionGraphicsInsertion?: MotionGraphicsInsertion;
+
+  /**
+   * Motion Graphics Settings
+   * @public
+   */
+  MotionGraphicsSettings: MotionGraphicsSettings | undefined;
+}
 
 /**
  * @public
