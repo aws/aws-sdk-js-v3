@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.655.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.654.0...v3.655.0) (2024-09-19)
+
+
+### Features
+
+* **client-workspaces-web:** WorkSpaces Secure Browser now enables Administrators to view and manage end-user browsing sessions via Session Management APIs. ([7913a4b](https://github.com/aws/aws-sdk-js-v3/commit/7913a4b63ff4c83f4ac127498004549e8de8fcbf))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web
