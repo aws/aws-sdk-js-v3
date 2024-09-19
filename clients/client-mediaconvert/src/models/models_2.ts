@@ -16,12 +16,140 @@ import {
   Preset,
   PresetSettings,
   PricingPlan,
-  Queue,
-  QueueStatus,
   RenewalType,
+  ReservationPlanStatus,
   SimulateReservedQueue,
   StatusUpdateInterval,
+  Type,
 } from "./models_1";
+
+/**
+ * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+ * @public
+ */
+export interface ReservationPlan {
+  /**
+   * The length of the term of your reserved queue pricing plan commitment.
+   * @public
+   */
+  Commitment?: Commitment;
+
+  /**
+   * The timestamp in epoch seconds for when the current pricing plan term for this reserved queue expires.
+   * @public
+   */
+  ExpiresAt?: Date;
+
+  /**
+   * The timestamp in epoch seconds for when you set up the current pricing plan for this reserved queue.
+   * @public
+   */
+  PurchasedAt?: Date;
+
+  /**
+   * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
+   * @public
+   */
+  RenewalType?: RenewalType;
+
+  /**
+   * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. When you increase this number, you extend your existing commitment with a new 12-month commitment for a larger number of RTS. The new commitment begins when you purchase the additional capacity. You can't decrease the number of RTS in your reserved queue.
+   * @public
+   */
+  ReservedSlots?: number;
+
+  /**
+   * Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
+   * @public
+   */
+  Status?: ReservationPlanStatus;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueStatus = {
+  ACTIVE: "ACTIVE",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+/**
+ * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+ * @public
+ */
+export interface Queue {
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * The timestamp in epoch seconds for when you created the queue.
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * An optional description that you create for each queue.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * The timestamp in epoch seconds for when you most recently updated the queue.
+   * @public
+   */
+  LastUpdated?: Date;
+
+  /**
+   * A name that you create for each queue. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
+   * @public
+   */
+  PricingPlan?: PricingPlan;
+
+  /**
+   * The estimated number of jobs with a PROGRESSING status.
+   * @public
+   */
+  ProgressingJobsCount?: number;
+
+  /**
+   * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+   * @public
+   */
+  ReservationPlan?: ReservationPlan;
+
+  /**
+   * Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+   * @public
+   */
+  Status?: QueueStatus;
+
+  /**
+   * The estimated number of jobs with a SUBMITTED status.
+   * @public
+   */
+  SubmittedJobsCount?: number;
+
+  /**
+   * Specifies whether this on-demand queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
+   * @public
+   */
+  Type?: Type;
+}
 
 /**
  * @public

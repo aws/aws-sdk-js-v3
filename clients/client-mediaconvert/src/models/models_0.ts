@@ -5717,6 +5717,63 @@ export type CmafInitializationVectorInManifest =
   (typeof CmafInitializationVectorInManifest)[keyof typeof CmafInitializationVectorInManifest];
 
 /**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Audio = {
+  PRESET_AUDIO_1: "PRESET_AUDIO_1",
+  PRESET_AUDIO_2: "PRESET_AUDIO_2",
+  PRESET_AUDIO_3: "PRESET_AUDIO_3",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
+
+/**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Video = {
+  PRESET_VIDEO_1: "PRESET_VIDEO_1",
+  PRESET_VIDEO_2: "PRESET_VIDEO_2",
+  PRESET_VIDEO_3: "PRESET_VIDEO_3",
+  PRESET_VIDEO_4: "PRESET_VIDEO_4",
+  PRESET_VIDEO_5: "PRESET_VIDEO_5",
+  PRESET_VIDEO_6: "PRESET_VIDEO_6",
+  PRESET_VIDEO_7: "PRESET_VIDEO_7",
+  PRESET_VIDEO_8: "PRESET_VIDEO_8",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
+
+/**
+ * Specify the SPEKE version, either v1.0 or v2.0, that MediaConvert uses when encrypting your output. For more information, see: https://docs.aws.amazon.com/speke/latest/documentation/speke-api-specification.html To use SPEKE v1.0: Leave blank. To use SPEKE v2.0: Specify a SPEKE v2.0 video preset and a SPEKE v2.0 audio preset.
+ * @public
+ */
+export interface EncryptionContractConfiguration {
+  /**
+   * Specify which SPEKE version 2.0 audio preset MediaConvert uses to request content keys from your SPEKE server. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/drm-content-speke-v2-presets.html To encrypt to your audio outputs, choose from the following: Audio preset 1, Audio preset 2, or Audio preset 3. To encrypt your audio outputs, using the same content key for both your audio and video outputs: Choose Shared. When you do, you must also set SPEKE v2.0 video preset to Shared. To not encrypt your audio outputs: Choose Unencrypted. When you do, to encrypt your video outputs, you must also specify a SPEKE v2.0 video preset (other than Shared or Unencrypted).
+   * @public
+   */
+  SpekeAudioPreset?: PresetSpeke20Audio;
+
+  /**
+   * Specify which SPEKE version 2.0 video preset MediaConvert uses to request content keys from your SPEKE server. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/drm-content-speke-v2-presets.html To encrypt to your video outputs, choose from the following: Video preset 1, Video preset 2, Video preset 3, Video preset 4, Video preset 5, Video preset 6, Video preset 7, or Video preset 8. To encrypt your video outputs, using the same content key for both your video and audio outputs: Choose Shared. When you do, you must also set SPEKE v2.0 audio preset to Shared. To not encrypt your video outputs: Choose Unencrypted. When you do, to encrypt your audio outputs, you must also specify a SPEKE v2.0 audio preset (other than Shared or Unencrypted).
+   * @public
+   */
+  SpekeVideoPreset?: PresetSpeke20Video;
+}
+
+/**
  * If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
  * @public
  */
@@ -5732,6 +5789,12 @@ export interface SpekeKeyProviderCmaf {
    * @public
    */
   DashSignaledSystemIds?: string[];
+
+  /**
+   * Specify the SPEKE version, either v1.0 or v2.0, that MediaConvert uses when encrypting your output. For more information, see: https://docs.aws.amazon.com/speke/latest/documentation/speke-api-specification.html To use SPEKE v1.0: Leave blank. To use SPEKE v2.0: Specify a SPEKE v2.0 video preset and a SPEKE v2.0 audio preset.
+   * @public
+   */
+  EncryptionContractConfiguration?: EncryptionContractConfiguration;
 
   /**
    * Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
@@ -6311,6 +6374,12 @@ export interface SpekeKeyProvider {
    * @public
    */
   CertificateArn?: string;
+
+  /**
+   * Specify the SPEKE version, either v1.0 or v2.0, that MediaConvert uses when encrypting your output. For more information, see: https://docs.aws.amazon.com/speke/latest/documentation/speke-api-specification.html To use SPEKE v1.0: Leave blank. To use SPEKE v2.0: Specify a SPEKE v2.0 video preset and a SPEKE v2.0 audio preset.
+   * @public
+   */
+  EncryptionContractConfiguration?: EncryptionContractConfiguration;
 
   /**
    * Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
@@ -7442,75 +7511,3 @@ export const OutputGroupType = {
  * @public
  */
 export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];
-
-/**
- * Output Group settings, including type
- * @public
- */
-export interface OutputGroupSettings {
-  /**
-   * Settings related to your CMAF output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
-   * @public
-   */
-  CmafGroupSettings?: CmafGroupSettings;
-
-  /**
-   * Settings related to your DASH output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
-   * @public
-   */
-  DashIsoGroupSettings?: DashIsoGroupSettings;
-
-  /**
-   * Settings related to your File output group. MediaConvert uses this group of settings to generate a single standalone file, rather than a streaming package.
-   * @public
-   */
-  FileGroupSettings?: FileGroupSettings;
-
-  /**
-   * Settings related to your HLS output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
-   * @public
-   */
-  HlsGroupSettings?: HlsGroupSettings;
-
-  /**
-   * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
-   * @public
-   */
-  MsSmoothGroupSettings?: MsSmoothGroupSettings;
-
-  /**
-   * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
-   * @public
-   */
-  Type?: OutputGroupType;
-}
-
-/**
- * @public
- * @enum
- */
-export const CmfcAudioDuration = {
-  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
-} as const;
-
-/**
- * @public
- */
-export type CmfcAudioDuration = (typeof CmfcAudioDuration)[keyof typeof CmfcAudioDuration];
-
-/**
- * @public
- * @enum
- */
-export const CmfcAudioTrackType = {
-  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type CmfcAudioTrackType = (typeof CmfcAudioTrackType)[keyof typeof CmfcAudioTrackType];
