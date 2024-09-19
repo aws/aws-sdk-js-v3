@@ -11,6 +11,7 @@ export * from "./ListDashboardsPaginator";
 export * from "./ListDataSetsPaginator";
 export * from "./ListDataSourcesPaginator";
 export * from "./ListFolderMembersPaginator";
+export * from "./ListFoldersForResourcePaginator";
 export * from "./ListFoldersPaginator";
 export * from "./ListGroupMembershipsPaginator";
 export * from "./ListGroupsPaginator";

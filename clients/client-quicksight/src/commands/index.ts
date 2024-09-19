@@ -106,6 +106,7 @@ export * from "./ListDataSetsCommand";
 export * from "./ListDataSourcesCommand";
 export * from "./ListFolderMembersCommand";
 export * from "./ListFoldersCommand";
+export * from "./ListFoldersForResourceCommand";
 export * from "./ListGroupMembershipsCommand";
 export * from "./ListGroupsCommand";
 export * from "./ListIAMPolicyAssignmentsCommand";

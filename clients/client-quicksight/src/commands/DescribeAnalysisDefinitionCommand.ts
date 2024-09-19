@@ -215,6 +215,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 ],
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             TextField: { // ParameterTextFieldControl
  * //               ParameterControlId: "STRING_VALUE", // required
@@ -303,6 +304,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //               },
  * //               Type: "SINGLE_VALUED" || "DATE_RANGE",
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             List: { // FilterListControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -361,6 +363,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 ],
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             TextField: { // FilterTextFieldControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -409,6 +412,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 DateTimeFormat: "STRING_VALUE",
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             CrossSheet: { // FilterCrossSheetControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -4510,6 +4514,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: { // DefaultFilterListControlOptions
  * //                     DisplayOptions: {
@@ -4539,6 +4544,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     SelectableValues: {
  * //                       Values: "<ParameterSelectableValueList>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: { // DefaultTextFieldControlOptions
  * //                     DisplayOptions: {
@@ -4573,6 +4579,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4605,6 +4612,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: {
@@ -4628,6 +4636,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: {
@@ -4660,6 +4669,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4685,6 +4695,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: {
@@ -4706,6 +4717,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: {
@@ -4738,6 +4750,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4758,6 +4771,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4768,6 +4782,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     DisplayOptions: "<DropDownControlDisplayOptions>",
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4789,6 +4804,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4821,6 +4837,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4831,6 +4848,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     DisplayOptions: "<DropDownControlDisplayOptions>",
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4848,6 +4866,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                   DefaultRelativeDateTimeOptions: {
  * //                     DisplayOptions: "<RelativeDateTimeControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },

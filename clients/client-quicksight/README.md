@@ -1066,6 +1066,14 @@ ListFolders
 </details>
 <details>
 <summary>
+ListFoldersForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListFoldersForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListGroupMemberships
 </summary>
 

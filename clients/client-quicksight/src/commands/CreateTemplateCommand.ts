@@ -243,6 +243,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   },
  *                 ],
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             TextField: { // ParameterTextFieldControl
  *               ParameterControlId: "STRING_VALUE", // required
@@ -331,6 +332,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             List: { // FilterListControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -389,6 +391,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   },
  *                 ],
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             TextField: { // FilterTextFieldControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -437,6 +440,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
+ *               CommitMode: "AUTO" || "MANUAL",
  *             },
  *             CrossSheet: { // FilterCrossSheetControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -4538,6 +4542,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: { // DefaultFilterListControlOptions
  *                     DisplayOptions: {
@@ -4567,6 +4572,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                     SelectableValues: {
  *                       Values: "<ParameterSelectableValueList>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: { // DefaultTextFieldControlOptions
  *                     DisplayOptions: {
@@ -4601,6 +4607,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4633,6 +4640,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: {
@@ -4656,6 +4664,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                     },
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -4688,6 +4697,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4713,6 +4723,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: {
@@ -4734,6 +4745,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                     },
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -4766,6 +4778,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4786,6 +4799,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  *                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4796,6 +4810,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4817,6 +4832,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *                     },
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },
@@ -4849,6 +4865,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  *                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultListOptions: {
  *                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4859,6 +4876,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4876,6 +4894,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   },
  *                   DefaultRelativeDateTimeOptions: {
  *                     DisplayOptions: "<RelativeDateTimeControlDisplayOptions>",
+ *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
  *               },

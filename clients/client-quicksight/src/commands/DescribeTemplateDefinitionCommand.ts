@@ -235,6 +235,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                 ],
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             TextField: { // ParameterTextFieldControl
  * //               ParameterControlId: "STRING_VALUE", // required
@@ -323,6 +324,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //               },
  * //               Type: "SINGLE_VALUED" || "DATE_RANGE",
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             List: { // FilterListControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -381,6 +383,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                 ],
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             TextField: { // FilterTextFieldControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -429,6 +432,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 DateTimeFormat: "STRING_VALUE",
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //               },
+ * //               CommitMode: "AUTO" || "MANUAL",
  * //             },
  * //             CrossSheet: { // FilterCrossSheetControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -4530,6 +4534,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: { // DefaultFilterListControlOptions
  * //                     DisplayOptions: {
@@ -4559,6 +4564,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     SelectableValues: {
  * //                       Values: "<ParameterSelectableValueList>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: { // DefaultTextFieldControlOptions
  * //                     DisplayOptions: {
@@ -4593,6 +4599,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4625,6 +4632,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: {
@@ -4648,6 +4656,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     },
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: {
@@ -4680,6 +4689,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4705,6 +4715,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: {
@@ -4726,6 +4737,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     },
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: {
@@ -4758,6 +4770,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4778,6 +4791,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4788,6 +4802,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     DisplayOptions: "<DropDownControlDisplayOptions>",
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4809,6 +4824,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },
@@ -4841,6 +4857,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //                     DisplayOptions: "<DateTimePickerControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultListOptions: {
  * //                     DisplayOptions: "<ListControlDisplayOptions>",
@@ -4851,6 +4868,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     DisplayOptions: "<DropDownControlDisplayOptions>",
  * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  * //                     SelectableValues: "<FilterSelectableValues>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                   DefaultTextFieldOptions: {
  * //                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -4868,6 +4886,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                   DefaultRelativeDateTimeOptions: {
  * //                     DisplayOptions: "<RelativeDateTimeControlDisplayOptions>",
+ * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
  * //               },

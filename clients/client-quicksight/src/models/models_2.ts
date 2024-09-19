@@ -48,6 +48,7 @@ import {
 import {
   BarChartVisual,
   BoxPlotVisual,
+  ColorScale,
   ColumnHierarchy,
   ComboChartVisual,
   CustomContentVisual,
@@ -74,7 +75,9 @@ import {
   ScatterPlotVisual,
   ScatterPlotVisualFilterSensitiveLog,
   TableVisual,
-  TreeMapConfiguration,
+  TooltipOptions,
+  TreeMapFieldWells,
+  TreeMapSortConfiguration,
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
@@ -82,6 +85,72 @@ import {
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The configuration of a tree map.</p>
+ * @public
+ */
+export interface TreeMapConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: TreeMapFieldWells;
+
+  /**
+   * <p>The sort configuration of a tree map.</p>
+   * @public
+   */
+  SortConfiguration?: TreeMapSortConfiguration;
+
+  /**
+   * <p>The label options (label text, label visibility) of the groups that are displayed in a tree map.</p>
+   * @public
+   */
+  GroupLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label options (label text, label visibility) of the sizes that are displayed in a tree map.</p>
+   * @public
+   */
+  SizeLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label options (label text, label visibility) for the colors displayed in a tree map.</p>
+   * @public
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The color options (gradient color, point of divergence) of a tree map.</p>
+   * @public
+   */
+  ColorScale?: ColorScale;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions;
+}
 
 /**
  * <p>A tree map.</p>
@@ -8697,35 +8766,12 @@ export interface CredentialPair {
 }
 
 /**
- * <p>Data source credentials. This is a variant type structure. For this structure to be
- *             valid, only one of the attributes can be non-null.</p>
- * @public
+ * @internal
  */
-export interface DataSourceCredentials {
-  /**
-   * <p>Credential pair. For more information, see
-   *             <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
-   *             </code>.</p>
-   * @public
-   */
-  CredentialPair?: CredentialPair;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
-   *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
-   *             data source in the ARN is used as the credentials for the
-   *             <code>DataSourceCredentials</code> structure.</p>
-   * @public
-   */
-  CopySourceArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
-   * @public
-   */
-  SecretArn?: string;
-}
+export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
+  ...obj,
+  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
+});
 
 /**
  * @internal
@@ -9126,12 +9172,4 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
       obj.RowLevelPermissionTagConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const DataSourceCredentialsFilterSensitiveLog = (obj: DataSourceCredentials): any => ({
-  ...obj,
-  ...(obj.CredentialPair && { CredentialPair: obj.CredentialPair }),
 });

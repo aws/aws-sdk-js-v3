@@ -347,6 +347,10 @@ import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./com
 import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "./commands/ListFolderMembersCommand";
 import { ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
 import {
+  ListFoldersForResourceCommandInput,
+  ListFoldersForResourceCommandOutput,
+} from "./commands/ListFoldersForResourceCommand";
+import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
 } from "./commands/ListGroupMembershipsCommand";
@@ -652,6 +656,7 @@ export type ServiceInputTypes =
   | ListDataSourcesCommandInput
   | ListFolderMembersCommandInput
   | ListFoldersCommandInput
+  | ListFoldersForResourceCommandInput
   | ListGroupMembershipsCommandInput
   | ListGroupsCommandInput
   | ListIAMPolicyAssignmentsCommandInput
@@ -834,6 +839,7 @@ export type ServiceOutputTypes =
   | ListDataSourcesCommandOutput
   | ListFolderMembersCommandOutput
   | ListFoldersCommandOutput
+  | ListFoldersForResourceCommandOutput
   | ListGroupMembershipsCommandOutput
   | ListGroupsCommandOutput
   | ListIAMPolicyAssignmentsCommandOutput

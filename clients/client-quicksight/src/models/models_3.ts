@@ -60,13 +60,13 @@ import {
   ColumnSchema,
   ComparativeOrder,
   ConstantType,
+  CredentialPair,
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataSetImportMode,
   DatasetParameter,
   DataSetReference,
   DataSetUsageConfiguration,
-  DataSourceCredentials,
   DataSourceParameters,
   DisplayFormat,
   DisplayFormatOptions,
@@ -92,6 +92,37 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>Data source credentials. This is a variant type structure. For this structure to be
+ *             valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export interface DataSourceCredentials {
+  /**
+   * <p>Credential pair. For more information, see
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
+   *             </code>.</p>
+   * @public
+   */
+  CredentialPair?: CredentialPair;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+   *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+   *             data source in the ARN is used as the credentials for the
+   *             <code>DataSourceCredentials</code> structure.</p>
+   * @public
+   */
+  CopySourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   * @public
+   */
+  SecretArn?: string;
+}
 
 /**
  * @public
@@ -9285,23 +9316,12 @@ export interface DescribeUserResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
-   * 			you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-}
+export const DataSourceCredentialsFilterSensitiveLog = (obj: DataSourceCredentials): any => ({
+  ...obj,
+  ...(obj.CredentialPair && { CredentialPair: obj.CredentialPair }),
+});
 
 /**
  * @internal

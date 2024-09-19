@@ -327,6 +327,10 @@ import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../co
 import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "../commands/ListFolderMembersCommand";
 import { ListFoldersCommandInput, ListFoldersCommandOutput } from "../commands/ListFoldersCommand";
 import {
+  ListFoldersForResourceCommandInput,
+  ListFoldersForResourceCommandOutput,
+} from "../commands/ListFoldersForResourceCommand";
+import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
 } from "../commands/ListGroupMembershipsCommand";
@@ -979,7 +983,6 @@ import {
   TotalAggregationOption,
   TotalOptions,
   TreeMapAggregatedFieldWells,
-  TreeMapConfiguration,
   TreeMapFieldWells,
   TreeMapSortConfiguration,
   TrendArrowOptions,
@@ -1097,7 +1100,6 @@ import {
   DatasetParameter,
   DataSetReference,
   DataSetUsageConfiguration,
-  DataSourceCredentials,
   DataSourceParameters,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
@@ -1188,6 +1190,7 @@ import {
   TopicSortClause,
   TopicTemplate,
   TransformOperation,
+  TreeMapConfiguration,
   TreeMapVisual,
   TrinoParameters,
   TwitterParameters,
@@ -1231,6 +1234,7 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
+  DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
   DefaultFormatting,
@@ -3513,6 +3517,27 @@ export const se_ListFoldersCommand = async (
   const headers: any = {};
   b.bp("/accounts/{AwsAccountId}/folders");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFoldersForResourceCommand
+ */
+export const se_ListFoldersForResourceCommand = async (
+  input: ListFoldersForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/resource/{ResourceArn}/folders");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
     [_nt]: [, input[_NT]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
@@ -7999,6 +8024,32 @@ export const de_ListFoldersCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     FolderSummaryList: (_) => de_FolderSummaryList(_, context),
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFoldersForResourceCommand
+ */
+export const de_ListFoldersForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFoldersForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Folders: _json,
     NextToken: __expectString,
     RequestId: __expectString,
   });
@@ -17762,6 +17813,8 @@ const de_Folder = (output: any, context: __SerdeContext): Folder => {
 // de_FolderMember omitted.
 
 // de_FolderMemberList omitted.
+
+// de_FoldersForResourceArnList omitted.
 
 /**
  * deserializeAws_restJson1FolderSummary
