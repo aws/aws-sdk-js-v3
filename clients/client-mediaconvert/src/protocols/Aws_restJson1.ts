@@ -110,6 +110,7 @@ import {
   Eac3Settings,
   EmbeddedDestinationSettings,
   EmbeddedSourceSettings,
+  EncryptionContractConfiguration,
   Endpoint,
   EsamManifestConfirmConditionNotification,
   EsamSettings,
@@ -155,7 +156,6 @@ import {
   OutputChannelMapping,
   OutputDetail,
   OutputGroupDetail,
-  OutputGroupSettings,
   QueueTransition,
   Rectangle,
   RemixSettings,
@@ -229,13 +229,12 @@ import {
   NoiseReducerTemporalFilterSettings,
   Output,
   OutputGroup,
+  OutputGroupSettings,
   OutputSettings,
   PartnerWatermarking,
   Preset,
   PresetSettings,
   ProresSettings,
-  Queue,
-  ReservationPlan,
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
@@ -262,6 +261,8 @@ import {
   InternalServerErrorException,
   NotFoundException,
   Policy,
+  Queue,
+  ReservationPlan,
   ReservationPlanSettings,
   ResourceTags,
   TooManyRequestsException,
@@ -2827,6 +2828,16 @@ const se_EmbeddedSourceSettings = (input: EmbeddedSourceSettings, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1EncryptionContractConfiguration
+ */
+const se_EncryptionContractConfiguration = (input: EncryptionContractConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    spekeAudioPreset: [, , `SpekeAudioPreset`],
+    spekeVideoPreset: [, , `SpekeVideoPreset`],
+  });
+};
+
+/**
  * serializeAws_restJson1EsamManifestConfirmConditionNotification
  */
 const se_EsamManifestConfirmConditionNotification = (
@@ -4061,6 +4072,11 @@ const se_SccDestinationSettings = (input: SccDestinationSettings, context: __Ser
 const se_SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
   return take(input, {
     certificateArn: [, , `CertificateArn`],
+    encryptionContractConfiguration: [
+      ,
+      (_) => se_EncryptionContractConfiguration(_, context),
+      `EncryptionContractConfiguration`,
+    ],
     resourceId: [, , `ResourceId`],
     systemIds: [, _json, `SystemIds`],
     url: [, , `Url`],
@@ -4074,6 +4090,11 @@ const se_SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf, context: __SerdeCo
   return take(input, {
     certificateArn: [, , `CertificateArn`],
     dashSignaledSystemIds: [, _json, `DashSignaledSystemIds`],
+    encryptionContractConfiguration: [
+      ,
+      (_) => se_EncryptionContractConfiguration(_, context),
+      `EncryptionContractConfiguration`,
+    ],
     hlsSignaledSystemIds: [, _json, `HlsSignaledSystemIds`],
     resourceId: [, , `ResourceId`],
     url: [, , `Url`],
@@ -5868,6 +5889,16 @@ const de_EmbeddedSourceSettings = (output: any, context: __SerdeContext): Embedd
 };
 
 /**
+ * deserializeAws_restJson1EncryptionContractConfiguration
+ */
+const de_EncryptionContractConfiguration = (output: any, context: __SerdeContext): EncryptionContractConfiguration => {
+  return take(output, {
+    SpekeAudioPreset: [, __expectString, `spekeAudioPreset`],
+    SpekeVideoPreset: [, __expectString, `spekeVideoPreset`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Endpoint
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
@@ -7290,6 +7321,11 @@ const de_SccDestinationSettings = (output: any, context: __SerdeContext): SccDes
 const de_SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return take(output, {
     CertificateArn: [, __expectString, `certificateArn`],
+    EncryptionContractConfiguration: [
+      ,
+      (_: any) => de_EncryptionContractConfiguration(_, context),
+      `encryptionContractConfiguration`,
+    ],
     ResourceId: [, __expectString, `resourceId`],
     SystemIds: [, _json, `systemIds`],
     Url: [, __expectString, `url`],
@@ -7303,6 +7339,11 @@ const de_SpekeKeyProviderCmaf = (output: any, context: __SerdeContext): SpekeKey
   return take(output, {
     CertificateArn: [, __expectString, `certificateArn`],
     DashSignaledSystemIds: [, _json, `dashSignaledSystemIds`],
+    EncryptionContractConfiguration: [
+      ,
+      (_: any) => de_EncryptionContractConfiguration(_, context),
+      `encryptionContractConfiguration`,
+    ],
     HlsSignaledSystemIds: [, _json, `hlsSignaledSystemIds`],
     ResourceId: [, __expectString, `resourceId`],
     Url: [, __expectString, `url`],

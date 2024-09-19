@@ -482,6 +482,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                     DashSignaledSystemIds: [ // __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                     EncryptionContractConfiguration: { // EncryptionContractConfiguration
+ * //                       SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                       SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                     },
  * //                     HlsSignaledSystemIds: [
  * //                       "STRING_VALUE",
  * //                     ],
@@ -554,6 +558,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI",
  * //                   SpekeKeyProvider: { // SpekeKeyProvider
  * //                     CertificateArn: "STRING_VALUE",
+ * //                     EncryptionContractConfiguration: {
+ * //                       SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                       SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                     },
  * //                     ResourceId: "STRING_VALUE",
  * //                     SystemIds: [ // __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  * //                       "STRING_VALUE",
@@ -647,6 +655,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   OfflineEncrypted: "ENABLED" || "DISABLED",
  * //                   SpekeKeyProvider: {
  * //                     CertificateArn: "STRING_VALUE",
+ * //                     EncryptionContractConfiguration: {
+ * //                       SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                       SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                     },
  * //                     ResourceId: "STRING_VALUE",
  * //                     SystemIds: [
  * //                       "STRING_VALUE",
@@ -715,6 +727,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 Encryption: { // MsSmoothEncryptionSettings
  * //                   SpekeKeyProvider: {
  * //                     CertificateArn: "STRING_VALUE",
+ * //                     EncryptionContractConfiguration: {
+ * //                       SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                       SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                     },
  * //                     ResourceId: "STRING_VALUE",
  * //                     SystemIds: [
  * //                       "STRING_VALUE",
