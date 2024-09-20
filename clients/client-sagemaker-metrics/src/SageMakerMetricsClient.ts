@@ -53,6 +53,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { BatchGetMetricsCommandInput, BatchGetMetricsCommandOutput } from "./commands/BatchGetMetricsCommand";
 import { BatchPutMetricsCommandInput, BatchPutMetricsCommandOutput } from "./commands/BatchPutMetricsCommand";
 import {
   ClientInputEndpointParameters,
@@ -68,12 +69,12 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = BatchPutMetricsCommandInput;
+export type ServiceInputTypes = BatchGetMetricsCommandInput | BatchPutMetricsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = BatchPutMetricsCommandOutput;
+export type ServiceOutputTypes = BatchGetMetricsCommandOutput | BatchPutMetricsCommandOutput;
 
 /**
  * @public

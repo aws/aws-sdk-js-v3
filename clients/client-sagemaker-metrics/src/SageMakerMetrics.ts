@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchGetMetricsCommand,
+  BatchGetMetricsCommandInput,
+  BatchGetMetricsCommandOutput,
+} from "./commands/BatchGetMetricsCommand";
+import {
   BatchPutMetricsCommand,
   BatchPutMetricsCommandInput,
   BatchPutMetricsCommandOutput,
@@ -10,10 +15,25 @@ import {
 import { SageMakerMetricsClient, SageMakerMetricsClientConfig } from "./SageMakerMetricsClient";
 
 const commands = {
+  BatchGetMetricsCommand,
   BatchPutMetricsCommand,
 };
 
 export interface SageMakerMetrics {
+  /**
+   * @see {@link BatchGetMetricsCommand}
+   */
+  batchGetMetrics(
+    args: BatchGetMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetMetricsCommandOutput>;
+  batchGetMetrics(args: BatchGetMetricsCommandInput, cb: (err: any, data?: BatchGetMetricsCommandOutput) => void): void;
+  batchGetMetrics(
+    args: BatchGetMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetMetricsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchPutMetricsCommand}
    */
