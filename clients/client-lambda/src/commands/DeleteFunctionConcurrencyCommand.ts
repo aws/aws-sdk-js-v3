@@ -69,6 +69,17 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To remove the reserved concurrent execution limit from a function
+ * ```javascript
+ * // The following example deletes the reserved concurrent execution limit from a function named my-function.
+ * const input = {
+ *   "FunctionName": "my-function"
+ * };
+ * const command = new DeleteFunctionConcurrencyCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-the-reserved-concurrent-execution-limit-from-a-function-1586480714680
+ * ```
+ *
  */
 export class DeleteFunctionConcurrencyCommand extends $Command
   .classBuilder<

@@ -63,6 +63,18 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To delete a version of a Lambda layer
+ * ```javascript
+ * // The following example deletes version 2 of a layer named my-layer.
+ * const input = {
+ *   "LayerName": "my-layer",
+ *   "VersionNumber": 2
+ * };
+ * const command = new DeleteLayerVersionCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-version-of-a-lambda-layer-1586481157547
+ * ```
+ *
  */
 export class DeleteLayerVersionCommand extends $Command
   .classBuilder<

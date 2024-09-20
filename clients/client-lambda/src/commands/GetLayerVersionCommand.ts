@@ -89,6 +89,37 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To get information about a Lambda layer version
+ * ```javascript
+ * // The following example returns information for version 1 of a layer named my-layer.
+ * const input = {
+ *   "LayerName": "my-layer",
+ *   "VersionNumber": 1
+ * };
+ * const command = new GetLayerVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CompatibleRuntimes": [
+ *     "python3.6",
+ *     "python3.7"
+ *   ],
+ *   "Content": {
+ *     "CodeSha256": "tv9jJO+rPbXUUXuRKi7CwHzKtLDkDRJLB3cC3Z/ouXo=",
+ *     "CodeSize": 169,
+ *     "Location": "https://awslambda-us-east-2-layers.s3.us-east-2.amazonaws.com/snapshots/123456789012/my-layer-4aaa2fbb-ff77-4b0a-ad92-5b78a716a96a?versionId=27iWyA73cCAYqyH..."
+ *   },
+ *   "CreatedDate": "2018-11-14T23:03:52.894+0000",
+ *   "Description": "My Python layer",
+ *   "LayerArn": "arn:aws:lambda:us-east-2:123456789012:layer:my-layer",
+ *   "LayerVersionArn": "arn:aws:lambda:us-east-2:123456789012:layer:my-layer:1",
+ *   "LicenseInfo": "MIT",
+ *   "Version": 1
+ * }
+ * *\/
+ * // example id: to-get-information-about-a-lambda-layer-version-1586481457839
+ * ```
+ *
  */
 export class GetLayerVersionCommand extends $Command
   .classBuilder<

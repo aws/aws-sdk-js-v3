@@ -83,6 +83,27 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To allocate provisioned concurrency
+ * ```javascript
+ * // The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
+ * const input = {
+ *   "FunctionName": "my-function",
+ *   "ProvisionedConcurrentExecutions": 100,
+ *   "Qualifier": "BLUE"
+ * };
+ * const command = new PutProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AllocatedProvisionedConcurrentExecutions": 0,
+ *   "LastModified": "2019-11-21T19:32:12+0000",
+ *   "RequestedProvisionedConcurrentExecutions": 100,
+ *   "Status": "IN_PROGRESS"
+ * }
+ * *\/
+ * // example id: to-allocate-provisioned-concurrency-1586491651377
+ * ```
+ *
  */
 export class PutProvisionedConcurrencyConfigCommand extends $Command
   .classBuilder<

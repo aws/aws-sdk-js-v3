@@ -80,6 +80,23 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To configure a reserved concurrency limit for a function
+ * ```javascript
+ * // The following example configures 100 reserved concurrent executions for the my-function function.
+ * const input = {
+ *   "FunctionName": "my-function",
+ *   "ReservedConcurrentExecutions": 100
+ * };
+ * const command = new PutFunctionConcurrencyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReservedConcurrentExecutions": 100
+ * }
+ * *\/
+ * // example id: to-configure-a-reserved-concurrency-limit-for-a-function-1586491405956
+ * ```
+ *
  */
 export class PutFunctionConcurrencyCommand extends $Command
   .classBuilder<

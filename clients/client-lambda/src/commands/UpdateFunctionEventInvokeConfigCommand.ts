@@ -97,6 +97,36 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To update an asynchronous invocation configuration
+ * ```javascript
+ * // The following example adds an on-failure destination to the existing asynchronous invocation configuration for a function named my-function.
+ * const input = {
+ *   "DestinationConfig": {
+ *     "OnFailure": {
+ *       "Destination": "arn:aws:sqs:us-east-2:123456789012:destination"
+ *     }
+ *   },
+ *   "FunctionName": "my-function"
+ * };
+ * const command = new UpdateFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DestinationConfig": {
+ *     "OnFailure": {
+ *       "Destination": "arn:aws:sqs:us-east-2:123456789012:destination"
+ *     },
+ *     "OnSuccess": {}
+ *   },
+ *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
+ *   "LastModified": 1573687896.493,
+ *   "MaximumEventAgeInSeconds": 3600,
+ *   "MaximumRetryAttempts": 0
+ * }
+ * *\/
+ * // example id: to-update-an-asynchronous-invocation-configuration-1586492061186
+ * ```
+ *
  */
 export class UpdateFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

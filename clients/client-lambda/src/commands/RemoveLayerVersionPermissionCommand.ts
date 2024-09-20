@@ -87,6 +87,19 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To delete layer-version permissions
+ * ```javascript
+ * // The following example deletes permission for an account to configure a layer version.
+ * const input = {
+ *   "LayerName": "my-layer",
+ *   "StatementId": "xaccount",
+ *   "VersionNumber": 1
+ * };
+ * const command = new RemoveLayerVersionPermissionCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-layer-version-permissions-1586491829416
+ * ```
+ *
  */
 export class RemoveLayerVersionPermissionCommand extends $Command
   .classBuilder<

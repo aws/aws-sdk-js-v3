@@ -92,6 +92,35 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To view a list of asynchronous invocation configurations
+ * ```javascript
+ * // The following example returns a list of asynchronous invocation configurations for a function named my-function.
+ * const input = {
+ *   "FunctionName": "my-function"
+ * };
+ * const command = new ListFunctionEventInvokeConfigsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FunctionEventInvokeConfigs": [
+ *     {
+ *       "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:GREEN",
+ *       "LastModified": 1577824406.719,
+ *       "MaximumEventAgeInSeconds": 1800,
+ *       "MaximumRetryAttempts": 2
+ *     },
+ *     {
+ *       "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
+ *       "LastModified": 1577824396.653,
+ *       "MaximumEventAgeInSeconds": 3600,
+ *       "MaximumRetryAttempts": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-a-list-of-asynchronous-invocation-configurations-1586490355611
+ * ```
+ *
  */
 export class ListFunctionEventInvokeConfigsCommand extends $Command
   .classBuilder<

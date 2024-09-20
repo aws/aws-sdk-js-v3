@@ -71,6 +71,25 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To retrieve the list of tags for a Lambda function
+ * ```javascript
+ * // The following example displays the tags attached to the my-function Lambda function.
+ * const input = {
+ *   "Resource": "arn:aws:lambda:us-west-2:123456789012:function:my-function"
+ * };
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": {
+ *     "Category": "Web Tools",
+ *     "Department": "Sales"
+ *   }
+ * }
+ * *\/
+ * // example id: to-retrieve-the-list-of-tags-for-a-lambda-function-1586491111498
+ * ```
+ *
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

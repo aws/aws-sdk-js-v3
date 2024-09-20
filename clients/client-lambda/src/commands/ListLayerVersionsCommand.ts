@@ -90,6 +90,41 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To list versions of a layer
+ * ```javascript
+ * // The following example displays information about the versions for the layer named blank-java-lib
+ * const input = {
+ *   "LayerName": "blank-java-lib"
+ * };
+ * const command = new ListLayerVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LayerVersions": [
+ *     {
+ *       "CompatibleRuntimes": [
+ *         "java8"
+ *       ],
+ *       "CreatedDate": "2020-03-18T23:38:42.284+0000",
+ *       "Description": "Dependencies for the blank-java sample app.",
+ *       "LayerVersionArn": "arn:aws:lambda:us-east-2:123456789012:layer:blank-java-lib:7",
+ *       "Version": 7
+ *     },
+ *     {
+ *       "CompatibleRuntimes": [
+ *         "java8"
+ *       ],
+ *       "CreatedDate": "2020-03-17T07:24:21.960+0000",
+ *       "Description": "Dependencies for the blank-java sample app.",
+ *       "LayerVersionArn": "arn:aws:lambda:us-east-2:123456789012:layer:blank-java-lib:6",
+ *       "Version": 6
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-versions-of-a-layer-1586490857297
+ * ```
+ *
  */
 export class ListLayerVersionsCommand extends $Command
   .classBuilder<

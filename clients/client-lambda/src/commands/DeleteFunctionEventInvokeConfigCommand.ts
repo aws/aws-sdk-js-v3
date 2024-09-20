@@ -74,6 +74,18 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To delete an asynchronous invocation configuration
+ * ```javascript
+ * // The following example deletes the asynchronous invocation configuration for the GREEN alias of a function named my-function.
+ * const input = {
+ *   "FunctionName": "my-function",
+ *   "Qualifier": "GREEN"
+ * };
+ * const command = new DeleteFunctionEventInvokeConfigCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-asynchronous-invocation-configuration-1586481102187
+ * ```
+ *
  */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

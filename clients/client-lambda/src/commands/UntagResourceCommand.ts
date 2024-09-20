@@ -72,6 +72,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
+ * @example To remove tags from an existing Lambda function
+ * ```javascript
+ * // The following example removes the tag with the key name DEPARTMENT tag from the my-function Lambda function.
+ * const input = {
+ *   "Resource": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   "TagKeys": [
+ *     "DEPARTMENT"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-tags-from-an-existing-lambda-function-1586491956425
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<
