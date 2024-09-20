@@ -452,6 +452,12 @@ export interface S3ModelDataSource {
    * @public
    */
   HubAccessConfig?: InferenceHubAccessConfig;
+
+  /**
+   * <p>The Amazon S3 URI of the manifest file. The manifest file is a CSV file that stores the artifact locations.</p>
+   * @public
+   */
+  ManifestS3Uri?: string;
 }
 
 /**

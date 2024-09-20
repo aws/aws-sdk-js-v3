@@ -68,6 +68,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //                 HubAccessConfig: { // InferenceHubAccessConfig
  * //                   HubContentArn: "STRING_VALUE", // required
  * //                 },
+ * //                 ManifestS3Uri: "STRING_VALUE",
  * //               },
  * //             },
  * //             ProductId: "STRING_VALUE",

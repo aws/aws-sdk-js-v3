@@ -65,6 +65,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //         HubAccessConfig: { // InferenceHubAccessConfig
  * //           HubContentArn: "STRING_VALUE", // required
  * //         },
+ * //         ManifestS3Uri: "STRING_VALUE",
  * //       },
  * //     },
  * //     AdditionalModelDataSources: [ // AdditionalModelDataSources
@@ -80,6 +81,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //           HubAccessConfig: {
  * //             HubContentArn: "STRING_VALUE", // required
  * //           },
+ * //           ManifestS3Uri: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
@@ -115,6 +117,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //           HubAccessConfig: {
  * //             HubContentArn: "STRING_VALUE", // required
  * //           },
+ * //           ManifestS3Uri: "STRING_VALUE",
  * //         },
  * //       },
  * //       AdditionalModelDataSources: [

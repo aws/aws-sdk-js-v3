@@ -80,6 +80,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             HubAccessConfig: { // InferenceHubAccessConfig
  *               HubContentArn: "STRING_VALUE", // required
  *             },
+ *             ManifestS3Uri: "STRING_VALUE",
  *           },
  *         },
  *         ProductId: "STRING_VALUE",
@@ -165,6 +166,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             HubAccessConfig: {
  *               HubContentArn: "STRING_VALUE", // required
  *             },
+ *             ManifestS3Uri: "STRING_VALUE",
  *           },
  *         },
  *         AlgorithmName: "STRING_VALUE", // required
@@ -278,6 +280,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *               HubAccessConfig: {
  *                 HubContentArn: "STRING_VALUE", // required
  *               },
+ *               ManifestS3Uri: "STRING_VALUE",
  *             },
  *           },
  *           ProductId: "STRING_VALUE",

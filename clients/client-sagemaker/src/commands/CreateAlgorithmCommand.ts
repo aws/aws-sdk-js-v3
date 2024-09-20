@@ -122,6 +122,7 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *             HubAccessConfig: { // InferenceHubAccessConfig
  *               HubContentArn: "STRING_VALUE", // required
  *             },
+ *             ManifestS3Uri: "STRING_VALUE",
  *           },
  *         },
  *         ProductId: "STRING_VALUE",

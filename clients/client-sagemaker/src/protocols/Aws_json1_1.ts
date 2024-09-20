@@ -28120,6 +28120,7 @@ const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelData
   return take(output, {
     CompressionType: __expectString,
     HubAccessConfig: (_: any) => de_InferenceHubAccessConfig(_, context),
+    ManifestS3Uri: __expectString,
     ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     S3DataType: __expectString,
     S3Uri: __expectString,

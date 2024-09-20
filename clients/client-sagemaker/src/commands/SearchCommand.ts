@@ -1099,6 +1099,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   HubAccessConfig: { // InferenceHubAccessConfig
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
+ * //                   ManifestS3Uri: "STRING_VALUE",
  * //                 },
  * //               },
  * //               ProductId: "STRING_VALUE",
@@ -1146,6 +1147,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   HubAccessConfig: {
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
+ * //                   ManifestS3Uri: "STRING_VALUE",
  * //                 },
  * //               },
  * //               AlgorithmName: "STRING_VALUE", // required
@@ -1281,6 +1283,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     HubAccessConfig: {
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
+ * //                     ManifestS3Uri: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 ProductId: "STRING_VALUE",
@@ -1844,6 +1847,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   HubAccessConfig: {
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
+ * //                   ManifestS3Uri: "STRING_VALUE",
  * //                 },
  * //               },
  * //             ],
@@ -1880,6 +1884,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     HubAccessConfig: {
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
+ * //                     ManifestS3Uri: "STRING_VALUE",
  * //                   },
  * //                 },
  * //               ],

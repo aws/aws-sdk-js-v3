@@ -70,6 +70,7 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *               HubAccessConfig: { // InferenceHubAccessConfig
  *                 HubContentArn: "STRING_VALUE", // required
  *               },
+ *               ManifestS3Uri: "STRING_VALUE",
  *             },
  *           },
  *           ProductId: "STRING_VALUE",
@@ -121,6 +122,7 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *             HubAccessConfig: {
  *               HubContentArn: "STRING_VALUE", // required
  *             },
+ *             ManifestS3Uri: "STRING_VALUE",
  *           },
  *         },
  *         ProductId: "STRING_VALUE",

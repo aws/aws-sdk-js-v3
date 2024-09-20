@@ -75,6 +75,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *         HubAccessConfig: { // InferenceHubAccessConfig
  *           HubContentArn: "STRING_VALUE", // required
  *         },
+ *         ManifestS3Uri: "STRING_VALUE",
  *       },
  *     },
  *     AdditionalModelDataSources: [ // AdditionalModelDataSources
@@ -90,6 +91,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           HubAccessConfig: {
  *             HubContentArn: "STRING_VALUE", // required
  *           },
+ *           ManifestS3Uri: "STRING_VALUE",
  *         },
  *       },
  *     ],
@@ -125,6 +127,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           HubAccessConfig: {
  *             HubContentArn: "STRING_VALUE", // required
  *           },
+ *           ManifestS3Uri: "STRING_VALUE",
  *         },
  *       },
  *       AdditionalModelDataSources: [

@@ -77,6 +77,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //             HubAccessConfig: { // InferenceHubAccessConfig
  * //               HubContentArn: "STRING_VALUE", // required
  * //             },
+ * //             ManifestS3Uri: "STRING_VALUE",
  * //           },
  * //         },
  * //         ProductId: "STRING_VALUE",
@@ -124,6 +125,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //             HubAccessConfig: {
  * //               HubContentArn: "STRING_VALUE", // required
  * //             },
+ * //             ManifestS3Uri: "STRING_VALUE",
  * //           },
  * //         },
  * //         AlgorithmName: "STRING_VALUE", // required
@@ -307,6 +309,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //               HubAccessConfig: {
  * //                 HubContentArn: "STRING_VALUE", // required
  * //               },
+ * //               ManifestS3Uri: "STRING_VALUE",
  * //             },
  * //           },
  * //           ProductId: "STRING_VALUE",
