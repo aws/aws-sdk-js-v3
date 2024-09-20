@@ -5167,6 +5167,7 @@ export interface DescribeWorkspaceImagesRequest {
 export const WorkspaceImageErrorDetailCode = {
   ADDITIONAL_DRIVES_ATTACHED: "AdditionalDrivesAttached",
   ANTI_VIRUS_INSTALLED: "AntiVirusInstalled",
+  APPX_PACKAGES_INSTALLED: "AppXPackagesInstalled",
   AUTO_LOGON_ENABLED: "AutoLogonEnabled",
   AUTO_MOUNT_DISABLED: "AutoMountDisabled",
   AZURE_DOMAIN_JOINED: "AzureDomainJoined",
@@ -5184,8 +5185,10 @@ export const WorkspaceImageErrorDetailCode = {
   PCOIP_AGENT_INSTALLED: "PCoIPAgentInstalled",
   PENDING_REBOOT: "PendingReboot",
   REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
+  RESERVED_STORAGE_IN_USE: "ReservedStorageInUse",
   SIXTY_FOUR_BIT_OS: "Requires64BitOS",
   UEFI_NOT_SUPPORTED: "UEFINotSupported",
+  UNKNOWN_ERROR: "UnknownError",
   VMWARE_TOOLS_INSTALLED: "VMWareToolsInstalled",
   WINDOWS_UPDATES_ENABLED: "WindowsUpdatesEnabled",
   WORKSPACES_BYOL_ACCOUNT_DISABLED: "WorkspacesBYOLAccountDisabled",

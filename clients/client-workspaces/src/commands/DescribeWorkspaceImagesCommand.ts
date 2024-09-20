@@ -67,7 +67,7 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * //       },
  * //       ErrorDetails: [ // ErrorDetailsList
  * //         { // ErrorDetails
- * //           ErrorCode: "OutdatedPowershellVersion" || "OfficeInstalled" || "PCoIPAgentInstalled" || "WindowsUpdatesEnabled" || "AutoMountDisabled" || "WorkspacesBYOLAccountNotFound" || "WorkspacesBYOLAccountDisabled" || "DHCPDisabled" || "DiskFreeSpace" || "AdditionalDrivesAttached" || "OSNotSupported" || "DomainJoined" || "AzureDomainJoined" || "FirewallEnabled" || "VMWareToolsInstalled" || "DiskSizeExceeded" || "IncompatiblePartitioning" || "PendingReboot" || "AutoLogonEnabled" || "RealTimeUniversalDisabled" || "MultipleBootPartition" || "Requires64BitOS" || "ZeroRearmCount" || "InPlaceUpgrade" || "AntiVirusInstalled" || "UEFINotSupported",
+ * //           ErrorCode: "OutdatedPowershellVersion" || "OfficeInstalled" || "PCoIPAgentInstalled" || "WindowsUpdatesEnabled" || "AutoMountDisabled" || "WorkspacesBYOLAccountNotFound" || "WorkspacesBYOLAccountDisabled" || "DHCPDisabled" || "DiskFreeSpace" || "AdditionalDrivesAttached" || "OSNotSupported" || "DomainJoined" || "AzureDomainJoined" || "FirewallEnabled" || "VMWareToolsInstalled" || "DiskSizeExceeded" || "IncompatiblePartitioning" || "PendingReboot" || "AutoLogonEnabled" || "RealTimeUniversalDisabled" || "MultipleBootPartition" || "Requires64BitOS" || "ZeroRearmCount" || "InPlaceUpgrade" || "AntiVirusInstalled" || "UEFINotSupported" || "UnknownError" || "AppXPackagesInstalled" || "ReservedStorageInUse",
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
  * //       ],
