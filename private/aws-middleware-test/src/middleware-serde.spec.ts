@@ -27,7 +27,7 @@ describe("middleware-serde", () => {
           "x-amz-acl": "private",
           "content-length": "509",
           Expect: "100-continue",
-          "x-amz-checksum-crc32": "XnKFaw==",
+          "x-amz-checksum-sha256": "wKiXgOGqxd+hdgTp4lYW57q7oLZV2xib5JtMNSVDuyI=",
           host: "s3.us-west-2.amazonaws.com",
           "x-amz-content-sha256": "c0a89780e1aac5dfa17604e9e25616e7babba0b655db189be49b4c352543bb22",
         },
