@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.656.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.655.0...v3.656.0) (2024-09-20)
+
+
+### Features
+
+* **client-dynamodb:** Generate account endpoint for DynamoDB requests when the account ID is available ([a39132c](https://github.com/aws/aws-sdk-js-v3/commit/a39132cfda8e42c53226c3936a4a8b84a60fb44e))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

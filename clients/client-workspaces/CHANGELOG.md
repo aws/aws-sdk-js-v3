@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.656.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.655.0...v3.656.0) (2024-09-20)
+
+
+### Features
+
+* **client-workspaces:** Releasing new ErrorCodes for SysPrep failures during ImageImport and CreateImage process ([ae91f03](https://github.com/aws/aws-sdk-js-v3/commit/ae91f03a26ec167a44ee0a419d2e13494273b2ca))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

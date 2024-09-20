@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.656.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.655.0...v3.656.0) (2024-09-20)
+
+
+### Features
+
+* **client-sagemaker-metrics:** This release introduces support for the SageMaker Metrics BatchGetMetrics API. ([5b6c0db](https://github.com/aws/aws-sdk-js-v3/commit/5b6c0db870e79fd1b282b79d5b6a7e3510d9a320))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-metrics

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.656.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.655.0...v3.656.0) (2024-09-20)
+
+
+### Features
+
+* **client-dynamodb:** Generate account endpoint for DynamoDB requests when the account ID is available ([a39132c](https://github.com/aws/aws-sdk-js-v3/commit/a39132cfda8e42c53226c3936a4a8b84a60fb44e))
+* **client-neptune:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([cdacf56](https://github.com/aws/aws-sdk-js-v3/commit/cdacf5669fa74265dc0a849d75ff247d876c5220))
+* **client-sagemaker-metrics:** This release introduces support for the SageMaker Metrics BatchGetMetrics API. ([5b6c0db](https://github.com/aws/aws-sdk-js-v3/commit/5b6c0db870e79fd1b282b79d5b6a7e3510d9a320))
+* **client-sagemaker:** Amazon SageMaker now supports using manifest files to specify the location of uncompressed model artifacts within Model Packages ([12cef30](https://github.com/aws/aws-sdk-js-v3/commit/12cef30d735cee55fb5f9204e09f4f4f38c53c46))
+* **client-workspaces:** Releasing new ErrorCodes for SysPrep failures during ImageImport and CreateImage process ([ae91f03](https://github.com/aws/aws-sdk-js-v3/commit/ae91f03a26ec167a44ee0a419d2e13494273b2ca))
+* **clients:** update command documentation examples as of 2024-09-20 ([ab843b8](https://github.com/aws/aws-sdk-js-v3/commit/ab843b8d6e9e96e5a5da7bc6e7253b580d05e3c6))
+
+
+
+
+
 # [3.655.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.654.0...v3.655.0) (2024-09-19)
 
 
