@@ -3,6 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import { NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS } from "@aws-sdk/core/account-id-endpoint";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "@aws-sdk/middleware-endpoint-discovery";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -38,6 +39,8 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
+    accountIdEndpointMode:
+      config?.accountIdEndpointMode ?? loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:

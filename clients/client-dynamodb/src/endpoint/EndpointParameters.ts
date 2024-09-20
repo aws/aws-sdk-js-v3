@@ -9,6 +9,8 @@ export interface ClientInputEndpointParameters {
   useDualstackEndpoint?: boolean | Provider<boolean>;
   useFipsEndpoint?: boolean | Provider<boolean>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  accountId?: string | Provider<string>;
+  accountIdEndpointMode?: string | Provider<string>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
@@ -28,9 +30,11 @@ export const resolveClientEndpointParameters = <T>(
 
 export const commonParams = {
   UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+  AccountId: { type: "builtInParams", name: "accountId" },
   Endpoint: { type: "builtInParams", name: "endpoint" },
   Region: { type: "builtInParams", name: "region" },
   UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+  AccountIdEndpointMode: { type: "builtInParams", name: "accountIdEndpointMode" },
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
@@ -38,4 +42,6 @@ export interface EndpointParameters extends __EndpointParameters {
   UseDualStack?: boolean;
   UseFIPS?: boolean;
   Endpoint?: string;
+  AccountId?: string;
+  AccountIdEndpointMode?: string;
 }

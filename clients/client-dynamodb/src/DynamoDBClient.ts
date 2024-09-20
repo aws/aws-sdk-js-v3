@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
 import {
   EndpointDiscoveryInputConfig,
   EndpointDiscoveryResolvedConfig,
@@ -401,6 +402,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
+
+  /**
+   * Defines if the AWS AccountId will be used for endpoint routing.
+   */
+  accountIdEndpointMode?: AccountIdEndpointMode | __Provider<AccountIdEndpointMode>;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
