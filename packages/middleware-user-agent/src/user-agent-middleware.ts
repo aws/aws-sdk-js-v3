@@ -1,3 +1,4 @@
+import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
@@ -22,6 +23,7 @@ import {
   USER_AGENT,
   X_AMZ_USER_AGENT,
 } from "./constants";
+import { encodeFeatures } from "./encode-features";
 
 /**
  * Build user agent header sections from:
@@ -39,14 +41,22 @@ export const userAgentMiddleware =
   (options: UserAgentResolvedConfig) =>
   <Output extends MetadataBearer>(
     next: BuildHandler<any, any>,
-    context: HandlerExecutionContext
+    context: HandlerExecutionContext | AwsHandlerExecutionContext
   ): BuildHandler<any, any> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (!HttpRequest.isInstance(request)) return next(args);
+    if (!HttpRequest.isInstance(request)) {
+      return next(args);
+    }
     const { headers } = request;
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
-    let defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+    const awsContext = context as AwsHandlerExecutionContext;
+    defaultUserAgent.push(
+      `m/${encodeFeatures(
+        Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features)
+      )}`
+    );
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
     const appId = await options.userAgentAppId();
     if (appId) {

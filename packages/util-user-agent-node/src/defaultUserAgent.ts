@@ -26,7 +26,7 @@ export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: Def
       // sdk-metadata
       ["aws-sdk-js", clientVersion],
       // ua-metadata
-      ["ua", "2.0"],
+      ["ua", "2.1"],
       // os-metadata
       [`os/${platform()}`, release()],
       // language-metadata

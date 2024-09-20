@@ -39,7 +39,7 @@ describe("createDefaultUserAgentProvider", () => {
 
   const basicUserAgent: UserAgent = [
     ["aws-sdk-js", "0.1.0"],
-    ["ua", "2.0"],
+    ["ua", "2.1"],
     ["api/s3", "0.1.0"],
     ["os/darwin", "19.6.0"],
     ["lang/js"],
