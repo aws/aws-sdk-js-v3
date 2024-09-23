@@ -83,6 +83,7 @@ import {
   ResourceUtilization,
   RetryPolicy,
   S3MonitoringConfiguration,
+  SchedulerConfiguration,
   ServiceQuotaExceededException,
   SparkSubmit,
   TotalResourceUtilization,
@@ -136,6 +137,7 @@ export const se_CreateApplicationCommand = async (
       networkConfiguration: (_) => _json(_),
       releaseLabel: [],
       runtimeConfiguration: (_) => se_ConfigurationList(_, context),
+      schedulerConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
       type: [],
       workerTypeSpecifications: (_) => _json(_),
@@ -434,6 +436,7 @@ export const se_UpdateApplicationCommand = async (
       networkConfiguration: (_) => _json(_),
       releaseLabel: [],
       runtimeConfiguration: (_) => se_ConfigurationList(_, context),
+      schedulerConfiguration: (_) => _json(_),
       workerTypeSpecifications: (_) => _json(_),
     })
   );
@@ -965,6 +968,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_S3MonitoringConfiguration omitted.
 
+// se_SchedulerConfiguration omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_SensitivePropertiesMap omitted.
@@ -1001,6 +1006,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     networkConfiguration: _json,
     releaseLabel: __expectString,
     runtimeConfiguration: (_: any) => de_ConfigurationList(_, context),
+    schedulerConfiguration: _json,
     state: __expectString,
     stateDetails: __expectString,
     tags: _json,
@@ -1107,6 +1113,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
+    endedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     executionRole: __expectString,
     executionTimeoutMinutes: __expectLong,
     jobDriver: (_: any) => _json(__expectUnion(_)),
@@ -1114,8 +1121,10 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     mode: __expectString,
     name: __expectString,
     networkConfiguration: _json,
+    queuedDurationMilliseconds: __expectLong,
     releaseLabel: __expectString,
     retryPolicy: _json,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     state: __expectString,
     stateDetails: __expectString,
     tags: _json,
@@ -1224,6 +1233,8 @@ const de_ResourceUtilization = (output: any, context: __SerdeContext): ResourceU
 // de_RetryPolicy omitted.
 
 // de_S3MonitoringConfiguration omitted.
+
+// de_SchedulerConfiguration omitted.
 
 // de_SecurityGroupIds omitted.
 

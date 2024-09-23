@@ -132,6 +132,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
  *   },
+ *   schedulerConfiguration: { // SchedulerConfiguration
+ *     queueTimeoutMinutes: Number("int"),
+ *     maxConcurrentRuns: Number("int"),
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -237,6 +241,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     interactiveConfiguration: { // InteractiveConfiguration
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
+ * //     },
+ * //     schedulerConfiguration: { // SchedulerConfiguration
+ * //       queueTimeoutMinutes: Number("int"),
+ * //       maxConcurrentRuns: Number("int"),
  * //     },
  * //   },
  * // };

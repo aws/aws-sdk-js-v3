@@ -143,6 +143,9 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //     attempt: Number("int"),
  * //     attemptCreatedAt: new Date("TIMESTAMP"),
  * //     attemptUpdatedAt: new Date("TIMESTAMP"),
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     endedAt: new Date("TIMESTAMP"),
+ * //     queuedDurationMilliseconds: Number("long"),
  * //   },
  * // };
  *

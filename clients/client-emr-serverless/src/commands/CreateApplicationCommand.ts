@@ -134,6 +134,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     studioEnabled: true || false,
  *     livyEndpointEnabled: true || false,
  *   },
+ *   schedulerConfiguration: { // SchedulerConfiguration
+ *     queueTimeoutMinutes: Number("int"),
+ *     maxConcurrentRuns: Number("int"),
+ *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

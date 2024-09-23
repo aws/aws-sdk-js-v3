@@ -147,6 +147,10 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
  * //     },
+ * //     schedulerConfiguration: { // SchedulerConfiguration
+ * //       queueTimeoutMinutes: Number("int"),
+ * //       maxConcurrentRuns: Number("int"),
+ * //     },
  * //   },
  * // };
  *

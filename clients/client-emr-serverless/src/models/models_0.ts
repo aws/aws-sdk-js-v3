@@ -139,8 +139,7 @@ export interface InteractiveConfiguration {
 }
 
 /**
- * <p>The maximum allowed cumulative resources for an application. No new resources will be
- *          created once the limit is hit.</p>
+ * <p>The maximum allowed cumulative resources for an application. No new resources will be created once the limit is hit.</p>
  * @public
  */
 export interface MaximumAllowedResources {
@@ -318,6 +317,24 @@ export interface NetworkConfiguration {
    * @public
    */
   securityGroupIds?: string[];
+}
+
+/**
+ * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
+ * @public
+ */
+export interface SchedulerConfiguration {
+  /**
+   * <p>The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.</p>
+   * @public
+   */
+  queueTimeoutMinutes?: number;
+
+  /**
+   * <p>The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.</p>
+   * @public
+   */
+  maxConcurrentRuns?: number;
 }
 
 /**
@@ -930,6 +947,7 @@ export const JobRunState = {
   CANCELLING: "CANCELLING",
   FAILED: "FAILED",
   PENDING: "PENDING",
+  QUEUED: "QUEUED",
   RUNNING: "RUNNING",
   SCHEDULED: "SCHEDULED",
   SUBMITTED: "SUBMITTED",
@@ -1540,6 +1558,12 @@ export interface Application {
    * @public
    */
   interactiveConfiguration?: InteractiveConfiguration;
+
+  /**
+   * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration;
 }
 
 /**
@@ -1674,6 +1698,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   interactiveConfiguration?: InteractiveConfiguration;
+
+  /**
+   * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration;
 }
 
 /**
@@ -1779,6 +1809,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration;
+
+  /**
+   * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration;
 }
 
 /**
@@ -1950,6 +1986,24 @@ export interface JobRun {
    * @public
    */
   attemptUpdatedAt?: Date;
+
+  /**
+   * <p>The date and time when the job moved to the RUNNING state.</p>
+   * @public
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The date and time when the job was terminated.</p>
+   * @public
+   */
+  endedAt?: Date;
+
+  /**
+   * <p>The total time for a job in the QUEUED state in milliseconds.</p>
+   * @public
+   */
+  queuedDurationMilliseconds?: number;
 }
 
 /**
