@@ -1150,16 +1150,13 @@ export interface ListIndexesForMembersOutput {
 /**
  * @public
  */
-export interface ListSupportedResourceTypesInput {
+export interface ListResourcesInput {
   /**
-   * <p>The parameter for receiving additional results if you receive a
-   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   *     indicates that more output is available. Set this parameter to the value of the previous
-   *     call's <code>NextToken</code> response to indicate where the output should continue
-   *     from. The pagination tokens expire after 24 hours.</p>
+   * <p>A search filter defines which resources can be part of a search query result
+   *             set.</p>
    * @public
    */
-  NextToken?: string;
+  Filters?: SearchFilter;
 
   /**
    * <p>The maximum number of results that you want included on each page of the
@@ -1176,69 +1173,26 @@ export interface ListSupportedResourceTypesInput {
    * @public
    */
   MaxResults?: number;
-}
 
-/**
- * <p>A structure that describes a resource type supported by Amazon Web Services Resource Explorer.</p>
- * @public
- */
-export interface SupportedResourceType {
   /**
-   * <p>The Amazon Web Service that is associated with the resource type. This is the primary
-   *             service that lets you create and interact with resources of this type.</p>
+   * <p>Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't
+   *             specify a value for this parameter, then the operation automatically uses the default view
+   *             for the Amazon Web Services Region in which you called this operation. If the Region either doesn't have
+   *             a default view or if you don't have permission to use the default view, then the operation
+   *             fails with a 401 Unauthorized exception.</p>
    * @public
    */
-  Service?: string;
+  ViewArn?: string;
 
   /**
-   * <p>The unique identifier of the resource type.</p>
-   * @public
-   */
-  ResourceType?: string;
-}
-
-/**
- * @public
- */
-export interface ListSupportedResourceTypesOutput {
-  /**
-   * <p>The list of resource types supported by Resource Explorer.</p>
-   * @public
-   */
-  ResourceTypes?: SupportedResourceType[];
-
-  /**
-   * <p>If present, indicates that more output is available than is
-   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
-   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
-   *     The pagination tokens expire after 24 hours.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from. The pagination tokens expire after 24 hours.</p>
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceInput {
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceOutput {
-  /**
-   * <p>The tag key and value pairs that you want to attach to the specified view or
-   *             index.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
 }
 
 /**
@@ -1298,7 +1252,7 @@ export interface Resource {
   ResourceType?: string;
 
   /**
-   * <p>The Amazon Web Service that owns the resource and is responsible for creating and updating
+   * <p>The Amazon Web Servicesservice that owns the resource and is responsible for creating and updating
    *             it.</p>
    * @public
    */
@@ -1317,6 +1271,127 @@ export interface Resource {
    * @public
    */
   Properties?: ResourceProperty[];
+}
+
+/**
+ * @public
+ */
+export interface ListResourcesOutput {
+  /**
+   * <p>The list of structures that describe the resources that match the query. </p>
+   * @public
+   */
+  Resources?: Resource[];
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the view that this operation used to perform the search. </p>
+   * @public
+   */
+  ViewArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSupportedResourceTypesInput {
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from. The pagination tokens expire after 24 hours.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value appropriate to the
+   *     operation. If additional items exist beyond those included in the current response, the
+   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
+   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
+   *     the next part of the results.</p>
+   *          <note>
+   *             <p>An API operation can return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
+   *          </note>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>A structure that describes a resource type supported by Amazon Web Services Resource Explorer.</p>
+ * @public
+ */
+export interface SupportedResourceType {
+  /**
+   * <p>The Amazon Web Servicesservice that is associated with the resource type. This is the primary
+   *             service that lets you create and interact with resources of this type.</p>
+   * @public
+   */
+  Service?: string;
+
+  /**
+   * <p>The unique identifier of the resource type.</p>
+   * @public
+   */
+  ResourceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSupportedResourceTypesOutput {
+  /**
+   * <p>The list of resource types supported by Resource Explorer.</p>
+   * @public
+   */
+  ResourceTypes?: SupportedResourceType[];
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.
+   *     The pagination tokens expire after 24 hours.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>The tag key and value pairs that you want to attach to the specified view or
+   *             index.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -1572,6 +1647,14 @@ export const UpdateViewOutputFilterSensitiveLog = (obj: UpdateViewOutput): any =
 export const GetIndexOutputFilterSensitiveLog = (obj: GetIndexOutput): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesInputFilterSensitiveLog = (obj: ListResourcesInput): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: SENSITIVE_STRING }),
 });
 
 /**

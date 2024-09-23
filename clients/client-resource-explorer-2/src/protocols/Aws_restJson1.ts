@@ -49,6 +49,7 @@ import {
   ListIndexesForMembersCommandInput,
   ListIndexesForMembersCommandOutput,
 } from "../commands/ListIndexesForMembersCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -343,6 +344,31 @@ export const se_ListIndexesForMembersCommand = async (
       AccountIdList: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListResourcesCommand
+ */
+export const se_ListResourcesCommand = async (
+  input: ListResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListResources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      ViewArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -804,6 +830,29 @@ export const de_ListIndexesForMembersCommand = async (
   const doc = take(data, {
     Indexes: _json,
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListResourcesCommand
+ */
+export const de_ListResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Resources: (_) => de_ResourceList(_, context),
+    ViewArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

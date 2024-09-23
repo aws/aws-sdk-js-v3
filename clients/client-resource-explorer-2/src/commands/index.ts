@@ -12,6 +12,7 @@ export * from "./GetIndexCommand";
 export * from "./GetViewCommand";
 export * from "./ListIndexesCommand";
 export * from "./ListIndexesForMembersCommand";
+export * from "./ListResourcesCommand";
 export * from "./ListSupportedResourceTypesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListViewsCommand";

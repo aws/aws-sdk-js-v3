@@ -78,6 +78,7 @@ import {
   ListIndexesForMembersCommandInput,
   ListIndexesForMembersCommandOutput,
 } from "./commands/ListIndexesForMembersCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -120,6 +121,7 @@ export type ServiceInputTypes =
   | GetViewCommandInput
   | ListIndexesCommandInput
   | ListIndexesForMembersCommandInput
+  | ListResourcesCommandInput
   | ListSupportedResourceTypesCommandInput
   | ListTagsForResourceCommandInput
   | ListViewsCommandInput
@@ -146,6 +148,7 @@ export type ServiceOutputTypes =
   | GetViewCommandOutput
   | ListIndexesCommandOutput
   | ListIndexesForMembersCommandOutput
+  | ListResourcesCommandOutput
   | ListSupportedResourceTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListViewsCommandOutput

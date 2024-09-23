@@ -40,6 +40,11 @@ import {
   ListIndexesForMembersCommandOutput,
 } from "./commands/ListIndexesForMembersCommand";
 import {
+  ListResourcesCommand,
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput,
+} from "./commands/ListResourcesCommand";
+import {
   ListSupportedResourceTypesCommand,
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -79,6 +84,7 @@ const commands = {
   GetViewCommand,
   ListIndexesCommand,
   ListIndexesForMembersCommand,
+  ListResourcesCommand,
   ListSupportedResourceTypesCommand,
   ListTagsForResourceCommand,
   ListViewsCommand,
@@ -265,6 +271,18 @@ export interface ResourceExplorer2 {
     args: ListIndexesForMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIndexesForMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   */
+  listResources(): Promise<ListResourcesCommandOutput>;
+  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
+  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
   ): void;
 
   /**

@@ -39,8 +39,7 @@ export interface GetAccountLevelServiceConfigurationCommandOutput
 /**
  * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service
  *             linked role required to access the multi-account search feature. Only the management
- *             account or a delegated administrator with service access enabled can invoke this API
- *             call. </p>
+ *             account can invoke this API call. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
