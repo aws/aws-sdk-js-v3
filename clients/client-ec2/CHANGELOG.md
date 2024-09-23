@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 G6e instances powered by NVIDIA L40S Tensor Core GPUs are the most cost-efficient GPU instances for deploying generative AI models and the highest performance GPU instances for spatial computing workloads. ([a99738f](https://github.com/aws/aws-sdk-js-v3/commit/a99738f66b48e16c5df6e2f7cf56285ba37ef1c7))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
+
+
+### Features
+
+* **client-resource-explorer-2:** AWS Resource Explorer released ListResources feature which allows customers to list all indexed AWS resources within a view. ([093a53f](https://github.com/aws/aws-sdk-js-v3/commit/093a53f15676ec38b52c2a8b35082aff8619fa8f))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2

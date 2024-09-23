@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
+
+
+### Features
+
+* **client-glue:** Added AthenaProperties parameter to Glue Connections, allowing Athena to store service specific properties on Glue Connections. ([a8db47f](https://github.com/aws/aws-sdk-js-v3/commit/a8db47fcda3007ab20838f8772b22effa04e8bdd))
+
+
+
+
+
 # [3.655.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.654.0...v3.655.0) (2024-09-19)
 
 

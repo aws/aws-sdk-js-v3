@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
+
+
+### Features
+
+* **client-bedrock-agent:** Amazon Bedrock Prompt Flows and Prompt Management now supports using inference profiles to increase throughput and improve resilience. ([3db793d](https://github.com/aws/aws-sdk-js-v3/commit/3db793d15e22c8b8d6c73dd6ffd5a4502f2b511f))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

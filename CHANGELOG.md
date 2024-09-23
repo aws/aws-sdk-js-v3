@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
+
+
+### Features
+
+* **client-athena:** List/Get/Update/Delete/CreateDataCatalog now integrate with AWS Glue connections. Users can create a Glue connection through Athena or use a Glue connection to define their Athena federated parameters. ([51c977f](https://github.com/aws/aws-sdk-js-v3/commit/51c977f9f1a1b2bb705b5a39cd83e6d214a9bef4))
+* **client-bedrock-agent:** Amazon Bedrock Prompt Flows and Prompt Management now supports using inference profiles to increase throughput and improve resilience. ([3db793d](https://github.com/aws/aws-sdk-js-v3/commit/3db793d15e22c8b8d6c73dd6ffd5a4502f2b511f))
+* **client-ec2:** Amazon EC2 G6e instances powered by NVIDIA L40S Tensor Core GPUs are the most cost-efficient GPU instances for deploying generative AI models and the highest performance GPU instances for spatial computing workloads. ([a99738f](https://github.com/aws/aws-sdk-js-v3/commit/a99738f66b48e16c5df6e2f7cf56285ba37ef1c7))
+* **client-emr-serverless:** This release adds support for job concurrency and queuing configuration at Application level. ([f6a2631](https://github.com/aws/aws-sdk-js-v3/commit/f6a2631cb4db38f48575917a18ec993f1fb6b2b8))
+* **client-glue:** Added AthenaProperties parameter to Glue Connections, allowing Athena to store service specific properties on Glue Connections. ([a8db47f](https://github.com/aws/aws-sdk-js-v3/commit/a8db47fcda3007ab20838f8772b22effa04e8bdd))
+* **client-rds:** Support ComputeRedundancy parameter in ModifyDBShardGroup API. Add DBShardGroupArn in DBShardGroup API response. Remove InvalidMaxAcuFault from CreateDBShardGroup and ModifyDBShardGroup API. Both API will throw InvalidParameterValueException for invalid ACU configuration. ([f69b00e](https://github.com/aws/aws-sdk-js-v3/commit/f69b00edab12702846a50e656a509fa0b0713202))
+* **client-resource-explorer-2:** AWS Resource Explorer released ListResources feature which allows customers to list all indexed AWS resources within a view. ([093a53f](https://github.com/aws/aws-sdk-js-v3/commit/093a53f15676ec38b52c2a8b35082aff8619fa8f))
+
+
+
+
+
 # [3.656.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.655.0...v3.656.0) (2024-09-20)
 
 
