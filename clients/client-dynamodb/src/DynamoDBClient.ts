@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
+import { AccountIdEndpointMode } from "@aws-sdk/core";
 import {
   EndpointDiscoveryInputConfig,
   EndpointDiscoveryResolvedConfig,
