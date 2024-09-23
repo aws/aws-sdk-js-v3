@@ -1244,7 +1244,7 @@ export interface DomainName {
   certificateArn?: string;
 
   /**
-   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
+   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded. API Gateway doesn't change this value if you update the certificate.</p>
    * @public
    */
   certificateUploadDate?: Date;
