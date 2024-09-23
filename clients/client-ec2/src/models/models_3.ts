@@ -3024,13 +3024,13 @@ export interface DescribeCapacityBlockOfferingsRequest {
    * <p>The type of instance for which the Capacity Block offering reserves capacity.</p>
    * @public
    */
-  InstanceType: string | undefined;
+  InstanceType?: string;
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
    * @public
    */
-  InstanceCount: number | undefined;
+  InstanceCount?: number;
 
   /**
    * <p>The earliest start date for the Capacity Block offering.</p>

@@ -698,7 +698,7 @@ export interface DescribeImportSnapshotTasksRequest {
  */
 export interface SnapshotTaskDetail {
   /**
-   * <p>The description of the snapshot.</p>
+   * <p>The description of the disk image being imported.</p>
    * @public
    */
   Description?: string;

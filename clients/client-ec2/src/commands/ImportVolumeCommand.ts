@@ -33,13 +33,14 @@ export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
 export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
- * <p>Creates an import volume task using metadata from the specified disk image.</p>
- *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
+ * <note>
+ *             <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
  *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
  *    <a>ImportSnapshot</a> instead.</p>
- *          <p>This API action is not supported by the Command Line Interface (CLI). For
- *    information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing Disks to Amazon EBS</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
+ *          </note>
+ *          <p>Creates an import volume task using metadata from the specified disk image.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ *          <p>This API action is not supported by the Command Line Interface (CLI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

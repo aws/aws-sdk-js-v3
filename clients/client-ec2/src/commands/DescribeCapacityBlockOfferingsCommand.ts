@@ -42,8 +42,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * const client = new EC2Client(config);
  * const input = { // DescribeCapacityBlockOfferingsRequest
  *   DryRun: true || false,
- *   InstanceType: "STRING_VALUE", // required
- *   InstanceCount: Number("int"), // required
+ *   InstanceType: "STRING_VALUE",
+ *   InstanceCount: Number("int"),
  *   StartDateRange: new Date("TIMESTAMP"),
  *   EndDateRange: new Date("TIMESTAMP"),
  *   CapacityDurationHours: Number("int"), // required
