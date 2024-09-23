@@ -50,6 +50,7 @@ export interface DeleteDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,
  * //   Endpoint: "STRING_VALUE",
+ * //   DBShardGroupArn: "STRING_VALUE",
  * // };
  *
  * ```

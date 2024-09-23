@@ -53,6 +53,7 @@ export interface RebootDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,
  * //   Endpoint: "STRING_VALUE",
+ * //   DBShardGroupArn: "STRING_VALUE",
  * // };
  *
  * ```

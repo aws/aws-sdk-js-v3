@@ -720,6 +720,7 @@ import {
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
+  DeleteTenantDatabaseResult,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -765,7 +766,6 @@ import {
   InvalidExportTaskStateFault,
   InvalidGlobalClusterStateFault,
   InvalidIntegrationStateFault,
-  InvalidMaxAcuFault,
   InvalidOptionGroupStateFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
@@ -867,7 +867,6 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
-  DeleteTenantDatabaseResult,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
@@ -7332,9 +7331,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DBShardGroupAlreadyExists":
     case "com.amazonaws.rds#DBShardGroupAlreadyExistsFault":
       throw await de_DBShardGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidMaxAcu":
-    case "com.amazonaws.rds#InvalidMaxAcuFault":
-      throw await de_InvalidMaxAcuFaultRes(parsedOutput, context);
     case "MaxDBShardGroupLimitReached":
     case "com.amazonaws.rds#MaxDBShardGroupLimitReached":
       throw await de_MaxDBShardGroupLimitReachedRes(parsedOutput, context);
@@ -9221,19 +9217,6 @@ const de_InvalidIntegrationStateFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidIntegrationStateFault(body.Error, context);
   const exception = new InvalidIntegrationStateFault({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_queryInvalidMaxAcuFaultRes
- */
-const de_InvalidMaxAcuFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidMaxAcuFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = de_InvalidMaxAcuFault(body.Error, context);
-  const exception = new InvalidMaxAcuFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -14176,6 +14159,9 @@ const se_ModifyDBShardGroupMessage = (input: ModifyDBShardGroupMessage, context:
   }
   if (input[_MACUi] != null) {
     entries[_MACUi] = __serializeFloat(input[_MACUi]);
+  }
+  if (input[_CR] != null) {
+    entries[_CR] = input[_CR];
   }
   return entries;
 };
@@ -19786,6 +19772,9 @@ const de_DBShardGroup = (output: any, context: __SerdeContext): DBShardGroup => 
   if (output[_End] != null) {
     contents[_End] = __expectString(output[_End]);
   }
+  if (output[_DBSGAh] != null) {
+    contents[_DBSGAh] = __expectString(output[_DBSGAh]);
+  }
   return contents;
 };
 
@@ -21912,17 +21901,6 @@ const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext)
  * deserializeAws_queryInvalidIntegrationStateFault
  */
 const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): InvalidIntegrationStateFault => {
-  const contents: any = {};
-  if (output[_m] != null) {
-    contents[_m] = __expectString(output[_m]);
-  }
-  return contents;
-};
-
-/**
- * deserializeAws_queryInvalidMaxAcuFault
- */
-const de_InvalidMaxAcuFault = (output: any, context: __SerdeContext): InvalidMaxAcuFault => {
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
@@ -25164,6 +25142,7 @@ const _DBSAn = "DBSnapshotAttributes";
 const _DBSAna = "DBSnapshotAttribute";
 const _DBSG = "DBSecurityGroups";
 const _DBSGA = "DBSecurityGroupArn";
+const _DBSGAh = "DBShardGroupArn";
 const _DBSGAu = "DBSubnetGroupArn";
 const _DBSGD = "DBSecurityGroupDescription";
 const _DBSGDu = "DBSubnetGroupDescription";

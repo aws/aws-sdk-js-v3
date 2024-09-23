@@ -9936,12 +9936,20 @@ export interface CreateDBInstanceReadReplicaMessage {
   OptionGroupName?: string;
 
   /**
-   * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *          <p>If you don't specify a value for <code>DBParameterGroupName</code>, then Amazon RDS
-   *             uses the <code>DBParameterGroup</code> of the source DB instance for a same Region read
+   * <p>The name of the DB parameter group to associate with this read replica DB
+   *             instance.</p>
+   *          <p>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify a
+   *             value for <code>DBParameterGroupName</code>, then Amazon RDS uses the
+   *                 <code>DBParameterGroup</code> of the source DB instance for a same Region read
    *             replica, or the default <code>DBParameterGroup</code> for the specified DB engine for a
    *             cross-Region read replica.</p>
-   *          <p>Specifying a parameter group for this operation is only supported for MySQL DB instances for cross-Region read replicas and for Oracle DB instances. It isn't supported for MySQL DB instances for same Region read replicas or for RDS Custom.</p>
+   *          <p>For Multi-AZ DB cluster same Region read replica instances, if you don't specify a
+   *             value for <code>DBParameterGroupName</code>, then Amazon RDS uses the default
+   *                 <code>DBParameterGroup</code>.</p>
+   *          <p>Specifying a parameter group for this operation is only supported for MySQL DB
+   *             instances for cross-Region read replicas, for Multi-AZ DB cluster read replica
+   *             instances, and for Oracle DB instances. It isn't supported for MySQL DB instances for
+   *             same Region read replicas or for RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -11433,16 +11441,16 @@ export interface CreateDBShardGroupMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>Specifies whether to create standby instances for the DB shard group. Valid values are the following:</p>
+   * <p>Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:</p>
    *          <ul>
    *             <li>
-   *                <p>0 - Creates a single, primary DB instance for each physical shard. This is the default value, and the only one supported for the preview.</p>
+   *                <p>0 - Creates a DB shard group without a standby DB shard group. This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>1 - Creates a primary DB instance and a standby instance in a different Availability Zone (AZ) for each physical shard.</p>
+   *                <p>1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).</p>
    *             </li>
    *             <li>
-   *                <p>2 - Creates a primary DB instance and two standby instances in different AZs for each physical shard.</p>
+   *                <p>2 - Creates a DB shard group with two standby DB shard groups in two different AZs.</p>
    *             </li>
    *          </ul>
    * @public
@@ -11527,16 +11535,16 @@ export interface DBShardGroup {
   MinACU?: number;
 
   /**
-   * <p>Specifies whether to create standby instances for the DB shard group. Valid values are the following:</p>
+   * <p>Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:</p>
    *          <ul>
    *             <li>
-   *                <p>0 - Creates a single, primary DB instance for each physical shard. This is the default value, and the only one supported for the preview.</p>
+   *                <p>0 - Creates a DB shard group without a standby DB shard group. This is the default value.</p>
    *             </li>
    *             <li>
-   *                <p>1 - Creates a primary DB instance and a standby instance in a different Availability Zone (AZ) for each physical shard.</p>
+   *                <p>1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).</p>
    *             </li>
    *             <li>
-   *                <p>2 - Creates a primary DB instance and two standby instances in different AZs for each physical shard.</p>
+   *                <p>2 - Creates a DB shard group with two standby DB shard groups in two different AZs.</p>
    *             </li>
    *          </ul>
    * @public
@@ -11569,6 +11577,12 @@ export interface DBShardGroup {
    * @public
    */
   Endpoint?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB shard group.</p>
+   * @public
+   */
+  DBShardGroupArn?: string;
 }
 
 /**
@@ -11588,26 +11602,6 @@ export class DBShardGroupAlreadyExistsFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DBShardGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The maximum capacity of the DB shard group must be 48-7168 Aurora capacity units (ACUs).</p>
- * @public
- */
-export class InvalidMaxAcuFault extends __BaseException {
-  readonly name: "InvalidMaxAcuFault" = "InvalidMaxAcuFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMaxAcuFault, __BaseException>) {
-    super({
-      name: "InvalidMaxAcuFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMaxAcuFault.prototype);
   }
 }
 
@@ -14520,6 +14514,18 @@ export interface DeleteTenantDatabaseMessage {
 }
 
 /**
+ * @public
+ */
+export interface DeleteTenantDatabaseResult {
+  /**
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   * @public
+   */
+  TenantDatabase?: TenantDatabase;
+}
+
+/**
  * @internal
  */
 export const CreateTenantDatabaseMessageFilterSensitiveLog = (obj: CreateTenantDatabaseMessage): any => ({
@@ -14551,6 +14557,14 @@ export const TenantDatabaseFilterSensitiveLog = (obj: TenantDatabase): any => ({
  * @internal
  */
 export const CreateTenantDatabaseResultFilterSensitiveLog = (obj: CreateTenantDatabaseResult): any => ({
+  ...obj,
+  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
   ...obj,
   ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
 });

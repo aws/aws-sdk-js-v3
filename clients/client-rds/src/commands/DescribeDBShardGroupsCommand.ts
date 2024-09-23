@@ -62,6 +62,7 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * //       Status: "STRING_VALUE",
  * //       PubliclyAccessible: true || false,
  * //       Endpoint: "STRING_VALUE",
+ * //       DBShardGroupArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

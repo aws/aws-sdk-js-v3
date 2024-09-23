@@ -56,6 +56,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,
  * //   Endpoint: "STRING_VALUE",
+ * //   DBShardGroupArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -75,9 +76,6 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
- *
- * @throws {@link InvalidMaxAcuFault} (client fault)
- *  <p>The maximum capacity of the DB shard group must be 48-7168 Aurora capacity units (ACUs).</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>The DB subnet group doesn't cover all Availability Zones after it's

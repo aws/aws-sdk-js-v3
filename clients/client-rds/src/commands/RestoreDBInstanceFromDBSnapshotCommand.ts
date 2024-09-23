@@ -46,7 +46,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *       must be the ARN of the shared DB snapshot.</p>
  *          <p>To restore from a DB snapshot with an unsupported engine version, you must first upgrade the
  *         engine version of the snapshot. For more information about upgrading a RDS for MySQL DB snapshot engine version, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">Upgrading a MySQL DB snapshot engine version</a>.
- *         For more information about upgrading a RDS for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading a PostgreSQL DB snapshot engine version</a>.</p>
+ *         For more information about upgrading a RDS for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading a PostgreSQL DB snapshot engine version</a>.</p>
  *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
  *          </note>
