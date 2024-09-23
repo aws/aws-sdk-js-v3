@@ -966,6 +966,7 @@ export interface CreateCapacityReservationOutput {}
  * @enum
  */
 export const DataCatalogType = {
+  FEDERATED: "FEDERATED",
   GLUE: "GLUE",
   HIVE: "HIVE",
   LAMBDA: "LAMBDA",
@@ -991,8 +992,10 @@ export interface CreateDataCatalogInput {
 
   /**
    * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
-   *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
-   *                 Glue Data Catalog.</p>
+   *                 <code>GLUE</code> for an Glue Data Catalog, and <code>HIVE</code> for an
+   *             external Apache Hive metastore. <code>FEDERATED</code> is a federated catalog for which
+   *                 Athena creates the connection and the Lambda function for
+   *             you based on the parameters that you pass.</p>
    * @public
    */
   Type: DataCatalogType | undefined;
@@ -1061,6 +1064,39 @@ export interface CreateDataCatalogInput {
    *                   </li>
    *                </ul>
    *             </li>
+   *             <li>
+   *                <p>The <code>FEDERATED</code> data catalog type uses one of the following
+   *                     parameters, but not both. Use <code>connection-arn</code> for an existing
+   *                         Glue connection. Use <code>connection-type</code> and
+   *                         <code>connection-properties</code> to specify the configuration setting for
+   *                     a new connection.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>connection-arn:<i><glue_connection_arn_to_reuse></i>
+   *                         </code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>lambda-role-arn</code> (optional): The execution role to use for the
+   *                             Lambda function. If not provided, one is created.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>connection-type:MYSQL|REDSHIFT|....,
+   *                                     connection-properties:"<i><json_string></i>"</code>
+   *                      </p>
+   *                      <p>For <i>
+   *                            <code><json_string></code>
+   *                         </i>, use escaped
+   *                             JSON text, as in the following example.</p>
+   *                      <p>
+   *                         <code>"\{\"spill_bucket\":\"my_spill\",\"spill_prefix\":\"athena-spill\",\"host\":\"abc12345.snowflakecomputing.com\",\"port\":\"1234\",\"warehouse\":\"DEV_WH\",\"database\":\"TEST\",\"schema\":\"PUBLIC\",\"SecretArn\":\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\"\}"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1075,8 +1111,285 @@ export interface CreateDataCatalogInput {
 
 /**
  * @public
+ * @enum
  */
-export interface CreateDataCatalogOutput {}
+export const ConnectionType = {
+  BIGQUERY: "BIGQUERY",
+  CLOUDERAHIVE: "CLOUDERAHIVE",
+  CLOUDERAIMPALA: "CLOUDERAIMPALA",
+  CLOUDWATCH: "CLOUDWATCH",
+  CLOUDWATCHMETRICS: "CLOUDWATCHMETRICS",
+  CMDB: "CMDB",
+  DATALAKEGEN2: "DATALAKEGEN2",
+  DB2: "DB2",
+  DB2AS400: "DB2AS400",
+  DOCUMENTDB: "DOCUMENTDB",
+  DYNAMODB: "DYNAMODB",
+  GOOGLECLOUDSTORAGE: "GOOGLECLOUDSTORAGE",
+  HBASE: "HBASE",
+  HORTONWORKSHIVE: "HORTONWORKSHIVE",
+  MSK: "MSK",
+  MYSQL: "MYSQL",
+  NEPTUNE: "NEPTUNE",
+  OPENSEARCH: "OPENSEARCH",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  REDIS: "REDIS",
+  REDSHIFT: "REDSHIFT",
+  SAPHANA: "SAPHANA",
+  SNOWFLAKE: "SNOWFLAKE",
+  SQLSERVER: "SQLSERVER",
+  SYNAPSE: "SYNAPSE",
+  TERADATA: "TERADATA",
+  TIMESTREAM: "TIMESTREAM",
+  TPCDS: "TPCDS",
+  VERTICA: "VERTICA",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataCatalogStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_FAILED_CLEANUP_COMPLETE: "CREATE_FAILED_CLEANUP_COMPLETE",
+  CREATE_FAILED_CLEANUP_FAILED: "CREATE_FAILED_CLEANUP_FAILED",
+  CREATE_FAILED_CLEANUP_IN_PROGRESS: "CREATE_FAILED_CLEANUP_IN_PROGRESS",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataCatalogStatus = (typeof DataCatalogStatus)[keyof typeof DataCatalogStatus];
+
+/**
+ * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
+ *          <note>
+ *             <p>In the Athena console, data catalogs are listed as "data sources" on
+ *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+ *          </note>
+ * @public
+ */
+export interface DataCatalog {
+  /**
+   * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
+   *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
+   *             by Athena.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An optional description of the data catalog.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
+   *                 <code>GLUE</code> for an Glue Data Catalog, and <code>HIVE</code> for an
+   *             external Apache Hive metastore. <code>FEDERATED</code> is a federated catalog for which
+   *                 Athena creates the connection and the Lambda function for
+   *             you based on the parameters that you pass.</p>
+   * @public
+   */
+  Type: DataCatalogType | undefined;
+
+  /**
+   * <p>Specifies the Lambda function or functions to use for the data catalog.
+   *             This is a mapping whose values depend on the catalog type. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                         <code>metadata-function</code> parameter is required. <code>The
+   *                         sdk-version</code> parameter is optional and defaults to the currently
+   *                     supported version.</p>
+   *                <p>
+   *                   <code>metadata-function=<i>lambda_arn</i>,
+   *                             sdk-version=<i>version_number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                     of required parameters, but not both.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If you have one Lambda function that processes metadata
+   *                             and another for reading the actual data, use the following syntax. Both
+   *                             parameters are required.</p>
+   *                      <p>
+   *                         <code>metadata-function=<i>lambda_arn</i>,
+   *                                     record-function=<i>lambda_arn</i>
+   *                         </code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p> If you have a composite Lambda function that processes
+   *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
+   *                      <p>
+   *                         <code>function=<i>lambda_arn</i>
+   *                         </code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                             <code>
+   *                      <i>catalog_id</i>
+   *                   </code> is the account ID of the
+   *                         Amazon Web Services account to which the Glue catalog
+   *                     belongs.</p>
+   *                <p>
+   *                   <code>catalog-id=<i>catalog_id</i>
+   *                   </code>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                                 <code>AwsDataCatalog</code> that already exists in your account, of
+   *                             which you can have only one and cannot modify.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>The <code>FEDERATED</code> data catalog type uses one of the following
+   *                     parameters, but not both. Use <code>connection-arn</code> for an existing
+   *                         Glue connection. Use <code>connection-type</code> and
+   *                         <code>connection-properties</code> to specify the configuration setting for
+   *                     a new connection.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>connection-arn:<i><glue_connection_arn_to_reuse></i>
+   *                         </code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>connection-type:MYSQL|REDSHIFT|....,
+   *                                     connection-properties:"<i><json_string></i>"</code>
+   *                      </p>
+   *                      <p>For <i>
+   *                            <code><json_string></code>
+   *                         </i>, use escaped
+   *                             JSON text, as in the following example.</p>
+   *                      <p>
+   *                         <code>"\{\"spill_bucket\":\"my_spill\",\"spill_prefix\":\"athena-spill\",\"host\":\"abc12345.snowflakecomputing.com\",\"port\":\"1234\",\"warehouse\":\"DEV_WH\",\"database\":\"TEST\",\"schema\":\"PUBLIC\",\"SecretArn\":\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\"\}"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Parameters?: Record<string, string>;
+
+  /**
+   * <p>The status of the creation or deletion of the data catalog.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>LAMBDA</code>, <code>GLUE</code>, and <code>HIVE</code> data catalog
+   *                     types are created synchronously. Their status is either
+   *                         <code>CREATE_COMPLETE</code> or <code>CREATE_FAILED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>FEDERATED</code> data catalog type is created asynchronously.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Data catalog creation status:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code>: Federated data catalog creation in
+   *                     progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_COMPLETE</code>: Data catalog creation complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code>: Data catalog could not be created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_IN_PROGRESS</code>: Federated data catalog
+   *                     creation failed and is being removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_COMPLETE</code>: Federated data catalog creation
+   *                     failed and was removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_FAILED</code>: Federated data catalog creation
+   *                     failed but could not be removed.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Data catalog deletion status:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_IN_PROGRESS</code>: Federated data catalog deletion in
+   *                     progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_COMPLETE</code>: Federated data catalog deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_FAILED</code>: Federated data catalog could not be
+   *                     deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: DataCatalogStatus;
+
+  /**
+   * <p>The type of connection for a <code>FEDERATED</code> data catalog (for example,
+   *                 <code>REDSHIFT</code>, <code>MYSQL</code>, or <code>SQLSERVER</code>). For
+   *             information about individual connectors, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connectors-available.html">Available data source
+   *                 connectors</a>.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType;
+
+  /**
+   * <p>Text of the error that occurred during data catalog creation or deletion.</p>
+   * @public
+   */
+  Error?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataCatalogOutput {
+  /**
+   * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
+   *          <note>
+   *             <p>In the Athena console, data catalogs are listed as "data sources" on
+   *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+   *          </note>
+   * @public
+   */
+  DataCatalog?: DataCatalog;
+}
 
 /**
  * @public
@@ -1533,7 +1846,17 @@ export interface DeleteDataCatalogInput {
 /**
  * @public
  */
-export interface DeleteDataCatalogOutput {}
+export interface DeleteDataCatalogOutput {
+  /**
+   * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
+   *          <note>
+   *             <p>In the Athena console, data catalogs are listed as "data sources" on
+   *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+   *          </note>
+   * @public
+   */
+  DataCatalog?: DataCatalog;
+}
 
 /**
  * @public
@@ -2221,101 +2544,6 @@ export interface GetDataCatalogInput {
    * @public
    */
   WorkGroup?: string;
-}
-
-/**
- * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
- *          <note>
- *             <p>In the Athena console, data catalogs are listed as "data sources" on
- *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
- *          </note>
- * @public
- */
-export interface DataCatalog {
-  /**
-   * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
-   *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
-   *             by Athena.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An optional description of the data catalog.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
-   *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
-   *                 Glue Data Catalog.</p>
-   * @public
-   */
-  Type: DataCatalogType | undefined;
-
-  /**
-   * <p>Specifies the Lambda function or functions to use for the data catalog.
-   *             This is a mapping whose values depend on the catalog type. </p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
-   *                         <code>metadata-function</code> parameter is required. <code>The
-   *                         sdk-version</code> parameter is optional and defaults to the currently
-   *                     supported version.</p>
-   *                <p>
-   *                   <code>metadata-function=<i>lambda_arn</i>,
-   *                             sdk-version=<i>version_number</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
-   *                     of required parameters, but not both.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>If you have one Lambda function that processes metadata
-   *                             and another for reading the actual data, use the following syntax. Both
-   *                             parameters are required.</p>
-   *                      <p>
-   *                         <code>metadata-function=<i>lambda_arn</i>,
-   *                                     record-function=<i>lambda_arn</i>
-   *                         </code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p> If you have a composite Lambda function that processes
-   *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                      <p>
-   *                         <code>function=<i>lambda_arn</i>
-   *                         </code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
-   *                             <code>
-   *                      <i>catalog_id</i>
-   *                   </code> is the account ID of the
-   *                         Amazon Web Services account to which the Glue catalog
-   *                     belongs.</p>
-   *                <p>
-   *                   <code>catalog-id=<i>catalog_id</i>
-   *                   </code>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
-   *                                 <code>AwsDataCatalog</code> that already exists in your account, of
-   *                             which you can have only one and cannot modify.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Parameters?: Record<string, string>;
 }
 
 /**
@@ -3530,6 +3758,85 @@ export interface DataCatalogSummary {
    * @public
    */
   Type?: DataCatalogType;
+
+  /**
+   * <p>The status of the creation or deletion of the data catalog.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>LAMBDA</code>, <code>GLUE</code>, and <code>HIVE</code> data catalog
+   *                     types are created synchronously. Their status is either
+   *                         <code>CREATE_COMPLETE</code> or <code>CREATE_FAILED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>FEDERATED</code> data catalog type is created asynchronously.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Data catalog creation status:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code>: Federated data catalog creation in
+   *                     progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_COMPLETE</code>: Data catalog creation complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code>: Data catalog could not be created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_IN_PROGRESS</code>: Federated data catalog
+   *                     creation failed and is being removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_COMPLETE</code>: Federated data catalog creation
+   *                     failed and was removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED_CLEANUP_FAILED</code>: Federated data catalog creation
+   *                     failed but could not be removed.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Data catalog deletion status:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_IN_PROGRESS</code>: Federated data catalog deletion in
+   *                     progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_COMPLETE</code>: Federated data catalog deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_FAILED</code>: Federated data catalog could not be
+   *                     deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: DataCatalogStatus;
+
+  /**
+   * <p>The type of connection for a <code>FEDERATED</code> data catalog (for example,
+   *                 <code>REDSHIFT</code>, <code>MYSQL</code>, or <code>SQLSERVER</code>). For
+   *             information about individual connectors, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connectors-available.html">Available data source
+   *                 connectors</a>.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType;
+
+  /**
+   * <p>Text of the error that occurred during data catalog creation or deletion.</p>
+   * @public
+   */
+  Error?: string;
 }
 
 /**

@@ -38,7 +38,7 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * const client = new AthenaClient(config);
  * const input = { // CreateDataCatalogInput
  *   Name: "STRING_VALUE", // required
- *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ *   Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED", // required
  *   Description: "STRING_VALUE",
  *   Parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
@@ -52,7 +52,19 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * };
  * const command = new CreateDataCatalogCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateDataCatalogOutput
+ * //   DataCatalog: { // DataCatalog
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED", // required
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "CREATE_FAILED_CLEANUP_IN_PROGRESS" || "CREATE_FAILED_CLEANUP_COMPLETE" || "CREATE_FAILED_CLEANUP_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
+ * //     ConnectionType: "DYNAMODB" || "MYSQL" || "POSTGRESQL" || "REDSHIFT" || "ORACLE" || "SYNAPSE" || "SQLSERVER" || "DB2" || "OPENSEARCH" || "BIGQUERY" || "GOOGLECLOUDSTORAGE" || "HBASE" || "DOCUMENTDB" || "MSK" || "NEPTUNE" || "CMDB" || "TPCDS" || "REDIS" || "CLOUDWATCH" || "TIMESTREAM" || "SAPHANA" || "SNOWFLAKE" || "TERADATA" || "VERTICA" || "CLOUDERAIMPALA" || "CLOUDERAHIVE" || "HORTONWORKSHIVE" || "DATALAKEGEN2" || "DB2AS400" || "CLOUDWATCHMETRICS",
+ * //     Error: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
@@ -100,7 +112,7 @@ export class CreateDataCatalogCommand extends $Command
   protected declare static __types: {
     api: {
       input: CreateDataCatalogInput;
-      output: {};
+      output: CreateDataCatalogOutput;
     };
     sdk: {
       input: CreateDataCatalogCommandInput;

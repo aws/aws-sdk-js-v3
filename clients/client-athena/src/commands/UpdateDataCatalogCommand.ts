@@ -37,7 +37,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * const client = new AthenaClient(config);
  * const input = { // UpdateDataCatalogInput
  *   Name: "STRING_VALUE", // required
- *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ *   Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED", // required
  *   Description: "STRING_VALUE",
  *   Parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
