@@ -17,6 +17,10 @@ export * from "./submodules/httpAuthSchemes/index";
  * Legacy submodule.
  */
 export * from "./submodules/protocols/index";
+/**
+ * Legacy submodule.
+ */
+export * from "./submodules/account-id-endpoint/index";
 
 /**
  * Warning: do not export any additional submodules from the root of this package. See readme.md for
