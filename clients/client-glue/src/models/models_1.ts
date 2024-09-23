@@ -7,6 +7,7 @@ import {
   Action,
   AuthenticationConfiguration,
   AuthenticationConfigurationInput,
+  AuthenticationConfigurationInputFilterSensitiveLog,
   Blueprint,
   Column,
   ConnectionsList,
@@ -714,6 +715,12 @@ export interface ConnectionInput {
    * @public
    */
   ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>> | undefined;
+
+  /**
+   * <p>This field is not currently used.</p>
+   * @public
+   */
+  AthenaProperties?: Record<string, string>;
 
   /**
    * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>
@@ -5882,6 +5889,12 @@ export interface Connection {
   ConnectionProperties?: Partial<Record<ConnectionPropertyKey, string>>;
 
   /**
+   * <p>This field is not currently used.</p>
+   * @public
+   */
+  AthenaProperties?: Record<string, string>;
+
+  /**
    * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
    * @public
    */
@@ -7836,6 +7849,24 @@ export interface GetMLTaskRunsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const ConnectionInputFilterSensitiveLog = (obj: ConnectionInput): any => ({
+  ...obj,
+  ...(obj.AuthenticationConfiguration && {
+    AuthenticationConfiguration: AuthenticationConfigurationInputFilterSensitiveLog(obj.AuthenticationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.ConnectionInput && { ConnectionInput: ConnectionInputFilterSensitiveLog(obj.ConnectionInput) }),
+});
 
 /**
  * @internal

@@ -810,16 +810,16 @@ export interface AuthenticationConfigurationInput {
   AuthenticationType?: AuthenticationType;
 
   /**
-   * <p>The secret manager ARN to store credentials in the CreateConnection request.</p>
-   * @public
-   */
-  SecretArn?: string;
-
-  /**
    * <p>The properties for OAuth2 authentication in the CreateConnection request.</p>
    * @public
    */
   OAuth2Properties?: OAuth2PropertiesInput;
+
+  /**
+   * <p>The secret manager ARN to store credentials in the CreateConnection request.</p>
+   * @public
+   */
+  SecretArn?: string;
 }
 
 /**
@@ -9242,6 +9242,32 @@ export interface CancelDataQualityRuleRecommendationRunRequest {
  * @public
  */
 export interface CancelDataQualityRuleRecommendationRunResponse {}
+
+/**
+ * @internal
+ */
+export const AuthorizationCodePropertiesFilterSensitiveLog = (obj: AuthorizationCodeProperties): any => ({
+  ...obj,
+  ...(obj.AuthorizationCode && { AuthorizationCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OAuth2PropertiesInputFilterSensitiveLog = (obj: OAuth2PropertiesInput): any => ({
+  ...obj,
+  ...(obj.AuthorizationCodeProperties && {
+    AuthorizationCodeProperties: AuthorizationCodePropertiesFilterSensitiveLog(obj.AuthorizationCodeProperties),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationConfigurationInputFilterSensitiveLog = (obj: AuthenticationConfigurationInput): any => ({
+  ...obj,
+  ...(obj.OAuth2Properties && { OAuth2Properties: OAuth2PropertiesInputFilterSensitiveLog(obj.OAuth2Properties) }),
+});
 
 /**
  * @internal

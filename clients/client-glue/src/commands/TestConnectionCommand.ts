@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { TestConnectionRequest, TestConnectionResponse } from "../models/models_2";
+import {
+  TestConnectionRequest,
+  TestConnectionRequestFilterSensitiveLog,
+  TestConnectionResponse,
+} from "../models/models_2";
 import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -46,7 +50,6 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *     },
  *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
  *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
- *       SecretArn: "STRING_VALUE",
  *       OAuth2Properties: { // OAuth2PropertiesInput
  *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
  *         OAuth2ClientApplication: { // OAuth2ClientApplication
@@ -62,6 +65,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *           RedirectUri: "STRING_VALUE",
  *         },
  *       },
+ *       SecretArn: "STRING_VALUE",
  *     },
  *   },
  * };
@@ -126,7 +130,7 @@ export class TestConnectionCommand extends $Command
   })
   .s("AWSGlue", "TestConnection", {})
   .n("GlueClient", "TestConnectionCommand")
-  .f(void 0, void 0)
+  .f(TestConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_TestConnectionCommand)
   .de(de_TestConnectionCommand)
   .build() {

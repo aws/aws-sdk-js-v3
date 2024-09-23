@@ -6,6 +6,7 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 import {
   AuditContext,
   AuthenticationConfigurationInput,
+  AuthenticationConfigurationInputFilterSensitiveLog,
   CrawlerTargets,
   CustomEntityType,
   DataSource,
@@ -40,6 +41,7 @@ import {
   ColumnStatistics,
   Compatibility,
   ConnectionInput,
+  ConnectionInputFilterSensitiveLog,
   ConnectionPropertyKey,
   ConnectionType,
   CsvHeaderOption,
@@ -7996,4 +7998,32 @@ export const StatisticSummaryFilterSensitiveLog = (obj: StatisticSummary): any =
 export const ListDataQualityStatisticsResponseFilterSensitiveLog = (obj: ListDataQualityStatisticsResponse): any => ({
   ...obj,
   ...(obj.Statistics && { Statistics: obj.Statistics.map((item) => StatisticSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TestConnectionInputFilterSensitiveLog = (obj: TestConnectionInput): any => ({
+  ...obj,
+  ...(obj.AuthenticationConfiguration && {
+    AuthenticationConfiguration: AuthenticationConfigurationInputFilterSensitiveLog(obj.AuthenticationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const TestConnectionRequestFilterSensitiveLog = (obj: TestConnectionRequest): any => ({
+  ...obj,
+  ...(obj.TestConnectionInput && {
+    TestConnectionInput: TestConnectionInputFilterSensitiveLog(obj.TestConnectionInput),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.ConnectionInput && { ConnectionInput: ConnectionInputFilterSensitiveLog(obj.ConnectionInput) }),
 });

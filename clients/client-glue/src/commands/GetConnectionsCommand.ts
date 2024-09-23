@@ -61,6 +61,9 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * //       ConnectionProperties: { // ConnectionProperties
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       AthenaProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
  * //         SubnetId: "STRING_VALUE",
  * //         SecurityGroupIdList: [ // SecurityGroupIdList

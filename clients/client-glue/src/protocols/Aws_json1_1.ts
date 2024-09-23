@@ -10930,6 +10930,8 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 
 // se_ProfileConfiguration omitted.
 
+// se_PropertyMap omitted.
+
 // se_PropertyPredicate omitted.
 
 // se_PublicKeysList omitted.
@@ -12158,6 +12160,7 @@ const de_CompactionMetrics = (output: any, context: __SerdeContext): CompactionM
  */
 const de_Connection = (output: any, context: __SerdeContext): Connection => {
   return take(output, {
+    AthenaProperties: _json,
     AuthenticationConfiguration: _json,
     ConnectionProperties: _json,
     ConnectionType: __expectString,
@@ -14578,6 +14581,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_PrincipalPermissionsList omitted.
 
 // de_ProfileConfiguration omitted.
+
+// de_PropertyMap omitted.
 
 // de_PublicKeysList omitted.
 

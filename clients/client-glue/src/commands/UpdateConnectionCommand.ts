@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_2";
+import {
+  UpdateConnectionRequest,
+  UpdateConnectionRequestFilterSensitiveLog,
+  UpdateConnectionResponse,
+} from "../models/models_2";
 import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -48,6 +52,9 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *     ConnectionProperties: { // ConnectionProperties // required
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     AthenaProperties: { // PropertyMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
  *       SubnetId: "STRING_VALUE",
  *       SecurityGroupIdList: [ // SecurityGroupIdList
@@ -57,7 +64,6 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *     },
  *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
  *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
- *       SecretArn: "STRING_VALUE",
  *       OAuth2Properties: { // OAuth2PropertiesInput
  *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
  *         OAuth2ClientApplication: { // OAuth2ClientApplication
@@ -73,6 +79,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *           RedirectUri: "STRING_VALUE",
  *         },
  *       },
+ *       SecretArn: "STRING_VALUE",
  *     },
  *     ValidateCredentials: true || false,
  *   },
@@ -123,7 +130,7 @@ export class UpdateConnectionCommand extends $Command
   })
   .s("AWSGlue", "UpdateConnection", {})
   .n("GlueClient", "UpdateConnectionCommand")
-  .f(void 0, void 0)
+  .f(UpdateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateConnectionCommand)
   .de(de_UpdateConnectionCommand)
   .build() {
