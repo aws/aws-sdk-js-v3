@@ -1160,7 +1160,7 @@ export interface PromptOverrideConfiguration {
   promptConfigurations: PromptConfiguration[] | undefined;
 
   /**
-   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Agents for Amazon Bedrock</a>.</p>
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Amazon Bedrock Agents</a>.</p>
    * @public
    */
   overrideLambda?: string;
@@ -1648,7 +1648,7 @@ export interface CreateAgentRequest {
   instruction?: string;
 
   /**
-   * <p>The foundation model to be used for orchestration by the agent you create.</p>
+   * <p>The Amazon Resource Name (ARN) of the foundation model to be used for orchestration by the agent you create.</p>
    * @public
    */
   foundationModel?: string;
@@ -3913,7 +3913,7 @@ export interface KnowledgeBaseFlowNodeConfiguration {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the model to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>
+   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>
    * @public
    */
   modelId?: string;
@@ -4132,7 +4132,7 @@ export interface PromptFlowNodeInlineConfiguration {
   templateConfiguration: PromptTemplateConfiguration | undefined;
 
   /**
-   * <p>The unique identifier of the model to run inference with.</p>
+   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to run inference with.</p>
    * @public
    */
   modelId: string | undefined;
@@ -7479,7 +7479,7 @@ export interface PromptVariant {
   templateConfiguration?: PromptTemplateConfiguration;
 
   /**
-   * <p>The unique identifier of the model with which to run inference on the prompt.</p>
+   * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> with which to run inference on the prompt.</p>
    * @public
    */
   modelId?: string;
