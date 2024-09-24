@@ -53,7 +53,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *             seconds or more after a successful call, the second call takes over the subscription and
  *             the previous connection expires or fails with a
  *             <code>ResourceInUseException</code>.</p>
- *          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

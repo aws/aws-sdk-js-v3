@@ -72,6 +72,11 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <a>CreateStream</a> has a limit of five transactions per second per
  *             account.</p>
+ *          <p>You can add tags to the stream when making a <code>CreateStream</code> request by
+ *             setting the <code>Tags</code> parameter. If you pass <code>Tags</code> parameter, in
+ *             addition to having <code>kinesis:createStream</code> permission, you must also have
+ *                 <code>kinesis:addTagsToStream</code> permission for the stream that will be created.
+ *             Tags will take effect from the <code>CREATING</code> status of the stream. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +88,9 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *   ShardCount: Number("int"),
  *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateStreamCommand(input);

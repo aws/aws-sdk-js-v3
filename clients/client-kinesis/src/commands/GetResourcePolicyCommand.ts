@@ -74,6 +74,10 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
