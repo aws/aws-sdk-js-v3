@@ -27,6 +27,7 @@ software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
 software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
 software.amazon.smithy.aws.typescript.codegen.AddHttpChecksumDependency
 software.amazon.smithy.aws.typescript.codegen.AddSigv4aPlugin
+software.amazon.smithy.aws.typescript.codegen.ProcessAwsQueryWaiters
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustomizeHttpBearerTokenAuth
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.SupportSigV4Auth
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustomizeSigV4Auth
