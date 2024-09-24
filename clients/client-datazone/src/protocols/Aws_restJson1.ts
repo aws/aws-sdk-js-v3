@@ -2590,7 +2590,7 @@ export const se_ListNotificationsCommand = async (
     [_ty]: [, __expectNonNull(input[_ty]!, `type`)],
     [_aT]: [() => input.afterTimestamp !== void 0, () => __serializeDateTime(input[_aT]!).toString()],
     [_bT]: [() => input.beforeTimestamp !== void 0, () => __serializeDateTime(input[_bT]!).toString()],
-    [_su]: [() => input.subjects !== void 0, () => (input[_su]! || []).map((_entry) => _entry as any)],
+    [_su]: [() => input.subjects !== void 0, () => input[_su]! || []],
     [_tS]: [, input[_tS]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
@@ -3250,10 +3250,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -9238,13 +9235,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _aAI = "awsAccountId";
 const _aAR = "awsAccountRegion";

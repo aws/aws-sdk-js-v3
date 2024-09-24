@@ -999,7 +999,7 @@ export const se_ListAppAssessmentsCommand = async (
   const query: any = map({
     [_aA]: [, input[_aA]!],
     [_aN]: [, input[_aN]!],
-    [_aS]: [() => input.assessmentStatus !== void 0, () => (input[_aS]! || []).map((_entry) => _entry as any)],
+    [_aS]: [() => input.assessmentStatus !== void 0, () => input[_aS]! || []],
     [_cS]: [, input[_cS]!],
     [_i]: [, input[_i]!],
     [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
@@ -1223,7 +1223,7 @@ export const se_ListRecommendationTemplatesCommand = async (
   const query: any = map({
     [_aAs]: [, input[_aAs]!],
     [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
-    [_s]: [() => input.status !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.status !== void 0, () => input[_s]! || []],
     [_rTA]: [, input[_rTA]!],
     [_n]: [, input[_n]!],
     [_nT]: [, input[_nT]!],
@@ -1586,10 +1586,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3835,13 +3832,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _aA = "appArn";
 const _aAs = "assessmentArn";

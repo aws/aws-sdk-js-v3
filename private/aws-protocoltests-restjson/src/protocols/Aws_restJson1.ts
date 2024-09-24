@@ -27,6 +27,7 @@ import {
   expectShort as __expectShort,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -369,8 +370,8 @@ export const se_AllQueryStringTypesCommand = async (
   const query: any = map({
     ...convertMap(input.queryParamsMapOfStringList),
     [_S]: [, input[_qS]!],
-    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
-    [_SS]: [() => input.queryStringSet !== void 0, () => (input[_qSS]! || []).map((_entry) => _entry as any)],
+    [_SL]: [() => input.queryStringList !== void 0, () => input[_qSL]! || []],
+    [_SS]: [() => input.queryStringSet !== void 0, () => input[_qSS]! || []],
     [_B]: [() => input.queryByte !== void 0, () => input[_qB]!.toString()],
     [_Sh]: [() => input.queryShort !== void 0, () => input[_qSu]!.toString()],
     [_I]: [() => input.queryInteger !== void 0, () => input[_qI]!.toString()],
@@ -406,7 +407,7 @@ export const se_AllQueryStringTypesCommand = async (
       () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
     [_E]: [, input[_qE]!],
-    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_EL]: [() => input.queryEnumList !== void 0, () => input[_qEL]! || []],
     [_IE]: [() => input.queryIntegerEnum !== void 0, () => input[_qIE]!.toString()],
     [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
@@ -1032,14 +1033,8 @@ export const se_InputAndOutputWithHeadersCommand = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -1053,10 +1048,7 @@ export const se_InputAndOutputWithHeadersCommand = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -1995,10 +1987,7 @@ export const se_NullAndEmptyHeadersClientCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersClient");
   let body: any;
@@ -2017,10 +2006,7 @@ export const se_NullAndEmptyHeadersServerCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
   });
   b.bp("/NullAndEmptyHeadersServer");
   let body: any;
@@ -2058,7 +2044,7 @@ export const se_OmitsSerializingEmptyListsCommand = async (
   const headers: any = {};
   b.bp("/OmitsSerializingEmptyLists");
   const query: any = map({
-    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
+    [_SL]: [() => input.queryStringList !== void 0, () => input[_qSL]! || []],
     [_IL]: [
       () => input.queryIntegerList !== void 0,
       () => (input[_qIL]! || []).map((_entry) => _entry.toString() as any),
@@ -2075,7 +2061,7 @@ export const se_OmitsSerializingEmptyListsCommand = async (
       () => input.queryTimestampList !== void 0,
       () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
-    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_EL]: [() => input.queryEnumList !== void 0, () => input[_qEL]! || []],
     [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
       () => (input[_qIEL]! || []).map((_entry) => _entry.toString() as any),
@@ -5215,13 +5201,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _B = "Byte";
 const _BL = "BooleanList";

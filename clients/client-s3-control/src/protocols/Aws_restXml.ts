@@ -16,6 +16,7 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
+  isSerializableHeaderValue,
   map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -2631,7 +2632,7 @@ export const se_ListJobsCommand = async (
   });
   b.bp("/v20180820/jobs");
   const query: any = map({
-    [_jS]: [() => input.JobStatuses !== void 0, () => (input[_JS]! || []).map((_entry) => _entry as any)],
+    [_jS]: [() => input.JobStatuses !== void 0, () => input[_JS]! || []],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -3430,10 +3431,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v20180820/tags/{ResourceArn+}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -10537,13 +10535,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Alias";
 const _AA = "ApplicationArn";

@@ -297,7 +297,7 @@ export const se_ChatCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
     [_uI]: [, input[_uI]!],
-    [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
+    [_uG]: [() => input.userGroups !== void 0, () => input[_uG]! || []],
     [_cI]: [, input[_cI]!],
     [_pMI]: [, input[_pMI]!],
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
@@ -326,7 +326,7 @@ export const se_ChatSyncCommand = async (
   const query: any = map({
     [_s]: [, ""],
     [_uI]: [, input[_uI]!],
-    [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
+    [_uG]: [() => input.userGroups !== void 0, () => input[_uG]! || []],
   });
   let body: any;
   body = JSON.stringify(
@@ -988,7 +988,7 @@ export const se_ListDocumentsCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("indexId", () => input.indexId!, "{indexId}", false);
   const query: any = map({
-    [_dSIa]: [() => input.dataSourceIds !== void 0, () => (input[_dSIa]! || []).map((_entry) => _entry as any)],
+    [_dSIa]: [() => input.dataSourceIds !== void 0, () => input[_dSIa]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -1268,10 +1268,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v1/tags/{resourceARN}");
   b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -4184,13 +4181,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cI = "conversationId";
 const _cT = "clientToken";

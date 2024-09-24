@@ -75,7 +75,7 @@ export const se_DeleteRecordCommand = async (
   const query: any = map({
     [_RIVAS]: [, __expectNonNull(input[_RIVAS]!, `RecordIdentifierValueAsString`)],
     [_ET]: [, __expectNonNull(input[_ET]!, `EventTime`)],
-    [_TS]: [() => input.TargetStores !== void 0, () => (input[_TS]! || []).map((_entry) => _entry as any)],
+    [_TS]: [() => input.TargetStores !== void 0, () => input[_TS]! || []],
     [_DM]: [, input[_DM]!],
   });
   let body: any;
@@ -96,7 +96,7 @@ export const se_GetRecordCommand = async (
   b.p("FeatureGroupName", () => input.FeatureGroupName!, "{FeatureGroupName}", false);
   const query: any = map({
     [_RIVAS]: [, __expectNonNull(input[_RIVAS]!, `RecordIdentifierValueAsString`)],
-    [_FNe]: [() => input.FeatureNames !== void 0, () => (input[_FN]! || []).map((_entry) => _entry as any)],
+    [_FNe]: [() => input.FeatureNames !== void 0, () => input[_FN]! || []],
     [_ETR]: [, input[_ETR]!],
   });
   let body: any;
@@ -380,13 +380,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _DM = "DeletionMode";
 const _ET = "EventTime";

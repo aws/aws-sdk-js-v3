@@ -476,7 +476,7 @@ export const se_ListApplicationsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_n]: [() => input.names !== void 0, () => (input[_n]! || []).map((_entry) => _entry as any)],
+    [_n]: [() => input.names !== void 0, () => input[_n]! || []],
     [_eI]: [, input[_eI]!],
   });
   let body: any;
@@ -539,7 +539,7 @@ export const se_ListBatchJobExecutionsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_eIx]: [() => input.executionIds !== void 0, () => (input[_eIx]! || []).map((_entry) => _entry as any)],
+    [_eIx]: [() => input.executionIds !== void 0, () => input[_eIx]! || []],
     [_jN]: [, input[_jN]!],
     [_s]: [, input[_s]!],
     [_sA]: [() => input.startedAfter !== void 0, () => __serializeDateTime(input[_sA]!).toString()],
@@ -662,7 +662,7 @@ export const se_ListEnvironmentsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_n]: [() => input.names !== void 0, () => (input[_n]! || []).map((_entry) => _entry as any)],
+    [_n]: [() => input.names !== void 0, () => input[_n]! || []],
     [_eT]: [, input[_eT]!],
   });
   let body: any;
@@ -784,10 +784,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2265,13 +2262,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _eI = "environmentId";
 const _eIx = "executionIds";

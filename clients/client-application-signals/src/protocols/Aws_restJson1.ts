@@ -1222,13 +1222,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _ET = "EndTime";
 const _MR = "MaxResults";
 const _NT = "NextToken";

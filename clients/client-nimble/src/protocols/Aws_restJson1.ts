@@ -11,6 +11,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
@@ -598,7 +599,7 @@ export const se_GetLaunchProfileInitializationCommand = async (
   const query: any = map({
     [_lPPV]: [
       __expectNonNull(input.launchProfileProtocolVersions, `launchProfileProtocolVersions`) != null,
-      () => (input[_lPPV]! || []).map((_entry) => _entry as any),
+      () => input[_lPPV]! || [],
     ],
     [_lP]: [, __expectNonNull(input[_lP]!, `launchPurpose`)],
     [_p]: [, __expectNonNull(input[_p]!, `platform`)],
@@ -757,7 +758,7 @@ export const se_ListEulaAcceptancesCommand = async (
   b.bp("/2020-08-01/studios/{studioId}/eula-acceptances");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    [_eI]: [() => input.eulaIds !== void 0, () => (input[_eI]! || []).map((_entry) => _entry as any)],
+    [_eI]: [() => input.eulaIds !== void 0, () => input[_eI]! || []],
     [_nT]: [, input[_nT]!],
   });
   let body: any;
@@ -776,7 +777,7 @@ export const se_ListEulasCommand = async (
   const headers: any = {};
   b.bp("/2020-08-01/eulas");
   const query: any = map({
-    [_eI]: [() => input.eulaIds !== void 0, () => (input[_eI]! || []).map((_entry) => _entry as any)],
+    [_eI]: [() => input.eulaIds !== void 0, () => input[_eI]! || []],
     [_nT]: [, input[_nT]!],
   });
   let body: any;
@@ -820,7 +821,7 @@ export const se_ListLaunchProfilesCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
     [_pI]: [, input[_pI]!],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -903,8 +904,8 @@ export const se_ListStudioComponentsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
-    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
-    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => input[_s]! || []],
+    [_t]: [() => input.types !== void 0, () => input[_t]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1119,10 +1120,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/2020-08-01/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2914,13 +2912,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cB = "createdBy";
 const _cT = "clientToken";

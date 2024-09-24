@@ -925,10 +925,7 @@ export const se_GetBlacklistReportsCommand = async (
   const headers: any = {};
   b.bp("/v2/email/deliverability-dashboard/blacklist-report");
   const query: any = map({
-    [_BIN]: [
-      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
-      () => (input[_BIN]! || []).map((_entry) => _entry as any),
-    ],
+    [_BIN]: [__expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null, () => input[_BIN]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1511,7 +1508,7 @@ export const se_ListSuppressedDestinationsCommand = async (
   const headers: any = {};
   b.bp("/v2/email/suppression/addresses");
   const query: any = map({
-    [_Re]: [() => input.Reasons !== void 0, () => (input[_R]! || []).map((_entry) => _entry as any)],
+    [_Re]: [() => input.Reasons !== void 0, () => input[_R]! || []],
     [_SD]: [() => input.StartDate !== void 0, () => __serializeDateTime(input[_SD]!).toString()],
     [_ED]: [() => input.EndDate !== void 0, () => __serializeDateTime(input[_ED]!).toString()],
     [_NT]: [, input[_NT]!],
@@ -2169,10 +2166,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v2/email/tags");
   const query: any = map({
     [_RA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
-    [_TK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_TK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -5452,13 +5446,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _BIN = "BlacklistItemNames";
 const _ED = "EndDate";

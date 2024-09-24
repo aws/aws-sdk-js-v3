@@ -375,7 +375,7 @@ export const se_ListTestCasesCommand = async (
   const headers: any = {};
   b.bp("/testcases");
   const query: any = map({
-    [_tCIe]: [() => input.testCaseIds !== void 0, () => (input[_tCIe]! || []).map((_entry) => _entry as any)],
+    [_tCIe]: [() => input.testCaseIds !== void 0, () => input[_tCIe]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -395,10 +395,7 @@ export const se_ListTestConfigurationsCommand = async (
   const headers: any = {};
   b.bp("/testconfigurations");
   const query: any = map({
-    [_tCIes]: [
-      () => input.testConfigurationIds !== void 0,
-      () => (input[_tCIes]! || []).map((_entry) => _entry as any),
-    ],
+    [_tCIes]: [() => input.testConfigurationIds !== void 0, () => input[_tCIes]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -419,7 +416,7 @@ export const se_ListTestRunsCommand = async (
   b.bp("/testruns");
   const query: any = map({
     [_tSI]: [, input[_tSI]!],
-    [_tI]: [() => input.testRunIds !== void 0, () => (input[_tRI]! || []).map((_entry) => _entry as any)],
+    [_tI]: [() => input.testRunIds !== void 0, () => input[_tRI]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -481,7 +478,7 @@ export const se_ListTestSuitesCommand = async (
   const headers: any = {};
   b.bp("/testsuites");
   const query: any = map({
-    [_tSIe]: [() => input.testSuiteIds !== void 0, () => (input[_tSIe]! || []).map((_entry) => _entry as any)],
+    [_tSIe]: [() => input.testSuiteIds !== void 0, () => input[_tSIe]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -550,10 +547,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1783,13 +1777,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _mR = "maxResults";
 const _nT = "nextToken";

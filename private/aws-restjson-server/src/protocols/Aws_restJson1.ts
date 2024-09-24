@@ -28,6 +28,7 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -393,13 +394,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["StringSet"] !== undefined) {
       const queryValue = Array.isArray(query["StringSet"])
         ? (query["StringSet"] as string[])
         : [query["StringSet"] as string];
-      contents.queryStringSet = queryValue.map((_entry) => _entry as any);
+      contents.queryStringSet = queryValue;
     }
     if (query["Byte"] !== undefined) {
       let queryValue: string;
@@ -552,7 +553,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnum"] !== undefined) {
       let queryValue: string;
@@ -577,7 +578,7 @@ export const deserializeAllQueryStringTypesRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.queryParamsMapOfStringList = parsedQuery;
   }
@@ -3061,7 +3062,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["IntegerList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerList"])
@@ -3091,7 +3092,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnumList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerEnumList"])
@@ -3335,7 +3336,7 @@ export const deserializeQueryParamsAsStringListMapRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.foo = parsedQuery;
   }
@@ -4958,14 +4959,8 @@ export const serializeInputAndOutputWithHeadersResponse = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -4979,10 +4974,7 @@ export const serializeInputAndOutputWithHeadersResponse = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -6559,10 +6551,7 @@ export const serializeNullAndEmptyHeadersClientResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -6602,10 +6591,7 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -9002,13 +8988,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _H = "Header";
 const _a = "a";
