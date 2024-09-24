@@ -2695,7 +2695,7 @@ it("RestJsonHttpPayloadWithUnion:Request", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2764,7 +2764,7 @@ it("RestJsonHttpPayloadWithUnion:Response", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -3440,7 +3440,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
 /**
  * Tests requests with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3804,7 +3804,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
 /**
  * Tests responses with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
@@ -7853,7 +7853,7 @@ it("PostUnionWithJsonNameResponse3:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
+it("SDKAppliedContentEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7886,7 +7886,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

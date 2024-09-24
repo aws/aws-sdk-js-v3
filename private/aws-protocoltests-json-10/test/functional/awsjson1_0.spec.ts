@@ -2751,7 +2751,7 @@ it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Re
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_awsJson1_0:Request", async () => {
+it("SDKAppliedContentEncoding_awsJson1_0:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2784,7 +2784,7 @@ it.skip("SDKAppliedContentEncoding_awsJson1_0:Request", async () => {
  * traits are ignored in the awsJson1_0 protocol.
  *
  */
-it.skip("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_0:Request", async () => {
+it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_0:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

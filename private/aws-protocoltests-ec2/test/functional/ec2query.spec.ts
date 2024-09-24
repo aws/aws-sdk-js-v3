@@ -835,7 +835,7 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_ec2Query:Request", async () => {
+it("SDKAppliedContentEncoding_ec2Query:Request", async () => {
   const client = new EC2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -868,7 +868,7 @@ it.skip("SDKAppliedContentEncoding_ec2Query:Request", async () => {
  * traits are ignored in the ec2Query protocol.
  *
  */
-it.skip("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_ec2Query:Request", async () => {
+it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_ec2Query:Request", async () => {
   const client = new EC2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

@@ -4410,7 +4410,7 @@ it("PutAndGetInlineDocumentsInput:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_awsJson1_1:Request", async () => {
+it("SDKAppliedContentEncoding_awsJson1_1:Request", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -4443,7 +4443,7 @@ it.skip("SDKAppliedContentEncoding_awsJson1_1:Request", async () => {
  * traits are ignored in the awsJson1_1 protocol.
  *
  */
-it.skip("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_1:Request", async () => {
+it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_1:Request", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
