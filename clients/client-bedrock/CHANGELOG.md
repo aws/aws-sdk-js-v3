@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+
+### Features
+
+* **client-bedrock:** Add support for Cross Region Inference in Bedrock Model Evaluations. ([707b387](https://github.com/aws/aws-sdk-js-v3/commit/707b387793d21a7d44d405fa2fd97028674a8d89))
+
+
+
+
+
 # [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

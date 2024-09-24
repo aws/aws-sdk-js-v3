@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+
+### Bug Fixes
+
+* **core:** add compatibility types for submodules ([#6509](https://github.com/aws/aws-sdk-js-v3/issues/6509)) ([3a5d854](https://github.com/aws/aws-sdk-js-v3/commit/3a5d854a2069ef79900234fde1a1ecf246029c4b))
+
+
+### Features
+
+* **client-bedrock:** Add support for Cross Region Inference in Bedrock Model Evaluations. ([707b387](https://github.com/aws/aws-sdk-js-v3/commit/707b387793d21a7d44d405fa2fd97028674a8d89))
+* **client-budgets:** Releasing minor partitional endpoint updates ([8063307](https://github.com/aws/aws-sdk-js-v3/commit/80633075119c3d34343fb3ddc637d096a8a79293))
+* **client-kinesis:** This release includes support to add tags when creating a stream ([8212995](https://github.com/aws/aws-sdk-js-v3/commit/82129957ee249eafed8e61fbd1c2ca518b2b0fef))
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging SMS-Voice V2 has added support for resource policies. Use the three new APIs to create, view, edit, and delete resource policies. ([b449c45](https://github.com/aws/aws-sdk-js-v3/commit/b449c450258797521c13f078a190a7093bb2b52b))
+* **client-sagemaker:** Adding `HiddenInstanceTypes` and `HiddenSageMakerImageVersionAliases` attribute to SageMaker API ([6b99b6b](https://github.com/aws/aws-sdk-js-v3/commit/6b99b6b6faa33a8967477145dd0d4e85657fcc01))
+* **clients:** update client endpoints as of 2024-09-24 ([452f091](https://github.com/aws/aws-sdk-js-v3/commit/452f091ae4931be840751a06419c8124d2349830))
+
+
+
+
+
 # [3.657.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.656.0...v3.657.0) (2024-09-23)
 
 
