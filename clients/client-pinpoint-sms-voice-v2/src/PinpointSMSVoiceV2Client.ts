@@ -137,6 +137,10 @@ import {
   DeleteRegistrationFieldValueCommandOutput,
 } from "./commands/DeleteRegistrationFieldValueCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "./commands/DeleteTextMessageSpendLimitOverrideCommand";
@@ -231,6 +235,7 @@ import {
   GetProtectConfigurationCountryRuleSetCommandInput,
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/GetProtectConfigurationCountryRuleSetCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
@@ -249,6 +254,7 @@ import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "./commands/PutRegistrationFieldValueCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "./commands/ReleaseSenderIdCommand";
 import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "./commands/RequestPhoneNumberCommand";
@@ -347,6 +353,7 @@ export type ServiceInputTypes =
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteTextMessageSpendLimitOverrideCommandInput
   | DeleteVerifiedDestinationNumberCommandInput
   | DeleteVoiceMessageSpendLimitOverrideCommandInput
@@ -373,12 +380,14 @@ export type ServiceInputTypes =
   | DisassociateProtectConfigurationCommandInput
   | DiscardRegistrationVersionCommandInput
   | GetProtectConfigurationCountryRuleSetCommandInput
+  | GetResourcePolicyCommandInput
   | ListPoolOriginationIdentitiesCommandInput
   | ListRegistrationAssociationsCommandInput
   | ListTagsForResourceCommandInput
   | PutKeywordCommandInput
   | PutOptedOutNumberCommandInput
   | PutRegistrationFieldValueCommandInput
+  | PutResourcePolicyCommandInput
   | ReleasePhoneNumberCommandInput
   | ReleaseSenderIdCommandInput
   | RequestPhoneNumberCommandInput
@@ -434,6 +443,7 @@ export type ServiceOutputTypes =
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteTextMessageSpendLimitOverrideCommandOutput
   | DeleteVerifiedDestinationNumberCommandOutput
   | DeleteVoiceMessageSpendLimitOverrideCommandOutput
@@ -460,12 +470,14 @@ export type ServiceOutputTypes =
   | DisassociateProtectConfigurationCommandOutput
   | DiscardRegistrationVersionCommandOutput
   | GetProtectConfigurationCountryRuleSetCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
   | ListRegistrationAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutKeywordCommandOutput
   | PutOptedOutNumberCommandOutput
   | PutRegistrationFieldValueCommandOutput
+  | PutResourcePolicyCommandOutput
   | ReleasePhoneNumberCommandOutput
   | ReleaseSenderIdCommandOutput
   | RequestPhoneNumberCommandOutput

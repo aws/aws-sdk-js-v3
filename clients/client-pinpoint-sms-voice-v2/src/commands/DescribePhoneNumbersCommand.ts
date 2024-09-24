@@ -59,6 +59,7 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Owner: "STRING_VALUE",
  * };
  * const command = new DescribePhoneNumbersCommand(input);
  * const response = await client.send(command);

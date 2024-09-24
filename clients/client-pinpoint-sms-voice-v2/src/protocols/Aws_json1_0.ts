@@ -106,6 +106,10 @@ import {
   DeleteRegistrationFieldValueCommandOutput,
 } from "../commands/DeleteRegistrationFieldValueCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
 } from "../commands/DeleteTextMessageSpendLimitOverrideCommand";
@@ -200,6 +204,7 @@ import {
   GetProtectConfigurationCountryRuleSetCommandInput,
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "../commands/GetProtectConfigurationCountryRuleSetCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
@@ -218,6 +223,7 @@ import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "../commands/PutRegistrationFieldValueCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "../commands/ReleaseSenderIdCommand";
 import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "../commands/RequestPhoneNumberCommand";
@@ -322,6 +328,8 @@ import {
   DeleteRegistrationFieldValueRequest,
   DeleteRegistrationRequest,
   DeleteRegistrationResult,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResult,
   DeleteTextMessageSpendLimitOverrideRequest,
   DeleteVerifiedDestinationNumberRequest,
   DeleteVerifiedDestinationNumberResult,
@@ -362,6 +370,8 @@ import {
   DiscardRegistrationVersionResult,
   EventType,
   GetProtectConfigurationCountryRuleSetRequest,
+  GetResourcePolicyRequest,
+  GetResourcePolicyResult,
   InternalServerException,
   KeywordFilter,
   KinesisFirehoseDestination,
@@ -385,6 +395,8 @@ import {
   PutOptedOutNumberRequest,
   PutOptedOutNumberResult,
   PutRegistrationFieldValueRequest,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResult,
   RegistrationAssociationFilter,
   RegistrationAttachmentFilter,
   RegistrationAttachmentsInformation,
@@ -777,6 +789,19 @@ export const se_DeleteRegistrationFieldValueCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
  */
 export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
@@ -1115,6 +1140,19 @@ export const se_GetProtectConfigurationCountryRuleSetCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const se_ListPoolOriginationIdentitiesCommand = async (
@@ -1187,6 +1225,19 @@ export const se_PutRegistrationFieldValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRegistrationFieldValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2025,6 +2076,26 @@ export const de_DeleteRegistrationFieldValueCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteResourcePolicyResult(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
  */
 export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
@@ -2545,6 +2616,26 @@ export const de_GetProtectConfigurationCountryRuleSetCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetResourcePolicyResult(data, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const de_ListPoolOriginationIdentitiesCommand = async (
@@ -2658,6 +2749,26 @@ export const de_PutRegistrationFieldValueCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: PutRegistrationFieldValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutResourcePolicyResult(data, context);
+  const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3452,6 +3563,8 @@ const se_CreateVerifiedDestinationNumberRequest = (
 
 // se_DeleteRegistrationRequest omitted.
 
+// se_DeleteResourcePolicyRequest omitted.
+
 // se_DeleteTextMessageSpendLimitOverrideRequest omitted.
 
 // se_DeleteVerifiedDestinationNumberRequest omitted.
@@ -3527,6 +3640,8 @@ const se_DisassociateOriginationIdentityRequest = (
 
 // se_GetProtectConfigurationCountryRuleSetRequest omitted.
 
+// se_GetResourcePolicyRequest omitted.
+
 // se_KeywordFilter omitted.
 
 // se_KeywordFilterList omitted.
@@ -3588,6 +3703,8 @@ const se_DisassociateOriginationIdentityRequest = (
 // se_PutOptedOutNumberRequest omitted.
 
 // se_PutRegistrationFieldValueRequest omitted.
+
+// se_PutResourcePolicyRequest omitted.
 
 // se_RegistrationAssociationFilter omitted.
 
@@ -4012,6 +4129,17 @@ const de_DeleteRegistrationResult = (output: any, context: __SerdeContext): Dele
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyResult
+ */
+const de_DeleteResourcePolicyResult = (output: any, context: __SerdeContext): DeleteResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
+};
+
 // de_DeleteTextMessageSpendLimitOverrideResult omitted.
 
 /**
@@ -4192,6 +4320,17 @@ const de_DiscardRegistrationVersionResult = (
 // de_EventTypeList omitted.
 
 // de_GetProtectConfigurationCountryRuleSetResult omitted.
+
+/**
+ * deserializeAws_json1_0GetResourcePolicyResult
+ */
+const de_GetResourcePolicyResult = (output: any, context: __SerdeContext): GetResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
+};
 
 // de_InternalServerException omitted.
 
@@ -4379,6 +4518,17 @@ const de_PutOptedOutNumberResult = (output: any, context: __SerdeContext): PutOp
 };
 
 // de_PutRegistrationFieldValueResult omitted.
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyResult
+ */
+const de_PutResourcePolicyResult = (output: any, context: __SerdeContext): PutResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
+};
 
 // de_RegistrationAssociationMetadata omitted.
 

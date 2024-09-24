@@ -130,6 +130,9 @@ export interface AssociateOriginationIdentityRequest {
   /**
    * <p>The pool to update with the new Identity. This value can be either the PoolId or
    *             PoolArn, and you can find these values using <a>DescribePools</a>.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId: string | undefined;
@@ -139,6 +142,9 @@ export interface AssociateOriginationIdentityRequest {
    *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
    *             PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used
    *             to get the values for SenderId and SenderIdArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -256,6 +262,7 @@ export const ResourceType = {
   OPTED_OUT_NUMBER: "opted-out-number",
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
+  POLICY: "policy",
   POOL: "pool",
   PROTECT_CONFIGURATION: "protect-configuration",
   REGISTRATION: "registration",
@@ -1124,6 +1131,9 @@ export interface CreatePoolRequest {
    *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
    *             to get the values for SenderId and SenderIdArn.</p>
    *          <p>After the pool is created you can add more origination identities to the pool by using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2083,6 +2093,9 @@ export interface DeleteKeywordRequest {
    *             PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for
    *             PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values
    *             of PoolId and PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2166,6 +2179,9 @@ export interface DeleteMediaMessageSpendLimitOverrideResult {
 export interface DeleteOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -2220,6 +2236,9 @@ export interface DeleteOptOutListRequest {
   /**
    * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
    *             OptOutListArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -2254,6 +2273,9 @@ export interface DeleteOptOutListResult {
 export interface DeletePoolRequest {
   /**
    * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId: string | undefined;
@@ -2630,6 +2652,40 @@ export interface DeleteRegistrationFieldValueResult {
 /**
  * @public
  */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource you're deleting the resource-based policy from.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource that the resource-based policy was deleted from.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The JSON formatted resource-based policy that was deleted.</p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTextMessageSpendLimitOverrideRequest {}
 
 /**
@@ -2860,6 +2916,9 @@ export interface DescribeKeywordsRequest {
    *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
    *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
    *             to get the values for SenderId and SenderIdArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2982,6 +3041,9 @@ export interface DescribeOptedOutNumbersRequest {
   /**
    * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
    *             OptOutListArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -3069,11 +3131,28 @@ export interface DescribeOptedOutNumbersResult {
 
 /**
  * @public
+ * @enum
+ */
+export const Owner = {
+  SELF: "SELF",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type Owner = (typeof Owner)[keyof typeof Owner];
+
+/**
+ * @public
  */
 export interface DescribeOptOutListsRequest {
   /**
    * <p>The OptOutLists to show the details of. This is an array of strings that can be either
    *             the OptOutListName or OptOutListArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListNames?: string[];
@@ -3090,6 +3169,12 @@ export interface DescribeOptOutListsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Opt-Out List to ones your account owns or use <code>SHARED</code> to filter on Opt-Out List shared with your account. The <code>Owner</code> and <code>OptOutListNames</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner;
 }
 
 /**
@@ -3182,6 +3267,9 @@ export interface DescribePhoneNumbersRequest {
   /**
    * <p>The unique identifier of phone numbers to find information about. This is an array of
    *             strings that can be either the PhoneNumberId or PhoneNumberArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PhoneNumberIds?: string[];
@@ -3204,6 +3292,12 @@ export interface DescribePhoneNumbersRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of phone numbers to ones your account owns or use <code>SHARED</code> to filter on phone numbers shared with your account. The <code>Owner</code> and <code>PhoneNumberIds</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner;
 }
 
 /**
@@ -3443,6 +3537,9 @@ export interface DescribePoolsRequest {
   /**
    * <p>The unique identifier of pools to find. This is an array of strings that can be either
    *             the PoolId or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolIds?: string[];
@@ -3465,6 +3562,12 @@ export interface DescribePoolsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Pools to ones your account owns or use <code>SHARED</code> to filter on Pools shared with your account. The <code>Owner</code> and <code>PoolIds</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner;
 }
 
 /**
@@ -4986,6 +5089,9 @@ export interface SenderIdAndCountry {
 export interface DescribeSenderIdsRequest {
   /**
    * <p>An array of SenderIdAndCountry objects to search for.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   SenderIds?: SenderIdAndCountry[];
@@ -5008,6 +5114,12 @@ export interface DescribeSenderIdsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Sender Ids to ones your account owns or use <code>SHARED</code> to filter on Sender Ids shared with your account. The <code>Owner</code> and <code>SenderIds</code> parameters can't be used at the same time. </p>
+   * @public
+   */
+  Owner?: Owner;
 }
 
 /**
@@ -5331,6 +5443,9 @@ export interface DisassociateOriginationIdentityRequest {
   /**
    * <p>The unique identifier for the pool to disassociate with the origination identity. This
    *             value can be either the PoolId or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId: string | undefined;
@@ -5340,6 +5455,9 @@ export interface DisassociateOriginationIdentityRequest {
    *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for
    *             PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the
    *             values for SenderId and SenderIdArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -5597,6 +5715,40 @@ export interface GetProtectConfigurationCountryRuleSetResult {
 
 /**
  * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The JSON formatted string that contains the resource-based policy attached to the AWS End User Messaging SMS and Voice resource. </p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
  * @enum
  */
 export const LanguageCode = {
@@ -5661,6 +5813,9 @@ export interface ListPoolOriginationIdentitiesRequest {
   /**
    * <p>The unique identifier for the pool. This value can be either the PoolId or
    *             PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId: string | undefined;
@@ -5926,6 +6081,9 @@ export interface PutKeywordRequest {
    *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> get the values for
    *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
    *             to get the values for SenderId and SenderIdArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -6001,6 +6159,9 @@ export interface PutKeywordResult {
 export interface PutOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to add the phone number to.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -6133,10 +6294,53 @@ export interface PutRegistrationFieldValueResult {
 /**
  * @public
  */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource to attach the resource-based policy to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON formatted resource-based policy to attach.</p>
+   * @public
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The JSON formatted Resource Policy.</p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
 export interface ReleasePhoneNumberRequest {
   /**
    * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and
    *             PhoneNumberArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -6365,12 +6569,18 @@ export interface RequestPhoneNumberRequest {
   /**
    * <p>The name of the OptOutList to associate with the phone number. You can use the
    *             OptOutListName or OptOutListArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName?: string;
 
   /**
    * <p>The pool to associated with the phone number. You can use the PoolId or PoolArn. </p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId?: string;
@@ -6673,6 +6883,9 @@ export interface SendDestinationNumberVerificationCodeRequest {
   /**
    * <p>The origination identity of the message. This can be either the PhoneNumber,
    *             PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity?: string;
@@ -6725,6 +6938,9 @@ export interface SendMediaMessageRequest {
   /**
    * <p>The origination identity of the message. This can be either the PhoneNumber,
    *            PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -6808,6 +7024,9 @@ export interface SendTextMessageRequest {
   /**
    * <p>The origination identity of the message. This can be either the PhoneNumber,
    *             PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity?: string;
@@ -7016,6 +7235,9 @@ export interface SendVoiceMessageRequest {
   /**
    * <p>The origination identity to use for the voice call. This can be the PhoneNumber,
    *             PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -7491,6 +7713,9 @@ export interface UpdatePhoneNumberRequest {
   /**
    * <p>The unique identifier of the phone number. Valid values for this field can be either
    *             the PhoneNumberId or PhoneNumberArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -7657,6 +7882,9 @@ export interface UpdatePoolRequest {
   /**
    * <p>The unique identifier of the pool to update. Valid values are either the PoolId or
    *             PoolArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   PoolId: string | undefined;
@@ -7693,6 +7921,9 @@ export interface UpdatePoolRequest {
   /**
    * <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or
    *             OptOutListArn.</p>
+   *          <important>
+   *             <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p>
+   *          </important>
    * @public
    */
   OptOutListName?: string;

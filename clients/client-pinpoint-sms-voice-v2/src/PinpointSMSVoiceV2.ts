@@ -125,6 +125,11 @@ import {
   DeleteRegistrationFieldValueCommandOutput,
 } from "./commands/DeleteRegistrationFieldValueCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteTextMessageSpendLimitOverrideCommand,
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
@@ -255,6 +260,11 @@ import {
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "./commands/GetProtectConfigurationCountryRuleSetCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ListPoolOriginationIdentitiesCommand,
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
@@ -280,6 +290,11 @@ import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "./commands/PutRegistrationFieldValueCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   ReleasePhoneNumberCommand,
   ReleasePhoneNumberCommandInput,
@@ -421,6 +436,7 @@ const commands = {
   DeleteRegistrationCommand,
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationFieldValueCommand,
+  DeleteResourcePolicyCommand,
   DeleteTextMessageSpendLimitOverrideCommand,
   DeleteVerifiedDestinationNumberCommand,
   DeleteVoiceMessageSpendLimitOverrideCommand,
@@ -447,12 +463,14 @@ const commands = {
   DisassociateProtectConfigurationCommand,
   DiscardRegistrationVersionCommand,
   GetProtectConfigurationCountryRuleSetCommand,
+  GetResourcePolicyCommand,
   ListPoolOriginationIdentitiesCommand,
   ListRegistrationAssociationsCommand,
   ListTagsForResourceCommand,
   PutKeywordCommand,
   PutOptedOutNumberCommand,
   PutRegistrationFieldValueCommand,
+  PutResourcePolicyCommand,
   ReleasePhoneNumberCommand,
   ReleaseSenderIdCommand,
   RequestPhoneNumberCommand,
@@ -909,6 +927,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTextMessageSpendLimitOverrideCommand}
    */
   deleteTextMessageSpendLimitOverride(): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput>;
@@ -1360,6 +1395,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPoolOriginationIdentitiesCommand}
    */
   listPoolOriginationIdentities(
@@ -1453,6 +1505,23 @@ export interface PinpointSMSVoiceV2 {
     args: PutRegistrationFieldValueCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRegistrationFieldValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

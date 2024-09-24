@@ -50,6 +50,7 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Owner: "STRING_VALUE",
  * };
  * const command = new DescribeOptOutListsCommand(input);
  * const response = await client.send(command);

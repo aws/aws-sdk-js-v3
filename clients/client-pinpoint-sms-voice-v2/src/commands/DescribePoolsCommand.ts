@@ -62,6 +62,7 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Owner: "STRING_VALUE",
  * };
  * const command = new DescribePoolsCommand(input);
  * const response = await client.send(command);
