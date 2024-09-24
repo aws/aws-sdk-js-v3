@@ -122,7 +122,7 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *       UiTemplateS3Uri: "STRING_VALUE",
  *       HumanTaskUiArn: "STRING_VALUE",
  *     },
- *     PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ *     PreHumanTaskLambdaArn: "STRING_VALUE",
  *     TaskKeywords: [ // TaskKeywords
  *       "STRING_VALUE",
  *     ],

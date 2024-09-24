@@ -4722,7 +4722,8 @@ export interface IdleSettings {
   LifecycleManagement?: LifecycleManagement;
 
   /**
-   * <p>The time that SageMaker waits after the application becomes idle before shutting it down.</p>
+   * <p>The time that SageMaker waits after the application becomes idle before shutting it
+   *       down.</p>
    * @public
    */
   IdleTimeoutInMinutes?: number;
@@ -4741,7 +4742,8 @@ export interface IdleSettings {
 }
 
 /**
- * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio applications.</p>
+ * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio
+ *       applications.</p>
  * @public
  */
 export interface AppLifecycleManagement {
@@ -9760,7 +9762,8 @@ export interface CodeEditorAppSettings {
   LifecycleConfigArns?: string[];
 
   /**
-   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor
+   *       applications.</p>
    * @public
    */
   AppLifecycleManagement?: AppLifecycleManagement;

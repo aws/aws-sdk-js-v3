@@ -65,7 +65,7 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * //         Unlabeled: Number("int"),
  * //       },
  * //       WorkteamArn: "STRING_VALUE", // required
- * //       PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ * //       PreHumanTaskLambdaArn: "STRING_VALUE",
  * //       AnnotationConsolidationLambdaArn: "STRING_VALUE",
  * //       FailureReason: "STRING_VALUE",
  * //       LabelingJobOutput: { // LabelingJobOutput

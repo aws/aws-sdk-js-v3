@@ -927,6 +927,7 @@ import {
   AnnotationConsolidationConfig,
   AppDetails,
   AppImageConfigDetails,
+  AppInstanceType,
   AppLifecycleManagement,
   AppSpecification,
   AppType,
@@ -1208,8 +1209,6 @@ import {
   CreatePipelineRequest,
   CreatePipelineResponse,
   CreatePresignedDomainUrlRequest,
-  CreatePresignedDomainUrlResponse,
-  CreatePresignedMlflowTrackingServerUrlRequest,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1244,6 +1243,7 @@ import {
   FeatureDefinition,
   FileSource,
   FlowDefinitionOutputConfig,
+  HiddenSageMakerImage,
   HubS3StorageConfig,
   HumanLoopActivationConditionsConfig,
   HumanLoopActivationConfig,
@@ -1383,6 +1383,8 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreatePresignedDomainUrlResponse,
+  CreatePresignedMlflowTrackingServerUrlRequest,
   CreatePresignedMlflowTrackingServerUrlResponse,
   CreatePresignedNotebookInstanceUrlInput,
   CreatePresignedNotebookInstanceUrlOutput,
@@ -1559,8 +1561,6 @@ import {
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
-  DescribeLineageGroupRequest,
-  DescribeLineageGroupResponse,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1645,6 +1645,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeLineageGroupRequest,
+  DescribeLineageGroupResponse,
   DescribeMlflowTrackingServerRequest,
   DescribeMlflowTrackingServerResponse,
   DescribeModelBiasJobDefinitionRequest,
@@ -2020,9 +2022,7 @@ import {
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
-  SearchExpression,
   SearchRecord,
-  SearchRequest,
   SearchResponse,
   SelectiveExecutionResult,
   SendPipelineExecutionStepFailureRequest,
@@ -2154,6 +2154,7 @@ import {
   Vertex,
   VisibilityConditions,
 } from "../models/models_4";
+import { SearchExpression, SearchRequest } from "../models/models_5";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 /**
@@ -14262,7 +14263,13 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_HiddenAppTypesList omitted.
 
+// se_HiddenInstanceTypesList omitted.
+
 // se_HiddenMlToolsList omitted.
+
+// se_HiddenSageMakerImage omitted.
+
+// se_HiddenSageMakerImageVersionAliasesList omitted.
 
 // se_HolidayConfig omitted.
 
@@ -16525,6 +16532,8 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 // se_VariantPropertyList omitted.
 
 // se_VectorConfig omitted.
+
+// se_VersionAliasesList omitted.
 
 // se_VisibilityConditions omitted.
 
@@ -22472,6 +22481,18 @@ const de_HiddenAppTypesList = (output: any, context: __SerdeContext): AppType[] 
 };
 
 /**
+ * deserializeAws_json1_1HiddenInstanceTypesList
+ */
+const de_HiddenInstanceTypesList = (output: any, context: __SerdeContext): AppInstanceType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1HiddenMlToolsList
  */
 const de_HiddenMlToolsList = (output: any, context: __SerdeContext): MlTools[] => {
@@ -22479,6 +22500,28 @@ const de_HiddenMlToolsList = (output: any, context: __SerdeContext): MlTools[] =
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1HiddenSageMakerImage
+ */
+const de_HiddenSageMakerImage = (output: any, context: __SerdeContext): HiddenSageMakerImage => {
+  return take(output, {
+    SageMakerImageName: __expectString,
+    VersionAliases: (_: any) => de_VersionAliasesList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1HiddenSageMakerImageVersionAliasesList
+ */
+const de_HiddenSageMakerImageVersionAliasesList = (output: any, context: __SerdeContext): HiddenSageMakerImage[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HiddenSageMakerImage(entry, context);
     });
   return retVal;
 };
@@ -28716,7 +28759,9 @@ const de_StudioLifecycleConfigsList = (output: any, context: __SerdeContext): St
 const de_StudioWebPortalSettings = (output: any, context: __SerdeContext): StudioWebPortalSettings => {
   return take(output, {
     HiddenAppTypes: (_: any) => de_HiddenAppTypesList(_, context),
+    HiddenInstanceTypes: (_: any) => de_HiddenInstanceTypesList(_, context),
     HiddenMlTools: (_: any) => de_HiddenMlToolsList(_, context),
+    HiddenSageMakerImageVersionAliases: (_: any) => de_HiddenSageMakerImageVersionAliasesList(_, context),
   }) as any;
 };
 
@@ -30101,6 +30146,18 @@ const de_VectorConfig = (output: any, context: __SerdeContext): VectorConfig => 
   return take(output, {
     Dimension: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1VersionAliasesList
+ */
+const de_VersionAliasesList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**

@@ -190,6 +190,72 @@ import {
 /**
  * @public
  */
+export interface DescribeLineageGroupRequest {
+  /**
+   * <p>The name of the lineage group.</p>
+   * @public
+   */
+  LineageGroupName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLineageGroupResponse {
+  /**
+   * <p>The name of the lineage group.</p>
+   * @public
+   */
+  LineageGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   * @public
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The display name of the lineage group.</p>
+   * @public
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the lineage group.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The creation time of lineage group.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The last modified time of the lineage group.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+}
+
+/**
+ * @public
+ */
 export interface DescribeMlflowTrackingServerRequest {
   /**
    * <p>The name of the MLflow Tracking Server to describe.</p>
@@ -7919,7 +7985,7 @@ export interface LabelingJobSummary {
    *             data object is sent to a worker.</p>
    * @public
    */
-  PreHumanTaskLambdaArn: string | undefined;
+  PreHumanTaskLambdaArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
@@ -11556,36 +11622,6 @@ export interface ListModelBiasJobDefinitionsResponse {
    */
   NextToken?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelCardExportJobSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardExportJobSortBy = (typeof ModelCardExportJobSortBy)[keyof typeof ModelCardExportJobSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ModelCardExportJobSortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardExportJobSortOrder =
-  (typeof ModelCardExportJobSortOrder)[keyof typeof ModelCardExportJobSortOrder];
 
 /**
  * @internal

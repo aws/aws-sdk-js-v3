@@ -9,6 +9,7 @@ import {
   AdditionalInferenceSpecificationDefinition,
   AmazonQSettings,
   AnnotationConsolidationConfig,
+  AppInstanceType,
   AppLifecycleManagement,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
@@ -2615,6 +2616,7 @@ export const MlTools = {
   JUMP_START: "JumpStart",
   MODELS: "Models",
   MODEL_EVALUATION: "ModelEvaluation",
+  PERFORMANCE_EVALUATION: "PerformanceEvaluation",
   PIPELINES: "Pipelines",
   PROJECTS: "Projects",
   TRAINING: "Training",
@@ -2624,6 +2626,42 @@ export const MlTools = {
  * @public
  */
 export type MlTools = (typeof MlTools)[keyof typeof MlTools];
+
+/**
+ * @public
+ * @enum
+ */
+export const SageMakerImageName = {
+  sagemaker_distribution: "sagemaker_distribution",
+} as const;
+
+/**
+ * @public
+ */
+export type SageMakerImageName = (typeof SageMakerImageName)[keyof typeof SageMakerImageName];
+
+/**
+ * <p>The SageMaker images that are hidden from the Studio user interface. You must specify the SageMaker
+ *       image name and version aliases.</p>
+ * @public
+ */
+export interface HiddenSageMakerImage {
+  /**
+   * <p>
+   *       The SageMaker image name that you are hiding from the Studio user interface.
+   *     </p>
+   * @public
+   */
+  SageMakerImageName?: SageMakerImageName;
+
+  /**
+   * <p>
+   *       The version aliases you are hiding from the Studio user interface.
+   *     </p>
+   * @public
+   */
+  VersionAliases?: string[];
+}
 
 /**
  * <p>Studio settings. If these settings are applied on a user level, they take priority over
@@ -2643,6 +2681,22 @@ export interface StudioWebPortalSettings {
    * @public
    */
   HiddenAppTypes?: AppType[];
+
+  /**
+   * <p>
+   *       The instance types you are hiding from the Studio user interface.
+   *     </p>
+   * @public
+   */
+  HiddenInstanceTypes?: AppInstanceType[];
+
+  /**
+   * <p>
+   *       The version aliases you are hiding from the Studio user interface.
+   *     </p>
+   * @public
+   */
+  HiddenSageMakerImageVersionAliases?: HiddenSageMakerImage[];
 }
 
 /**
@@ -2797,7 +2851,9 @@ export interface UserSettings {
   StudioWebPortalSettings?: StudioWebPortalSettings;
 
   /**
-   * <p>Indicates whether auto-mounting of an EFS volume is supported for the user profile. The <code>DefaultAsDomain</code> value is only supported for user profiles. Do not use the <code>DefaultAsDomain</code> value when setting this parameter for a domain.</p>
+   * <p>Indicates whether auto-mounting of an EFS volume is supported for the user profile. The
+   *         <code>DefaultAsDomain</code> value is only supported for user profiles. Do not use the
+   *         <code>DefaultAsDomain</code> value when setting this parameter for a domain.</p>
    * @public
    */
   AutoMountHomeEFS?: AutoMountHomeEFS;
@@ -9733,7 +9789,7 @@ export interface HumanTaskConfig {
    *          </ul>
    * @public
    */
-  PreHumanTaskLambdaArn: string | undefined;
+  PreHumanTaskLambdaArn?: string;
 
   /**
    * <p>Keywords used to describe the task so that workers on Amazon Mechanical Turk can
@@ -9809,7 +9865,7 @@ export interface HumanTaskConfig {
    * <p>Configures how labels are consolidated across human workers.</p>
    * @public
    */
-  AnnotationConsolidationConfig: AnnotationConsolidationConfig | undefined;
+  AnnotationConsolidationConfig?: AnnotationConsolidationConfig;
 
   /**
    * <p>The price that you pay for each task performed by an Amazon Mechanical Turk worker.</p>
@@ -12933,41 +12989,6 @@ export interface CreatePresignedDomainUrlRequest {
    * @public
    */
   LandingUri?: string;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedDomainUrlResponse {
-  /**
-   * <p>The presigned URL.</p>
-   * @public
-   */
-  AuthorizedUrl?: string;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedMlflowTrackingServerUrlRequest {
-  /**
-   * <p>The name of the tracking server to connect to your MLflow UI.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-
-  /**
-   * <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used
-   *       only once.</p>
-   * @public
-   */
-  ExpiresInSeconds?: number;
-
-  /**
-   * <p>The duration in seconds that your MLflow UI session is valid.</p>
-   * @public
-   */
-  SessionExpirationDurationInSeconds?: number;
 }
 
 /**

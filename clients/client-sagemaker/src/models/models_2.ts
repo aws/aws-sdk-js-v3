@@ -147,6 +147,41 @@ import {
 /**
  * @public
  */
+export interface CreatePresignedDomainUrlResponse {
+  /**
+   * <p>The presigned URL.</p>
+   * @public
+   */
+  AuthorizedUrl?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedMlflowTrackingServerUrlRequest {
+  /**
+   * <p>The name of the tracking server to connect to your MLflow UI.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used
+   *       only once.</p>
+   * @public
+   */
+  ExpiresInSeconds?: number;
+
+  /**
+   * <p>The duration in seconds that your MLflow UI session is valid.</p>
+   * @public
+   */
+  SessionExpirationDurationInSeconds?: number;
+}
+
+/**
+ * @public
+ */
 export interface CreatePresignedMlflowTrackingServerUrlResponse {
   /**
    * <p>A presigned URL with an authorization token.</p>
@@ -923,14 +958,16 @@ export interface OwnershipSettings {
  */
 export interface SpaceIdleSettings {
   /**
-   * <p>The time that SageMaker waits after the application becomes idle before shutting it down.</p>
+   * <p>The time that SageMaker waits after the application becomes idle before shutting it
+   *       down.</p>
    * @public
    */
   IdleTimeoutInMinutes?: number;
 }
 
 /**
- * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio applications in a space.</p>
+ * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio
+ *       applications in a space.</p>
  * @public
  */
 export interface SpaceAppLifecycleManagement {
@@ -954,7 +991,8 @@ export interface SpaceCodeEditorAppSettings {
   DefaultResourceSpec?: ResourceSpec;
 
   /**
-   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.</p>
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications in
+   *       a space.</p>
    * @public
    */
   AppLifecycleManagement?: SpaceAppLifecycleManagement;
@@ -1032,7 +1070,8 @@ export interface SpaceJupyterLabAppSettings {
   CodeRepositories?: CodeRepository[];
 
   /**
-   * <p>Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.</p>
+   * <p>Settings that are used to configure and manage the lifecycle of JupyterLab applications in
+   *       a space.</p>
    * @public
    */
   AppLifecycleManagement?: SpaceAppLifecycleManagement;
@@ -9225,72 +9264,6 @@ export interface DescribeLabelingJobResponse {
    * @public
    */
   LabelingJobOutput?: LabelingJobOutput;
-}
-
-/**
- * @public
- */
-export interface DescribeLineageGroupRequest {
-  /**
-   * <p>The name of the lineage group.</p>
-   * @public
-   */
-  LineageGroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeLineageGroupResponse {
-  /**
-   * <p>The name of the lineage group.</p>
-   * @public
-   */
-  LineageGroupName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   * @public
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * <p>The display name of the lineage group.</p>
-   * @public
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the lineage group.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The creation time of lineage group.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>The last modified time of the lineage group.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
 }
 
 /**
