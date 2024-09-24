@@ -17,6 +17,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -1731,12 +1732,9 @@ export const se_GetAssetPropertyAggregatesCommand = async (
     [_aI]: [, input[_aI]!],
     [_pI]: [, input[_pI]!],
     [_pA]: [, input[_pA]!],
-    [_aT]: [
-      __expectNonNull(input.aggregateTypes, `aggregateTypes`) != null,
-      () => (input[_aT]! || []).map((_entry) => _entry as any),
-    ],
+    [_aT]: [__expectNonNull(input.aggregateTypes, `aggregateTypes`) != null, () => input[_aT]! || []],
     [_r]: [, __expectNonNull(input[_r]!, `resolution`)],
-    [_q]: [() => input.qualities !== void 0, () => (input[_q]! || []).map((_entry) => _entry as any)],
+    [_q]: [() => input.qualities !== void 0, () => input[_q]! || []],
     [_sD]: [__expectNonNull(input.startDate, `startDate`) != null, () => __serializeDateTime(input[_sD]!).toString()],
     [_eD]: [__expectNonNull(input.endDate, `endDate`) != null, () => __serializeDateTime(input[_eD]!).toString()],
     [_tO]: [, input[_tO]!],
@@ -1800,7 +1798,7 @@ export const se_GetAssetPropertyValueHistoryCommand = async (
     [_pA]: [, input[_pA]!],
     [_sD]: [() => input.startDate !== void 0, () => __serializeDateTime(input[_sD]!).toString()],
     [_eD]: [() => input.endDate !== void 0, () => __serializeDateTime(input[_eD]!).toString()],
-    [_q]: [() => input.qualities !== void 0, () => (input[_q]! || []).map((_entry) => _entry as any)],
+    [_q]: [() => input.qualities !== void 0, () => input[_q]! || []],
     [_tO]: [, input[_tO]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1987,7 +1985,7 @@ export const se_ListAssetModelsCommand = async (
   const headers: any = {};
   b.bp("/asset-models");
   const query: any = map({
-    [_aMT]: [() => input.assetModelTypes !== void 0, () => (input[_aMT]! || []).map((_entry) => _entry as any)],
+    [_aMT]: [() => input.assetModelTypes !== void 0, () => input[_aMT]! || []],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_aMV]: [, input[_aMV]!],
@@ -2513,10 +2511,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags");
   const query: any = map({
     [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -6251,13 +6246,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _a = "alias";
 const _aI = "assetId";

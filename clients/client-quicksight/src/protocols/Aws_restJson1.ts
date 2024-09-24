@@ -3316,7 +3316,7 @@ export const se_GetDashboardEmbedUrlCommand = async (
     [_spe]: [() => input.StatePersistenceEnabled !== void 0, () => input[_SPE]!.toString()],
     [_ua]: [, input[_UA]!],
     [_n]: [, input[_N]!],
-    [_adi]: [() => input.AdditionalDashboardIds !== void 0, () => (input[_ADI]! || []).map((_entry) => _entry as any)],
+    [_adi]: [() => input.AdditionalDashboardIds !== void 0, () => input[_ADI]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4340,7 +4340,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/resources/{ResourceArn}/tags");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_k]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => (input[_TK]! || []).map((_entry) => _entry as any)],
+    [_k]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -21475,13 +21475,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _ADI = "AdditionalDashboardIds";
 const _AN = "AliasName";

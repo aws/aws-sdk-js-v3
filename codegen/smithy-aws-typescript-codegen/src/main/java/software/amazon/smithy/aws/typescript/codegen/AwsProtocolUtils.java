@@ -312,6 +312,11 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: Remove when upstream tests update to serialize empty headers.
+        if (testCase.getId().contains("NullAndEmptyHeaders")) {
+            return true;
+        }
+
         if (testCase.getTags().contains("defaults")) {
             return true;
         }

@@ -6719,7 +6719,7 @@ it("RestJsonNoInputAndOutputNoPayload:Response", async () => {
 /**
  * Do not send null values, empty strings, or empty lists over the wire in headers
  */
-it("RestJsonNullAndEmptyHeaders:Request", async () => {
+it.skip("RestJsonNullAndEmptyHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

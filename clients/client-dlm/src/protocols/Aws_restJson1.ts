@@ -141,11 +141,11 @@ export const se_GetLifecyclePoliciesCommand = async (
   const headers: any = {};
   b.bp("/policies");
   const query: any = map({
-    [_pI]: [() => input.PolicyIds !== void 0, () => (input[_PI]! || []).map((_entry) => _entry as any)],
+    [_pI]: [() => input.PolicyIds !== void 0, () => input[_PI]! || []],
     [_s]: [, input[_S]!],
-    [_rT]: [() => input.ResourceTypes !== void 0, () => (input[_RT]! || []).map((_entry) => _entry as any)],
-    [_tT]: [() => input.TargetTags !== void 0, () => (input[_TT]! || []).map((_entry) => _entry as any)],
-    [_tTA]: [() => input.TagsToAdd !== void 0, () => (input[_TTA]! || []).map((_entry) => _entry as any)],
+    [_rT]: [() => input.ResourceTypes !== void 0, () => input[_RT]! || []],
+    [_tT]: [() => input.TargetTags !== void 0, () => input[_TT]! || []],
+    [_tTA]: [() => input.TagsToAdd !== void 0, () => input[_TTA]! || []],
     [_dPT]: [, input[_DPT]!],
   });
   let body: any;
@@ -220,10 +220,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -750,13 +747,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _DPT = "DefaultPolicyType";
 const _PI = "PolicyIds";

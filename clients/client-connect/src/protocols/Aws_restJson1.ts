@@ -3622,7 +3622,7 @@ export const se_ListAgentStatusesCommand = async (
   const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_AST]: [() => input.AgentStatusTypes !== void 0, () => (input[_AST]! || []).map((_entry) => _entry as any)],
+    [_AST]: [() => input.AgentStatusTypes !== void 0, () => input[_AST]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3764,7 +3764,7 @@ export const se_ListContactFlowsCommand = async (
   b.bp("/contact-flows-summary/{InstanceId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    [_cFT]: [() => input.ContactFlowTypes !== void 0, () => (input[_CFT]! || []).map((_entry) => _entry as any)],
+    [_cFT]: [() => input.ContactFlowTypes !== void 0, () => input[_CFT]! || []],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -3786,10 +3786,7 @@ export const se_ListContactReferencesCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   const query: any = map({
-    [_rTe]: [
-      __expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null,
-      () => (input[_RTe]! || []).map((_entry) => _entry as any),
-    ],
+    [_rTe]: [__expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null, () => input[_RTe]! || []],
     [_nT]: [, input[_NT]!],
   });
   let body: any;
@@ -4038,11 +4035,8 @@ export const se_ListPhoneNumbersCommand = async (
   b.bp("/phone-numbers-summary/{InstanceId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    [_pNT]: [() => input.PhoneNumberTypes !== void 0, () => (input[_PNT]! || []).map((_entry) => _entry as any)],
-    [_pNCC]: [
-      () => input.PhoneNumberCountryCodes !== void 0,
-      () => (input[_PNCC]! || []).map((_entry) => _entry as any),
-    ],
+    [_pNT]: [() => input.PhoneNumberTypes !== void 0, () => input[_PNT]! || []],
+    [_pNCC]: [() => input.PhoneNumberCountryCodes !== void 0, () => input[_PNCC]! || []],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -4152,7 +4146,7 @@ export const se_ListQueuesCommand = async (
   b.bp("/queues-summary/{InstanceId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    [_qT]: [() => input.QueueTypes !== void 0, () => (input[_QT]! || []).map((_entry) => _entry as any)],
+    [_qT]: [() => input.QueueTypes !== void 0, () => input[_QT]! || []],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -4175,7 +4169,7 @@ export const se_ListQuickConnectsCommand = async (
   const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_QCT]: [() => input.QuickConnectTypes !== void 0, () => (input[_QCT]! || []).map((_entry) => _entry as any)],
+    [_QCT]: [() => input.QuickConnectTypes !== void 0, () => input[_QCT]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -5612,10 +5606,7 @@ export const se_UntagContactCommand = async (
   b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    [_TK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_TK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -5634,10 +5625,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -15885,13 +15873,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _ARA = "AssociatedResourceArn";
 const _AST = "AgentStatusTypes";

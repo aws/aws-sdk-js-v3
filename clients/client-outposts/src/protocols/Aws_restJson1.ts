@@ -404,10 +404,10 @@ export const se_ListAssetsCommand = async (
   b.bp("/outposts/{OutpostIdentifier}/assets");
   b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
   const query: any = map({
-    [_HIF]: [() => input.HostIdFilter !== void 0, () => (input[_HIF]! || []).map((_entry) => _entry as any)],
+    [_HIF]: [() => input.HostIdFilter !== void 0, () => input[_HIF]! || []],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
-    [_SF]: [() => input.StatusFilter !== void 0, () => (input[_SF]! || []).map((_entry) => _entry as any)],
+    [_SF]: [() => input.StatusFilter !== void 0, () => input[_SF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -428,10 +428,7 @@ export const se_ListCapacityTasksCommand = async (
     [_OIF]: [, input[_OIF]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
-    [_CTSF]: [
-      () => input.CapacityTaskStatusFilter !== void 0,
-      () => (input[_CTSF]! || []).map((_entry) => _entry as any),
-    ],
+    [_CTSF]: [() => input.CapacityTaskStatusFilter !== void 0, () => input[_CTSF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -451,9 +448,9 @@ export const se_ListCatalogItemsCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_ICF]: [() => input.ItemClassFilter !== void 0, () => (input[_ICF]! || []).map((_entry) => _entry as any)],
-    [_SSF]: [() => input.SupportedStorageFilter !== void 0, () => (input[_SSF]! || []).map((_entry) => _entry as any)],
-    [_ECFF]: [() => input.EC2FamilyFilter !== void 0, () => (input[_ECFF]! || []).map((_entry) => _entry as any)],
+    [_ICF]: [() => input.ItemClassFilter !== void 0, () => input[_ICF]! || []],
+    [_SSF]: [() => input.SupportedStorageFilter !== void 0, () => input[_SSF]! || []],
+    [_ECFF]: [() => input.EC2FamilyFilter !== void 0, () => input[_ECFF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -493,12 +490,9 @@ export const se_ListOutpostsCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_LCSF]: [() => input.LifeCycleStatusFilter !== void 0, () => (input[_LCSF]! || []).map((_entry) => _entry as any)],
-    [_AZF]: [() => input.AvailabilityZoneFilter !== void 0, () => (input[_AZF]! || []).map((_entry) => _entry as any)],
-    [_AZIF]: [
-      () => input.AvailabilityZoneIdFilter !== void 0,
-      () => (input[_AZIF]! || []).map((_entry) => _entry as any),
-    ],
+    [_LCSF]: [() => input.LifeCycleStatusFilter !== void 0, () => input[_LCSF]! || []],
+    [_AZF]: [() => input.AvailabilityZoneFilter !== void 0, () => input[_AZF]! || []],
+    [_AZIF]: [() => input.AvailabilityZoneIdFilter !== void 0, () => input[_AZIF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -518,18 +512,9 @@ export const se_ListSitesCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_OACCF]: [
-      () => input.OperatingAddressCountryCodeFilter !== void 0,
-      () => (input[_OACCF]! || []).map((_entry) => _entry as any),
-    ],
-    [_OASORF]: [
-      () => input.OperatingAddressStateOrRegionFilter !== void 0,
-      () => (input[_OASORF]! || []).map((_entry) => _entry as any),
-    ],
-    [_OACF]: [
-      () => input.OperatingAddressCityFilter !== void 0,
-      () => (input[_OACF]! || []).map((_entry) => _entry as any),
-    ],
+    [_OACCF]: [() => input.OperatingAddressCountryCodeFilter !== void 0, () => input[_OACCF]! || []],
+    [_OASORF]: [() => input.OperatingAddressStateOrRegionFilter !== void 0, () => input[_OASORF]! || []],
+    [_OACF]: [() => input.OperatingAddressCityFilter !== void 0, () => input[_OACF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -637,10 +622,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1775,13 +1757,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _AT = "AddressType";
 const _AZF = "AvailabilityZoneFilter";

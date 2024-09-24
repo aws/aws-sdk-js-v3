@@ -27857,7 +27857,7 @@ it("RestJsonNoInputAndOutputWithJson:ServerResponse", async () => {
 /**
  * Do not send null or empty headers
  */
-it("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
+it.skip("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     NullAndEmptyHeadersServer(input: any, ctx: {}): Promise<NullAndEmptyHeadersServerServerOutput> {
       const response = {

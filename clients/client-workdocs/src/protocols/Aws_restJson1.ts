@@ -13,6 +13,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -450,7 +451,7 @@ export const se_DeleteCustomMetadataCommand = async (
   b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
     [_vI]: [, input[_VI]!],
-    [_k]: [() => input.Keys !== void 0, () => (input[_K]! || []).map((_entry) => _entry as any)],
+    [_k]: [() => input.Keys !== void 0, () => input[_K]! || []],
     [_dA]: [() => input.DeleteAll !== void 0, () => input[_DA]!.toString()],
   });
   let body: any;
@@ -548,7 +549,7 @@ export const se_DeleteLabelsCommand = async (
   b.bp("/api/v1/resources/{ResourceId}/labels");
   b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    [_l]: [() => input.Labels !== void 0, () => (input[_L]! || []).map((_entry) => _entry as any)],
+    [_l]: [() => input.Labels !== void 0, () => input[_L]! || []],
     [_dA]: [() => input.DeleteAll !== void 0, () => input[_DA]!.toString()],
   });
   let body: any;
@@ -3003,13 +3004,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _AT = "AuthenticationToken";
 const _ATc = "ActivityTypes";

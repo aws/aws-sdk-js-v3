@@ -935,7 +935,7 @@ export const se_DescribeGlobalNetworksCommand = async (
   const headers: any = {};
   b.bp("/global-networks");
   const query: any = map({
-    [_gNI]: [() => input.GlobalNetworkIds !== void 0, () => (input[_GNI]! || []).map((_entry) => _entry as any)],
+    [_gNI]: [() => input.GlobalNetworkIds !== void 0, () => input[_GNI]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1065,7 +1065,7 @@ export const se_GetConnectionsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/connections");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cI]: [() => input.ConnectionIds !== void 0, () => (input[_CI]! || []).map((_entry) => _entry as any)],
+    [_cI]: [() => input.ConnectionIds !== void 0, () => input[_CI]! || []],
     [_dI]: [, input[_DI]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
@@ -1103,7 +1103,7 @@ export const se_GetConnectPeerAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/connect-peer-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cPI]: [() => input.ConnectPeerIds !== void 0, () => (input[_CPI]! || []).map((_entry) => _entry as any)],
+    [_cPI]: [() => input.ConnectPeerIds !== void 0, () => input[_CPI]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1202,7 +1202,7 @@ export const se_GetCustomerGatewayAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/customer-gateway-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cGA]: [() => input.CustomerGatewayArns !== void 0, () => (input[_CGA]! || []).map((_entry) => _entry as any)],
+    [_cGA]: [() => input.CustomerGatewayArns !== void 0, () => input[_CGA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1223,7 +1223,7 @@ export const se_GetDevicesCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/devices");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_dIe]: [() => input.DeviceIds !== void 0, () => (input[_DIe]! || []).map((_entry) => _entry as any)],
+    [_dIe]: [() => input.DeviceIds !== void 0, () => input[_DIe]! || []],
     [_sI]: [, input[_SI]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
@@ -1267,7 +1267,7 @@ export const se_GetLinksCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/links");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_lIi]: [() => input.LinkIds !== void 0, () => (input[_LIi]! || []).map((_entry) => _entry as any)],
+    [_lIi]: [() => input.LinkIds !== void 0, () => input[_LIi]! || []],
     [_sI]: [, input[_SI]!],
     [_t]: [, input[_T]!],
     [_p]: [, input[_P]!],
@@ -1454,7 +1454,7 @@ export const se_GetSitesCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/sites");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_sIi]: [() => input.SiteIds !== void 0, () => (input[_SIi]! || []).map((_entry) => _entry as any)],
+    [_sIi]: [() => input.SiteIds !== void 0, () => input[_SIi]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1491,10 +1491,7 @@ export const se_GetTransitGatewayConnectPeerAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_tGCPA]: [
-      () => input.TransitGatewayConnectPeerArns !== void 0,
-      () => (input[_TGCPA]! || []).map((_entry) => _entry as any),
-    ],
+    [_tGCPA]: [() => input.TransitGatewayConnectPeerArns !== void 0, () => input[_TGCPA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1531,7 +1528,7 @@ export const se_GetTransitGatewayRegistrationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-registrations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_tGA]: [() => input.TransitGatewayArns !== void 0, () => (input[_TGA]! || []).map((_entry) => _entry as any)],
+    [_tGA]: [() => input.TransitGatewayArns !== void 0, () => input[_TGA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1901,10 +1898,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -4829,13 +4823,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Alias";
 const _AI = "AccountId";

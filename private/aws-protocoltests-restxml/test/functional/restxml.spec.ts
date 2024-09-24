@@ -3735,7 +3735,7 @@ it("NoInputAndOutput:Response", async () => {
 /**
  * Do not send null values, empty strings, or empty lists over the wire in headers
  */
-it("NullAndEmptyHeaders:Request", async () => {
+it.skip("NullAndEmptyHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

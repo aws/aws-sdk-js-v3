@@ -40,7 +40,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^3.2.2",
+    "@smithy/node-http-handler": "^3.2.3",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
