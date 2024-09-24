@@ -62,11 +62,15 @@
     }
   },
   "files": [
-    "dist-*/**",
+    "./account-id-endpoint.d.ts",
+    "./account-id-endpoint.js",
+    "./client.d.ts",
     "./client.js",
+    "./httpAuthSchemes.d.ts",
     "./httpAuthSchemes.js",
+    "./protocols.d.ts",
     "./protocols.js",
-    "./account-id-endpoint.js"
+    "dist-*/**"
   ],
   "sideEffects": false,
   "author": {
