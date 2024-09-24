@@ -37,9 +37,11 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
+  splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
@@ -1111,8 +1113,10 @@ export const deserializeHttpPayloadWithUnionRequest = async (
     }
   }
   const contents: any = map({});
-  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
-  contents.nested = de_UnionPayload(data, context);
+  const data: Record<string, any> | undefined = await parseBody(output.body, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.nested = __expectUnion(de_UnionPayload(data, context));
+  }
   return contents;
 };
 
@@ -1468,19 +1472,19 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
     [_hSL]: [
       () => void 0 !== output.headers[_xs__],
-      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs__] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hSS]: [
       () => void 0 !== output.headers[_xs___],
-      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs___] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIL]: [
       () => void 0 !== output.headers[_xi_],
-      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi_] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
     [_hBL]: [
       () => void 0 !== output.headers[_xb___],
-      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xb___] || "").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
     [_hTL]: [
       () => void 0 !== output.headers[_xt],
@@ -1492,12 +1496,12 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hE]: [, output.headers[_xe]],
     [_hEL]: [
       () => void 0 !== output.headers[_xe_],
-      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xe_] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
     [_hIEL]: [
       () => void 0 !== output.headers[_xi___],
-      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi___] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2942,7 +2946,7 @@ export const deserializeNullAndEmptyHeadersClientRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2974,7 +2978,7 @@ export const deserializeNullAndEmptyHeadersServerRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -4959,8 +4963,8 @@ export const serializeInputAndOutputWithHeadersResponse = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).join(", ")],
-    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).join(", ")],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).map(__quoteHeader).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).map(__quoteHeader).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -4974,7 +4978,7 @@ export const serializeInputAndOutputWithHeadersResponse = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).join(", ")],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).map(__quoteHeader).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -6551,7 +6555,7 @@ export const serializeNullAndEmptyHeadersClientResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -6591,7 +6595,7 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).join(", ")],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";

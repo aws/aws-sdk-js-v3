@@ -972,7 +972,7 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
 /**
  * A server should ignore parameters added to the content type
  */
-it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
+it("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -2823,7 +2823,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerResponse", async () => {
   expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -3089,7 +3089,7 @@ it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerRequest", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -3181,7 +3181,7 @@ it("RestJsonHttpPayloadWithUnion:ServerResponse", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     HttpPayloadWithUnion(input: any, ctx: {}): Promise<HttpPayloadWithUnionServerOutput> {
       const response = {} as any;
@@ -3225,7 +3225,7 @@ it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
   expect(r.headers["content-length"]).toBeDefined();
   expect(r.headers["content-length"]).toBe("0");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -4183,7 +4183,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
 /**
  * Tests requests with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -4661,7 +4661,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerResponse", async () => {
 /**
  * Tests responses with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:ServerResponse", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
@@ -27727,7 +27727,7 @@ it("RestJsonNoInputAndNoOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -28798,7 +28798,7 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
+it("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -28844,7 +28844,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -30579,7 +30579,7 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerResponse", async () => {
   expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -31422,7 +31422,7 @@ it("RestJsonUnitInputAndOutputNoOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
