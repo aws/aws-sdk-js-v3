@@ -449,13 +449,13 @@ export namespace EvaluationConfig {
 }
 
 /**
- * <p>Contains the ARN of the Amazon Bedrock models specified in your model evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+ * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your model evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  *          <p>The <code>inferenceParams</code> are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, <code>"temperature":"0.25"</code> key value pair would need to be formatted as <code>\"temperature\":\"0.25\"</code> to successfully accepted in the request.</p>
  * @public
  */
 export interface EvaluationBedrockModel {
   /**
-   * <p>The ARN of the Amazon Bedrock model specified.</p>
+   * <p>The ARN of the Amazon Bedrock model or inference profile specified.</p>
    * @public
    */
   modelIdentifier: string | undefined;
@@ -478,7 +478,7 @@ export type EvaluationModelConfig = EvaluationModelConfig.BedrockModelMember | E
  */
 export namespace EvaluationModelConfig {
   /**
-   * <p>Defines the Amazon Bedrock model and inference parameters you want used.</p>
+   * <p>Defines the Amazon Bedrock model or inference profile and inference parameters you want used.</p>
    * @public
    */
   export interface BedrockModelMember {
@@ -593,7 +593,7 @@ export interface CreateEvaluationJobRequest {
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *          Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientRequestToken?: string;
@@ -623,7 +623,7 @@ export interface CreateEvaluationJobRequest {
   evaluationConfig: EvaluationConfig | undefined;
 
   /**
-   * <p>Specify the models you want to use in your model evaluation job. Automatic model evaluation jobs support a single model, and model evaluation job that use human workers support two models.</p>
+   * <p>Specify the models you want to use in your model evaluation job. Automatic model evaluation jobs support a single model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>, and model evaluation job that use human workers support two models or inference profiles.</p>
    * @public
    */
   inferenceConfig: EvaluationInferenceConfig | undefined;
