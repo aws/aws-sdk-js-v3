@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* **clients:** allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/issues/6511)) ([1273ff3](https://github.com/aws/aws-sdk-js-v3/commit/1273ff317071749cfeb88caad9df7492256c03e2))
+* **codegen:** preprocess AwsQuery error to shapeId in waiter errorType ([#6501](https://github.com/aws/aws-sdk-js-v3/issues/6501)) ([b92df20](https://github.com/aws/aws-sdk-js-v3/commit/b92df2038b84f36ab60139f03ccb626ef29f2163))
+
+
+
+
+
 # [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune
