@@ -3597,8 +3597,9 @@ export interface CreateDataRepositoryAssociationRequest {
   /**
    * <p>The path to the Amazon S3 data repository that will be linked to the file
    *             system. The path can be an S3 bucket or prefix in the format
-   *             <code>s3://myBucket/myPrefix/</code>. This path specifies where in the S3
-   *             data repository files will be imported from or exported to.</p>
+   *             <code>s3://bucket-name/prefix/</code> (where <code>prefix</code>
+   *             is optional). This path specifies where in the S3 data repository
+   *             files will be imported from or exported to.</p>
    * @public
    */
   DataRepositoryPath: string | undefined;
@@ -3837,11 +3838,13 @@ export interface DataRepositoryAssociation {
    *             </li>
    *             <li>
    *                <p>For Amazon File Cache, the path can be an S3 bucket or prefix
-   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *                 in the format <code>s3://bucket-name/prefix/</code> (where <code>prefix</code>
+   *                 is optional).</p>
    *             </li>
    *             <li>
    *                <p>For Amazon FSx for Lustre, the path can be an S3 bucket or prefix
-   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *                 in the format <code>s3://bucket-name/prefix/</code> (where <code>prefix</code>
+   *                 is optional).</p>
    *             </li>
    *          </ul>
    * @public
@@ -4078,9 +4081,11 @@ export interface CompletionReport {
   Enabled: boolean | undefined;
 
   /**
-   * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location.
+   * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's
+   *             linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location.
    *             The <code>Path</code> you provide must be located within the file system’s ExportPath.
-   *             An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following information for each file in the report:
+   *             An example <code>Path</code> value is "s3://amzn-s3-demo-bucket/myExportPath/optionalPrefix".
+   *             The report provides the following information for each file in the report:
    *             FilePath, FileStatus, and ErrorCode.</p>
    * @public
    */
@@ -4171,8 +4176,7 @@ export interface CreateDataRepositoryTaskRequest {
    *                <p>For import tasks, the list contains paths in the Amazon S3 bucket
    *                 from which POSIX metadata changes are imported to the FSx for Lustre file system.
    *                 The path can be an S3 bucket or prefix in the format
-   *                 <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code> is optional).
-   *             </p>
+   *                 <code>s3://bucket-name/prefix</code> (where <code>prefix</code> is optional).</p>
    *             </li>
    *             <li>
    *                <p>For release tasks, the list contains directory or file paths on the
@@ -4596,7 +4600,8 @@ export interface FileCacheDataRepositoryAssociation {
    *             </li>
    *             <li>
    *                <p>The path can be an S3 bucket or prefix
-   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *                 in the format <code>s3://bucket-name/prefix/</code> (where <code>prefix</code>
+   *                 is optional).</p>
    *             </li>
    *          </ul>
    * @public
