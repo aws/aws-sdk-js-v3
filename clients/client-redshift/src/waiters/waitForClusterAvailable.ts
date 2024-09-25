@@ -41,7 +41,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ClusterNotFound") {
+    if (exception.name && exception.name == "ClusterNotFoundFault") {
       return { state: WaiterState.RETRY, reason };
     }
   }

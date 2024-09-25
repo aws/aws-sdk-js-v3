@@ -18,7 +18,7 @@ const checkState = async (
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "LoadBalancerNotFound") {
+    if (exception.name && exception.name == "LoadBalancerNotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
