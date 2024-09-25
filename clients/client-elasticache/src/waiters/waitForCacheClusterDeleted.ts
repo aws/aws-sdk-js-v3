@@ -117,7 +117,7 @@ const checkState = async (
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "CacheClusterNotFound") {
+    if (exception.name && exception.name == "CacheClusterNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
