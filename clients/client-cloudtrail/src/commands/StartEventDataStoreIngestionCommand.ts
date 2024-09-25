@@ -34,7 +34,7 @@ export interface StartEventDataStoreIngestionCommandOutput
 
 /**
  * <p>Starts the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To start ingestion, the event data store <code>Status</code> must be <code>STOPPED_INGESTION</code>
- *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, or <code>ConfigurationItem</code>.</p>
+ *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, <code>NetworkActivity</code>, or <code>ConfigurationItem</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

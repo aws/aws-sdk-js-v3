@@ -656,10 +656,11 @@ export interface AdvancedFieldSelector {
    * <p> A field in a CloudTrail event record on which to filter events to be logged. For
    *          event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for
    *          selecting events as filtering is not supported.</p>
-   *          <p>For CloudTrail management events, supported fields include <code>readOnly</code>,
-   *             <code>eventCategory</code>, and <code>eventSource</code>.</p>
-   *          <p>For CloudTrail data events, supported fields include <code>readOnly</code>,
-   *          <code>eventCategory</code>, <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>.</p>
+   *          <p>For CloudTrail management events, supported fields include <code>eventCategory</code> (required), <code>eventSource</code>, and <code>readOnly</code>.</p>
+   *          <p>For CloudTrail data events, supported fields include <code>eventCategory</code> (required), <code>resources.type</code> (required), <code>eventName</code>, <code>readOnly</code>,
+   *           and <code>resources.ARN</code>.</p>
+   *          <p>For CloudTrail network activity events, supported fields include <code>eventCategory</code> (required), <code>eventSource</code> (required), <code>eventName</code>,
+   *          <code>errorCode</code>,  and <code>vpcEndpointId</code>.</p>
    *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
    *             <code>eventCategory</code>. </p>
    *          <ul>
@@ -667,8 +668,8 @@ export interface AdvancedFieldSelector {
    *                <p>
    *                   <b>
    *                      <code>readOnly</code>
-   *                   </b> - Optional. Can be set to
-   *                   <code>Equals</code> a value of <code>true</code> or <code>false</code>. If you do
+   *                   </b> - This is an optional field that is only used for management events and data events. This field can be set to
+   *                   <code>Equals</code> with a value of <code>true</code> or <code>false</code>. If you do
    *                not add this field, CloudTrail logs both <code>read</code> and
    *                   <code>write</code> events. A value of <code>true</code> logs only
    *                   <code>read</code> events. A value of <code>false</code> logs only
@@ -678,25 +679,52 @@ export interface AdvancedFieldSelector {
    *                <p>
    *                   <b>
    *                      <code>eventSource</code>
-   *                   </b> - For filtering
-   *                management events only. This can be set to <code>NotEquals</code>
-   *                   <code>kms.amazonaws.com</code> or <code>NotEquals</code>
-   *                   <code>rdsdata.amazonaws.com</code>.</p>
+   *                   </b> - This field is only used for management events and network activity events.</p>
+   *                <p>For management events, this is an optional field that can be set to <code>NotEquals</code>
+   *                   <code>kms.amazonaws.com</code> to exclude KMS management events, or <code>NotEquals</code>
+   *                   <code>rdsdata.amazonaws.com</code> to exclude RDS management events.</p>
+   *                <p>For network activity events, this is a required field that only uses the
+   *                   <code>Equals</code> operator. Set this field to the event source for which you want to
+   *                log network activity events. If you want to log network activity events for multiple
+   *                event sources, you must create a separate field selector for each event
+   *                source.</p>
+   *                <p>The following are valid values for network activity events:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>cloudtrail.amazonaws.com</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ec2.amazonaws.com</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>kms.amazonaws.com</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>secretsmanager.amazonaws.com</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>eventName</code>
-   *                   </b> - Can use any operator.
-   *                You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail,
-   *                such as <code>PutBucket</code> or <code>GetSnapshotBlock</code>. You can have
+   *                   </b> - This is an optional field that is only used for data events and network activity events. You can use any operator with
+   *                <code>eventName</code>. You can use it to ﬁlter in or ﬁlter out specific events. You can have
    *                multiple values for this ﬁeld, separated by commas.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>eventCategory</code>
-   *                   </b> - This is required and
+   *                   </b> - This field is required and
    *                must be set to <code>Equals</code>.
    *             </p>
    *                <ul>
@@ -710,6 +738,12 @@ export interface AdvancedFieldSelector {
    *                      <p>
    *                      For CloudTrail data events, the value
    *                      must be <code>Data</code>.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                      For CloudTrail network activity events, the value
+   *                      must be <code>NetworkActivity</code>.
    *                   </p>
    *                   </li>
    *                </ul>
@@ -742,27 +776,20 @@ export interface AdvancedFieldSelector {
    *             <li>
    *                <p>
    *                   <b>
+   *                      <code>errorCode</code>
+   *                   </b> - This ﬁeld is only used to filter CloudTrail network activity events
+   *                and is optional. This is the error code to filter on. Currently, the only valid <code>errorCode</code> is <code>VpceAccessDenied</code>.
+   *                <code>errorCode</code> can only use the <code>Equals</code> operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
    *                      <code>resources.type</code>
    *                   </b> - This ﬁeld is
-   *                required for CloudTrail data events. <code>resources.type</code> can only
-   *                use the <code>Equals</code> operator, and the value can be one of the
-   *                following:</p>
+   *                 required for CloudTrail data events. <code>resources.type</code> can only
+   *                use the <code>Equals</code> operator.</p>
+   *                <p>The value can be one of the following:</p>
    *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::DynamoDB::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Lambda::Function</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::Object</code>
-   *                      </p>
-   *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>AWS::AppConfig::Configuration</code>
@@ -776,6 +803,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::Bedrock::AgentAlias</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::FlowAlias</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::Guardrail</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -800,6 +837,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::CloudWatch::Metric</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::CodeWhisperer::Customization</code>
    *                      </p>
    *                   </li>
@@ -816,6 +858,11 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::DynamoDB::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::DynamoDB::Table</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -890,7 +937,27 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::Kinesis::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Kinesis::StreamConsumer</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::KinesisVideo::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Lambda::Function</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::MachineLearning::MlModel</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -915,7 +982,32 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::One::UKey</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::One::User</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::PaymentCryptography::Alias</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::PaymentCryptography::Key</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::PCAConnectorAD::Connector</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::PCAConnectorSCEP::Connector</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -950,7 +1042,22 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::RUM::AppMonitor</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::S3::AccessPoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3Express::Object</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1020,6 +1127,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::StepFunctions::StateMachine</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SWF::Domain</code>
    *                      </p>
    *                   </li>
@@ -1054,636 +1166,31 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p> You can have only one <code>resources.type</code> ﬁeld per selector. To log data
-   *                events on more than one resource type, add another selector.</p>
+   *                <p> You can have only one <code>resources.type</code> ﬁeld per selector. To log events on more than one resource type, add another selector.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>resources.ARN</code>
-   *                   </b> - You can use any
+   *                   </b> - The <code>resources.ARN</code> is an optional field for
+   *                 data events. You can use any
    *                operator with <code>resources.ARN</code>, but if you use <code>Equals</code> or
    *                   <code>NotEquals</code>, the value must exactly match the ARN of a valid resource
-   *                of the type you've speciﬁed in the template as the value of resources.type.</p>
+   *                of the type you've speciﬁed in the template as the value of resources.type. To log all data events for all objects in a specific S3 bucket,
+   *                use the <code>StartsWith</code> operator, and include only the bucket ARN as the matching value.</p>
+   *                <p>For information about filtering data events on the <code>resources.ARN</code> field, see
+   *                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/filtering-data-events.html#filtering-data-events-resourcearn">Filtering data
+   *                   events by resources.ARN</a> in the <i>CloudTrail User Guide</i>.</p>
    *                <note>
    *                   <p>You can't use the <code>resources.ARN</code> field to filter resource types that do not have ARNs.</p>
    *                </note>
-   *                <p>The <code>resources.ARN</code> field can be set one of the following.</p>
-   *                <p>If resources.type equals <code>AWS::S3::Object</code>, the ARN must be in
-   *                one of the following formats. To log all data events for all objects in a specific S3
-   *                bucket, use the <code>StartsWith</code> operator, and include only the bucket ARN as
-   *                the matching value.</p>
-   *                <p>The trailing slash is intentional; do not exclude it. Replace the text between
-   *                less than and greater than symbols (<>) with resource-specific information. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:::<bucket_name>/</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:::<bucket_name>/<object_path>/</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::DynamoDB::Table</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Lambda::Function</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:lambda:<region>:<account_ID>:function:<function_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::AppConfig::Configuration</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:appconfig:<region>:<account_ID>:application/<application_ID>/environment/<environment_ID>/configuration/<configuration_profile_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::B2BI::Transformer</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:b2bi:<region>:<account_ID>:transformer/<transformer_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Bedrock::AgentAlias</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:agent-alias/<agent_ID>/<alias_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Bedrock::KnowledgeBase</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Cassandra::Table</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cassandra:<region>:<account_ID>:/keyspace/<keyspace_name>/table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CloudFront::KeyValueStore</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CloudTrail::Channel</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Customization</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:customization/<customization_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Profile</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:profile/<profile_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Cognito::IdentityPool</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cognito-identity:<region>:<account_ID>:identitypool/<identity_pool_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::DynamoDB::Stream</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name>/stream/<date_time></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::EC2::Snapshot</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ec2:<region>::snapshot/<snapshot_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::EMRWAL::Workspace</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:emrwal:<region>:<account_ID>:workspace/<workspace_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::FinSpace::Environment</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:finspace:<region>:<account_ID>:environment/<environment_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Glue::Table</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:glue:<region>:<account_ID>:table/<database_name>/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::ComponentVersion</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:components/<component_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::Deployment</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:deployments/<deployment_ID</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GuardDuty::Detector</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Certificate</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iot:<region>:<account_ID>:cert/<certificate_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Thing</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iot:<region>:<account_ID>:thing/<thing_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::Asset</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:asset/<asset_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::TimeSeries</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:timeseries/<timeseries_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Entity</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>/entity/<entity_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Workspace</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::KendraRanking::ExecutionPlan</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::KinesisVideo::Stream</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Network</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:managedblockchain:::networks/<network_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Node</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:managedblockchain:<region>:<account_ID>:nodes/<node_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::MedicalImaging::Datastore</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:medical-imaging:<region>:<account_ID>:datastore/<data_store_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::NeptuneGraph::Graph</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:neptune-graph:<region>:<account_ID>:graph/<graph_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::PCAConnectorAD::Connector</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QApps:QApp</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qapps:<region>:<account_ID>:application/<application_UUID>/qapp/<qapp_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Application</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::DataSource</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>/data-source/<datasource_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Index</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::WebExperience</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::RDS::DBCluster</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3::AccessPoint</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                one of the following formats. To log events on all objects in an S3 access point, we
-   *                recommend that you use only the access point ARN, don’t include the object path, and
-   *                use the <code>StartsWith</code> or <code>NotStartsWith</code> operators.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals
-   *                <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following
-   *                format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::Endpoint</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::ExperimentTrialComponent</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:experiment-trial-component/<experiment_trial_component_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::FeatureGroup</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SCN::Instance</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:scn:<region>:<account_ID>:instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Namespace</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:namespace/<namespace_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Service</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:service/<service_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::PlatformEndpoint</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::Topic</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sns:<region>:<account_ID>:<topic_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sqs:<region>:<account_ID>:<queue_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SSM::ManagedNode</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in one of the following formats:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ssm:<region>:<account_ID>:managed-instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ec2:<region>:<account_ID>:instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SSMMessages::ControlChannel</code>, and
-   *                      the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                      in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SWF::Domain</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Device</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:device/<device_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Environment</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:environment/<environment_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Database</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Table</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>/table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::VerifiedPermissions::PolicyStore</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:verifiedpermissions:<region>:<account_ID>:policy-store/<policy_store_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>vpcEndpointId</code>
+   *                   </b> - This ﬁeld is only used to filter CloudTrail network activity events
+   *                and is optional. This field identifies the VPC endpoint that the request passed through. You can use any operator with <code>vpcEndpointId</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1736,10 +1243,9 @@ export interface AdvancedFieldSelector {
 }
 
 /**
- * <p>Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events. They help you control costs by logging only those
- *          events that are important to you. For more information about advanced event selectors, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a> and
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
+ * <p>Advanced event selectors let you create fine-grained selectors for CloudTrail management, data, and network activity events. They help you control costs by logging only those
+ *          events that are important to you. For more information about configuring advanced event selectors, see
+ *             the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a> topics in the <i>CloudTrail User Guide</i>.</p>
  *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
  *          <p>
  *             <b>Supported CloudTrail event record fields for management events</b>
@@ -1785,6 +1291,36 @@ export interface AdvancedFieldSelector {
  *             <li>
  *                <p>
  *                   <code>resources.ARN</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Supported CloudTrail event record fields for network activity events</b>
+ *          </p>
+ *          <note>
+ *             <p>Network activity events is in preview release for CloudTrail and is subject to change.</p>
+ *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>eventCategory</code> (required)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventSource</code> (required)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventName</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>errorCode</code> - The only valid value for <code>errorCode</code> is <code>VpceAccessDenied</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>vpcEndpointId</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -4562,11 +4098,7 @@ export interface GetEventSelectorsRequest {
 }
 
 /**
- * <p>Data events provide information about the resource operations performed on or within a resource
- *          itself. These are also known as data plane operations. You can specify up to 250 data
- *          resources for a trail.</p>
- *          <p>Configure the <code>DataResource</code> to specify the resource type and resource ARNs for which you want to log data events.</p>
- *          <p>You can specify the following resource types in your event selectors for your trail:</p>
+ * <p>You can configure the <code>DataResource</code> in an <code>EventSelector</code> to log data events for the following three resource types:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -4584,19 +4116,21 @@ export interface GetEventSelectorsRequest {
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>To log data events for all other resource types including objects stored in
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">directory buckets</a>, you must use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>. You must also
+ *          use <code>AdvancedEventSelectors</code> if you want to filter on the <code>eventName</code> field.</p>
+ *          <p>Configure the <code>DataResource</code> to specify the resource type and resource ARNs for which you want to log data events.</p>
  *          <note>
  *             <p>The total number of allowed data resources is 250. This number can be distributed
  *             between 1 and 5 event selectors, but the total cannot exceed 250 across all
  *             selectors for the trail.</p>
- *             <p>If you are using advanced event selectors, the maximum total number of values for
- *             all conditions, across all advanced event selectors for the trail, is 500.</p>
  *          </note>
  *          <p>The following example demonstrates how logging works when you configure logging of all
- *          data events for an S3 bucket named <code>bucket-1</code>. In this example, the CloudTrail user specified an empty prefix, and the option to log both <code>Read</code>
+ *          data events for a general purpose bucket named <code>amzn-s3-demo-bucket1</code>. In this example, the CloudTrail user specified an empty prefix, and the option to log both <code>Read</code>
  *          and <code>Write</code> data events.</p>
  *          <ol>
  *             <li>
- *                <p>A user uploads an image file to <code>bucket-1</code>.</p>
+ *                <p>A user uploads an image file to <code>amzn-s3-demo-bucket1</code>.</p>
  *             </li>
  *             <li>
  *                <p>The <code>PutObject</code> API operation is an Amazon S3 object-level API.
@@ -4606,7 +4140,7 @@ export interface GetEventSelectorsRequest {
  *             </li>
  *             <li>
  *                <p>A user uploads an object to an Amazon S3 bucket named
- *                   <code>arn:aws:s3:::bucket-2</code>.</p>
+ *                <code>arn:aws:s3:::amzn-s3-demo-bucket1</code>.</p>
  *             </li>
  *             <li>
  *                <p>The <code>PutObject</code> API operation occurred for an object in an S3 bucket
@@ -4683,12 +4217,12 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>To log data events for all objects in an S3 bucket, specify the bucket and an
-   *                empty object prefix such as <code>arn:aws:s3:::bucket-1/</code>. The trail logs data
+   *                empty object prefix such as <code>arn:aws:s3:::amzn-s3-demo-bucket1/</code>. The trail logs data
    *                events for all objects in this S3 bucket.</p>
    *             </li>
    *             <li>
    *                <p>To log data events for specific objects, specify the S3 bucket and object prefix
-   *                such as <code>arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events
+   *                such as <code>arn:aws:s3:::amzn-s3-demo-bucket1/example-images</code>. The trail logs data events
    *                for objects in this S3 bucket that match the prefix.</p>
    *             </li>
    *             <li>
@@ -4771,13 +4305,18 @@ export interface EventSelector {
   IncludeManagementEvents?: boolean;
 
   /**
-   * <p>CloudTrail supports data event logging for Amazon S3 objects, Lambda functions, and Amazon DynamoDB tables with basic event selectors.
+   * <p>CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, Lambda functions, and Amazon DynamoDB tables with basic event selectors.
    *          You can specify up to 250 resources for an individual event selector, but the total number
    *          of data resources cannot exceed 250 across all event selectors in a trail. This limit does
    *          not apply if you configure resource logging for all data events.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Data
    *             Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in CloudTrail</a> in the <i>CloudTrail User
    *          Guide</i>.</p>
+   *          <note>
+   *             <p>To log data events for all other resource types including objects stored in
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">directory buckets</a>, you must use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>. You must also
+   *             use <code>AdvancedEventSelectors</code> if you want to filter on the <code>eventName</code> field.</p>
+   *          </note>
    * @public
    */
   DataResources?: DataResource[];
@@ -6696,7 +6235,26 @@ export interface PutEventSelectorsRequest {
   TrailName: string | undefined;
 
   /**
-   * <p>Specifies the settings for your event selectors. You can configure up to five event
+   * <p>Specifies the settings for your event selectors. You can use event selectors to log management events and data events for the following resource types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::DynamoDB::Table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Lambda::Function</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3::Object</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can't use event selectors to log network activity events.</p>
+   *          <p>You can configure up to five event
    *          selectors for a trail. You can use either <code>EventSelectors</code> or
    *             <code>AdvancedEventSelectors</code> in a <code>PutEventSelectors</code> request, but not
    *          both. If you apply <code>EventSelectors</code> to a trail, any existing
@@ -6706,13 +6264,17 @@ export interface PutEventSelectorsRequest {
   EventSelectors?: EventSelector[];
 
   /**
-   * <p> Specifies the settings for advanced event selectors. You can add advanced event
+   * <p> Specifies the settings for advanced event selectors. You can use advanced event selectors to
+   *          log management events, data events for all resource types, and network activity events.</p>
+   *          <p>You can add advanced event
    *          selectors, and conditions for your advanced event selectors, up to a maximum of 500 values
    *          for all conditions and selectors on a trail. You can use either
    *             <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you
    *          apply <code>AdvancedEventSelectors</code> to a trail, any existing
    *             <code>EventSelectors</code> are overwritten. For more information about advanced event
-   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>. </p>
+   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>
+   *          in the <i>CloudTrail User Guide</i>. </p>
    * @public
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
