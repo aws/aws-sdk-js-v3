@@ -3,9 +3,20 @@ import { BooleanOperator } from "./models_0";
 
 import { CrossAccountFilterOption } from "./models_2";
 
-import { Filter, ResourceType } from "./models_3";
+import { Filter, ResourceType, Workteam } from "./models_3";
 
 import { NestedFilters, SearchSortOrder, VisibilityConditions } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateWorkteamResponse {
+  /**
+   * <p>A <code>Workteam</code> object that describes the updated work team.</p>
+   * @public
+   */
+  Workteam: Workteam | undefined;
+}
 
 /**
  * <p>A multi-expression that searches for the specified resource or resources in a search. All resource

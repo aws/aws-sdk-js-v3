@@ -95,6 +95,19 @@ export interface ChimeWebhookConfiguration {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
+   * 	  For example, if Amazon Chime is disabled.</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * @public
+   */
+  StateReason?: string;
 }
 
 /**
@@ -121,6 +134,19 @@ export interface ConfiguredTeam {
    * @public
    */
   TeamName?: string;
+
+  /**
+   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
+   * 	  For example, if Amazon Chime is disabled.</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * @public
+   */
+  StateReason?: string;
 }
 
 /**
@@ -478,6 +504,19 @@ export interface TeamsChannelConfiguration {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
+   * 	  For example, if Amazon Chime is disabled.</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * @public
+   */
+  StateReason?: string;
 }
 
 /**
@@ -664,6 +703,19 @@ export interface SlackChannelConfiguration {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
+   * 	  For example, if Amazon Chime is disabled.</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * @public
+   */
+  StateReason?: string;
 }
 
 /**
@@ -1275,6 +1327,19 @@ export interface SlackWorkspace {
    * @public
    */
   SlackTeamName: string | undefined;
+
+  /**
+   * <p>Either <code>ENABLED</code> or <code>DISABLED</code>. The resource returns <code>DISABLED</code> if the organization's AWS Chatbot policy has explicitly denied that configuration.
+   * 	  For example, if Amazon Chime is disabled.</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>Provided if State is <code>DISABLED</code>. Provides context as to why the resource is disabled.</p>
+   * @public
+   */
+  StateReason?: string;
 }
 
 /**

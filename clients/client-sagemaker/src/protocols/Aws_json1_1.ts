@@ -1208,7 +1208,6 @@ import {
   CreateOptimizationJobResponse,
   CreatePipelineRequest,
   CreatePipelineResponse,
-  CreatePresignedDomainUrlRequest,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1383,6 +1382,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreatePresignedDomainUrlRequest,
   CreatePresignedDomainUrlResponse,
   CreatePresignedMlflowTrackingServerUrlRequest,
   CreatePresignedMlflowTrackingServerUrlResponse,
@@ -1560,7 +1560,6 @@ import {
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
-  DescribeLabelingJobResponse,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1645,6 +1644,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
   DescribeMlflowTrackingServerRequest,
@@ -1850,7 +1850,6 @@ import {
   ListMlflowTrackingServersRequest,
   ListMlflowTrackingServersResponse,
   ListModelBiasJobDefinitionsRequest,
-  ListModelBiasJobDefinitionsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1889,6 +1888,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelBiasJobDefinitionsResponse,
   ListModelCardExportJobsRequest,
   ListModelCardExportJobsResponse,
   ListModelCardsRequest,
@@ -2148,13 +2148,12 @@ import {
   UpdateWorkforceRequest,
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
-  UpdateWorkteamResponse,
   UserProfileDetails,
   VariantProperty,
   Vertex,
   VisibilityConditions,
 } from "../models/models_4";
-import { SearchExpression, SearchRequest } from "../models/models_5";
+import { SearchExpression, SearchRequest, UpdateWorkteamResponse } from "../models/models_5";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
 /**
@@ -20122,6 +20121,7 @@ const de_DescribeDomainResponse = (output: any, context: __SerdeContext): Descri
     SingleSignOnManagedApplicationInstanceId: __expectString,
     Status: __expectString,
     SubnetIds: (_: any) => de_Subnets(_, context),
+    TagPropagation: __expectString,
     Url: __expectString,
     VpcId: __expectString,
   }) as any;
