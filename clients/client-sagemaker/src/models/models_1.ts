@@ -2969,6 +2969,20 @@ export interface DomainSettings {
 
 /**
  * @public
+ * @enum
+ */
+export const TagPropagation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TagPropagation = (typeof TagPropagation)[keyof typeof TagPropagation];
+
+/**
+ * @public
  */
 export interface CreateDomainRequest {
   /**
@@ -3065,6 +3079,12 @@ export interface CreateDomainRequest {
    * @public
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
+
+  /**
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * @public
+   */
+  TagPropagation?: TagPropagation;
 
   /**
    * <p>The default settings used to create a space.</p>
@@ -12914,81 +12934,6 @@ export interface CreatePipelineResponse {
    * @public
    */
   PipelineArn?: string;
-}
-
-/**
- * @public
- */
-export interface CreatePresignedDomainUrlRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the UserProfile to sign-in as.</p>
-   * @public
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>The session expiration duration in seconds. This value defaults to 43200.</p>
-   * @public
-   */
-  SessionExpirationDurationInSeconds?: number;
-
-  /**
-   * <p>The number of seconds until the pre-signed URL expires. This value defaults to 300.</p>
-   * @public
-   */
-  ExpiresInSeconds?: number;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName?: string;
-
-  /**
-   * <p>The landing page that the user is directed to when accessing the presigned URL. Using this
-   *       value, users can access Studio or Studio Classic, even if it is not the default experience for
-   *       the domain. The supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>studio::relative/path</code>: Directs users to the relative path in
-   *           Studio.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>app:JupyterServer:relative/path</code>: Directs users to the relative path in
-   *           the Studio Classic application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>app:JupyterLab:relative/path</code>: Directs users to the relative path in the
-   *           JupyterLab application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path in
-   *           the RStudio application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>app:CodeEditor:relative/path</code>: Directs users to the relative path in the
-   *           Code Editor, based on Code-OSS, Visual Studio Code - Open Source application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>app:Canvas:relative/path</code>: Directs users to the relative path in the
-   *           Canvas application.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LandingUri?: string;
 }
 
 /**

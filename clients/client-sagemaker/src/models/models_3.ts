@@ -65,6 +65,7 @@ import {
   ExecutionRoleIdentityConfig,
   FeatureDefinition,
   FeatureType,
+  HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobStrategyType,
@@ -73,7 +74,10 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InstanceMetadataServiceConfiguration,
+  LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
+  LabelingJobOutputConfig,
+  LabelingJobStoppingConditions,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -186,6 +190,184 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeLabelingJobResponse {
+  /**
+   * <p>The processing status of the labeling job. </p>
+   * @public
+   */
+  LabelingJobStatus: LabelingJobStatus | undefined;
+
+  /**
+   * <p>Provides a breakdown of the number of data objects labeled by humans, the number of
+   *             objects labeled by machine, the number of objects than couldn't be labeled, and the
+   *             total number of objects labeled. </p>
+   * @public
+   */
+  LabelCounters: LabelCounters | undefined;
+
+  /**
+   * <p>If the job failed, the reason that it failed. </p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The date and time that the labeling job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the labeling job was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>A unique identifier for work done as part of a labeling job.</p>
+   * @public
+   */
+  JobReferenceCode: string | undefined;
+
+  /**
+   * <p>The name assigned to the labeling job when it was created.</p>
+   * @public
+   */
+  LabelingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the labeling job.</p>
+   * @public
+   */
+  LabelingJobArn: string | undefined;
+
+  /**
+   * <p>The attribute used as the label in the output manifest file.</p>
+   * @public
+   */
+  LabelAttributeName?: string;
+
+  /**
+   * <p>Input configuration information for the labeling job, such as the Amazon S3 location of the
+   *             data objects and the location of the manifest file that describes the data
+   *             objects.</p>
+   * @public
+   */
+  InputConfig: LabelingJobInputConfig | undefined;
+
+  /**
+   * <p>The location of the job's output data and the Amazon Web Services Key Management
+   *             Service key ID for the key used to encrypt the output data, if any.</p>
+   * @public
+   */
+  OutputConfig: LabelingJobOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks on your behalf
+   *             during data labeling.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The S3 location of the JSON file that defines the categories used to label data
+   *             objects. Please note the following label-category limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Semantic segmentation labeling jobs using automated labeling: 20 labels</p>
+   *             </li>
+   *             <li>
+   *                <p>Box bounding labeling jobs (all): 10 labels</p>
+   *             </li>
+   *          </ul>
+   *          <p>The file is a JSON structure in the following format:</p>
+   *          <p>
+   *             <code>\{</code>
+   *          </p>
+   *          <p>
+   *             <code> "document-version": "2018-11-28"</code>
+   *          </p>
+   *          <p>
+   *             <code> "labels": [</code>
+   *          </p>
+   *          <p>
+   *             <code> \{</code>
+   *          </p>
+   *          <p>
+   *             <code> "label": "<i>label 1</i>"</code>
+   *          </p>
+   *          <p>
+   *             <code> \},</code>
+   *          </p>
+   *          <p>
+   *             <code> \{</code>
+   *          </p>
+   *          <p>
+   *             <code> "label": "<i>label 2</i>"</code>
+   *          </p>
+   *          <p>
+   *             <code> \},</code>
+   *          </p>
+   *          <p>
+   *             <code> ...</code>
+   *          </p>
+   *          <p>
+   *             <code> \{</code>
+   *          </p>
+   *          <p>
+   *             <code> "label": "<i>label n</i>"</code>
+   *          </p>
+   *          <p>
+   *             <code> \}</code>
+   *          </p>
+   *          <p>
+   *             <code> ]</code>
+   *          </p>
+   *          <p>
+   *             <code>\}</code>
+   *          </p>
+   * @public
+   */
+  LabelCategoryConfigS3Uri?: string;
+
+  /**
+   * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the
+   *             job is automatically stopped.</p>
+   * @public
+   */
+  StoppingConditions?: LabelingJobStoppingConditions;
+
+  /**
+   * <p>Configuration information for automated data labeling.</p>
+   * @public
+   */
+  LabelingJobAlgorithmsConfig?: LabelingJobAlgorithmsConfig;
+
+  /**
+   * <p>Configuration information required for human workers to complete a labeling
+   *             task.</p>
+   * @public
+   */
+  HumanTaskConfig: HumanTaskConfig | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The location of the output produced by the labeling job.</p>
+   * @public
+   */
+  LabelingJobOutput?: LabelingJobOutput;
+}
 
 /**
  * @public
@@ -11603,24 +11785,6 @@ export interface ListModelBiasJobDefinitionsRequest {
    * @public
    */
   CreationTimeAfter?: Date;
-}
-
-/**
- * @public
- */
-export interface ListModelBiasJobDefinitionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

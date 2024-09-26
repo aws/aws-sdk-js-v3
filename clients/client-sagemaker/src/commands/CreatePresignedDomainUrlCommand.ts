@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePresignedDomainUrlRequest } from "../models/models_1";
-import { CreatePresignedDomainUrlResponse } from "../models/models_2";
+import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/models_2";
 import { de_CreatePresignedDomainUrlCommand, se_CreatePresignedDomainUrlCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
