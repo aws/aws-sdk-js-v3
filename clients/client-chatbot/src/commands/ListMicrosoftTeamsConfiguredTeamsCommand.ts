@@ -52,6 +52,8 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
  * //       TenantId: "STRING_VALUE", // required
  * //       TeamId: "STRING_VALUE", // required
  * //       TeamName: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

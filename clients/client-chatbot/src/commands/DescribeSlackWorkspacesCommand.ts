@@ -46,6 +46,8 @@ export interface DescribeSlackWorkspacesCommandOutput extends DescribeSlackWorks
  * //     { // SlackWorkspace
  * //       SlackTeamId: "STRING_VALUE", // required
  * //       SlackTeamName: "STRING_VALUE", // required
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
