@@ -50,7 +50,8 @@
                      writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                      writer.addImport("loadConfig", "loadNodeConfig", TypeScriptDependency.NODE_CONFIG_PROVIDER);
                      writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
-                     writer.addImport("NODE_APP_ID_CONFIG_OPTIONS", "NODE_APP_ID_CONFIG_OPTIONS", AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
+                     writer.addImport("NODE_APP_ID_CONFIG_OPTIONS", "NODE_APP_ID_CONFIG_OPTIONS",
+                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
                      writer.write("loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS)");
                  });
                  break;
