@@ -170,13 +170,56 @@ export interface ScalingConfigurationRequest {
  */
 export interface SlurmCustomSetting {
   /**
-   * <p>Amazon Web Services PCS supports configuration of the following Slurm parameters: <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1">
-   *                <code>Prolog</code>
-   *             </a>, <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1">
-   *                <code>Epilog</code>
-   *             </a>, and <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters">
-   *                <code>SelectTypeParameters</code>
-   *             </a>.</p>
+   * <p>Amazon Web Services PCS supports configuration of the following Slurm parameters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <b>clusters</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1">
+   *                            <code>Prolog</code>
+   *                         </a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1">
+   *                            <code>Epilog</code>
+   *                         </a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters">
+   *                            <code>SelectTypeParameters</code>
+   *                         </a>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For <b>compute node groups</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight">
+   *                            <code>Weight</code>
+   *                         </a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight">
+   *                            <code>RealMemory</code>
+   *                         </a>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    * @public
    */
   parameterName: string | undefined;
@@ -283,12 +326,26 @@ export interface CreateComputeNodeGroupRequest {
   customLaunchTemplate: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the
-   *    IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have
-   *             <code>pcs:RegisterComputeNodeGroupInstance</code> permissions attached in order to
-   *          provision instances correctly. The resource identifier of the ARN must start with
-   *          <code>AWSPCS</code>. For example, <code>arn:aws:iam:123456789012:instance-profile/AWSPCSMyComputeNodeInstanceProfile</code>.
+   * <p>The Amazon Resource Name (ARN) of the IAM instance
+   *    profile used to pass an IAM role when launching EC2 instances. The role contained
+   *    in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code>
+   *    permission. The resource identifier of the ARN must start with
+   *    <code>AWSPCS</code> or it must have <code>/aws-pcs/</code> in its path.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   iamInstanceProfileArn: string | undefined;
@@ -488,10 +545,26 @@ export interface ComputeNodeGroup {
   customLaunchTemplate: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the
-   *    IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have
-   *          <code>pcs:RegisterComputeNodeGroupInstance</code> permissions attached to provision instances
-   *          correctly.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM instance
+   *    profile used to pass an IAM role when launching EC2 instances. The role contained
+   *    in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code>
+   *    permission. The resource identifier of the ARN must start with
+   *    <code>AWSPCS</code> or it must have <code>/aws-pcs/</code> in its path.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   iamInstanceProfileArn: string | undefined;
@@ -1037,10 +1110,26 @@ export interface UpdateComputeNodeGroupRequest {
   scalingConfiguration?: ScalingConfigurationRequest;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the
-   *    IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have
-   *          <code>pcs:RegisterComputeNodeGroupInstance</code> permissions attached to provision instances
-   *          correctly.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM instance
+   *    profile used to pass an IAM role when launching EC2 instances. The role contained
+   *    in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code>
+   *    permission. The resource identifier of the ARN must start with
+   *    <code>AWSPCS</code> or it must have <code>/aws-pcs/</code> in its path.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   iamInstanceProfileArn?: string;
