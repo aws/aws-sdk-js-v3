@@ -30,8 +30,9 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
 /**
  * <p>Runs one or more SQL statements.</p>
  *          <note>
- *             <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
- *             the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
+ *             <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters.
+ *             For Aurora Serverless v1 DB clusters, the operation is deprecated.
+ *             Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
  *          </note>
  *
  * @deprecated The ExecuteSql API is deprecated, please use the ExecuteStatement API.
