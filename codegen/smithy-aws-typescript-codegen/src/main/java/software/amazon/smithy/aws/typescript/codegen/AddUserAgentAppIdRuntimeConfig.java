@@ -44,7 +44,7 @@
          Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap<>();
 
          switch (target) {
-             // browser case not required since appId defaults to undefined anyway
+             // browser case not required since appId defaults to undefined
              case NODE:
                  runtimeConfigs.put("userAgentAppId", writer -> {
                      writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
