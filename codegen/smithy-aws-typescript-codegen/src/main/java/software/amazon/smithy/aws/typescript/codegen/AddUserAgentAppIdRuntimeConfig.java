@@ -32,7 +32,7 @@
          SymbolProvider symbolProvider,
          TypeScriptWriter writer
      ) {
-         writer.writeDocs("The application ID used to identify the SDK client.");
+         writer.writeDocs("The application ID used to identify the application.");
          writer.write("userAgentAppId?: string | "
          + "__Provider<string>;\n");
      }
