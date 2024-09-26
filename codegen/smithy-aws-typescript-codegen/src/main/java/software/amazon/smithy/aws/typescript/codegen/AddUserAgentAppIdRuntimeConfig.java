@@ -1,4 +1,3 @@
-
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
@@ -19,6 +18,10 @@
  import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
  import software.amazon.smithy.utils.SmithyInternalApi;
 
+ /**
+ * Generates appId configuration field for service clients.
+ * This appId can be used to identify applications.
+ */
  @SmithyInternalApi
  public final class AddUserAgentAppIdRuntimeConfig implements TypeScriptIntegration {
 
@@ -49,7 +52,8 @@
              case NODE:
                  runtimeConfigs.put("userAgentAppId", writer -> {
                      writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                     writer.addImport("loadConfig", "loadNodeConfig", TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                     writer.addImport("loadConfig", "loadNodeConfig",
+                     TypeScriptDependency.NODE_CONFIG_PROVIDER);
                      writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
                      writer.addImport("NODE_APP_ID_CONFIG_OPTIONS", "NODE_APP_ID_CONFIG_OPTIONS",
                      AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
