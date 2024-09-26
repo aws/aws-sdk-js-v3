@@ -28,7 +28,7 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes function-use permission from an Amazon Web Servicesservice or another Amazon Web Services account. You
+ * <p>Revokes function-use permission from an Amazon Web Services service or another Amazon Web Services account. You
  *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,11 +69,6 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
  *             </li>
  *          </ul>
- *
- * @throws {@link PublicPolicyException} (client fault)
- *  <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
- *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
- *       to allow public policies.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>

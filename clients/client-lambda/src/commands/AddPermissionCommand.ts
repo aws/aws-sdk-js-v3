@@ -35,8 +35,8 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *       to version $LATEST.</p>
  *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant
  *       permission to an organization defined in Organizations, specify the organization ID as the
- *         <code>PrincipalOrgID</code>. For Amazon Web Servicesservices, the principal is a domain-style identifier that
- *       the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Servicesservices, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If
+ *         <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal is a domain-style identifier that
+ *       the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If
  *       you grant permission to a service principal without specifying the source, other accounts could potentially
  *       configure resources in their account to invoke your Lambda function.</p>
  *          <p>This operation adds a statement to a resource-based permissions policy for the function. For more information
@@ -92,11 +92,6 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
  *             </li>
  *          </ul>
- *
- * @throws {@link PublicPolicyException} (client fault)
- *  <p>Lambda prevented your policy from being created because it would grant public access to your function. If you intended to
- *       create a public policy, use the <a>PutPublicAccessBlockConfig</a> API action to configure your function's public-access settings
- *       to allow public policies.</p>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>
