@@ -30,7 +30,8 @@
          TypeScriptWriter writer
      ) {
          writer.writeDocs("The application ID used to identify the SDK client.");
-         writer.write("userAgentAppId?: string;\n");
+         writer.write("userAgentAppId?: string | "
+         + "__Provider<string>;\n");
      }
 
      @Override
