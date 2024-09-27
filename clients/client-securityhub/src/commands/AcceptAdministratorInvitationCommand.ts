@@ -33,7 +33,12 @@ export interface AcceptAdministratorInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
+ * <note>
+ *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub User Guide</i>.</p>
+ *          </note>
+ *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  *          account that the invitation was sent from.</p>
  *          <p>This operation is only used by member accounts that are not added through
  *          Organizations.</p>

@@ -28,9 +28,14 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Security Hub membership invitations that were sent to the current Amazon Web Services account.</p>
- *          <p>This operation is only used by accounts that are managed by invitation.
- *          Accounts that are managed using the integration with Organizations do not receive invitations.</p>
+ * <note>
+ *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub User Guide</i>.</p>
+ *          </note>
+ *          <p>Lists all Security Hub membership invitations that were sent to the calling account.</p>
+ *          <p>Only accounts that are managed by invitation can use this operation.
+ *          Accounts that are managed using the integration with Organizations don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
