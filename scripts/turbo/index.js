@@ -2,7 +2,7 @@
 const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
 
-const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
+const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
   const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=hash-only"];
   command.push(...args);
   const turboRoot = path.join(__dirname, "..", "..");
@@ -14,8 +14,10 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
         ...process.env,
         TURBO_TELEMETRY_DISABLED: "1",
         ...(apiSecret &&
-          apiEndpoint && {
+          apiEndpoint &&
+          apiSignatureKey && {
             TURBO_API: apiEndpoint,
+            TURBO_REMOTE_CACHE_SIGNATURE_KEY: apiSignatureKey,
             TURBO_TOKEN: apiSecret,
             TURBO_TEAM: "aws-sdk-js",
           }),
@@ -36,13 +38,14 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
 const main = async () => {
   const apiSecret = process.env.AWS_JSV3_TURBO_CACHE_API_SECRET;
   const apiEndpoint = process.env.AWS_JSV3_TURBO_CACHE_API_ENDPOINT;
+  const apiSignatureKey = process.env.AWS_JSV3_TURBO_CACHE_API_SIGNATURE_KEY;
 
   const args = process.argv.slice(2);
 
-  if (!apiSecret || !apiEndpoint) {
+  if (!apiSecret || !apiEndpoint || !apiSignatureKey) {
     await runTurbo(args[0], args.slice(1));
   } else {
-    await runTurbo(args[0], args.slice(1), apiSecret, apiEndpoint);
+    await runTurbo(args[0], args.slice(1), { apiSecret, apiEndpoint, apiSignatureKey });
   }
 };
 
