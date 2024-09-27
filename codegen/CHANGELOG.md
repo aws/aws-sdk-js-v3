@@ -1,5 +1,17 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.24.0 (2024-09-30)
+
+### Features
+
+* Populates and resolves flexible checksums client config values ([#6471](https://github.com/aws/aws-sdk-js-v3/pull/6471))
+
+### Bug Fixes
+
+* Allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/pull/6511))
+* Fix setting the defualt signing name ([#6487](https://github.com/aws/aws-sdk-js-v3/pull/6487))
+* Fix how waiters are generated using error types when using `awsQuery` ([#6501](https://github.com/aws/aws-sdk-js-v3/pull/6501))
+
 ## 0.23.0 (2024-09-10)
 
 ### Features
