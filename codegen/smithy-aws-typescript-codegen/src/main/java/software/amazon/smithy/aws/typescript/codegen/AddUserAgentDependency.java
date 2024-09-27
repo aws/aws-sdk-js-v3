@@ -10,7 +10,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAws
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -61,44 +60,41 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
-        Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap<>();
-
         switch (target) {
             case NODE:
-                runtimeConfigs.put("defaultUserAgentProvider", writer -> {
-                    writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
-                    writer.addImport("defaultUserAgent", "defaultUserAgent",
-                            AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
-                    writer.addIgnoredDefaultImport("packageInfo", "./package.json",
-                            "package.json will be imported from dist folders");
-                    writeDefaultUserAgentProvider(writer, settings, model);
-                });
-                runtimeConfigs.put("userAgentAppId", writer -> {
-                    writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                    writer.addImport("loadConfig", "loadNodeConfig",
-                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                    writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
-                    writer.addImport("NODE_APP_ID_CONFIG_OPTIONS", "NODE_APP_ID_CONFIG_OPTIONS",
-                    AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
-                    writer.write("loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS)");
-                });
-                break;
+                return MapUtils.of(
+                        "defaultUserAgentProvider", writer -> {
+                            writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
+                            writer.addImport("defaultUserAgent", "defaultUserAgent",
+                                    AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
+                            writer.addIgnoredDefaultImport("packageInfo", "./package.json",
+                                    "package.json will be imported from dist folders");
+                            writeDefaultUserAgentProvider(writer, settings, model);
+                        },
+                        "userAgentAppId", writer -> {
+                            writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
+                            writer.addImport("NODE_APP_ID_CONFIG_OPTIONS", "NODE_APP_ID_CONFIG_OPTIONS",
+                                AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
+                            writer.write("loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS)");
+                        }
+                );
             case BROWSER:
-                runtimeConfigs.put("defaultUserAgentProvider", writer -> {
-                    writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
-                    writer.addImport("defaultUserAgent", "defaultUserAgent",
-                            AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER);
-                    writer.addIgnoredDefaultImport("packageInfo", "./package.json",
-                            "package.json will be imported from dist folders");
-                    writeDefaultUserAgentProvider(writer, settings, model);
-                });
-                // No userAgentAppId for browser target as it defaults to undefined
-                break;
+                return MapUtils.of(
+                        "defaultUserAgentProvider", writer -> {
+                            writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
+                            writer.addImport("defaultUserAgent", "defaultUserAgent",
+                                    AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER);
+                            writer.addIgnoredDefaultImport("packageInfo", "./package.json",
+                                    "package.json will be imported from dist folders");
+                            writeDefaultUserAgentProvider(writer, settings, model);
+                        }
+                );
             default:
-                // No default case needed
+                return Collections.emptyMap();
         }
-
-        return runtimeConfigs;
     }
 
     private void writeDefaultUserAgentProvider(TypeScriptWriter writer, TypeScriptSettings settings, Model model) {
