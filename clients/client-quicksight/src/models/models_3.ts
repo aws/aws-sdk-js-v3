@@ -7978,6 +7978,54 @@ export interface DescribeNamespaceResponse {
 /**
  * @public
  */
+export interface DescribeQPersonalizationConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the personalization configuration that the user wants described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PersonalizationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PersonalizationMode = (typeof PersonalizationMode)[keyof typeof PersonalizationMode];
+
+/**
+ * @public
+ */
+export interface DescribeQPersonalizationConfigurationResponse {
+  /**
+   * <p>A value that indicates whether personalization is enabled or not.</p>
+   * @public
+   */
+  PersonalizationMode?: PersonalizationMode;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
 export interface DescribeRefreshScheduleRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -9146,174 +9194,6 @@ export const IdentityType = {
  * @public
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-/**
- * @public
- * @enum
- */
-export const UserRole = {
-  ADMIN: "ADMIN",
-  ADMIN_PRO: "ADMIN_PRO",
-  AUTHOR: "AUTHOR",
-  AUTHOR_PRO: "AUTHOR_PRO",
-  READER: "READER",
-  READER_PRO: "READER_PRO",
-  RESTRICTED_AUTHOR: "RESTRICTED_AUTHOR",
-  RESTRICTED_READER: "RESTRICTED_READER",
-} as const;
-
-/**
- * @public
- */
-export type UserRole = (typeof UserRole)[keyof typeof UserRole];
-
-/**
- * <p>A registered user of Amazon QuickSight. </p>
- * @public
- */
-export interface User {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the user.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is
-   *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
-   *             and the corresponding IAM user is deleted.</p>
-   * @public
-   */
-  UserName?: string;
-
-  /**
-   * <p>The user's email address.</p>
-   * @public
-   */
-  Email?: string;
-
-  /**
-   * <p>The Amazon QuickSight role for the user. The user role can be one of the
-   *             following:.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
-   *                     and dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
-   *                     Amazon QuickSight settings.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Role?: UserRole;
-
-  /**
-   * <p>The type of identity authentication used by the user.</p>
-   * @public
-   */
-  IdentityType?: IdentityType;
-
-  /**
-   * <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
-   *             password.</p>
-   * @public
-   */
-  Active?: boolean;
-
-  /**
-   * <p>The principal ID of the user.</p>
-   * @public
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The custom permissions profile associated with this user.</p>
-   * @public
-   */
-  CustomPermissionsName?: string;
-
-  /**
-   * <p>The type of supported external login provider that provides identity to let the user
-   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ExternalLoginFederationProviderType?: string;
-
-  /**
-   * <p>The URL of the external login provider.</p>
-   * @public
-   */
-  ExternalLoginFederationProviderUrl?: string;
-
-  /**
-   * <p>The identity ID for the user in the external login provider.</p>
-   * @public
-   */
-  ExternalLoginId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeUserResponse {
-  /**
-   * <p>The user name.</p>
-   * @public
-   */
-  User?: User;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
 
 /**
  * @internal

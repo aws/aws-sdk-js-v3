@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.660.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.659.0...v3.660.0) (2024-09-27)
+
+
+### Features
+
+* **client-quicksight:** Adding personalization in QuickSight data stories. Admins can enable or disable personalization through QuickSight settings. ([c087759](https://github.com/aws/aws-sdk-js-v3/commit/c08775951de74a7246a57243c53123efe5e9f7a2))
+
+
+
+
+
 ## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
 
 

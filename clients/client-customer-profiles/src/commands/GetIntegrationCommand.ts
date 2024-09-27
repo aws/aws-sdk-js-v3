@@ -55,6 +55,7 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * //   },
  * //   WorkflowId: "STRING_VALUE",
  * //   IsUnstructured: true || false,
+ * //   RoleArn: "STRING_VALUE",
  * // };
  *
  * ```

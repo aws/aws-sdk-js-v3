@@ -5,9 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeUserRequest } from "../models/models_3";
-import { DescribeUserResponse } from "../models/models_4";
-import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_restJson1";
+import {
+  DescribeQPersonalizationConfigurationRequest,
+  DescribeQPersonalizationConfigurationResponse,
+} from "../models/models_3";
+import {
+  de_DescribeQPersonalizationConfigurationCommand,
+  se_DescribeQPersonalizationConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -18,55 +23,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeUserCommand}.
+ * The input for {@link DescribeQPersonalizationConfigurationCommand}.
  */
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface DescribeQPersonalizationConfigurationCommandInput
+  extends DescribeQPersonalizationConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUserCommand}.
+ * The output of {@link DescribeQPersonalizationConfigurationCommand}.
  */
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface DescribeQPersonalizationConfigurationCommandOutput
+  extends DescribeQPersonalizationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Returns information about a user, given the user name. </p>
+ * <p>Describes a personalization configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeQPersonalizationConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeQPersonalizationConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // DescribeUserRequest
- *   UserName: "STRING_VALUE", // required
+ * const input = { // DescribeQPersonalizationConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
  * };
- * const command = new DescribeUserCommand(input);
+ * const command = new DescribeQPersonalizationConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUserResponse
- * //   User: { // User
- * //     Arn: "STRING_VALUE",
- * //     UserName: "STRING_VALUE",
- * //     Email: "STRING_VALUE",
- * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO",
- * //     IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
- * //     Active: true || false,
- * //     PrincipalId: "STRING_VALUE",
- * //     CustomPermissionsName: "STRING_VALUE",
- * //     ExternalLoginFederationProviderType: "STRING_VALUE",
- * //     ExternalLoginFederationProviderUrl: "STRING_VALUE",
- * //     ExternalLoginId: "STRING_VALUE",
- * //   },
+ * // { // DescribeQPersonalizationConfigurationResponse
+ * //   PersonalizationMode: "ENABLED" || "DISABLED",
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
- * @returns {@link DescribeUserCommandOutput}
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @param DescribeQPersonalizationConfigurationCommandInput - {@link DescribeQPersonalizationConfigurationCommandInput}
+ * @returns {@link DescribeQPersonalizationConfigurationCommandOutput}
+ * @see {@link DescribeQPersonalizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeQPersonalizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,20 +69,17 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
- * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
- *
- * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
@@ -98,10 +89,10 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * @public
  */
-export class DescribeUserCommand extends $Command
+export class DescribeQPersonalizationConfigurationCommand extends $Command
   .classBuilder<
-    DescribeUserCommandInput,
-    DescribeUserCommandOutput,
+    DescribeQPersonalizationConfigurationCommandInput,
+    DescribeQPersonalizationConfigurationCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,21 +104,21 @@ export class DescribeUserCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "DescribeUser", {})
-  .n("QuickSightClient", "DescribeUserCommand")
+  .s("QuickSight_20180401", "DescribeQPersonalizationConfiguration", {})
+  .n("QuickSightClient", "DescribeQPersonalizationConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_DescribeUserCommand)
-  .de(de_DescribeUserCommand)
+  .ser(se_DescribeQPersonalizationConfigurationCommand)
+  .de(de_DescribeQPersonalizationConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeUserRequest;
-      output: DescribeUserResponse;
+      input: DescribeQPersonalizationConfigurationRequest;
+      output: DescribeQPersonalizationConfigurationResponse;
     };
     sdk: {
-      input: DescribeUserCommandInput;
-      output: DescribeUserCommandOutput;
+      input: DescribeQPersonalizationConfigurationCommandInput;
+      output: DescribeQPersonalizationConfigurationCommandOutput;
     };
   };
 }

@@ -50,7 +50,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *          then send an invitation to the member account. To send the invitation, you use the
  *                <code>InviteMembers</code> operation. If the account owner accepts
  *          the invitation, the account becomes a member account in Security Hub.</p>
- *          <p>Accounts that are managed using Organizations do not receive an invitation. They
+ *          <p>Accounts that are managed using Organizations don't receive an invitation. They
  *          automatically become a member account in Security Hub.</p>
  *          <ul>
  *             <li>

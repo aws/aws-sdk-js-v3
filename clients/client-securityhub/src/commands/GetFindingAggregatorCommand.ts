@@ -28,7 +28,11 @@ export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRe
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current finding aggregation configuration.</p>
+ * <note>
+ *             <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p>
+ *          </note>
+ *          <p>Returns the current configuration in the calling account for cross-Region aggregation. A finding aggregator is a resource that establishes
+ * the home Region and any linked Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

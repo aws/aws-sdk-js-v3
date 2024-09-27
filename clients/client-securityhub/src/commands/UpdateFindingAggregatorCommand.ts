@@ -28,8 +28,12 @@ export interface UpdateFindingAggregatorCommandInput extends UpdateFindingAggreg
 export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
- *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
+ * <note>
+ *             <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p>
+ *          </note>
+ *          <p>Updates cross-Region aggregation settings. You can use this operation to update the Region linking mode and the list
+ *         of included or excluded Amazon Web Services Regions. However, you can't use this operation to change the home Region.</p>
+ *          <p>You can invoke this operation from the current home Region only.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,7 +32,7 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
  *          their account and their member accounts. Member accounts can update findings for their
  *          account.</p>
- *          <p>Updates from <code>BatchUpdateFindings</code> do not affect the value of
+ *          <p>Updates from <code>BatchUpdateFindings</code> don't affect the value of
  *             <code>UpdatedAt</code> for a finding.</p>
  *          <p>Administrator and member accounts can use <code>BatchUpdateFindings</code> to update the
  *          following finding fields and objects.</p>

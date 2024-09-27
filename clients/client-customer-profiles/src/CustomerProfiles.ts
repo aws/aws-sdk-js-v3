@@ -1084,6 +1084,18 @@ export interface CustomerProfiles {
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html">Customer Profiles actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html">Customer Profiles data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact
  *          center that has pre-built connectors powered by AppFlow that make it easy to combine
  *          customer information from third party applications, such as Salesforce (CRM), ServiceNow

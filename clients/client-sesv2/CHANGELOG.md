@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.660.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.659.0...v3.660.0) (2024-09-27)
+
+
+### Features
+
+* **client-sesv2:** This release adds support for engagement tracking over Https using custom domains. ([2cf23a5](https://github.com/aws/aws-sdk-js-v3/commit/2cf23a543af1b940c94a2f76f8202f621a2de8be))
+
+
+
+
+
 ## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
 
 

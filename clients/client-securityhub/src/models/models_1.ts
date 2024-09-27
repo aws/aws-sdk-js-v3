@@ -6687,7 +6687,7 @@ export interface AwsRdsDbInstanceDetails {
    *             <b>Oracle</b>
    *          </p>
    *          <p>Contains the Oracle System ID (SID) of the created DB instance. Not shown when the
-   *          returned parameters do not apply to an Oracle DB instance. </p>
+   *          returned parameters don't apply to an Oracle DB instance. </p>
    * @public
    */
   DBName?: string;
@@ -10044,7 +10044,7 @@ export interface Compliance {
   /**
    * <p>
    *          Typically provides the unique identifier of a control across standards. For Security Hub controls, this field consists of an
-   *           Amazon Web Servicesservice and a unique number, such as <code>APIGateway.5</code>.
+   *           Amazon Web Services service and a unique number, such as <code>APIGateway.5</code>.
    *       </p>
    * @public
    */
