@@ -43,6 +43,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   TrackingOptions: { // TrackingOptions
  *     CustomRedirectDomain: "STRING_VALUE", // required
+ *     HttpsPolicy: "REQUIRE" || "REQUIRE_OPEN_ONLY" || "OPTIONAL",
  *   },
  *   DeliveryOptions: { // DeliveryOptions
  *     TlsPolicy: "REQUIRE" || "OPTIONAL",
