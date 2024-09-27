@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.660.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.659.0...v3.660.0) (2024-09-27)
+
+
+### Features
+
+* **client-customer-profiles:** Introduces optional RoleArn parameter for PutIntegration request and includes RoleArn in the response of PutIntegration, GetIntegration and ListIntegrations ([607ec0a](https://github.com/aws/aws-sdk-js-v3/commit/607ec0a76c9cee19c69cd2a39efeec44e0f64595))
+* **client-quicksight:** Adding personalization in QuickSight data stories. Admins can enable or disable personalization through QuickSight settings. ([c087759](https://github.com/aws/aws-sdk-js-v3/commit/c08775951de74a7246a57243c53123efe5e9f7a2))
+* **client-sesv2:** This release adds support for engagement tracking over Https using custom domains. ([2cf23a5](https://github.com/aws/aws-sdk-js-v3/commit/2cf23a543af1b940c94a2f76f8202f621a2de8be))
+* **clients:** update client endpoints as of 2024-09-27 ([5899627](https://github.com/aws/aws-sdk-js-v3/commit/5899627827bd9911f48faf4235e025dd2a0ebd35))
+
+
+
+
+
 # [3.659.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.1...v3.659.0) (2024-09-26)
 
 
