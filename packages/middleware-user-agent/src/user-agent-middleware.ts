@@ -46,7 +46,7 @@ export const userAgentMiddleware =
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
-    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+    const defaultUserAgent = (await options.defaultUserAgentProvider(options)).map(escapeUserAgent);
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
     const prefix = getUserAgentPrefix();
 

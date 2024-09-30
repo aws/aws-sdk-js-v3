@@ -1,4 +1,11 @@
-import { Provider, UserAgent } from "@smithy/types";
+import { Logger, Provider, UserAgent } from "@smithy/types";
+import { normalizeProvider } from "@smithy/core";
+
+/**
+ * @internal
+ */
+export const DEFAULT_UA_APP_ID = undefined;
+
 /**
  * @public
  */
@@ -7,11 +14,18 @@ export interface UserAgentInputConfig {
    * The custom user agent header that would be appended to default one
    */
   customUserAgent?: string | UserAgent;
+  /**
+   * The application ID used to identify the SDK client.
+   */
+  userAgentAppId?: string | undefined | Provider<string | undefined>;
 }
+
 interface PreviouslyResolved {
   defaultUserAgentProvider: Provider<UserAgent>;
   runtime: string;
+  logger?: Logger;
 }
+
 export interface UserAgentResolvedConfig {
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header.
@@ -26,12 +40,40 @@ export interface UserAgentResolvedConfig {
    * The runtime environment
    */
   runtime: string;
+  /**
+   * Resolved value for input config {config.userAgentAppId}
+   */
+  userAgentAppId: Provider<string | undefined>;
 }
+
+function isValidUserAgentAppId(appId: unknown): boolean {
+  if (appId === undefined) {
+    return true;
+  }
+  return typeof appId === "string" && appId.length <= 50;
+}
+
 export function resolveUserAgentConfig<T>(
   input: T & PreviouslyResolved & UserAgentInputConfig
 ): T & UserAgentResolvedConfig {
+  const normalizedAppIdProvider = normalizeProvider(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
   return {
     ...input,
     customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent,
+    userAgentAppId: async () => {
+      const appId = await normalizedAppIdProvider();
+      if (!isValidUserAgentAppId(appId)) {
+        const logger = input.logger?.constructor?.name === 'NoOpLogger' ? console : input.logger;
+        if (typeof appId !== "string") {
+          logger?.warn("userAgentAppId must be a string or undefined. Ignoring the provided value.");
+          return undefined;
+        }
+        if (appId.length > 50) {
+          logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters. It will be truncated.");
+          return appId.slice(0, 50);
+        }
+      }
+      return appId;
+    },
   };
 }
