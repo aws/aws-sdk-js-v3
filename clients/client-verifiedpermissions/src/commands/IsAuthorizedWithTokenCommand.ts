@@ -45,7 +45,6 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             matching policies in the specified policy store. The result of the decision is either
  *                 <code>Allow</code> or <code>Deny</code>, along with a list of the policies that
  *             resulted in the decision.</p>
- *          <p>At this time, Verified Permissions accepts tokens from only Amazon Cognito.</p>
  *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
  *             date and its signature.</p>
  *          <important>

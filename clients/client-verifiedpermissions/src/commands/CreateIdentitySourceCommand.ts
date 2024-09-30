@@ -62,7 +62,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *                </li>
  *                <li>
  *                   <p>OpenID Connect (OIDC) provider: <code>Namespace::[Entity
- *                             type]::[principalIdClaim]|[user principal attribute]</code>, for example
+ *                         type]::[entityIdPrefix]|[user principal attribute]</code>, for example
  *                             <code>MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
  *                </li>
  *             </ul>

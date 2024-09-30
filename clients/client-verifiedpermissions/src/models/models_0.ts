@@ -205,7 +205,7 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The code for the Amazon Web Service that owns the quota.</p>
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
   serviceCode?: string;
@@ -1425,7 +1425,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The code for the Amazon Web Service that owns the quota.</p>
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
   serviceCode?: string;
@@ -2998,12 +2998,6 @@ export interface UpdateIdentitySourceInput {
   /**
    * <p>Specifies the details required to communicate with the identity provider (IdP)
    *             associated with this identity source.</p>
-   *          <note>
-   *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
-   *                 configuration.</p>
-   *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
-   *                     <code>ClientId</code>.</p>
-   *          </note>
    * @public
    */
   updateConfiguration: UpdateConfiguration | undefined;
@@ -3314,12 +3308,12 @@ export interface PolicyItem {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>static</code>
+   *                   <code>STATIC</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>templateLinked</code>
+   *                   <code>TEMPLATE_LINKED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3876,7 +3870,8 @@ export type SchemaDefinition = SchemaDefinition.CedarJsonMember | SchemaDefiniti
 export namespace SchemaDefinition {
   /**
    * <p>A JSON string representation of the schema supported by applications that use this
-   *             policy store. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy store schema</a> in the
+   *             policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a> with <code>\{\}</code> for this parameter.
+   *             For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy store schema</a> in the
    *                 <i>Amazon Verified Permissions User Guide</i>.</p>
    * @public
    */
