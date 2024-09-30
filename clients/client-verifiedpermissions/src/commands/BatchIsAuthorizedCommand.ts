@@ -295,6 +295,167 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example Batch - Example 1
+ * ```javascript
+ * // The following example requests two authorization decisions for two principals                     of type Usernamed Alice and Annalisa.
+ * const input = {
+ *   "entities": {
+ *     "entityList": [
+ *       {
+ *         "attributes": {
+ *           "Account": {
+ *             "entityIdentifier": {
+ *               "entityId": "1234",
+ *               "entityType": "PhotoFlash::Account"
+ *             }
+ *           },
+ *           "Email": {
+ *             "string": ""
+ *           }
+ *         },
+ *         "identifier": {
+ *           "entityId": "Alice",
+ *           "entityType": "PhotoFlash::User"
+ *         },
+ *         "parents": []
+ *       },
+ *       {
+ *         "attributes": {
+ *           "Account": {
+ *             "entityIdentifier": {
+ *               "entityId": "5678",
+ *               "entityType": "PhotoFlash::Account"
+ *             }
+ *           },
+ *           "Email": {
+ *             "string": ""
+ *           }
+ *         },
+ *         "identifier": {
+ *           "entityId": "Annalisa",
+ *           "entityType": "PhotoFlash::User"
+ *         },
+ *         "parents": []
+ *       },
+ *       {
+ *         "attributes": {
+ *           "IsPrivate": {
+ *             "boolean": false
+ *           },
+ *           "Name": {
+ *             "string": ""
+ *           }
+ *         },
+ *         "identifier": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         },
+ *         "parents": [
+ *           {
+ *             "entityId": "1234",
+ *             "entityType": "PhotoFlash::Account"
+ *           }
+ *         ]
+ *       },
+ *       {
+ *         "attributes": {
+ *           "Name": {
+ *             "string": ""
+ *           }
+ *         },
+ *         "identifier": {
+ *           "entityId": "1234",
+ *           "entityType": "PhotoFlash::Account"
+ *         },
+ *         "parents": []
+ *       }
+ *     ]
+ *   },
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "requests": [
+ *     {
+ *       "action": {
+ *         "actionId": "ViewPhoto",
+ *         "actionType": "PhotoFlash::Action"
+ *       },
+ *       "principal": {
+ *         "entityId": "Alice",
+ *         "entityType": "PhotoFlash::User"
+ *       },
+ *       "resource": {
+ *         "entityId": "VacationPhoto94.jpg",
+ *         "entityType": "PhotoFlash::Photo"
+ *       }
+ *     },
+ *     {
+ *       "action": {
+ *         "actionId": "DeletePhoto",
+ *         "actionType": "PhotoFlash::Action"
+ *       },
+ *       "principal": {
+ *         "entityId": "Annalisa",
+ *         "entityType": "PhotoFlash::User"
+ *       },
+ *       "resource": {
+ *         "entityId": "VacationPhoto94.jpg",
+ *         "entityType": "PhotoFlash::Photo"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new BatchIsAuthorizedCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "results": [
+ *     {
+ *       "errors": [],
+ *       "decision": "ALLOW",
+ *       "determiningPolicies": [
+ *         {
+ *           "policyId": "9wYxMpljbbZQb5fcZHyJhY"
+ *         }
+ *       ],
+ *       "request": {
+ *         "action": {
+ *           "actionId": "ViewPhoto",
+ *           "actionType": "PhotoFlash::Action"
+ *         },
+ *         "principal": {
+ *           "entityId": "alice",
+ *           "entityType": "PhotoFlash::User"
+ *         },
+ *         "resource": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "errors": [],
+ *       "decision": "DENY",
+ *       "determiningPolicies": [],
+ *       "request": {
+ *         "action": {
+ *           "actionId": "DeletePhoto",
+ *           "actionType": "PhotoFlash::Action"
+ *         },
+ *         "principal": {
+ *           "entityId": "annalisa",
+ *           "entityType": "PhotoFlash::User"
+ *         },
+ *         "resource": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class BatchIsAuthorizedCommand extends $Command
   .classBuilder<

@@ -121,6 +121,28 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To create an object
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *   "SchemaFacets": [
+ *     {
+ *       "FacetName": "Organization_Person",
+ *       "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8/schema/ExampleOrgPersonSchema/1"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ObjectIdentifier": "AQF0Fw173YJDlpLUV1eB50WvScvjsYXcS3K2nP1HwDuuYQ"
+ * }
+ * *\/
+ * // example id: to-create-an-object-1494010287120
+ * ```
+ *
  */
 export class CreateObjectCommand extends $Command
   .classBuilder<

@@ -89,6 +89,24 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To apply a schema
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *   "PublishedSchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/published/org/1"
+ * };
+ * const command = new ApplySchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AppliedSchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI/schema/org/1",
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI"
+ * }
+ * *\/
+ * // example id: to-apply-a-schema-1507061899015
+ * ```
+ *
  */
 export class ApplySchemaCommand extends $Command
   .classBuilder<

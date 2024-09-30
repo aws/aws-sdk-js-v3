@@ -27,9 +27,9 @@
     "@aws-sdk/client-sso": "*",
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.6",
-    "@smithy/shared-ini-file-loader": "^3.1.7",
-    "@smithy/types": "^3.4.2",
+    "@smithy/property-provider": "^3.1.7",
+    "@smithy/shared-ini-file-loader": "^3.1.8",
+    "@smithy/types": "^3.5.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

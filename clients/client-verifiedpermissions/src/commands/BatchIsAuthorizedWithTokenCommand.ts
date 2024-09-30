@@ -291,6 +291,141 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example Batch - Example 1
+ * ```javascript
+ * // The following example requests three authorization decisions for two resources                     and two actions in different photo albums.
+ * const input = {
+ *   "entities": {
+ *     "entityList": [
+ *       {
+ *         "identifier": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         },
+ *         "parents": [
+ *           {
+ *             "entityId": "MyExampleAlbum1",
+ *             "entityType": "PhotoFlash::Album"
+ *           }
+ *         ]
+ *       },
+ *       {
+ *         "identifier": {
+ *           "entityId": "OfficePhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         },
+ *         "parents": [
+ *           {
+ *             "entityId": "MyExampleAlbum2",
+ *             "entityType": "PhotoFlash::Album"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   },
+ *   "identityToken": "eyJra12345EXAMPLE",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "requests": [
+ *     {
+ *       "action": {
+ *         "actionId": "ViewPhoto",
+ *         "actionType": "PhotoFlash::Action"
+ *       },
+ *       "resource": {
+ *         "entityId": "VacationPhoto94.jpg",
+ *         "entityType": "PhotoFlash::Photo"
+ *       }
+ *     },
+ *     {
+ *       "action": {
+ *         "actionId": "SharePhoto",
+ *         "actionType": "PhotoFlash::Action"
+ *       },
+ *       "resource": {
+ *         "entityId": "VacationPhoto94.jpg",
+ *         "entityType": "PhotoFlash::Photo"
+ *       }
+ *     },
+ *     {
+ *       "action": {
+ *         "actionId": "ViewPhoto",
+ *         "actionType": "PhotoFlash::Action"
+ *       },
+ *       "resource": {
+ *         "entityId": "OfficePhoto94.jpg",
+ *         "entityType": "PhotoFlash::Photo"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new BatchIsAuthorizedWithTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "principal": {
+ *     "entityId": "us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     "entityType": "PhotoFlash::User"
+ *   },
+ *   "results": [
+ *     {
+ *       "errors": [],
+ *       "decision": "ALLOW",
+ *       "determiningPolicies": [
+ *         {
+ *           "policyId": "9wYixMplbbZQb5fcZHyJhY"
+ *         }
+ *       ],
+ *       "request": {
+ *         "action": {
+ *           "actionId": "ViewPhoto",
+ *           "actionType": "PhotoFlash::Action"
+ *         },
+ *         "resource": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "errors": [],
+ *       "decision": "ALLOW",
+ *       "determiningPolicies": [
+ *         {
+ *           "policyId": "9wYixMplbbZQb5fcZHyJhY"
+ *         }
+ *       ],
+ *       "request": {
+ *         "action": {
+ *           "actionId": "SharePhoto",
+ *           "actionType": "PhotoFlash::Action"
+ *         },
+ *         "resource": {
+ *           "entityId": "VacationPhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "errors": [],
+ *       "decision": "DENY",
+ *       "determiningPolicies": [],
+ *       "request": {
+ *         "action": {
+ *           "actionId": "ViewPhoto",
+ *           "actionType": "PhotoFlash::Action"
+ *         },
+ *         "resource": {
+ *           "entityId": "OfficePhoto94.jpg",
+ *           "entityType": "PhotoFlash::Photo"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class BatchIsAuthorizedWithTokenCommand extends $Command
   .classBuilder<
