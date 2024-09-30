@@ -1788,6 +1788,14 @@ StartContactStreaming
 </details>
 <details>
 <summary>
+StartOutboundChatContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartOutboundChatContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundChatContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundChatContactCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartOutboundVoiceContact
 </summary>
 

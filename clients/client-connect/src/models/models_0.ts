@@ -2299,6 +2299,7 @@ export interface Campaign {
  * @enum
  */
 export const EndpointType = {
+  CONNECT_PHONENUMBER_ARN: "CONNECT_PHONENUMBER_ARN",
   CONTACT_FLOW: "CONTACT_FLOW",
   TELEPHONE_NUMBER: "TELEPHONE_NUMBER",
   VOIP: "VOIP",
@@ -2955,7 +2956,7 @@ export type NumericQuestionPropertyAutomationLabel =
  *             <li>
  *                <p> Duration labels, such as <code>NON_TALK_TIME</code>, <code>CONTACT_DURATION</code>,
  *       <code>AGENT_INTERACTION_DURATION</code>, <code>CUSTOMER_HOLD_TIME</code> have a minimum value
- *      of 0 and maximum value of 28800.</p>
+ *      of 0 and maximum value of 63072000.</p>
  *             </li>
  *             <li>
  *                <p>Percentages have a minimum value of 0 and maximum value of 100. </p>

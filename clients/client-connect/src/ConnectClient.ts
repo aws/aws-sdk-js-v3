@@ -582,6 +582,10 @@ import {
   StartContactStreamingCommandOutput,
 } from "./commands/StartContactStreamingCommand";
 import {
+  StartOutboundChatContactCommandInput,
+  StartOutboundChatContactCommandOutput,
+} from "./commands/StartOutboundChatContactCommand";
+import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
@@ -977,6 +981,7 @@ export type ServiceInputTypes =
   | StartContactEvaluationCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
+  | StartOutboundChatContactCommandInput
   | StartOutboundVoiceContactCommandInput
   | StartTaskContactCommandInput
   | StartWebRTCContactCommandInput
@@ -1237,6 +1242,7 @@ export type ServiceOutputTypes =
   | StartContactEvaluationCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
+  | StartOutboundChatContactCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StartTaskContactCommandOutput
   | StartWebRTCContactCommandOutput

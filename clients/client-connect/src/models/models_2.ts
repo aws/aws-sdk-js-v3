@@ -25,6 +25,7 @@ import {
   Customer,
   CustomerVoiceActivity,
   DisconnectDetails,
+  Endpoint,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   Expiry,
@@ -3513,6 +3514,167 @@ export interface StartContactStreamingResponse {
    * @public
    */
   StreamingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOutboundChatContactRequest {
+  /**
+   * <p>Information about the endpoint.</p>
+   * @public
+   */
+  SourceEndpoint: Endpoint | undefined;
+
+  /**
+   * <p>Information about the endpoint.</p>
+   * @public
+   */
+  DestinationEndpoint: Endpoint | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A set of system defined key-value pairs stored on individual contact segments using an
+   *    attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in
+   *    flows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Attribute keys can include only alphanumeric, <code>-</code>, and <code>_</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This field can be used to show channel subtype, such as <code>connect:Guide</code> and
+   *       <code>connect:SMS</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SegmentAttributes: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
+   * @public
+   */
+  Attributes?: Record<string, string>;
+
+  /**
+   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect
+   *    console user interface, on the navigation menu go to <b>Routing, Contact
+   *     Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
+   *     <b>Show additional flow information</b>. The ContactFlowId is the last
+   *    part of the ARN, shown here in bold:</p>
+   *          <ul>
+   *             <li>
+   *                <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>123ec456-a007-89c0-1234-xxxxxxxxxxxx</b>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The total duration of the newly started chat session. If not specified, the chat session
+   *    duration defaults to 25 hour. The minimum configurable time is 60 minutes. The maximum
+   *    configurable time is 10,080 minutes (7 days).</p>
+   * @public
+   */
+  ChatDurationInMinutes?: number;
+
+  /**
+   * <p>The customer's details.</p>
+   * @public
+   */
+  ParticipantDetails?: ParticipantDetails;
+
+  /**
+   * <p>A chat message.</p>
+   * @public
+   */
+  InitialSystemMessage?: ChatMessage;
+
+  /**
+   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
+   *    contact starting.</p>
+   * @public
+   */
+  RelatedContactId?: string;
+
+  /**
+   * <p>The supported chat message content types. Supported types are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>text/plain</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>text/markdown</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/json,
+   *      application/vnd.amazonaws.connect.message.interactive</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/vnd.amazonaws.connect.message.interactive.response</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other
+   *    supported type in the list. For example, all the following lists are valid because they contain
+   *     <code>text/plain</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>[text/plain, text/markdown, application/json]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>[text/markdown, text/plain]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>[text/plain, application/json,
+   *       application/vnd.amazonaws.connect.message.interactive.response]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SupportedMessagingContentTypes?: string[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request. If not provided, the AWS SDK populates this field. For more information about
+   *    idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+   *     retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a
+   *    contact is already started, the contact ID is returned.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartOutboundChatContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId?: string;
 }
 
 /**

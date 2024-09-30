@@ -4638,7 +4638,8 @@ export interface MetricFilterV2 {
    * <p>The values to use for filtering data. </p>
    *          <p>Valid metric filter values for <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
    *     <code>OUTBOUND</code> | <code>TRANSFER</code> | <code>QUEUE_TRANSFER</code> |
-   *     <code>CALLBACK</code> | <code>API</code>
+   *     <code>CALLBACK</code> | <code>API</code> | <code>WEBRTC_API</code> | <code>MONITOR</code> |
+   *     <code>DISCONNECT</code> | <code>EXTERNAL_OUTBOUND</code>
    *          </p>
    *          <p>Valid metric filter values for <code>DISCONNECT_REASON</code>:
    *     <code>CUSTOMER_DISCONNECT</code> | <code>AGENT_DISCONNECT</code> |
@@ -4665,8 +4666,8 @@ export interface MetricFilterV2 {
  */
 export interface ThresholdV2 {
   /**
-   * <p>The type of comparison. Only "less than" (LT) and "greater than" (GT) comparisons are
-   *    supported.</p>
+   * <p>The type of comparison. Currently, "less than" (LT), "less than equal" (LTE), and "greater
+   *    than" (GT) comparisons are supported.</p>
    * @public
    */
   Comparison?: string;
@@ -5372,8 +5373,8 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect</p>
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
-   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
-   *       "Less than").</p>
+   *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
+   *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-removed-historical">Contacts removed from queue in X seconds</a>
    *                </p>
    *             </dd>
@@ -5383,8 +5384,8 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
    *       Q in Connect</p>
    *                <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800
-   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
-   *       "Less than").</p>
+   *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
+   *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-resolved-historical">Contacts resolved in X</a>
    *                </p>
    *             </dd>
@@ -5604,8 +5605,8 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Percent</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect</p>
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
-   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
-   *       "Less than"). </p>
+   *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
+   *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#service-level-historical">Service level X</a>
    *                </p>
    *             </dd>
@@ -5662,8 +5663,8 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
    *       Q in Connect</p>
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
-   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
-   *       "Less than"). </p>
+   *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
+   *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-x-historical">Contacts abandoned in X seconds</a>
    *                </p>
    *             </dd>
@@ -5673,8 +5674,8 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
    *       Q in Connect</p>
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
-   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
-   *       "Less than"). </p>
+   *       (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for "Less
+   *       than") or <code>LTE</code> (for "Less than equal").</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-answered-x-historical">Contacts answered in X seconds</a>
    *                </p>
    *             </dd>

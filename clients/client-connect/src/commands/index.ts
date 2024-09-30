@@ -194,6 +194,7 @@ export * from "./StartChatContactCommand";
 export * from "./StartContactEvaluationCommand";
 export * from "./StartContactRecordingCommand";
 export * from "./StartContactStreamingCommand";
+export * from "./StartOutboundChatContactCommand";
 export * from "./StartOutboundVoiceContactCommand";
 export * from "./StartTaskContactCommand";
 export * from "./StartWebRTCContactCommand";
