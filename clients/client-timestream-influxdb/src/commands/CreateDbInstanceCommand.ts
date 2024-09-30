@@ -70,6 +70,7 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   port: Number("int"),
  * };
  * const command = new CreateDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -79,6 +80,7 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * //   arn: "STRING_VALUE", // required
  * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //   endpoint: "STRING_VALUE",
+ * //   port: Number("int"),
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //   allocatedStorage: Number("int"),

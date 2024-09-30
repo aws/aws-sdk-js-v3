@@ -44,6 +44,7 @@ import {
   CreateDbInstanceInput,
   CreateDbParameterGroupInput,
   DeleteDbInstanceInput,
+  Duration,
   GetDbInstanceInput,
   GetDbParameterGroupInput,
   InfluxDBv2Parameters,
@@ -570,6 +571,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeleteDbInstanceInput omitted.
 
+// se_Duration omitted.
+
 // se_GetDbInstanceInput omitted.
 
 // se_GetDbParameterGroupInput omitted.
@@ -619,6 +622,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_DbParameterGroupSummaryList omitted.
 
 // de_DeleteDbInstanceOutput omitted.
+
+// de_Duration omitted.
 
 // de_GetDbInstanceOutput omitted.
 
