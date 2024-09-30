@@ -30,6 +30,7 @@ describe("userAgentMiddleware", () => {
           ],
           customUserAgent: [["custom_ua/abc"]],
           runtime,
+          userAgentAppId: async () => undefined,
         });
         const handler = middleware(mockNextHandler, { userAgent: [["cfg/retry-mode", "standard"]] });
         await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
@@ -48,6 +49,23 @@ describe("userAgentMiddleware", () => {
         }
       })
     );
+  });
+
+  it("should include appId in user agent when provided", async () => {
+    const middleware = userAgentMiddleware({
+      defaultUserAgentProvider: async () => [
+        ["default_agent", "1.0.0"],
+        ["aws-sdk-js", "1.0.0"],
+      ],
+      customUserAgent: [["custom_ua/abc"]],
+      runtime: "node",
+      userAgentAppId: async () => "test-app-id",
+    });
+    const handler = middleware(mockNextHandler, { userAgent: [["cfg/retry-mode", "standard"]] });
+    await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+    expect(mockNextHandler.mock.calls.length).toEqual(1);
+    const sdkUserAgent = mockNextHandler.mock.calls[0][0].request.headers[USER_AGENT];
+    expect(sdkUserAgent).toEqual(expect.stringContaining("app/test-app-id"));
   });
 
   describe("should sanitize the SDK user agent string", () => {
@@ -72,6 +90,7 @@ describe("userAgentMiddleware", () => {
             const middleware = userAgentMiddleware({
               defaultUserAgentProvider: async () => [ua],
               runtime,
+              userAgentAppId: async () => undefined,
             });
             const handler = middleware(mockNextHandler, {});
             await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
@@ -84,6 +103,7 @@ describe("userAgentMiddleware", () => {
             const middleware = userAgentMiddleware({
               defaultUserAgentProvider: async () => [ua],
               runtime,
+              userAgentAppId: async () => undefined,
             });
 
             // internal variant
