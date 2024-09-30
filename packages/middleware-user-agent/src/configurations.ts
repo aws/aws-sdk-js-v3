@@ -65,12 +65,9 @@ export function resolveUserAgentConfig<T>(
       if (!isValidUserAgentAppId(appId)) {
         const logger = input.logger?.constructor?.name === 'NoOpLogger' ? console : input.logger;
         if (typeof appId !== "string") {
-          logger?.warn("userAgentAppId must be a string or undefined. Ignoring the provided value.");
-          return undefined;
-        }
-        if (appId.length > 50) {
-          logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters. It will be truncated.");
-          return appId.slice(0, 50);
+          logger?.warn("userAgentAppId must be a string or undefined.");
+        } else if (appId.length > 50) {
+          logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
         }
       }
       return appId;

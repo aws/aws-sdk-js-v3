@@ -24,6 +24,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
+    "@smithy/core": "*",
     "@smithy/protocol-http": "^4.1.3",
     "@smithy/types": "^3.4.2",
     "tslib": "^2.6.2"
