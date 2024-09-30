@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.661.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.660.0...v3.661.0) (2024-09-30)
+
+
+### Features
+
+* **client-bedrock:** Add support for custom models via provisioned throughput for Bedrock Model Evaluation ([171d643](https://github.com/aws/aws-sdk-js-v3/commit/171d643ee852617e17cac105f597a99ad6e0df13))
+* **client-connect:** Amazon Connect introduces StartOutboundChatContact API allowing customers to initiate outbound chat contacts ([54f160e](https://github.com/aws/aws-sdk-js-v3/commit/54f160eef9c6250aca64b1a57cc80f117cadf7ad))
+* **client-resource-groups:** This update includes new APIs to support application groups and to allow users to manage resource tag-sync tasks in applications. ([22f9f33](https://github.com/aws/aws-sdk-js-v3/commit/22f9f330378378f82337bf55588fe2e3a341bbd4))
+* **client-supplychain:** Release DataLakeDataset, DataIntegrationFlow and ResourceTagging APIs for AWS Supply Chain ([ac24697](https://github.com/aws/aws-sdk-js-v3/commit/ac246970fa014177b11e1d94e374ed621ec298a7))
+* **client-timestream-influxdb:** Timestream for InfluxDB now supports port configuration and additional customer-modifiable InfluxDB v2 parameters. This release adds Port to the CreateDbInstance and UpdateDbInstance API, and additional InfluxDB v2 parameters to the CreateDbParameterGroup API. ([23ee6ce](https://github.com/aws/aws-sdk-js-v3/commit/23ee6ce6f6203cf9b14dac06537afdb6b58194e5))
+
+
+
+
+
 # [3.660.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.659.0...v3.660.0) (2024-09-27)
 
 
