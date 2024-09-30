@@ -68,6 +68,27 @@ describe("userAgentMiddleware", () => {
     expect(sdkUserAgent).toEqual(expect.stringContaining("app/test-app-id"));
   });
 
+  it("should include long appId in user agent when provided", async () => {
+    const longAppId = "a".repeat(51); // 51 characters, exceeding the 50 character limit
+    const middleware = userAgentMiddleware({
+      defaultUserAgentProvider: async () => [
+        ["default_agent", "1.0.0"],
+        ["aws-sdk-js", "1.0.0"],
+      ],
+      customUserAgent: [["custom_ua/abc"]],
+      runtime: "node",
+      userAgentAppId: async () => longAppId,
+    });
+    const handler = middleware(mockNextHandler, {});
+    await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+
+    const sdkUserAgent = mockNextHandler.mock.calls[0][0].request.headers[USER_AGENT];
+    expect(sdkUserAgent).toEqual(expect.stringContaining(`app/${longAppId}`));
+    expect(sdkUserAgent).toEqual(expect.stringContaining("aws-sdk-js/1.0.0"));
+    expect(sdkUserAgent).toEqual(expect.stringContaining("default_agent/1.0.0"));
+    expect(sdkUserAgent).toEqual(expect.stringContaining("custom_ua/abc"));
+  });
+
   describe("should sanitize the SDK user agent string", () => {
     const cases: { ua: UserAgentPair; expected: string }[] = [
       { ua: ["/name", "1.0.0"], expected: "name/1.0.0" },
