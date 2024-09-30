@@ -8,21 +8,95 @@ import {
   CreateBillOfMaterialsImportJobCommandOutput,
 } from "./commands/CreateBillOfMaterialsImportJobCommand";
 import {
+  CreateDataIntegrationFlowCommand,
+  CreateDataIntegrationFlowCommandInput,
+  CreateDataIntegrationFlowCommandOutput,
+} from "./commands/CreateDataIntegrationFlowCommand";
+import {
+  CreateDataLakeDatasetCommand,
+  CreateDataLakeDatasetCommandInput,
+  CreateDataLakeDatasetCommandOutput,
+} from "./commands/CreateDataLakeDatasetCommand";
+import {
+  DeleteDataIntegrationFlowCommand,
+  DeleteDataIntegrationFlowCommandInput,
+  DeleteDataIntegrationFlowCommandOutput,
+} from "./commands/DeleteDataIntegrationFlowCommand";
+import {
+  DeleteDataLakeDatasetCommand,
+  DeleteDataLakeDatasetCommandInput,
+  DeleteDataLakeDatasetCommandOutput,
+} from "./commands/DeleteDataLakeDatasetCommand";
+import {
   GetBillOfMaterialsImportJobCommand,
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  GetDataIntegrationFlowCommand,
+  GetDataIntegrationFlowCommandInput,
+  GetDataIntegrationFlowCommandOutput,
+} from "./commands/GetDataIntegrationFlowCommand";
+import {
+  GetDataLakeDatasetCommand,
+  GetDataLakeDatasetCommandInput,
+  GetDataLakeDatasetCommandOutput,
+} from "./commands/GetDataLakeDatasetCommand";
+import {
+  ListDataIntegrationFlowsCommand,
+  ListDataIntegrationFlowsCommandInput,
+  ListDataIntegrationFlowsCommandOutput,
+} from "./commands/ListDataIntegrationFlowsCommand";
+import {
+  ListDataLakeDatasetsCommand,
+  ListDataLakeDatasetsCommandInput,
+  ListDataLakeDatasetsCommandOutput,
+} from "./commands/ListDataLakeDatasetsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   SendDataIntegrationEventCommand,
   SendDataIntegrationEventCommandInput,
   SendDataIntegrationEventCommandOutput,
 } from "./commands/SendDataIntegrationEventCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDataIntegrationFlowCommand,
+  UpdateDataIntegrationFlowCommandInput,
+  UpdateDataIntegrationFlowCommandOutput,
+} from "./commands/UpdateDataIntegrationFlowCommand";
+import {
+  UpdateDataLakeDatasetCommand,
+  UpdateDataLakeDatasetCommandInput,
+  UpdateDataLakeDatasetCommandOutput,
+} from "./commands/UpdateDataLakeDatasetCommand";
 import { SupplyChainClient, SupplyChainClientConfig } from "./SupplyChainClient";
 
 const commands = {
   CreateBillOfMaterialsImportJobCommand,
+  CreateDataIntegrationFlowCommand,
+  CreateDataLakeDatasetCommand,
+  DeleteDataIntegrationFlowCommand,
+  DeleteDataLakeDatasetCommand,
   GetBillOfMaterialsImportJobCommand,
+  GetDataIntegrationFlowCommand,
+  GetDataLakeDatasetCommand,
+  ListDataIntegrationFlowsCommand,
+  ListDataLakeDatasetsCommand,
+  ListTagsForResourceCommand,
   SendDataIntegrationEventCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateDataIntegrationFlowCommand,
+  UpdateDataLakeDatasetCommand,
 };
 
 export interface SupplyChain {
@@ -44,6 +118,74 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link CreateDataIntegrationFlowCommand}
+   */
+  createDataIntegrationFlow(
+    args: CreateDataIntegrationFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataIntegrationFlowCommandOutput>;
+  createDataIntegrationFlow(
+    args: CreateDataIntegrationFlowCommandInput,
+    cb: (err: any, data?: CreateDataIntegrationFlowCommandOutput) => void
+  ): void;
+  createDataIntegrationFlow(
+    args: CreateDataIntegrationFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataIntegrationFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataLakeDatasetCommand}
+   */
+  createDataLakeDataset(
+    args: CreateDataLakeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataLakeDatasetCommandOutput>;
+  createDataLakeDataset(
+    args: CreateDataLakeDatasetCommandInput,
+    cb: (err: any, data?: CreateDataLakeDatasetCommandOutput) => void
+  ): void;
+  createDataLakeDataset(
+    args: CreateDataLakeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataIntegrationFlowCommand}
+   */
+  deleteDataIntegrationFlow(
+    args: DeleteDataIntegrationFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataIntegrationFlowCommandOutput>;
+  deleteDataIntegrationFlow(
+    args: DeleteDataIntegrationFlowCommandInput,
+    cb: (err: any, data?: DeleteDataIntegrationFlowCommandOutput) => void
+  ): void;
+  deleteDataIntegrationFlow(
+    args: DeleteDataIntegrationFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataIntegrationFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataLakeDatasetCommand}
+   */
+  deleteDataLakeDataset(
+    args: DeleteDataLakeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataLakeDatasetCommandOutput>;
+  deleteDataLakeDataset(
+    args: DeleteDataLakeDatasetCommandInput,
+    cb: (err: any, data?: DeleteDataLakeDatasetCommandOutput) => void
+  ): void;
+  deleteDataLakeDataset(
+    args: DeleteDataLakeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBillOfMaterialsImportJobCommand}
    */
   getBillOfMaterialsImportJob(
@@ -61,6 +203,91 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link GetDataIntegrationFlowCommand}
+   */
+  getDataIntegrationFlow(
+    args: GetDataIntegrationFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataIntegrationFlowCommandOutput>;
+  getDataIntegrationFlow(
+    args: GetDataIntegrationFlowCommandInput,
+    cb: (err: any, data?: GetDataIntegrationFlowCommandOutput) => void
+  ): void;
+  getDataIntegrationFlow(
+    args: GetDataIntegrationFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataIntegrationFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataLakeDatasetCommand}
+   */
+  getDataLakeDataset(
+    args: GetDataLakeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataLakeDatasetCommandOutput>;
+  getDataLakeDataset(
+    args: GetDataLakeDatasetCommandInput,
+    cb: (err: any, data?: GetDataLakeDatasetCommandOutput) => void
+  ): void;
+  getDataLakeDataset(
+    args: GetDataLakeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataIntegrationFlowsCommand}
+   */
+  listDataIntegrationFlows(
+    args: ListDataIntegrationFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataIntegrationFlowsCommandOutput>;
+  listDataIntegrationFlows(
+    args: ListDataIntegrationFlowsCommandInput,
+    cb: (err: any, data?: ListDataIntegrationFlowsCommandOutput) => void
+  ): void;
+  listDataIntegrationFlows(
+    args: ListDataIntegrationFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataIntegrationFlowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataLakeDatasetsCommand}
+   */
+  listDataLakeDatasets(
+    args: ListDataLakeDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataLakeDatasetsCommandOutput>;
+  listDataLakeDatasets(
+    args: ListDataLakeDatasetsCommandInput,
+    cb: (err: any, data?: ListDataLakeDatasetsCommandOutput) => void
+  ): void;
+  listDataLakeDatasets(
+    args: ListDataLakeDatasetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataLakeDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendDataIntegrationEventCommand}
    */
   sendDataIntegrationEvent(
@@ -75,6 +302,62 @@ export interface SupplyChain {
     args: SendDataIntegrationEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendDataIntegrationEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataIntegrationFlowCommand}
+   */
+  updateDataIntegrationFlow(
+    args: UpdateDataIntegrationFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataIntegrationFlowCommandOutput>;
+  updateDataIntegrationFlow(
+    args: UpdateDataIntegrationFlowCommandInput,
+    cb: (err: any, data?: UpdateDataIntegrationFlowCommandOutput) => void
+  ): void;
+  updateDataIntegrationFlow(
+    args: UpdateDataIntegrationFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataIntegrationFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataLakeDatasetCommand}
+   */
+  updateDataLakeDataset(
+    args: UpdateDataLakeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataLakeDatasetCommandOutput>;
+  updateDataLakeDataset(
+    args: UpdateDataLakeDatasetCommandInput,
+    cb: (err: any, data?: UpdateDataLakeDatasetCommandOutput) => void
+  ): void;
+  updateDataLakeDataset(
+    args: UpdateDataLakeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataLakeDatasetCommandOutput) => void
   ): void;
 }
 
