@@ -57,6 +57,12 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * //     GroupArn: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
+ * //     Criticality: Number("int"),
+ * //     Owner: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     ApplicationTag: { // ApplicationTag
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

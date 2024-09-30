@@ -51,6 +51,9 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *   GroupName: "STRING_VALUE",
  *   Group: "STRING_VALUE",
  *   Description: "STRING_VALUE",
+ *   Criticality: Number("int"),
+ *   Owner: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
@@ -59,6 +62,12 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * //     GroupArn: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
+ * //     Criticality: Number("int"),
+ * //     Owner: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     ApplicationTag: { // ApplicationTag
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

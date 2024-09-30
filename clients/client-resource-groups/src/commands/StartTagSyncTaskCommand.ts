@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGroupInput, DeleteGroupOutput } from "../models/models_0";
-import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_restJson1";
+import { StartTagSyncTaskInput, StartTagSyncTaskOutput } from "../models/models_0";
+import { de_StartTagSyncTaskCommand, se_StartTagSyncTaskCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -17,19 +17,19 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteGroupCommand}.
+ * The input for {@link StartTagSyncTaskCommand}.
  */
-export interface DeleteGroupCommandInput extends DeleteGroupInput {}
+export interface StartTagSyncTaskCommandInput extends StartTagSyncTaskInput {}
 /**
  * @public
  *
- * The output of {@link DeleteGroupCommand}.
+ * The output of {@link StartTagSyncTaskCommand}.
  */
-export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataBearer {}
+export interface StartTagSyncTaskCommandOutput extends StartTagSyncTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified resource group. Deleting a resource group does not delete any
- *             resources that are members of the group; it only deletes the group structure.</p>
+ * <p>Creates a new tag-sync task to onboard and sync resources tagged with a specific tag key-value pair to an
+ *             application. </p>
  *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
@@ -37,42 +37,47 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>resource-groups:DeleteGroup</code>
+ *                   <code>resource-groups:StartTagSyncTask</code> on the application group</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>resource-groups:CreateGroup</code>
  *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>iam:PassRole</code> on the role provided in the request </p>
  *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, DeleteGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, DeleteGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, StartTagSyncTaskCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, StartTagSyncTaskCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = { // DeleteGroupInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
+ * const input = { // StartTagSyncTaskInput
+ *   Group: "STRING_VALUE", // required
+ *   TagKey: "STRING_VALUE", // required
+ *   TagValue: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteGroupCommand(input);
+ * const command = new StartTagSyncTaskCommand(input);
  * const response = await client.send(command);
- * // { // DeleteGroupOutput
- * //   Group: { // Group
- * //     GroupArn: "STRING_VALUE", // required
- * //     Name: "STRING_VALUE", // required
- * //     Description: "STRING_VALUE",
- * //     Criticality: Number("int"),
- * //     Owner: "STRING_VALUE",
- * //     DisplayName: "STRING_VALUE",
- * //     ApplicationTag: { // ApplicationTag
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //   },
+ * // { // StartTagSyncTaskOutput
+ * //   GroupArn: "STRING_VALUE",
+ * //   GroupName: "STRING_VALUE",
+ * //   TaskArn: "STRING_VALUE",
+ * //   TagKey: "STRING_VALUE",
+ * //   TagValue: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
- * @returns {@link DeleteGroupCommandOutput}
- * @see {@link DeleteGroupCommandInput} for command's `input` shape.
- * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
+ * @param StartTagSyncTaskCommandInput - {@link StartTagSyncTaskCommandInput}
+ * @returns {@link StartTagSyncTaskCommandOutput}
+ * @see {@link StartTagSyncTaskCommandInput} for command's `input` shape.
+ * @see {@link StartTagSyncTaskCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -94,15 +99,19 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request was rejected because it doesn't have valid credentials for the target
+ *             resource.</p>
+ *
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  * @public
  */
-export class DeleteGroupCommand extends $Command
+export class StartTagSyncTaskCommand extends $Command
   .classBuilder<
-    DeleteGroupCommandInput,
-    DeleteGroupCommandOutput,
+    StartTagSyncTaskCommandInput,
+    StartTagSyncTaskCommandOutput,
     ResourceGroupsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -114,21 +123,21 @@ export class DeleteGroupCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Ardi", "DeleteGroup", {})
-  .n("ResourceGroupsClient", "DeleteGroupCommand")
+  .s("Ardi", "StartTagSyncTask", {})
+  .n("ResourceGroupsClient", "StartTagSyncTaskCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteGroupCommand)
-  .de(de_DeleteGroupCommand)
+  .ser(se_StartTagSyncTaskCommand)
+  .de(de_StartTagSyncTaskCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteGroupInput;
-      output: DeleteGroupOutput;
+      input: StartTagSyncTaskInput;
+      output: StartTagSyncTaskOutput;
     };
     sdk: {
-      input: DeleteGroupCommandInput;
-      output: DeleteGroupCommandOutput;
+      input: StartTagSyncTaskCommandInput;
+      output: StartTagSyncTaskCommandOutput;
     };
   };
 }

@@ -25,7 +25,7 @@
  *                <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                <p>Resolving resource group member ARNs so they can be returned as search
+ *                <p>Resolving resource group member Amazon resource names (ARN)s so they can be returned as search
  *                     results</p>
  *             </li>
  *             <li>

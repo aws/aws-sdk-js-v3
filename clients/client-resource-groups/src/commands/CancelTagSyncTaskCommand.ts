@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGroupsInput, ListGroupsOutput } from "../models/models_0";
-import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_restJson1";
+import { CancelTagSyncTaskInput } from "../models/models_0";
+import { de_CancelTagSyncTaskCommand, se_CancelTagSyncTaskCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -17,18 +17,18 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListGroupsCommand}.
+ * The input for {@link CancelTagSyncTaskCommand}.
  */
-export interface ListGroupsCommandInput extends ListGroupsInput {}
+export interface CancelTagSyncTaskCommandInput extends CancelTagSyncTaskInput {}
 /**
  * @public
  *
- * The output of {@link ListGroupsCommand}.
+ * The output of {@link CancelTagSyncTaskCommand}.
  */
-export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
+export interface CancelTagSyncTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Returns a list of existing Resource Groups in your account.</p>
+ * <p>Cancels the specified tag-sync task. </p>
  *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
@@ -36,63 +36,33 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>resource-groups:ListGroups</code>
+ *                   <code>resource-groups:CancelTagSyncTask</code> on the application group</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>resource-groups:DeleteGroup</code>
  *                </p>
  *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, CancelTagSyncTaskCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, CancelTagSyncTaskCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = { // ListGroupsInput
- *   Filters: [ // GroupFilterList
- *     { // GroupFilter
- *       Name: "resource-type" || "configuration-type" || "owner" || "display-name" || "criticality", // required
- *       Values: [ // GroupFilterValues // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // CancelTagSyncTaskInput
+ *   TaskArn: "STRING_VALUE", // required
  * };
- * const command = new ListGroupsCommand(input);
+ * const command = new CancelTagSyncTaskCommand(input);
  * const response = await client.send(command);
- * // { // ListGroupsOutput
- * //   GroupIdentifiers: [ // GroupIdentifierList
- * //     { // GroupIdentifier
- * //       GroupName: "STRING_VALUE",
- * //       GroupArn: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       Criticality: Number("int"),
- * //       Owner: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //     },
- * //   ],
- * //   Groups: [ // GroupList
- * //     { // Group
- * //       GroupArn: "STRING_VALUE", // required
- * //       Name: "STRING_VALUE", // required
- * //       Description: "STRING_VALUE",
- * //       Criticality: Number("int"),
- * //       Owner: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //       ApplicationTag: { // ApplicationTag
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
- * @returns {@link ListGroupsCommandOutput}
- * @see {@link ListGroupsCommandInput} for command's `input` shape.
- * @see {@link ListGroupsCommandOutput} for command's `response` shape.
+ * @param CancelTagSyncTaskCommandInput - {@link CancelTagSyncTaskCommandInput}
+ * @returns {@link CancelTagSyncTaskCommandOutput}
+ * @see {@link CancelTagSyncTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelTagSyncTaskCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -111,15 +81,19 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request was rejected because it doesn't have valid credentials for the target
+ *             resource.</p>
+ *
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  * @public
  */
-export class ListGroupsCommand extends $Command
+export class CancelTagSyncTaskCommand extends $Command
   .classBuilder<
-    ListGroupsCommandInput,
-    ListGroupsCommandOutput,
+    CancelTagSyncTaskCommandInput,
+    CancelTagSyncTaskCommandOutput,
     ResourceGroupsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -131,21 +105,21 @@ export class ListGroupsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Ardi", "ListGroups", {})
-  .n("ResourceGroupsClient", "ListGroupsCommand")
+  .s("Ardi", "CancelTagSyncTask", {})
+  .n("ResourceGroupsClient", "CancelTagSyncTaskCommand")
   .f(void 0, void 0)
-  .ser(se_ListGroupsCommand)
-  .de(de_ListGroupsCommand)
+  .ser(se_CancelTagSyncTaskCommand)
+  .de(de_CancelTagSyncTaskCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListGroupsInput;
-      output: ListGroupsOutput;
+      input: CancelTagSyncTaskInput;
+      output: {};
     };
     sdk: {
-      input: ListGroupsCommandInput;
-      output: ListGroupsCommandOutput;
+      input: CancelTagSyncTaskCommandInput;
+      output: CancelTagSyncTaskCommandOutput;
     };
   };
 }

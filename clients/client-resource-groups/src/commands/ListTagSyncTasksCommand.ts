@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGroupsInput, ListGroupsOutput } from "../models/models_0";
-import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_restJson1";
+import { ListTagSyncTasksInput, ListTagSyncTasksOutput } from "../models/models_0";
+import { de_ListTagSyncTasksCommand, se_ListTagSyncTasksCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -17,18 +17,18 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListGroupsCommand}.
+ * The input for {@link ListTagSyncTasksCommand}.
  */
-export interface ListGroupsCommandInput extends ListGroupsInput {}
+export interface ListTagSyncTasksCommandInput extends ListTagSyncTasksInput {}
 /**
  * @public
  *
- * The output of {@link ListGroupsCommand}.
+ * The output of {@link ListTagSyncTasksCommand}.
  */
-export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
+export interface ListTagSyncTasksCommandOutput extends ListTagSyncTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of existing Resource Groups in your account.</p>
+ * <p>Returns a list of tag-sync tasks. </p>
  *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
@@ -36,52 +36,40 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>resource-groups:ListGroups</code>
- *                </p>
+ *                   <code>resource-groups:ListTagSyncTasks</code> with the group passed in the filters as the resource
+ *                     or * if using no filters </p>
  *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, ListTagSyncTasksCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, ListTagSyncTasksCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = { // ListGroupsInput
- *   Filters: [ // GroupFilterList
- *     { // GroupFilter
- *       Name: "resource-type" || "configuration-type" || "owner" || "display-name" || "criticality", // required
- *       Values: [ // GroupFilterValues // required
- *         "STRING_VALUE",
- *       ],
+ * const input = { // ListTagSyncTasksInput
+ *   Filters: [ // ListTagSyncTasksFilterList
+ *     { // ListTagSyncTasksFilter
+ *       GroupArn: "STRING_VALUE",
+ *       GroupName: "STRING_VALUE",
  *     },
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListGroupsCommand(input);
+ * const command = new ListTagSyncTasksCommand(input);
  * const response = await client.send(command);
- * // { // ListGroupsOutput
- * //   GroupIdentifiers: [ // GroupIdentifierList
- * //     { // GroupIdentifier
- * //       GroupName: "STRING_VALUE",
+ * // { // ListTagSyncTasksOutput
+ * //   TagSyncTasks: [ // TagSyncTaskList
+ * //     { // TagSyncTaskItem
  * //       GroupArn: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       Criticality: Number("int"),
- * //       Owner: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //     },
- * //   ],
- * //   Groups: [ // GroupList
- * //     { // Group
- * //       GroupArn: "STRING_VALUE", // required
- * //       Name: "STRING_VALUE", // required
- * //       Description: "STRING_VALUE",
- * //       Criticality: Number("int"),
- * //       Owner: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //       ApplicationTag: { // ApplicationTag
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * //       GroupName: "STRING_VALUE",
+ * //       TaskArn: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE",
+ * //       TagValue: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -89,10 +77,10 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
- * @returns {@link ListGroupsCommandOutput}
- * @see {@link ListGroupsCommandInput} for command's `input` shape.
- * @see {@link ListGroupsCommandOutput} for command's `response` shape.
+ * @param ListTagSyncTasksCommandInput - {@link ListTagSyncTasksCommandInput}
+ * @returns {@link ListTagSyncTasksCommandOutput}
+ * @see {@link ListTagSyncTasksCommandInput} for command's `input` shape.
+ * @see {@link ListTagSyncTasksCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -111,15 +99,19 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request was rejected because it doesn't have valid credentials for the target
+ *             resource.</p>
+ *
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  * @public
  */
-export class ListGroupsCommand extends $Command
+export class ListTagSyncTasksCommand extends $Command
   .classBuilder<
-    ListGroupsCommandInput,
-    ListGroupsCommandOutput,
+    ListTagSyncTasksCommandInput,
+    ListTagSyncTasksCommandOutput,
     ResourceGroupsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -131,21 +123,21 @@ export class ListGroupsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Ardi", "ListGroups", {})
-  .n("ResourceGroupsClient", "ListGroupsCommand")
+  .s("Ardi", "ListTagSyncTasks", {})
+  .n("ResourceGroupsClient", "ListTagSyncTasksCommand")
   .f(void 0, void 0)
-  .ser(se_ListGroupsCommand)
-  .de(de_ListGroupsCommand)
+  .ser(se_ListTagSyncTasksCommand)
+  .de(de_ListTagSyncTasksCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListGroupsInput;
-      output: ListGroupsOutput;
+      input: ListTagSyncTasksInput;
+      output: ListTagSyncTasksOutput;
     };
     sdk: {
-      input: ListGroupsCommandInput;
-      output: ListGroupsCommandOutput;
+      input: ListTagSyncTasksCommandInput;
+      output: ListTagSyncTasksCommandOutput;
     };
   };
 }

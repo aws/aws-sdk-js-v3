@@ -29,7 +29,7 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of tags that are associated with a resource group, specified by an
- *             ARN.</p>
+ *             Amazon resource name (ARN).</p>
  *          <p>
  *             <b>Minimum permissions</b>
  *          </p>

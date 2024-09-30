@@ -30,8 +30,7 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
 /**
  * <p>Adds the specified resources to the specified group.</p>
  *          <important>
- *             <p>You can use this operation with only resource groups that are configured with the
- *                 following types:</p>
+ *             <p>You can only use this operation with the following groups:</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -43,8 +42,13 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *                      <code>AWS::EC2::CapacityReservationPool</code>
  *                   </p>
  *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>AWS::ResourceGroups::ApplicationGroup</code>
+ *                   </p>
+ *                </li>
  *             </ul>
- *             <p>Other resource group type and resource types aren't currently supported by this
+ *             <p>Other resource group types and resource types are not currently supported by this
  *                 operation.</p>
  *          </important>
  *          <p>
