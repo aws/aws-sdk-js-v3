@@ -333,6 +333,26 @@ export interface RepositoryExternalConnectionInfo {
    *                   <code>nuget</code>: A NuGet package.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>generic</code>: A generic package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ruby</code>: A Ruby package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>swift</code>: A Swift package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cargo</code>: A Cargo package.
+   *         </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -3364,6 +3384,20 @@ export interface GetPackageVersionReadmeResult {
 
 /**
  * @public
+ * @enum
+ */
+export const EndpointType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+/**
+ * @public
  */
 export interface GetRepositoryEndpointRequest {
   /**
@@ -3399,6 +3433,12 @@ export interface GetRepositoryEndpointRequest {
    * @public
    */
   format: PackageFormat | undefined;
+
+  /**
+   * <p>A string that specifies the type of endpoint.</p>
+   * @public
+   */
+  endpointType?: EndpointType;
 }
 
 /**

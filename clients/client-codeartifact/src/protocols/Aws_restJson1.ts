@@ -767,6 +767,7 @@ export const se_GetRepositoryEndpointCommand = async (
     [_do]: [, input[_dO]!],
     [_r]: [, __expectNonNull(input[_r]!, `repository`)],
     [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_eT]: [, input[_eT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2855,6 +2856,7 @@ const _do = "domain-owner";
 const _dr = "destination-repository";
 const _du = "duration";
 const _eC = "externalConnection";
+const _eT = "endpointType";
 const _ec = "external-connection";
 const _f = "format";
 const _mR = "maxResults";
