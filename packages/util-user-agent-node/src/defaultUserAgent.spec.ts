@@ -1,12 +1,10 @@
-import { UserAgent } from "@smithy/types";
-import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUserAgent";
-
 jest.mock("os", () => ({
   platform: () => "darwin",
   release: () => "19.6.0",
 }));
 
 const mockEnv = {};
+
 jest.mock("process", () => ({
   env: mockEnv,
   versions: {
@@ -14,24 +12,13 @@ jest.mock("process", () => ({
   },
 }));
 
-const getMockEnv = () => {
-  const mockEnv = {};
-  return mockEnv;
-};
-
-jest.mock("process", () => ({
-  versions: {
-    node: "14.13.1",
-  },
-  get env() {
-    return getMockEnv();
-  },
-}));
 
 jest.mock("./is-crt-available", () => ({
   isCrtAvailable: jest.fn().mockReturnValue(null),
 }));
 
+import { UserAgent } from "@smithy/types";
+import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUserAgent";
 import { isCrtAvailable } from "./is-crt-available";
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
