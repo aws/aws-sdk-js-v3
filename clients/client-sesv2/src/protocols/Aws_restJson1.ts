@@ -1762,6 +1762,7 @@ export const se_PutConfigurationSetTrackingOptionsCommand = async (
   body = JSON.stringify(
     take(input, {
       CustomRedirectDomain: [],
+      HttpsPolicy: [],
     })
   );
   b.m("PUT").h(headers).b(body);

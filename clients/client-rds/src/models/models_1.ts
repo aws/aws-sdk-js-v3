@@ -46,6 +46,18 @@ import {
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
+ * @public
+ */
+export interface DeleteTenantDatabaseResult {
+  /**
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   * @public
+   */
+  TenantDatabase?: TenantDatabase;
+}
+
+/**
  * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  * @public
  */
@@ -15143,6 +15155,14 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
+  ...obj,
+  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
+});
 
 /**
  * @internal

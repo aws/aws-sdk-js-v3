@@ -762,7 +762,7 @@ export interface SeverityUpdate {
   /**
    * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
    *             <code>Label</code>.</p>
-   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
+   *          <p>If you provide <code>Normalized</code> and don't provide <code>Label</code>,
    *             <code>Label</code> is set automatically as follows.</p>
    *          <ul>
    *             <li>
@@ -898,7 +898,7 @@ export interface WorkflowUpdate {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.</p>
    *             </li>
    *          </ul>
    * @public
@@ -995,18 +995,15 @@ export type AutomationRulesActionType = (typeof AutomationRulesActionType)[keyof
 
 /**
  * <p>
- *          One or more actions to update finding fields if a finding matches the defined criteria
- *          of the rule.
+ *          One or more actions that Security Hub takes when a finding matches the defined criteria
+ *          of a rule.
  *       </p>
  * @public
  */
 export interface AutomationRulesAction {
   /**
    * <p>
-   *          Specifies that the rule action should update the <code>Types</code> finding field. The <code>Types</code>
-   *          finding field classifies findings in the format of namespace/category/classifier. For more information, see
-   *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types taxonomy for ASFF</a> in
-   *          the <i>Security Hub User Guide</i>.
+   *          Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
    *       </p>
    * @public
    */
@@ -1965,7 +1962,7 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The identifier for the given resource type. For Amazon Web Services resources that are identified by
    *          Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services resources that lack ARNs,
-   *          this is the identifier as defined by the Amazon Web Servicesservice that created the resource.
+   *          this is the identifier as defined by the Amazon Web Services service that created the resource.
    *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
    *          resource.
    *       </p>
@@ -4731,7 +4728,7 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
   /**
    * <p>Defines when a protected resource is transitioned to cold storage and when it expires.
    *             Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. If you do not specify a lifecycle, Backup applies
+   *          lifecycle that you define. If you don't specify a lifecycle, Backup applies
    *          the lifecycle policy of the source backup to the destination backup.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
    * @public
@@ -4801,7 +4798,7 @@ export interface AwsBackupBackupPlanRuleDetails {
   CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[];
 
   /**
-   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
+   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you don't specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
    * @public
    */
@@ -4939,7 +4936,7 @@ export interface AwsBackupBackupVaultDetails {
 
   /**
    * <p>The unique ARN associated with the server-side encryption key. You can specify a key to encrypt your backups from services that support
-   * full Backup management. If you do not specify a key, Backup creates an KMS key for you by default.
+   * full Backup management. If you don't specify a key, Backup creates an KMS key for you by default.
    *       </p>
    * @public
    */
@@ -10662,7 +10659,7 @@ export interface RouteSetDetails {
 
   /**
    * <p>
-   *          The prefix of the destination Amazon Web Servicesservice.
+   *          The prefix of the destination Amazon Web Services service.
    *       </p>
    * @public
    */
@@ -12843,7 +12840,7 @@ export interface AwsEcsServiceDetails {
   /**
    * <p>The scheduling strategy to use for the service.</p>
    *          <p>The <code>REPLICA</code> scheduling strategy places and maintains the desired number of tasks across the cluster. By default, the service scheduler spreads tasks across Availability Zones. Task placement strategies and constraints are used to customize task placement decisions.</p>
-   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that do not meet the placement constraints.</p>
+   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that don't meet the placement constraints.</p>
    *          <p>Valid values: <code>REPLICA</code> | <code>DAEMON</code>
    *          </p>
    * @public

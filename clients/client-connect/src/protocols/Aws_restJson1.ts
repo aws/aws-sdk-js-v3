@@ -565,6 +565,10 @@ import {
   StartContactStreamingCommandOutput,
 } from "../commands/StartContactStreamingCommand";
 import {
+  StartOutboundChatContactCommandInput,
+  StartOutboundChatContactCommandOutput,
+} from "../commands/StartOutboundChatContactCommand";
+import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "../commands/StartOutboundVoiceContactCommand";
@@ -5297,6 +5301,39 @@ export const se_StartContactStreamingCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartOutboundChatContactCommand
+ */
+export const se_StartOutboundChatContactCommand = async (
+  input: StartOutboundChatContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/outbound-chat");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => _json(_),
+      ChatDurationInMinutes: [],
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactFlowId: [],
+      DestinationEndpoint: (_) => _json(_),
+      InitialSystemMessage: (_) => _json(_),
+      InstanceId: [],
+      ParticipantDetails: (_) => _json(_),
+      RelatedContactId: [],
+      SegmentAttributes: (_) => _json(_),
+      SourceEndpoint: (_) => _json(_),
+      SupportedMessagingContentTypes: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -10858,6 +10895,27 @@ export const de_StartContactStreamingCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     StreamingId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartOutboundChatContactCommand
+ */
+export const de_StartOutboundChatContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOutboundChatContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

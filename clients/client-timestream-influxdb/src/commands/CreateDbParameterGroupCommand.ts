@@ -51,6 +51,48 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  *       queryQueueSize: Number("int"),
  *       tracingType: "log" || "jaeger",
  *       metricsDisabled: true || false,
+ *       httpIdleTimeout: { // Duration
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpReadHeaderTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpReadTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpWriteTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       influxqlMaxSelectBuckets: Number("long"),
+ *       influxqlMaxSelectPoint: Number("long"),
+ *       influxqlMaxSelectSeries: Number("long"),
+ *       pprofDisabled: true || false,
+ *       queryInitialMemoryBytes: Number("long"),
+ *       queryMaxMemoryBytes: Number("long"),
+ *       queryMemoryBytes: Number("long"),
+ *       sessionLength: Number("int"),
+ *       sessionRenewDisabled: true || false,
+ *       storageCacheMaxMemorySize: Number("long"),
+ *       storageCacheSnapshotMemorySize: Number("long"),
+ *       storageCacheSnapshotWriteColdDuration: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       storageCompactFullWriteColdDuration: "<Duration>",
+ *       storageCompactThroughputBurst: Number("long"),
+ *       storageMaxConcurrentCompactions: Number("int"),
+ *       storageMaxIndexLogFileSize: Number("long"),
+ *       storageNoValidateFieldSize: true || false,
+ *       storageRetentionCheckInterval: "<Duration>",
+ *       storageSeriesFileMaxConcurrentSnapshotCompactions: Number("int"),
+ *       storageSeriesIdSetCacheSize: Number("long"),
+ *       storageWalMaxConcurrentWrites: Number("int"),
+ *       storageWalMaxWriteDelay: "<Duration>",
+ *       uiDisabled: true || false,
  *     },
  *   },
  *   tags: { // RequestTagMap
@@ -73,6 +115,48 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * //       queryQueueSize: Number("int"),
  * //       tracingType: "log" || "jaeger",
  * //       metricsDisabled: true || false,
+ * //       httpIdleTimeout: { // Duration
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpReadHeaderTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpReadTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpWriteTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       influxqlMaxSelectBuckets: Number("long"),
+ * //       influxqlMaxSelectPoint: Number("long"),
+ * //       influxqlMaxSelectSeries: Number("long"),
+ * //       pprofDisabled: true || false,
+ * //       queryInitialMemoryBytes: Number("long"),
+ * //       queryMaxMemoryBytes: Number("long"),
+ * //       queryMemoryBytes: Number("long"),
+ * //       sessionLength: Number("int"),
+ * //       sessionRenewDisabled: true || false,
+ * //       storageCacheMaxMemorySize: Number("long"),
+ * //       storageCacheSnapshotMemorySize: Number("long"),
+ * //       storageCacheSnapshotWriteColdDuration: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       storageCompactFullWriteColdDuration: "<Duration>",
+ * //       storageCompactThroughputBurst: Number("long"),
+ * //       storageMaxConcurrentCompactions: Number("int"),
+ * //       storageMaxIndexLogFileSize: Number("long"),
+ * //       storageNoValidateFieldSize: true || false,
+ * //       storageRetentionCheckInterval: "<Duration>",
+ * //       storageSeriesFileMaxConcurrentSnapshotCompactions: Number("int"),
+ * //       storageSeriesIdSetCacheSize: Number("long"),
+ * //       storageWalMaxConcurrentWrites: Number("int"),
+ * //       storageWalMaxWriteDelay: "<Duration>",
+ * //       uiDisabled: true || false,
  * //     },
  * //   },
  * // };

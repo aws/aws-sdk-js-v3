@@ -117,6 +117,7 @@ import {
 import { PrepareAgentCommandInput, PrepareAgentCommandOutput } from "../commands/PrepareAgentCommand";
 import { PrepareFlowCommandInput, PrepareFlowCommandOutput } from "../commands/PrepareFlowCommand";
 import { StartIngestionJobCommandInput, StartIngestionJobCommandOutput } from "../commands/StartIngestionJobCommand";
+import { StopIngestionJobCommandInput, StopIngestionJobCommandOutput } from "../commands/StopIngestionJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -1331,6 +1332,24 @@ export const se_StartIngestionJobCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopIngestionJobCommand
+ */
+export const se_StopIngestionJobCommand = async (
+  input: StopIngestionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}/stop");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  b.p("ingestionJobId", () => input.ingestionJobId!, "{ingestionJobId}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2762,6 +2781,27 @@ export const de_StartIngestionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartIngestionJobCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ingestionJob: (_) => de_IngestionJob(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopIngestionJobCommand
+ */
+export const de_StopIngestionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopIngestionJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }

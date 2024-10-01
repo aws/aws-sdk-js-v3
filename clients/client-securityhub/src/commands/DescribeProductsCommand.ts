@@ -31,7 +31,7 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * <p>Returns information about product integrations in Security Hub.</p>
  *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
  *          the results only include that integration.</p>
- *          <p>If you do not provide an integration ARN, then the results include all of the available
+ *          <p>If you don't provide an integration ARN, then the results include all of the available
  *          product integrations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

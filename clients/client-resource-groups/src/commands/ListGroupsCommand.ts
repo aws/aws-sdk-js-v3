@@ -49,7 +49,7 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * const input = { // ListGroupsInput
  *   Filters: [ // GroupFilterList
  *     { // GroupFilter
- *       Name: "resource-type" || "configuration-type", // required
+ *       Name: "resource-type" || "configuration-type" || "owner" || "display-name" || "criticality", // required
  *       Values: [ // GroupFilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -65,6 +65,10 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * //     { // GroupIdentifier
  * //       GroupName: "STRING_VALUE",
  * //       GroupArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Criticality: Number("int"),
+ * //       Owner: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Groups: [ // GroupList
@@ -72,6 +76,12 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * //       GroupArn: "STRING_VALUE", // required
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
+ * //       Criticality: Number("int"),
+ * //       Owner: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       ApplicationTag: { // ApplicationTag
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

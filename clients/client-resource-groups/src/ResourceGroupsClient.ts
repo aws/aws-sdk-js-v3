@@ -53,6 +53,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelTagSyncTaskCommandInput, CancelTagSyncTaskCommandOutput } from "./commands/CancelTagSyncTaskCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
@@ -63,14 +64,21 @@ import {
 } from "./commands/GetGroupConfigurationCommand";
 import { GetGroupQueryCommandInput, GetGroupQueryCommandOutput } from "./commands/GetGroupQueryCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetTagSyncTaskCommandInput, GetTagSyncTaskCommandOutput } from "./commands/GetTagSyncTaskCommand";
 import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "./commands/GroupResourcesCommand";
+import {
+  ListGroupingStatusesCommandInput,
+  ListGroupingStatusesCommandOutput,
+} from "./commands/ListGroupingStatusesCommand";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "./commands/ListGroupResourcesCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import { ListTagSyncTasksCommandInput, ListTagSyncTasksCommandOutput } from "./commands/ListTagSyncTasksCommand";
 import {
   PutGroupConfigurationCommandInput,
   PutGroupConfigurationCommandOutput,
 } from "./commands/PutGroupConfigurationCommand";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
+import { StartTagSyncTaskCommandInput, StartTagSyncTaskCommandOutput } from "./commands/StartTagSyncTaskCommand";
 import { TagCommandInput, TagCommandOutput } from "./commands/TagCommand";
 import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "./commands/UngroupResourcesCommand";
 import { UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
@@ -95,18 +103,23 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelTagSyncTaskCommandInput
   | CreateGroupCommandInput
   | DeleteGroupCommandInput
   | GetAccountSettingsCommandInput
   | GetGroupCommandInput
   | GetGroupConfigurationCommandInput
   | GetGroupQueryCommandInput
+  | GetTagSyncTaskCommandInput
   | GetTagsCommandInput
   | GroupResourcesCommandInput
   | ListGroupResourcesCommandInput
+  | ListGroupingStatusesCommandInput
   | ListGroupsCommandInput
+  | ListTagSyncTasksCommandInput
   | PutGroupConfigurationCommandInput
   | SearchResourcesCommandInput
+  | StartTagSyncTaskCommandInput
   | TagCommandInput
   | UngroupResourcesCommandInput
   | UntagCommandInput
@@ -118,18 +131,23 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelTagSyncTaskCommandOutput
   | CreateGroupCommandOutput
   | DeleteGroupCommandOutput
   | GetAccountSettingsCommandOutput
   | GetGroupCommandOutput
   | GetGroupConfigurationCommandOutput
   | GetGroupQueryCommandOutput
+  | GetTagSyncTaskCommandOutput
   | GetTagsCommandOutput
   | GroupResourcesCommandOutput
   | ListGroupResourcesCommandOutput
+  | ListGroupingStatusesCommandOutput
   | ListGroupsCommandOutput
+  | ListTagSyncTasksCommandOutput
   | PutGroupConfigurationCommandOutput
   | SearchResourcesCommandOutput
+  | StartTagSyncTaskCommandOutput
   | TagCommandOutput
   | UngroupResourcesCommandOutput
   | UntagCommandOutput
@@ -333,7 +351,7 @@ export interface ResourceGroupsClientResolvedConfig extends ResourceGroupsClient
  *                <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                <p>Resolving resource group member ARNs so they can be returned as search
+ *                <p>Resolving resource group member Amazon resource names (ARN)s so they can be returned as search
  *                     results</p>
  *             </li>
  *             <li>

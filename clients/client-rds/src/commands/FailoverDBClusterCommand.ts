@@ -241,6 +241,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),

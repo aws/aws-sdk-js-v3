@@ -720,7 +720,6 @@ import {
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
-  DeleteTenantDatabaseResult,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -867,6 +866,7 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteTenantDatabaseResult,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
@@ -10546,6 +10546,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
+  if (input[_CST] != null) {
+    entries[_CST] = input[_CST];
+  }
   if (input[_DBSI] != null) {
     entries[_DBSI] = input[_DBSI];
   }
@@ -11227,6 +11230,16 @@ const se_CreateDBShardGroupMessage = (input: CreateDBShardGroupMessage, context:
   }
   if (input[_PA] != null) {
     entries[_PA] = input[_PA];
+  }
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -17419,6 +17432,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_STt] != null) {
     contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
+  if (output[_CST] != null) {
+    contents[_CST] = __expectString(output[_CST]);
+  }
   if (output[_CD] != null) {
     contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
@@ -19774,6 +19790,11 @@ const de_DBShardGroup = (output: any, context: __SerdeContext): DBShardGroup => 
   }
   if (output[_DBSGAh] != null) {
     contents[_DBSGAh] = __expectString(output[_DBSGAh]);
+  }
+  if (output.TagList === "") {
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
@@ -25043,6 +25064,7 @@ const _CS = "CharacterSet";
 const _CSD = "CharacterSetDescription";
 const _CSI = "CustSubscriptionId";
 const _CSN = "CharacterSetName";
+const _CST = "ClusterScalabilityType";
 const _CT = "CopyTags";
 const _CTD = "CreateTenantDatabase";
 const _CTTS = "CopyTagsToSnapshot";

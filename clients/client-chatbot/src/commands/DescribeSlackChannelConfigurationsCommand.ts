@@ -76,6 +76,8 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
  * //           TagValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

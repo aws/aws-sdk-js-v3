@@ -605,6 +605,14 @@ StartIngestionJob
 </details>
 <details>
 <summary>
+StopIngestionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/StopIngestionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent/Interface/StopIngestionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent/Interface/StopIngestionJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

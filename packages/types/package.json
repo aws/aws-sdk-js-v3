@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.654.0",
+  "version": "3.662.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -41,7 +41,7 @@
     "directory": "packages/types"
   },
   "dependencies": {
-    "@smithy/types": "^3.4.2",
+    "@smithy/types": "^3.5.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

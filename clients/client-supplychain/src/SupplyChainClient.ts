@@ -58,13 +58,56 @@ import {
   CreateBillOfMaterialsImportJobCommandOutput,
 } from "./commands/CreateBillOfMaterialsImportJobCommand";
 import {
+  CreateDataIntegrationFlowCommandInput,
+  CreateDataIntegrationFlowCommandOutput,
+} from "./commands/CreateDataIntegrationFlowCommand";
+import {
+  CreateDataLakeDatasetCommandInput,
+  CreateDataLakeDatasetCommandOutput,
+} from "./commands/CreateDataLakeDatasetCommand";
+import {
+  DeleteDataIntegrationFlowCommandInput,
+  DeleteDataIntegrationFlowCommandOutput,
+} from "./commands/DeleteDataIntegrationFlowCommand";
+import {
+  DeleteDataLakeDatasetCommandInput,
+  DeleteDataLakeDatasetCommandOutput,
+} from "./commands/DeleteDataLakeDatasetCommand";
+import {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  GetDataIntegrationFlowCommandInput,
+  GetDataIntegrationFlowCommandOutput,
+} from "./commands/GetDataIntegrationFlowCommand";
+import { GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput } from "./commands/GetDataLakeDatasetCommand";
+import {
+  ListDataIntegrationFlowsCommandInput,
+  ListDataIntegrationFlowsCommandOutput,
+} from "./commands/ListDataIntegrationFlowsCommand";
+import {
+  ListDataLakeDatasetsCommandInput,
+  ListDataLakeDatasetsCommandOutput,
+} from "./commands/ListDataLakeDatasetsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   SendDataIntegrationEventCommandInput,
   SendDataIntegrationEventCommandOutput,
 } from "./commands/SendDataIntegrationEventCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateDataIntegrationFlowCommandInput,
+  UpdateDataIntegrationFlowCommandOutput,
+} from "./commands/UpdateDataIntegrationFlowCommand";
+import {
+  UpdateDataLakeDatasetCommandInput,
+  UpdateDataLakeDatasetCommandOutput,
+} from "./commands/UpdateDataLakeDatasetCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -81,16 +124,42 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateBillOfMaterialsImportJobCommandInput
+  | CreateDataIntegrationFlowCommandInput
+  | CreateDataLakeDatasetCommandInput
+  | DeleteDataIntegrationFlowCommandInput
+  | DeleteDataLakeDatasetCommandInput
   | GetBillOfMaterialsImportJobCommandInput
-  | SendDataIntegrationEventCommandInput;
+  | GetDataIntegrationFlowCommandInput
+  | GetDataLakeDatasetCommandInput
+  | ListDataIntegrationFlowsCommandInput
+  | ListDataLakeDatasetsCommandInput
+  | ListTagsForResourceCommandInput
+  | SendDataIntegrationEventCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDataIntegrationFlowCommandInput
+  | UpdateDataLakeDatasetCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateBillOfMaterialsImportJobCommandOutput
+  | CreateDataIntegrationFlowCommandOutput
+  | CreateDataLakeDatasetCommandOutput
+  | DeleteDataIntegrationFlowCommandOutput
+  | DeleteDataLakeDatasetCommandOutput
   | GetBillOfMaterialsImportJobCommandOutput
-  | SendDataIntegrationEventCommandOutput;
+  | GetDataIntegrationFlowCommandOutput
+  | GetDataLakeDatasetCommandOutput
+  | ListDataIntegrationFlowsCommandOutput
+  | ListDataLakeDatasetsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | SendDataIntegrationEventCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDataIntegrationFlowCommandOutput
+  | UpdateDataLakeDatasetCommandOutput;
 
 /**
  * @public

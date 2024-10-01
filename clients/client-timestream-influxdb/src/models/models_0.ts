@@ -241,6 +241,15 @@ export interface CreateDbInstanceInput {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   *          <p>Valid Values: 1024-65535</p>
+   *          <p>Default: 8086</p>
+   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * @public
+   */
+  port?: number;
 }
 
 /**
@@ -297,6 +306,12 @@ export interface CreateDbInstanceOutput {
    * @public
    */
   endpoint?: string;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections. The default value is 8086.</p>
+   * @public
+   */
+  port?: number;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
@@ -561,6 +576,12 @@ export interface DeleteDbInstanceOutput {
   endpoint?: string;
 
   /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number;
+
+  /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
@@ -677,6 +698,12 @@ export interface GetDbInstanceOutput {
    * @public
    */
   endpoint?: string;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
@@ -804,6 +831,12 @@ export interface DbInstanceSummary {
   endpoint?: string;
 
   /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number;
+
+  /**
    * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
    * @public
    */
@@ -869,6 +902,16 @@ export interface UpdateDbInstanceInput {
   dbParameterGroupIdentifier?: string;
 
   /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   *          <p>If you change the Port value, your database restarts immediately.</p>
+   *          <p>Valid Values: 1024-65535</p>
+   *          <p>Default: 8086</p>
+   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * @public
+   */
+  port?: number;
+
+  /**
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
    * @public
    */
@@ -914,6 +957,12 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   endpoint?: string;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
@@ -986,6 +1035,40 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   influxAuthParametersSecretArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DurationType = {
+  HOURS: "hours",
+  MILLISECONDS: "milliseconds",
+  MINUTES: "minutes",
+  SECONDS: "seconds",
+} as const;
+
+/**
+ * @public
+ */
+export type DurationType = (typeof DurationType)[keyof typeof DurationType];
+
+/**
+ * <p>Duration for InfluxDB parameters in Timestream for InfluxDB.</p>
+ * @public
+ */
+export interface Duration {
+  /**
+   * <p>The type of duration for InfluxDB parameters.</p>
+   * @public
+   */
+  durationType: DurationType | undefined;
+
+  /**
+   * <p>The value of duration for InfluxDB parameters.</p>
+   * @public
+   */
+  value: number | undefined;
 }
 
 /**
@@ -1069,6 +1152,195 @@ export interface InfluxDBv2Parameters {
    * @public
    */
   metricsDisabled?: boolean;
+
+  /**
+   * <p>Maximum duration the server should keep established connections alive while waiting for new requests. Set to 0 for no timeout.</p>
+   *          <p>Default: 3 minutes</p>
+   * @public
+   */
+  httpIdleTimeout?: Duration;
+
+  /**
+   * <p>Maximum duration the server should try to read HTTP headers for new requests. Set to 0 for no timeout.</p>
+   *          <p>Default: 10 seconds</p>
+   * @public
+   */
+  httpReadHeaderTimeout?: Duration;
+
+  /**
+   * <p>Maximum duration the server should try to read the entirety of new requests. Set to 0 for no timeout.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  httpReadTimeout?: Duration;
+
+  /**
+   * <p>Maximum duration the server should spend processing and responding to write requests. Set to 0 for no timeout.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  httpWriteTimeout?: Duration;
+
+  /**
+   * <p>Maximum number of group by time buckets a SELECT statement can create. 0 allows an unlimited number of buckets.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  influxqlMaxSelectBuckets?: number;
+
+  /**
+   * <p>Maximum number of points a SELECT statement can process. 0 allows an unlimited number of points. InfluxDB checks the point count every second (so queries exceeding the maximum aren’t immediately aborted).</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  influxqlMaxSelectPoint?: number;
+
+  /**
+   * <p>Maximum number of series a SELECT statement can return. 0 allows an unlimited number of series.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  influxqlMaxSelectSeries?: number;
+
+  /**
+   * <p>Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data and can be helpful when debugging.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  pprofDisabled?: boolean;
+
+  /**
+   * <p>Initial bytes of memory allocated for a query.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  queryInitialMemoryBytes?: number;
+
+  /**
+   * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  queryMaxMemoryBytes?: number;
+
+  /**
+   * <p>Maximum bytes of memory allowed for a single query. Must be greater or equal to queryInitialMemoryBytes.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  queryMemoryBytes?: number;
+
+  /**
+   * <p>Specifies the Time to Live (TTL) in minutes for newly created user sessions.</p>
+   *          <p>Default: 60</p>
+   * @public
+   */
+  sessionLength?: number;
+
+  /**
+   * <p>Disables automatically extending a user’s session TTL on each request. By default, every request sets the session’s expiration time to five minutes from now. When disabled, sessions expire after the specified <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#session-length">session length</a> and the user is redirected to the login page, even if recently active.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  sessionRenewDisabled?: boolean;
+
+  /**
+   * <p>Maximum size (in bytes) a shard’s cache can reach before it starts rejecting writes. Must be greater than storageCacheSnapShotMemorySize and lower than instance’s total memory capacity. We recommend setting it to below 15% of the total memory capacity.</p>
+   *          <p>Default: 1073741824</p>
+   * @public
+   */
+  storageCacheMaxMemorySize?: number;
+
+  /**
+   * <p>Size (in bytes) at which the storage engine will snapshot the cache and write it to a TSM file to make more memory available. Must not be greater than storageCacheMaxMemorySize.</p>
+   *          <p>Default: 26214400</p>
+   * @public
+   */
+  storageCacheSnapshotMemorySize?: number;
+
+  /**
+   * <p>Duration at which the storage engine will snapshot the cache and write it to a new TSM file if the shard hasn’t received writes or deletes.</p>
+   *          <p>Default: 10 minutes</p>
+   * @public
+   */
+  storageCacheSnapshotWriteColdDuration?: Duration;
+
+  /**
+   * <p>Duration at which the storage engine will compact all TSM files in a shard if it hasn't received writes or deletes.</p>
+   *          <p>Default: 4 hours</p>
+   * @public
+   */
+  storageCompactFullWriteColdDuration?: Duration;
+
+  /**
+   * <p>Rate limit (in bytes per second) that TSM compactions can write to disk.</p>
+   *          <p>Default: 50331648</p>
+   * @public
+   */
+  storageCompactThroughputBurst?: number;
+
+  /**
+   * <p>Maximum number of full and level compactions that can run concurrently. A value of 0 results in 50% of runtime.GOMAXPROCS(0) used at runtime. Any number greater than zero limits compactions to that value. This setting does not apply to cache snapshotting.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  storageMaxConcurrentCompactions?: number;
+
+  /**
+   * <p>Size (in bytes) at which an index write-ahead log (WAL) file will compact into an index file. Lower sizes will cause log files to be compacted more quickly and result in lower heap usage at the expense of write throughput.</p>
+   *          <p>Default: 1048576</p>
+   * @public
+   */
+  storageMaxIndexLogFileSize?: number;
+
+  /**
+   * <p>Skip field size validation on incoming write requests.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  storageNoValidateFieldSize?: boolean;
+
+  /**
+   * <p>Interval of retention policy enforcement checks. Must be greater than 0.</p>
+   *          <p>Default: 30 minutes</p>
+   * @public
+   */
+  storageRetentionCheckInterval?: Duration;
+
+  /**
+   * <p>Maximum number of snapshot compactions that can run concurrently across all series partitions in a database.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  storageSeriesFileMaxConcurrentSnapshotCompactions?: number;
+
+  /**
+   * <p>Size of the internal cache used in the TSI index to store previously calculated series results. Cached results are returned quickly rather than needing to be recalculated when a subsequent query with the same tag key/value predicate is executed. Setting this value to 0 will disable the cache and may decrease query performance.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  storageSeriesIdSetCacheSize?: number;
+
+  /**
+   * <p>Maximum number writes to the WAL directory to attempt at the same time. Setting this value to 0 results in number of processing units available x2.</p>
+   *          <p>Default: 0</p>
+   * @public
+   */
+  storageWalMaxConcurrentWrites?: number;
+
+  /**
+   * <p>Maximum amount of time a write request to the WAL directory will wait when the <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#storage-wal-max-concurrent-writes">maximum number of concurrent active writes to the WAL directory has been met</a>. Set to 0 to disable the timeout.</p>
+   *          <p>Default: 10 minutes</p>
+   * @public
+   */
+  storageWalMaxWriteDelay?: Duration;
+
+  /**
+   * <p>Disable the InfluxDB user interface (UI). The UI is enabled by default.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  uiDisabled?: boolean;
 }
 
 /**

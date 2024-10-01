@@ -58,6 +58,12 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  * //     GroupArn: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
+ * //     Criticality: Number("int"),
+ * //     Owner: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     ApplicationTag: { // ApplicationTag
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

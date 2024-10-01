@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-handler-node",
-  "version": "3.654.0",
+  "version": "3.662.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline eventstream-handler-node",
@@ -21,8 +21,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/eventstream-codec": "^3.1.5",
-    "@smithy/types": "^3.4.2",
+    "@smithy/eventstream-codec": "^3.1.6",
+    "@smithy/types": "^3.5.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

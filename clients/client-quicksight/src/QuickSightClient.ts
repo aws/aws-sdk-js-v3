@@ -271,6 +271,10 @@ import {
 } from "./commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
+  DescribeQPersonalizationConfigurationCommandInput,
+  DescribeQPersonalizationConfigurationCommandOutput,
+} from "./commands/DescribeQPersonalizationConfigurationCommand";
+import {
   DescribeRefreshScheduleCommandInput,
   DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
@@ -494,6 +498,10 @@ import {
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
 import {
+  UpdateQPersonalizationConfigurationCommandInput,
+  UpdateQPersonalizationConfigurationCommandOutput,
+} from "./commands/UpdateQPersonalizationConfigurationCommand";
+import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
@@ -628,6 +636,7 @@ export type ServiceInputTypes =
   | DescribeIpRestrictionCommandInput
   | DescribeKeyRegistrationCommandInput
   | DescribeNamespaceCommandInput
+  | DescribeQPersonalizationConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
   | DescribeTemplateAliasCommandInput
@@ -713,6 +722,7 @@ export type ServiceInputTypes =
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
   | UpdatePublicSharingSettingsCommandInput
+  | UpdateQPersonalizationConfigurationCommandInput
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
@@ -811,6 +821,7 @@ export type ServiceOutputTypes =
   | DescribeIpRestrictionCommandOutput
   | DescribeKeyRegistrationCommandOutput
   | DescribeNamespaceCommandOutput
+  | DescribeQPersonalizationConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
   | DescribeTemplateAliasCommandOutput
@@ -896,6 +907,7 @@ export type ServiceOutputTypes =
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
+  | UpdateQPersonalizationConfigurationCommandOutput
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput

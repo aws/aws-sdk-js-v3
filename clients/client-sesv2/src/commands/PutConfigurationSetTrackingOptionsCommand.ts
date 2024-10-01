@@ -47,6 +47,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * const input = { // PutConfigurationSetTrackingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   CustomRedirectDomain: "STRING_VALUE",
+ *   HttpsPolicy: "REQUIRE" || "REQUIRE_OPEN_ONLY" || "OPTIONAL",
  * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);

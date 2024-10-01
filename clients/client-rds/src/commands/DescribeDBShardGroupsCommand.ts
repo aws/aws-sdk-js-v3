@@ -63,6 +63,12 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * //       PubliclyAccessible: true || false,
  * //       Endpoint: "STRING_VALUE",
  * //       DBShardGroupArn: "STRING_VALUE",
+ * //       TagList: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

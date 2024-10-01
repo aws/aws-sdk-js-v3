@@ -3515,6 +3515,13 @@ export interface GetIntegrationResponse {
    * @public
    */
   IsUnstructured?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string;
 }
 
 /**
@@ -4134,6 +4141,13 @@ export interface ListIntegrationItem {
    * @public
    */
   IsUnstructured?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string;
 }
 
 /**
@@ -5236,6 +5250,13 @@ export interface PutIntegrationRequest {
    * @public
    */
   ObjectTypeNames?: Record<string, string>;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string;
 }
 
 /**
@@ -5299,6 +5320,13 @@ export interface PutIntegrationResponse {
    * @public
    */
   IsUnstructured?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string;
 }
 
 /**

@@ -77,6 +77,7 @@ import {
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
+  TagPropagation,
   ThroughputMode,
   TrackingServerSize,
   TtlDuration,
@@ -180,6 +181,24 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListModelBiasJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
+   * @public
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -8703,6 +8722,12 @@ export interface UpdateDomainRequest {
    * @public
    */
   AppNetworkAccessType?: AppNetworkAccessType;
+
+  /**
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * @public
+   */
+  TagPropagation?: TagPropagation;
 }
 
 /**
@@ -10306,17 +10331,6 @@ export interface UpdateWorkteamRequest {
    * @public
    */
   WorkerAccessConfiguration?: WorkerAccessConfiguration;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkteamResponse {
-  /**
-   * <p>A <code>Workteam</code> object that describes the updated work team.</p>
-   * @public
-   */
-  Workteam: Workteam | undefined;
 }
 
 /**

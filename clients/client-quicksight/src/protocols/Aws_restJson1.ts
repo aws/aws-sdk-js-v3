@@ -251,6 +251,10 @@ import {
 } from "../commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "../commands/DescribeNamespaceCommand";
 import {
+  DescribeQPersonalizationConfigurationCommandInput,
+  DescribeQPersonalizationConfigurationCommandOutput,
+} from "../commands/DescribeQPersonalizationConfigurationCommand";
+import {
   DescribeRefreshScheduleCommandInput,
   DescribeRefreshScheduleCommandOutput,
 } from "../commands/DescribeRefreshScheduleCommand";
@@ -473,6 +477,10 @@ import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "../commands/UpdatePublicSharingSettingsCommand";
+import {
+  UpdateQPersonalizationConfigurationCommandInput,
+  UpdateQPersonalizationConfigurationCommandOutput,
+} from "../commands/UpdateQPersonalizationConfigurationCommand";
 import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
@@ -2969,6 +2977,22 @@ export const se_DescribeNamespaceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeQPersonalizationConfigurationCommand
+ */
+export const se_DescribeQPersonalizationConfigurationCommand = async (
+  input: DescribeQPersonalizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/q-personalization-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeRefreshScheduleCommand
  */
 export const se_DescribeRefreshScheduleCommand = async (
@@ -4855,6 +4879,29 @@ export const se_UpdatePublicSharingSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       PublicSharingEnabled: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateQPersonalizationConfigurationCommand
+ */
+export const se_UpdateQPersonalizationConfigurationCommand = async (
+  input: UpdateQPersonalizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/q-personalization-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PersonalizationMode: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -7312,6 +7359,31 @@ export const de_DescribeNamespaceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeQPersonalizationConfigurationCommand
+ */
+export const de_DescribeQPersonalizationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQPersonalizationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PersonalizationMode: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeRefreshScheduleCommand
  */
 export const de_DescribeRefreshScheduleCommand = async (
@@ -9501,6 +9573,31 @@ export const de_UpdatePublicSharingSettingsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateQPersonalizationConfigurationCommand
+ */
+export const de_UpdateQPersonalizationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQPersonalizationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PersonalizationMode: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);

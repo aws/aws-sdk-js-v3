@@ -45,7 +45,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * // const { OrganizationsClient, DescribeEffectivePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeEffectivePolicyRequest
- *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY", // required
  *   TargetId: "STRING_VALUE",
  * };
  * const command = new DescribeEffectivePolicyCommand(input);
@@ -55,7 +55,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * //     PolicyContent: "STRING_VALUE",
  * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
  * //     TargetId: "STRING_VALUE",
- * //     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
  * //   },
  * // };
  *

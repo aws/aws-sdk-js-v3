@@ -28,13 +28,18 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
+ * <note>
+ *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub User Guide</i>.</p>
+ *          </note>
+ *          <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  *          the invitation is sent from.</p>
- *          <p>This operation is only used to invite accounts that do not belong to an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>This operation is only used to invite accounts that don't belong to an Amazon Web Services organization.
+ *          Organization accounts don't receive invitations.</p>
  *          <p>Before you can use this action to invite a member, you must first use the <code>CreateMembers</code> action to create the member account in Security Hub.</p>
  *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
- *          account, the administrator account can view the findings generated from the member account.</p>
+ *          account, the administrator account can view the findings generated in the member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

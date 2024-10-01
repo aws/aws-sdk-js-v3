@@ -28,7 +28,7 @@ export interface TagCommandInput extends TagInput {}
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
+ * <p>Adds tags to a resource group with the specified Amazon resource name (ARN). Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
  *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or

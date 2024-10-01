@@ -28,7 +28,7 @@ export interface ListGroupResourcesCommandInput extends ListGroupResourcesInput 
 export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of ARNs of the resources that are members of a specified resource
+ * <p>Returns a list of Amazon resource names (ARNs) of the resources that are members of a specified resource
  *             group.</p>
  *          <p>
  *             <b>Minimum permissions</b>

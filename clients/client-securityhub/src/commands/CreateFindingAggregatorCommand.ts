@@ -28,8 +28,11 @@ export interface CreateFindingAggregatorCommandInput extends CreateFindingAggreg
 export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
- *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
+ * <note>
+ *             <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p>
+ *          </note>
+ *          <p>Used to enable cross-Region aggregation. This operation can be invoked from the home Region only.</p>
+ *          <p>For information about how cross-Region aggregation works, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Understanding cross-Region aggregation in Security Hub</a> in the <i>Security Hub User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

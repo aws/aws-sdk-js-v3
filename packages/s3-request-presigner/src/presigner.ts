@@ -26,11 +26,17 @@ export class S3RequestPresigner implements RequestPresigner {
 
   public presign(
     requestToSign: IHttpRequest,
-    { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
+    {
+      unsignableHeaders = new Set(),
+      hoistableHeaders = new Set(),
+      unhoistableHeaders = new Set(),
+      ...options
+    }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
     this.prepareRequest(requestToSign, {
       unsignableHeaders,
       unhoistableHeaders,
+      hoistableHeaders,
     });
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
@@ -43,11 +49,17 @@ export class S3RequestPresigner implements RequestPresigner {
   public presignWithCredentials(
     requestToSign: IHttpRequest,
     credentials: AwsCredentialIdentity,
-    { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
+    {
+      unsignableHeaders = new Set(),
+      hoistableHeaders = new Set(),
+      unhoistableHeaders = new Set(),
+      ...options
+    }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
     this.prepareRequest(requestToSign, {
       unsignableHeaders,
       unhoistableHeaders,
+      hoistableHeaders,
     });
     return this.signer.presignWithCredentials(requestToSign, credentials, {
       expiresIn: 900,
@@ -59,15 +71,29 @@ export class S3RequestPresigner implements RequestPresigner {
 
   private prepareRequest(
     requestToSign: IHttpRequest,
-    { unsignableHeaders = new Set(), unhoistableHeaders = new Set() }: RequestPresigningArguments = {}
+    {
+      unsignableHeaders = new Set(),
+      unhoistableHeaders = new Set(),
+      hoistableHeaders = new Set(),
+    }: RequestPresigningArguments = {}
   ) {
     unsignableHeaders.add("content-type");
+
     Object.keys(requestToSign.headers)
       .map((header) => header.toLowerCase())
       .filter((header) => header.startsWith("x-amz-server-side-encryption"))
       .forEach((header) => {
-        unhoistableHeaders.add(header);
+        if (!hoistableHeaders.has(header)) {
+          /**
+           * For smoother backwards compatibility with pre-GA PR
+           * https://github.com/aws/aws-sdk-js-v3/issues/1576,
+           * x-amz-sse headers are by default unhoisted,
+           * but can be overridden.
+           */
+          unhoistableHeaders.add(header);
+        }
       });
+
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
 
     const currentHostHeader = requestToSign.headers.host;

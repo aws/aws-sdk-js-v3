@@ -13,10 +13,10 @@ statements, you use the RDS Data API (Data API).</p>
 <p>Data API is available with the following types of Aurora databases:</p>
 <ul>
 <li>
-<p>Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned</p>
+<p>Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1</p>
 </li>
 <li>
-<p>Aurora MySQL - Serverless v1 only</p>
+<p>Aurora MySQL - Serverless v2, provisioned, and Serverless v1</p>
 </li>
 </ul>
 <p>For more information about the Data API, see

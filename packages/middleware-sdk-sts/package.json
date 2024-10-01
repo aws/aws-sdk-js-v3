@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-sts",
-  "version": "3.658.1",
+  "version": "3.662.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-sts",
@@ -23,7 +23,7 @@
   "dependencies": {
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
-    "@smithy/types": "^3.4.2",
+    "@smithy/types": "^3.5.0",
     "tslib": "^2.6.2"
   },
   "engines": {

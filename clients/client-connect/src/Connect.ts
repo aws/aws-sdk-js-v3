@@ -914,6 +914,11 @@ import {
   StartContactStreamingCommandOutput,
 } from "./commands/StartContactStreamingCommand";
 import {
+  StartOutboundChatContactCommand,
+  StartOutboundChatContactCommandInput,
+  StartOutboundChatContactCommandOutput,
+} from "./commands/StartOutboundChatContactCommand";
+import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
@@ -1395,6 +1400,7 @@ const commands = {
   StartContactEvaluationCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
+  StartOutboundChatContactCommand,
   StartOutboundVoiceContactCommand,
   StartTaskContactCommand,
   StartWebRTCContactCommand,
@@ -4528,6 +4534,23 @@ export interface Connect {
     args: StartContactStreamingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartContactStreamingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOutboundChatContactCommand}
+   */
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOutboundChatContactCommandOutput>;
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
+  ): void;
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
   ): void;
 
   /**

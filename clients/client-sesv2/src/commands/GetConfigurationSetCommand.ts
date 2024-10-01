@@ -51,6 +51,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * //   ConfigurationSetName: "STRING_VALUE",
  * //   TrackingOptions: { // TrackingOptions
  * //     CustomRedirectDomain: "STRING_VALUE", // required
+ * //     HttpsPolicy: "REQUIRE" || "REQUIRE_OPEN_ONLY" || "OPTIONAL",
  * //   },
  * //   DeliveryOptions: { // DeliveryOptions
  * //     TlsPolicy: "REQUIRE" || "OPTIONAL",

@@ -29,7 +29,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 
 /**
  * <p>Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
- *       also view funciton tags with <a>GetFunction</a>.</p>
+ *       also view function tags with <a>GetFunction</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

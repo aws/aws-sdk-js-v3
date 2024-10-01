@@ -1494,6 +1494,21 @@ export interface Tag {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const HttpsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+  REQUIRE_OPEN_ONLY: "REQUIRE_OPEN_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpsPolicy = (typeof HttpsPolicy)[keyof typeof HttpsPolicy];
+
+/**
  * <p>An object that defines the tracking options for a configuration set. When you use the
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
@@ -1509,6 +1524,12 @@ export interface TrackingOptions {
    * @public
    */
   CustomRedirectDomain: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events.</p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy;
 }
 
 /**
@@ -7127,6 +7148,16 @@ export interface PutConfigurationSetTrackingOptionsRequest {
    * @public
    */
   CustomRedirectDomain?: string;
+
+  /**
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy;
 }
 
 /**
@@ -7365,71 +7396,6 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
    * @public
    */
   SigningAttributes?: DkimSigningAttributes;
-}
-
-/**
- * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
- *          <p>The following data is returned in JSON format by the service.</p>
- * @public
- */
-export interface PutEmailIdentityDkimSigningAttributesResponse {
-  /**
-   * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
-   *             status by searching for specific records in the DNS configuration for your domain. If
-   *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
-   *             records in the DNS configuration for your domain.</p>
-   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
-   *             record that uses the selector that you specified. The value of the TXT record must be a
-   *             public key that's paired with the private key that you specified in the process of
-   *             creating the identity.</p>
-   *          <p>The status can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
-   *                     hasn't yet detected the DKIM records in the DNS configuration for the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCESS</code> – The verification process completed
-   *                     successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> – The verification process failed. This typically
-   *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
-   *                     from determining the DKIM authentication status of the domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
-   *                     initiated for the domain.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DkimStatus?: DkimStatus;
-
-  /**
-   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
-   *             contains a set of unique strings that you use to create a set of CNAME records that you
-   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
-   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *          <p>If you configured DKIM authentication for the domain by providing your own
-   *             public-private key pair, then this object contains the selector that's associated with
-   *             your public key.</p>
-   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
-   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-   * @public
-   */
-  DkimTokens?: string[];
 }
 
 /**

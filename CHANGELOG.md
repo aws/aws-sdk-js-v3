@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+### Features
+
+* **client-bedrock-agent:** This release adds support to stop an ongoing ingestion job using the StopIngestionJob API in Agents for Amazon Bedrock. ([ac89806](https://github.com/aws/aws-sdk-js-v3/commit/ac8980674d1aeecdaae2df0237de81baa04efc53))
+* **client-codeartifact:** Add support for the dual stack endpoints. ([cb499b9](https://github.com/aws/aws-sdk-js-v3/commit/cb499b9e06e733b53a4ddb8641b593b21c0aee82))
+* **client-rds:** This release provides additional support for enabling Aurora Limitless Database DB clusters. ([b7b061d](https://github.com/aws/aws-sdk-js-v3/commit/b7b061dcba69eabd53b3f259857991fcbc6d3ae3))
+* **clients:** update client endpoints as of 2024-10-01 ([15702eb](https://github.com/aws/aws-sdk-js-v3/commit/15702ebd883e380b68226e042342bc99a4321904))
+
+
+
+
+
+# [3.661.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.660.0...v3.661.0) (2024-09-30)
+
+
+### Features
+
+* **client-bedrock:** Add support for custom models via provisioned throughput for Bedrock Model Evaluation ([171d643](https://github.com/aws/aws-sdk-js-v3/commit/171d643ee852617e17cac105f597a99ad6e0df13))
+* **client-connect:** Amazon Connect introduces StartOutboundChatContact API allowing customers to initiate outbound chat contacts ([54f160e](https://github.com/aws/aws-sdk-js-v3/commit/54f160eef9c6250aca64b1a57cc80f117cadf7ad))
+* **client-resource-groups:** This update includes new APIs to support application groups and to allow users to manage resource tag-sync tasks in applications. ([22f9f33](https://github.com/aws/aws-sdk-js-v3/commit/22f9f330378378f82337bf55588fe2e3a341bbd4))
+* **client-supplychain:** Release DataLakeDataset, DataIntegrationFlow and ResourceTagging APIs for AWS Supply Chain ([ac24697](https://github.com/aws/aws-sdk-js-v3/commit/ac246970fa014177b11e1d94e374ed621ec298a7))
+* **client-timestream-influxdb:** Timestream for InfluxDB now supports port configuration and additional customer-modifiable InfluxDB v2 parameters. This release adds Port to the CreateDbInstance and UpdateDbInstance API, and additional InfluxDB v2 parameters to the CreateDbParameterGroup API. ([23ee6ce](https://github.com/aws/aws-sdk-js-v3/commit/23ee6ce6f6203cf9b14dac06537afdb6b58194e5))
+
+
+
+
+
+# [3.660.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.659.0...v3.660.0) (2024-09-27)
+
+
+### Features
+
+* **client-customer-profiles:** Introduces optional RoleArn parameter for PutIntegration request and includes RoleArn in the response of PutIntegration, GetIntegration and ListIntegrations ([607ec0a](https://github.com/aws/aws-sdk-js-v3/commit/607ec0a76c9cee19c69cd2a39efeec44e0f64595))
+* **client-quicksight:** Adding personalization in QuickSight data stories. Admins can enable or disable personalization through QuickSight settings. ([c087759](https://github.com/aws/aws-sdk-js-v3/commit/c08775951de74a7246a57243c53123efe5e9f7a2))
+* **client-sesv2:** This release adds support for engagement tracking over Https using custom domains. ([2cf23a5](https://github.com/aws/aws-sdk-js-v3/commit/2cf23a543af1b940c94a2f76f8202f621a2de8be))
+* **clients:** update client endpoints as of 2024-09-27 ([5899627](https://github.com/aws/aws-sdk-js-v3/commit/5899627827bd9911f48faf4235e025dd2a0ebd35))
+
+
+
+
+
+# [3.659.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.1...v3.659.0) (2024-09-26)
+
+
+### Features
+
+* **client-chatbot:** Return State and StateReason fields for Chatbot Channel Configurations. ([9dfcfe8](https://github.com/aws/aws-sdk-js-v3/commit/9dfcfe859f9c95f32b4c063556874c91aeea5901))
+* **client-lambda:** Reverting Lambda resource-based policy and block public access APIs. ([e1ff422](https://github.com/aws/aws-sdk-js-v3/commit/e1ff4229428570b75a58009b4c6972f1ff6fb217))
+* **client-organizations:** Add support for policy operations on the CHATBOT_POLICY policy type. ([0e77940](https://github.com/aws/aws-sdk-js-v3/commit/0e7794005574f232f5e63ba8680ff7dfa25197dd))
+* **client-sagemaker:** Adding `TagPropagation` attribute to Sagemaker API ([e462fbe](https://github.com/aws/aws-sdk-js-v3/commit/e462fbe3dce3ac0da6626b70d8a9a3698790e96f))
+* **clients:** update client endpoints as of 2024-09-26 ([6eb6025](https://github.com/aws/aws-sdk-js-v3/commit/6eb6025bd1889411d82916773a44587919753280))
+
+
+
+
+
 ## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
 
 

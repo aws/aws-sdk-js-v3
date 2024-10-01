@@ -34,7 +34,7 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *                 hours.</p>
  *             <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's
  *                 committed, it's rolled back automatically.</p>
- *             <p>DDL statements inside a transaction cause an implicit commit. We recommend that you run each DDL statement in a separate
+ *             <p>For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate
  *                     <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p>
  *          </note>
  * @example
