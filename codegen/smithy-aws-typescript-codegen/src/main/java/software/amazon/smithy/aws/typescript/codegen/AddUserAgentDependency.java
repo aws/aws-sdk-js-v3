@@ -57,9 +57,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
                 + "`x-amz-user-agent` header\n@internal");
         writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
-        writer.writeDocs("The application ID used to identify the application.");
-        writer.write("userAgentAppId?: string | "
-        + "__Provider<string>;\n");
     }
 
     @Override

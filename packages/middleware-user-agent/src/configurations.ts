@@ -15,7 +15,7 @@ export interface UserAgentInputConfig {
    */
   customUserAgent?: string | UserAgent;
   /**
-   * The application ID used to identify the SDK client.
+   * The application ID used to identify the application.
    */
   userAgentAppId?: string | undefined | Provider<string | undefined>;
 }
@@ -63,7 +63,7 @@ export function resolveUserAgentConfig<T>(
     userAgentAppId: async () => {
       const appId = await normalizedAppIdProvider();
       if (!isValidUserAgentAppId(appId)) {
-        const logger = input.logger?.constructor?.name === 'NoOpLogger' ? console : input.logger;
+        const logger = input.logger?.constructor?.name === "NoOpLogger" || !input.logger ? console : input.logger;
         if (typeof appId !== "string") {
           logger?.warn("userAgentAppId must be a string or undefined.");
         } else if (appId.length > 50) {
