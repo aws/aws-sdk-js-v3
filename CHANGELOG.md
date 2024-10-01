@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+### Features
+
+* **client-bedrock-agent:** This release adds support to stop an ongoing ingestion job using the StopIngestionJob API in Agents for Amazon Bedrock. ([ac89806](https://github.com/aws/aws-sdk-js-v3/commit/ac8980674d1aeecdaae2df0237de81baa04efc53))
+* **client-codeartifact:** Add support for the dual stack endpoints. ([cb499b9](https://github.com/aws/aws-sdk-js-v3/commit/cb499b9e06e733b53a4ddb8641b593b21c0aee82))
+* **client-rds:** This release provides additional support for enabling Aurora Limitless Database DB clusters. ([b7b061d](https://github.com/aws/aws-sdk-js-v3/commit/b7b061dcba69eabd53b3f259857991fcbc6d3ae3))
+* **clients:** update client endpoints as of 2024-10-01 ([15702eb](https://github.com/aws/aws-sdk-js-v3/commit/15702ebd883e380b68226e042342bc99a4321904))
+
+
+
+
+
 # [3.661.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.660.0...v3.661.0) (2024-09-30)
 
 

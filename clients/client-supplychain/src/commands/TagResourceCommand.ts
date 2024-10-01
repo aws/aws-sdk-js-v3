@@ -78,6 +78,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
  * @public
+ * @example Successful TagResource
+ * ```javascript
+ * //
+ * const input = {
+ *   "resourceArn": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/data-integration-flows/my_flow1",
+ *   "tags": {
+ *     "tagKey1": "tagValue1"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

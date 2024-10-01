@@ -79,6 +79,24 @@ export interface DeleteDataIntegrationFlowCommandOutput extends DeleteDataIntegr
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
  * @public
+ * @example Successful DeleteDataIntegrationFlow
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "testStagingFlow",
+ *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d"
+ * };
+ * const command = new DeleteDataIntegrationFlowCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "name": "testStagingFlow",
+ *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteDataIntegrationFlowCommand extends $Command
   .classBuilder<

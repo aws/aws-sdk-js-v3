@@ -81,6 +81,46 @@ export interface DeleteDataLakeDatasetCommandOutput extends DeleteDataLakeDatase
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
  * @public
+ * @example Delete an AWS Supply Chain inbound_order dataset
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "inbound_order",
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "namespace": "asc"
+ * };
+ * const command = new DeleteDataLakeDatasetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "name": "inbound_order",
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "namespace": "asc"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example Delete a custom dataset
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "my_dataset",
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "namespace": "default"
+ * };
+ * const command = new DeleteDataLakeDatasetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "name": "my_dataset",
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "namespace": "default"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class DeleteDataLakeDatasetCommand extends $Command
   .classBuilder<

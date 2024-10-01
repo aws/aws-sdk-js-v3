@@ -101,6 +101,267 @@ export interface ListDataLakeDatasetsCommandOutput extends ListDataLakeDatasetsR
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
  * @public
+ * @example List AWS Supply Chain datasets
+ * ```javascript
+ * //
+ * const input = {
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "namespace": "asc"
+ * };
+ * const command = new ListDataLakeDatasetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "datasets": [
+ *     {
+ *       "name": "inbound_order",
+ *       "arn": "arn:aws:scn:us-east-1:012345678910:instance/1877dd20-dee9-4639-8e99-cb67acf21fe5/namespaces/asc/datasets/inbound_order",
+ *       "createdTime": 1727116807.751,
+ *       "description": "This is an AWS Supply Chain inbound order dataset",
+ *       "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *       "lastModifiedTime": 1727116807.751,
+ *       "namespace": "asc",
+ *       "schema": {
+ *         "name": "InboundOrder",
+ *         "fields": [
+ *           {
+ *             "name": "id",
+ *             "type": "STRING",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "tpartner_id",
+ *             "type": "STRING",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "connection_id",
+ *             "type": "STRING",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "order_type",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "order_status",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "inbound_order_url",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "order_creation_date",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "company_id",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "to_site_id",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "order_currency_uom",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "vendor_currency_uom",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "exchange_rate",
+ *             "type": "DOUBLE",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "exchange_rate_date",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "incoterm",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "incoterm2",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "incoterm_location_1",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "incoterm_location_2",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "submitted_date",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "agreement_start_date",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "agreement_end_date",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "shipping_instr_code",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "payment_terms_code",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "std_terms_agreement",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "std_terms_agreement_ver",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "agreement_number",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "source",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "source_update_dttm",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "source_event_id",
+ *             "type": "STRING",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "db_creation_dttm",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "db_updation_dttm",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           }
+ *         ]
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example List custom datasets using pagination
+ * ```javascript
+ * //
+ * const input = {
+ *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   "maxResults": 2,
+ *   "namespace": "default",
+ *   "nextToken": "next_token_returned_from_previous_list_request"
+ * };
+ * const command = new ListDataLakeDatasetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "datasets": [
+ *     {
+ *       "name": "my_dataset",
+ *       "arn": "arn:aws:scn:us-east-1:012345678910:instance/1877dd20-dee9-4639-8e99-cb67acf21fe5/namespaces/default/datasets/my_dataset",
+ *       "createdTime": 1727116807.751,
+ *       "description": "This is a custom dataset",
+ *       "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *       "lastModifiedTime": 1727116807.751,
+ *       "namespace": "default",
+ *       "schema": {
+ *         "name": "MyDataset",
+ *         "fields": [
+ *           {
+ *             "name": "id",
+ *             "type": "INT",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "description",
+ *             "type": "STRING",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "price",
+ *             "type": "DOUBLE",
+ *             "isRequired": false
+ *           },
+ *           {
+ *             "name": "creation_time",
+ *             "type": "TIMESTAMP",
+ *             "isRequired": false
+ *           }
+ *         ]
+ *       }
+ *     },
+ *     {
+ *       "name": "my_dataset_2",
+ *       "arn": "arn:aws:scn:us-east-1:012345678910:instance/1877dd20-dee9-4639-8e99-cb67acf21fe5/namespaces/default/datasets/my_dataset_2",
+ *       "createdTime": 1727116907.751,
+ *       "description": "This is a custom dataset 2",
+ *       "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *       "lastModifiedTime": 1727116907.751,
+ *       "namespace": "default",
+ *       "schema": {
+ *         "name": "MyDataset2",
+ *         "fields": [
+ *           {
+ *             "name": "id",
+ *             "type": "INT",
+ *             "isRequired": true
+ *           },
+ *           {
+ *             "name": "description",
+ *             "type": "STRING",
+ *             "isRequired": true
+ *           }
+ *         ]
+ *       }
+ *     }
+ *   ],
+ *   "nextToken": "next_token_for_next_list_request"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class ListDataLakeDatasetsCommand extends $Command
   .classBuilder<
