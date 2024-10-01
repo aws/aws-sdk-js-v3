@@ -110,6 +110,29 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To attach an object
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChildReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *   },
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   "LinkName": "link2",
+ *   "ParentReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new AttachObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachedObjectIdentifier": "AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ * }
+ * *\/
+ * // example id: to-attach-an-object-1507060976164
+ * ```
+ *
  */
 export class AttachObjectCommand extends $Command
   .classBuilder<

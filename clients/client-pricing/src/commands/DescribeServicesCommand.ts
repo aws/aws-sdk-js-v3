@@ -93,6 +93,37 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  * @public
+ * @example To retrieve a list of services and service codes
+ * ```javascript
+ * // Retrieves the service for the given Service Code.
+ * const input = {
+ *   "FormatVersion": "aws_v1",
+ *   "MaxResults": 1,
+ *   "ServiceCode": "AmazonEC2"
+ * };
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FormatVersion": "aws_v1",
+ *   "NextToken": "abcdefg123",
+ *   "Services": [
+ *     {
+ *       "AttributeNames": [
+ *         "volumeType",
+ *         "maxIopsvolume",
+ *         "instanceCapacity10xlarge",
+ *         "locationType",
+ *         "operation"
+ *       ],
+ *       "ServiceCode": "AmazonEC2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class DescribeServicesCommand extends $Command
   .classBuilder<

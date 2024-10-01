@@ -185,6 +185,28 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example To create a policy template
+ * ```javascript
+ * // The following example creates a policy template that has a placeholder for the principal.
+ * const input = {
+ *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   "description": "Template for research dept",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "statement": "\"AccessVacation\"\npermit(\n    principal in ?principal,\n    action == Action::\"view\",\n    resource == Photo::\"VacationPhoto94.jpg\"\n)\nwhen {\n    principal has department && principal.department == \"research\"\n};"
+ * };
+ * const command = new CreatePolicyTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "createdDate": "2024-08-12T18:20:50.99Z",
+ *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "policyTemplateId": "PTEXAMPLEabcdefg111111"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreatePolicyTemplateCommand extends $Command
   .classBuilder<

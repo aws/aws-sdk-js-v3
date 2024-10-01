@@ -88,6 +88,23 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To detach a policy from an object
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   "ObjectReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWQoovm1s3Ts2v0NKrzdVnPw"
+ *   },
+ *   "PolicyReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWgcBsTVmcQEWs6jlygfhuew"
+ *   }
+ * };
+ * const command = new DetachPolicyCommand(input);
+ * await client.send(command);
+ * // example id: to-detach-a-policy-from-an-object-1508268395318
+ * ```
+ *
  */
 export class DetachPolicyCommand extends $Command
   .classBuilder<

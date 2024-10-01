@@ -209,6 +209,34 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example UpdateIdentitySource
+ * ```javascript
+ * // The following example updates the configuration of the specified identity source with a new configuration.
+ * const input = {
+ *   "identitySourceId": "ISEXAMPLEabcdefg111111",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "updateConfiguration": {
+ *     "cognitoUserPoolConfiguration": {
+ *       "clientIds": [
+ *         "a1b2c3d4e5f6g7h8i9j0kalbmc"
+ *       ],
+ *       "userPoolArn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
+ *     }
+ *   }
+ * };
+ * const command = new UpdateIdentitySourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "createdDate": "2023-05-19T20:30:28.173926Z",
+ *   "identitySourceId": "ISEXAMPLEabcdefg111111",
+ *   "lastUpdatedDate": "2023-05-22T20:45:59.962216Z",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateIdentitySourceCommand extends $Command
   .classBuilder<

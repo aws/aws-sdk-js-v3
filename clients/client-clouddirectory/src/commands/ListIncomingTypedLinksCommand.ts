@@ -149,6 +149,87 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To list incoming typed links
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   "ObjectReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new ListIncomingTypedLinksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LinkSpecifiers": [
+ *     {
+ *       "IdentityAttributeValues": [
+ *         {
+ *           "AttributeName": "22",
+ *           "Value": {
+ *             "BinaryValue": ""
+ *           }
+ *         }
+ *       ],
+ *       "SourceObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       "TargetObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       "TypedLinkFacet": {
+ *         "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         "TypedLinkName": "exampletypedlink8"
+ *       }
+ *     },
+ *     {
+ *       "IdentityAttributeValues": [
+ *         {
+ *           "AttributeName": "22",
+ *           "Value": {
+ *             "BinaryValue": "MA=="
+ *           }
+ *         }
+ *       ],
+ *       "SourceObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       "TargetObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       "TypedLinkFacet": {
+ *         "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         "TypedLinkName": "exampletypedlink8"
+ *       }
+ *     },
+ *     {
+ *       "IdentityAttributeValues": [
+ *         {
+ *           "AttributeName": "22",
+ *           "Value": {
+ *             "BinaryValue": "c3Ry"
+ *           }
+ *         }
+ *       ],
+ *       "SourceObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *       },
+ *       "TargetObjectReference": {
+ *         "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *       },
+ *       "TypedLinkFacet": {
+ *         "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *         "TypedLinkName": "exampletypedlink8"
+ *       }
+ *     }
+ *   ],
+ *   "NextToken": ""
+ * }
+ * *\/
+ * // example id: to-list-incoming-typed-links-1508276145750
+ * ```
+ *
  */
 export class ListIncomingTypedLinksCommand extends $Command
   .classBuilder<

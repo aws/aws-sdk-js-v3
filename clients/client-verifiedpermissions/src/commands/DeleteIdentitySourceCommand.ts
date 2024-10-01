@@ -162,6 +162,18 @@ export interface DeleteIdentitySourceCommandOutput extends DeleteIdentitySourceO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example To delete an identity source
+ * ```javascript
+ * // The following example request deletes the specified identity source.
+ * const input = {
+ *   "identitySourceId": "ISEXAMPLEabcdefg111111",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new DeleteIdentitySourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteIdentitySourceCommand extends $Command
   .classBuilder<

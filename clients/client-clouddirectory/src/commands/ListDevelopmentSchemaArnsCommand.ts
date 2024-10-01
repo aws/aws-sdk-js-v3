@@ -86,6 +86,27 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To list all development schema arns in your AWS account
+ * ```javascript
+ * //
+ * const input = {};
+ * const command = new ListDevelopmentSchemaArnsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SchemaArns": [
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/typedlinkschematest",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/testCDschema",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Customers",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/CourseCatalog",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Consumers",
+ *     "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorg"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-development-schema-arns-1508262502911
+ * ```
+ *
  */
 export class ListDevelopmentSchemaArnsCommand extends $Command
   .classBuilder<

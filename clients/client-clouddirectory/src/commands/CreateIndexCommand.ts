@@ -104,6 +104,26 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To create an index
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *   "IsUnique": true,
+ *   "LinkName": "Examplelink",
+ *   "OrderedIndexedAttributeList": [],
+ *   "ParentReference": {}
+ * };
+ * const command = new CreateIndexCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ObjectIdentifier": "AQF0Fw173YJDlpLUV1eB50WvYsWFtVoUSmOzZjz_BLULIA"
+ * }
+ * *\/
+ * // example id: to-create-an-index-1505339563796
+ * ```
+ *
  */
 export class CreateIndexCommand extends $Command
   .classBuilder<

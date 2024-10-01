@@ -82,6 +82,22 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To delete a schema
+ * ```javascript
+ * //
+ * const input = {
+ *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
+ * };
+ * const command = new DeleteSchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
+ * }
+ * *\/
+ * // example id: to-delete-a-schema-1507575230059
+ * ```
+ *
  */
 export class DeleteSchemaCommand extends $Command
   .classBuilder<
