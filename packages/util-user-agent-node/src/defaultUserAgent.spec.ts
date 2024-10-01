@@ -6,8 +6,16 @@ jest.mock("os", () => ({
   release: () => "19.6.0",
 }));
 
+const mockEnv = {};
+jest.mock("process", () => ({
+  env: mockEnv,
+  versions: {
+    node: "14.13.1",
+  },
+}));
+
 const getMockEnv = () => {
-  const mockEnv: NodeJS.ProcessEnv = {};
+  const mockEnv = {};
   return mockEnv;
 };
 
@@ -36,9 +44,6 @@ const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
 describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
     jest.resetAllMocks();
-    // Clear mockEnv before each test
-    const mockEnv = getMockEnv();
-    Object.keys(mockEnv).forEach((key) => delete mockEnv[key]);
   });
 
   afterAll(() => {
@@ -81,12 +86,14 @@ describe("createDefaultUserAgentProvider", () => {
   });
 
   it("should add AWS_EXECUTION_ENV", async () => {
-    const mockEnv = getMockEnv();
+    //@ts-ignore mock environmental variables
     mockEnv.AWS_EXECUTION_ENV = "lambda";
     const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
     const userAgent = await userAgentProvider(mockConfig);
     const expectedUserAgent: UserAgent = [...basicUserAgent, ["exec-env/lambda"]];
     validateUserAgent(userAgent, expectedUserAgent);
+    //@ts-ignore mock environmental variables
+    delete mockEnv.AWS_EXECUTION_ENV;
   });
 
   it("should add app id if available", async () => {
