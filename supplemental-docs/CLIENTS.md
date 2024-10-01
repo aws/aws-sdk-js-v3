@@ -610,7 +610,7 @@ Refer to:
 Application ID or AppId is an optional application specific identifier that can be set. When set it will be appended to the User-Agent header of every request in the form of App/{AppId}. This variable is sourced from environment variable AWS_SDK_UA_APP_ID or the shared config profile attribute sdk_ua_app_id. See https://docs.aws.amazon.com/sdkref/latest/guide/settings-reference.html for more information on environment variables and shared config settings.
 
 ```ts
-// Example: setting useDualstackEndpoint
+// Example: setting userAgentAppId
 new S3Client({
   userAgentAppId: "testApp",
 });
