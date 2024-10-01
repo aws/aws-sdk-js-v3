@@ -4244,6 +4244,20 @@ export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
  * @public
  * @enum
  */
+export const ClusterScalabilityType = {
+  LIMITLESS: "limitless",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterScalabilityType = (typeof ClusterScalabilityType)[keyof typeof ClusterScalabilityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicaMode = {
   MOUNTED: "mounted",
   OPEN_READ_ONLY: "open-read-only",
@@ -5164,6 +5178,17 @@ export interface CreateDBClusterMessage {
    * @public
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the scalability mode of the Aurora DB cluster. When set to <code>limitless</code>, the cluster operates as an Aurora Limitless Database.
+   *             When set to <code>standard</code> (the default), the cluster uses normal DB instance creation.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <note>
+   *             <p>You can't modify this setting after you create the DB cluster.</p>
+   *          </note>
+   * @public
+   */
+  ClusterScalabilityType?: ClusterScalabilityType;
 
   /**
    * <p>Reserved for future use.</p>
@@ -6338,6 +6363,13 @@ export interface DBCluster {
    * @public
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The scalability mode of the Aurora DB cluster. When set to <code>limitless</code>, the cluster operates as an Aurora Limitless Database.
+   *             When set to <code>standard</code> (the default), the cluster uses normal DB instance creation.</p>
+   * @public
+   */
+  ClusterScalabilityType?: ClusterScalabilityType;
 
   /**
    * <p>The details of the DB instance’s server certificate.</p>
@@ -11498,6 +11530,16 @@ export interface CreateDBShardGroupMessage {
    * @public
    */
   PubliclyAccessible?: boolean;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -11583,6 +11625,16 @@ export interface DBShardGroup {
    * @public
    */
   DBShardGroupArn?: string;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  TagList?: Tag[];
 }
 
 /**
@@ -14514,18 +14566,6 @@ export interface DeleteTenantDatabaseMessage {
 }
 
 /**
- * @public
- */
-export interface DeleteTenantDatabaseResult {
-  /**
-   * <p>A tenant database in the DB instance. This data type is an element in the response to
-   *             the <code>DescribeTenantDatabases</code> action.</p>
-   * @public
-   */
-  TenantDatabase?: TenantDatabase;
-}
-
-/**
  * @internal
  */
 export const CreateTenantDatabaseMessageFilterSensitiveLog = (obj: CreateTenantDatabaseMessage): any => ({
@@ -14557,14 +14597,6 @@ export const TenantDatabaseFilterSensitiveLog = (obj: TenantDatabase): any => ({
  * @internal
  */
 export const CreateTenantDatabaseResultFilterSensitiveLog = (obj: CreateTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});
-
-/**
- * @internal
- */
-export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
   ...obj,
   ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
 });

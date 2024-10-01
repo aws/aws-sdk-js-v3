@@ -123,6 +123,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *     MaxCapacity: Number("double"),
  *   },
  *   NetworkType: "STRING_VALUE",
+ *   ClusterScalabilityType: "standard" || "limitless",
  *   DBSystemId: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
@@ -314,6 +315,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
