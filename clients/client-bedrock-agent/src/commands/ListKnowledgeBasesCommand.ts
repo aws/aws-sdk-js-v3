@@ -28,7 +28,7 @@ export interface ListKnowledgeBasesCommandInput extends ListKnowledgeBasesReques
 export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the knowledge bases in an account and information about each of them.</p>
+ * <p>Lists the knowledge bases in an account. The list also includesinformation about each knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

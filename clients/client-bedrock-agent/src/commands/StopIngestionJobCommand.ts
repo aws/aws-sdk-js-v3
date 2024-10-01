@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartIngestionJobRequest, StartIngestionJobResponse } from "../models/models_0";
-import { de_StartIngestionJobCommand, se_StartIngestionJobCommand } from "../protocols/Aws_restJson1";
+import { StopIngestionJobRequest, StopIngestionJobResponse } from "../models/models_0";
+import { de_StopIngestionJobCommand, se_StopIngestionJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,33 +17,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartIngestionJobCommand}.
+ * The input for {@link StopIngestionJobCommand}.
  */
-export interface StartIngestionJobCommandInput extends StartIngestionJobRequest {}
+export interface StopIngestionJobCommandInput extends StopIngestionJobRequest {}
 /**
  * @public
  *
- * The output of {@link StartIngestionJobCommand}.
+ * The output of {@link StopIngestionJobCommand}.
  */
-export interface StartIngestionJobCommandOutput extends StartIngestionJobResponse, __MetadataBearer {}
+export interface StopIngestionJobCommandOutput extends StopIngestionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Begins a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
+ * <p>Stops a currently running data ingestion job. You can send a <code>StartIngestionJob</code> request again to ingest the rest of your data when you are ready.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentClient, StartIngestionJobCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
- * // const { BedrockAgentClient, StartIngestionJobCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * import { BedrockAgentClient, StopIngestionJobCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
+ * // const { BedrockAgentClient, StopIngestionJobCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
  * const client = new BedrockAgentClient(config);
- * const input = { // StartIngestionJobRequest
+ * const input = { // StopIngestionJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   dataSourceId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   ingestionJobId: "STRING_VALUE", // required
  * };
- * const command = new StartIngestionJobCommand(input);
+ * const command = new StopIngestionJobCommand(input);
  * const response = await client.send(command);
- * // { // StartIngestionJobResponse
+ * // { // StopIngestionJobResponse
  * //   ingestionJob: { // IngestionJob
  * //     knowledgeBaseId: "STRING_VALUE", // required
  * //     dataSourceId: "STRING_VALUE", // required
@@ -69,10 +68,10 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  *
  * ```
  *
- * @param StartIngestionJobCommandInput - {@link StartIngestionJobCommandInput}
- * @returns {@link StartIngestionJobCommandOutput}
- * @see {@link StartIngestionJobCommandInput} for command's `input` shape.
- * @see {@link StartIngestionJobCommandOutput} for command's `response` shape.
+ * @param StopIngestionJobCommandInput - {@link StopIngestionJobCommandInput}
+ * @returns {@link StopIngestionJobCommandOutput}
+ * @see {@link StopIngestionJobCommandInput} for command's `input` shape.
+ * @see {@link StopIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -87,9 +86,6 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
@@ -101,10 +97,10 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  *
  * @public
  */
-export class StartIngestionJobCommand extends $Command
+export class StopIngestionJobCommand extends $Command
   .classBuilder<
-    StartIngestionJobCommandInput,
-    StartIngestionJobCommandOutput,
+    StopIngestionJobCommandInput,
+    StopIngestionJobCommandOutput,
     BedrockAgentClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,21 +112,21 @@ export class StartIngestionJobCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentBuildTimeLambda", "StartIngestionJob", {})
-  .n("BedrockAgentClient", "StartIngestionJobCommand")
+  .s("AmazonBedrockAgentBuildTimeLambda", "StopIngestionJob", {})
+  .n("BedrockAgentClient", "StopIngestionJobCommand")
   .f(void 0, void 0)
-  .ser(se_StartIngestionJobCommand)
-  .de(de_StartIngestionJobCommand)
+  .ser(se_StopIngestionJobCommand)
+  .de(de_StopIngestionJobCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartIngestionJobRequest;
-      output: StartIngestionJobResponse;
+      input: StopIngestionJobRequest;
+      output: StopIngestionJobResponse;
     };
     sdk: {
-      input: StartIngestionJobCommandInput;
-      output: StartIngestionJobCommandOutput;
+      input: StopIngestionJobCommandInput;
+      output: StopIngestionJobCommandOutput;
     };
   };
 }

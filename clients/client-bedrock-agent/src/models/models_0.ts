@@ -3548,7 +3548,7 @@ export interface DeleteDataSourceResponse {
  */
 export interface GetDataSourceRequest {
   /**
-   * <p>The unique identifier of the knowledge base that the data source was added to.</p>
+   * <p>The unique identifier of the knowledge base for the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -6057,26 +6057,26 @@ export interface UpdateFlowResponse {
  */
 export interface GetIngestionJobRequest {
   /**
-   * <p>The unique identifier of the knowledge base for which the ingestion job applies.</p>
+   * <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data source in the ingestion job.</p>
+   * <p>The unique identifier of the data source for the data ingestion job you want to get information on.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion job.</p>
+   * <p>The unique identifier of the data ingestion job you want to get information on.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 }
 
 /**
- * <p>Contains the statistics for the ingestion job.</p>
+ * <p>Contains the statistics for the data ingestion job.</p>
  * @public
  */
 export interface IngestionJobStatistics {
@@ -6111,7 +6111,7 @@ export interface IngestionJobStatistics {
   numberOfMetadataDocumentsModified?: number;
 
   /**
-   * <p>The number of source documents that was deleted.</p>
+   * <p>The number of source documents that were deleted.</p>
    * @public
    */
   numberOfDocumentsDeleted?: number;
@@ -6132,6 +6132,8 @@ export const IngestionJobStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
 } as const;
 
 /**
@@ -6140,7 +6142,7 @@ export const IngestionJobStatus = {
 export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
- * <p>Contains details about an ingestion job, which converts a data source to embeddings for a vector store in knowledge base.</p>
+ * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -6163,55 +6165,57 @@ export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof Ingest
  */
 export interface IngestionJob {
   /**
-   * <p>The unique identifier of the knowledge base to which the data source is being added.</p>
+   * <p>The unique identifier of the knowledge for the data ingestion job.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingested data source.</p>
+   * <p>The unique identifier of the data source for the data ingestion job.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion job.</p>
+   * <p>The unique identifier of the data ingestion job.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * <p>The description of the ingestion job.</p>
+   * <p>The description of the data ingestion job.</p>
    * @public
    */
   description?: string;
 
   /**
-   * <p>The status of the ingestion job.</p>
+   * <p>The status of the data ingestion job.</p>
    * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * <p>Contains statistics about the ingestion job.</p>
+   * <p>Contains statistics about the data ingestion job.</p>
    * @public
    */
   statistics?: IngestionJobStatistics;
 
   /**
-   * <p>A list of reasons that the ingestion job failed.</p>
+   * <p>A list of reasons that the data ingestion job failed.</p>
    * @public
    */
   failureReasons?: string[];
 
   /**
-   * <p>The time at which the ingestion job started.</p>
+   * <p>The time the data ingestion job started.</p>
+   *          <p>If you stop a data ingestion job, the <code>startedAt</code> time is the time the job was started before the job was stopped.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The time at which the ingestion job was last updated.</p>
+   * <p>The time the data ingestion job was last updated.</p>
+   *          <p>If you stop a data ingestion job, the <code>updatedAt</code> time is the time the job was stopped.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -6222,7 +6226,7 @@ export interface IngestionJob {
  */
 export interface GetIngestionJobResponse {
   /**
-   * <p>Contains details about the ingestion job.</p>
+   * <p>Contains details about the data ingestion job.</p>
    * @public
    */
   ingestionJob: IngestionJob | undefined;
@@ -6256,24 +6260,24 @@ export const IngestionJobFilterOperator = {
 export type IngestionJobFilterOperator = (typeof IngestionJobFilterOperator)[keyof typeof IngestionJobFilterOperator];
 
 /**
- * <p>Defines a filter by which to filter the results.</p>
+ * <p>The definition of a filter to filter the data.</p>
  * @public
  */
 export interface IngestionJobFilter {
   /**
-   * <p>The attribute by which to filter the results.</p>
+   * <p>The name of field or attribute to apply the filter.</p>
    * @public
    */
   attribute: IngestionJobFilterAttribute | undefined;
 
   /**
-   * <p>The operation to carry out between the attribute and the values.</p>
+   * <p>The operation to apply to the field or attribute.</p>
    * @public
    */
   operator: IngestionJobFilterOperator | undefined;
 
   /**
-   * <p>A list of values for the attribute.</p>
+   * <p>A list of values that belong to the field or attribute.</p>
    * @public
    */
   values: string[] | undefined;
@@ -6309,18 +6313,18 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * <p>Parameters by which to sort the results.</p>
+ * <p>The parameters of sorting the data.</p>
  * @public
  */
 export interface IngestionJobSortBy {
   /**
-   * <p>The attribute by which to sort the results.</p>
+   * <p>The name of field or attribute to apply sorting of data.</p>
    * @public
    */
   attribute: IngestionJobSortByAttribute | undefined;
 
   /**
-   * <p>The order by which to sort the results.</p>
+   * <p>The order for sorting the data.</p>
    * @public
    */
   order: SortOrder | undefined;
@@ -6331,25 +6335,25 @@ export interface IngestionJobSortBy {
  */
 export interface ListIngestionJobsRequest {
   /**
-   * <p>The unique identifier of the knowledge base for which to return ingestion jobs.</p>
+   * <p>The unique identifier of the knowledge base for the list of data ingestion jobs.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data source for which to return ingestion jobs.</p>
+   * <p>The unique identifier of the data source for the list of data ingestion jobs.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * <p>Contains a definition of a filter for which to filter the results.</p>
+   * <p>Contains information about the filters for filtering the data.</p>
    * @public
    */
   filters?: IngestionJobFilter[];
 
   /**
-   * <p>Contains details about how to sort the results.</p>
+   * <p>Contains details about how to sort the data.</p>
    * @public
    */
   sortBy?: IngestionJobSortBy;
@@ -6368,54 +6372,54 @@ export interface ListIngestionJobsRequest {
 }
 
 /**
- * <p>Contains details about an ingestion job.</p>
+ * <p>Contains details about a data ingestion job.</p>
  * @public
  */
 export interface IngestionJobSummary {
   /**
-   * <p>The unique identifier of the knowledge base to which the data source is added.</p>
+   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data source in the ingestion job.</p>
+   * <p>The unique identifier of the data source for the data ingestion job.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion job.</p>
+   * <p>The unique identifier of the data ingestion job.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * <p>The description of the ingestion job.</p>
+   * <p>The description of the data ingestion job.</p>
    * @public
    */
   description?: string;
 
   /**
-   * <p>The status of the ingestion job.</p>
+   * <p>The status of the data ingestion job.</p>
    * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * <p>The time at which the ingestion job was started.</p>
+   * <p>The time the data ingestion job started.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The time at which the ingestion job was last updated.</p>
+   * <p>The time the data ingestion job was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>Contains statistics for the ingestion job.</p>
+   * <p>Contains statistics for the data ingestion job.</p>
    * @public
    */
   statistics?: IngestionJobStatistics;
@@ -6426,7 +6430,7 @@ export interface IngestionJobSummary {
  */
 export interface ListIngestionJobsResponse {
   /**
-   * <p>A list of objects, each of which contains information about an ingestion job.</p>
+   * <p>A list of data ingestion jobs with information about each job.</p>
    * @public
    */
   ingestionJobSummaries: IngestionJobSummary[] | undefined;
@@ -6443,13 +6447,13 @@ export interface ListIngestionJobsResponse {
  */
 export interface StartIngestionJobRequest {
   /**
-   * <p>The unique identifier of the knowledge base to which to add the data source.</p>
+   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The unique identifier of the data source to ingest.</p>
+   * <p>The unique identifier of the data source you want to ingest into your knowledge base.</p>
    * @public
    */
   dataSourceId: string | undefined;
@@ -6462,7 +6466,7 @@ export interface StartIngestionJobRequest {
   clientToken?: string;
 
   /**
-   * <p>A description of the ingestion job.</p>
+   * <p>A description of the data ingestion job.</p>
    * @public
    */
   description?: string;
@@ -6473,7 +6477,41 @@ export interface StartIngestionJobRequest {
  */
 export interface StartIngestionJobResponse {
   /**
-   * <p>An object containing information about the ingestion job.</p>
+   * <p>Contains information about the data ingestion job.</p>
+   * @public
+   */
+  ingestionJob: IngestionJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the knowledge base for the data ingestion job you want to stop.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source for the data ingestion job you want to stop.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data ingestion job you want to stop.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopIngestionJobResponse {
+  /**
+   * <p>Contains information about the stopped data ingestion job.</p>
    * @public
    */
   ingestionJob: IngestionJob | undefined;
@@ -6581,7 +6619,7 @@ export interface VectorKnowledgeBaseConfiguration {
 }
 
 /**
- * <p>Contains details about the embeddings configuration of the knowledge base.</p>
+ * <p>Contains details about the vector embeddings configuration of the knowledge base.</p>
  * @public
  */
 export interface KnowledgeBaseConfiguration {
@@ -6592,7 +6630,7 @@ export interface KnowledgeBaseConfiguration {
   type: KnowledgeBaseType | undefined;
 
   /**
-   * <p>Contains details about the embeddings model that'sused to convert the data source.</p>
+   * <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
    * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration;
@@ -7082,13 +7120,13 @@ export interface KnowledgeBase {
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>The time at which the knowledge base was created.</p>
+   * <p>The time the knowledge base was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the knowledge base was last updated.</p>
+   * <p>The time the knowledge base was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -7206,7 +7244,7 @@ export interface GetAgentKnowledgeBaseResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * <p>The unique identifier of the knowledge base for which to get information.</p>
+   * <p>The unique identifier of the knowledge base you want to get information on.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -7316,7 +7354,7 @@ export interface KnowledgeBaseSummary {
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>The time at which the knowledge base was last updated.</p>
+   * <p>The time the knowledge base was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -7327,7 +7365,7 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * <p>A list of objects, each of which contains information about a knowledge base.</p>
+   * <p>A list of knowledge bases with information about each knowledge base.</p>
    * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;

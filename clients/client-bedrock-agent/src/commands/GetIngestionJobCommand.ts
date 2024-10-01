@@ -28,7 +28,7 @@ export interface GetIngestionJobCommandInput extends GetIngestionJobRequest {}
 export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a ingestion job, in which a data source is added to a knowledge base.</p>
+ * <p>Gets information about a data ingestion job. Data sources are ingested into your knowledge base so that Large Lanaguage Models (LLMs) can use your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +48,7 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * //     dataSourceId: "STRING_VALUE", // required
  * //     ingestionJobId: "STRING_VALUE", // required
  * //     description: "STRING_VALUE",
- * //     status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED", // required
+ * //     status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "STOPPING" || "STOPPED", // required
  * //     statistics: { // IngestionJobStatistics
  * //       numberOfDocumentsScanned: Number("long"),
  * //       numberOfMetadataDocumentsScanned: Number("long"),

@@ -49,6 +49,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./PrepareAgentCommand";
 export * from "./PrepareFlowCommand";
 export * from "./StartIngestionJobCommand";
+export * from "./StopIngestionJobCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAgentActionGroupCommand";

@@ -209,6 +209,11 @@ import {
   StartIngestionJobCommandInput,
   StartIngestionJobCommandOutput,
 } from "./commands/StartIngestionJobCommand";
+import {
+  StopIngestionJobCommand,
+  StopIngestionJobCommandInput,
+  StopIngestionJobCommandOutput,
+} from "./commands/StopIngestionJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -304,6 +309,7 @@ const commands = {
   PrepareAgentCommand,
   PrepareFlowCommand,
   StartIngestionJobCommand,
+  StopIngestionJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentCommand,
@@ -1047,6 +1053,23 @@ export interface BedrockAgent {
     args: StartIngestionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartIngestionJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopIngestionJobCommand}
+   */
+  stopIngestionJob(
+    args: StopIngestionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopIngestionJobCommandOutput>;
+  stopIngestionJob(
+    args: StopIngestionJobCommandInput,
+    cb: (err: any, data?: StopIngestionJobCommandOutput) => void
+  ): void;
+  stopIngestionJob(
+    args: StopIngestionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopIngestionJobCommandOutput) => void
   ): void;
 
   /**

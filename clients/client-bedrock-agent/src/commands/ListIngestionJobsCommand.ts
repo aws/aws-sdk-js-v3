@@ -28,7 +28,7 @@ export interface ListIngestionJobsCommandInput extends ListIngestionJobsRequest 
 export interface ListIngestionJobsCommandOutput extends ListIngestionJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the ingestion jobs for a data source and information about each of them.</p>
+ * <p>Lists the data ingestion jobs for a data source. The list also includes information about each job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * //       dataSourceId: "STRING_VALUE", // required
  * //       ingestionJobId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED", // required
+ * //       status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "STOPPING" || "STOPPED", // required
  * //       startedAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       statistics: { // IngestionJobStatistics

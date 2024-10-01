@@ -139,6 +139,7 @@ import {
 import { PrepareAgentCommandInput, PrepareAgentCommandOutput } from "./commands/PrepareAgentCommand";
 import { PrepareFlowCommandInput, PrepareFlowCommandOutput } from "./commands/PrepareFlowCommand";
 import { StartIngestionJobCommandInput, StartIngestionJobCommandOutput } from "./commands/StartIngestionJobCommand";
+import { StopIngestionJobCommandInput, StopIngestionJobCommandOutput } from "./commands/StopIngestionJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -224,6 +225,7 @@ export type ServiceInputTypes =
   | PrepareAgentCommandInput
   | PrepareFlowCommandInput
   | StartIngestionJobCommandInput
+  | StopIngestionJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentActionGroupCommandInput
@@ -290,6 +292,7 @@ export type ServiceOutputTypes =
   | PrepareAgentCommandOutput
   | PrepareFlowCommandOutput
   | StartIngestionJobCommandOutput
+  | StopIngestionJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentActionGroupCommandOutput
