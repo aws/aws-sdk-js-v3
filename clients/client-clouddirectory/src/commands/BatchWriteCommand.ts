@@ -345,6 +345,23 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To run a batch write command
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   "Operations": []
+ * };
+ * const command = new BatchWriteCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Responses": []
+ * }
+ * *\/
+ * // example id: to-run-a-batch-write-command-1506122878964
+ * ```
+ *
  */
 export class BatchWriteCommand extends $Command
   .classBuilder<

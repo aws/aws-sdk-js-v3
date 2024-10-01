@@ -181,6 +181,28 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example To create policy store
+ * ```javascript
+ * // The following example creates a new policy store with strict validation turned on.
+ * const input = {
+ *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   "validationSettings": {
+ *     "mode": "STRICT"
+ *   }
+ * };
+ * const command = new CreatePolicyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "arn": "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   "createdDate": "2024-08-12T18:20:50.99Z",
+ *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreatePolicyStoreCommand extends $Command
   .classBuilder<

@@ -231,6 +231,72 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example IsAuthorized - Example 1
+ * ```javascript
+ * // The following example requests an authorization decision for a principal of type User named Alice, who wants to perform the updatePhoto operation, on a resource of type Photo named VacationPhoto94.jpg.
+ * //
+ * // The response shows that the request was allowed by one policy.
+ * const input = {
+ *   "action": {
+ *     "actionId": "view",
+ *     "actionType": "Action"
+ *   },
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "principal": {
+ *     "entityId": "alice",
+ *     "entityType": "User"
+ *   },
+ *   "resource": {
+ *     "entityId": "VacationPhoto94.jpg",
+ *     "entityType": "Photo"
+ *   }
+ * };
+ * const command = new IsAuthorizedCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "errors": [],
+ *   "decision": "ALLOW",
+ *   "determiningPolicies": [
+ *     {
+ *       "policyId": "9wYxMpljbbZQb5fcZHyJhY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example IsAuthorized - Example 2
+ * ```javascript
+ * // The following example is the same as the previous example, except that the principal is User::"bob", and the policy store doesn't contain any policy that allows that user access to Album::"alice_folder". The output infers that the Deny was implicit because the list of DeterminingPolicies is empty.
+ * const input = {
+ *   "action": {
+ *     "actionId": "view",
+ *     "actionType": "Action"
+ *   },
+ *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
+ *   "principal": {
+ *     "entityId": "bob",
+ *     "entityType": "User"
+ *   },
+ *   "resource": {
+ *     "entityId": "VacationPhoto94.jpg",
+ *     "entityType": "Photo"
+ *   }
+ * };
+ * const command = new IsAuthorizedCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "errors": [],
+ *   "decision": "DENY",
+ *   "determiningPolicies": []
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class IsAuthorizedCommand extends $Command
   .classBuilder<

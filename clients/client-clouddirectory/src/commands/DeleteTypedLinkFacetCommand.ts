@@ -80,6 +80,18 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To delete a typed link facet
+ * ```javascript
+ * //
+ * const input = {
+ *   "Name": "ExampleFacet",
+ *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/development/typedlinkschematest"
+ * };
+ * const command = new DeleteTypedLinkFacetCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-typed-link-facet-1507576290714
+ * ```
+ *
  */
 export class DeleteTypedLinkFacetCommand extends $Command
   .classBuilder<

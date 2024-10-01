@@ -167,6 +167,31 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  * @public
+ * @example ListPolicyStores
+ * ```javascript
+ * // The following example lists all policy stores in the AWS account in the AWS Region in which you call the operation.
+ * const input = {};
+ * const command = new ListPolicyStoresCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policyStores": [
+ *     {
+ *       "arn": "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *       "createdDate": "2023-05-16T17:41:29.103459Z",
+ *       "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *     },
+ *     {
+ *       "arn": "arn:aws:verifiedpermissions::123456789012:policy-store/PSEXAMPLEabcdefg222222",
+ *       "createdDate": "2023-05-16T18:23:04.985521Z",
+ *       "policyStoreId": "PSEXAMPLEabcdefg222222"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListPolicyStoresCommand extends $Command
   .classBuilder<

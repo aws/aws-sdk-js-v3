@@ -83,6 +83,22 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To disable a directory
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8"
+ * };
+ * const command = new DisableDirectoryCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8"
+ * }
+ * *\/
+ * // example id: to-disable-a-directory-1507253386265
+ * ```
+ *
  */
 export class DisableDirectoryCommand extends $Command
   .classBuilder<

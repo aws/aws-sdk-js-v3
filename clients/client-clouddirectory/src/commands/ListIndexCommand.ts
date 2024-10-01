@@ -145,6 +145,39 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  * @public
+ * @example To list an index
+ * ```javascript
+ * //
+ * const input = {
+ *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   "IndexReference": {
+ *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   }
+ * };
+ * const command = new ListIndexCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IndexAttachments": [
+ *     {
+ *       "IndexedAttributes": [
+ *         {
+ *           "Key": {
+ *             "FacetName": "Organization",
+ *             "Name": "description",
+ *             "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *           },
+ *           "Value": {}
+ *         }
+ *       ],
+ *       "ObjectIdentifier": "AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-an-index-1508281185950
+ * ```
+ *
  */
 export class ListIndexCommand extends $Command
   .classBuilder<
