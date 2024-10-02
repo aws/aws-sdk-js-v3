@@ -247,6 +247,7 @@ export const de_ApplyGuardrailCommand = async (
   const doc = take(data, {
     action: __expectString,
     assessments: (_) => de_GuardrailAssessmentList(_, context),
+    guardrailCoverage: _json,
     outputs: _json,
     usage: _json,
   });
@@ -1202,6 +1203,7 @@ const de_GuardrailAssessment = (output: any, context: __SerdeContext): Guardrail
   return take(output, {
     contentPolicy: _json,
     contextualGroundingPolicy: (_: any) => de_GuardrailContextualGroundingPolicyAssessment(_, context),
+    invocationMetrics: _json,
     sensitiveInformationPolicy: _json,
     topicPolicy: _json,
     wordPolicy: _json,
@@ -1300,9 +1302,13 @@ const de_GuardrailContextualGroundingPolicyAssessment = (
 
 // de_GuardrailConverseTextBlock omitted.
 
+// de_GuardrailCoverage omitted.
+
 // de_GuardrailCustomWord omitted.
 
 // de_GuardrailCustomWordList omitted.
+
+// de_GuardrailInvocationMetrics omitted.
 
 // de_GuardrailManagedWord omitted.
 
@@ -1321,6 +1327,8 @@ const de_GuardrailContextualGroundingPolicyAssessment = (
 // de_GuardrailRegexFilterList omitted.
 
 // de_GuardrailSensitiveInformationPolicyAssessment omitted.
+
+// de_GuardrailTextCharactersCoverage omitted.
 
 // de_GuardrailTopic omitted.
 

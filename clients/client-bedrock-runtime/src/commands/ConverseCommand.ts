@@ -252,6 +252,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               { // GuardrailContentFilter
  * //                 type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                 confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                 filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
  * //                 action: "BLOCKED", // required
  * //               },
  * //             ],
@@ -298,6 +299,23 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             ],
  * //           },
+ * //           invocationMetrics: { // GuardrailInvocationMetrics
+ * //             guardrailProcessingLatency: Number("long"),
+ * //             usage: { // GuardrailUsage
+ * //               topicPolicyUnits: Number("int"), // required
+ * //               contentPolicyUnits: Number("int"), // required
+ * //               wordPolicyUnits: Number("int"), // required
+ * //               sensitiveInformationPolicyUnits: Number("int"), // required
+ * //               sensitiveInformationPolicyFreeUnits: Number("int"), // required
+ * //               contextualGroundingPolicyUnits: Number("int"), // required
+ * //             },
+ * //             guardrailCoverage: { // GuardrailCoverage
+ * //               textCharacters: { // GuardrailTextCharactersCoverage
+ * //                 guarded: Number("int"),
+ * //                 total: Number("int"),
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       outputAssessments: { // GuardrailAssessmentListMap
@@ -317,6 +335,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 {
  * //                   type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //                   confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                   filterStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH",
  * //                   action: "BLOCKED", // required
  * //                 },
  * //               ],
@@ -362,6 +381,23 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                   action: "BLOCKED" || "NONE", // required
  * //                 },
  * //               ],
+ * //             },
+ * //             invocationMetrics: {
+ * //               guardrailProcessingLatency: Number("long"),
+ * //               usage: {
+ * //                 topicPolicyUnits: Number("int"), // required
+ * //                 contentPolicyUnits: Number("int"), // required
+ * //                 wordPolicyUnits: Number("int"), // required
+ * //                 sensitiveInformationPolicyUnits: Number("int"), // required
+ * //                 sensitiveInformationPolicyFreeUnits: Number("int"), // required
+ * //                 contextualGroundingPolicyUnits: Number("int"), // required
+ * //               },
+ * //               guardrailCoverage: {
+ * //                 textCharacters: {
+ * //                   guarded: Number("int"),
+ * //                   total: Number("int"),
+ * //                 },
+ * //               },
  * //             },
  * //           },
  * //         ],

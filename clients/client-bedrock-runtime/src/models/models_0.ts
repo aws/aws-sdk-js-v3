@@ -188,6 +188,23 @@ export type GuardrailContentFilterConfidence =
  * @public
  * @enum
  */
+export const GuardrailContentFilterStrength = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterStrength =
+  (typeof GuardrailContentFilterStrength)[keyof typeof GuardrailContentFilterStrength];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailContentFilterType = {
   HATE: "HATE",
   INSULTS: "INSULTS",
@@ -218,6 +235,12 @@ export interface GuardrailContentFilter {
    * @public
    */
   confidence: GuardrailContentFilterConfidence | undefined;
+
+  /**
+   * <p>The filter strength setting for the guardrail content filter.</p>
+   * @public
+   */
+  filterStrength?: GuardrailContentFilterStrength;
 
   /**
    * <p>The guardrail action.</p>
@@ -308,6 +331,102 @@ export interface GuardrailContextualGroundingPolicyAssessment {
    * @public
    */
   filters?: GuardrailContextualGroundingFilter[];
+}
+
+/**
+ * <p>The guardrail coverage for the text characters.</p>
+ * @public
+ */
+export interface GuardrailTextCharactersCoverage {
+  /**
+   * <p>The text characters that were guarded by the guardrail coverage.</p>
+   * @public
+   */
+  guarded?: number;
+
+  /**
+   * <p>The total text characters by the guardrail coverage.</p>
+   * @public
+   */
+  total?: number;
+}
+
+/**
+ * <p>The action of the guardrail coverage details.</p>
+ * @public
+ */
+export interface GuardrailCoverage {
+  /**
+   * <p>The text characters of the guardrail coverage details.</p>
+   * @public
+   */
+  textCharacters?: GuardrailTextCharactersCoverage;
+}
+
+/**
+ * <p>The details on the use of the guardrail.</p>
+ * @public
+ */
+export interface GuardrailUsage {
+  /**
+   * <p>The topic policy units processed by the guardrail.</p>
+   * @public
+   */
+  topicPolicyUnits: number | undefined;
+
+  /**
+   * <p>The content policy units processed by the guardrail.</p>
+   * @public
+   */
+  contentPolicyUnits: number | undefined;
+
+  /**
+   * <p>The word policy units processed by the guardrail.</p>
+   * @public
+   */
+  wordPolicyUnits: number | undefined;
+
+  /**
+   * <p>The sensitive information policy units processed by the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyUnits: number | undefined;
+
+  /**
+   * <p>The sensitive information policy free units processed by the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyFreeUnits: number | undefined;
+
+  /**
+   * <p>The contextual grounding policy units processed by the guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyUnits: number | undefined;
+}
+
+/**
+ * <p>The invocation metrics for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailInvocationMetrics {
+  /**
+   * <p>The processing latency details for the guardrail invocation metrics.</p>
+   * @public
+   */
+  guardrailProcessingLatency?: number;
+
+  /**
+   * <p>The usage details for the guardrail invocation metrics.</p>
+   * @public
+   */
+  usage?: GuardrailUsage;
+
+  /**
+   * <p>The coverage details for the guardrail invocation metrics.</p>
+   * @public
+   */
+  guardrailCoverage?: GuardrailCoverage;
 }
 
 /**
@@ -622,6 +741,12 @@ export interface GuardrailAssessment {
    * @public
    */
   contextualGroundingPolicy?: GuardrailContextualGroundingPolicyAssessment;
+
+  /**
+   * <p>The invocation metrics for the guardrail assessment.</p>
+   * @public
+   */
+  invocationMetrics?: GuardrailInvocationMetrics;
 }
 
 /**
@@ -634,48 +759,6 @@ export interface GuardrailOutputContent {
    * @public
    */
   text?: string;
-}
-
-/**
- * <p>The details on the use of the guardrail.</p>
- * @public
- */
-export interface GuardrailUsage {
-  /**
-   * <p>The topic policy units processed by the guardrail.</p>
-   * @public
-   */
-  topicPolicyUnits: number | undefined;
-
-  /**
-   * <p>The content policy units processed by the guardrail.</p>
-   * @public
-   */
-  contentPolicyUnits: number | undefined;
-
-  /**
-   * <p>The word policy units processed by the guardrail.</p>
-   * @public
-   */
-  wordPolicyUnits: number | undefined;
-
-  /**
-   * <p>The sensitive information policy units processed by the guardrail.</p>
-   * @public
-   */
-  sensitiveInformationPolicyUnits: number | undefined;
-
-  /**
-   * <p>The sensitive information policy free units processed by the guardrail.</p>
-   * @public
-   */
-  sensitiveInformationPolicyFreeUnits: number | undefined;
-
-  /**
-   * <p>The contextual grounding policy units processed by the guardrail.</p>
-   * @public
-   */
-  contextualGroundingPolicyUnits: number | undefined;
 }
 
 /**
@@ -705,6 +788,12 @@ export interface ApplyGuardrailResponse {
    * @public
    */
   assessments: GuardrailAssessment[] | undefined;
+
+  /**
+   * <p>The guardrail coverage details in the apply guardrail response.</p>
+   * @public
+   */
+  guardrailCoverage?: GuardrailCoverage;
 }
 
 /**
