@@ -56,7 +56,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   ],
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
- *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
+ *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION", // required
  *       Permission: "ENABLED" || "DISABLED", // required
  *       MaximumLength: Number("int"),
  *     },
@@ -106,7 +106,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //     ],
  * //     UserSettings: [ // UserSettingList
  * //       { // UserSetting
- * //         Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
+ * //         Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN" || "AUTO_TIME_ZONE_REDIRECTION", // required
  * //         Permission: "ENABLED" || "DISABLED", // required
  * //         MaximumLength: Number("int"),
  * //       },
