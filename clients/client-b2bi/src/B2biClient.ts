@@ -56,6 +56,10 @@ import {
 import { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
 import { CreatePartnershipCommandInput, CreatePartnershipCommandOutput } from "./commands/CreatePartnershipCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import {
+  CreateStarterMappingTemplateCommandInput,
+  CreateStarterMappingTemplateCommandOutput,
+} from "./commands/CreateStarterMappingTemplateCommand";
 import { CreateTransformerCommandInput, CreateTransformerCommandOutput } from "./commands/CreateTransformerCommand";
 import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
 import { DeletePartnershipCommandInput, DeletePartnershipCommandOutput } from "./commands/DeletePartnershipCommand";
@@ -79,6 +83,7 @@ import {
   StartTransformerJobCommandOutput,
 } from "./commands/StartTransformerJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestConversionCommandInput, TestConversionCommandOutput } from "./commands/TestConversionCommand";
 import { TestMappingCommandInput, TestMappingCommandOutput } from "./commands/TestMappingCommand";
 import { TestParsingCommandInput, TestParsingCommandOutput } from "./commands/TestParsingCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -104,6 +109,7 @@ export type ServiceInputTypes =
   | CreateCapabilityCommandInput
   | CreatePartnershipCommandInput
   | CreateProfileCommandInput
+  | CreateStarterMappingTemplateCommandInput
   | CreateTransformerCommandInput
   | DeleteCapabilityCommandInput
   | DeletePartnershipCommandInput
@@ -121,6 +127,7 @@ export type ServiceInputTypes =
   | ListTransformersCommandInput
   | StartTransformerJobCommandInput
   | TagResourceCommandInput
+  | TestConversionCommandInput
   | TestMappingCommandInput
   | TestParsingCommandInput
   | UntagResourceCommandInput
@@ -136,6 +143,7 @@ export type ServiceOutputTypes =
   | CreateCapabilityCommandOutput
   | CreatePartnershipCommandOutput
   | CreateProfileCommandOutput
+  | CreateStarterMappingTemplateCommandOutput
   | CreateTransformerCommandOutput
   | DeleteCapabilityCommandOutput
   | DeletePartnershipCommandOutput
@@ -153,6 +161,7 @@ export type ServiceOutputTypes =
   | ListTransformersCommandOutput
   | StartTransformerJobCommandOutput
   | TagResourceCommandOutput
+  | TestConversionCommandOutput
   | TestMappingCommandOutput
   | TestParsingCommandOutput
   | UntagResourceCommandOutput

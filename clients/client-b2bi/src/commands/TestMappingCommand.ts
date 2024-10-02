@@ -38,7 +38,7 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * const input = { // TestMappingRequest
  *   inputFileContent: "STRING_VALUE", // required
  *   mappingTemplate: "STRING_VALUE", // required
- *   fileFormat: "XML" || "JSON", // required
+ *   fileFormat: "XML" || "JSON" || "NOT_USED", // required
  * };
  * const command = new TestMappingCommand(input);
  * const response = await client.send(command);

@@ -28,9 +28,39 @@ export interface CreateTransformerCommandInput extends CreateTransformerRequest 
 export interface CreateTransformerCommandOutput extends CreateTransformerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transformer. A transformer
- *    describes how to process the incoming EDI documents and extract the necessary
- *    information to the output file.</p>
+ * <p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange
+ *                converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer,
+ *                in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use
+ *                in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate
+ *                a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>,
+ *             <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,15 +69,6 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * const client = new B2biClient(config);
  * const input = { // CreateTransformerRequest
  *   name: "STRING_VALUE", // required
- *   fileFormat: "XML" || "JSON", // required
- *   mappingTemplate: "STRING_VALUE", // required
- *   ediType: { // EdiType Union: only one key present
- *     x12Details: { // X12Details
- *       transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
- *       version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
- *     },
- *   },
- *   sampleDocument: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   tags: [ // TagList
  *     { // Tag
@@ -55,6 +76,46 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   fileFormat: "XML" || "JSON" || "NOT_USED",
+ *   mappingTemplate: "STRING_VALUE",
+ *   ediType: { // EdiType Union: only one key present
+ *     x12Details: { // X12Details
+ *       transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
+ *       version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
+ *     },
+ *   },
+ *   sampleDocument: "STRING_VALUE",
+ *   inputConversion: { // InputConversion
+ *     fromFormat: "X12", // required
+ *     formatOptions: { // FormatOptions Union: only one key present
+ *       x12: {
+ *         transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
+ *         version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
+ *       },
+ *     },
+ *   },
+ *   mapping: { // Mapping
+ *     templateLanguage: "XSLT" || "JSONATA", // required
+ *     template: "STRING_VALUE",
+ *   },
+ *   outputConversion: { // OutputConversion
+ *     toFormat: "X12", // required
+ *     formatOptions: {//  Union: only one key present
+ *       x12: {
+ *         transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
+ *         version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
+ *       },
+ *     },
+ *   },
+ *   sampleDocuments: { // SampleDocuments
+ *     bucketName: "STRING_VALUE", // required
+ *     keys: [ // KeyList // required
+ *       { // SampleDocumentKeys
+ *         input: "STRING_VALUE",
+ *         output: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateTransformerCommand(input);
  * const response = await client.send(command);
@@ -62,9 +123,10 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * //   transformerId: "STRING_VALUE", // required
  * //   transformerArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   fileFormat: "XML" || "JSON", // required
- * //   mappingTemplate: "STRING_VALUE", // required
  * //   status: "active" || "inactive", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   fileFormat: "XML" || "JSON" || "NOT_USED",
+ * //   mappingTemplate: "STRING_VALUE",
  * //   ediType: { // EdiType Union: only one key present
  * //     x12Details: { // X12Details
  * //       transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
@@ -72,7 +134,37 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * //     },
  * //   },
  * //   sampleDocument: "STRING_VALUE",
- * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   inputConversion: { // InputConversion
+ * //     fromFormat: "X12", // required
+ * //     formatOptions: { // FormatOptions Union: only one key present
+ * //       x12: {
+ * //         transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
+ * //         version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
+ * //       },
+ * //     },
+ * //   },
+ * //   mapping: { // Mapping
+ * //     templateLanguage: "XSLT" || "JSONATA", // required
+ * //     template: "STRING_VALUE",
+ * //   },
+ * //   outputConversion: { // OutputConversion
+ * //     toFormat: "X12", // required
+ * //     formatOptions: {//  Union: only one key present
+ * //       x12: {
+ * //         transactionSet: "X12_110" || "X12_180" || "X12_204" || "X12_210" || "X12_211" || "X12_214" || "X12_215" || "X12_259" || "X12_260" || "X12_266" || "X12_269" || "X12_270" || "X12_271" || "X12_274" || "X12_275" || "X12_276" || "X12_277" || "X12_278" || "X12_310" || "X12_315" || "X12_322" || "X12_404" || "X12_410" || "X12_417" || "X12_421" || "X12_426" || "X12_810" || "X12_820" || "X12_824" || "X12_830" || "X12_832" || "X12_834" || "X12_835" || "X12_837" || "X12_844" || "X12_846" || "X12_849" || "X12_850" || "X12_852" || "X12_855" || "X12_856" || "X12_860" || "X12_861" || "X12_864" || "X12_865" || "X12_869" || "X12_870" || "X12_940" || "X12_945" || "X12_990" || "X12_997" || "X12_999" || "X12_270_X279" || "X12_271_X279" || "X12_275_X210" || "X12_275_X211" || "X12_276_X212" || "X12_277_X212" || "X12_277_X214" || "X12_277_X364" || "X12_278_X217" || "X12_820_X218" || "X12_820_X306" || "X12_824_X186" || "X12_834_X220" || "X12_834_X307" || "X12_834_X318" || "X12_835_X221" || "X12_837_X222" || "X12_837_X223" || "X12_837_X224" || "X12_837_X291" || "X12_837_X292" || "X12_837_X298" || "X12_999_X231",
+ * //         version: "VERSION_4010" || "VERSION_4030" || "VERSION_5010" || "VERSION_5010_HIPAA",
+ * //       },
+ * //     },
+ * //   },
+ * //   sampleDocuments: { // SampleDocuments
+ * //     bucketName: "STRING_VALUE", // required
+ * //     keys: [ // KeyList // required
+ * //       { // SampleDocumentKeys
+ * //         input: "STRING_VALUE",
+ * //         output: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```

@@ -239,6 +239,14 @@ CreateProfile
 </details>
 <details>
 <summary>
+CreateStarterMappingTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/CreateStarterMappingTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/CreateStarterMappingTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/CreateStarterMappingTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateTransformer
 </summary>
 
@@ -371,6 +379,14 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TestConversion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/TestConversionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TestConversionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TestConversionCommandOutput/)
 
 </details>
 <details>

@@ -2,6 +2,7 @@
 export * from "./CreateCapabilityCommand";
 export * from "./CreatePartnershipCommand";
 export * from "./CreateProfileCommand";
+export * from "./CreateStarterMappingTemplateCommand";
 export * from "./CreateTransformerCommand";
 export * from "./DeleteCapabilityCommand";
 export * from "./DeletePartnershipCommand";
@@ -19,6 +20,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListTransformersCommand";
 export * from "./StartTransformerJobCommand";
 export * from "./TagResourceCommand";
+export * from "./TestConversionCommand";
 export * from "./TestMappingCommand";
 export * from "./TestParsingCommand";
 export * from "./UntagResourceCommand";

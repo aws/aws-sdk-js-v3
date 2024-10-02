@@ -19,6 +19,11 @@ import {
   CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  CreateStarterMappingTemplateCommand,
+  CreateStarterMappingTemplateCommandInput,
+  CreateStarterMappingTemplateCommandOutput,
+} from "./commands/CreateStarterMappingTemplateCommand";
+import {
   CreateTransformerCommand,
   CreateTransformerCommandInput,
   CreateTransformerCommandOutput,
@@ -95,6 +100,11 @@ import {
   StartTransformerJobCommandOutput,
 } from "./commands/StartTransformerJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestConversionCommand,
+  TestConversionCommandInput,
+  TestConversionCommandOutput,
+} from "./commands/TestConversionCommand";
 import { TestMappingCommand, TestMappingCommandInput, TestMappingCommandOutput } from "./commands/TestMappingCommand";
 import { TestParsingCommand, TestParsingCommandInput, TestParsingCommandOutput } from "./commands/TestParsingCommand";
 import {
@@ -127,6 +137,7 @@ const commands = {
   CreateCapabilityCommand,
   CreatePartnershipCommand,
   CreateProfileCommand,
+  CreateStarterMappingTemplateCommand,
   CreateTransformerCommand,
   DeleteCapabilityCommand,
   DeletePartnershipCommand,
@@ -144,6 +155,7 @@ const commands = {
   ListTransformersCommand,
   StartTransformerJobCommand,
   TagResourceCommand,
+  TestConversionCommand,
   TestMappingCommand,
   TestParsingCommand,
   UntagResourceCommand,
@@ -197,6 +209,23 @@ export interface B2bi {
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStarterMappingTemplateCommand}
+   */
+  createStarterMappingTemplate(
+    args: CreateStarterMappingTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStarterMappingTemplateCommandOutput>;
+  createStarterMappingTemplate(
+    args: CreateStarterMappingTemplateCommandInput,
+    cb: (err: any, data?: CreateStarterMappingTemplateCommandOutput) => void
+  ): void;
+  createStarterMappingTemplate(
+    args: CreateStarterMappingTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStarterMappingTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -454,6 +483,20 @@ export interface B2bi {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestConversionCommand}
+   */
+  testConversion(
+    args: TestConversionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestConversionCommandOutput>;
+  testConversion(args: TestConversionCommandInput, cb: (err: any, data?: TestConversionCommandOutput) => void): void;
+  testConversion(
+    args: TestConversionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestConversionCommandOutput) => void
   ): void;
 
   /**
