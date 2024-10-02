@@ -7,7 +7,7 @@ const ROOT = resolve(join(__dirname, "..", ".."));
 
 export const runTestForTags = (tagsToTest) => {
   if (tagsToTest.length === 0) {
-    console.info("No clients with integration test cases have changed.");
+    console.info("No clients with e2e-legacy test cases have changed.");
     return;
   }
 
