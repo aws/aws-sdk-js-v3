@@ -2293,7 +2293,7 @@ export interface WorkspaceProperties {
    *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
    *                </li>
    *                <li>
-   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>DCV</code> (formerly WSP).</p>
    *                </li>
    *                <li>
    *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
@@ -6114,12 +6114,12 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol
-   *          (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in
-   *          <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
+   *          you want to use for your BYOL Workspace image, either PCoIP, DCV, or
+   *          bring your own protocol (BYOP). To use WSP, specify a value that ends in
+   *          <code>_DCV</code>. To use PCoIP, specify a value that does not end in <code>_DCV</code>.
    *          To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>
    *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>,
+   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_DCV</code>, or <code>BYOL_REGULAR_BYOP</code>,
    *          depending on the protocol.</p>
    *          <note>
    *             <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values
@@ -6159,8 +6159,8 @@ export interface ImportWorkspaceImageRequest {
    *                   time.</p>
    *                </li>
    *                <li>
-   *                   <p>During the image import process, non-GPU WSP WorkSpaces with Windows 11 support
-   *                   only <code>Microsoft_Office_2019</code>. GPU WSP WorkSpaces with Windows 11 do not
+   *                   <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support
+   *                   only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not
    *                   support Office installation.</p>
    *                </li>
    *             </ul>
