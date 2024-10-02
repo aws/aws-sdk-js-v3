@@ -157,6 +157,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * //       },
  * //     },
  * //   ],
+ * //   TransitionDefaultMinimumObjectSize: "varies_by_storage_class" || "all_storage_classes_128K",
  * // };
  *
  * ```

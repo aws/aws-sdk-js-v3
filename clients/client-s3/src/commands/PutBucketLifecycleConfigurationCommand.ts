@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
+import { PutBucketLifecycleConfigurationOutput, PutBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
   de_PutBucketLifecycleConfigurationCommand,
   se_PutBucketLifecycleConfigurationCommand,
@@ -29,7 +30,9 @@ export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLi
  *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
-export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
+export interface PutBucketLifecycleConfigurationCommandOutput
+  extends PutBucketLifecycleConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <note>
@@ -40,17 +43,15 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *          so if you want to retain any configuration details, they must be included in the new
  *          lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
  *             your storage lifecycle</a>.</p>
- *          <note>
- *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name prefix, one or more object tags, object size, or any combination of these. Accordingly, this section describes the latest API. The previous version of the API supported filtering based only on an object key name prefix, which is supported for backward compatibility.
- *             For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.</p>
- *          </note>
  *          <dl>
  *             <dt>Rules</dt>
  *             <dd>
  *                <p>You specify the lifecycle configuration in your request body. The lifecycle
  *                   configuration is specified as XML consisting of one or more rules. An Amazon S3
- *                   Lifecycle configuration can have up to 1,000 rules. This limit is not adjustable.
- *                   Each rule consists of the following:</p>
+ *                   Lifecycle configuration can have up to 1,000 rules. This limit is not adjustable.</p>
+ *                <p>Bucket lifecycle configuration supports specifying a lifecycle rule using an object key name prefix, one or more object tags, object size, or any combination of these. Accordingly, this section describes the latest API. The previous version of the API supported filtering based only on an object key name prefix, which is supported for backward compatibility.
+ *                      For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.</p>
+ *                <p>A lifecycle rule consists of the following:</p>
  *                <ul>
  *                   <li>
  *                      <p>A filter identifying a subset of objects to which the rule applies. The filter can be based on a key name prefix, object tags, object size, or any combination of these.</p>
@@ -189,10 +190,13 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *     ],
  *   },
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   TransitionDefaultMinimumObjectSize: "varies_by_storage_class" || "all_storage_classes_128K",
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // PutBucketLifecycleConfigurationOutput
+ * //   TransitionDefaultMinimumObjectSize: "varies_by_storage_class" || "all_storage_classes_128K",
+ * // };
  *
  * ```
  *
@@ -260,6 +264,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
       }),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "PutBucketLifecycleConfiguration", {})
@@ -272,7 +277,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
   protected declare static __types: {
     api: {
       input: PutBucketLifecycleConfigurationRequest;
-      output: {};
+      output: PutBucketLifecycleConfigurationOutput;
     };
     sdk: {
       input: PutBucketLifecycleConfigurationCommandInput;

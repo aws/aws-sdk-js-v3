@@ -2278,6 +2278,7 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
     "content-type": "application/xml",
     [_xasca]: input[_CA]!,
     [_xaebo]: input[_EBO]!,
+    [_xatdmos]: input[_TDMOS]!,
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3747,6 +3748,7 @@ export const de_GetBucketLifecycleConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_TDMOS]: [, output.headers[_xatdmos]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Rule === "") {
@@ -4945,6 +4947,7 @@ export const de_PutBucketLifecycleConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_TDMOS]: [, output.headers[_xatdmos]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -10111,6 +10114,7 @@ const _TC = "TagCount";
 const _TCo = "TopicConfiguration";
 const _TCop = "TopicConfigurations";
 const _TD = "TaggingDirective";
+const _TDMOS = "TransitionDefaultMinimumObjectSize";
 const _TG = "TargetGrants";
 const _TGa = "TargetGrant";
 const _TOKF = "TargetObjectKeyFormat";
@@ -10331,6 +10335,7 @@ const _xasseckm = "x-amz-server-side-encryption-customer-key-md5";
 const _xat = "x-amz-tagging";
 const _xatc = "x-amz-tagging-count";
 const _xatd = "x-amz-tagging-directive";
+const _xatdmos = "x-amz-transition-default-minimum-object-size";
 const _xavi = "x-amz-version-id";
 const _xawrl = "x-amz-website-redirect-location";
 const _xi = "x-id";

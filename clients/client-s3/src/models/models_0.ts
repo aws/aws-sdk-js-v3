@@ -443,7 +443,7 @@ export interface CompleteMultipartUploadOutput {
   ETag?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -452,7 +452,7 @@ export interface CompleteMultipartUploadOutput {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -531,7 +531,7 @@ export interface CompletedPart {
   ETag?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -540,7 +540,7 @@ export interface CompletedPart {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -650,7 +650,7 @@ export interface CompleteMultipartUploadRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the base64-encoded, 32-bit CRC32 checksum of the object. For more information, see
+   *     This header specifies the base64-encoded, 32-bit CRC-32 checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -659,7 +659,7 @@ export interface CompleteMultipartUploadRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the base64-encoded, 32-bit CRC32C checksum of the object. For more information, see
+   *     This header specifies the base64-encoded, 32-bit CRC-32C checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -769,7 +769,7 @@ export interface CopyObjectResult {
   LastModified?: Date;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -777,7 +777,7 @@ export interface CopyObjectResult {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -5578,16 +5578,24 @@ export interface DeleteObjectsRequest {
    *             </code> with the supported algorithm from the following list: </p>
    *          <ul>
    *             <li>
-   *                <p>CRC32</p>
+   *                <p>
+   *                   <code>CRC32</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>CRC32C</p>
+   *                <p>
+   *                   <code>CRC32C</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>SHA1</p>
+   *                <p>
+   *                   <code>SHA1</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>SHA256</p>
+   *                <p>
+   *                   <code>SHA256</code>
+   *                </p>
    *             </li>
    *          </ul>
    *          <p>For more
@@ -7195,6 +7203,21 @@ export interface LifecycleRule {
 
 /**
  * @public
+ * @enum
+ */
+export const TransitionDefaultMinimumObjectSize = {
+  all_storage_classes_128K: "all_storage_classes_128K",
+  varies_by_storage_class: "varies_by_storage_class",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitionDefaultMinimumObjectSize =
+  (typeof TransitionDefaultMinimumObjectSize)[keyof typeof TransitionDefaultMinimumObjectSize];
+
+/**
+ * @public
  */
 export interface GetBucketLifecycleConfigurationOutput {
   /**
@@ -7202,6 +7225,24 @@ export interface GetBucketLifecycleConfigurationOutput {
    * @public
    */
   Rules?: LifecycleRule[];
+
+  /**
+   * <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not transition to any storage class by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+   *          </p>
+   *             </li>
+   *          </ul>
+   *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
+   * @public
+   */
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
 }
 
 /**
@@ -9167,7 +9208,7 @@ export interface GetObjectOutput {
   ETag?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -9175,7 +9216,7 @@ export interface GetObjectOutput {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -9842,7 +9883,7 @@ export interface GetObjectAclRequest {
  */
 export interface Checksum {
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -9851,7 +9892,7 @@ export interface Checksum {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -9898,7 +9939,7 @@ export interface ObjectPart {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the base64-encoded, 32-bit CRC32 checksum of the object. For more information, see
+   *     This header specifies the base64-encoded, 32-bit CRC-32 checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -9906,7 +9947,7 @@ export interface ObjectPart {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -10895,7 +10936,7 @@ export interface HeadObjectOutput {
   ContentLength?: number;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -10904,7 +10945,7 @@ export interface HeadObjectOutput {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -13194,7 +13235,7 @@ export interface Part {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the base64-encoded, 32-bit CRC32 checksum of the object. For more information, see
+   *     This header specifies the base64-encoded, 32-bit CRC-32 checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -13202,7 +13243,7 @@ export interface Part {
   ChecksumCRC32?: string;
 
   /**
-   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -13813,6 +13854,29 @@ export interface PutBucketInventoryConfigurationRequest {
 }
 
 /**
+ * @public
+ */
+export interface PutBucketLifecycleConfigurationOutput {
+  /**
+   * <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not transition to any storage class by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+   *          </p>
+   *             </li>
+   *          </ul>
+   *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
+   * @public
+   */
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
+}
+
+/**
  * <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
  *          in the <i>Amazon S3 User Guide</i>.</p>
@@ -13861,6 +13925,24 @@ export interface PutBucketLifecycleConfigurationRequest {
    * @public
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not transition to any storage class by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+   *          </p>
+   *             </li>
+   *          </ul>
+   *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
+   * @public
+   */
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
 }
 
 /**
@@ -13951,72 +14033,6 @@ export interface PutBucketMetricsConfigurationRequest {
    * @public
    */
   ExpectedBucketOwner?: string;
-}
-
-/**
- * @public
- */
-export interface PutBucketNotificationConfigurationRequest {
-  /**
-   * <p>The name of the bucket.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>A container for specifying the notification configuration of the bucket. If this element
-   *          is empty, notifications are turned off for the bucket.</p>
-   * @public
-   */
-  NotificationConfiguration: NotificationConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda
-   *          destinations. True or false value.</p>
-   * @public
-   */
-  SkipDestinationValidation?: boolean;
-}
-
-/**
- * @public
- */
-export interface PutBucketOwnershipControlsRequest {
-  /**
-   * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to set.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The MD5 hash of the <code>OwnershipControls</code> request body. </p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   * @public
-   */
-  ContentMD5?: string;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
-   * <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or
-   *          ObjectWriter) that you want to apply to this Amazon S3 bucket.</p>
-   * @public
-   */
-  OwnershipControls: OwnershipControls | undefined;
 }
 
 /**
