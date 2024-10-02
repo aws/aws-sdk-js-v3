@@ -152,6 +152,14 @@ export interface CreateSuiteDefinitionRequest {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The client token for the test suite definition creation.
+   *             This token is used for tracking test suite definition creation
+   *             using retries and obtaining its status. This parameter is optional.</p>
+   * @public
+   */
+  clientToken?: string;
 }
 
 /**

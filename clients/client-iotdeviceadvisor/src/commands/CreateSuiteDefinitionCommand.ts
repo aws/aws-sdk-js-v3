@@ -55,6 +55,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateSuiteDefinitionCommand(input);
  * const response = await client.send(command);

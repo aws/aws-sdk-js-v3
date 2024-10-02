@@ -24,6 +24,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   CreateSuiteDefinitionCommandInput,
@@ -85,6 +86,7 @@ export const se_CreateSuiteDefinitionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       suiteDefinitionConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
     })
