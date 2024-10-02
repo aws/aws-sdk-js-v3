@@ -173,6 +173,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *           MaxIdleTimeoutInMinutes: Number("int"),
  *         },
  *       },
+ *       BuiltInLifecycleConfigArn: "STRING_VALUE",
  *     },
  *     JupyterLabAppSettings: { // JupyterLabAppSettings
  *       DefaultResourceSpec: "<ResourceSpec>",
@@ -207,6 +208,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       BuiltInLifecycleConfigArn: "STRING_VALUE",
  *     },
  *     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  *       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings

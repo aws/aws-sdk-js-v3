@@ -4392,6 +4392,12 @@ export interface DescribeAppResponse {
    * @public
    */
   ResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string;
 }
 
 /**

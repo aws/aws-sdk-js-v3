@@ -18286,6 +18286,7 @@ const de_CodeEditorAppImageConfig = (output: any, context: __SerdeContext): Code
 const de_CodeEditorAppSettings = (output: any, context: __SerdeContext): CodeEditorAppSettings => {
   return take(output, {
     AppLifecycleManagement: (_: any) => de_AppLifecycleManagement(_, context),
+    BuiltInLifecycleConfigArn: __expectString,
     CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
     LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
@@ -19864,6 +19865,7 @@ const de_DescribeAppResponse = (output: any, context: __SerdeContext): DescribeA
     AppArn: __expectString,
     AppName: __expectString,
     AppType: __expectString,
+    BuiltInLifecycleConfigArn: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainId: __expectString,
     FailureReason: __expectString,
@@ -23704,6 +23706,7 @@ const de_JupyterLabAppImageConfig = (output: any, context: __SerdeContext): Jupy
 const de_JupyterLabAppSettings = (output: any, context: __SerdeContext): JupyterLabAppSettings => {
   return take(output, {
     AppLifecycleManagement: (_: any) => de_AppLifecycleManagement(_, context),
+    BuiltInLifecycleConfigArn: __expectString,
     CodeRepositories: (_: any) => de_CodeRepositories(_, context),
     CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),

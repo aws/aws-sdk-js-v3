@@ -9767,6 +9767,13 @@ export interface CodeEditorAppSettings {
    * @public
    */
   AppLifecycleManagement?: AppLifecycleManagement;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default
+   *       lifecycle configuration.</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string;
 }
 
 /**

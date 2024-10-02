@@ -188,6 +188,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           MaxIdleTimeoutInMinutes: Number("int"),
  * //         },
  * //       },
+ * //       BuiltInLifecycleConfigArn: "STRING_VALUE",
  * //     },
  * //     JupyterLabAppSettings: { // JupyterLabAppSettings
  * //       DefaultResourceSpec: "<ResourceSpec>",
@@ -222,6 +223,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       BuiltInLifecycleConfigArn: "STRING_VALUE",
  * //     },
  * //     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  * //       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings
@@ -348,6 +350,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       BuiltInLifecycleConfigArn: "STRING_VALUE",
  * //     },
  * //     SpaceStorageSettings: {
  * //       DefaultEbsStorageSettings: {

@@ -2314,6 +2314,13 @@ export interface JupyterLabAppSettings {
    * @public
    */
   EmrSettings?: EmrSettings;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default
+   *       lifecycle configuration.</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string;
 }
 
 /**
