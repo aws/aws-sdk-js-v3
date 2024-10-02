@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.663.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.662.0...v3.663.0) (2024-10-02)
+
+
+### Features
+
+* **client-appstream:** Added support for Automatic Time Zone Redirection on Amazon AppStream 2.0 ([cf6979c](https://github.com/aws/aws-sdk-js-v3/commit/cf6979c33295e9329d04a299a60cdbbb554aa832))
+* **client-b2bi:** Added and updated APIs to support outbound EDI transformations ([5dd5cd2](https://github.com/aws/aws-sdk-js-v3/commit/5dd5cd263703fae28a058afc08f06621a73bdb45))
+* **client-bedrock-agent-runtime:** Added raw model response and usage metrics to PreProcessing and PostProcessing Trace ([9326e19](https://github.com/aws/aws-sdk-js-v3/commit/9326e191f663282d9a16886b9be772b618c58a22))
+* **client-bedrock-runtime:** Added new fields to Amazon Bedrock Guardrails trace ([cea0513](https://github.com/aws/aws-sdk-js-v3/commit/cea05130b996fd0e9b37e3059ef7f16da1e664e1))
+* **client-iotdeviceadvisor:** Add clientToken attribute and implement idempotency for CreateSuiteDefinition. ([3b3ce33](https://github.com/aws/aws-sdk-js-v3/commit/3b3ce33505dc93d16425a9bed0db8e3a8d68cdb6))
+* **client-ivs-realtime:** Adds new Stage Health EventErrorCodes applicable to RTMP(S) broadcasts. Bug Fix: Enforces that EncoderConfiguration Video height and width must be even-number values. ([5d52b43](https://github.com/aws/aws-sdk-js-v3/commit/5d52b43a4cfeec8234d1f7ce1ee528c834a155bc))
+* **client-s3:** This release introduces a header representing the minimum object size limit for Lifecycle transitions. ([a692f70](https://github.com/aws/aws-sdk-js-v3/commit/a692f70c6a26d5fe9377fde433b321d19f311598))
+* **client-sagemaker:** releasing builtinlcc to public ([5951f8e](https://github.com/aws/aws-sdk-js-v3/commit/5951f8e6ae98786129009f81f837e89371b6661e))
+* **clients:** update client endpoints as of 2024-10-02 ([9a58ded](https://github.com/aws/aws-sdk-js-v3/commit/9a58dedd74050907416ddd76e0fd6d10e0ba697f))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 

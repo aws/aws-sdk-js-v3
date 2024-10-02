@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.663.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.662.0...v3.663.0) (2024-10-02)
+
+
+### Features
+
+* **client-s3:** This release introduces a header representing the minimum object size limit for Lifecycle transitions. ([a692f70](https://github.com/aws/aws-sdk-js-v3/commit/a692f70c6a26d5fe9377fde433b321d19f311598))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 

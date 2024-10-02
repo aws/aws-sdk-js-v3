@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.663.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.662.0...v3.663.0) (2024-10-02)
+
+
+### Features
+
+* **client-b2bi:** Added and updated APIs to support outbound EDI transformations ([5dd5cd2](https://github.com/aws/aws-sdk-js-v3/commit/5dd5cd263703fae28a058afc08f06621a73bdb45))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 

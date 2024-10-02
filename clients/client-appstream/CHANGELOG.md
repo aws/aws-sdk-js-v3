@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.663.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.662.0...v3.663.0) (2024-10-02)
+
+
+### Features
+
+* **client-appstream:** Added support for Automatic Time Zone Redirection on Amazon AppStream 2.0 ([cf6979c](https://github.com/aws/aws-sdk-js-v3/commit/cf6979c33295e9329d04a299a60cdbbb554aa832))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 
