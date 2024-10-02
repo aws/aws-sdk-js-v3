@@ -20,10 +20,7 @@ export interface PreviouslyResolved {
  *
  * Collect metrics from runtime to put into user agent.
  */
-export const createDefaultUserAgentProvider = ({
-  serviceId,
-  clientVersion,
-}: DefaultUserAgentOptions): ((config: PreviouslyResolved) => Promise<UserAgent>) => {
+export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: DefaultUserAgentOptions) => {
   return async (config?: PreviouslyResolved) => {
     const sections: UserAgent = [
       // sdk-metadata
