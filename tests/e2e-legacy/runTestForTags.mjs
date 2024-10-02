@@ -21,7 +21,6 @@ export const runTestForTags = (tagsToTest) => {
   cucumber.stdout.pipe(process.stdout);
   cucumber.stderr.pipe(process.stderr);
   cucumber.on("close", (code) => {
-    if (code === 0) process.exit();
-    else process.exit(code);
+    process.exit(code);
   });
 };
