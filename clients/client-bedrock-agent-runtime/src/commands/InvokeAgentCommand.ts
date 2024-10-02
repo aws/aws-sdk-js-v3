@@ -393,6 +393,15 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //               rationale: "STRING_VALUE",
  * //               isValid: true || false,
  * //             },
+ * //             rawResponse: { // RawResponse
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: { // Metadata
+ * //               usage: { // Usage
+ * //                 inputTokens: Number("int"),
+ * //                 outputTokens: Number("int"),
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //         orchestrationTrace: { // OrchestrationTrace Union: only one key present
@@ -511,11 +520,11 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //           },
  * //           modelInvocationOutput: { // OrchestrationModelInvocationOutput
  * //             traceId: "STRING_VALUE",
- * //             rawResponse: { // RawResponse
+ * //             rawResponse: {
  * //               content: "STRING_VALUE",
  * //             },
- * //             metadata: { // Metadata
- * //               usage: { // Usage
+ * //             metadata: {
+ * //               usage: {
  * //                 inputTokens: Number("int"),
  * //                 outputTokens: Number("int"),
  * //               },
@@ -544,6 +553,15 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             traceId: "STRING_VALUE",
  * //             parsedResponse: { // PostProcessingParsedResponse
  * //               text: "STRING_VALUE",
+ * //             },
+ * //             rawResponse: {
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: {
+ * //               usage: {
+ * //                 inputTokens: Number("int"),
+ * //                 outputTokens: Number("int"),
+ * //               },
  * //             },
  * //           },
  * //         },

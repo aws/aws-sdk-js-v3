@@ -2953,6 +2953,18 @@ export interface PostProcessingModelInvocationOutput {
    * @public
    */
   parsedResponse?: PostProcessingParsedResponse;
+
+  /**
+   * <p>Contains the raw output from the foundation model.</p>
+   * @public
+   */
+  rawResponse?: RawResponse;
+
+  /**
+   * <p>Provides details of the foundation model.</p>
+   * @public
+   */
+  metadata?: Metadata;
 }
 
 /**
@@ -3055,6 +3067,18 @@ export interface PreProcessingModelInvocationOutput {
    * @public
    */
   parsedResponse?: PreProcessingParsedResponse;
+
+  /**
+   * <p>Contains the raw output from the foundation model.</p>
+   * @public
+   */
+  rawResponse?: RawResponse;
+
+  /**
+   * <p>Provides details of the foundation model.</p>
+   * @public
+   */
+  metadata?: Metadata;
 }
 
 /**
@@ -4062,24 +4086,24 @@ export interface ExternalSource {
 }
 
 /**
- * <p>The configurations of the external source wrapper object in the retrieveAndGenerate function.</p>
+ * <p>The configurations of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
  * @public
  */
 export interface ExternalSourcesRetrieveAndGenerateConfiguration {
   /**
-   * <p>The modelArn used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * <p>The model Amazon Resource Name (ARN) for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>The document used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
   sources: ExternalSource[] | undefined;
 
   /**
-   * <p>The prompt used with the external source wrapper object with the retrieveAndGenerate function.</p>
+   * <p>The prompt used with the external source wrapper object with the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
   generationConfiguration?: ExternalSourcesGenerationConfiguration;
@@ -4912,19 +4936,20 @@ export interface RetrieveRequest {
  */
 export interface RetrieveAndGenerateConfiguration {
   /**
-   * <p>The type of resource that is queried by the request.</p>
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p>
+   *          <p>If you choose ot use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
    * @public
    */
   type: RetrieveAndGenerateType | undefined;
 
   /**
-   * <p>Contains details about the resource being queried.</p>
+   * <p>Contains details about the knowledge base for retrieving information and generating responses.</p>
    * @public
    */
   knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration;
 
   /**
-   * <p>The configuration used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
   externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration;
@@ -5546,6 +5571,8 @@ export const PostProcessingModelInvocationOutputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.parsedResponse && { parsedResponse: SENSITIVE_STRING }),
+  ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -5571,6 +5598,8 @@ export const PreProcessingParsedResponseFilterSensitiveLog = (obj: PreProcessing
 export const PreProcessingModelInvocationOutputFilterSensitiveLog = (obj: PreProcessingModelInvocationOutput): any => ({
   ...obj,
   ...(obj.parsedResponse && { parsedResponse: SENSITIVE_STRING }),
+  ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
