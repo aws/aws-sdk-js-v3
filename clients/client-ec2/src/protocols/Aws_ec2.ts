@@ -1740,6 +1740,10 @@ import {
   ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "../commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  ModifyInstanceCpuOptionsCommandInput,
+  ModifyInstanceCpuOptionsCommandOutput,
+} from "../commands/ModifyInstanceCpuOptionsCommand";
+import {
   ModifyInstanceCreditSpecificationCommandInput,
   ModifyInstanceCreditSpecificationCommandOutput,
 } from "../commands/ModifyInstanceCreditSpecificationCommand";
@@ -3818,6 +3822,8 @@ import {
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
+  ModifyInstanceCpuOptionsRequest,
+  ModifyInstanceCpuOptionsResult,
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
@@ -3911,9 +3917,7 @@ import {
   ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
-  ModifyVpnConnectionOptionsRequest,
   ModifyVpnConnectionRequest,
-  ModifyVpnConnectionResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3967,7 +3971,9 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpnConnectionOptionsRequest,
   ModifyVpnConnectionOptionsResult,
+  ModifyVpnConnectionResult,
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelOptionsRequest,
@@ -12723,6 +12729,23 @@ export const se_ModifyInstanceCapacityReservationAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyInstanceCapacityReservationAttributesRequest(input, context),
     [_A]: _MICRA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceCpuOptionsCommand
+ */
+export const se_ModifyInstanceCpuOptionsCommand = async (
+  input: ModifyInstanceCpuOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyInstanceCpuOptionsRequest(input, context),
+    [_A]: _MICO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -24782,6 +24805,26 @@ export const de_ModifyInstanceCapacityReservationAttributesCommand = async (
   let contents: any = {};
   contents = de_ModifyInstanceCapacityReservationAttributesResult(data, context);
   const response: ModifyInstanceCapacityReservationAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyInstanceCpuOptionsCommand
+ */
+export const de_ModifyInstanceCpuOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceCpuOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceCpuOptionsResult(data, context);
+  const response: ModifyInstanceCpuOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -45946,6 +45989,26 @@ const se_ModifyInstanceCapacityReservationAttributesRequest = (
       const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceCpuOptionsRequest
+ */
+const se_ModifyInstanceCpuOptionsRequest = (input: ModifyInstanceCpuOptionsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_CC] != null) {
+    entries[_CC] = input[_CC];
+  }
+  if (input[_TPC] != null) {
+    entries[_TPC] = input[_TPC];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -72159,6 +72222,23 @@ const de_ModifyInstanceCapacityReservationAttributesResult = (
 };
 
 /**
+ * deserializeAws_ec2ModifyInstanceCpuOptionsResult
+ */
+const de_ModifyInstanceCpuOptionsResult = (output: any, context: __SerdeContext): ModifyInstanceCpuOptionsResult => {
+  const contents: any = {};
+  if (output[_iI] != null) {
+    contents[_IIn] = __expectString(output[_iI]);
+  }
+  if (output[_cCo] != null) {
+    contents[_CC] = __strictParseInt32(output[_cCo]) as number;
+  }
+  if (output[_tPC] != null) {
+    contents[_TPC] = __strictParseInt32(output[_tPC]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ModifyInstanceCreditSpecificationResult
  */
 const de_ModifyInstanceCreditSpecificationResult = (
@@ -84094,6 +84174,7 @@ const _MI = "ModifyIpam";
 const _MIA = "ModifyImageAttribute";
 const _MIAo = "ModifyInstanceAttribute";
 const _MIC = "MaxInstanceCount";
+const _MICO = "ModifyInstanceCpuOptions";
 const _MICRA = "ModifyInstanceCapacityReservationAttributes";
 const _MICS = "ModifyInstanceCreditSpecification";
 const _MIEST = "ModifyInstanceEventStartTime";

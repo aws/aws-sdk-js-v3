@@ -4241,7 +4241,7 @@ export interface CreateFleetInstance {
   InstanceType?: _InstanceType;
 
   /**
-   * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
+   * <p>The value is <code>windows</code> for Windows instances in an EC2 Fleet. Otherwise, the value is
    *          blank.</p>
    * @public
    */

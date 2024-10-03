@@ -94,8 +94,6 @@ import {
   VerifiedAccessEndpointProtocol,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  VpnConnection,
-  VpnConnectionFilterSensitiveLog,
   VpnEcmpSupportValue,
 } from "./models_2";
 
@@ -152,9 +150,9 @@ import {
  */
 export interface GetInstanceMetadataDefaultsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -394,9 +392,9 @@ export interface GetInstanceUefiDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -1866,9 +1864,9 @@ export interface GetPasswordDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -5085,9 +5083,9 @@ export interface ModifyClientVpnEndpointResult {
  */
 export interface ModifyDefaultCreditSpecificationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -5719,9 +5717,9 @@ export interface ModifyInstanceAttributeRequest {
   DisableApiTermination?: AttributeBooleanValue;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -5896,6 +5894,62 @@ export interface ModifyInstanceCapacityReservationAttributesResult {
 }
 
 /**
+ * @public
+ */
+export interface ModifyInstanceCpuOptionsRequest {
+  /**
+   * <p>The ID of the instance to update.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The number of CPU cores to activate for the specified instance.</p>
+   * @public
+   */
+  CoreCount: number | undefined;
+
+  /**
+   * <p>The number of threads to run for each CPU core.</p>
+   * @public
+   */
+  ThreadsPerCore: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCpuOptionsResult {
+  /**
+   * <p>The ID of the instance that was updated.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The number of CPU cores that are running for the specified instance after the
+   * 			update.</p>
+   * @public
+   */
+  CoreCount?: number;
+
+  /**
+   * <p>The number of threads that are running per CPU core for the specified
+   * 			instance after the update.</p>
+   * @public
+   */
+  ThreadsPerCore?: number;
+}
+
+/**
  * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
  * @public
  */
@@ -5922,9 +5976,9 @@ export interface InstanceCreditSpecificationRequest {
  */
 export interface ModifyInstanceCreditSpecificationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -6037,9 +6091,9 @@ export interface ModifyInstanceCreditSpecificationResult {
  */
 export interface ModifyInstanceEventStartTimeRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -6291,9 +6345,9 @@ export interface ModifyInstanceMetadataDefaultsRequest {
   InstanceMetadataTags?: DefaultInstanceMetadataTagsState;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -7895,11 +7949,10 @@ export interface ModifyTransitGatewayOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -8061,11 +8114,10 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -9420,66 +9472,6 @@ export interface ModifyVpnConnectionRequest {
 }
 
 /**
- * @public
- */
-export interface ModifyVpnConnectionResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionOptionsRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv6NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv6NetworkCidr?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
  * @internal
  */
 export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
@@ -9665,12 +9657,4 @@ export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
 });

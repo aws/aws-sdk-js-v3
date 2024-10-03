@@ -2469,6 +2469,11 @@ import {
   ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  ModifyInstanceCpuOptionsCommand,
+  ModifyInstanceCpuOptionsCommandInput,
+  ModifyInstanceCpuOptionsCommandOutput,
+} from "./commands/ModifyInstanceCpuOptionsCommand";
+import {
   ModifyInstanceCreditSpecificationCommand,
   ModifyInstanceCreditSpecificationCommandInput,
   ModifyInstanceCreditSpecificationCommandOutput,
@@ -3578,6 +3583,7 @@ const commands = {
   ModifyImageAttributeCommand,
   ModifyInstanceAttributeCommand,
   ModifyInstanceCapacityReservationAttributesCommand,
+  ModifyInstanceCpuOptionsCommand,
   ModifyInstanceCreditSpecificationCommand,
   ModifyInstanceEventStartTimeCommand,
   ModifyInstanceEventWindowCommand,
@@ -12180,6 +12186,23 @@ export interface EC2 {
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyInstanceCpuOptionsCommand}
+   */
+  modifyInstanceCpuOptions(
+    args: ModifyInstanceCpuOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceCpuOptionsCommandOutput>;
+  modifyInstanceCpuOptions(
+    args: ModifyInstanceCpuOptionsCommandInput,
+    cb: (err: any, data?: ModifyInstanceCpuOptionsCommandOutput) => void
+  ): void;
+  modifyInstanceCpuOptions(
+    args: ModifyInstanceCpuOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceCpuOptionsCommandOutput) => void
   ): void;
 
   /**

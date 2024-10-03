@@ -4256,6 +4256,14 @@ ModifyInstanceCapacityReservationAttributes
 </details>
 <details>
 <summary>
+ModifyInstanceCpuOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceCpuOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceCpuOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceCpuOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyInstanceCreditSpecification
 </summary>
 

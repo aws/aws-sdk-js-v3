@@ -544,9 +544,9 @@ export interface DeleteNetworkInterfacePermissionResult {
  */
 export interface DeletePlacementGroupRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -6480,7 +6480,7 @@ export interface DescribeFleetsInstances {
   InstanceType?: _InstanceType;
 
   /**
-   * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
+   * <p>The value is <code>windows</code> for Windows instances in an EC2 Fleet. Otherwise, the value is
    *          blank.</p>
    * @public
    */

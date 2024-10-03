@@ -901,9 +901,9 @@ export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof Placemen
  */
 export interface CreatePlacementGroupRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -2294,8 +2294,8 @@ export interface CreateSnapshotsResult {
 export interface CreateSpotDatafeedSubscriptionRequest {
   /**
    * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
-   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket
-   *                 naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>
+   *             in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Bucket: string | undefined;
@@ -3489,11 +3489,10 @@ export interface TransitGatewayRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -3603,9 +3602,10 @@ export interface TransitGatewayOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.</p>
-   *          <p>This option is enabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -4952,14 +4952,13 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    *          <p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
    *          attachment will inherit the security group referencing support setting on the transit
    *          gateway.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing </a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
