@@ -13,6 +13,7 @@ import {
   UserAgentPair,
 } from "@smithy/types";
 
+import { checkFeatures } from "./check-features";
 import { UserAgentResolvedConfig } from "./configurations";
 import {
   SPACE,
@@ -51,12 +52,15 @@ export const userAgentMiddleware =
     const { headers } = request;
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
     const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+
+    await checkFeatures(context, options as any, args);
     const awsContext = context as AwsHandlerExecutionContext;
     defaultUserAgent.push(
       `m/${encodeFeatures(
         Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features)
       )}`
     );
+
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
     const appId = await options.userAgentAppId();
     if (appId) {
