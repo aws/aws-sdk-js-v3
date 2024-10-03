@@ -34213,6 +34213,11 @@
           "endpoints": {
             "us-isob-east-1": {}
           }
+        },
+        "xray": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
         }
       }
     },
