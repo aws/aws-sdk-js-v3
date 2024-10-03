@@ -105,12 +105,22 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *         ],
  *       },
  *     ],
+ *     Folders: [ // AssetBundleExportJobFolderOverridePropertiesList
+ *       { // AssetBundleExportJobFolderOverrideProperties
+ *         Arn: "STRING_VALUE", // required
+ *         Properties: [ // AssetBundleExportJobFolderPropertyToOverrideList // required
+ *           "Name" || "ParentFolderArn",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   IncludePermissions: true || false,
  *   IncludeTags: true || false,
  *   ValidationStrategy: { // AssetBundleExportJobValidationStrategy
  *     StrictModeForAllResources: true || false,
  *   },
+ *   IncludeFolderMemberships: true || false,
+ *   IncludeFolderMembers: "RECURSE" || "ONE_LEVEL" || "NONE",
  * };
  * const command = new StartAssetBundleExportJobCommand(input);
  * const response = await client.send(command);

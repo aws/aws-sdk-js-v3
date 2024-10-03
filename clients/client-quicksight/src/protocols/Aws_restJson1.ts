@@ -1028,6 +1028,8 @@ import {
   AssetBundleExportJobDataSetPropertyToOverride,
   AssetBundleExportJobDataSourceOverrideProperties,
   AssetBundleExportJobDataSourcePropertyToOverride,
+  AssetBundleExportJobFolderOverrideProperties,
+  AssetBundleExportJobFolderPropertyToOverride,
   AssetBundleExportJobRefreshScheduleOverrideProperties,
   AssetBundleExportJobRefreshSchedulePropertyToOverride,
   AssetBundleExportJobResourceIdOverrideConfiguration,
@@ -1051,6 +1053,9 @@ import {
   AssetBundleImportJobDataSourceOverrideParameters,
   AssetBundleImportJobDataSourceOverridePermissions,
   AssetBundleImportJobDataSourceOverrideTags,
+  AssetBundleImportJobFolderOverrideParameters,
+  AssetBundleImportJobFolderOverridePermissions,
+  AssetBundleImportJobFolderOverrideTags,
   AssetBundleImportJobOverrideParameters,
   AssetBundleImportJobOverridePermissions,
   AssetBundleImportJobOverrideTags,
@@ -1093,7 +1098,6 @@ import {
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
-  CredentialPair,
   CustomSql,
   DashboardPublishOptions,
   DashboardSourceEntity,
@@ -1162,8 +1166,6 @@ import {
   ResourcePermission,
   ResourceUnavailableException,
   RowLevelPermissionDataSet,
-  RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagRule,
   S3BucketConfiguration,
   S3Parameters,
   S3Source,
@@ -1226,6 +1228,7 @@ import {
   WordCloudVisual,
 } from "../models/models_2";
 import {
+  CredentialPair,
   CustomerManagedKeyUnavailableException,
   Dashboard,
   DashboardSearchFilter,
@@ -1261,6 +1264,8 @@ import {
   RefreshFrequency,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
+  RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagRule,
   ScheduleRefreshOnEntity,
   SemanticEntityType,
   SemanticType,
@@ -1283,6 +1288,7 @@ import {
   TopicCategoryFilter,
   TopicCategoryFilterConstant,
   TopicColumn,
+  TopicConfigOptions,
   TopicDateRangeFilter,
   TopicDetails,
   TopicFilter,
@@ -4264,6 +4270,8 @@ export const se_StartAssetBundleExportJobCommand = async (
       CloudFormationOverridePropertyConfiguration: (_) => _json(_),
       ExportFormat: [],
       IncludeAllDependencies: [],
+      IncludeFolderMembers: [],
+      IncludeFolderMemberships: [],
       IncludePermissions: [],
       IncludeTags: [],
       ResourceArns: (_) => _json(_),
@@ -6772,6 +6780,8 @@ export const de_DescribeAssetBundleExportJobCommand = async (
     Errors: _json,
     ExportFormat: __expectString,
     IncludeAllDependencies: __expectBoolean,
+    IncludeFolderMembers: __expectString,
+    IncludeFolderMemberships: __expectBoolean,
     IncludePermissions: __expectBoolean,
     IncludeTags: __expectBoolean,
     JobStatus: __expectString,
@@ -10637,6 +10647,12 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 
 // se_AssetBundleExportJobDataSourcePropertyToOverrideList omitted.
 
+// se_AssetBundleExportJobFolderOverrideProperties omitted.
+
+// se_AssetBundleExportJobFolderOverridePropertiesList omitted.
+
+// se_AssetBundleExportJobFolderPropertyToOverrideList omitted.
+
 // se_AssetBundleExportJobRefreshScheduleOverrideProperties omitted.
 
 // se_AssetBundleExportJobRefreshScheduleOverridePropertiesList omitted.
@@ -10711,6 +10727,18 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 
 // se_AssetBundleImportJobDataSourceOverrideTagsList omitted.
 
+// se_AssetBundleImportJobFolderOverrideParameters omitted.
+
+// se_AssetBundleImportJobFolderOverrideParametersList omitted.
+
+// se_AssetBundleImportJobFolderOverridePermissions omitted.
+
+// se_AssetBundleImportJobFolderOverridePermissionsList omitted.
+
+// se_AssetBundleImportJobFolderOverrideTags omitted.
+
+// se_AssetBundleImportJobFolderOverrideTagsList omitted.
+
 /**
  * serializeAws_restJson1AssetBundleImportJobOverrideParameters
  */
@@ -10723,6 +10751,7 @@ const se_AssetBundleImportJobOverrideParameters = (
     Dashboards: _json,
     DataSets: _json,
     DataSources: _json,
+    Folders: _json,
     RefreshSchedules: (_) => se_AssetBundleImportJobRefreshScheduleOverrideParametersList(_, context),
     ResourceIdOverrideConfiguration: _json,
     Themes: _json,
@@ -15114,6 +15143,8 @@ const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, contex
 
 // se_TopicColumns omitted.
 
+// se_TopicConfigOptions omitted.
+
 // se_TopicConstantValue omitted.
 
 // se_TopicDateRangeFilter omitted.
@@ -15838,6 +15869,12 @@ const de_ArcConfiguration = (output: any, context: __SerdeContext): ArcConfigura
 
 // de_AssetBundleExportJobErrorList omitted.
 
+// de_AssetBundleExportJobFolderOverrideProperties omitted.
+
+// de_AssetBundleExportJobFolderOverridePropertiesList omitted.
+
+// de_AssetBundleExportJobFolderPropertyToOverrideList omitted.
+
 // de_AssetBundleExportJobRefreshScheduleOverrideProperties omitted.
 
 // de_AssetBundleExportJobRefreshScheduleOverridePropertiesList omitted.
@@ -15948,6 +15985,18 @@ const de_AssetBundleExportJobSummaryList = (output: any, context: __SerdeContext
 
 // de_AssetBundleImportJobErrorList omitted.
 
+// de_AssetBundleImportJobFolderOverrideParameters omitted.
+
+// de_AssetBundleImportJobFolderOverrideParametersList omitted.
+
+// de_AssetBundleImportJobFolderOverridePermissions omitted.
+
+// de_AssetBundleImportJobFolderOverridePermissionsList omitted.
+
+// de_AssetBundleImportJobFolderOverrideTags omitted.
+
+// de_AssetBundleImportJobFolderOverrideTagsList omitted.
+
 /**
  * deserializeAws_restJson1AssetBundleImportJobOverrideParameters
  */
@@ -15960,6 +16009,7 @@ const de_AssetBundleImportJobOverrideParameters = (
     Dashboards: _json,
     DataSets: _json,
     DataSources: _json,
+    Folders: _json,
     RefreshSchedules: (_: any) => de_AssetBundleImportJobRefreshScheduleOverrideParametersList(_, context),
     ResourceIdOverrideConfiguration: _json,
     Themes: _json,
@@ -20893,6 +20943,8 @@ const de_TopBottomRankedComputation = (output: any, context: __SerdeContext): To
 // de_TopicColumn omitted.
 
 // de_TopicColumns omitted.
+
+// de_TopicConfigOptions omitted.
 
 // de_TopicConstantValue omitted.
 

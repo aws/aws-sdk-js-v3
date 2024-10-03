@@ -9,7 +9,7 @@ import {
   CreateDataSetRequest,
   CreateDataSetRequestFilterSensitiveLog,
   CreateDataSetResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

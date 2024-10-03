@@ -295,6 +295,9 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //         ],
  * //       },
  * //     ],
+ * //     ConfigOptions: { // TopicConfigOptions
+ * //       QBusinessInsightsEnabled: true || false,
+ * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

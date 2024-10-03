@@ -276,6 +276,13 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //         Name: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverrideParametersList
+ * //       { // AssetBundleImportJobFolderOverrideParameters
+ * //         FolderId: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE",
+ * //         ParentFolderArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * //   FailureAction: "DO_NOTHING" || "ROLLBACK",
  * //   RequestId: "STRING_VALUE",
@@ -359,6 +366,12 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //         },
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverridePermissionsList
+ * //       { // AssetBundleImportJobFolderOverridePermissions
+ * //         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Permissions: "<AssetBundleResourcePermissions>",
+ * //       },
+ * //     ],
  * //   },
  * //   OverrideTags: { // AssetBundleImportJobOverrideTags
  * //     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
@@ -419,6 +432,12 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //     Dashboards: [ // AssetBundleImportJobDashboardOverrideTagsList
  * //       { // AssetBundleImportJobDashboardOverrideTags
  * //         DashboardIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Tags: "<TagList>", // required
+ * //       },
+ * //     ],
+ * //     Folders: [ // AssetBundleImportJobFolderOverrideTagsList
+ * //       { // AssetBundleImportJobFolderOverrideTags
+ * //         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
  * //         Tags: "<TagList>", // required
  * //       },
  * //     ],

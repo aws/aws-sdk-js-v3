@@ -285,6 +285,9 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *         ],
  *       },
  *     ],
+ *     ConfigOptions: { // TopicConfigOptions
+ *       QBusinessInsightsEnabled: true || false,
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag

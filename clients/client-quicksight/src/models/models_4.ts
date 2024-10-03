@@ -44,8 +44,6 @@ import {
   PhysicalTable,
   ResourcePermission,
   RowLevelPermissionDataSet,
-  RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   ServiceType,
   SharedViewConfigurations,
   SslProperties,
@@ -72,13 +70,15 @@ import {
   FolderType,
   Group,
   GroupMember,
-  IdentityType,
+  IncludeFolderMembers,
   Ingestion,
   NamespaceInfoV2,
   PersonalizationMode,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   Role,
+  RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SharingModel,
   SnapshotConfiguration,
   TemplateAlias,
@@ -95,6 +95,175 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicRefreshStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicRefreshStatus = (typeof TopicRefreshStatus)[keyof typeof TopicRefreshStatus];
+
+/**
+ * <p>The details about the refresh of a topic.</p>
+ * @public
+ */
+export interface TopicRefreshDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
+   * @public
+   */
+  RefreshArn?: string;
+
+  /**
+   * <p>The ID of the refresh, which occurs as a result of topic creation or topic update.</p>
+   * @public
+   */
+  RefreshId?: string;
+
+  /**
+   * <p>The status of the refresh job that indicates whether the job is still running, completed successfully, or failed.</p>
+   * @public
+   */
+  RefreshStatus?: TopicRefreshStatus;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshResponse {
+  /**
+   * <p>Details of the refresh, which is performed when the topic is created or updated.</p>
+   * @public
+   */
+  RefreshDetails?: TopicRefreshDetails;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
+   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
+   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>The definition of a refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule?: TopicRefreshSchedule;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserRequest {
+  /**
+   * <p>The name of the user that you want to describe.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdentityType = {
+  IAM: "IAM",
+  IAM_IDENTITY_CENTER: "IAM_IDENTITY_CENTER",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 /**
  * @public
@@ -4336,6 +4505,18 @@ export interface StartAssetBundleExportJobRequest {
    * @public
    */
   ValidationStrategy?: AssetBundleExportJobValidationStrategy;
+
+  /**
+   * <p>A Boolean that determines if the exported asset carries over information about the folders that the asset is a member of. </p>
+   * @public
+   */
+  IncludeFolderMemberships?: boolean;
+
+  /**
+   * <p>A setting that indicates whether you want to include folder assets. You can also use this setting to recusrsively include all subfolders of an exported folder.</p>
+   * @public
+   */
+  IncludeFolderMembers?: IncludeFolderMembers;
 }
 
 /**

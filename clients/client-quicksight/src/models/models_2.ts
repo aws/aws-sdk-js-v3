@@ -1730,6 +1730,39 @@ export interface AssetBundleExportJobDataSourceOverrideProperties {
  * @public
  * @enum
  */
+export const AssetBundleExportJobFolderPropertyToOverride = {
+  NAME: "Name",
+  PARENT_FOLDER_ARN: "ParentFolderArn",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobFolderPropertyToOverride =
+  (typeof AssetBundleExportJobFolderPropertyToOverride)[keyof typeof AssetBundleExportJobFolderPropertyToOverride];
+
+/**
+ * <p>Controls how a specific <code>Folder</code> resource is parameterized in the returned CloudFormation template.</p>
+ * @public
+ */
+export interface AssetBundleExportJobFolderOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Folder</code> resource whose override properties are configured in this structure.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>A list of <code>Folder</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * @public
+   */
+  Properties: AssetBundleExportJobFolderPropertyToOverride[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AssetBundleExportJobRefreshSchedulePropertyToOverride = {
   START_AFTER_DATE_TIME: "StartAfterDateTime",
 } as const;
@@ -1888,6 +1921,12 @@ export interface AssetBundleCloudFormationOverridePropertyConfiguration {
    * @public
    */
   Dashboards?: AssetBundleExportJobDashboardOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that controls how <code>Folder</code> resources are parameterized in the returned CloudFormation template.</p>
+   * @public
+   */
+  Folders?: AssetBundleExportJobFolderOverrideProperties[];
 }
 
 /**
@@ -4050,6 +4089,66 @@ export interface AssetBundleImportJobError {
 }
 
 /**
+ * <p>The override parameters for a single folder that is being imported.</p>
+ * @public
+ */
+export interface AssetBundleImportJobFolderOverrideParameters {
+  /**
+   * <p>The ID of the folder that you want to apply overrides to.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>A new name for the folder.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.</p>
+   * @public
+   */
+  ParentFolderArn?: string;
+}
+
+/**
+ * <p>An object that contains a list of permissions to be applied to a list of folder IDs.</p>
+ * @public
+ */
+export interface AssetBundleImportJobFolderOverridePermissions {
+  /**
+   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to override all folders in this asset bundle.</p>
+   * @public
+   */
+  FolderIds: string[] | undefined;
+
+  /**
+   * <p>A structure that contains the permissions for the resource that you want to override in an asset bundle import job.</p>
+   * @public
+   */
+  Permissions?: AssetBundleResourcePermissions;
+}
+
+/**
+ * <p>An object that contains a list of tags to be assigned to a list of folder IDs.</p>
+ * @public
+ */
+export interface AssetBundleImportJobFolderOverrideTags {
+  /**
+   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to override all folders in this asset bundle.</p>
+   * @public
+   */
+  FolderIds: string[] | undefined;
+
+  /**
+   * <p>A list of tags for the folders that you want to apply overrides to.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
  * <p>A list of overrides for a specific <code>RefreshsSchedule</code> resource that is present in the asset bundle that is imported.</p>
  * @public
  */
@@ -4201,6 +4300,12 @@ export interface AssetBundleImportJobOverrideParameters {
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>Folder</code> resources that are present in the asset bundle that is imported.</p>
+   * @public
+   */
+  Folders?: AssetBundleImportJobFolderOverrideParameters[];
 }
 
 /**
@@ -4255,6 +4360,12 @@ export interface AssetBundleImportJobOverridePermissions {
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverridePermissions[];
+
+  /**
+   * <p>A list of permissions for the folders that you want to apply overrides to.</p>
+   * @public
+   */
+  Folders?: AssetBundleImportJobFolderOverridePermissions[];
 }
 
 /**
@@ -4333,6 +4444,12 @@ export interface AssetBundleImportJobOverrideTags {
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideTags[];
+
+  /**
+   * <p>A list of tag overrides for any <code>Folder</code> resources that are present in the asset bundle that is imported.</p>
+   * @public
+   */
+  Folders?: AssetBundleImportJobFolderOverrideTags[];
 }
 
 /**
@@ -8534,238 +8651,6 @@ export interface RowLevelPermissionDataSet {
 }
 
 /**
- * <p>A set of rules associated with a tag.</p>
- * @public
- */
-export interface RowLevelPermissionTagRule {
-  /**
-   * <p>The unique key for a tag.</p>
-   * @public
-   */
-  TagKey: string | undefined;
-
-  /**
-   * <p>The column name that a tag key is assigned to.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
-   * @public
-   */
-  TagMultiValueDelimiter?: string;
-
-  /**
-   * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
-   * @public
-   */
-  MatchAllValue?: string;
-}
-
-/**
- * <p>The configuration of tags on a dataset to set row-level security. </p>
- * @public
- */
-export interface RowLevelPermissionTagConfiguration {
-  /**
-   * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
-   * @public
-   */
-  Status?: Status;
-
-  /**
-   * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
-   * @public
-   */
-  TagRules: RowLevelPermissionTagRule[] | undefined;
-
-  /**
-   * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
-   * @public
-   */
-  TagRuleConfigurations?: string[][];
-}
-
-/**
- * @public
- */
-export interface CreateDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The display name for the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   * @public
-   */
-  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
-
-  /**
-   * <p>Configures the combination and transformation of the data from the physical tables.</p>
-   * @public
-   */
-  LogicalTableMap?: Record<string, LogicalTable>;
-
-  /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
-   * @public
-   */
-  ImportMode: DataSetImportMode | undefined;
-
-  /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-   * @public
-   */
-  ColumnGroups?: ColumnGroup[];
-
-  /**
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   * @public
-   */
-  FieldFolders?: Record<string, FieldFolder>;
-
-  /**
-   * <p>A list of resource permissions on the dataset.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The row-level security configuration for the data that you want to create.</p>
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
-   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
-   * @public
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
-
-  /**
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   * @public
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   * @public
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration;
-
-  /**
-   * <p>The parameter declarations of the dataset.</p>
-   * @public
-   */
-  DatasetParameters?: DatasetParameter[];
-
-  /**
-   * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
-   * @public
-   */
-  FolderArns?: string[];
-}
-
-/**
- * @public
- */
-export interface CreateDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   * @public
-   */
-  IngestionArn?: string;
-
-  /**
-   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   * @public
-   */
-  IngestionId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * <p>The combination of user name and password that are used as credentials.</p>
- * @public
- */
-export interface CredentialPair {
-  /**
-   * <p>User name.</p>
-   * @public
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>Password.</p>
-   * @public
-   */
-  Password: string | undefined;
-
-  /**
-   * <p>A set of alternate data source parameters that you want to share for these
-   *             credentials. The credentials are applied in tandem with the data source parameters when
-   *             you copy a data source by using a create or update request. The API operation compares
-   *             the <code>DataSourceParameters</code> structure that's in the request with the
-   *             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-   *             structures are an exact match, the request is allowed to use the new data source with
-   *             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
-   *             null, the <code>DataSourceParameters</code> originally used with these
-   *                 <code>Credentials</code> is automatically allowed.</p>
-   * @public
-   */
-  AlternateDataSourceParameters?: DataSourceParameters[];
-}
-
-/**
  * @internal
  */
 export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
@@ -9131,45 +9016,5 @@ export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
   ...obj,
   ...(obj.DataTransforms && {
     DataTransforms: obj.DataTransforms.map((item) => TransformOperationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const RowLevelPermissionTagRuleFilterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
-  ...obj,
-  ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RowLevelPermissionTagConfigurationFilterSensitiveLog = (obj: RowLevelPermissionTagConfiguration): any => ({
-  ...obj,
-  ...(obj.TagRules && { TagRules: obj.TagRules.map((item) => RowLevelPermissionTagRuleFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
   }),
 });

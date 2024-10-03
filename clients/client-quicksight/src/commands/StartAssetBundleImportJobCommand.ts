@@ -249,6 +249,13 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *         Name: "STRING_VALUE",
  *       },
  *     ],
+ *     Folders: [ // AssetBundleImportJobFolderOverrideParametersList
+ *       { // AssetBundleImportJobFolderOverrideParameters
+ *         FolderId: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE",
+ *         ParentFolderArn: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  *   FailureAction: "DO_NOTHING" || "ROLLBACK",
  *   OverridePermissions: { // AssetBundleImportJobOverridePermissions
@@ -330,6 +337,12 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *         },
  *       },
  *     ],
+ *     Folders: [ // AssetBundleImportJobFolderOverridePermissionsList
+ *       { // AssetBundleImportJobFolderOverridePermissions
+ *         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Permissions: "<AssetBundleResourcePermissions>",
+ *       },
+ *     ],
  *   },
  *   OverrideTags: { // AssetBundleImportJobOverrideTags
  *     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
@@ -390,6 +403,12 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *     Dashboards: [ // AssetBundleImportJobDashboardOverrideTagsList
  *       { // AssetBundleImportJobDashboardOverrideTags
  *         DashboardIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: "<TagList>", // required
+ *       },
+ *     ],
+ *     Folders: [ // AssetBundleImportJobFolderOverrideTagsList
+ *       { // AssetBundleImportJobFolderOverrideTags
+ *         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
  *         Tags: "<TagList>", // required
  *       },
  *     ],

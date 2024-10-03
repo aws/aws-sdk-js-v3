@@ -131,6 +131,14 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //         ],
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleExportJobFolderOverridePropertiesList
+ * //       { // AssetBundleExportJobFolderOverrideProperties
+ * //         Arn: "STRING_VALUE", // required
+ * //         Properties: [ // AssetBundleExportJobFolderPropertyToOverrideList // required
+ * //           "Name" || "ParentFolderArn",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
@@ -145,6 +153,8 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //       Message: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   IncludeFolderMemberships: true || false,
+ * //   IncludeFolderMembers: "RECURSE" || "ONE_LEVEL" || "NONE",
  * // };
  *
  * ```

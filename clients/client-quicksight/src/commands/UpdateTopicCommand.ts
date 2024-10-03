@@ -285,6 +285,9 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *         ],
  *       },
  *     ],
+ *     ConfigOptions: { // TopicConfigOptions
+ *       QBusinessInsightsEnabled: true || false,
+ *     },
  *   },
  * };
  * const command = new UpdateTopicCommand(input);
