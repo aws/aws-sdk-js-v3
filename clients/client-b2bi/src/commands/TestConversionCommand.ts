@@ -94,6 +94,37 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
+ * @example Sample TestConversion call
+ * ```javascript
+ * //
+ * const input = {
+ *   "source": {
+ *     "fileFormat": "JSON",
+ *     "inputFile": {
+ *       "fileContent": "Sample file content"
+ *     }
+ *   },
+ *   "target": {
+ *     "fileFormat": "X12",
+ *     "formatDetails": {
+ *       "x12": {
+ *         "version": "VERSION_4010",
+ *         "transactionSet": "X12_110"
+ *       }
+ *     }
+ *   }
+ * };
+ * const command = new TestConversionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "convertedFileContent": "Sample converted file content",
+ *   "validationMessages": []
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class TestConversionCommand extends $Command
   .classBuilder<

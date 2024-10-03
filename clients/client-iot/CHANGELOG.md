@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **client-iot:** This release adds support for Custom Authentication with X.509 Client Certificates, support for Custom Client Certificate validation, and support for selecting application protocol and authentication type without requiring TLS ALPN for customer's AWS IoT Domain Configurations. ([795bda9](https://github.com/aws/aws-sdk-js-v3/commit/795bda907904ce63fab466dc7e91e1b0e7463250))
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 

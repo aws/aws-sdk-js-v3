@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **client-mediapackagev2:** Added support for ClipStartTime on the FilterConfiguration object on OriginEndpoint manifest settings objects. Added support for EXT-X-START tags on produced HLS child playlists. ([efe9775](https://github.com/aws/aws-sdk-js-v3/commit/efe97754cce3bb9a2e6082c74cec19aea692be0d))
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
 # [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
 
 

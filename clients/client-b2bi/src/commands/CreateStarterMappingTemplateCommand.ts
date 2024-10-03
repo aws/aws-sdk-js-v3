@@ -89,6 +89,32 @@ export interface CreateStarterMappingTemplateCommandOutput
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
+ * @example Sample CreateStarterMappingTemplate call
+ * ```javascript
+ * //
+ * const input = {
+ *   "mappingType": "JSONATA",
+ *   "outputSampleLocation": {
+ *     "key": "output-sample-key",
+ *     "bucketName": "output-sample-bucket"
+ *   },
+ *   "templateDetails": {
+ *     "x12": {
+ *       "version": "VERSION_4010",
+ *       "transactionSet": "X12_110"
+ *     }
+ *   }
+ * };
+ * const command = new CreateStarterMappingTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "mappingTemplate": "Example Mapping Template"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateStarterMappingTemplateCommand extends $Command
   .classBuilder<

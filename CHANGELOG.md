@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Bug Fixes
+
+* **scripts:** process commits since origin/main in test:e2e:legacy:preview ([#6539](https://github.com/aws/aws-sdk-js-v3/issues/6539)) ([56b76f4](https://github.com/aws/aws-sdk-js-v3/commit/56b76f47086f0331eab8f06b2053f8da1b972fbf))
+
+
+### Features
+
+* **client-codepipeline:** AWS CodePipeline introduces Commands action that enables you to easily run shell commands as part of your pipeline execution. ([4435e7f](https://github.com/aws/aws-sdk-js-v3/commit/4435e7f829ce5439b8e7bb70dbb46507d4b8c125))
+* **client-connect:** Public GetMetricDataV2 Grouping increase from 3 to 4 ([7f9f812](https://github.com/aws/aws-sdk-js-v3/commit/7f9f812b45b2c59a36697af45bfffbf9360ba225))
+* **client-ec2:** This release includes a new API for modifying instance cpu-options after launch. ([a29a5e4](https://github.com/aws/aws-sdk-js-v3/commit/a29a5e4450c9a1c7ccd90889be2dd1b443b62c61))
+* **client-iot:** This release adds support for Custom Authentication with X.509 Client Certificates, support for Custom Client Certificate validation, and support for selecting application protocol and authentication type without requiring TLS ALPN for customer's AWS IoT Domain Configurations. ([795bda9](https://github.com/aws/aws-sdk-js-v3/commit/795bda907904ce63fab466dc7e91e1b0e7463250))
+* **client-marketplace-reporting:** The AWS Marketplace Reporting service introduces the GetBuyerDashboard API. This API returns a dashboard that provides visibility into your organization's AWS Marketplace agreements and associated spend across the AWS accounts in your organization. ([a7f70be](https://github.com/aws/aws-sdk-js-v3/commit/a7f70bece7288321773220c899a7a7715c2630c1))
+* **client-mediapackagev2:** Added support for ClipStartTime on the FilterConfiguration object on OriginEndpoint manifest settings objects. Added support for EXT-X-START tags on produced HLS child playlists. ([efe9775](https://github.com/aws/aws-sdk-js-v3/commit/efe97754cce3bb9a2e6082c74cec19aea692be0d))
+* **client-quicksight:** QuickSight: Add support for exporting and importing folders in AssetBundle APIs ([9060d22](https://github.com/aws/aws-sdk-js-v3/commit/9060d22e0d1c9521de197794ee71cb5a3fead51c))
+* **clients:** update client endpoints as of 2024-10-03 ([f9df440](https://github.com/aws/aws-sdk-js-v3/commit/f9df44086223ff4fb350605a163266d3e5c8504d))
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+* **scripts:** add test:e2e:legacy:preview ([#6538](https://github.com/aws/aws-sdk-js-v3/issues/6538)) ([9196552](https://github.com/aws/aws-sdk-js-v3/commit/9196552b7b7806cdd004839def241d974a448669))
+
+
+
+
+
 # [3.663.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.662.0...v3.663.0) (2024-10-02)
 
 
