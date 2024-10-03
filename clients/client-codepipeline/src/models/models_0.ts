@@ -409,6 +409,12 @@ export interface OutputArtifact {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The files that you want to associate with the output artifact that will be exported from the compute action.</p>
+   * @public
+   */
+  files?: string[];
 }
 
 /**
@@ -453,6 +459,18 @@ export interface ActionDeclaration {
   configuration?: Record<string, string>;
 
   /**
+   * <p>The shell commands to run with your compute action in CodePipeline. All commands are
+   *             supported except multi-line formats. While CodeBuild logs and permissions are used, you
+   *             do not need to create any resources in CodeBuild.</p>
+   *          <note>
+   *             <p>Using compute time for this action will incur separate charges in
+   *                 CodeBuild.</p>
+   *          </note>
+   * @public
+   */
+  commands?: string[];
+
+  /**
    * <p>The name or ID of the result of the action declaration, such as a test or build
    *             artifact.</p>
    * @public
@@ -465,6 +483,12 @@ export interface ActionDeclaration {
    * @public
    */
   inputArtifacts?: InputArtifact[];
+
+  /**
+   * <p>The list of variables that are to be exported from the compute action. This is specifically CodeBuild environment variables as used for that action.</p>
+   * @public
+   */
+  outputVariables?: string[];
 
   /**
    * <p>The ARN of the IAM service role that performs the declared action. This is assumed

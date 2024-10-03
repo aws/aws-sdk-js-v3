@@ -2514,6 +2514,8 @@ const se_ActionRevision = (input: ActionRevision, context: __SerdeContext): any 
 
 // se_BlockerDeclaration omitted.
 
+// se_CommandList omitted.
+
 // se_Condition omitted.
 
 // se_ConditionList omitted.
@@ -2563,6 +2565,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_FailureConditions omitted.
 
 // se_FailureDetails omitted.
+
+// se_FilePathList omitted.
 
 // se_GetActionTypeInput omitted.
 
@@ -2629,6 +2633,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_OutputArtifact omitted.
 
 // se_OutputArtifactList omitted.
+
+// se_OutputVariableList omitted.
 
 // se_OutputVariablesMap omitted.
 
@@ -2971,6 +2977,8 @@ const de_ArtifactRevisionList = (output: any, context: __SerdeContext): Artifact
 
 // de_BlockerDeclaration omitted.
 
+// de_CommandList omitted.
+
 // de_ConcurrentModificationException omitted.
 
 // de_ConcurrentPipelineExecutionsLimitExceededException omitted.
@@ -3043,6 +3051,8 @@ const de_CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePi
 // de_ExecutorConfiguration omitted.
 
 // de_FailureConditions omitted.
+
+// de_FilePathList omitted.
 
 // de_GetActionTypeOutput omitted.
 
@@ -3230,6 +3240,8 @@ const de_ListWebhooksOutput = (output: any, context: __SerdeContext): ListWebhoo
 // de_OutputArtifact omitted.
 
 // de_OutputArtifactList omitted.
+
+// de_OutputVariableList omitted.
 
 // de_OutputVariablesMap omitted.
 

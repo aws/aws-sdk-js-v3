@@ -85,15 +85,24 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *             configuration: { // ActionConfigurationMap
  *               "<keys>": "STRING_VALUE",
  *             },
+ *             commands: [ // CommandList
+ *               "STRING_VALUE",
+ *             ],
  *             outputArtifacts: [ // OutputArtifactList
  *               { // OutputArtifact
  *                 name: "STRING_VALUE", // required
+ *                 files: [ // FilePathList
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *             ],
  *             inputArtifacts: [ // InputArtifactList
  *               { // InputArtifact
  *                 name: "STRING_VALUE", // required
  *               },
+ *             ],
+ *             outputVariables: [ // OutputVariableList
+ *               "STRING_VALUE",
  *             ],
  *             roleArn: "STRING_VALUE",
  *             region: "STRING_VALUE",
@@ -314,15 +323,24 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //             configuration: { // ActionConfigurationMap
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             commands: [ // CommandList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             outputArtifacts: [ // OutputArtifactList
  * //               { // OutputArtifact
  * //                 name: "STRING_VALUE", // required
+ * //                 files: [ // FilePathList
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             ],
  * //             inputArtifacts: [ // InputArtifactList
  * //               { // InputArtifact
  * //                 name: "STRING_VALUE", // required
  * //               },
+ * //             ],
+ * //             outputVariables: [ // OutputVariableList
+ * //               "STRING_VALUE",
  * //             ],
  * //             roleArn: "STRING_VALUE",
  * //             region: "STRING_VALUE",

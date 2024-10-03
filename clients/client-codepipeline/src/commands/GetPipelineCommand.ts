@@ -87,15 +87,24 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //             configuration: { // ActionConfigurationMap
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             commands: [ // CommandList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             outputArtifacts: [ // OutputArtifactList
  * //               { // OutputArtifact
  * //                 name: "STRING_VALUE", // required
+ * //                 files: [ // FilePathList
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             ],
  * //             inputArtifacts: [ // InputArtifactList
  * //               { // InputArtifact
  * //                 name: "STRING_VALUE", // required
  * //               },
+ * //             ],
+ * //             outputVariables: [ // OutputVariableList
+ * //               "STRING_VALUE",
  * //             ],
  * //             roleArn: "STRING_VALUE",
  * //             region: "STRING_VALUE",
