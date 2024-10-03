@@ -36,7 +36,7 @@ export interface DisassociateSbomFromPackageVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates a software bill of materials (SBOM) from a specific software package version.</p>
+ * <p>Disassociates the selected software bill of materials (SBOM) from a specific software package version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisassociateSbomWithPackageVersion</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

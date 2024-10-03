@@ -28,7 +28,10 @@ export interface CreateThingTypeCommandInput extends CreateThingTypeRequest {}
 export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new thing type.</p>
+ * <p>Creates a new thing type. If this call is made multiple times using
+ * 			the same thing type name and configuration, the call will succeed. If this call is made with
+ * 			the same thing type name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.
+ * 		</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

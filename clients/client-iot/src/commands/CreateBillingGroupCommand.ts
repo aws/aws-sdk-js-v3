@@ -28,7 +28,9 @@ export interface CreateBillingGroupCommandInput extends CreateBillingGroupReques
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a billing group.</p>
+ * <p>Creates a billing group. If this call is made multiple times using
+ * 			the same billing group name and configuration, the call will succeed. If this call is made with
+ * 			the same billing group name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

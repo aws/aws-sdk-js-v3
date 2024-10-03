@@ -2302,6 +2302,22 @@ export interface Allowed {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ApplicationProtocol = {
+  DEFAULT: "DEFAULT",
+  HTTPS: "HTTPS",
+  MQTT_WSS: "MQTT_WSS",
+  SECURE_MQTT: "SECURE_MQTT",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationProtocol = (typeof ApplicationProtocol)[keyof typeof ApplicationProtocol];
+
+/**
  * <p>The S3 location.</p>
  * @public
  */
@@ -2326,7 +2342,7 @@ export interface S3Location {
 }
 
 /**
- * <p>The Amazon S3 location for the software bill of materials associated with a software
+ * <p>A specific software bill of matrerials associated with a software
  *          package version.</p>
  * @public
  */
@@ -2355,7 +2371,7 @@ export interface AssociateSbomWithPackageVersionRequest {
   versionName: string | undefined;
 
   /**
-   * <p>The Amazon S3 location for the software bill of materials associated with a software
+   * <p>A specific software bill of matrerials associated with a software
    *          package version.</p>
    * @public
    */
@@ -2400,14 +2416,14 @@ export interface AssociateSbomWithPackageVersionResponse {
   versionName?: string;
 
   /**
-   * <p>The Amazon S3 location for the software bill of materials associated with a software
+   * <p>A specific software bill of matrerials associated with a software
    *          package version.</p>
    * @public
    */
   sbom?: Sbom;
 
   /**
-   * <p>The status of the initial validation for the SBOM against the Software Package Data Exchange (SPDX) and CycloneDX industry standard format.</p>
+   * <p>The status of the initial validation for the software bill of materials against the Software Package Data Exchange (SPDX) and CycloneDX industry standard formats.</p>
    * @public
    */
   sbomValidationStatus?: SbomValidationStatus;
@@ -3413,6 +3429,23 @@ export const AuthDecision = {
  * @public
  */
 export type AuthDecision = (typeof AuthDecision)[keyof typeof AuthDecision];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  AWS_SIGV4: "AWS_SIGV4",
+  AWS_X509: "AWS_X509",
+  CUSTOM_AUTH: "CUSTOM_AUTH",
+  CUSTOM_AUTH_X509: "CUSTOM_AUTH_X509",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * <p>A collection of authorization information.</p>
@@ -4449,6 +4482,18 @@ export class CertificateValidationException extends __BaseException {
 }
 
 /**
+ * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+ * @public
+ */
+export interface ClientCertificateConfig {
+  /**
+   * <p>The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.</p>
+   * @public
+   */
+  clientCertificateCallbackArn?: string;
+}
+
+/**
  * <p>The server certificate configuration.</p>
  * @public
  */
@@ -4561,6 +4606,82 @@ export interface CreateDomainConfigurationRequest {
    * @public
    */
   serverCertificateConfig?: ServerCertificateConfig;
+
+  /**
+   * <p>An enumerated string that speciﬁes the authentication type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH_X509</code> - Use custom authentication and authorization with additional details from the X.509 client certificate.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH</code> - Use custom authentication and authorization. For more
+   *                information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">Custom authentication and authorization</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_X509</code> - Use X.509 client certificates without custom authentication and authorization. For more information,
+   *                see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">X.509 client certificates</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SIGV4</code> - Use Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">IAM users, groups, and roles</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  authenticationType?: AuthenticationType;
+
+  /**
+   * <p>An enumerated string that speciﬁes the application-layer protocol.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SECURE_MQTT</code> - MQTT over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MQTT_WSS</code> - MQTT over WebSocket.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HTTPS</code> - HTTP over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  applicationProtocol?: ApplicationProtocol;
+
+  /**
+   * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+   * @public
+   */
+  clientCertificateConfig?: ClientCertificateConfig;
 }
 
 /**
@@ -6300,8 +6421,7 @@ export interface CreatePackageResponse {
 }
 
 /**
- * <p>The Amazon S3 location for the artifacts associated with a software package
- *          version.</p>
+ * <p>A specific package version artifact associated with a software package version.</p>
  * @public
  */
 export interface PackageVersionArtifact {
@@ -6350,7 +6470,7 @@ export interface CreatePackageVersionRequest {
 
   /**
    * <p>The inline job document associated with a software package version used for a quick job
-   *          deployment via IoT Jobs.</p>
+   *          deployment.</p>
    * @public
    */
   recipe?: string;
@@ -7707,51 +7827,6 @@ export class DeleteConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DeleteConflictException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface DeleteBillingGroupRequest {
-  /**
-   * <p>The name of the billing group.</p>
-   * @public
-   */
-  billingGroupName: string | undefined;
-
-  /**
-   * <p>The expected version of the billing group. If the version of the billing group does
-   * 			not match the expected version specified in the request, the
-   * 				<code>DeleteBillingGroup</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   * @public
-   */
-  expectedVersion?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteBillingGroupResponse {}
-
-/**
- * <p>The certificate operation is not allowed.</p>
- * @public
- */
-export class CertificateStateException extends __BaseException {
-  readonly name: "CertificateStateException" = "CertificateStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateStateException, __BaseException>) {
-    super({
-      name: "CertificateStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateStateException.prototype);
   }
 }
 

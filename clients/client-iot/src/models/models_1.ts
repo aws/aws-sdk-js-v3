@@ -10,6 +10,7 @@ import {
   AggregationType,
   AlertTarget,
   AlertTargetType,
+  ApplicationProtocol,
   AuditCheckConfiguration,
   AuditCheckDetails,
   AuditFinding,
@@ -25,6 +26,7 @@ import {
   AuditTaskMetadata,
   AuditTaskStatus,
   AuditTaskType,
+  AuthenticationType,
   AuthorizerConfig,
   AuthorizerDescription,
   AuthorizerStatus,
@@ -35,10 +37,10 @@ import {
   Behavior,
   BillingGroupProperties,
   CertificateProviderOperation,
+  ClientCertificateConfig,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
-  DimensionValueOperator,
   FleetMetricUnit,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
@@ -46,7 +48,6 @@ import {
   MaintenanceWindow,
   MetricsExportConfig,
   MetricToRetain,
-  MetricValue,
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
@@ -73,6 +74,51 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   * @public
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>DeleteBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   * @public
+   */
+  expectedVersion?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBillingGroupResponse {}
+
+/**
+ * <p>The certificate operation is not allowed.</p>
+ * @public
+ */
+export class CertificateStateException extends __BaseException {
+  readonly name: "CertificateStateException" = "CertificateStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateStateException, __BaseException>) {
+    super({
+      name: "CertificateStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateStateException.prototype);
+  }
+}
 
 /**
  * <p>Input for the DeleteCACertificate operation.</p>
@@ -2047,6 +2093,82 @@ export interface DescribeDomainConfigurationResponse {
    * @public
    */
   serverCertificateConfig?: ServerCertificateConfig;
+
+  /**
+   * <p>An enumerated string that speciﬁes the authentication type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH_X509</code> - Use custom authentication and authorization with additional details from the X.509 client certificate.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH</code> - Use custom authentication and authorization. For more
+   *                information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">Custom authentication and authorization</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_X509</code> - Use X.509 client certificates without custom authentication and authorization. For more information,
+   *                see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">X.509 client certificates</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SIGV4</code> - Use Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">IAM users, groups, and roles</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  authenticationType?: AuthenticationType;
+
+  /**
+   * <p>An enumerated string that speciﬁes the application-layer protocol.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SECURE_MQTT</code> - MQTT over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MQTT_WSS</code> - MQTT over WebSocket.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HTTPS</code> - HTTP over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  applicationProtocol?: ApplicationProtocol;
+
+  /**
+   * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+   * @public
+   */
+  clientCertificateConfig?: ClientCertificateConfig;
 }
 
 /**
@@ -5124,7 +5246,7 @@ export interface GetPackageVersionResponse {
 
   /**
    * <p>The inline job document associated with a software package version used for a quick job
-   *          deployment via IoT Jobs.</p>
+   *          deployment.</p>
    * @public
    */
   recipe?: string;
@@ -7365,94 +7487,6 @@ export interface ManagedJobTemplateSummary {
    * @public
    */
   templateVersion?: string;
-}
-
-/**
- * @public
- */
-export interface ListManagedJobTemplatesResponse {
-  /**
-   * <p>A list of managed job templates that are returned.</p>
-   * @public
-   */
-  managedJobTemplates?: ManagedJobTemplateSummary[];
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListMetricValuesRequest {
-  /**
-   * <p>The name of the thing for which security profile metric values are returned.</p>
-   * @public
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>The name of the security profile metric for which values are returned.</p>
-   * @public
-   */
-  metricName: string | undefined;
-
-  /**
-   * <p>The dimension name.</p>
-   * @public
-   */
-  dimensionName?: string;
-
-  /**
-   * <p>The dimension value operator.</p>
-   * @public
-   */
-  dimensionValueOperator?: DimensionValueOperator;
-
-  /**
-   * <p>The start of the time period for which metric values are returned.</p>
-   * @public
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end of the time period for which metric values are returned.</p>
-   * @public
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>A metric.</p>
- * @public
- */
-export interface MetricDatum {
-  /**
-   * <p>The time the metric value was reported.</p>
-   * @public
-   */
-  timestamp?: Date;
-
-  /**
-   * <p>The value reported for the metric.</p>
-   * @public
-   */
-  value?: MetricValue;
 }
 
 /**

@@ -779,8 +779,8 @@ import {
   BehaviorCriteria,
   BillingGroupProperties,
   CertificateProviderOperation,
-  CertificateStateException,
   CertificateValidationException,
+  ClientCertificateConfig,
   CloudwatchAlarmAction,
   CloudwatchLogsAction,
   CloudwatchMetricAction,
@@ -898,6 +898,7 @@ import {
   CACertificateDescription,
   Certificate,
   CertificateDescription,
+  CertificateStateException,
   CertificateValidity,
   Configuration,
   DetectMitigationActionExecution,
@@ -914,7 +915,6 @@ import {
   JobExecutionSummaryForThing,
   JobSummary,
   JobTemplateSummary,
-  MetricDatum,
   NotConfiguredException,
   OTAUpdateInfo,
   PercentPair,
@@ -938,6 +938,7 @@ import {
   InvalidResponseException,
   LoggingOptionsPayload,
   LogTarget,
+  MetricDatum,
   MitigationActionIdentifier,
   MqttContext,
   OTAUpdateSummary,
@@ -1509,7 +1510,10 @@ export const se_CreateDomainConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applicationProtocol: [],
+      authenticationType: [],
       authorizerConfig: (_) => _json(_),
+      clientCertificateConfig: (_) => _json(_),
       domainName: [],
       serverCertificateArns: (_) => _json(_),
       serverCertificateConfig: (_) => _json(_),
@@ -5925,7 +5929,10 @@ export const se_UpdateDomainConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applicationProtocol: [],
+      authenticationType: [],
       authorizerConfig: (_) => _json(_),
+      clientCertificateConfig: (_) => _json(_),
       domainConfigurationStatus: [],
       removeAuthorizerConfig: [],
       serverCertificateConfig: (_) => _json(_),
@@ -8388,7 +8395,10 @@ export const de_DescribeDomainConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationProtocol: __expectString,
+    authenticationType: __expectString,
     authorizerConfig: _json,
+    clientCertificateConfig: _json,
     domainConfigurationArn: __expectString,
     domainConfigurationName: __expectString,
     domainConfigurationStatus: __expectString,
@@ -12828,6 +12838,8 @@ const se_Behaviors = (input: Behavior[], context: __SerdeContext): any => {
 
 // se_Cidrs omitted.
 
+// se_ClientCertificateConfig omitted.
+
 // se_ClientProperties omitted.
 
 // se_CloudwatchAlarmAction omitted.
@@ -13719,6 +13731,8 @@ const de_CertificateValidity = (output: any, context: __SerdeContext): Certifica
 };
 
 // de_Cidrs omitted.
+
+// de_ClientCertificateConfig omitted.
 
 // de_ClientProperties omitted.
 

@@ -8,12 +8,14 @@ import {
   AggregationType,
   AlertTarget,
   AlertTargetType,
+  ApplicationProtocol,
   AttributePayload,
   AuditCheckConfiguration,
   AuditFrequency,
   AuditMitigationActionsTaskTarget,
   AuditNotificationTarget,
   AuditNotificationType,
+  AuthenticationType,
   AuthInfo,
   AuthorizerConfig,
   AuthorizerStatus,
@@ -22,9 +24,11 @@ import {
   Behavior,
   BillingGroupProperties,
   CertificateProviderOperation,
+  ClientCertificateConfig,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
+  DimensionValueOperator,
   FleetMetricUnit,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
@@ -66,7 +70,7 @@ import {
   EventType,
   GroupNameAndArn,
   LogTargetType,
-  MetricDatum,
+  ManagedJobTemplateSummary,
   MitigationActionType,
   RegistrationConfig,
   Status,
@@ -76,6 +80,94 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListManagedJobTemplatesResponse {
+  /**
+   * <p>A list of managed job templates that are returned.</p>
+   * @public
+   */
+  managedJobTemplates?: ManagedJobTemplateSummary[];
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricValuesRequest {
+  /**
+   * <p>The name of the thing for which security profile metric values are returned.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The name of the security profile metric for which values are returned.</p>
+   * @public
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The dimension name.</p>
+   * @public
+   */
+  dimensionName?: string;
+
+  /**
+   * <p>The dimension value operator.</p>
+   * @public
+   */
+  dimensionValueOperator?: DimensionValueOperator;
+
+  /**
+   * <p>The start of the time period for which metric values are returned.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period for which metric values are returned.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>A metric.</p>
+ * @public
+ */
+export interface MetricDatum {
+  /**
+   * <p>The time the metric value was reported.</p>
+   * @public
+   */
+  timestamp?: Date;
+
+  /**
+   * <p>The value reported for the metric.</p>
+   * @public
+   */
+  value?: MetricValue;
+}
 
 /**
  * @public
@@ -2982,7 +3074,7 @@ export interface ThingDocument {
   thingTypeName?: string;
 
   /**
-   * <p>Thing group names.</p>
+   * <p>Thing group and billing group names.</p>
    * @public
    */
   thingGroupNames?: string[];
@@ -4163,6 +4255,82 @@ export interface UpdateDomainConfigurationRequest {
    * @public
    */
   serverCertificateConfig?: ServerCertificateConfig;
+
+  /**
+   * <p>An enumerated string that speciﬁes the authentication type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH_X509</code> - Use custom authentication and authorization with additional details from the X.509 client certificate.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_AUTH</code> - Use custom authentication and authorization. For more
+   *                information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">Custom authentication and authorization</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_X509</code> - Use X.509 client certificates without custom authentication and authorization. For more information,
+   *                see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">X.509 client certificates</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SIGV4</code> - Use Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">IAM users, groups, and roles</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT </code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  authenticationType?: AuthenticationType;
+
+  /**
+   * <p>An enumerated string that speciﬁes the application-layer protocol.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SECURE_MQTT</code> - MQTT over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MQTT_WSS</code> - MQTT over WebSocket.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HTTPS</code> - HTTP over TLS.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol.
+   *                For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication protocols</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  applicationProtocol?: ApplicationProtocol;
+
+  /**
+   * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+   * @public
+   */
+  clientCertificateConfig?: ClientCertificateConfig;
 }
 
 /**
@@ -4584,7 +4752,7 @@ export interface UpdatePackageVersionRequest {
 
   /**
    * <p>The inline job document associated with a software package version used for a quick job
-   *          deployment via IoT Jobs.</p>
+   *          deployment.</p>
    * @public
    */
   recipe?: string;

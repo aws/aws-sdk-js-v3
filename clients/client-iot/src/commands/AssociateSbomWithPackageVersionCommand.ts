@@ -33,7 +33,7 @@ export interface AssociateSbomWithPackageVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a software bill of materials (SBOM) with a specific software package version.</p>
+ * <p>Associates the selected software bill of materials (SBOM) with a specific software package version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateSbomWithPackageVersion</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
