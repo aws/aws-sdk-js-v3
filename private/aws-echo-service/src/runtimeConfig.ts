@@ -2,7 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { NODE_APP_ID_CONFIG_OPTIONS, defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
@@ -41,5 +41,6 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
       }),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
+    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS),
   };
 };

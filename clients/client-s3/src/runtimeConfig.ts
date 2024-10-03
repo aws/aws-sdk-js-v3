@@ -11,7 +11,7 @@ import {
 } from "@aws-sdk/middleware-flexible-checksums";
 import { NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS } from "@aws-sdk/middleware-sdk-s3";
 import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { NODE_APP_ID_CONFIG_OPTIONS, defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -76,5 +76,6 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     useArnRegion: config?.useArnRegion ?? loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS),
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+    userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS),
   };
 };

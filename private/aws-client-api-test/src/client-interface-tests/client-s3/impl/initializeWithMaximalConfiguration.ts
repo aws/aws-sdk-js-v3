@@ -128,6 +128,7 @@ export const initializeWithMaximalConfiguration = () => {
     sigv4aSigningRegionSet: [],
     requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+    userAgentAppId: "testApp",
   };
 
   const s3 = new S3Client(config);

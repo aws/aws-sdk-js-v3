@@ -46,8 +46,12 @@ export const userAgentMiddleware =
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
-    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+    let defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+    const appId = await options.userAgentAppId();
+    if (appId) {
+      defaultUserAgent.push(escapeUserAgent([`app/${appId}`]));
+    }
     const prefix = getUserAgentPrefix();
 
     // Set value to AWS-specific user agent header
