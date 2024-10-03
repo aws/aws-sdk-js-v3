@@ -204,6 +204,7 @@ export class ThrottlingException extends __BaseException {
  */
 export const ValidationExceptionType = {
   CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
+  CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
   DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
   DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
@@ -239,6 +240,7 @@ export const ValidationExceptionType = {
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
   ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
   SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
+  START_TAG_TIME_OFFSET_INVALID: "START_TAG_TIME_OFFSET_INVALID",
   TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
   TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
   UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
@@ -855,6 +857,12 @@ export interface FilterConfiguration {
    * @public
    */
   TimeDelaySeconds?: number;
+
+  /**
+   * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+   * @public
+   */
+  ClipStartTime?: Date;
 }
 
 /**
@@ -1089,6 +1097,24 @@ export interface ScteHls {
 }
 
 /**
+ * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+ * @public
+ */
+export interface StartTag {
+  /**
+   * <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+   * @public
+   */
+  TimeOffset: number | undefined;
+
+  /**
+   * <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+   * @public
+   */
+  Precise?: boolean;
+}
+
+/**
  * <p>Create an HTTP live streaming (HLS) manifest configuration.</p>
  * @public
  */
@@ -1110,6 +1136,12 @@ export interface CreateHlsManifestConfiguration {
    * @public
    */
   ScteHls?: ScteHls;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
@@ -1156,6 +1188,12 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    * @public
    */
   ScteHls?: ScteHls;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag;
 
   /**
    * <p>The total duration (in seconds) of the manifest's content.</p>
@@ -1756,6 +1794,12 @@ export interface GetHlsManifestConfiguration {
    * @public
    */
   FilterConfiguration?: FilterConfiguration;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag;
 }
 
 /**
@@ -1808,6 +1852,12 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * @public
    */
   FilterConfiguration?: FilterConfiguration;
+
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   * @public
+   */
+  StartTag?: StartTag;
 }
 
 /**

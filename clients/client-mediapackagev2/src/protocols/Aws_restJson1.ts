@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -13,9 +14,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   isSerializableHeaderValue,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -108,6 +111,7 @@ import {
   Segment,
   ServiceQuotaExceededException,
   SpekeKeyProvider,
+  StartTag,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -1405,6 +1409,7 @@ const se_CreateHlsManifestConfiguration = (input: CreateHlsManifestConfiguration
     ManifestWindowSeconds: [],
     ProgramDateTimeIntervalSeconds: [],
     ScteHls: _json,
+    StartTag: (_) => se_StartTag(_, context),
   });
 };
 
@@ -1433,6 +1438,7 @@ const se_CreateLowLatencyHlsManifestConfiguration = (
     ManifestWindowSeconds: [],
     ProgramDateTimeIntervalSeconds: [],
     ScteHls: _json,
+    StartTag: (_) => se_StartTag(_, context),
   });
 };
 
@@ -1469,6 +1475,7 @@ const se_CreateLowLatencyHlsManifests = (
  */
 const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    ClipStartTime: (_) => _.getTime() / 1_000,
     End: (_) => _.getTime() / 1_000,
     ManifestFilter: [],
     Start: (_) => _.getTime() / 1_000,
@@ -1489,6 +1496,16 @@ const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeCont
 // se_Segment omitted.
 
 // se_SpekeKeyProvider omitted.
+
+/**
+ * serializeAws_restJson1StartTag
+ */
+const se_StartTag = (input: StartTag, context: __SerdeContext): any => {
+  return take(input, {
+    Precise: [],
+    TimeOffset: __serializeFloat,
+  });
+};
 
 // se_TagMap omitted.
 
@@ -1563,6 +1580,7 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
  */
 const de_FilterConfiguration = (output: any, context: __SerdeContext): FilterConfiguration => {
   return take(output, {
+    ClipStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     End: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ManifestFilter: __expectString,
     Start: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1615,6 +1633,7 @@ const de_GetHlsManifestConfiguration = (output: any, context: __SerdeContext): G
     ManifestWindowSeconds: __expectInt32,
     ProgramDateTimeIntervalSeconds: __expectInt32,
     ScteHls: _json,
+    StartTag: (_: any) => de_StartTag(_, context),
     Url: __expectString,
   }) as any;
 };
@@ -1645,6 +1664,7 @@ const de_GetLowLatencyHlsManifestConfiguration = (
     ManifestWindowSeconds: __expectInt32,
     ProgramDateTimeIntervalSeconds: __expectInt32,
     ScteHls: _json,
+    StartTag: (_: any) => de_StartTag(_, context),
     Url: __expectString,
   }) as any;
 };
@@ -1723,6 +1743,16 @@ const de_OriginEndpointsList = (output: any, context: __SerdeContext): OriginEnd
 // de_Segment omitted.
 
 // de_SpekeKeyProvider omitted.
+
+/**
+ * deserializeAws_restJson1StartTag
+ */
+const de_StartTag = (output: any, context: __SerdeContext): StartTag => {
+  return take(output, {
+    Precise: __expectBoolean,
+    TimeOffset: __limitedParseFloat32,
+  }) as any;
+};
 
 // de_TagMap omitted.
 

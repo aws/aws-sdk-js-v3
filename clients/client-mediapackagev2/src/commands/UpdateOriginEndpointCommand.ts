@@ -82,6 +82,10 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: { // ScteHls
  *         AdMarkerHls: "DATERANGE",
  *       },
+ *       StartTag: { // StartTag
+ *         TimeOffset: Number("float"), // required
+ *         Precise: true || false,
+ *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
  *       FilterConfiguration: { // FilterConfiguration
@@ -89,6 +93,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
+ *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
  *     },
  *   ],
@@ -99,6 +104,10 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE",
  *       },
+ *       StartTag: {
+ *         TimeOffset: Number("float"), // required
+ *         Precise: true || false,
+ *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
  *       FilterConfiguration: {
@@ -106,6 +115,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
+ *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
  *     },
  *   ],
@@ -118,6 +128,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
+ *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
  *       MinUpdatePeriodSeconds: Number("int"),
  *       MinBufferTimeSeconds: Number("int"),
@@ -202,6 +213,11 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       StartTag: { // StartTag
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
  * //       },
  * //     },
  * //   ],
@@ -220,6 +236,11 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       StartTag: {
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
  * //       },
  * //     },
  * //   ],
@@ -242,6 +263,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
  * //       MinUpdatePeriodSeconds: Number("int"),
  * //       MinBufferTimeSeconds: Number("int"),
