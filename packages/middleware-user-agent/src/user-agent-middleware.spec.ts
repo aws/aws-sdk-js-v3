@@ -89,6 +89,38 @@ describe("userAgentMiddleware", () => {
     expect(sdkUserAgent).toEqual(expect.stringContaining("custom_ua/abc"));
   });
 
+  describe("features", () => {
+    it("should collect features from the context", async () => {
+      const middleware = userAgentMiddleware({
+        defaultUserAgentProvider: async () => [
+          ["default_agent", "1.0.0"],
+          ["aws-sdk-js", "1.0.0"],
+        ],
+        runtime: "node",
+        userAgentAppId: async () => undefined,
+      });
+
+      const handler = middleware(mockNextHandler, {
+        __aws_sdk_context: {
+          features: {
+            "0": "0",
+            "9": "9",
+            A: "A",
+            B: "B",
+            y: "y",
+            z: "z",
+            "+": "+",
+            "/": "/",
+          },
+        },
+      });
+      await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+      expect(mockNextHandler.mock.calls[0][0].request.headers[USER_AGENT]).toEqual(
+        expect.stringContaining(`m/0,9,A,B,y,z,+,/`)
+      );
+    });
+  });
+
   describe("should sanitize the SDK user agent string", () => {
     const cases: { ua: UserAgentPair; expected: string }[] = [
       { ua: ["/name", "1.0.0"], expected: "name/1.0.0" },

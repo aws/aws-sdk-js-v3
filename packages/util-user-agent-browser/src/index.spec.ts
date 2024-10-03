@@ -19,7 +19,7 @@ describe("defaultUserAgent", () => {
   it("should populate metrics", async () => {
     const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
     expect(userAgent[0]).toEqual(["aws-sdk-js", "0.1.0"]);
-    expect(userAgent[1]).toEqual(["ua", "2.0"]);
+    expect(userAgent[1]).toEqual(["ua", "2.1"]);
     expect(userAgent[2]).toEqual(["os/macOS", "10.15.7"]);
     expect(userAgent[3]).toEqual(["lang/js"]);
     expect(userAgent[4]).toEqual(["md/browser", "Chrome_86.0.4240.111"]);

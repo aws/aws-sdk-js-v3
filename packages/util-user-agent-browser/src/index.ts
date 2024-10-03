@@ -24,7 +24,7 @@ export const defaultUserAgent =
       // sdk-metadata
       ["aws-sdk-js", clientVersion],
       // ua-metadata
-      ["ua", "2.0"],
+      ["ua", "2.1"],
       // os-metadata
       [`os/${parsedUA?.os?.name || "other"}`, parsedUA?.os?.version],
       // language-metadata
