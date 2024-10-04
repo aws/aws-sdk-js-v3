@@ -1,4 +1,4 @@
-import { S3 } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Transform } from "stream";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
@@ -123,6 +123,34 @@ describe("middleware-flexible-checksums", () => {
       });
 
       expect.hasAssertions();
+    });
+
+    describe("features", () => {
+      [
+        ["SHA256", "Y"],
+        ["SHA1", "X"],
+        ["CRC32", "U"],
+        ["CRC32C", "V"],
+      ].forEach(([algo, id]) => {
+        it(`should feature-detect checksum ${algo}=${id}`, async () => {
+          const client = new S3({ region: "us-west-2", logger });
+
+          requireRequestsFrom(client).toMatch({
+            headers: {
+              "user-agent": new RegExp(`(.*?) m\/${id}$`),
+            },
+          });
+
+          await client.putObject({
+            Bucket: "b",
+            Key: "k",
+            Body: "abcd",
+            ChecksumAlgorithm: algo as ChecksumAlgorithm,
+          });
+
+          expect.hasAssertions();
+        });
+      });
     });
   });
 });

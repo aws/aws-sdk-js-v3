@@ -84,5 +84,22 @@ describe("middleware-s3-express", () => {
 
       expect.hasAssertions();
     });
+
+    it("should feature-detect S3 express bucket", async () => {
+      const client = new S3({
+        region: "us-west-2",
+        s3ExpressIdentityProvider,
+      });
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          "user-agent": /(.*?) m\/J$/,
+        },
+      });
+
+      await client.headBucket({
+        Bucket: "aws-sdk-js-v3-test--usw2-az1--x-s3",
+      });
+    });
   });
 });

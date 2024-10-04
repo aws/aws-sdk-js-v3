@@ -1,3 +1,4 @@
+import { setFeature } from "@aws-sdk/core";
 import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
@@ -51,6 +52,7 @@ export const s3ExpressMiddleware: (options: S3ExpressResolvedConfig) => BuildMid
           endpoint.properties?.bucketType === S3_EXPRESS_BUCKET_TYPE;
 
         if (isS3ExpressBucket) {
+          setFeature(context, "S3_EXPRESS_BUCKET", "J");
           context.isS3ExpressBucket = true;
         }
 

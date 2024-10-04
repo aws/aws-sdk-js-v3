@@ -1,3 +1,4 @@
+import { setFeature } from "@aws-sdk/core";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   DeserializeHandler,
@@ -51,6 +52,7 @@ export abstract class DynamoDBDocumentClientCommand<
         async (
           args: InitializeHandlerArguments<Input | BaseInput>
         ): Promise<InitializeHandlerOutput<Output | BaseOutput>> => {
+          setFeature(context, "DDB_MAPPER", "d");
           args.input = marshallInput(this.input, this.inputKeyNodes, marshallOptions);
           context.dynamoDbDocumentClientOptions =
             context.dynamoDbDocumentClientOptions || DynamoDBDocumentClientCommand.defaultLogFilterOverrides;

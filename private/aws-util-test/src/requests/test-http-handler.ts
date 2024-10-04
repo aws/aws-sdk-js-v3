@@ -56,7 +56,7 @@ export class TestHttpHandler implements HttpHandler {
    */
   public watch(client: Client<any, any, any>, matcher: HttpRequestMatcher = this.matcher) {
     this.client = client;
-    this.originalRequestHandler = client.config.originalRequestHandler;
+    this.originalRequestHandler = client.config.requestHandler;
     // mock credentials to avoid default chain lookup.
     client.config.credentials = async () => MOCK_CREDENTIALS;
     client.config.credentialDefaultProvider = () => {
