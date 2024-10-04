@@ -1,3 +1,5 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
+import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
 import {
   doesIdentityRequireRefresh,
   isIdentityExpired,
@@ -102,9 +104,11 @@ export interface AwsSdkSigV4AuthResolvedConfig {
 export const resolveAwsSdkSigV4Config = <T>(
   config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & AwsSdkSigV4AuthResolvedConfig => {
+  let isUserSupplied = false;
   // Normalize credentials
   let normalizedCreds: AwsCredentialIdentityProvider | undefined;
   if (config.credentials) {
+    isUserSupplied = true;
     normalizedCreds = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
   }
   if (!normalizedCreds) {
@@ -218,7 +222,12 @@ export const resolveAwsSdkSigV4Config = <T>(
     ...config,
     systemClockOffset,
     signingEscapePath,
-    credentials: normalizedCreds!,
+    credentials: isUserSupplied
+      ? async () =>
+          normalizedCreds!().then((creds: AttributedAwsCredentialIdentity) =>
+            setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
+          )
+      : normalizedCreds!,
     signer,
   };
 };

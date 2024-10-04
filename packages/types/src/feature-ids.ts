@@ -21,7 +21,6 @@ export type AwsSdkFeatures = Partial<{
   ACCOUNT_ID_MODE_DISABLED: "Q";
   ACCOUNT_ID_MODE_REQUIRED: "R";
   SIGV4A_SIGNING: "S";
-  RESOLVED_ACCOUNT_ID: "T";
   FLEXIBLE_CHECKSUMS_REQ_CRC32: "U";
   FLEXIBLE_CHECKSUMS_REQ_CRC32C: "V";
   FLEXIBLE_CHECKSUMS_REQ_CRC64: "W";
@@ -32,8 +31,15 @@ export type AwsSdkFeatures = Partial<{
   FLEXIBLE_CHECKSUMS_RES_WHEN_SUPPORTED: "b";
   FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED: "c";
   DDB_MAPPER: "d";
+}> &
+  AwsSdkCredentialsFeatures;
+
+/**
+ * @internal
+ */
+export type AwsSdkCredentialsFeatures = Partial<{
+  RESOLVED_ACCOUNT_ID: "T";
   CREDENTIALS_CODE: "e";
-  // CREDENTIALS_JVM_SYSTEM_PROPERTIES: "f"; // not applicable.
   CREDENTIALS_ENV_VARS: "g";
   CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h";
   CREDENTIALS_STS_ASSUME_ROLE: "i";
