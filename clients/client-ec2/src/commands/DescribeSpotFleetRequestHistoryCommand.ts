@@ -48,11 +48,11 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetRequestHistoryRequest
  *   DryRun: true || false,
- *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
  *   StartTime: new Date("TIMESTAMP"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);

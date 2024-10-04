@@ -36,6 +36,15 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * // const { EC2Client, DescribeSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSecurityGroupsRequest
+ *   GroupIds: [ // GroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupNames: [ // GroupNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -44,93 +53,46 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  *       ],
  *     },
  *   ],
- *   GroupIds: [ // GroupIdStringList
- *     "STRING_VALUE",
- *   ],
- *   GroupNames: [ // GroupNameStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSecurityGroupsResult
+ * //   NextToken: "STRING_VALUE",
  * //   SecurityGroups: [ // SecurityGroupList
  * //     { // SecurityGroup
- * //       Description: "STRING_VALUE",
- * //       GroupName: "STRING_VALUE",
- * //       IpPermissions: [ // IpPermissionList
+ * //       GroupId: "STRING_VALUE",
+ * //       IpPermissionsEgress: [ // IpPermissionList
  * //         { // IpPermission
- * //           FromPort: Number("int"),
  * //           IpProtocol: "STRING_VALUE",
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //           UserIdGroupPairs: [ // UserIdGroupPairList
+ * //             { // UserIdGroupPair
+ * //               Description: "STRING_VALUE",
+ * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
+ * //               VpcId: "STRING_VALUE",
+ * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //           IpRanges: [ // IpRangeList
  * //             { // IpRange
- * //               CidrIp: "STRING_VALUE",
  * //               Description: "STRING_VALUE",
+ * //               CidrIp: "STRING_VALUE",
  * //             },
  * //           ],
  * //           Ipv6Ranges: [ // Ipv6RangeList
  * //             { // Ipv6Range
- * //               CidrIpv6: "STRING_VALUE",
  * //               Description: "STRING_VALUE",
+ * //               CidrIpv6: "STRING_VALUE",
  * //             },
  * //           ],
  * //           PrefixListIds: [ // PrefixListIdList
  * //             { // PrefixListId
  * //               Description: "STRING_VALUE",
  * //               PrefixListId: "STRING_VALUE",
- * //             },
- * //           ],
- * //           ToPort: Number("int"),
- * //           UserIdGroupPairs: [ // UserIdGroupPairList
- * //             { // UserIdGroupPair
- * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
- * //               UserId: "STRING_VALUE",
- * //               VpcId: "STRING_VALUE",
- * //               VpcPeeringConnectionId: "STRING_VALUE",
- * //             },
- * //           ],
- * //         },
- * //       ],
- * //       OwnerId: "STRING_VALUE",
- * //       GroupId: "STRING_VALUE",
- * //       IpPermissionsEgress: [
- * //         {
- * //           FromPort: Number("int"),
- * //           IpProtocol: "STRING_VALUE",
- * //           IpRanges: [
- * //             {
- * //               CidrIp: "STRING_VALUE",
- * //               Description: "STRING_VALUE",
- * //             },
- * //           ],
- * //           Ipv6Ranges: [
- * //             {
- * //               CidrIpv6: "STRING_VALUE",
- * //               Description: "STRING_VALUE",
- * //             },
- * //           ],
- * //           PrefixListIds: [
- * //             {
- * //               Description: "STRING_VALUE",
- * //               PrefixListId: "STRING_VALUE",
- * //             },
- * //           ],
- * //           ToPort: Number("int"),
- * //           UserIdGroupPairs: [
- * //             {
- * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
- * //               UserId: "STRING_VALUE",
- * //               VpcId: "STRING_VALUE",
- * //               VpcPeeringConnectionId: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -142,9 +104,47 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * //         },
  * //       ],
  * //       VpcId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       IpPermissions: [
+ * //         {
+ * //           IpProtocol: "STRING_VALUE",
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //           UserIdGroupPairs: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
+ * //               VpcId: "STRING_VALUE",
+ * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           IpRanges: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               CidrIp: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           Ipv6Ranges: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               CidrIpv6: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           PrefixListIds: [
+ * //             {
+ * //               Description: "STRING_VALUE",
+ * //               PrefixListId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

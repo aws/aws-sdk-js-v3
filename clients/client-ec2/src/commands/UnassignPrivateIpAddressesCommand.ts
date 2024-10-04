@@ -37,11 +37,11 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * // const { EC2Client, UnassignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignPrivateIpAddressesRequest
- *   NetworkInterfaceId: "STRING_VALUE", // required
- *   PrivateIpAddresses: [ // PrivateIpAddressStringList
+ *   Ipv4Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
- *   Ipv4Prefixes: [ // IpPrefixList
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // PrivateIpAddressStringList
  *     "STRING_VALUE",
  *   ],
  * };

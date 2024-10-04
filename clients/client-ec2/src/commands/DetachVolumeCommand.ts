@@ -59,14 +59,14 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
  * // { // VolumeAttachment
- * //   AttachTime: new Date("TIMESTAMP"),
- * //   Device: "STRING_VALUE",
- * //   InstanceId: "STRING_VALUE",
- * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
  * //   AssociatedResource: "STRING_VALUE",
  * //   InstanceOwningService: "STRING_VALUE",
+ * //   VolumeId: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   Device: "STRING_VALUE",
+ * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //   AttachTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

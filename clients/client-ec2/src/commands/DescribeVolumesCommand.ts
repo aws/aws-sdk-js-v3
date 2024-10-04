@@ -48,6 +48,10 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * // const { EC2Client, DescribeVolumesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVolumesRequest
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -56,39 +60,16 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *       ],
  *     },
  *   ],
- *   VolumeIds: [ // VolumeIdStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVolumesResult
+ * //   NextToken: "STRING_VALUE",
  * //   Volumes: [ // VolumeList
  * //     { // Volume
- * //       Attachments: [ // VolumeAttachmentList
- * //         { // VolumeAttachment
- * //           AttachTime: new Date("TIMESTAMP"),
- * //           Device: "STRING_VALUE",
- * //           InstanceId: "STRING_VALUE",
- * //           State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- * //           VolumeId: "STRING_VALUE",
- * //           DeleteOnTermination: true || false,
- * //           AssociatedResource: "STRING_VALUE",
- * //           InstanceOwningService: "STRING_VALUE",
- * //         },
- * //       ],
- * //       AvailabilityZone: "STRING_VALUE",
- * //       CreateTime: new Date("TIMESTAMP"),
- * //       Encrypted: true || false,
- * //       KmsKeyId: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
- * //       Size: Number("int"),
- * //       SnapshotId: "STRING_VALUE",
- * //       State: "creating" || "available" || "in-use" || "deleting" || "deleted" || "error",
- * //       VolumeId: "STRING_VALUE",
  * //       Iops: Number("int"),
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -101,9 +82,28 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //       MultiAttachEnabled: true || false,
  * //       Throughput: Number("int"),
  * //       SseType: "sse-ebs" || "sse-kms" || "none",
+ * //       VolumeId: "STRING_VALUE",
+ * //       Size: Number("int"),
+ * //       SnapshotId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       State: "creating" || "available" || "in-use" || "deleting" || "deleted" || "error",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       Attachments: [ // VolumeAttachmentList
+ * //         { // VolumeAttachment
+ * //           DeleteOnTermination: true || false,
+ * //           AssociatedResource: "STRING_VALUE",
+ * //           InstanceOwningService: "STRING_VALUE",
+ * //           VolumeId: "STRING_VALUE",
+ * //           InstanceId: "STRING_VALUE",
+ * //           Device: "STRING_VALUE",
+ * //           State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //           AttachTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       Encrypted: true || false,
+ * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -39,6 +39,11 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * // const { EC2Client, DescribeHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeHostsRequest
+ *   HostIds: [ // RequestHostIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  *   Filter: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -47,11 +52,6 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  *       ],
  *     },
  *   ],
- *   HostIds: [ // RequestHostIdList
- *     "STRING_VALUE",
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeHostsCommand(input);
  * const response = await client.send(command);

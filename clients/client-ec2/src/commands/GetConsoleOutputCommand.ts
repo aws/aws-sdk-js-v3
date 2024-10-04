@@ -42,15 +42,15 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * const client = new EC2Client(config);
  * const input = { // GetConsoleOutputRequest
  *   InstanceId: "STRING_VALUE", // required
- *   DryRun: true || false,
  *   Latest: true || false,
+ *   DryRun: true || false,
  * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
  * // { // GetConsoleOutputResult
  * //   InstanceId: "STRING_VALUE",
- * //   Output: "STRING_VALUE",
  * //   Timestamp: new Date("TIMESTAMP"),
+ * //   Output: "STRING_VALUE",
  * // };
  *
  * ```

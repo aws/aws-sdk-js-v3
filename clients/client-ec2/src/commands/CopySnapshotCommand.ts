@@ -80,13 +80,13 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * // { // CopySnapshotResult
- * //   SnapshotId: "STRING_VALUE",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE",
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   SnapshotId: "STRING_VALUE",
  * // };
  *
  * ```

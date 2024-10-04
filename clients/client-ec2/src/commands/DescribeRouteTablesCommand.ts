@@ -41,6 +41,12 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * // const { EC2Client, DescribeRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRouteTablesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   RouteTableIds: [ // RouteTableIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -49,12 +55,6 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   RouteTableIds: [ // RouteTableIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);

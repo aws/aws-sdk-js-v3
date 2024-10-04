@@ -57,6 +57,12 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * // const { EC2Client, DescribeSpotInstanceRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotInstanceRequestsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   SpotInstanceRequestIds: [ // SpotInstanceRequestIdList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -65,12 +71,6 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   SpotInstanceRequestIds: [ // SpotInstanceRequestIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
@@ -89,17 +89,9 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //       LaunchGroup: "STRING_VALUE",
  * //       LaunchSpecification: { // LaunchSpecification
  * //         UserData: "STRING_VALUE",
- * //         SecurityGroups: [ // GroupIdentifierList
- * //           { // GroupIdentifier
- * //             GroupName: "STRING_VALUE",
- * //             GroupId: "STRING_VALUE",
- * //           },
- * //         ],
  * //         AddressingType: "STRING_VALUE",
  * //         BlockDeviceMappings: [ // BlockDeviceMappingList
  * //           { // BlockDeviceMapping
- * //             DeviceName: "STRING_VALUE",
- * //             VirtualName: "STRING_VALUE",
  * //             Ebs: { // EbsBlockDevice
  * //               DeleteOnTermination: true || false,
  * //               Iops: Number("int"),
@@ -112,6 +104,8 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //               Encrypted: true || false,
  * //             },
  * //             NoDevice: "STRING_VALUE",
+ * //             DeviceName: "STRING_VALUE",
+ * //             VirtualName: "STRING_VALUE",
  * //           },
  * //         ],
  * //         EbsOptimized: true || false,
@@ -185,6 +179,12 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //         },
  * //         RamdiskId: "STRING_VALUE",
  * //         SubnetId: "STRING_VALUE",
+ * //         SecurityGroups: [ // GroupIdentifierList
+ * //           { // GroupIdentifier
+ * //             GroupId: "STRING_VALUE",
+ * //             GroupName: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //         Monitoring: { // RunInstancesMonitoringEnabled
  * //           Enabled: true || false, // required
  * //         },

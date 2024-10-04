@@ -45,6 +45,13 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * // const { EC2Client, DescribePlacementGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribePlacementGroupsRequest
+ *   GroupIds: [ // PlacementGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   GroupNames: [ // PlacementGroupStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -52,13 +59,6 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  *         "STRING_VALUE",
  *       ],
  *     },
- *   ],
- *   DryRun: true || false,
- *   GroupNames: [ // PlacementGroupStringList
- *     "STRING_VALUE",
- *   ],
- *   GroupIds: [ // PlacementGroupIdStringList
- *     "STRING_VALUE",
  *   ],
  * };
  * const command = new DescribePlacementGroupsCommand(input);

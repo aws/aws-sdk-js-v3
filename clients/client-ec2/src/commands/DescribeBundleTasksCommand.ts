@@ -51,6 +51,7 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *   BundleIds: [ // BundleIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -59,22 +60,17 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeBundleTasksCommand(input);
  * const response = await client.send(command);
  * // { // DescribeBundleTasksResult
  * //   BundleTasks: [ // BundleTaskList
  * //     { // BundleTask
- * //       BundleId: "STRING_VALUE",
- * //       BundleTaskError: { // BundleTaskError
- * //         Code: "STRING_VALUE",
- * //         Message: "STRING_VALUE",
- * //       },
  * //       InstanceId: "STRING_VALUE",
- * //       Progress: "STRING_VALUE",
- * //       StartTime: new Date("TIMESTAMP"),
+ * //       BundleId: "STRING_VALUE",
  * //       State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       UpdateTime: new Date("TIMESTAMP"),
  * //       Storage: { // Storage
  * //         S3: { // S3Storage
  * //           AWSAccessKeyId: "STRING_VALUE",
@@ -84,7 +80,11 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * //           UploadPolicySignature: "STRING_VALUE",
  * //         },
  * //       },
- * //       UpdateTime: new Date("TIMESTAMP"),
+ * //       Progress: "STRING_VALUE",
+ * //       BundleTaskError: { // BundleTaskError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

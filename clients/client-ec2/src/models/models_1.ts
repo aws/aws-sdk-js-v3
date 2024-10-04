@@ -1129,6 +1129,14 @@ export interface CreateCustomerGatewayRequest {
   IpAddress?: string;
 
   /**
+   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
+   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
+   *          </p>
+   * @public
+   */
+  BgpAsnExtended?: number;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -1136,14 +1144,6 @@ export interface CreateCustomerGatewayRequest {
    * @public
    */
   DryRun?: boolean;
-
-  /**
-   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
-   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
-   *          </p>
-   * @public
-   */
-  BgpAsnExtended?: number;
 }
 
 /**
@@ -1152,47 +1152,10 @@ export interface CreateCustomerGatewayRequest {
  */
 export interface CustomerGateway {
   /**
-   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
-   *          </p>
-   * @public
-   */
-  BgpAsn?: string;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   * @public
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>
-   *             IPv4 address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a public IPv4 address.
-   *         </p>
-   * @public
-   */
-  IpAddress?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
    * @public
    */
   CertificateArn?: string;
-
-  /**
-   * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *                 deleted</code>).</p>
-   * @public
-   */
-  State?: string;
-
-  /**
-   * <p>The type of VPN connection the customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   * @public
-   */
-  Type?: string;
 
   /**
    * <p>The name of customer gateway device.</p>
@@ -1214,6 +1177,43 @@ export interface CustomerGateway {
    * @public
    */
   BgpAsnExtended?: string;
+
+  /**
+   * <p>The ID of the customer gateway.</p>
+   * @public
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The current state of the customer gateway (<code>pending | available | deleting |
+   *                 deleted</code>).</p>
+   * @public
+   */
+  State?: string;
+
+  /**
+   * <p>The type of VPN connection the customer gateway supports
+   *             (<code>ipsec.1</code>).</p>
+   * @public
+   */
+  Type?: string;
+
+  /**
+   * <p>
+   *             IPv4 address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a public IPv4 address.
+   *         </p>
+   * @public
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
+   *             (ASN).</p>
+   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
+   *          </p>
+   * @public
+   */
+  BgpAsn?: string;
 }
 
 /**
@@ -1318,35 +1318,10 @@ export type SubnetState = (typeof SubnetState)[keyof typeof SubnetState];
  */
 export interface Subnet {
   /**
-   * <p>The Availability Zone of the subnet.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
    * <p>The AZ ID of the subnet.</p>
    * @public
    */
   AvailabilityZoneId?: string;
-
-  /**
-   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
-   * 			stopped instances are considered unavailable.</p>
-   * @public
-   */
-  AvailableIpAddressCount?: number;
-
-  /**
-   * <p>The IPv4 CIDR block assigned to the subnet.</p>
-   * @public
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
-   * @public
-   */
-  DefaultForAz?: boolean;
 
   /**
    * <p>
@@ -1357,14 +1332,6 @@ export interface Subnet {
    * @public
    */
   EnableLniAtDeviceIndex?: number;
-
-  /**
-   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
-   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
-   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
-   * @public
-   */
-  MapPublicIpOnLaunch?: boolean;
 
   /**
    * <p>Indicates whether a network interface created in this subnet (including a network
@@ -1378,24 +1345,6 @@ export interface Subnet {
    * @public
    */
   CustomerOwnedIpv4Pool?: string;
-
-  /**
-   * <p>The current state of the subnet.</p>
-   * @public
-   */
-  State?: SubnetState;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC the subnet is in.</p>
-   * @public
-   */
-  VpcId?: string;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
@@ -1453,6 +1402,57 @@ export interface Subnet {
    * @public
    */
   PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The current state of the subnet.</p>
+   * @public
+   */
+  State?: SubnetState;
+
+  /**
+   * <p>The ID of the VPC the subnet is in.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The IPv4 CIDR block assigned to the subnet.</p>
+   * @public
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
+   * 			stopped instances are considered unavailable.</p>
+   * @public
+   */
+  AvailableIpAddressCount?: number;
+
+  /**
+   * <p>The Availability Zone of the subnet.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
+   * @public
+   */
+  DefaultForAz?: boolean;
+
+  /**
+   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
+   */
+  MapPublicIpOnLaunch?: boolean;
 }
 
 /**
@@ -1514,30 +1514,6 @@ export type VpcState = (typeof VpcState)[keyof typeof VpcState];
  */
 export interface Vpc {
   /**
-   * <p>The primary IPv4 CIDR block for the VPC.</p>
-   * @public
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
-   * @public
-   */
-  DhcpOptionsId?: string;
-
-  /**
-   * <p>The current state of the VPC.</p>
-   * @public
-   */
-  State?: VpcState;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string;
-
-  /**
    * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    * @public
    */
@@ -1572,6 +1548,30 @@ export interface Vpc {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The current state of the VPC.</p>
+   * @public
+   */
+  State?: VpcState;
+
+  /**
+   * <p>The primary IPv4 CIDR block for the VPC.</p>
+   * @public
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
+   * @public
+   */
+  DhcpOptionsId?: string;
 }
 
 /**
@@ -1664,18 +1664,6 @@ export interface DhcpConfiguration {
  */
 export interface DhcpOptions {
   /**
-   * <p>The DHCP options in the set.</p>
-   * @public
-   */
-  DhcpConfigurations?: DhcpConfiguration[];
-
-  /**
-   * <p>The ID of the set of DHCP options.</p>
-   * @public
-   */
-  DhcpOptionsId?: string;
-
-  /**
    * <p>The ID of the Amazon Web Services account that owns the DHCP options set.</p>
    * @public
    */
@@ -1686,6 +1674,18 @@ export interface DhcpOptions {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the set of DHCP options.</p>
+   * @public
+   */
+  DhcpOptionsId?: string;
+
+  /**
+   * <p>The DHCP options in the set.</p>
+   * @public
+   */
+  DhcpConfigurations?: DhcpConfiguration[];
 }
 
 /**
@@ -2510,15 +2510,6 @@ export interface InstanceRequirementsRequest {
  */
 export interface Placement {
   /**
-   * <p>The Availability Zone of the instance.</p>
-   *          <p>If not specified, an Availability Zone will be automatically chosen for you based on
-   *             the load balancing criteria for the Region.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
    * <p>The affinity setting for the instance on the Dedicated Host.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</p>
    * @public
@@ -2578,6 +2569,15 @@ export interface Placement {
    * @public
    */
   GroupId?: string;
+
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   *          <p>If not specified, an Availability Zone will be automatically chosen for you based on
+   *             the load balancing criteria for the Region.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
 }
 
 /**
@@ -4461,8 +4461,8 @@ export interface CreateFlowLogsRequest {
    * <p>The fields to include in the flow log record. List the fields in the order in which
    *             they should appear. If you omit this parameter, the flow log is created using the
    *             default format. If you specify this parameter, you must include at least one
-   *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log
-   *                 records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
+   *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow log records</a>
+   *             in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
    *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
    *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces.</p>
    * @public
@@ -4783,6 +4783,21 @@ export interface EbsBlockDevice {
  */
 export interface BlockDeviceMapping {
   /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   * @public
+   */
+  Ebs?: EbsBlockDevice;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string. When this
+   *             property is specified, the device is removed from the block device mapping regardless of
+   *             the assigned value.</p>
+   * @public
+   */
+  NoDevice?: string;
+
+  /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
    * @public
    */
@@ -4802,21 +4817,6 @@ export interface BlockDeviceMapping {
    * @public
    */
   VirtualName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   * @public
-   */
-  Ebs?: EbsBlockDevice;
-
-  /**
-   * <p>To omit the device from the block device mapping, specify an empty string. When this
-   *             property is specified, the device is removed from the block device mapping regardless of
-   *             the assigned value.</p>
-   * @public
-   */
-  NoDevice?: string;
 }
 
 /**
@@ -4824,34 +4824,25 @@ export interface BlockDeviceMapping {
  */
 export interface CreateImageRequest {
   /**
-   * <p>The block device mappings.</p>
-   *          <p>When using the CreateImage action:</p>
+   * <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the
+   *       snapshots, or both.</p>
    *          <ul>
    *             <li>
-   *                <p>You can't change the volume size using the VolumeSize parameter. If you want a
-   *           different volume size, you must first change the volume size of the source
-   *           instance.</p>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>You can't modify the encryption status of existing volumes or snapshots. To create an
-   *           AMI with volumes or snapshots that have a different encryption status (for example, where
-   *           the source volume and snapshots are unencrypted, and you want to create an AMI with
-   *           encrypted volumes or snapshots), use the <a>CopyImage</a> action.</p>
-   *             </li>
-   *             <li>
-   *                <p>The only option that can be changed for existing mappings or snapshots is
-   *             <code>DeleteOnTermination</code>.</p>
+   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
+   *           are attached to the instance, the value for <code>ResourceType</code> must be
+   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
    *             </li>
    *          </ul>
+   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
+   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
    * @public
    */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>A description for the new image.</p>
-   * @public
-   */
-  Description?: string;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4873,6 +4864,12 @@ export interface CreateImageRequest {
    * @public
    */
   Name: string | undefined;
+
+  /**
+   * <p>A description for the new image.</p>
+   * @public
+   */
+  Description?: string;
 
   /**
    * <p>Indicates whether or not the instance should be automatically rebooted before creating
@@ -4899,25 +4896,28 @@ export interface CreateImageRequest {
   NoReboot?: boolean;
 
   /**
-   * <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the
-   *       snapshots, or both.</p>
+   * <p>The block device mappings.</p>
+   *          <p>When using the CreateImage action:</p>
    *          <ul>
    *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
-   *           <code>image</code>.</p>
+   *                <p>You can't change the volume size using the VolumeSize parameter. If you want a
+   *           different volume size, you must first change the volume size of the source
+   *           instance.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
-   *           are attached to the instance, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
-   *           created.</p>
+   *                <p>You can't modify the encryption status of existing volumes or snapshots. To create an
+   *           AMI with volumes or snapshots that have a different encryption status (for example, where
+   *           the source volume and snapshots are unencrypted, and you want to create an AMI with
+   *           encrypted volumes or snapshots), use the <a>CopyImage</a> action.</p>
+   *             </li>
+   *             <li>
+   *                <p>The only option that can be changed for existing mappings or snapshots is
+   *             <code>DeleteOnTermination</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
-   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  BlockDeviceMappings?: BlockDeviceMapping[];
 }
 
 /**
@@ -5274,17 +5274,17 @@ export type DiskImageFormat = (typeof DiskImageFormat)[keyof typeof DiskImageFor
  */
 export interface ExportToS3TaskSpecification {
   /**
+   * <p>The format for the exported image.</p>
+   * @public
+   */
+  DiskImageFormat?: DiskImageFormat;
+
+  /**
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    * @public
    */
   ContainerFormat?: ContainerFormat;
-
-  /**
-   * <p>The format for the exported image.</p>
-   * @public
-   */
-  DiskImageFormat?: DiskImageFormat;
 
   /**
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have
@@ -5322,16 +5322,16 @@ export type ExportEnvironment = (typeof ExportEnvironment)[keyof typeof ExportEn
  */
 export interface CreateInstanceExportTaskRequest {
   /**
+   * <p>The tags to apply to the export instance task during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
    * <p>A description for the conversion task or the resource being exported. The maximum length is 255 characters.</p>
    * @public
    */
   Description?: string;
-
-  /**
-   * <p>The format and location for an export instance task.</p>
-   * @public
-   */
-  ExportToS3Task: ExportToS3TaskSpecification | undefined;
 
   /**
    * <p>The ID of the instance.</p>
@@ -5346,10 +5346,10 @@ export interface CreateInstanceExportTaskRequest {
   TargetEnvironment: ExportEnvironment | undefined;
 
   /**
-   * <p>The tags to apply to the export instance task during creation.</p>
+   * <p>The format and location for an export instance task.</p>
    * @public
    */
-  TagSpecifications?: TagSpecification[];
+  ExportToS3Task: ExportToS3TaskSpecification | undefined;
 }
 
 /**
@@ -6028,7 +6028,7 @@ export interface CreateIpamPoolRequest {
    *             </li>
    *          </ul>
    *          <p>If you do not choose a locale, resources in Regions others than the IPAM's home region cannot use CIDRs from this pool.</p>
-   *          <p>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local Zone.</p>
+   *          <p>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local Zone. Default is <code>none</code> and means any locale.</p>
    * @public
    */
   Locale?: string;
@@ -6768,14 +6768,6 @@ export interface CreateKeyPairRequest {
   KeyName: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p>
    *          <p>Default: <code>rsa</code>
    *          </p>
@@ -6796,6 +6788,14 @@ export interface CreateKeyPairRequest {
    * @public
    */
   KeyFormat?: KeyFormat;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -6803,6 +6803,24 @@ export interface CreateKeyPairRequest {
  * @public
  */
 export interface KeyPair {
+  /**
+   * <p>The ID of the key pair.</p>
+   * @public
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>Any tags applied to the key pair.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the key pair.</p>
+   * @public
+   */
+  KeyName?: string;
+
   /**
    * <ul>
    *             <li>
@@ -6821,24 +6839,6 @@ export interface KeyPair {
    * @public
    */
   KeyMaterial?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>Any tags applied to the key pair.</p>
-   * @public
-   */
-  Tags?: Tag[];
 }
 
 /**
@@ -10450,7 +10450,7 @@ export interface CreateNatGatewayRequest {
   PrivateIpAddress?: string;
 
   /**
-   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
+   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
    *             in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
@@ -10458,14 +10458,14 @@ export interface CreateNatGatewayRequest {
 
   /**
    * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see
-   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
   SecondaryPrivateIpAddresses?: string[];
 
   /**
    * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
-   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
+   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
    *             in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
@@ -10677,6 +10677,19 @@ export interface CreateNatGatewayResult {
  */
 export interface CreateNetworkAclRequest {
   /**
+   * <p>The tags to assign to the network ACL.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -10689,19 +10702,6 @@ export interface CreateNetworkAclRequest {
    * @public
    */
   VpcId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the network ACL.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
 }
 
 /**
@@ -10884,13 +10884,6 @@ export interface CreateNetworkAclResult {
  */
 export interface CreateNetworkAclEntryRequest {
   /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   * @public
-   */
-  CidrBlock?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -10899,37 +10892,17 @@ export interface CreateNetworkAclEntryRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
    * <p>The ID of the network ACL.</p>
    * @public
    */
   NetworkAclId: string | undefined;
 
   /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
+   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
    * @public
    */
-  PortRange?: PortRange;
+  RuleNumber: number | undefined;
 
   /**
    * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
@@ -10949,11 +10922,38 @@ export interface CreateNetworkAclEntryRequest {
   RuleAction: RuleAction | undefined;
 
   /**
-   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
-   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
+   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
    * @public
    */
-  RuleNumber: number | undefined;
+  Egress: boolean | undefined;
+
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   * @public
+   */
+  IcmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   * @public
+   */
+  PortRange?: PortRange;
 }
 
 /**

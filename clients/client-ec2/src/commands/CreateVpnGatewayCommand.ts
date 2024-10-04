@@ -60,21 +60,21 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * const response = await client.send(command);
  * // { // CreateVpnGatewayResult
  * //   VpnGateway: { // VpnGateway
- * //     AvailabilityZone: "STRING_VALUE",
- * //     State: "pending" || "available" || "deleting" || "deleted",
- * //     Type: "ipsec.1",
- * //     VpcAttachments: [ // VpcAttachmentList
- * //       { // VpcAttachment
- * //         State: "attaching" || "attached" || "detaching" || "detached",
- * //         VpcId: "STRING_VALUE",
- * //       },
- * //     ],
- * //     VpnGatewayId: "STRING_VALUE",
  * //     AmazonSideAsn: Number("long"),
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpnGatewayId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     Type: "ipsec.1",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     VpcAttachments: [ // VpcAttachmentList
+ * //       { // VpcAttachment
+ * //         VpcId: "STRING_VALUE",
+ * //         State: "attaching" || "attached" || "detaching" || "detached",
  * //       },
  * //     ],
  * //   },

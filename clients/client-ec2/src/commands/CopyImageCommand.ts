@@ -53,7 +53,6 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *   SourceImageId: "STRING_VALUE", // required
  *   SourceRegion: "STRING_VALUE", // required
  *   DestinationOutpostArn: "STRING_VALUE",
- *   DryRun: true || false,
  *   CopyImageTags: true || false,
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -66,6 +65,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *       ],
  *     },
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);

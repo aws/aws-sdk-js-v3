@@ -49,19 +49,16 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *   VpcIds: [ // VpcIdStringList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new DescribeVpcsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVpcsResult
+ * //   NextToken: "STRING_VALUE",
  * //   Vpcs: [ // VpcList
  * //     { // Vpc
- * //       CidrBlock: "STRING_VALUE",
- * //       DhcpOptionsId: "STRING_VALUE",
- * //       State: "pending" || "available",
- * //       VpcId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       InstanceTenancy: "default" || "dedicated" || "host",
  * //       Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
@@ -95,9 +92,12 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       VpcId: "STRING_VALUE",
+ * //       State: "pending" || "available",
+ * //       CidrBlock: "STRING_VALUE",
+ * //       DhcpOptionsId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

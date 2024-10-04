@@ -42,8 +42,8 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * // const { EC2Client, ReplaceRouteTableAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceRouteTableAssociationRequest
- *   AssociationId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AssociationId: "STRING_VALUE", // required
  *   RouteTableId: "STRING_VALUE", // required
  * };
  * const command = new ReplaceRouteTableAssociationCommand(input);

@@ -45,9 +45,6 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * // const { EC2Client, CreatePlacementGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreatePlacementGroupRequest
- *   DryRun: true || false,
- *   GroupName: "STRING_VALUE",
- *   Strategy: "cluster" || "spread" || "partition",
  *   PartitionCount: Number("int"),
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -61,6 +58,9 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  *     },
  *   ],
  *   SpreadLevel: "host" || "rack",
+ *   DryRun: true || false,
+ *   GroupName: "STRING_VALUE",
+ *   Strategy: "cluster" || "spread" || "partition",
  * };
  * const command = new CreatePlacementGroupCommand(input);
  * const response = await client.send(command);

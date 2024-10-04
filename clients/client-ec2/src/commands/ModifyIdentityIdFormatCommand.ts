@@ -57,9 +57,9 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, ModifyIdentityIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyIdentityIdFormatRequest
- *   PrincipalArn: "STRING_VALUE", // required
  *   Resource: "STRING_VALUE", // required
  *   UseLongIds: true || false, // required
+ *   PrincipalArn: "STRING_VALUE", // required
  * };
  * const command = new ModifyIdentityIdFormatCommand(input);
  * const response = await client.send(command);

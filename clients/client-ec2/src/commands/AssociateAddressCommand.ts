@@ -56,10 +56,10 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *   AllocationId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   PublicIp: "STRING_VALUE",
- *   AllowReassociation: true || false,
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE",
  *   PrivateIpAddress: "STRING_VALUE",
+ *   AllowReassociation: true || false,
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);

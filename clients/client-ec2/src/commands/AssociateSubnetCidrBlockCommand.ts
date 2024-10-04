@@ -37,10 +37,10 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * // const { EC2Client, AssociateSubnetCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateSubnetCidrBlockRequest
- *   Ipv6CidrBlock: "STRING_VALUE",
- *   SubnetId: "STRING_VALUE", // required
  *   Ipv6IpamPoolId: "STRING_VALUE",
  *   Ipv6NetmaskLength: Number("int"),
+ *   SubnetId: "STRING_VALUE", // required
+ *   Ipv6CidrBlock: "STRING_VALUE",
  * };
  * const command = new AssociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);

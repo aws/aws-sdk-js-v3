@@ -83,17 +83,9 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *     IamFleetRole: "STRING_VALUE", // required
  *     LaunchSpecifications: [ // LaunchSpecsList
  *       { // SpotFleetLaunchSpecification
- *         SecurityGroups: [ // GroupIdentifierList
- *           { // GroupIdentifier
- *             GroupName: "STRING_VALUE",
- *             GroupId: "STRING_VALUE",
- *           },
- *         ],
  *         AddressingType: "STRING_VALUE",
  *         BlockDeviceMappings: [ // BlockDeviceMappingList
  *           { // BlockDeviceMapping
- *             DeviceName: "STRING_VALUE",
- *             VirtualName: "STRING_VALUE",
  *             Ebs: { // EbsBlockDevice
  *               DeleteOnTermination: true || false,
  *               Iops: Number("int"),
@@ -106,6 +98,8 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *               Encrypted: true || false,
  *             },
  *             NoDevice: "STRING_VALUE",
+ *             DeviceName: "STRING_VALUE",
+ *             VirtualName: "STRING_VALUE",
  *           },
  *         ],
  *         EbsOptimized: true || false,
@@ -265,6 +259,12 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *           ],
  *           MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *         },
+ *         SecurityGroups: [ // GroupIdentifierList
+ *           { // GroupIdentifier
+ *             GroupId: "STRING_VALUE",
+ *             GroupName: "STRING_VALUE",
+ *           },
+ *         ],
  *       },
  *     ],
  *     LaunchTemplateConfigs: [ // LaunchTemplateConfigList

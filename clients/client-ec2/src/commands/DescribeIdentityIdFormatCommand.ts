@@ -54,8 +54,8 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  * // const { EC2Client, DescribeIdentityIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeIdentityIdFormatRequest
- *   PrincipalArn: "STRING_VALUE", // required
  *   Resource: "STRING_VALUE",
+ *   PrincipalArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeIdentityIdFormatCommand(input);
  * const response = await client.send(command);

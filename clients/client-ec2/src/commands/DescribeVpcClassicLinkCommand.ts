@@ -39,6 +39,10 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * // const { EC2Client, DescribeVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVpcClassicLinkRequest
+ *   DryRun: true || false,
+ *   VpcIds: [ // VpcClassicLinkIdList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -46,10 +50,6 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  *         "STRING_VALUE",
  *       ],
  *     },
- *   ],
- *   DryRun: true || false,
- *   VpcIds: [ // VpcClassicLinkIdList
- *     "STRING_VALUE",
  *   ],
  * };
  * const command = new DescribeVpcClassicLinkCommand(input);

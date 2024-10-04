@@ -75,6 +75,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * //       ],
  * //       IpUsage: Number("double"),
  * //       VpcId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
  * //       NetworkInterfaceAttachmentStatus: "available" || "in-use",
  * //       SampleTime: new Date("TIMESTAMP"),
  * //       AvailabilityZoneId: "STRING_VALUE",

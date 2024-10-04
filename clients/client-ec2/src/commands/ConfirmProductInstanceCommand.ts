@@ -45,8 +45,8 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * const command = new ConfirmProductInstanceCommand(input);
  * const response = await client.send(command);
  * // { // ConfirmProductInstanceResult
- * //   OwnerId: "STRING_VALUE",
  * //   Return: true || false,
+ * //   OwnerId: "STRING_VALUE",
  * // };
  *
  * ```

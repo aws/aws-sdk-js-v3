@@ -36,11 +36,11 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, DeleteRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteRouteRequest
- *   DestinationCidrBlock: "STRING_VALUE",
- *   DestinationIpv6CidrBlock: "STRING_VALUE",
  *   DestinationPrefixListId: "STRING_VALUE",
  *   DryRun: true || false,
  *   RouteTableId: "STRING_VALUE", // required
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
  * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);

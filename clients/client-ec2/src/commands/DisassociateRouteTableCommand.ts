@@ -40,8 +40,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, DisassociateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DisassociateRouteTableRequest
- *   AssociationId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AssociationId: "STRING_VALUE", // required
  * };
  * const command = new DisassociateRouteTableCommand(input);
  * const response = await client.send(command);

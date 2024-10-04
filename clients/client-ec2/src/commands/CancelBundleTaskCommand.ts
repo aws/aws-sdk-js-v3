@@ -47,15 +47,11 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * const response = await client.send(command);
  * // { // CancelBundleTaskResult
  * //   BundleTask: { // BundleTask
- * //     BundleId: "STRING_VALUE",
- * //     BundleTaskError: { // BundleTaskError
- * //       Code: "STRING_VALUE",
- * //       Message: "STRING_VALUE",
- * //     },
  * //     InstanceId: "STRING_VALUE",
- * //     Progress: "STRING_VALUE",
- * //     StartTime: new Date("TIMESTAMP"),
+ * //     BundleId: "STRING_VALUE",
  * //     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     UpdateTime: new Date("TIMESTAMP"),
  * //     Storage: { // Storage
  * //       S3: { // S3Storage
  * //         AWSAccessKeyId: "STRING_VALUE",
@@ -65,7 +61,11 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * //         UploadPolicySignature: "STRING_VALUE",
  * //       },
  * //     },
- * //     UpdateTime: new Date("TIMESTAMP"),
+ * //     Progress: "STRING_VALUE",
+ * //     BundleTaskError: { // BundleTaskError
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -60,7 +60,6 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * // const { EC2Client, ModifySpotFleetRequestCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifySpotFleetRequestRequest
- *   ExcessCapacityTerminationPolicy: "noTermination" || "default",
  *   LaunchTemplateConfigs: [ // LaunchTemplateConfigList
  *     { // LaunchTemplateConfig
  *       LaunchTemplateSpecification: { // FleetLaunchTemplateSpecification
@@ -149,10 +148,11 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *       ],
  *     },
  *   ],
- *   SpotFleetRequestId: "STRING_VALUE", // required
- *   TargetCapacity: Number("int"),
  *   OnDemandTargetCapacity: Number("int"),
  *   Context: "STRING_VALUE",
+ *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   TargetCapacity: Number("int"),
+ *   ExcessCapacityTerminationPolicy: "noTermination" || "default",
  * };
  * const command = new ModifySpotFleetRequestCommand(input);
  * const response = await client.send(command);

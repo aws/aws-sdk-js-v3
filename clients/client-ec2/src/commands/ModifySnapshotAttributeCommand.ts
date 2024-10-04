@@ -47,14 +47,14 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *   CreateVolumePermission: { // CreateVolumePermissionModifications
  *     Add: [ // CreateVolumePermissionList
  *       { // CreateVolumePermission
- *         Group: "all",
  *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *     Remove: [
  *       {
- *         Group: "all",
  *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *   },

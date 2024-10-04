@@ -59,8 +59,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * const response = await client.send(command);
  * // { // GetPasswordDataResult
  * //   InstanceId: "STRING_VALUE",
- * //   PasswordData: "STRING_VALUE",
  * //   Timestamp: new Date("TIMESTAMP"),
+ * //   PasswordData: "STRING_VALUE",
  * // };
  *
  * ```

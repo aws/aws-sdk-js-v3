@@ -46,14 +46,6 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * // const { EC2Client, DescribeAvailabilityZonesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAvailabilityZonesRequest
- *   Filters: [ // FilterList
- *     { // Filter
- *       Name: "STRING_VALUE",
- *       Values: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
  *   ZoneNames: [ // ZoneNameStringList
  *     "STRING_VALUE",
  *   ],
@@ -62,13 +54,20 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  *   ],
  *   AllAvailabilityZones: true || false,
  *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAvailabilityZonesResult
  * //   AvailabilityZones: [ // AvailabilityZoneList
  * //     { // AvailabilityZone
- * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
  * //       Messages: [ // AvailabilityZoneMessageList
  * //         { // AvailabilityZoneMessage
@@ -83,6 +82,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * //       ZoneType: "STRING_VALUE",
  * //       ParentZoneName: "STRING_VALUE",
  * //       ParentZoneId: "STRING_VALUE",
+ * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //     },
  * //   ],
  * // };

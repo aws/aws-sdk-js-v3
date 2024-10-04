@@ -80,37 +80,9 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * const client = new EC2Client(config);
  * const input = { // RegisterImageRequest
  *   ImageLocation: "STRING_VALUE",
- *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
- *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
- *     { // BlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
- *       Ebs: { // EbsBlockDevice
- *         DeleteOnTermination: true || false,
- *         Iops: Number("int"),
- *         SnapshotId: "STRING_VALUE",
- *         VolumeSize: Number("int"),
- *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *         KmsKeyId: "STRING_VALUE",
- *         Throughput: Number("int"),
- *         OutpostArn: "STRING_VALUE",
- *         Encrypted: true || false,
- *       },
- *       NoDevice: "STRING_VALUE",
- *     },
- *   ],
- *   Description: "STRING_VALUE",
- *   DryRun: true || false,
- *   EnaSupport: true || false,
- *   KernelId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
  *   BillingProducts: [ // BillingProductList
  *     "STRING_VALUE",
  *   ],
- *   RamdiskId: "STRING_VALUE",
- *   RootDeviceName: "STRING_VALUE",
- *   SriovNetSupport: "STRING_VALUE",
- *   VirtualizationType: "STRING_VALUE",
  *   BootMode: "legacy-bios" || "uefi" || "uefi-preferred",
  *   TpmSupport: "v2.0",
  *   UefiData: "STRING_VALUE",
@@ -126,6 +98,34 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *       ],
  *     },
  *   ],
+ *   DryRun: true || false,
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   KernelId: "STRING_VALUE",
+ *   RamdiskId: "STRING_VALUE",
+ *   RootDeviceName: "STRING_VALUE",
+ *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
+ *     { // BlockDeviceMapping
+ *       Ebs: { // EbsBlockDevice
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number("int"),
+ *         SnapshotId: "STRING_VALUE",
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *         KmsKeyId: "STRING_VALUE",
+ *         Throughput: Number("int"),
+ *         OutpostArn: "STRING_VALUE",
+ *         Encrypted: true || false,
+ *       },
+ *       NoDevice: "STRING_VALUE",
+ *       DeviceName: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   VirtualizationType: "STRING_VALUE",
+ *   SriovNetSupport: "STRING_VALUE",
+ *   EnaSupport: true || false,
  * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);

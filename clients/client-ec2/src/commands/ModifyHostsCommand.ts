@@ -44,14 +44,14 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * // const { EC2Client, ModifyHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyHostsRequest
- *   AutoPlacement: "on" || "off",
- *   HostIds: [ // RequestHostIdList // required
- *     "STRING_VALUE",
- *   ],
  *   HostRecovery: "on" || "off",
  *   InstanceType: "STRING_VALUE",
  *   InstanceFamily: "STRING_VALUE",
  *   HostMaintenance: "on" || "off",
+ *   HostIds: [ // RequestHostIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoPlacement: "on" || "off",
  * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);

@@ -52,6 +52,10 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  * // const { EC2Client, DescribeReservedInstancesModificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeReservedInstancesModificationsRequest
+ *   ReservedInstancesModificationIds: [ // ReservedInstancesModificationIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -60,10 +64,6 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  *       ],
  *     },
  *   ],
- *   ReservedInstancesModificationIds: [ // ReservedInstancesModificationIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeReservedInstancesModificationsCommand(input);
  * const response = await client.send(command);

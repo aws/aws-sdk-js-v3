@@ -43,6 +43,9 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *   DhcpOptionsIds: [ // DhcpOptionsIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -51,15 +54,21 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeDhcpOptionsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeDhcpOptionsResult
+ * //   NextToken: "STRING_VALUE",
  * //   DhcpOptions: [ // DhcpOptionsList
  * //     { // DhcpOptions
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DhcpOptionsId: "STRING_VALUE",
  * //       DhcpConfigurations: [ // DhcpConfigurationList
  * //         { // DhcpConfiguration
  * //           Key: "STRING_VALUE",
@@ -70,17 +79,8 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * //           ],
  * //         },
  * //       ],
- * //       DhcpOptionsId: "STRING_VALUE",
- * //       OwnerId: "STRING_VALUE",
- * //       Tags: [ // TagList
- * //         { // Tag
- * //           Key: "STRING_VALUE",
- * //           Value: "STRING_VALUE",
- * //         },
- * //       ],
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -49,18 +49,18 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  *   LaunchPermission: { // LaunchPermissionModifications
  *     Add: [ // LaunchPermissionList
  *       { // LaunchPermission
- *         Group: "all",
- *         UserId: "STRING_VALUE",
  *         OrganizationArn: "STRING_VALUE",
  *         OrganizationalUnitArn: "STRING_VALUE",
+ *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *     Remove: [
  *       {
- *         Group: "all",
- *         UserId: "STRING_VALUE",
  *         OrganizationArn: "STRING_VALUE",
  *         OrganizationalUnitArn: "STRING_VALUE",
+ *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *   },
@@ -75,7 +75,6 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  *     "STRING_VALUE",
  *   ],
  *   Value: "STRING_VALUE",
- *   DryRun: true || false,
  *   OrganizationArns: [ // OrganizationArnStringList
  *     "STRING_VALUE",
  *   ],
@@ -85,6 +84,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  *   ImdsSupport: {
  *     Value: "STRING_VALUE",
  *   },
+ *   DryRun: true || false,
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * const response = await client.send(command);

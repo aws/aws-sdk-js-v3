@@ -36,9 +36,6 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * // const { EC2Client, DescribeExportTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeExportTasksRequest
- *   ExportTaskIds: [ // ExportTaskIdStringList
- *     "STRING_VALUE",
- *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -46,6 +43,9 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  *         "STRING_VALUE",
  *       ],
  *     },
+ *   ],
+ *   ExportTaskIds: [ // ExportTaskIdStringList
+ *     "STRING_VALUE",
  *   ],
  * };
  * const command = new DescribeExportTasksCommand(input);

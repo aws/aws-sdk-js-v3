@@ -45,12 +45,6 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSnapshotAttributeResult
- * //   CreateVolumePermissions: [ // CreateVolumePermissionList
- * //     { // CreateVolumePermission
- * //       Group: "all",
- * //       UserId: "STRING_VALUE",
- * //     },
- * //   ],
  * //   ProductCodes: [ // ProductCodeList
  * //     { // ProductCode
  * //       ProductCodeId: "STRING_VALUE",
@@ -58,6 +52,12 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * //     },
  * //   ],
  * //   SnapshotId: "STRING_VALUE",
+ * //   CreateVolumePermissions: [ // CreateVolumePermissionList
+ * //     { // CreateVolumePermission
+ * //       UserId: "STRING_VALUE",
+ * //       Group: "all",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

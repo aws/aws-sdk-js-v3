@@ -109,13 +109,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * const response = await client.send(command);
  * // { // ModifyVpnTunnelOptionsResult
  * //   VpnConnection: { // VpnConnection
- * //     CustomerGatewayConfiguration: "STRING_VALUE",
- * //     CustomerGatewayId: "STRING_VALUE",
  * //     Category: "STRING_VALUE",
- * //     State: "pending" || "available" || "deleting" || "deleted",
- * //     Type: "ipsec.1",
- * //     VpnConnectionId: "STRING_VALUE",
- * //     VpnGatewayId: "STRING_VALUE",
  * //     TransitGatewayId: "STRING_VALUE",
  * //     CoreNetworkArn: "STRING_VALUE",
  * //     CoreNetworkAttachmentArn: "STRING_VALUE",
@@ -213,6 +207,12 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     VpnConnectionId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CustomerGatewayConfiguration: "STRING_VALUE",
+ * //     Type: "ipsec.1",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     VpnGatewayId: "STRING_VALUE",
  * //   },
  * // };
  *

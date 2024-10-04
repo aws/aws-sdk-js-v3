@@ -37,9 +37,9 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetInstancesRequest
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);

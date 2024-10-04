@@ -69,29 +69,21 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *   Ipv6CidrBlock: "STRING_VALUE",
  *   OutpostArn: "STRING_VALUE",
  *   VpcId: "STRING_VALUE", // required
- *   DryRun: true || false,
  *   Ipv6Native: true || false,
  *   Ipv4IpamPoolId: "STRING_VALUE",
  *   Ipv4NetmaskLength: Number("int"),
  *   Ipv6IpamPoolId: "STRING_VALUE",
  *   Ipv6NetmaskLength: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new CreateSubnetCommand(input);
  * const response = await client.send(command);
  * // { // CreateSubnetResult
  * //   Subnet: { // Subnet
- * //     AvailabilityZone: "STRING_VALUE",
  * //     AvailabilityZoneId: "STRING_VALUE",
- * //     AvailableIpAddressCount: Number("int"),
- * //     CidrBlock: "STRING_VALUE",
- * //     DefaultForAz: true || false,
  * //     EnableLniAtDeviceIndex: Number("int"),
- * //     MapPublicIpOnLaunch: true || false,
  * //     MapCustomerOwnedIpOnLaunch: true || false,
  * //     CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //     State: "pending" || "available" || "unavailable",
- * //     SubnetId: "STRING_VALUE",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     AssignIpv6AddressOnCreation: true || false,
  * //     Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
@@ -121,6 +113,14 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * //       EnableResourceNameDnsARecord: true || false,
  * //       EnableResourceNameDnsAAAARecord: true || false,
  * //     },
+ * //     SubnetId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "unavailable",
+ * //     VpcId: "STRING_VALUE",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     AvailableIpAddressCount: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     DefaultForAz: true || false,
+ * //     MapPublicIpOnLaunch: true || false,
  * //   },
  * // };
  *

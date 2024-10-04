@@ -69,6 +69,12 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * // const { EC2Client, DescribeInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceStatusRequest
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -77,12 +83,6 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *       ],
  *     },
  *   ],
- *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   DryRun: true || false,
  *   IncludeAllInstances: true || false,
  * };
  * const command = new DescribeInstanceStatusCommand(input);

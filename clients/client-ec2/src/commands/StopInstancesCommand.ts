@@ -79,11 +79,11 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * // { // StopInstancesResult
  * //   StoppingInstances: [ // InstanceStateChangeList
  * //     { // InstanceStateChange
+ * //       InstanceId: "STRING_VALUE",
  * //       CurrentState: { // InstanceState
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
  * //       },
- * //       InstanceId: "STRING_VALUE",
  * //       PreviousState: {
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",

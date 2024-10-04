@@ -36,8 +36,8 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, DetachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DetachNetworkInterfaceRequest
- *   AttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AttachmentId: "STRING_VALUE", // required
  *   Force: true || false,
  * };
  * const command = new DetachNetworkInterfaceCommand(input);

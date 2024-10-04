@@ -40,26 +40,6 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * // const { EC2Client, CreateNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkInterfaceRequest
- *   Description: "STRING_VALUE",
- *   DryRun: true || false,
- *   Groups: [ // SecurityGroupIdStringList
- *     "STRING_VALUE",
- *   ],
- *   Ipv6AddressCount: Number("int"),
- *   Ipv6Addresses: [ // InstanceIpv6AddressList
- *     { // InstanceIpv6Address
- *       Ipv6Address: "STRING_VALUE",
- *       IsPrimaryIpv6: true || false,
- *     },
- *   ],
- *   PrivateIpAddress: "STRING_VALUE",
- *   PrivateIpAddresses: [ // PrivateIpAddressSpecificationList
- *     { // PrivateIpAddressSpecification
- *       Primary: true || false,
- *       PrivateIpAddress: "STRING_VALUE",
- *     },
- *   ],
- *   SecondaryPrivateIpAddressCount: Number("int"),
  *   Ipv4Prefixes: [ // Ipv4PrefixList
  *     { // Ipv4PrefixSpecificationRequest
  *       Ipv4Prefix: "STRING_VALUE",
@@ -73,7 +53,6 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *   ],
  *   Ipv6PrefixCount: Number("int"),
  *   InterfaceType: "efa" || "branch" || "trunk",
- *   SubnetId: "STRING_VALUE", // required
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "ipam-external-resource-verification-token",
@@ -92,6 +71,27 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *     UdpStreamTimeout: Number("int"),
  *     UdpTimeout: Number("int"),
  *   },
+ *   SubnetId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   PrivateIpAddress: "STRING_VALUE",
+ *   Groups: [ // SecurityGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   PrivateIpAddresses: [ // PrivateIpAddressSpecificationList
+ *     { // PrivateIpAddressSpecification
+ *       Primary: true || false,
+ *       PrivateIpAddress: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SecondaryPrivateIpAddressCount: Number("int"),
+ *   Ipv6Addresses: [ // InstanceIpv6AddressList
+ *     { // InstanceIpv6Address
+ *       Ipv6Address: "STRING_VALUE",
+ *       IsPrimaryIpv6: true || false,
+ *     },
+ *   ],
+ *   Ipv6AddressCount: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new CreateNetworkInterfaceCommand(input);
  * const response = await client.send(command);
@@ -131,8 +131,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //     Description: "STRING_VALUE",
  * //     Groups: [ // GroupIdentifierList
  * //       { // GroupIdentifier
- * //         GroupName: "STRING_VALUE",
  * //         GroupId: "STRING_VALUE",
+ * //         GroupName: "STRING_VALUE",
  * //       },
  * //     ],
  * //     InterfaceType: "interface" || "natGateway" || "efa" || "trunk" || "load_balancer" || "network_load_balancer" || "vpc_endpoint" || "branch" || "transit_gateway" || "lambda" || "quicksight" || "global_accelerator_managed" || "api_gateway_managed" || "gateway_load_balancer" || "gateway_load_balancer_endpoint" || "iot_rules_managed" || "aws_codestar_connections_managed",

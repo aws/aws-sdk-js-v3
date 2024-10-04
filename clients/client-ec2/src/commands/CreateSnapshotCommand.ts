@@ -79,18 +79,6 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
  * // { // Snapshot
- * //   DataEncryptionKeyId: "STRING_VALUE",
- * //   Description: "STRING_VALUE",
- * //   Encrypted: true || false,
- * //   KmsKeyId: "STRING_VALUE",
- * //   OwnerId: "STRING_VALUE",
- * //   Progress: "STRING_VALUE",
- * //   SnapshotId: "STRING_VALUE",
- * //   StartTime: new Date("TIMESTAMP"),
- * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
- * //   StateMessage: "STRING_VALUE",
- * //   VolumeId: "STRING_VALUE",
- * //   VolumeSize: Number("int"),
  * //   OwnerAlias: "STRING_VALUE",
  * //   OutpostArn: "STRING_VALUE",
  * //   Tags: [ // TagList
@@ -102,6 +90,18 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * //   StorageTier: "archive" || "standard",
  * //   RestoreExpiryTime: new Date("TIMESTAMP"),
  * //   SseType: "sse-ebs" || "sse-kms" || "none",
+ * //   SnapshotId: "STRING_VALUE",
+ * //   VolumeId: "STRING_VALUE",
+ * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //   StateMessage: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   Progress: "STRING_VALUE",
+ * //   OwnerId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   VolumeSize: Number("int"),
+ * //   Encrypted: true || false,
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   DataEncryptionKeyId: "STRING_VALUE",
  * // };
  *
  * ```

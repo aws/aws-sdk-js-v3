@@ -48,10 +48,6 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * const response = await client.send(command);
  * // { // CreateDefaultVpcResult
  * //   Vpc: { // Vpc
- * //     CidrBlock: "STRING_VALUE",
- * //     DhcpOptionsId: "STRING_VALUE",
- * //     State: "pending" || "available",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     InstanceTenancy: "default" || "dedicated" || "host",
  * //     Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
@@ -85,6 +81,10 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     DhcpOptionsId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -66,12 +66,12 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * //           UserIdGroupPairs: [ // UserIdGroupPairSet
  * //             { // UserIdGroupPair
  * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
  * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
  * //               VpcId: "STRING_VALUE",
  * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -90,12 +90,12 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * //           UserIdGroupPairs: [
  * //             {
  * //               Description: "STRING_VALUE",
- * //               GroupId: "STRING_VALUE",
- * //               GroupName: "STRING_VALUE",
- * //               PeeringStatus: "STRING_VALUE",
  * //               UserId: "STRING_VALUE",
+ * //               GroupName: "STRING_VALUE",
+ * //               GroupId: "STRING_VALUE",
  * //               VpcId: "STRING_VALUE",
  * //               VpcPeeringConnectionId: "STRING_VALUE",
+ * //               PeeringStatus: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },

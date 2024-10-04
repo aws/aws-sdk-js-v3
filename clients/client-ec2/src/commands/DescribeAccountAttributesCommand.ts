@@ -71,10 +71,10 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * // const { EC2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAccountAttributesRequest
+ *   DryRun: true || false,
  *   AttributeNames: [ // AccountAttributeNameStringList
  *     "supported-platforms" || "default-vpc",
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);

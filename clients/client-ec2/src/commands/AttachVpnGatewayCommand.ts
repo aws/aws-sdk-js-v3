@@ -28,7 +28,7 @@ export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
 export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
+ * <p>Attaches an available virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -47,8 +47,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * const response = await client.send(command);
  * // { // AttachVpnGatewayResult
  * //   VpcAttachment: { // VpcAttachment
- * //     State: "attaching" || "attached" || "detaching" || "detached",
  * //     VpcId: "STRING_VALUE",
+ * //     State: "attaching" || "attached" || "detaching" || "detached",
  * //   },
  * // };
  *

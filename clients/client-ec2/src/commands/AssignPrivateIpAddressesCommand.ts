@@ -50,16 +50,16 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignPrivateIpAddressesRequest
- *   AllowReassignment: true || false,
+ *   Ipv4Prefixes: [ // IpPrefixList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv4PrefixCount: Number("int"),
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   PrivateIpAddresses: [ // PrivateIpAddressStringList
  *     "STRING_VALUE",
  *   ],
  *   SecondaryPrivateIpAddressCount: Number("int"),
- *   Ipv4Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
- *   ],
- *   Ipv4PrefixCount: Number("int"),
+ *   AllowReassignment: true || false,
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);

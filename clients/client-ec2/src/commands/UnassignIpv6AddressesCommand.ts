@@ -36,13 +36,13 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * // const { EC2Client, UnassignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignIpv6AddressesRequest
- *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
  *   Ipv6Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Ipv6Addresses: [ // Ipv6AddressList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UnassignIpv6AddressesCommand(input);
  * const response = await client.send(command);

@@ -75,7 +75,6 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *           WeightedCapacity: Number("double"),
  *           Priority: Number("double"),
  *           Placement: { // Placement
- *             AvailabilityZone: "STRING_VALUE",
  *             Affinity: "STRING_VALUE",
  *             GroupName: "STRING_VALUE",
  *             PartitionNumber: Number("int"),
@@ -84,6 +83,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *             SpreadDomain: "STRING_VALUE",
  *             HostResourceGroupArn: "STRING_VALUE",
  *             GroupId: "STRING_VALUE",
+ *             AvailabilityZone: "STRING_VALUE",
  *           },
  *           InstanceRequirements: { // InstanceRequirementsRequest
  *             VCpuCount: { // VCpuCountRangeRequest

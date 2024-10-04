@@ -51,27 +51,20 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  *   SubnetIds: [ // SubnetIdStringList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new DescribeSubnetsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSubnetsResult
+ * //   NextToken: "STRING_VALUE",
  * //   Subnets: [ // SubnetList
  * //     { // Subnet
- * //       AvailabilityZone: "STRING_VALUE",
  * //       AvailabilityZoneId: "STRING_VALUE",
- * //       AvailableIpAddressCount: Number("int"),
- * //       CidrBlock: "STRING_VALUE",
- * //       DefaultForAz: true || false,
  * //       EnableLniAtDeviceIndex: Number("int"),
- * //       MapPublicIpOnLaunch: true || false,
  * //       MapCustomerOwnedIpOnLaunch: true || false,
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //       State: "pending" || "available" || "unavailable",
- * //       SubnetId: "STRING_VALUE",
- * //       VpcId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       AssignIpv6AddressOnCreation: true || false,
  * //       Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
@@ -101,9 +94,16 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * //         EnableResourceNameDnsARecord: true || false,
  * //         EnableResourceNameDnsAAAARecord: true || false,
  * //       },
+ * //       SubnetId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "unavailable",
+ * //       VpcId: "STRING_VALUE",
+ * //       CidrBlock: "STRING_VALUE",
+ * //       AvailableIpAddressCount: Number("int"),
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       DefaultForAz: true || false,
+ * //       MapPublicIpOnLaunch: true || false,
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

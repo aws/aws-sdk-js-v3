@@ -54,7 +54,6 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   Size: Number("int"),
  *   SnapshotId: "STRING_VALUE",
  *   VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *   DryRun: true || false,
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "ipam-external-resource-verification-token",
@@ -69,31 +68,12 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   MultiAttachEnabled: true || false,
  *   Throughput: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
  * };
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
  * // { // Volume
- * //   Attachments: [ // VolumeAttachmentList
- * //     { // VolumeAttachment
- * //       AttachTime: new Date("TIMESTAMP"),
- * //       Device: "STRING_VALUE",
- * //       InstanceId: "STRING_VALUE",
- * //       State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- * //       VolumeId: "STRING_VALUE",
- * //       DeleteOnTermination: true || false,
- * //       AssociatedResource: "STRING_VALUE",
- * //       InstanceOwningService: "STRING_VALUE",
- * //     },
- * //   ],
- * //   AvailabilityZone: "STRING_VALUE",
- * //   CreateTime: new Date("TIMESTAMP"),
- * //   Encrypted: true || false,
- * //   KmsKeyId: "STRING_VALUE",
  * //   OutpostArn: "STRING_VALUE",
- * //   Size: Number("int"),
- * //   SnapshotId: "STRING_VALUE",
- * //   State: "creating" || "available" || "in-use" || "deleting" || "deleted" || "error",
- * //   VolumeId: "STRING_VALUE",
  * //   Iops: Number("int"),
  * //   Tags: [ // TagList
  * //     { // Tag
@@ -106,6 +86,26 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //   MultiAttachEnabled: true || false,
  * //   Throughput: Number("int"),
  * //   SseType: "sse-ebs" || "sse-kms" || "none",
+ * //   VolumeId: "STRING_VALUE",
+ * //   Size: Number("int"),
+ * //   SnapshotId: "STRING_VALUE",
+ * //   AvailabilityZone: "STRING_VALUE",
+ * //   State: "creating" || "available" || "in-use" || "deleting" || "deleted" || "error",
+ * //   CreateTime: new Date("TIMESTAMP"),
+ * //   Attachments: [ // VolumeAttachmentList
+ * //     { // VolumeAttachment
+ * //       DeleteOnTermination: true || false,
+ * //       AssociatedResource: "STRING_VALUE",
+ * //       InstanceOwningService: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Device: "STRING_VALUE",
+ * //       State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //       AttachTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Encrypted: true || false,
+ * //   KmsKeyId: "STRING_VALUE",
  * // };
  *
  * ```

@@ -33,7 +33,7 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an
  *             Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses or an IPv6 CIDR
  *             block from an IPv6 address pool that you provisioned through bring your own IP addresses
- *                 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
+ *             (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
  *          <p>By default, each instance that you launch in the VPC has the default DHCP options, which
  * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
  * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -48,15 +48,12 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * const client = new EC2Client(config);
  * const input = { // CreateVpcRequest
  *   CidrBlock: "STRING_VALUE",
- *   AmazonProvidedIpv6CidrBlock: true || false,
  *   Ipv6Pool: "STRING_VALUE",
  *   Ipv6CidrBlock: "STRING_VALUE",
  *   Ipv4IpamPoolId: "STRING_VALUE",
  *   Ipv4NetmaskLength: Number("int"),
  *   Ipv6IpamPoolId: "STRING_VALUE",
  *   Ipv6NetmaskLength: Number("int"),
- *   DryRun: true || false,
- *   InstanceTenancy: "default" || "dedicated" || "host",
  *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -69,15 +66,14 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *       ],
  *     },
  *   ],
+ *   DryRun: true || false,
+ *   InstanceTenancy: "default" || "dedicated" || "host",
+ *   AmazonProvidedIpv6CidrBlock: true || false,
  * };
  * const command = new CreateVpcCommand(input);
  * const response = await client.send(command);
  * // { // CreateVpcResult
  * //   Vpc: { // Vpc
- * //     CidrBlock: "STRING_VALUE",
- * //     DhcpOptionsId: "STRING_VALUE",
- * //     State: "pending" || "available",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     InstanceTenancy: "default" || "dedicated" || "host",
  * //     Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
@@ -111,6 +107,10 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     DhcpOptionsId: "STRING_VALUE",
  * //   },
  * // };
  *

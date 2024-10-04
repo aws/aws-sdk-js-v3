@@ -38,6 +38,14 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * // const { EC2Client, DescribeKeyPairsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeKeyPairsRequest
+ *   KeyNames: [ // KeyNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   KeyPairIds: [ // KeyPairIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludePublicKey: true || false,
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -46,14 +54,6 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  *       ],
  *     },
  *   ],
- *   KeyNames: [ // KeyNameStringList
- *     "STRING_VALUE",
- *   ],
- *   KeyPairIds: [ // KeyPairIdStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   IncludePublicKey: true || false,
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
@@ -61,8 +61,6 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * //   KeyPairs: [ // KeyPairList
  * //     { // KeyPairInfo
  * //       KeyPairId: "STRING_VALUE",
- * //       KeyFingerprint: "STRING_VALUE",
- * //       KeyName: "STRING_VALUE",
  * //       KeyType: "rsa" || "ed25519",
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -72,6 +70,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * //       ],
  * //       PublicKey: "STRING_VALUE",
  * //       CreateTime: new Date("TIMESTAMP"),
+ * //       KeyName: "STRING_VALUE",
+ * //       KeyFingerprint: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

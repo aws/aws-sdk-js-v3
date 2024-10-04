@@ -48,39 +48,6 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * const command = new DescribeImageAttributeCommand(input);
  * const response = await client.send(command);
  * // { // ImageAttribute
- * //   BlockDeviceMappings: [ // BlockDeviceMappingList
- * //     { // BlockDeviceMapping
- * //       DeviceName: "STRING_VALUE",
- * //       VirtualName: "STRING_VALUE",
- * //       Ebs: { // EbsBlockDevice
- * //         DeleteOnTermination: true || false,
- * //         Iops: Number("int"),
- * //         SnapshotId: "STRING_VALUE",
- * //         VolumeSize: Number("int"),
- * //         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- * //         KmsKeyId: "STRING_VALUE",
- * //         Throughput: Number("int"),
- * //         OutpostArn: "STRING_VALUE",
- * //         Encrypted: true || false,
- * //       },
- * //       NoDevice: "STRING_VALUE",
- * //     },
- * //   ],
- * //   ImageId: "STRING_VALUE",
- * //   LaunchPermissions: [ // LaunchPermissionList
- * //     { // LaunchPermission
- * //       Group: "all",
- * //       UserId: "STRING_VALUE",
- * //       OrganizationArn: "STRING_VALUE",
- * //       OrganizationalUnitArn: "STRING_VALUE",
- * //     },
- * //   ],
- * //   ProductCodes: [ // ProductCodeList
- * //     { // ProductCode
- * //       ProductCodeId: "STRING_VALUE",
- * //       ProductCodeType: "devpay" || "marketplace",
- * //     },
- * //   ],
  * //   Description: { // AttributeValue
  * //     Value: "STRING_VALUE",
  * //   },
@@ -101,6 +68,39 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * //   LastLaunchedTime: "<AttributeValue>",
  * //   ImdsSupport: "<AttributeValue>",
  * //   DeregistrationProtection: "<AttributeValue>",
+ * //   ImageId: "STRING_VALUE",
+ * //   LaunchPermissions: [ // LaunchPermissionList
+ * //     { // LaunchPermission
+ * //       OrganizationArn: "STRING_VALUE",
+ * //       OrganizationalUnitArn: "STRING_VALUE",
+ * //       UserId: "STRING_VALUE",
+ * //       Group: "all",
+ * //     },
+ * //   ],
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   BlockDeviceMappings: [ // BlockDeviceMappingList
+ * //     { // BlockDeviceMapping
+ * //       Ebs: { // EbsBlockDevice
+ * //         DeleteOnTermination: true || false,
+ * //         Iops: Number("int"),
+ * //         SnapshotId: "STRING_VALUE",
+ * //         VolumeSize: Number("int"),
+ * //         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //         Throughput: Number("int"),
+ * //         OutpostArn: "STRING_VALUE",
+ * //         Encrypted: true || false,
+ * //       },
+ * //       NoDevice: "STRING_VALUE",
+ * //       DeviceName: "STRING_VALUE",
+ * //       VirtualName: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

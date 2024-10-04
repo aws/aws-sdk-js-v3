@@ -44,6 +44,12 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * // const { EC2Client, DescribeNetworkInterfacesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkInterfacesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NetworkInterfaceIds: [ // NetworkInterfaceIdList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -52,12 +58,6 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   NetworkInterfaceIds: [ // NetworkInterfaceIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeNetworkInterfacesCommand(input);
  * const response = await client.send(command);
@@ -98,8 +98,8 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       Description: "STRING_VALUE",
  * //       Groups: [ // GroupIdentifierList
  * //         { // GroupIdentifier
- * //           GroupName: "STRING_VALUE",
  * //           GroupId: "STRING_VALUE",
+ * //           GroupName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       InterfaceType: "interface" || "natGateway" || "efa" || "trunk" || "load_balancer" || "network_load_balancer" || "vpc_endpoint" || "branch" || "transit_gateway" || "lambda" || "quicksight" || "global_accelerator_managed" || "api_gateway_managed" || "gateway_load_balancer" || "gateway_load_balancer_endpoint" || "iot_rules_managed" || "aws_codestar_connections_managed",

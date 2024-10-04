@@ -73,6 +73,12 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * // const { EC2Client, DescribeVolumeStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVolumeStatusRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -81,12 +87,6 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   VolumeIds: [ // VolumeIdStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);

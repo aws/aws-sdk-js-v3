@@ -30,7 +30,7 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
 /**
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
  *             specified Availability Zone in your default VPC. You can have only one default subnet
- *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Create a default
+ *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet">Create a default
  *                 subnet</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,18 +47,10 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * const response = await client.send(command);
  * // { // CreateDefaultSubnetResult
  * //   Subnet: { // Subnet
- * //     AvailabilityZone: "STRING_VALUE",
  * //     AvailabilityZoneId: "STRING_VALUE",
- * //     AvailableIpAddressCount: Number("int"),
- * //     CidrBlock: "STRING_VALUE",
- * //     DefaultForAz: true || false,
  * //     EnableLniAtDeviceIndex: Number("int"),
- * //     MapPublicIpOnLaunch: true || false,
  * //     MapCustomerOwnedIpOnLaunch: true || false,
  * //     CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //     State: "pending" || "available" || "unavailable",
- * //     SubnetId: "STRING_VALUE",
- * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //     AssignIpv6AddressOnCreation: true || false,
  * //     Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
@@ -88,6 +80,14 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * //       EnableResourceNameDnsARecord: true || false,
  * //       EnableResourceNameDnsAAAARecord: true || false,
  * //     },
+ * //     SubnetId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "unavailable",
+ * //     VpcId: "STRING_VALUE",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     AvailableIpAddressCount: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     DefaultForAz: true || false,
+ * //     MapPublicIpOnLaunch: true || false,
  * //   },
  * // };
  *

@@ -48,10 +48,6 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * // const { EC2Client, CreateVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateVpcPeeringConnectionRequest
- *   DryRun: true || false,
- *   PeerOwnerId: "STRING_VALUE",
- *   PeerVpcId: "STRING_VALUE",
- *   VpcId: "STRING_VALUE", // required
  *   PeerRegion: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -64,6 +60,10 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *       ],
  *     },
  *   ],
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE",
+ *   PeerOwnerId: "STRING_VALUE",
  * };
  * const command = new CreateVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);

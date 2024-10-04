@@ -58,6 +58,7 @@ export interface DescribeVolumesModificationsCommandOutput
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVolumesModificationsResult
+ * //   NextToken: "STRING_VALUE",
  * //   VolumesModifications: [ // VolumeModificationList
  * //     { // VolumeModification
  * //       VolumeId: "STRING_VALUE",
@@ -78,7 +79,6 @@ export interface DescribeVolumesModificationsCommandOutput
  * //       EndTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

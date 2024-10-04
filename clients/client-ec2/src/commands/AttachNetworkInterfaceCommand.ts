@@ -36,10 +36,6 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * // const { EC2Client, AttachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AttachNetworkInterfaceRequest
- *   DeviceIndex: Number("int"), // required
- *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
- *   NetworkInterfaceId: "STRING_VALUE", // required
  *   NetworkCardIndex: Number("int"),
  *   EnaSrdSpecification: { // EnaSrdSpecification
  *     EnaSrdEnabled: true || false,
@@ -47,6 +43,10 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  *       EnaSrdUdpEnabled: true || false,
  *     },
  *   },
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   DeviceIndex: Number("int"), // required
  * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);

@@ -46,11 +46,11 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * const client = new EC2Client(config);
  * const input = { // AttachClassicLinkVpcRequest
  *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
  *   Groups: [ // GroupIdStringList // required
  *     "STRING_VALUE",
  *   ],
- *   InstanceId: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE", // required
  * };
  * const command = new AttachClassicLinkVpcCommand(input);
  * const response = await client.send(command);

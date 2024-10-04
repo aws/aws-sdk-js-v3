@@ -43,6 +43,10 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeClassicLinkInstancesRequest
+ *   DryRun: true || false,
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -51,12 +55,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
- *   ],
- *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeClassicLinkInstancesCommand(input);
  * const response = await client.send(command);
@@ -65,8 +65,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * //     { // ClassicLinkInstance
  * //       Groups: [ // GroupIdentifierList
  * //         { // GroupIdentifier
- * //           GroupName: "STRING_VALUE",
  * //           GroupId: "STRING_VALUE",
+ * //           GroupName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       InstanceId: "STRING_VALUE",

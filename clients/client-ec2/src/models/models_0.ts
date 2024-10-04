@@ -862,10 +862,9 @@ export interface TransitGatewayVpcAttachmentOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.</p>
+   *          <p>This option is enabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -2788,18 +2787,6 @@ export type DomainType = (typeof DomainType)[keyof typeof DomainType];
  */
 export interface Address {
   /**
-   * <p>The ID of the instance that the address is associated with (if any).</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp?: string;
-
-  /**
    * <p>The ID representing the allocation of the address.</p>
    * @public
    */
@@ -2872,6 +2859,18 @@ export interface Address {
    * @public
    */
   CarrierIp?: string;
+
+  /**
+   * <p>The ID of the instance that the address is associated with (if any).</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp?: string;
 }
 
 /**
@@ -3227,36 +3226,30 @@ export interface AllocateAddressRequest {
   CustomerOwnedIpv4Pool?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The tags to assign to the Elastic IP address.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The ID of an IPAM pool.</p>
+   * <p>The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html">Allocate sequential Elastic IP addresses from an IPAM pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    * @public
    */
   IpamPoolId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
  * @public
  */
 export interface AllocateAddressResult {
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp?: string;
-
   /**
    * <p>The ID that represents the allocation of the Elastic IP address.</p>
    * @public
@@ -3300,6 +3293,12 @@ export interface AllocateAddressResult {
    * @public
    */
   CarrierIp?: string;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp?: string;
 }
 
 /**
@@ -3349,40 +3348,6 @@ export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
  */
 export interface AllocateHostsRequest {
   /**
-   * <p>Indicates whether the host accepts any untargeted instance launches that match its
-   *             instance type configuration, or if it only accepts Host tenancy instance launches that
-   *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>off</code>
-   *          </p>
-   * @public
-   */
-  AutoPlacement?: AutoPlacement;
-
-  /**
-   * <p>The Availability Zone in which to allocate the Dedicated Host.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
-   *             instance type, the Dedicated Hosts support instances of the specified instance type
-   *             only.</p>
-   *          <p>If you want the Dedicated Hosts to support multiple instance types in a specific
-   *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
-   *             same request.</p>
-   * @public
-   */
-  InstanceType?: string;
-
-  /**
    * <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
    *             an instance family, the Dedicated Hosts support multiple instance types within that
    *             instance family.</p>
@@ -3392,17 +3357,6 @@ export interface AllocateHostsRequest {
    * @public
    */
   InstanceFamily?: string;
-
-  /**
-   * <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are
-   *             allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>,
-   *             you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each
-   *             specified hardware asset. If you specify both <b>AssetIds</b> and
-   *             <b>Quantity</b>, then the value that you specify for
-   *             <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
-   * @public
-   */
-  Quantity?: number;
 
   /**
    * <p>The tags to apply to the Dedicated Host during creation.</p>
@@ -3458,6 +3412,51 @@ export interface AllocateHostsRequest {
    * @public
    */
   AssetIds?: string[];
+
+  /**
+   * <p>Indicates whether the host accepts any untargeted instance launches that match its
+   *             instance type configuration, or if it only accepts Host tenancy instance launches that
+   *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>off</code>
+   *          </p>
+   * @public
+   */
+  AutoPlacement?: AutoPlacement;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
+   *             instance type, the Dedicated Hosts support instances of the specified instance type
+   *             only.</p>
+   *          <p>If you want the Dedicated Hosts to support multiple instance types in a specific
+   *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
+   *             same request.</p>
+   * @public
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are
+   *             allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>,
+   *             you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each
+   *             specified hardware asset. If you specify both <b>AssetIds</b> and
+   *             <b>Quantity</b>, then the value that you specify for
+   *             <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
+   * @public
+   */
+  Quantity?: number;
+
+  /**
+   * <p>The Availability Zone in which to allocate the Dedicated Host.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
 }
 
 /**
@@ -3794,22 +3793,6 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
  */
 export interface AssignIpv6AddressesRequest {
   /**
-   * <p>The number of additional IPv6 addresses to assign to the network interface.
-   *     		The specified number of IPv6 addresses are assigned in addition to the
-   *     		existing IPv6 addresses that are already assigned to the network interface.
-   *     		Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You
-   *     		can't use this option if specifying specific IPv6 addresses.</p>
-   * @public
-   */
-  Ipv6AddressCount?: number;
-
-  /**
-   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
-   * @public
-   */
-  Ipv6Addresses?: string[];
-
-  /**
    * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
    *             network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
    *             option.</p>
@@ -3828,6 +3811,22 @@ export interface AssignIpv6AddressesRequest {
    * @public
    */
   NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6Addresses?: string[];
+
+  /**
+   * <p>The number of additional IPv6 addresses to assign to the network interface.
+   *     		The specified number of IPv6 addresses are assigned in addition to the
+   *     		existing IPv6 addresses that are already assigned to the network interface.
+   *     		Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You
+   *     		can't use this option if specifying specific IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6AddressCount?: number;
 }
 
 /**
@@ -3860,10 +3859,16 @@ export interface AssignIpv6AddressesResult {
  */
 export interface AssignPrivateIpAddressesRequest {
   /**
-   * <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    * @public
    */
-  AllowReassignment?: boolean;
+  Ipv4Prefixes?: string[];
+
+  /**
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * @public
+   */
+  Ipv4PrefixCount?: number;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -3885,16 +3890,10 @@ export interface AssignPrivateIpAddressesRequest {
   SecondaryPrivateIpAddressCount?: number;
 
   /**
-   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
    * @public
    */
-  Ipv4Prefixes?: string[];
-
-  /**
-   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
-   * @public
-   */
-  Ipv4PrefixCount?: number;
+  AllowReassignment?: boolean;
 }
 
 /**
@@ -4090,12 +4089,6 @@ export interface AssociateAddressRequest {
   PublicIp?: string;
 
   /**
-   * <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
-   * @public
-   */
-  AllowReassociation?: boolean;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4115,6 +4108,12 @@ export interface AssociateAddressRequest {
    * @public
    */
   PrivateIpAddress?: string;
+
+  /**
+   * <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
+   * @public
+   */
+  AllowReassociation?: boolean;
 }
 
 /**
@@ -4900,6 +4899,12 @@ export interface AssociateNatGatewayAddressResult {
  */
 export interface AssociateRouteTableRequest {
   /**
+   * <p>The ID of the internet gateway or virtual private gateway.</p>
+   * @public
+   */
+  GatewayId?: string;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4908,22 +4913,16 @@ export interface AssociateRouteTableRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
    * <p>The ID of the subnet.</p>
    * @public
    */
   SubnetId?: string;
 
   /**
-   * <p>The ID of the internet gateway or virtual private gateway.</p>
+   * <p>The ID of the route table.</p>
    * @public
    */
-  GatewayId?: string;
+  RouteTableId: string | undefined;
 }
 
 /**
@@ -4985,18 +4984,6 @@ export interface AssociateRouteTableResult {
  */
 export interface AssociateSubnetCidrBlockRequest {
   /**
-   * <p>The IPv6 CIDR block for your subnet.</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of your subnet.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
    * <p>An IPv6 IPAM pool ID.</p>
    * @public
    */
@@ -5007,6 +4994,18 @@ export interface AssociateSubnetCidrBlockRequest {
    * @public
    */
   Ipv6NetmaskLength?: number;
+
+  /**
+   * <p>The ID of your subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR block for your subnet.</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string;
 }
 
 /**
@@ -5461,23 +5460,10 @@ export interface AssociateTrunkInterfaceResult {
  */
 export interface AssociateVpcCidrBlockRequest {
   /**
-   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You
-   *             cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
-   * @public
-   */
-  AmazonProvidedIpv6CidrBlock?: boolean;
-
-  /**
    * <p>An IPv4 CIDR block to associate with the VPC.</p>
    * @public
    */
   CidrBlock?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
 
   /**
    * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
@@ -5525,6 +5511,19 @@ export interface AssociateVpcCidrBlockRequest {
    * @public
    */
   Ipv6NetmaskLength?: number;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You
+   *             cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
+   * @public
+   */
+  AmazonProvidedIpv6CidrBlock?: boolean;
 }
 
 /**
@@ -5672,12 +5671,6 @@ export interface AttachClassicLinkVpcRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The IDs of the security groups. You cannot specify security groups from a different VPC.</p>
-   * @public
-   */
-  Groups: string[] | undefined;
-
-  /**
    * <p>The ID of the EC2-Classic instance.</p>
    * @public
    */
@@ -5688,6 +5681,12 @@ export interface AttachClassicLinkVpcRequest {
    * @public
    */
   VpcId: string | undefined;
+
+  /**
+   * <p>The IDs of the security groups. You cannot specify security groups from a different VPC.</p>
+   * @public
+   */
+  Groups: string[] | undefined;
 }
 
 /**
@@ -5774,32 +5773,6 @@ export interface EnaSrdSpecification {
  */
 export interface AttachNetworkInterfaceRequest {
   /**
-   * <p>The index of the device for the network interface attachment.</p>
-   * @public
-   */
-  DeviceIndex: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
    * <p>The index of the network card. Some instance types support multiple network cards.
    *             The primary network interface must be assigned to network card index 0.
    *             The default is network card index 0.</p>
@@ -5812,6 +5785,32 @@ export interface AttachNetworkInterfaceRequest {
    * @public
    */
   EnaSrdSpecification?: EnaSrdSpecification;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The index of the device for the network interface attachment.</p>
+   * @public
+   */
+  DeviceIndex: number | undefined;
 }
 
 /**
@@ -6230,40 +6229,6 @@ export type VolumeAttachmentState = (typeof VolumeAttachmentState)[keyof typeof 
  */
 export interface VolumeAttachment {
   /**
-   * <p>The time stamp when the attachment initiated.</p>
-   * @public
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>The device name.</p>
-   *          <p>If the volume is attached to a Fargate task, this parameter
-   *       returns <code>null</code>.</p>
-   * @public
-   */
-  Device?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   *          <p>If the volume is attached to a Fargate task, this parameter
-   *       returns <code>null</code>.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The attachment state of the volume.</p>
-   * @public
-   */
-  State?: VolumeAttachmentState;
-
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId?: string;
-
-  /**
    * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
    * @public
    */
@@ -6284,6 +6249,40 @@ export interface VolumeAttachment {
    * @public
    */
   InstanceOwningService?: string;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The device name.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
+   * @public
+   */
+  Device?: string;
+
+  /**
+   * <p>The attachment state of the volume.</p>
+   * @public
+   */
+  State?: VolumeAttachmentState;
+
+  /**
+   * <p>The time stamp when the attachment initiated.</p>
+   * @public
+   */
+  AttachTime?: Date;
 }
 
 /**
@@ -6335,16 +6334,16 @@ export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof Attachment
  */
 export interface VpcAttachment {
   /**
-   * <p>The current state of the attachment.</p>
-   * @public
-   */
-  State?: AttachmentStatus;
-
-  /**
    * <p>The ID of the VPC.</p>
    * @public
    */
   VpcId?: string;
+
+  /**
+   * <p>The current state of the attachment.</p>
+   * @public
+   */
+  State?: AttachmentStatus;
 }
 
 /**
@@ -6461,19 +6460,19 @@ export interface AuthorizeClientVpnIngressResult {
  */
 export interface IpRange {
   /**
-   * <p>The IPv4 address range. You can either specify a CIDR block or a source security group,
-   *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
-   * @public
-   */
-  CidrIp?: string;
-
-  /**
    * <p>A description for the security group rule that references this IPv4 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
    *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The IPv4 address range. You can either specify a CIDR block or a source security group,
+   *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
+   * @public
+   */
+  CidrIp?: string;
 }
 
 /**
@@ -6482,19 +6481,19 @@ export interface IpRange {
  */
 export interface Ipv6Range {
   /**
-   * <p>The IPv6 address range. You can either specify a CIDR block or a source security group,
-   *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
-   * @public
-   */
-  CidrIpv6?: string;
-
-  /**
    * <p>A description for the security group rule that references this IPv6 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
    *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The IPv6 address range. You can either specify a CIDR block or a source security group,
+   *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
+   * @public
+   */
+  CidrIpv6?: string;
 }
 
 /**
@@ -6532,10 +6531,13 @@ export interface UserIdGroupPair {
   Description?: string;
 
   /**
-   * <p>The ID of the security group.</p>
+   * <p>The ID of an Amazon Web Services account.</p>
+   *          <p>For a referenced security group in another VPC, the account ID of the referenced
+   *             security group is returned in the response. If the referenced security group is deleted,
+   *             this value is not returned.</p>
    * @public
    */
-  GroupId?: string;
+  UserId?: string;
 
   /**
    * <p>[Default VPC] The name of the security group. For a security group in a nondefault VPC,
@@ -6547,19 +6549,10 @@ export interface UserIdGroupPair {
   GroupName?: string;
 
   /**
-   * <p>The status of a VPC peering connection, if applicable.</p>
+   * <p>The ID of the security group.</p>
    * @public
    */
-  PeeringStatus?: string;
-
-  /**
-   * <p>The ID of an Amazon Web Services account.</p>
-   *          <p>For a referenced security group in another VPC, the account ID of the referenced
-   *             security group is returned in the response. If the referenced security group is deleted,
-   *             this value is not returned.</p>
-   * @public
-   */
-  UserId?: string;
+  GroupId?: string;
 
   /**
    * <p>The ID of the VPC for the referenced security group, if applicable.</p>
@@ -6572,6 +6565,12 @@ export interface UserIdGroupPair {
    * @public
    */
   VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The status of a VPC peering connection, if applicable.</p>
+   * @public
+   */
+  PeeringStatus?: string;
 }
 
 /**
@@ -6579,13 +6578,6 @@ export interface UserIdGroupPair {
  * @public
  */
 export interface IpPermission {
-  /**
-   * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *         If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
-   * @public
-   */
-  FromPort?: number;
-
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>)
    *         or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).</p>
@@ -6598,6 +6590,27 @@ export interface IpPermission {
    * @public
    */
   IpProtocol?: string;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *         If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
+   */
+  FromPort?: number;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *           If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
+   * @public
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The security group and Amazon Web Services account ID pairs.</p>
+   * @public
+   */
+  UserIdGroupPairs?: UserIdGroupPair[];
 
   /**
    * <p>The IPv4 address ranges.</p>
@@ -6616,26 +6629,18 @@ export interface IpPermission {
    * @public
    */
   PrefixListIds?: PrefixListId[];
-
-  /**
-   * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
-   *           If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
-   * @public
-   */
-  ToPort?: number;
-
-  /**
-   * <p>The security group and Amazon Web Services account ID pairs.</p>
-   * @public
-   */
-  UserIdGroupPairs?: UserIdGroupPair[];
 }
 
 /**
  * @public
  */
 export interface AuthorizeSecurityGroupEgressRequest {
+  /**
+   * <p>The tags applied to the security group rule.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -6651,28 +6656,16 @@ export interface AuthorizeSecurityGroupEgressRequest {
   GroupId: string | undefined;
 
   /**
-   * <p>The permissions for the security group rules.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  IpPermissions?: IpPermission[];
-
-  /**
-   * <p>The tags applied to the security group rule.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
+  SourceSecurityGroupName?: string;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  CidrIp?: string;
-
-  /**
-   * <p>Not supported. Use IP permissions instead.</p>
-   * @public
-   */
-  FromPort?: number;
+  SourceSecurityGroupOwnerId?: string;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
@@ -6684,19 +6677,25 @@ export interface AuthorizeSecurityGroupEgressRequest {
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
+  FromPort?: number;
+
+  /**
+   * <p>Not supported. Use IP permissions instead.</p>
+   * @public
+   */
   ToPort?: number;
 
   /**
    * <p>Not supported. Use IP permissions instead.</p>
    * @public
    */
-  SourceSecurityGroupName?: string;
+  CidrIp?: string;
 
   /**
-   * <p>Not supported. Use IP permissions instead.</p>
+   * <p>The permissions for the security group rules.</p>
    * @public
    */
-  SourceSecurityGroupOwnerId?: string;
+  IpPermissions?: IpPermission[];
 }
 
 /**
@@ -6919,18 +6918,18 @@ export interface AuthorizeSecurityGroupIngressRequest {
   ToPort?: number;
 
   /**
+   * <p>The tags applied to the security group rule.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The tags applied to the security group rule.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
 }
 
 /**
@@ -7071,34 +7070,16 @@ export type BundleTaskState = (typeof BundleTaskState)[keyof typeof BundleTaskSt
  */
 export interface BundleTask {
   /**
-   * <p>The ID of the bundle task.</p>
-   * @public
-   */
-  BundleId?: string;
-
-  /**
-   * <p>If the task fails, a description of the error.</p>
-   * @public
-   */
-  BundleTaskError?: BundleTaskError;
-
-  /**
    * <p>The ID of the instance associated with this bundle task.</p>
    * @public
    */
   InstanceId?: string;
 
   /**
-   * <p>The level of task completion, as a percent (for example, 20%).</p>
+   * <p>The ID of the bundle task.</p>
    * @public
    */
-  Progress?: string;
-
-  /**
-   * <p>The time this task started.</p>
-   * @public
-   */
-  StartTime?: Date;
+  BundleId?: string;
 
   /**
    * <p>The state of the task.</p>
@@ -7107,16 +7088,34 @@ export interface BundleTask {
   State?: BundleTaskState;
 
   /**
-   * <p>The Amazon S3 storage locations.</p>
+   * <p>The time this task started.</p>
    * @public
    */
-  Storage?: Storage;
+  StartTime?: Date;
 
   /**
    * <p>The time of the most recent update for the task.</p>
    * @public
    */
   UpdateTime?: Date;
+
+  /**
+   * <p>The Amazon S3 storage locations.</p>
+   * @public
+   */
+  Storage?: Storage;
+
+  /**
+   * <p>The level of task completion, as a percent (for example, 20%).</p>
+   * @public
+   */
+  Progress?: string;
+
+  /**
+   * <p>If the task fails, a description of the error.</p>
+   * @public
+   */
+  BundleTaskError?: BundleTaskError;
 }
 
 /**
@@ -7312,18 +7311,18 @@ export interface CancelCapacityReservationFleetsResult {
  */
 export interface CancelConversionRequest {
   /**
-   * <p>The ID of the conversion task.</p>
-   * @public
-   */
-  ConversionTaskId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the conversion task.</p>
+   * @public
+   */
+  ConversionTaskId: string | undefined;
 
   /**
    * <p>The reason for canceling the conversion task.</p>
@@ -7850,18 +7849,18 @@ export interface ConfirmProductInstanceRequest {
  */
 export interface ConfirmProductInstanceResult {
   /**
-   * <p>The Amazon Web Services account ID of the instance owner. This is only present if the
-   *             product code is attached to the instance.</p>
-   * @public
-   */
-  OwnerId?: string;
-
-  /**
    * <p>The return value of the request. Returns <code>true</code> if the specified product
    *             code is owned by the requester and associated with the specified instance.</p>
    * @public
    */
   Return?: boolean;
+
+  /**
+   * <p>The Amazon Web Services account ID of the instance owner. This is only present if the
+   *             product code is attached to the instance.</p>
+   * @public
+   */
+  OwnerId?: string;
 }
 
 /**
@@ -8006,14 +8005,6 @@ export interface CopyImageRequest {
   DestinationOutpostArn?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
    *          <p>The following tags will not be copied:</p>
    *          <ul>
@@ -8048,6 +8039,14 @@ export interface CopyImageRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -8182,16 +8181,16 @@ export interface CopySnapshotRequest {
  */
 export interface CopySnapshotResult {
   /**
-   * <p>The ID of the new snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string;
-
-  /**
    * <p>Any tags applied to the new snapshot.</p>
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the new snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string;
 }
 
 /**

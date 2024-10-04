@@ -41,8 +41,8 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * // const { EC2Client, ReplaceNetworkAclAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceNetworkAclAssociationRequest
- *   AssociationId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AssociationId: "STRING_VALUE", // required
  *   NetworkAclId: "STRING_VALUE", // required
  * };
  * const command = new ReplaceNetworkAclAssociationCommand(input);

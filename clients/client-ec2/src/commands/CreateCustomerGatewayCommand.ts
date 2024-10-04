@@ -66,19 +66,14 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *   ],
  *   DeviceName: "STRING_VALUE",
  *   IpAddress: "STRING_VALUE",
- *   DryRun: true || false,
  *   BgpAsnExtended: Number("long"),
+ *   DryRun: true || false,
  * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
  * // { // CreateCustomerGatewayResult
  * //   CustomerGateway: { // CustomerGateway
- * //     BgpAsn: "STRING_VALUE",
- * //     CustomerGatewayId: "STRING_VALUE",
- * //     IpAddress: "STRING_VALUE",
  * //     CertificateArn: "STRING_VALUE",
- * //     State: "STRING_VALUE",
- * //     Type: "STRING_VALUE",
  * //     DeviceName: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -87,6 +82,11 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * //       },
  * //     ],
  * //     BgpAsnExtended: "STRING_VALUE",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     IpAddress: "STRING_VALUE",
+ * //     BgpAsn: "STRING_VALUE",
  * //   },
  * // };
  *

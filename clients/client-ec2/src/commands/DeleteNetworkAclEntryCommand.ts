@@ -37,9 +37,9 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * const client = new EC2Client(config);
  * const input = { // DeleteNetworkAclEntryRequest
  *   DryRun: true || false,
- *   Egress: true || false, // required
  *   NetworkAclId: "STRING_VALUE", // required
  *   RuleNumber: Number("int"), // required
+ *   Egress: true || false, // required
  * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);

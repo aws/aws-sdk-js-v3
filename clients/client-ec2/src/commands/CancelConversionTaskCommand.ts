@@ -38,8 +38,8 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, CancelConversionTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CancelConversionRequest
- *   ConversionTaskId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   ConversionTaskId: "STRING_VALUE", // required
  *   ReasonMessage: "STRING_VALUE",
  * };
  * const command = new CancelConversionTaskCommand(input);

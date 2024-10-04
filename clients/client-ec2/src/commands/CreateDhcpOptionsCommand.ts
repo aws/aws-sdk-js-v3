@@ -110,6 +110,14 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * const response = await client.send(command);
  * // { // CreateDhcpOptionsResult
  * //   DhcpOptions: { // DhcpOptions
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DhcpOptionsId: "STRING_VALUE",
  * //     DhcpConfigurations: [ // DhcpConfigurationList
  * //       { // DhcpConfiguration
  * //         Key: "STRING_VALUE",
@@ -118,14 +126,6 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * //             Value: "STRING_VALUE",
  * //           },
  * //         ],
- * //       },
- * //     ],
- * //     DhcpOptionsId: "STRING_VALUE",
- * //     OwnerId: "STRING_VALUE",
- * //     Tags: [ // TagList
- * //       { // Tag
- * //         Key: "STRING_VALUE",
- * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

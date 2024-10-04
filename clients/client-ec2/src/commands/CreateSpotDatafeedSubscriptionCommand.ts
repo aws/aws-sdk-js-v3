@@ -44,8 +44,8 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateSpotDatafeedSubscriptionRequest
- *   Bucket: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   Bucket: "STRING_VALUE", // required
  *   Prefix: "STRING_VALUE",
  * };
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);

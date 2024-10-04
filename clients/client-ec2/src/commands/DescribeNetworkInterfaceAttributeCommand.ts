@@ -41,9 +41,9 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * // const { EC2Client, DescribeNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkInterfaceAttributeRequest
- *   Attribute: "description" || "groupSet" || "sourceDestCheck" || "attachment" || "associatePublicIpAddress",
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Attribute: "description" || "groupSet" || "sourceDestCheck" || "attachment" || "associatePublicIpAddress",
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
@@ -69,8 +69,8 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * //   },
  * //   Groups: [ // GroupIdentifierList
  * //     { // GroupIdentifier
- * //       GroupName: "STRING_VALUE",
  * //       GroupId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NetworkInterfaceId: "STRING_VALUE",

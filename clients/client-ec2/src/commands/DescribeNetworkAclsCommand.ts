@@ -40,6 +40,12 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * // const { EC2Client, DescribeNetworkAclsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkAclsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NetworkAclIds: [ // NetworkAclIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -48,12 +54,6 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   NetworkAclIds: [ // NetworkAclIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeNetworkAclsCommand(input);
  * const response = await client.send(command);

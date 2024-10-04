@@ -78,74 +78,6 @@ export type NetworkInterfaceCreationType =
  */
 export interface CreateNetworkInterfaceRequest {
   /**
-   * <p>A description for the network interface.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more security groups.</p>
-   * @public
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
-   *             automatically selects the IPv6 addresses from the subnet range.</p>
-   *          <p>You can't specify a count of IPv6 addresses using this parameter if you've specified
-   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
-   *          <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can
-   *             override that setting by specifying 0 as the IPv6 address count.</p>
-   * @public
-   */
-  Ipv6AddressCount?: number;
-
-  /**
-   * <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p>
-   *          <p>You can't specify IPv6 addresses using this parameter if you've specified one of the
-   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
-   * @public
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The primary private IPv4 address of the network interface. If you don't specify an
-   *             IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you
-   *             specify an IP address, you cannot indicate any IP addresses specified in
-   *             <code>privateIpAddresses</code> as primary (only one IP address can be designated as
-   *             primary).</p>
-   * @public
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The private IPv4 addresses.</p>
-   *          <p>You can't specify private IPv4 addresses if you've specified one of the following:
-   *             a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
-   * @public
-   */
-  PrivateIpAddresses?: PrivateIpAddressSpecification[];
-
-  /**
-   * <p>The number of secondary private IPv4 addresses to assign to a network interface. When
-   *             you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
-   *             within the subnet's IPv4 CIDR range. You can't specify this option and specify more than
-   *             one private IP address using <code>privateIpAddresses</code>.</p>
-   *          <p>You can't specify a count of private IPv4 addresses if you've specified one of the following:
-   *             specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
-   * @public
-   */
-  SecondaryPrivateIpAddressCount?: number;
-
-  /**
    * <p>The IPv4 prefixes assigned to the network interface.</p>
    *          <p>You can't specify IPv4 prefixes if you've specified one of the following:
    *             a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>
@@ -186,12 +118,6 @@ export interface CreateNetworkInterfaceRequest {
   InterfaceType?: NetworkInterfaceCreationType;
 
   /**
-   * <p>The ID of the subnet to associate with the network interface.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
    * <p>The tags to apply to the new network interface.</p>
    * @public
    */
@@ -225,6 +151,80 @@ export interface CreateNetworkInterfaceRequest {
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
+
+  /**
+   * <p>The ID of the subnet to associate with the network interface.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The primary private IPv4 address of the network interface. If you don't specify an
+   *             IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you
+   *             specify an IP address, you cannot indicate any IP addresses specified in
+   *             <code>privateIpAddresses</code> as primary (only one IP address can be designated as
+   *             primary).</p>
+   * @public
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The IDs of one or more security groups.</p>
+   * @public
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The private IPv4 addresses.</p>
+   *          <p>You can't specify private IPv4 addresses if you've specified one of the following:
+   *             a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
+   * @public
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
+
+  /**
+   * <p>The number of secondary private IPv4 addresses to assign to a network interface. When
+   *             you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
+   *             within the subnet's IPv4 CIDR range. You can't specify this option and specify more than
+   *             one private IP address using <code>privateIpAddresses</code>.</p>
+   *          <p>You can't specify a count of private IPv4 addresses if you've specified one of the following:
+   *             specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p>
+   *          <p>You can't specify IPv6 addresses using this parameter if you've specified one of the
+   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
+   * @public
+   */
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
+   *             automatically selects the IPv6 addresses from the subnet range.</p>
+   *          <p>You can't specify a count of IPv6 addresses using this parameter if you've specified
+   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
+   *          <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can
+   *             override that setting by specifying 0 as the IPv6 address count.</p>
+   * @public
+   */
+  Ipv6AddressCount?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -418,16 +418,16 @@ export interface ConnectionTrackingConfiguration {
  */
 export interface GroupIdentifier {
   /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
    * <p>The ID of the security group.</p>
    * @public
    */
   GroupId?: string;
+
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string;
 }
 
 /**
@@ -901,28 +901,6 @@ export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof Placemen
  */
 export interface CreatePlacementGroupRequest {
   /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A name for the placement group. Must be unique within the scope of your account for
-   *             the Region.</p>
-   *          <p>Constraints: Up to 255 ASCII characters</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The placement strategy.</p>
-   * @public
-   */
-  Strategy?: PlacementStrategy;
-
-  /**
    * <p>The number of partitions. Valid only when <b>Strategy</b> is
    *             set to <code>partition</code>.</p>
    * @public
@@ -949,6 +927,28 @@ export interface CreatePlacementGroupRequest {
    * @public
    */
   SpreadLevel?: SpreadLevel;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A name for the placement group. Must be unique within the scope of your account for
+   *             the Region.</p>
+   *          <p>Constraints: Up to 255 ASCII characters</p>
+   * @public
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The placement strategy.</p>
+   * @public
+   */
+  Strategy?: PlacementStrategy;
 }
 
 /**
@@ -1265,11 +1265,10 @@ export interface CreateReplaceRootVolumeTaskResult {
  */
 export interface PriceScheduleSpecification {
   /**
-   * <p>The currency for transacting the Reserved Instance resale.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
    * @public
    */
-  CurrencyCode?: CurrencyCodeValues;
+  Term?: number;
 
   /**
    * <p>The fixed price for the term.</p>
@@ -1278,10 +1277,11 @@ export interface PriceScheduleSpecification {
   Price?: number;
 
   /**
-   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
+   * <p>The currency for transacting the Reserved Instance resale.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
    * @public
    */
-  Term?: number;
+  CurrencyCode?: CurrencyCodeValues;
 }
 
 /**
@@ -1290,12 +1290,10 @@ export interface PriceScheduleSpecification {
  */
 export interface CreateReservedInstancesListingRequest {
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your
-   * 				listings. This helps avoid duplicate listings. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>The ID of the active Standard Reserved Instance.</p>
    * @public
    */
-  ClientToken: string | undefined;
+  ReservedInstancesId: string | undefined;
 
   /**
    * <p>The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.</p>
@@ -1310,10 +1308,12 @@ export interface CreateReservedInstancesListingRequest {
   PriceSchedules: PriceScheduleSpecification[] | undefined;
 
   /**
-   * <p>The ID of the active Standard Reserved Instance.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your
+   * 				listings. This helps avoid duplicate listings. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    * @public
    */
-  ReservedInstancesId: string | undefined;
+  ClientToken: string | undefined;
 }
 
 /**
@@ -1394,61 +1394,16 @@ export interface CreateRestoreImageTaskResult {
  */
 export interface CreateRouteRequest {
   /**
-   * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
    * <p>The ID of a prefix list used for the destination match.</p>
    * @public
    */
   DestinationPrefixListId?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
    * @public
    */
   VpcEndpointId?: string;
-
-  /**
-   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The ID of an internet gateway or virtual private gateway attached to your
-   * 			VPC.</p>
-   * @public
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string;
 
   /**
    * <p>The ID of a transit gateway.</p>
@@ -1470,10 +1425,18 @@ export interface CreateRouteRequest {
   CarrierGatewayId?: string;
 
   /**
-   * <p>The ID of a network interface.</p>
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 
   /**
    * <p>The ID of the route table for the route.</p>
@@ -1482,16 +1445,53 @@ export interface CreateRouteRequest {
   RouteTableId: string | undefined;
 
   /**
+   * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The ID of an internet gateway or virtual private gateway attached to your
+   * 			VPC.</p>
+   * @public
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</p>
+   * @public
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   * @public
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string;
+
+  /**
    * <p>The ID of a VPC peering connection.</p>
    * @public
    */
   VpcPeeringConnectionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  NatGatewayId?: string;
 }
 
 /**
@@ -1510,6 +1510,19 @@ export interface CreateRouteResult {
  */
 export interface CreateRouteTableRequest {
   /**
+   * <p>The tags to assign to the route table.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -1522,19 +1535,6 @@ export interface CreateRouteTableRequest {
    * @public
    */
   VpcId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the route table.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
 }
 
 /**
@@ -1968,88 +1968,6 @@ export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
  */
 export interface Snapshot {
   /**
-   * <p>The data encryption key identifier for the snapshot. This value is a unique identifier
-   *       that corresponds to the data encryption key that was used to encrypt the original volume or
-   *       snapshot copy. Because data encryption keys are inherited by volumes created from snapshots,
-   *       and vice versa, if snapshots share the same data encryption key identifier, then they belong
-   *       to the same volume/snapshot lineage. This parameter is only returned by <a>DescribeSnapshots</a>.</p>
-   * @public
-   */
-  DataEncryptionKeyId?: string;
-
-  /**
-   * <p>The description for the snapshot.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
-   *       volume encryption key for the parent volume.</p>
-   * @public
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
-   * @public
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The progress of the snapshot, as a percentage.</p>
-   * @public
-   */
-  Progress?: string;
-
-  /**
-   * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
-   *       created.</p>
-   * @public
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The time stamp when the snapshot was initiated.</p>
-   * @public
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The snapshot state.</p>
-   * @public
-   */
-  State?: SnapshotState;
-
-  /**
-   * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
-   *       (for example, if the proper KMS permissions are not obtained) this field displays error
-   *       state details to help you diagnose why the error occurred. This parameter is only returned by
-   *       <a>DescribeSnapshots</a>.</p>
-   * @public
-   */
-  StateMessage?: string;
-
-  /**
-   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
-   *       purpose.</p>
-   * @public
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   * @public
-   */
-  VolumeSize?: number;
-
-  /**
    * <p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
    *       the user-configured Amazon Web Services account alias set using the IAM console.</p>
    * @public
@@ -2090,6 +2008,88 @@ export interface Snapshot {
    * @public
    */
   SseType?: SSEType;
+
+  /**
+   * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
+   *       created.</p>
+   * @public
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
+   *       purpose.</p>
+   * @public
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The snapshot state.</p>
+   * @public
+   */
+  State?: SnapshotState;
+
+  /**
+   * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
+   *       (for example, if the proper KMS permissions are not obtained) this field displays error
+   *       state details to help you diagnose why the error occurred. This parameter is only returned by
+   *       <a>DescribeSnapshots</a>.</p>
+   * @public
+   */
+  StateMessage?: string;
+
+  /**
+   * <p>The time stamp when the snapshot was initiated.</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The progress of the snapshot, as a percentage.</p>
+   * @public
+   */
+  Progress?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
+   * @public
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
+   *       volume encryption key for the parent volume.</p>
+   * @public
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The data encryption key identifier for the snapshot. This value is a unique identifier
+   *       that corresponds to the data encryption key that was used to encrypt the original volume or
+   *       snapshot copy. Because data encryption keys are inherited by volumes created from snapshots,
+   *       and vice versa, if snapshots share the same data encryption key identifier, then they belong
+   *       to the same volume/snapshot lineage. This parameter is only returned by <a>DescribeSnapshots</a>.</p>
+   * @public
+   */
+  DataEncryptionKeyId?: string;
 }
 
 /**
@@ -2293,14 +2293,6 @@ export interface CreateSnapshotsResult {
  */
 export interface CreateSpotDatafeedSubscriptionRequest {
   /**
-   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
-   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>
-   *             in the <i>Amazon S3 User Guide</i>.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -2308,6 +2300,14 @@ export interface CreateSpotDatafeedSubscriptionRequest {
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
+   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>
+   *             in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  Bucket: string | undefined;
 
   /**
    * <p>The prefix for the data feed file names.</p>
@@ -2523,14 +2523,6 @@ export interface CreateSubnetRequest {
   VpcId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>Indicates whether to create an IPv6 only subnet.</p>
    * @public
    */
@@ -2559,6 +2551,14 @@ export interface CreateSubnetRequest {
    * @public
    */
   Ipv6NetmaskLength?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3489,10 +3489,11 @@ export interface TransitGatewayRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -3602,10 +3603,10 @@ export interface TransitGatewayOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -4952,13 +4953,9 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
-   *          <p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
-   *          attachment will inherit the security group referencing support setting on the transit
-   *          gateway.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.</p>
+   *          <p>This option is enabled by default. However, security group referencing is disabled by default at the transit gateway level.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing </a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -5981,14 +5978,6 @@ export interface CreateVolumeRequest {
   VolumeType?: VolumeType;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The tags to apply to the volume during creation.</p>
    * @public
    */
@@ -6019,6 +6008,14 @@ export interface CreateVolumeRequest {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -6045,68 +6042,10 @@ export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
  */
 export interface Volume {
   /**
-   * <note>
-   *             <p>This parameter is not returned by CreateVolume.</p>
-   *          </note>
-   *          <p>Information about the volume attachments.</p>
-   * @public
-   */
-  Attachments?: VolumeAttachment[];
-
-  /**
-   * <p>The Availability Zone for the volume.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The time stamp when volume creation was initiated.</p>
-   * @public
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>Indicates whether the volume is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
-   *       volume encryption key for the volume.</p>
-   * @public
-   */
-  KmsKeyId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    * @public
    */
   OutpostArn?: string;
-
-  /**
-   * <p>The size of the volume, in GiBs.</p>
-   * @public
-   */
-  Size?: number;
-
-  /**
-   * <p>The snapshot from which the volume was created, if applicable.</p>
-   * @public
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The volume state.</p>
-   * @public
-   */
-  State?: VolumeState;
-
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId?: string;
 
   /**
    * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this represents
@@ -6157,6 +6096,64 @@ export interface Volume {
    * @public
    */
   SseType?: SSEType;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The size of the volume, in GiBs.</p>
+   * @public
+   */
+  Size?: number;
+
+  /**
+   * <p>The snapshot from which the volume was created, if applicable.</p>
+   * @public
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The volume state.</p>
+   * @public
+   */
+  State?: VolumeState;
+
+  /**
+   * <p>The time stamp when volume creation was initiated.</p>
+   * @public
+   */
+  CreateTime?: Date;
+
+  /**
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Information about the volume attachments.</p>
+   * @public
+   */
+  Attachments?: VolumeAttachment[];
+
+  /**
+   * <p>Indicates whether the volume is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
+   *       volume encryption key for the volume.</p>
+   * @public
+   */
+  KmsKeyId?: string;
 }
 
 /**
@@ -6169,13 +6166,6 @@ export interface CreateVpcRequest {
    * @public
    */
   CidrBlock?: string;
-
-  /**
-   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
-   *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
-   * @public
-   */
-  AmazonProvidedIpv6CidrBlock?: boolean;
 
   /**
    * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
@@ -6217,6 +6207,19 @@ export interface CreateVpcRequest {
   Ipv6NetmaskLength?: number;
 
   /**
+   * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>
+   *          <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+   * @public
+   */
+  Ipv6CidrBlockNetworkBorderGroup?: string;
+
+  /**
+   * <p>The tags to assign to the VPC.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -6239,17 +6242,11 @@ export interface CreateVpcRequest {
   InstanceTenancy?: Tenancy;
 
   /**
-   * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>
-   *          <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
+   *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
    * @public
    */
-  Ipv6CidrBlockNetworkBorderGroup?: string;
-
-  /**
-   * <p>The tags to assign to the VPC.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
+  AmazonProvidedIpv6CidrBlock?: boolean;
 }
 
 /**
@@ -7144,35 +7141,6 @@ export interface CreateVpcEndpointServiceConfigurationResult {
  */
 export interface CreateVpcPeeringConnectionRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
-   *          <p>Default: Your Amazon Web Services account ID</p>
-   * @public
-   */
-  PeerOwnerId?: string;
-
-  /**
-   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
-   * 			specify this parameter in the request.</p>
-   * @public
-   */
-  PeerVpcId?: string;
-
-  /**
-   * <p>The ID of the requester VPC. You must specify this parameter in the
-   * 			request.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
    * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
    *             other than the Region in which you make the request.</p>
    *          <p>Default: The Region in which you make the request.</p>
@@ -7185,6 +7153,35 @@ export interface CreateVpcPeeringConnectionRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the requester VPC. You must specify this parameter in the
+   * 			request.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
+   * 			specify this parameter in the request.</p>
+   * @public
+   */
+  PeerVpcId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
+   *          <p>Default: Your Amazon Web Services account ID</p>
+   * @public
+   */
+  PeerOwnerId?: string;
 }
 
 /**
@@ -7592,16 +7589,6 @@ export interface VpnConnectionOptionsSpecification {
   EnableAcceleration?: boolean;
 
   /**
-   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
-   *             connection for a device that does not support BGP, you must specify <code>true</code>.
-   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  StaticRoutesOnly?: boolean;
-
-  /**
    * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
    *          <p>Default: <code>ipv4</code>
    *          </p>
@@ -7663,6 +7650,16 @@ export interface VpnConnectionOptionsSpecification {
    * @public
    */
   TransportTransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
+   *             connection for a device that does not support BGP, you must specify <code>true</code>.
+   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  StaticRoutesOnly?: boolean;
 }
 
 /**
@@ -7697,6 +7694,12 @@ export interface CreateVpnConnectionRequest {
   TransitGatewayId?: string;
 
   /**
+   * <p>The tags to apply to the VPN connection.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -7710,12 +7713,6 @@ export interface CreateVpnConnectionRequest {
    * @public
    */
   Options?: VpnConnectionOptionsSpecification;
-
-  /**
-   * <p>The tags to apply to the VPN connection.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
 }
 
 /**
@@ -8186,51 +8183,10 @@ export interface VgwTelemetry {
  */
 export interface VpnConnection {
   /**
-   * <p>The configuration information for the VPN connection's customer gateway (in the native
-   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
-   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
-   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
-   *             state.</p>
-   * @public
-   */
-  CustomerGatewayConfiguration?: string;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   * @public
-   */
-  CustomerGatewayId?: string;
-
-  /**
    * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>
    * @public
    */
   Category?: string;
-
-  /**
-   * <p>The current state of the VPN connection.</p>
-   * @public
-   */
-  State?: VpnState;
-
-  /**
-   * <p>The type of VPN connection.</p>
-   * @public
-   */
-  Type?: GatewayType;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   * @public
-   */
-  VpnGatewayId?: string;
 
   /**
    * <p>The ID of the transit gateway associated with the VPN connection.</p>
@@ -8279,6 +8235,47 @@ export interface VpnConnection {
    * @public
    */
   VgwTelemetry?: VgwTelemetry[];
+
+  /**
+   * <p>The ID of the VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId?: string;
+
+  /**
+   * <p>The current state of the VPN connection.</p>
+   * @public
+   */
+  State?: VpnState;
+
+  /**
+   * <p>The configuration information for the VPN connection's customer gateway (in the native
+   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
+   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
+   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
+   *             state.</p>
+   * @public
+   */
+  CustomerGatewayConfiguration?: string;
+
+  /**
+   * <p>The type of VPN connection.</p>
+   * @public
+   */
+  Type?: GatewayType;
+
+  /**
+   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
+   * @public
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
+   * @public
+   */
+  VpnGatewayId?: string;
 }
 
 /**
@@ -8359,11 +8356,23 @@ export interface CreateVpnGatewayRequest {
  */
 export interface VpnGateway {
   /**
-   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
-   *             This field may be empty or not returned.</p>
+   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
+   *             session.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AmazonSideAsn?: number;
+
+  /**
+   * <p>Any tags assigned to the virtual private gateway.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  VpnGatewayId?: string;
 
   /**
    * <p>The current state of the virtual private gateway.</p>
@@ -8378,29 +8387,17 @@ export interface VpnGateway {
   Type?: GatewayType;
 
   /**
+   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
+   *             This field may be empty or not returned.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
    * <p>Any VPCs attached to the virtual private gateway.</p>
    * @public
    */
   VpcAttachments?: VpcAttachment[];
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   * @public
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
-   *             session.</p>
-   * @public
-   */
-  AmazonSideAsn?: number;
-
-  /**
-   * <p>Any tags assigned to the virtual private gateway.</p>
-   * @public
-   */
-  Tags?: Tag[];
 }
 
 /**
@@ -9442,8 +9439,8 @@ export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions
  */
 export const VpnConnectionFilterSensitiveLog = (obj: VpnConnection): any => ({
   ...obj,
-  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
   ...(obj.Options && { Options: VpnConnectionOptionsFilterSensitiveLog(obj.Options) }),
+  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
 });
 
 /**

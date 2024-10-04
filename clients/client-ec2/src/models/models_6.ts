@@ -1227,6 +1227,12 @@ export interface IpamDiscoveredResourceCidr {
   VpcId?: string;
 
   /**
+   * <p>The subnet ID.</p>
+   * @public
+   */
+  SubnetId?: string;
+
+  /**
    * <p>For elastic network interfaces, this is the status of whether or not the elastic network interface is attached.</p>
    * @public
    */
@@ -1883,17 +1889,17 @@ export interface GetPasswordDataResult {
   InstanceId?: string;
 
   /**
+   * <p>The time the data was last updated.</p>
+   * @public
+   */
+  Timestamp?: Date;
+
+  /**
    * <p>The password of the instance. Returns an empty string if the password is not
    *             available.</p>
    * @public
    */
   PasswordData?: string;
-
-  /**
-   * <p>The time the data was last updated.</p>
-   * @public
-   */
-  Timestamp?: Date;
 }
 
 /**
@@ -3867,16 +3873,16 @@ export interface ImportImageResult {
  */
 export interface DiskImageDetail {
   /**
-   * <p>The size of the disk image, in GiB.</p>
-   * @public
-   */
-  Bytes: number | undefined;
-
-  /**
    * <p>The disk image format.</p>
    * @public
    */
   Format: DiskImageFormat | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Bytes: number | undefined;
 
   /**
    * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
@@ -3944,22 +3950,10 @@ export interface UserData {
  */
 export interface ImportInstanceLaunchSpecification {
   /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  AdditionalInfo?: string;
-
-  /**
    * <p>The architecture of the instance.</p>
    * @public
    */
   Architecture?: ArchitectureValues;
-
-  /**
-   * <p>The security group IDs.</p>
-   * @public
-   */
-  GroupIds?: string[];
 
   /**
    * <p>The security group names.</p>
@@ -3968,11 +3962,22 @@ export interface ImportInstanceLaunchSpecification {
   GroupNames?: string[];
 
   /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
-   *    operating system command for system shutdown).</p>
+   * <p>The security group IDs.</p>
    * @public
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
+  GroupIds?: string[];
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the instance.</p>
+   * @public
+   */
+  UserData?: UserData;
 
   /**
    * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
@@ -3982,22 +3987,16 @@ export interface ImportInstanceLaunchSpecification {
   InstanceType?: _InstanceType;
 
   /**
-   * <p>Indicates whether monitoring is enabled.</p>
-   * @public
-   */
-  Monitoring?: boolean;
-
-  /**
    * <p>The placement information for the instance.</p>
    * @public
    */
   Placement?: Placement;
 
   /**
-   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   * <p>Indicates whether monitoring is enabled.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  Monitoring?: boolean;
 
   /**
    * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
@@ -4006,28 +4005,23 @@ export interface ImportInstanceLaunchSpecification {
   SubnetId?: string;
 
   /**
-   * <p>The Base64-encoded user data to make available to the instance.</p>
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
+   *    operating system command for system shutdown).</p>
    * @public
    */
-  UserData?: UserData;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
+
+  /**
+   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   * @public
+   */
+  PrivateIpAddress?: string;
 }
 
 /**
  * @public
  */
 export interface ImportInstanceRequest {
-  /**
-   * <p>A description for the instance being imported.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The disk image.</p>
-   * @public
-   */
-  DiskImages?: DiskImage[];
-
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -4037,10 +4031,22 @@ export interface ImportInstanceRequest {
   DryRun?: boolean;
 
   /**
+   * <p>A description for the instance being imported.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
    * <p>The launch specification.</p>
    * @public
    */
   LaunchSpecification?: ImportInstanceLaunchSpecification;
+
+  /**
+   * <p>The disk image.</p>
+   * @public
+   */
+  DiskImages?: DiskImage[];
 
   /**
    * <p>The instance operating system.</p>
@@ -4065,6 +4071,12 @@ export interface ImportInstanceResult {
  */
 export interface ImportKeyPairRequest {
   /**
+   * <p>The tags to apply to the imported key pair.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4083,12 +4095,6 @@ export interface ImportKeyPairRequest {
    * @public
    */
   PublicKeyMaterial: Uint8Array | undefined;
-
-  /**
-   * <p>The tags to apply to the imported key pair.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
 }
 
 /**
@@ -4279,18 +4285,6 @@ export interface ImportSnapshotResult {
  */
 export interface ImportVolumeRequest {
   /**
-   * <p>The Availability Zone for the resulting EBS volume.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>A description of the volume.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4299,10 +4293,22 @@ export interface ImportVolumeRequest {
   DryRun?: boolean;
 
   /**
+   * <p>The Availability Zone for the resulting EBS volume.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
    * <p>The disk image.</p>
    * @public
    */
   Image: DiskImageDetail | undefined;
+
+  /**
+   * <p>A description of the volume.</p>
+   * @public
+   */
+  Description?: string;
 
   /**
    * <p>The volume size.</p>
@@ -5357,18 +5363,6 @@ export interface ModifyFpgaImageAttributeResult {
  */
 export interface ModifyHostsRequest {
   /**
-   * <p>Specify whether to enable or disable auto-placement.</p>
-   * @public
-   */
-  AutoPlacement?: AutoPlacement;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts to modify.</p>
-   * @public
-   */
-  HostIds: string[] | undefined;
-
-  /**
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">Host recovery</a> in
    *             the <i>Amazon EC2 User Guide</i>.</p>
@@ -5404,6 +5398,18 @@ export interface ModifyHostsRequest {
    * @public
    */
   HostMaintenance?: HostMaintenance;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts to modify.</p>
+   * @public
+   */
+  HostIds: string[] | undefined;
+
+  /**
+   * <p>Specify whether to enable or disable auto-placement.</p>
+   * @public
+   */
+  AutoPlacement?: AutoPlacement;
 }
 
 /**
@@ -5429,14 +5435,6 @@ export interface ModifyHostsResult {
  */
 export interface ModifyIdentityIdFormatRequest {
   /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
-   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
-   *        the account.</p>
-   * @public
-   */
-  PrincipalArn: string | undefined;
-
-  /**
    * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
    *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
    *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
@@ -5458,6 +5456,14 @@ export interface ModifyIdentityIdFormatRequest {
    * @public
    */
   UseLongIds: boolean | undefined;
+
+  /**
+   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
+   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
+   *        the account.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
 }
 
 /**
@@ -5572,14 +5578,6 @@ export interface ModifyImageAttributeRequest {
   Value?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    * @public
    */
@@ -5605,6 +5603,14 @@ export interface ModifyImageAttributeRequest {
    * @public
    */
   ImdsSupport?: AttributeValue;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5614,16 +5620,16 @@ export interface ModifyImageAttributeRequest {
  */
 export interface EbsInstanceBlockDeviceSpecification {
   /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
    * <p>The ID of the EBS volume.</p>
    * @public
    */
   VolumeId?: string;
+
+  /**
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean;
 }
 
 /**
@@ -5645,16 +5651,16 @@ export interface InstanceBlockDeviceMappingSpecification {
   Ebs?: EbsInstanceBlockDeviceSpecification;
 
   /**
-   * <p>suppress the specified device included in the block device mapping.</p>
-   * @public
-   */
-  NoDevice?: string;
-
-  /**
    * <p>The virtual device name.</p>
    * @public
    */
   VirtualName?: string;
+
+  /**
+   * <p>suppress the specified device included in the block device mapping.</p>
+   * @public
+   */
+  NoDevice?: string;
 }
 
 /**
@@ -5680,6 +5686,29 @@ export interface ModifyInstanceAttributeRequest {
   SourceDestCheck?: AttributeBooleanValue;
 
   /**
+   * <p>Indicates whether an instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop
+   *                 protection for your instance</a>.</p>
+   *          <p></p>
+   * @public
+   */
+  DisableApiStop?: AttributeBooleanValue;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>The name of the attribute to modify.</p>
    *          <important>
    *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
@@ -5694,6 +5723,14 @@ export interface ModifyInstanceAttributeRequest {
    * @public
    */
   Attribute?: InstanceAttributeName;
+
+  /**
+   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
+   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
+   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
+   * @public
+   */
+  Value?: string;
 
   /**
    * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
@@ -5715,53 +5752,6 @@ export interface ModifyInstanceAttributeRequest {
    * @public
    */
   DisableApiTermination?: AttributeBooleanValue;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   * @public
-   */
-  EbsOptimized?: AttributeBooleanValue;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
-   *             instance.</p>
-   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   * @public
-   */
-  EnaSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>Replaces the security groups of the instance with the specified security groups.
-   *             You must specify the ID of at least one security group, even if it's just the default
-   *             security group for the VPC.</p>
-   * @public
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
 
   /**
    * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
@@ -5786,6 +5776,38 @@ export interface ModifyInstanceAttributeRequest {
   Ramdisk?: AttributeValue;
 
   /**
+   * <p>Changes the instance's user data to the specified value. User data must be base64-encoded.
+   *             Depending on the tool or SDK that you're using, the base64-encoding might be performed for you.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work with instance user data</a>.</p>
+   * @public
+   */
+  UserData?: BlobAttributeValue;
+
+  /**
+   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   * @public
+   */
+  InstanceInitiatedShutdownBehavior?: AttributeValue;
+
+  /**
+   * <p>Replaces the security groups of the instance with the specified security groups.
+   *             You must specify the ID of at least one security group, even if it's just the default
+   *             security group for the VPC.</p>
+   * @public
+   */
+  Groups?: string[];
+
+  /**
+   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
+   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   * @public
+   */
+  EbsOptimized?: AttributeBooleanValue;
+
+  /**
    * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
    *             Function interface for the instance.</p>
    *          <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
@@ -5797,29 +5819,13 @@ export interface ModifyInstanceAttributeRequest {
   SriovNetSupport?: AttributeValue;
 
   /**
-   * <p>Changes the instance's user data to the specified value. User data must be base64-encoded.
-   *             Depending on the tool or SDK that you're using, the base64-encoding might be performed for you.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work with instance user data</a>.</p>
+   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
+   *             instance.</p>
+   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
+   *             instance can make it unreachable.</p>
    * @public
    */
-  UserData?: BlobAttributeValue;
-
-  /**
-   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
-   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
-   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
-   * @public
-   */
-  Value?: string;
-
-  /**
-   * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop
-   *                 protection for your instance</a>.</p>
-   *          <p></p>
-   * @public
-   */
-  DisableApiStop?: AttributeBooleanValue;
+  EnaSupport?: AttributeBooleanValue;
 }
 
 /**
@@ -6495,12 +6501,6 @@ export type HostTenancy = (typeof HostTenancy)[keyof typeof HostTenancy];
  */
 export interface ModifyInstancePlacementRequest {
   /**
-   * <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Affinity?: Affinity;
-
-  /**
    * <p>The name of the placement group in which to place the instance. For spread placement
    *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
    *             partition placement groups, the instance must have a tenancy of <code>default</code> or
@@ -6509,31 +6509,6 @@ export interface ModifyInstancePlacementRequest {
    * @public
    */
   GroupName?: string;
-
-  /**
-   * <p>The ID of the Dedicated Host with which to associate the instance.</p>
-   * @public
-   */
-  HostId?: string;
-
-  /**
-   * <p>The ID of the instance that you are modifying.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The tenancy for the instance.</p>
-   *          <note>
-   *             <p>For T3 instances, you must launch the instance on a Dedicated Host to use a
-   *                 tenancy of <code>host</code>. You can't change the tenancy from
-   *                 <code>host</code> to <code>dedicated</code> or <code>default</code>.
-   *                 Attempting to make one of these unsupported tenancy changes results in an
-   *                 <code>InvalidRequest</code> error code.</p>
-   *          </note>
-   * @public
-   */
-  Tenancy?: HostTenancy;
 
   /**
    * <p>The number of the partition in which to place the instance. Valid only if the
@@ -6555,6 +6530,37 @@ export interface ModifyInstancePlacementRequest {
    * @public
    */
   GroupId?: string;
+
+  /**
+   * <p>The ID of the instance that you are modifying.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The tenancy for the instance.</p>
+   *          <note>
+   *             <p>For T3 instances, you must launch the instance on a Dedicated Host to use a
+   *                 tenancy of <code>host</code>. You can't change the tenancy from
+   *                 <code>host</code> to <code>dedicated</code> or <code>default</code>.
+   *                 Attempting to make one of these unsupported tenancy changes results in an
+   *                 <code>InvalidRequest</code> error code.</p>
+   *          </note>
+   * @public
+   */
+  Tenancy?: HostTenancy;
+
+  /**
+   * <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Affinity?: Affinity;
+
+  /**
+   * <p>The ID of the Dedicated Host with which to associate the instance.</p>
+   * @public
+   */
+  HostId?: string;
 }
 
 /**
@@ -7091,51 +7097,6 @@ export interface NetworkInterfaceAttachmentChanges {
  */
 export interface ModifyNetworkInterfaceAttributeRequest {
   /**
-   * <p>Information about the interface attachment. If modifying the <code>delete on
-   * 				termination</code> attribute, you must specify the ID of the interface
-   * 			attachment.</p>
-   * @public
-   */
-  Attachment?: NetworkInterfaceAttachmentChanges;
-
-  /**
-   * <p>A description for the network interface.</p>
-   * @public
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
-   * @public
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
-   * @public
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-
-  /**
    * <p>Updates the ENA Express configuration for the network interface that’s attached to the
    * 			instance.</p>
    * @public
@@ -7171,6 +7132,51 @@ export interface ModifyNetworkInterfaceAttributeRequest {
    * @public
    */
   AssociatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: AttributeValue;
+
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance
+   *             is either the source or the destination of any traffic that it receives.
+   *             If the value is <code>true</code>, source/destination checks are enabled;
+   *             otherwise, they are disabled. The default value is <code>true</code>.
+   *             You must disable source/destination checks if the instance runs services
+   *             such as network address translation, routing, or firewalls.</p>
+   * @public
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+
+  /**
+   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
+   * @public
+   */
+  Groups?: string[];
+
+  /**
+   * <p>Information about the interface attachment. If modifying the <code>delete on
+   * 				termination</code> attribute, you must specify the ID of the interface
+   * 			attachment.</p>
+   * @public
+   */
+  Attachment?: NetworkInterfaceAttachmentChanges;
 }
 
 /**
@@ -7524,14 +7530,6 @@ export interface ModifySnapshotTierResult {
  */
 export interface ModifySpotFleetRequestRequest {
   /**
-   * <p>Indicates whether running instances should be terminated if the target capacity
-   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
-   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
-   * @public
-   */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
-
-  /**
    * <p>The launch template and overrides. You can only use this parameter if you specified a
    *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
    *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
@@ -7539,6 +7537,18 @@ export interface ModifySpotFleetRequestRequest {
    * @public
    */
   LaunchTemplateConfigs?: LaunchTemplateConfig[];
+
+  /**
+   * <p>The number of On-Demand Instances in the fleet.</p>
+   * @public
+   */
+  OnDemandTargetCapacity?: number;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string;
 
   /**
    * <p>The ID of the Spot Fleet request.</p>
@@ -7553,16 +7563,12 @@ export interface ModifySpotFleetRequestRequest {
   TargetCapacity?: number;
 
   /**
-   * <p>The number of On-Demand Instances in the fleet.</p>
+   * <p>Indicates whether running instances should be terminated if the target capacity
+   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    * @public
    */
-  OnDemandTargetCapacity?: number;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string;
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
 }
 
 /**
@@ -7627,9 +7633,10 @@ export interface ModifySubnetAttributeRequest {
   /**
    * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   *          <note>
-   *             <p>You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
-   *          </note>
+   *          <p>You must first configure a NAT gateway in a public subnet (separate from the subnet
+   *            containing the IPv6-only workloads). For example, the subnet containing the NAT gateway
+   *            should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more
+   *            information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
   EnableDns64?: AttributeBooleanValue;
@@ -7949,10 +7956,11 @@ export interface ModifyTransitGatewayOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -8114,10 +8122,11 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
   DnsSupport?: DnsSupportValue;
 
   /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -9571,10 +9580,10 @@ export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportI
  */
 export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
   ...obj,
-  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
   ...(obj.LaunchSpecification && {
     LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
   }),
+  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
 });
 
 /**

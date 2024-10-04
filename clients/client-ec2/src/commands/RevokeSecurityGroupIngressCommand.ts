@@ -58,18 +58,30 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  *   GroupName: "STRING_VALUE",
  *   IpPermissions: [ // IpPermissionList
  *     { // IpPermission
- *       FromPort: Number("int"),
  *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *         },
+ *       ],
  *       IpRanges: [ // IpRangeList
  *         { // IpRange
- *           CidrIp: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIp: "STRING_VALUE",
  *         },
  *       ],
  *       Ipv6Ranges: [ // Ipv6RangeList
  *         { // Ipv6Range
- *           CidrIpv6: "STRING_VALUE",
  *           Description: "STRING_VALUE",
+ *           CidrIpv6: "STRING_VALUE",
  *         },
  *       ],
  *       PrefixListIds: [ // PrefixListIdList
@@ -78,28 +90,16 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  *           PrefixListId: "STRING_VALUE",
  *         },
  *       ],
- *       ToPort: Number("int"),
- *       UserIdGroupPairs: [ // UserIdGroupPairList
- *         { // UserIdGroupPair
- *           Description: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *           GroupName: "STRING_VALUE",
- *           PeeringStatus: "STRING_VALUE",
- *           UserId: "STRING_VALUE",
- *           VpcId: "STRING_VALUE",
- *           VpcPeeringConnectionId: "STRING_VALUE",
- *         },
- *       ],
  *     },
  *   ],
  *   IpProtocol: "STRING_VALUE",
  *   SourceSecurityGroupName: "STRING_VALUE",
  *   SourceSecurityGroupOwnerId: "STRING_VALUE",
  *   ToPort: Number("int"),
- *   DryRun: true || false,
  *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new RevokeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
@@ -107,36 +107,36 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * //   Return: true || false,
  * //   UnknownIpPermissions: [ // IpPermissionList
  * //     { // IpPermission
- * //       FromPort: Number("int"),
  * //       IpProtocol: "STRING_VALUE",
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //       UserIdGroupPairs: [ // UserIdGroupPairList
+ * //         { // UserIdGroupPair
+ * //           Description: "STRING_VALUE",
+ * //           UserId: "STRING_VALUE",
+ * //           GroupName: "STRING_VALUE",
+ * //           GroupId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           VpcPeeringConnectionId: "STRING_VALUE",
+ * //           PeeringStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       IpRanges: [ // IpRangeList
  * //         { // IpRange
- * //           CidrIp: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           CidrIp: "STRING_VALUE",
  * //         },
  * //       ],
  * //       Ipv6Ranges: [ // Ipv6RangeList
  * //         { // Ipv6Range
- * //           CidrIpv6: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           CidrIpv6: "STRING_VALUE",
  * //         },
  * //       ],
  * //       PrefixListIds: [ // PrefixListIdList
  * //         { // PrefixListId
  * //           Description: "STRING_VALUE",
  * //           PrefixListId: "STRING_VALUE",
- * //         },
- * //       ],
- * //       ToPort: Number("int"),
- * //       UserIdGroupPairs: [ // UserIdGroupPairList
- * //         { // UserIdGroupPair
- * //           Description: "STRING_VALUE",
- * //           GroupId: "STRING_VALUE",
- * //           GroupName: "STRING_VALUE",
- * //           PeeringStatus: "STRING_VALUE",
- * //           UserId: "STRING_VALUE",
- * //           VpcId: "STRING_VALUE",
- * //           VpcPeeringConnectionId: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

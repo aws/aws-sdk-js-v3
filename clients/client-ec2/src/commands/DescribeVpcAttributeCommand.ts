@@ -43,7 +43,6 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVpcAttributeResult
- * //   VpcId: "STRING_VALUE",
  * //   EnableDnsHostnames: { // AttributeBooleanValue
  * //     Value: true || false,
  * //   },
@@ -53,6 +52,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * //   EnableNetworkAddressUsageMetrics: {
  * //     Value: true || false,
  * //   },
+ * //   VpcId: "STRING_VALUE",
  * // };
  *
  * ```

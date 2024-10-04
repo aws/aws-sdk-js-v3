@@ -43,6 +43,11 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * // const { EC2Client, DescribeRegionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRegionsRequest
+ *   RegionNames: [ // RegionNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllRegions: true || false,
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -51,20 +56,15 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *       ],
  *     },
  *   ],
- *   RegionNames: [ // RegionNameStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   AllRegions: true || false,
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeRegionsResult
  * //   Regions: [ // RegionList
  * //     { // Region
- * //       Endpoint: "STRING_VALUE",
- * //       RegionName: "STRING_VALUE",
  * //       OptInStatus: "STRING_VALUE",
+ * //       RegionName: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

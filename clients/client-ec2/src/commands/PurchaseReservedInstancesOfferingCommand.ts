@@ -52,12 +52,12 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * const input = { // PurchaseReservedInstancesOfferingRequest
  *   InstanceCount: Number("int"), // required
  *   ReservedInstancesOfferingId: "STRING_VALUE", // required
+ *   PurchaseTime: new Date("TIMESTAMP"),
  *   DryRun: true || false,
  *   LimitPrice: { // ReservedInstanceLimitPrice
  *     Amount: Number("double"),
  *     CurrencyCode: "USD",
  *   },
- *   PurchaseTime: new Date("TIMESTAMP"),
  * };
  * const command = new PurchaseReservedInstancesOfferingCommand(input);
  * const response = await client.send(command);

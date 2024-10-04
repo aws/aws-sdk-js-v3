@@ -42,10 +42,10 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * // const { EC2Client, DescribeConversionTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeConversionTasksRequest
+ *   DryRun: true || false,
  *   ConversionTaskIds: [ // ConversionIdStringList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeConversionTasksCommand(input);
  * const response = await client.send(command);

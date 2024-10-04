@@ -342,12 +342,6 @@ export interface DeleteNetworkAclEntryRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Indicates whether the rule is an egress rule.</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
    * <p>The ID of the network ACL.</p>
    * @public
    */
@@ -358,6 +352,12 @@ export interface DeleteNetworkAclEntryRequest {
    * @public
    */
   RuleNumber: number | undefined;
+
+  /**
+   * <p>Indicates whether the rule is an egress rule.</p>
+   * @public
+   */
+  Egress: boolean | undefined;
 }
 
 /**
@@ -699,18 +699,6 @@ export interface DeleteQueuedReservedInstancesResult {
  */
 export interface DeleteRouteRequest {
   /**
-   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
    * <p>The ID of the prefix list for the route.</p>
    * @public
    */
@@ -729,6 +717,18 @@ export interface DeleteRouteRequest {
    * @public
    */
   RouteTableId: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationIpv6CidrBlock?: string;
 }
 
 /**
@@ -2232,18 +2232,18 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
  */
 export interface DescribeAccountAttributesRequest {
   /**
-   * <p>The account attribute names.</p>
-   * @public
-   */
-  AttributeNames?: AccountAttributeName[];
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *            and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *            Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The account attribute names.</p>
+   * @public
+   */
+  AttributeNames?: AccountAttributeName[];
 }
 
 /**
@@ -2284,6 +2284,21 @@ export interface Filter {
  * @public
  */
 export interface DescribeAddressesRequest {
+  /**
+   * <p>One or more Elastic IP addresses.</p>
+   *          <p>Default: Describes all your Elastic IP addresses.</p>
+   * @public
+   */
+  PublicIps?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    *          <ul>
@@ -2335,25 +2350,10 @@ export interface DescribeAddressesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>One or more Elastic IP addresses.</p>
-   *          <p>Default: Describes all your Elastic IP addresses.</p>
-   * @public
-   */
-  PublicIps?: string[];
-
-  /**
    * <p>Information about the allocation IDs.</p>
    * @public
    */
   AllocationIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**
@@ -2530,6 +2530,34 @@ export interface DescribeAggregateIdFormatResult {
  */
 export interface DescribeAvailabilityZonesRequest {
   /**
+   * <p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>
+   * @public
+   */
+  ZoneNames?: string[];
+
+  /**
+   * <p>The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</p>
+   * @public
+   */
+  ZoneIds?: string[];
+
+  /**
+   * <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your
+   *       opt-in status.</p>
+   *          <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
+   * @public
+   */
+  AllAvailabilityZones?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2589,34 +2617,6 @@ export interface DescribeAvailabilityZonesRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   * @public
-   */
-  ZoneNames?: string[];
-
-  /**
-   * <p>The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   * @public
-   */
-  ZoneIds?: string[];
-
-  /**
-   * <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your
-   *       opt-in status.</p>
-   *          <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
-   * @public
-   */
-  AllAvailabilityZones?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**
@@ -2669,13 +2669,6 @@ export type AvailabilityZoneState = (typeof AvailabilityZoneState)[keyof typeof 
  * @public
  */
 export interface AvailabilityZone {
-  /**
-   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. This value is always
-   *         <code>available</code>.</p>
-   * @public
-   */
-  State?: AvailabilityZoneState;
-
   /**
    * <p>For Availability Zones, this parameter always has the value of
    *         <code>opt-in-not-required</code>.</p>
@@ -2745,6 +2738,13 @@ export interface AvailabilityZone {
    * @public
    */
   ParentZoneId?: string;
+
+  /**
+   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. This value is always
+   *         <code>available</code>.</p>
+   * @public
+   */
+  State?: AvailabilityZoneState;
 }
 
 /**
@@ -2899,6 +2899,14 @@ export interface DescribeBundleTasksRequest {
   BundleIds?: string[];
 
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2946,14 +2954,6 @@ export interface DescribeBundleTasksRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**
@@ -3625,6 +3625,20 @@ export interface DescribeCarrierGatewaysResult {
  */
 export interface DescribeClassicLinkInstancesRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
+   * @public
+   */
+  InstanceIds?: string[];
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3654,18 +3668,10 @@ export interface DescribeClassicLinkInstancesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
-  DryRun?: boolean;
-
-  /**
-   * <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
-   * @public
-   */
-  InstanceIds?: string[];
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this request.
@@ -3675,12 +3681,6 @@ export interface DescribeClassicLinkInstancesRequest {
    * @public
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**
@@ -4770,18 +4770,18 @@ export interface DescribeCoipPoolsResult {
  */
 export interface DescribeConversionTasksRequest {
   /**
-   * <p>The conversion task IDs.</p>
-   * @public
-   */
-  ConversionTaskIds?: string[];
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The conversion task IDs.</p>
+   * @public
+   */
+  ConversionTaskIds?: string[];
 }
 
 /**
@@ -5112,6 +5112,28 @@ export interface DescribeDhcpOptionsRequest {
   DhcpOptionsIds?: string[];
 
   /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -5143,28 +5165,6 @@ export interface DescribeDhcpOptionsRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
 }
 
 /**
@@ -5172,16 +5172,16 @@ export interface DescribeDhcpOptionsRequest {
  */
 export interface DescribeDhcpOptionsResult {
   /**
-   * <p>Information about the DHCP options sets.</p>
-   * @public
-   */
-  DhcpOptions?: DhcpOptions[];
-
-  /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the DHCP options sets.</p>
+   * @public
+   */
+  DhcpOptions?: DhcpOptions[];
 }
 
 /**
@@ -5572,16 +5572,16 @@ export interface DescribeExportImageTasksResult {
  */
 export interface DescribeExportTasksRequest {
   /**
-   * <p>The export task IDs.</p>
-   * @public
-   */
-  ExportTaskIds?: string[];
-
-  /**
    * <p>the filters for the export tasks.</p>
    * @public
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The export task IDs.</p>
+   * @public
+   */
+  ExportTaskIds?: string[];
 }
 
 /**
@@ -8023,6 +8023,27 @@ export interface DescribeHostReservationsResult {
  */
 export interface DescribeHostsRequest {
   /**
+   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+   *             launches.</p>
+   * @public
+   */
+  HostIds?: string[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   *          <p>You cannot specify this parameter and the host IDs parameter in the same
+   *             request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -8064,27 +8085,6 @@ export interface DescribeHostsRequest {
    * @public
    */
   Filter?: Filter[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-   *             launches.</p>
-   * @public
-   */
-  HostIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same
-   *             request.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**
@@ -8415,12 +8415,6 @@ export interface DescribeIamInstanceProfileAssociationsResult {
  */
 export interface DescribeIdentityIdFormatRequest {
   /**
-   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
-   * @public
-   */
-  PrincipalArn: string | undefined;
-
-  /**
    * <p>The type of resource: <code>bundle</code> |
    *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
    *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
@@ -8438,6 +8432,12 @@ export interface DescribeIdentityIdFormatRequest {
    * @public
    */
   Resource?: string;
+
+  /**
+   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
 }
 
 /**
@@ -8547,19 +8547,6 @@ export interface DescribeImageAttributeRequest {
  */
 export interface LaunchPermission {
   /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: PermissionGroup;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
-   * @public
-   */
-  UserId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of an organization.</p>
    * @public
    */
@@ -8570,6 +8557,19 @@ export interface LaunchPermission {
    * @public
    */
   OrganizationalUnitArn?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  Group?: PermissionGroup;
 }
 
 /**
@@ -8577,30 +8577,6 @@ export interface LaunchPermission {
  * @public
  */
 export interface ImageAttribute {
-  /**
-   * <p>The block device mapping entries.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The launch permissions.</p>
-   * @public
-   */
-  LaunchPermissions?: LaunchPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[];
-
   /**
    * <p>A description for the AMI.</p>
    * @public
@@ -8675,6 +8651,30 @@ export interface ImageAttribute {
    * @public
    */
   DeregistrationProtection?: AttributeValue;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The launch permissions.</p>
+   * @public
+   */
+  LaunchPermissions?: LaunchPermission[];
+
+  /**
+   * <p>The product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The block device mapping entries.</p>
+   * @public
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
 }
 
 /**
@@ -8704,6 +8704,62 @@ export interface DescribeImagesRequest {
    * @public
    */
   ExecutableUsers?: string[];
+
+  /**
+   * <p>The image IDs.</p>
+   *          <p>Default: Describes all images available to you.</p>
+   * @public
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Scopes the results to images with the specified owners. You can specify a combination of
+   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+   *       If you omit this parameter, the results include all images for which you have launch permissions,
+   *       regardless of ownership.</p>
+   * @public
+   */
+  Owners?: string[];
+
+  /**
+   * <p>Specifies whether to include deprecated AMIs.</p>
+   *          <p>Default: No deprecated AMIs are included in the response.</p>
+   *          <note>
+   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
+   *         you specify for this parameter.</p>
+   *          </note>
+   * @public
+   */
+  IncludeDeprecated?: boolean;
+
+  /**
+   * <p>Specifies whether to include disabled AMIs.</p>
+   *          <p>Default: No disabled AMIs are included in the response.</p>
+   * @public
+   */
+  IncludeDisabled?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 
   /**
    * <p>The filters.</p>
@@ -8868,62 +8924,6 @@ export interface DescribeImagesRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The image IDs.</p>
-   *          <p>Default: Describes all images available to you.</p>
-   * @public
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
-   *       If you omit this parameter, the results include all images for which you have launch permissions,
-   *       regardless of ownership.</p>
-   * @public
-   */
-  Owners?: string[];
-
-  /**
-   * <p>Specifies whether to include deprecated AMIs.</p>
-   *          <p>Default: No deprecated AMIs are included in the response.</p>
-   *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
-   *         you specify for this parameter.</p>
-   *          </note>
-   * @public
-   */
-  IncludeDeprecated?: boolean;
-
-  /**
-   * <p>Specifies whether to include disabled AMIs.</p>
-   *          <p>Default: No disabled AMIs are included in the response.</p>
-   * @public
-   */
-  IncludeDisabled?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

@@ -45,15 +45,15 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * // const { EC2Client, AssignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignIpv6AddressesRequest
- *   Ipv6AddressCount: Number("int"),
- *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
  *   Ipv6PrefixCount: Number("int"),
  *   Ipv6Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Ipv6Addresses: [ // Ipv6AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv6AddressCount: Number("int"),
  * };
  * const command = new AssignIpv6AddressesCommand(input);
  * const response = await client.send(command);

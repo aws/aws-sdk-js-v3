@@ -602,6 +602,35 @@ export interface DescribeSpotFleetRequestsResponse {
  */
 export interface DescribeSpotInstanceRequestsRequest {
   /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the Spot Instance requests.</p>
+   * @public
+   */
+  SpotInstanceRequestIds?: string[];
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -799,35 +828,6 @@ export interface DescribeSpotInstanceRequestsRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the Spot Instance requests.</p>
-   * @public
-   */
-  SpotInstanceRequestIds?: string[];
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
 }
 
 /**
@@ -853,12 +853,6 @@ export interface LaunchSpecification {
    * @public
    */
   UserData?: string;
-
-  /**
-   * <p>The IDs of the security groups.</p>
-   * @public
-   */
-  SecurityGroups?: GroupIdentifier[];
 
   /**
    * <p>Deprecated.</p>
@@ -934,6 +928,12 @@ export interface LaunchSpecification {
    * @public
    */
   SubnetId?: string;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   * @public
+   */
+  SecurityGroups?: GroupIdentifier[];
 
   /**
    * <p>Describes the monitoring of an instance.</p>
@@ -1151,6 +1151,43 @@ export interface DescribeSpotInstanceRequestsResult {
  */
 export interface DescribeSpotPriceHistoryRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time, up to the current date, from which to stop retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Filters the results by the specified instance types.</p>
+   * @public
+   */
+  InstanceTypes?: _InstanceType[];
+
+  /**
+   * <p>Filters the results by the specified basic product descriptions.</p>
+   * @public
+   */
+  ProductDescriptions?: string[];
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1198,29 +1235,6 @@ export interface DescribeSpotPriceHistoryRequest {
   AvailabilityZone?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *             <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The date and time, up to the current date, from which to stop retrieving the price
-   *             history data, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Filters the results by the specified instance types.</p>
-   * @public
-   */
-  InstanceTypes?: _InstanceType[];
-
-  /**
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -1233,20 +1247,6 @@ export interface DescribeSpotPriceHistoryRequest {
    * @public
    */
   NextToken?: string;
-
-  /**
-   * <p>Filters the results by the specified basic product descriptions.</p>
-   * @public
-   */
-  ProductDescriptions?: string[];
-
-  /**
-   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
-   *             history data, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  StartTime?: Date;
 }
 
 /**
@@ -1728,14 +1728,6 @@ export interface DescribeSubnetsRequest {
   SubnetIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
@@ -1748,6 +1740,14 @@ export interface DescribeSubnetsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -1755,16 +1755,16 @@ export interface DescribeSubnetsRequest {
  */
 export interface DescribeSubnetsResult {
   /**
-   * <p>Information about the subnets.</p>
-   * @public
-   */
-  Subnets?: Subnet[];
-
-  /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the subnets.</p>
+   * @public
+   */
+  Subnets?: Subnet[];
 }
 
 /**
@@ -3665,6 +3665,20 @@ export interface DescribeVolumeAttributeResult {
  */
 export interface DescribeVolumesRequest {
   /**
+   * <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
+   * @public
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3755,18 +3769,11 @@ export interface DescribeVolumesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for this request.
@@ -3775,13 +3782,6 @@ export interface DescribeVolumesRequest {
    * @public
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**
@@ -3789,17 +3789,17 @@ export interface DescribeVolumesRequest {
  */
 export interface DescribeVolumesResult {
   /**
-   * <p>Information about the volumes.</p>
-   * @public
-   */
-  Volumes?: Volume[];
-
-  /**
    * <p>The token to include in another request to get the next page of items.
    *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the volumes.</p>
+   * @public
+   */
+  Volumes?: Volume[];
 }
 
 /**
@@ -4013,23 +4013,53 @@ export interface VolumeModification {
  */
 export interface DescribeVolumesModificationsResult {
   /**
-   * <p>Information about the volume modifications.</p>
-   * @public
-   */
-  VolumesModifications?: VolumeModification[];
-
-  /**
    * <p>The token to include in another request to get the next page of items.
    *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the volume modifications.</p>
+   * @public
+   */
+  VolumesModifications?: VolumeModification[];
 }
 
 /**
  * @public
  */
 export interface DescribeVolumeStatusRequest {
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   *          <p>Default: Describes all your volumes.</p>
+   * @public
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -4096,36 +4126,6 @@ export interface DescribeVolumeStatusRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   * @public
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**
@@ -4394,12 +4394,6 @@ export interface DescribeVpcAttributeRequest {
  */
 export interface DescribeVpcAttributeResult {
   /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string;
-
-  /**
    * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
    * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
    * 				otherwise, they do not.</p>
@@ -4421,12 +4415,32 @@ export interface DescribeVpcAttributeResult {
    * @public
    */
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string;
 }
 
 /**
  * @public
  */
 export interface DescribeVpcClassicLinkRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The VPCs for which you want to describe the ClassicLink status.</p>
+   * @public
+   */
+  VpcIds?: string[];
+
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -4448,20 +4462,6 @@ export interface DescribeVpcClassicLinkRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The VPCs for which you want to describe the ClassicLink status.</p>
-   * @public
-   */
-  VpcIds?: string[];
 }
 
 /**
@@ -4507,6 +4507,12 @@ export interface DescribeVpcClassicLinkResult {
  */
 export interface DescribeVpcClassicLinkDnsSupportRequest {
   /**
+   * <p>The IDs of the VPCs.</p>
+   * @public
+   */
+  VpcIds?: string[];
+
+  /**
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -4519,12 +4525,6 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
    * @public
    */
   NextToken?: string;
-
-  /**
-   * <p>The IDs of the VPCs.</p>
-   * @public
-   */
-  VpcIds?: string[];
 }
 
 /**
@@ -5253,6 +5253,35 @@ export interface DescribeVpcEndpointServicesResult {
  */
 export interface DescribeVpcPeeringConnectionsRequest {
   /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the VPC peering connections.</p>
+   *          <p>Default: Describes all your VPC peering connections.</p>
+   * @public
+   */
+  VpcPeeringConnectionIds?: string[];
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -5318,35 +5347,6 @@ export interface DescribeVpcPeeringConnectionsRequest {
    * @public
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the VPC peering connections.</p>
-   *          <p>Default: Describes all your VPC peering connections.</p>
-   * @public
-   */
-  VpcPeeringConnectionIds?: string[];
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
 }
 
 /**
@@ -5455,14 +5455,6 @@ export interface DescribeVpcsRequest {
   VpcIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
@@ -5475,6 +5467,14 @@ export interface DescribeVpcsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5482,16 +5482,16 @@ export interface DescribeVpcsRequest {
  */
 export interface DescribeVpcsResult {
   /**
-   * <p>Information about the VPCs.</p>
-   * @public
-   */
-  Vpcs?: Vpc[];
-
-  /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the VPCs.</p>
+   * @public
+   */
+  Vpcs?: Vpc[];
 }
 
 /**
@@ -5749,18 +5749,18 @@ export interface DetachInternetGatewayRequest {
  */
 export interface DetachNetworkInterfaceRequest {
   /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  AttachmentId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
 
   /**
    * <p>Specifies whether to force a detachment.</p>
@@ -6978,18 +6978,18 @@ export interface DisassociateNatGatewayAddressResult {
  */
 export interface DisassociateRouteTableRequest {
   /**
-   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
 }
 
 /**
@@ -8958,19 +8958,19 @@ export interface GetConsoleOutputRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>When enabled, retrieves the latest console output for the instance.</p>
+   *          <p>Default: disabled (<code>false</code>)</p>
+   * @public
+   */
+  Latest?: boolean;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
-
-  /**
-   * <p>When enabled, retrieves the latest console output for the instance.</p>
-   *          <p>Default: disabled (<code>false</code>)</p>
-   * @public
-   */
-  Latest?: boolean;
 }
 
 /**
@@ -8984,17 +8984,17 @@ export interface GetConsoleOutputResult {
   InstanceId?: string;
 
   /**
+   * <p>The time at which the output was last updated.</p>
+   * @public
+   */
+  Timestamp?: Date;
+
+  /**
    * <p>The console output, base64-encoded. If you are using a command line tool, the tool
    *             decodes the output for you.</p>
    * @public
    */
   Output?: string;
-
-  /**
-   * <p>The time at which the output was last updated.</p>
-   * @public
-   */
-  Timestamp?: Date;
 }
 
 /**
