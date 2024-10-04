@@ -466,11 +466,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  AccountIdEndpointModeInputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
-  AccountIdEndpointModeInputConfig &
   EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   EndpointDiscoveryInputConfig &
@@ -488,11 +488,11 @@ export interface DynamoDBClientConfig extends DynamoDBClientConfigType {}
 export type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  AccountIdEndpointModeResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
-  AccountIdEndpointModeResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   EndpointDiscoveryResolvedConfig &
@@ -538,11 +538,11 @@ export class DynamoDBClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<DynamoDBClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveUserAgentConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveRegionConfig(_config_3);
-    const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAccountIdEndpointModeConfig(_config_5);
+    const _config_2 = resolveAccountIdEndpointModeConfig(_config_1);
+    const _config_3 = resolveUserAgentConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveRegionConfig(_config_4);
+    const _config_6 = resolveHostHeaderConfig(_config_5);
     const _config_7 = resolveEndpointConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveEndpointDiscoveryConfig(_config_8, {
