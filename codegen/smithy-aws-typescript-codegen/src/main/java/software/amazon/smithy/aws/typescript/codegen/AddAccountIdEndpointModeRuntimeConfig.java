@@ -46,12 +46,12 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
     ) {
         if (isAwsService(settings, model)) {
             ServiceShape service = settings.getService(model);
-            if(hasAccountIdEndpointParam(service)) {
+            if (hasAccountIdEndpointParam(service)) {
                     writer.addImportSubmodule("AccountIdEndpointMode", null,
                         AwsDependency.AWS_SDK_CORE, "/account-id-endpoint");
                     writer.writeDocs("Defines if the AWS AccountId will be used for endpoint routing.");
-                    writer.write("accountIdEndpointMode?: AccountIdEndpointMode | " +
-                        "__Provider<AccountIdEndpointMode>;\n");
+                    writer.write("accountIdEndpointMode?: AccountIdEndpointMode | "
+                    + "__Provider<AccountIdEndpointMode>;\n");
                     writer.addImportSubmodule("resolveAccountIdEndpointModeConfig", null,
                         AwsDependency.AWS_SDK_CORE, "/account-id-endpoint");
             }
@@ -137,13 +137,13 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
     }
 
     private boolean hasAccountIdEndpointParam(ServiceShape service) {
-    Optional<EndpointRuleSetTrait> endpointRuleSetTrait = service.getTrait(EndpointRuleSetTrait.class);
-    if (endpointRuleSetTrait.isPresent()) {
-        RuleSetParameterFinder ruleSetParameterFinder = new RuleSetParameterFinder(service);
-        if (ruleSetParameterFinder.getBuiltInParams().containsKey("AccountIdEndpointMode")) {
-            return true;
+        Optional<EndpointRuleSetTrait> endpointRuleSetTrait = service.getTrait(EndpointRuleSetTrait.class);
+        if (endpointRuleSetTrait.isPresent()) {
+            RuleSetParameterFinder ruleSetParameterFinder = new RuleSetParameterFinder(service);
+            if (ruleSetParameterFinder.getBuiltInParams().containsKey("AccountIdEndpointMode")) {
+              return true;
+            }
         }
-    }
-    return false;
+        return false;
     }
 }
