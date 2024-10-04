@@ -5295,9 +5295,7 @@ export const de_SelectObjectContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  if (Object.keys(data ?? {}).length) {
-    contents.Payload = __expectUnion(de_SelectObjectContentEventStream(data, context));
-  }
+  contents.Payload = de_SelectObjectContentEventStream(data, context);
   return contents;
 };
 

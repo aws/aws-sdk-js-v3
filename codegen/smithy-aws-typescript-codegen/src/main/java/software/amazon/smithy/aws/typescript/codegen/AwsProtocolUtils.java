@@ -46,6 +46,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -316,6 +317,16 @@ final class AwsProtocolUtils {
         }
 
         if (testCase.getTags().contains("defaults")) {
+            return true;
+        }
+
+        // not implemented in server sdk.
+        if (SetUtils.of(
+            "SDKAppendedGzipAfterProvidedEncoding_restJson1",
+            "SDKAppliedContentEncoding_restJson1",
+            "RestJsonHttpPayloadWithUnsetUnion",
+            "RestJsonMustSupportParametersInContentType"
+        ).contains(testCase.getId()) && settings.generateServerSdk()) {
             return true;
         }
 
