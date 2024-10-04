@@ -53,7 +53,7 @@ export const DEFAULT_RESPONSE_CHECKSUM_VALIDATION = RequestChecksumCalculation.W
  */
 export enum ChecksumAlgorithm {
   /**
-   * @deprecated Use {@link ChecksumAlgorithm.SHA256} instead.
+   * @deprecated Use {@link ChecksumAlgorithm.CRC32} instead.
    */
   MD5 = "MD5",
   CRC32 = "CRC32",
@@ -73,7 +73,7 @@ export enum ChecksumLocation {
 /**
  * @internal
  */
-export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.SHA256;
+export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;
 
 /**
  * @internal
