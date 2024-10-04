@@ -127,29 +127,18 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "name": "transformX12",
+ *   "name": "transformJSON",
  *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "inputConversion": {
- *     "formatOptions": {
- *       "x12": {
- *         "version": "VERSION_4010",
- *         "transactionSet": "X12_110"
- *       }
- *     },
- *     "fromFormat": "X12"
+ *   "ediType": {
+ *     "x12Details": {
+ *       "version": "VERSION_4010",
+ *       "transactionSet": "X12_110"
+ *     }
  *   },
- *   "mapping": {
- *     "template": "{}",
- *     "templateLanguage": "JSONATA"
- *   },
- *   "sampleDocuments": {
- *     "bucketName": "test-bucket",
- *     "keys": [
- *       {
- *         "input": "sampleDoc.txt"
- *       }
- *     ]
- *   },
+ *   "fileFormat": "JSON",
+ *   "mappingTemplate": "$",
+ *   "modifiedAt": "2023-11-01T21:51:05.504Z",
+ *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
  *   "status": "inactive",
  *   "transformerArn": "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
  *   "transformerId": "tr-974c129999f84d8c9"
