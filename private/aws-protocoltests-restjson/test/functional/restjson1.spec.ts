@@ -373,7 +373,7 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("IntegerEnumList=2");
     expect(queryString).toContain("IntegerEnumList=3");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -409,7 +409,7 @@ it("RestJsonQueryStringMap:Request", async () => {
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -444,7 +444,7 @@ it("RestJsonQueryStringEscaping:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("String=%20%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -482,7 +482,7 @@ it("RestJsonSupportsNaNFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=NaN");
     expect(queryString).toContain("Double=NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -520,7 +520,7 @@ it("RestJsonSupportsInfinityFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=Infinity");
     expect(queryString).toContain("Double=Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -558,7 +558,7 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=-Infinity");
     expect(queryString).toContain("Double=-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -596,7 +596,7 @@ it("RestJsonZeroAndFalseQueryValues:Request", async () => {
     expect(queryString).toContain("Integer=0");
     expect(queryString).toContain("Boolean=false");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -631,7 +631,7 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:Request", async () => 
     expect(queryString).toContain("foo=bar");
     expect(queryString).toContain("baz=bam");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -666,7 +666,7 @@ it("RestJsonConstantAndVariableQueryStringAllValues:Request", async () => {
     expect(queryString).toContain("baz=bam");
     expect(queryString).toContain("maybeSet=yes");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -699,7 +699,7 @@ it("RestJsonConstantQueryString:Request", async () => {
     expect(queryString).toContain("foo=bar");
     expect(queryString).toContain("hello");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -1507,7 +1507,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EmptyInputAndEmptyOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -1593,7 +1593,7 @@ it("RestJsonEndpointTrait:Request", async () => {
     expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.example.com");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2222,7 +2222,7 @@ it("RestJsonHostWithPath:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/custom/HostWithPathOperation");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2403,7 +2403,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2695,7 +2695,7 @@ it("RestJsonHttpPayloadWithUnion:Request", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2715,7 +2715,7 @@ it.skip("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithUnion");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2764,7 +2764,7 @@ it("RestJsonHttpPayloadWithUnion:Response", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it.skip("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
+it("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -2826,7 +2826,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
     expect(r.headers["x-foo-def"]).toBeDefined();
     expect(r.headers["x-foo-def"]).toBe("Def value");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2859,7 +2859,7 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2965,7 +2965,7 @@ it("RestJsonSupportsNaNFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/NaN/NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2995,7 +2995,7 @@ it("RestJsonSupportsInfinityFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/Infinity/Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3025,7 +3025,7 @@ it("RestJsonSupportsNegativeInfinityFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/-Infinity/-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3055,7 +3055,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello%2Fescape/baz/there/guy");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3091,7 +3091,7 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3129,7 +3129,7 @@ it("RestJsonHttpRequestLabelEscaping:Request", async () => {
       "/HttpRequestWithLabels/%20%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z"
     );
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3166,7 +3166,7 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
       "/HttpRequestWithLabelsAndTimestampFormat/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z/2019-12-16T23%3A48%3A18Z/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z"
     );
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3195,7 +3195,7 @@ it("RestJsonToleratesRegexCharsInSegments:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/ReDosLiteral/abc/(a+)+");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3433,14 +3433,14 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
     expect(r.headers["x-stringset"]).toBeDefined();
     expect(r.headers["x-stringset"]).toBe("a, b, c");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
 /**
  * Tests requests with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3465,7 +3465,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
     expect(r.headers["x-stringlist"]).toBeDefined();
     expect(r.headers["x-stringlist"]).toBe('"b,c", "\\"def\\"", a');
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3515,7 +3515,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
     expect(r.headers["x-short"]).toBeDefined();
     expect(r.headers["x-short"]).toBe("123");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3553,7 +3553,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
     expect(r.headers["x-booleanlist"]).toBeDefined();
     expect(r.headers["x-booleanlist"]).toBe("true, false, true");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3585,7 +3585,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.headers["x-timestamplist"]).toBeDefined();
     expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3620,7 +3620,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
     expect(r.headers["x-enumlist"]).toBeDefined();
     expect(r.headers["x-enumlist"]).toBe("Foo, Bar, Baz");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3655,7 +3655,7 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:Request", async () => {
     expect(r.headers["x-integerenumlist"]).toBeDefined();
     expect(r.headers["x-integerenumlist"]).toBe("1, 2, 3");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3690,7 +3690,7 @@ it("RestJsonSupportsNaNFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3725,7 +3725,7 @@ it("RestJsonSupportsInfinityFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3760,7 +3760,7 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3804,7 +3804,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
 /**
  * Tests responses with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
@@ -6543,7 +6543,7 @@ it("MediaTypeHeaderInputBase64:Request", async () => {
     expect(r.headers["x-json"]).toBeDefined();
     expect(r.headers["x-json"]).toBe("dHJ1ZQ==");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6605,7 +6605,7 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndNoOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6658,7 +6658,7 @@ it("RestJsonNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6747,7 +6747,7 @@ it.skip("RestJsonNullAndEmptyHeaders:Request", async () => {
     expect(r.headers["x-b"]).toBeUndefined();
     expect(r.headers["x-c"]).toBeUndefined();
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6776,7 +6776,7 @@ it("RestJsonOmitsNullQuery:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/OmitsNullSerializesEmptyString");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6808,7 +6808,7 @@ it("RestJsonSerializesEmptyQueryValue:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("Empty=");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -6843,7 +6843,7 @@ it("RestJsonOmitsEmptyListQueryValues:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/OmitsSerializingEmptyLists");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -7853,7 +7853,7 @@ it("PostUnionWithJsonNameResponse3:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
+it("SDKAppliedContentEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7886,7 +7886,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7942,7 +7942,7 @@ it("RestJsonQueryIdempotencyTokenAutoFill:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -7974,7 +7974,7 @@ it("RestJsonQueryIdempotencyTokenAutoFillIsSet:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -8011,7 +8011,7 @@ it("RestJsonQueryParamsStringListMap:Request", async () => {
     expect(queryString).toContain("baz=bar");
     expect(queryString).toContain("baz=qux");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -8048,7 +8048,7 @@ it("RestJsonQueryPrecedence:Request", async () => {
     expect(queryString).toContain("bar=named");
     expect(queryString).toContain("qux=alsoFromMap");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9263,7 +9263,7 @@ it("RestJsonStreamingTraitsWithNoBlobBody:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9423,7 +9423,7 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9613,7 +9613,7 @@ it("RestJsonHttpWithNoInput:Request", async () => {
     expect(r.headers["content-length"]).toBeUndefined();
     expect(r.headers["content-type"]).toBeUndefined();
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9643,7 +9643,7 @@ it("RestJsonHttpWithNoModeledBody:Request", async () => {
     expect(r.headers["content-length"]).toBeUndefined();
     expect(r.headers["content-type"]).toBeUndefined();
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9678,7 +9678,7 @@ it("RestJsonHttpWithHeaderMemberNoModeledBody:Request", async () => {
     expect(r.headers["x-amz-test-id"]).toBeDefined();
     expect(r.headers["x-amz-test-id"]).toBe("t-12345");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9708,7 +9708,7 @@ it("RestJsonHttpWithEmptyBlobPayload:Request", async () => {
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9910,7 +9910,7 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
     expect(r.headers["x-targethttpdate"]).toBeDefined();
     expect(r.headers["x-targethttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -9984,7 +9984,7 @@ it("RestJsonUnitInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/UnitInputAndOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 

@@ -98,30 +98,6 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To retrieve tag set of a specific object version
- * ```javascript
- * // The following example retrieves tag set of an object. The request specifies object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * };
- * const command = new GetObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagSet": [
- *     {
- *       "Key": "Key1",
- *       "Value": "Value1"
- *     }
- *   ],
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * }
- * *\/
- * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
- * ```
- *
  * @example To retrieve tag set of an object
  * ```javascript
  * // The following example retrieves tag set of an object.
@@ -147,6 +123,30 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * }
  * *\/
  * // example id: to-retrieve-tag-set-of-an-object-1481833847896
+ * ```
+ *
+ * @example To retrieve tag set of a specific object version
+ * ```javascript
+ * // The following example retrieves tag set of an object. The request specifies object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "Key1",
+ *       "Value": "Value1"
+ *     }
+ *   ],
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * }
+ * *\/
+ * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
  * ```
  *
  */

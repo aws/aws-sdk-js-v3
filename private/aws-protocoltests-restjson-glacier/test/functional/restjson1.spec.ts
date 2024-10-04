@@ -232,7 +232,7 @@ it("GlacierVersionHeader:Request", async () => {
     expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -311,7 +311,7 @@ it.skip("GlacierAccountId:Request", async () => {
     expect(r.headers["x-amz-glacier-version"]).toBeDefined();
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 

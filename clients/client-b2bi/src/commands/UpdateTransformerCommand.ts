@@ -169,16 +169,28 @@ export interface UpdateTransformerCommandOutput extends UpdateTransformerRespons
  * ```javascript
  * //
  * const input = {
- *   "name": "transformJSON",
- *   "ediType": {
- *     "x12Details": {
- *       "version": "VERSION_4010",
- *       "transactionSet": "X12_110"
- *     }
+ *   "name": "transformX12",
+ *   "inputConversion": {
+ *     "formatOptions": {
+ *       "x12": {
+ *         "version": "VERSION_4010",
+ *         "transactionSet": "X12_110"
+ *       }
+ *     },
+ *     "fromFormat": "X12"
  *   },
- *   "fileFormat": "JSON",
- *   "mappingTemplate": "{}",
- *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
+ *   "mapping": {
+ *     "template": "{}",
+ *     "templateLanguage": "JSONATA"
+ *   },
+ *   "sampleDocuments": {
+ *     "bucketName": "test-bucket",
+ *     "keys": [
+ *       {
+ *         "input": "sampleDoc.txt"
+ *       }
+ *     ]
+ *   },
  *   "status": "inactive",
  *   "transformerId": "tr-974c129999f84d8c9"
  * };
@@ -186,20 +198,32 @@ export interface UpdateTransformerCommandOutput extends UpdateTransformerRespons
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "name": "transformJSON",
+ *   "name": "transformX12",
  *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "ediType": {
- *     "x12Details": {
- *       "version": "VERSION_4010",
- *       "transactionSet": "X12_110"
- *     }
+ *   "inputConversion": {
+ *     "formatOptions": {
+ *       "x12": {
+ *         "version": "VERSION_4010",
+ *         "transactionSet": "X12_110"
+ *       }
+ *     },
+ *     "fromFormat": "X12"
  *   },
- *   "fileFormat": "JSON",
- *   "mappingTemplate": "$",
- *   "modifiedAt": "2023-11-01T21:51:05.504Z",
- *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
+ *   "mapping": {
+ *     "template": "{}",
+ *     "templateLanguage": "JSONATA"
+ *   },
+ *   "modifiedAt": "2023-11-02T22:31:05.504Z",
+ *   "sampleDocuments": {
+ *     "bucketName": "test-bucket",
+ *     "keys": [
+ *       {
+ *         "input": "sampleDoc.txt"
+ *       }
+ *     ]
+ *   },
  *   "status": "inactive",
- *   "transformerArn": "arn:aws:b2bi:us-west-2:607686414464:transformer/tr-974c129999f84d8c9",
+ *   "transformerArn": "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
  *   "transformerId": "tr-974c129999f84d8c9"
  * }
  * *\/
