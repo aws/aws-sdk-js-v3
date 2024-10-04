@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
+
+
+### Bug Fixes
+
+* **codegen:** accIdEpMode config resolver generation plugin ([#6544](https://github.com/aws/aws-sdk-js-v3/issues/6544)) ([fc14586](https://github.com/aws/aws-sdk-js-v3/commit/fc14586ff129a8f3808111a2af1e17deafbb8d60))
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Amazon EC2. ([404a00a](https://github.com/aws/aws-sdk-js-v3/commit/404a00ac9719d5b59bb9d37151d8abed23616789))
+* **client-iot-data-plane:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([f727d58](https://github.com/aws/aws-sdk-js-v3/commit/f727d58e9be633f2a83b39bf3e8a4a9f97182546))
+* **clients:** update client endpoints as of 2024-10-04 ([5f1ed92](https://github.com/aws/aws-sdk-js-v3/commit/5f1ed92abcd7eb06577da8efaca1e265867dd35a))
+
+
+
+
+
 # [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
 
 
