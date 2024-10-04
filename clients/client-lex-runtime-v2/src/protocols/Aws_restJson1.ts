@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -364,7 +369,9 @@ export const de_StartConversationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.responseEventStream = de_StartConversationResponseEventStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.responseEventStream = __expectUnion(de_StartConversationResponseEventStream(data, context));
+  }
   return contents;
 };
 

@@ -227,6 +227,6 @@ it("ApiGatewayAccept:Request", async () => {
     expect(r.headers["accept"]).toBeDefined();
     expect(r.headers["accept"]).toBe("application/json");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });

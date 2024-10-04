@@ -21,6 +21,7 @@ import {
   isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -195,7 +196,7 @@ export const se_BatchDeleteUniqueIdCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_i]: input[_iS]!,
-    [_u]: [() => isSerializableHeaderValue(input[_uI]), () => (input[_uI]! || []).join(", ")],
+    [_u]: [() => isSerializableHeaderValue(input[_uI]), () => (input[_uI]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/matchingworkflows/{workflowName}/uniqueids");
   b.p("workflowName", () => input.workflowName!, "{workflowName}", false);

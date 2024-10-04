@@ -698,7 +698,7 @@ it("no_input:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 

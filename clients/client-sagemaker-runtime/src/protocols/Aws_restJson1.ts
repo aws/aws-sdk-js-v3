@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -191,7 +196,9 @@ export const de_InvokeEndpointWithResponseStreamCommand = async (
     [_CA]: [, output.headers[_xasca]],
   });
   const data: any = output.body;
-  contents.Body = de_ResponseStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.Body = __expectUnion(de_ResponseStream(data, context));
+  }
   return contents;
 };
 

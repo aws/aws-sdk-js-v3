@@ -102,7 +102,9 @@ export const de_StartFaceLivenessSessionCommand = async (
     [_SI]: [, output.headers[_xarslsi]],
   });
   const data: any = output.body;
-  contents.LivenessResponseStream = de_LivenessResponseStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.LivenessResponseStream = __expectUnion(de_LivenessResponseStream(data, context));
+  }
   return contents;
 };
 

@@ -1556,7 +1556,9 @@ export const de_ChatCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.outputStream = de_ChatOutputStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.outputStream = __expectUnion(de_ChatOutputStream(data, context));
+  }
   return contents;
 };
 

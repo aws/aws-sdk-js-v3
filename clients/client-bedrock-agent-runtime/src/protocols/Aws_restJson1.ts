@@ -314,7 +314,9 @@ export const de_InvokeAgentCommand = async (
     [_mI]: [, output.headers[_xabami]],
   });
   const data: any = output.body;
-  contents.completion = de_ResponseStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.completion = __expectUnion(de_ResponseStream(data, context));
+  }
   return contents;
 };
 
@@ -332,7 +334,9 @@ export const de_InvokeFlowCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.responseStream = de_FlowResponseStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.responseStream = __expectUnion(de_FlowResponseStream(data, context));
+  }
   return contents;
 };
 

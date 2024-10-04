@@ -22,6 +22,7 @@ import {
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
@@ -1567,7 +1568,7 @@ export const se_GetObjectAttributesCommand = async (
     [_xasseckm]: input[_SSECKMD]!,
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaoa]: [() => isSerializableHeaderValue(input[_OA]), () => (input[_OA]! || []).join(", ")],
+    [_xaoa]: [() => isSerializableHeaderValue(input[_OA]), () => (input[_OA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1944,7 +1945,7 @@ export const se_ListObjectsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).join(", ")],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1971,7 +1972,7 @@ export const se_ListObjectsV2Command = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
-    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).join(", ")],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2001,7 +2002,7 @@ export const se_ListObjectVersionsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xaebo]: input[_EBO]!,
     [_xarp]: input[_RP]!,
-    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).join(", ")],
+    [_xaooa]: [() => isSerializableHeaderValue(input[_OOA]), () => (input[_OOA]! || []).map(__quoteHeader).join(", ")],
   });
   b.bp("/");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -5294,7 +5295,9 @@ export const de_SelectObjectContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.Payload = de_SelectObjectContentEventStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.Payload = __expectUnion(de_SelectObjectContentEventStream(data, context));
+  }
   return contents;
 };
 

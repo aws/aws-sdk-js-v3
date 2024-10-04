@@ -347,7 +347,7 @@ it("AllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("IntegerEnumList=1");
     expect(queryString).toContain("IntegerEnumList=2");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -383,7 +383,7 @@ it("RestXmlQueryStringMap:Request", async () => {
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -415,7 +415,7 @@ it("RestXmlQueryStringEscaping:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("String=%20%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -449,7 +449,7 @@ it("RestXmlSupportsNaNFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=NaN");
     expect(queryString).toContain("Double=NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -483,7 +483,7 @@ it("RestXmlSupportsInfinityFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=Infinity");
     expect(queryString).toContain("Double=Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -517,7 +517,7 @@ it("RestXmlSupportsNegativeInfinityFloatQueryValues:Request", async () => {
     expect(queryString).toContain("Float=-Infinity");
     expect(queryString).toContain("Double=-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -551,7 +551,7 @@ it("RestXmlZeroAndFalseQueryValues:Request", async () => {
     expect(queryString).toContain("Integer=0");
     expect(queryString).toContain("Boolean=false");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -665,7 +665,7 @@ it("ConstantAndVariableQueryStringMissingOneValue:Request", async () => {
     expect(queryString).toContain("foo=bar");
     expect(queryString).toContain("baz=bam");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -700,7 +700,7 @@ it("ConstantAndVariableQueryStringAllValues:Request", async () => {
     expect(queryString).toContain("baz=bam");
     expect(queryString).toContain("maybeSet=yes");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -733,7 +733,7 @@ it("ConstantQueryString:Request", async () => {
     expect(queryString).toContain("foo=bar");
     expect(queryString).toContain("hello");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -842,7 +842,7 @@ it("EmptyInputAndEmptyOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EmptyInputAndEmptyOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -896,7 +896,7 @@ it("RestXmlEndpointTrait:Request", async () => {
     expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("foo.example.com");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -936,7 +936,7 @@ it("RestXmlEndpointTraitWithHostLabelAndHttpBinding:Request", async () => {
     expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("bar.example.com");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -1550,7 +1550,7 @@ it("HttpPayloadTraitsWithNoBlobBody:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -1943,7 +1943,7 @@ it.skip("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithUnion");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2299,7 +2299,7 @@ it("HttpPrefixHeadersArePresent:Request", async () => {
     expect(r.headers["x-foo-def"]).toBeDefined();
     expect(r.headers["x-foo-def"]).toBe("Def value");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2332,7 +2332,7 @@ it("HttpPrefixHeadersAreNotPresent:Request", async () => {
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2445,7 +2445,7 @@ it("RestXmlSupportsNaNFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/NaN/NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2475,7 +2475,7 @@ it("RestXmlSupportsInfinityFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/Infinity/Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2505,7 +2505,7 @@ it("RestXmlSupportsNegativeInfinityFloatLabels:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/FloatHttpLabels/-Infinity/-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2535,7 +2535,7 @@ it("HttpRequestWithGreedyLabelInPath:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2571,7 +2571,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2609,7 +2609,7 @@ it("HttpRequestLabelEscaping:Request", async () => {
       "/HttpRequestWithLabels/%20%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z"
     );
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2646,7 +2646,7 @@ it("HttpRequestWithLabelsAndTimestampFormat:Request", async () => {
       "/HttpRequestWithLabelsAndTimestampFormat/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z/2019-12-16T23%3A48%3A18Z/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z"
     );
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2828,7 +2828,7 @@ it("InputAndOutputWithStringHeaders:Request", async () => {
     expect(r.headers["x-stringset"]).toBeDefined();
     expect(r.headers["x-stringset"]).toBe("a, b, c");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2878,7 +2878,7 @@ it("InputAndOutputWithNumericHeaders:Request", async () => {
     expect(r.headers["x-short"]).toBeDefined();
     expect(r.headers["x-short"]).toBe("123");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2916,7 +2916,7 @@ it("InputAndOutputWithBooleanHeaders:Request", async () => {
     expect(r.headers["x-booleanlist"]).toBeDefined();
     expect(r.headers["x-booleanlist"]).toBe("true, false, true");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2948,7 +2948,7 @@ it("InputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.headers["x-timestamplist"]).toBeDefined();
     expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -2983,7 +2983,7 @@ it("InputAndOutputWithEnumHeaders:Request", async () => {
     expect(r.headers["x-enumlist"]).toBeDefined();
     expect(r.headers["x-enumlist"]).toBe("Foo, Bar, Baz");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3018,7 +3018,7 @@ it("RestXmlSupportsNaNFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("NaN");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3053,7 +3053,7 @@ it("RestXmlSupportsInfinityFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3088,7 +3088,7 @@ it("RestXmlSupportsNegativeInfinityFloatHeaderInputs:Request", async () => {
     expect(r.headers["x-float"]).toBeDefined();
     expect(r.headers["x-float"]).toBe("-Infinity");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3657,7 +3657,7 @@ it("NoInputAndNoOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndNoOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3706,7 +3706,7 @@ it("NoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3763,7 +3763,7 @@ it.skip("NullAndEmptyHeaders:Request", async () => {
     expect(r.headers["x-b"]).toBeUndefined();
     expect(r.headers["x-c"]).toBeUndefined();
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3792,7 +3792,7 @@ it("RestXmlOmitsNullQuery:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/OmitsNullSerializesEmptyString");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3824,7 +3824,7 @@ it("RestXmlSerializesEmptyString:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("Empty=");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3920,7 +3920,7 @@ it("QueryIdempotencyTokenAutoFill:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3952,7 +3952,7 @@ it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -3989,7 +3989,7 @@ it("RestXmlQueryParamsStringListMap:Request", async () => {
     expect(queryString).toContain("baz=bar");
     expect(queryString).toContain("baz=qux");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -4026,7 +4026,7 @@ it("RestXmlQueryPrecedence:Request", async () => {
     expect(queryString).toContain("bar=named");
     expect(queryString).toContain("qux=alsoFromMap");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 
@@ -4921,7 +4921,7 @@ it("TimestampFormatHeaders:Request", async () => {
     expect(r.headers["x-targethttpdate"]).toBeDefined();
     expect(r.headers["x-targethttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
 
-    expect(r.body).toBeFalsy();
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 

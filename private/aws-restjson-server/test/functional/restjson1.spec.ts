@@ -2823,7 +2823,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerResponse", async () => {
   expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -3225,7 +3225,7 @@ it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
   expect(r.headers["content-length"]).toBeDefined();
   expect(r.headers["content-length"]).toBe("0");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -27727,7 +27727,7 @@ it("RestJsonNoInputAndNoOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -30579,7 +30579,7 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerResponse", async () => {
   expect(r.headers["x-foo"]).toBeDefined();
   expect(r.headers["x-foo"]).toBe("Foo");
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**
@@ -31422,7 +31422,7 @@ it("RestJsonUnitInputAndOutputNoOutput:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
-  expect(r.body).toBeFalsy();
+  expect(!r.body || r.body === `{}`).toBeTruthy();
 });
 
 /**

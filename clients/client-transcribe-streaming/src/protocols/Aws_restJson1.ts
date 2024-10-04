@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -206,7 +211,9 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
     [_PET]: [, output.headers[_xatpet]],
   });
   const data: any = output.body;
-  contents.CallAnalyticsTranscriptResultStream = de_CallAnalyticsTranscriptResultStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.CallAnalyticsTranscriptResultStream = __expectUnion(de_CallAnalyticsTranscriptResultStream(data, context));
+  }
   return contents;
 };
 
@@ -236,7 +243,9 @@ export const de_StartMedicalStreamTranscriptionCommand = async (
     [_CIT]: [, output.headers[_xatcit]],
   });
   const data: any = output.body;
-  contents.TranscriptResultStream = de_MedicalTranscriptResultStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.TranscriptResultStream = __expectUnion(de_MedicalTranscriptResultStream(data, context));
+  }
   return contents;
 };
 
@@ -277,7 +286,9 @@ export const de_StartStreamTranscriptionCommand = async (
     [_VFNo]: [, output.headers[_xatvfn_]],
   });
   const data: any = output.body;
-  contents.TranscriptResultStream = de_TranscriptResultStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.TranscriptResultStream = __expectUnion(de_TranscriptResultStream(data, context));
+  }
   return contents;
 };
 

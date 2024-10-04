@@ -295,7 +295,9 @@ export const de_ConverseStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.stream = de_ConverseStreamOutput(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.stream = __expectUnion(de_ConverseStreamOutput(data, context));
+  }
   return contents;
 };
 
@@ -333,7 +335,9 @@ export const de_InvokeModelWithResponseStreamCommand = async (
     [_cT]: [, output.headers[_xabct]],
   });
   const data: any = output.body;
-  contents.body = de_ResponseStream(data, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.body = __expectUnion(de_ResponseStream(data, context));
+  }
   return contents;
 };
 
