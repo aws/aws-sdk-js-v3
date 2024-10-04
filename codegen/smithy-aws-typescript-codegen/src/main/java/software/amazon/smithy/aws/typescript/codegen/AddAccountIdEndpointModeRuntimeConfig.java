@@ -60,7 +60,7 @@
      }
 
      @Override
-     public Map<String, Consumer <TypeScriptWriter>> getRuntimeConfigWriters(
+     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
          TypeScriptSettings settings,
          Model model,
          SymbolProvider symbolProvider,
@@ -137,7 +137,7 @@
          );
      }
 
-    private boolean hasAccountIdEndpointParam(ServiceShape service) {
+     private boolean hasAccountIdEndpointParam(ServiceShape service) {
         Optional<EndpointRuleSetTrait> endpointRuleSetTrait = service.getTrait(EndpointRuleSetTrait.class);
         if (endpointRuleSetTrait.isPresent()) {
             RuleSetParameterFinder ruleSetParameterFinder = new RuleSetParameterFinder(service);
