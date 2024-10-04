@@ -1,10 +1,5 @@
 // smithy-typescript generated code
-import {
-  awsExpectUnion as __expectUnion,
-  loadRestJsonErrorCode,
-  parseJsonBody as parseBody,
-  parseJsonErrorBody as parseErrorBody,
-} from "@aws-sdk/core";
+import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -2787,9 +2782,7 @@ export const de_InvokeWithResponseStreamCommand = async (
     [_RSCT]: [, output.headers[_ct]],
   });
   const data: any = output.body;
-  if (Object.keys(data ?? {}).length) {
-    contents.EventStream = __expectUnion(de_InvokeWithResponseStreamResponseEvent(data, context));
-  }
+  contents.EventStream = de_InvokeWithResponseStreamResponseEvent(data, context);
   map(contents, {
     StatusCode: [, output.statusCode],
   });
