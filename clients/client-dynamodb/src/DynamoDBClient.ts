@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
+import {
+  AccountIdEndpointMode,
+  AccountIdEndpointModeInputConfig,
+  AccountIdEndpointModeResolvedConfig,
+  resolveAccountIdEndpointModeConfig,
+} from "@aws-sdk/core/account-id-endpoint";
 import {
   EndpointDiscoveryInputConfig,
   EndpointDiscoveryResolvedConfig,
@@ -465,6 +470,7 @@ export type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   RetryInputConfig &
   RegionInputConfig &
   HostHeaderInputConfig &
+  AccountIdEndpointModeInputConfig &
   EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   EndpointDiscoveryInputConfig &
@@ -486,6 +492,7 @@ export type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   RetryResolvedConfig &
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
+  AccountIdEndpointModeResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   EndpointDiscoveryResolvedConfig &
@@ -535,14 +542,15 @@ export class DynamoDBClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveEndpointDiscoveryConfig(_config_7, {
+    const _config_6 = resolveAccountIdEndpointModeConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveEndpointDiscoveryConfig(_config_8, {
       endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
     });
-    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
-    this.config = _config_9;
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    super(_config_10);
+    this.config = _config_10;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

@@ -48,6 +48,11 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
                     "RecursionDetection", HAS_MIDDLEWARE)
+                .build(),
+            // AccountIdEndpointMode field
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.AWS_SDK_CORE_ACCOUNT_ID_ENDPOINT.dependency, "AccountIdEndpointMode", HAS_CONFIG)
+                .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
                 .build()
         );
     }

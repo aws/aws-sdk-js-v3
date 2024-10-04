@@ -39,6 +39,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public enum AwsDependency implements Dependency {
 
     AWS_SDK_CORE(NORMAL_DEPENDENCY, "@aws-sdk/core"),
+    AWS_SDK_CORE_ACCOUNT_ID_ENDPOINT(NORMAL_DEPENDENCY, "@aws-sdk/core/account-id-endpoint", AWS_SDK_CORE.version),
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
     MIDDLEWARE_TOKEN(NORMAL_DEPENDENCY, "@aws-sdk/middleware-token"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
@@ -146,11 +147,23 @@ public enum AwsDependency implements Dependency {
             VERSIONS = Collections.unmodifiableMap(versions);
         }
 
-        private static String expectVersion(String packageName) {
-            if (!VERSIONS.containsKey(packageName)) {
-                throw new IllegalArgumentException("No version for " + packageName);
+        private static String getBasePackageName(String packageName) {
+            if (packageName.startsWith("@aws-sdk/")) {
+                // For @aws-sdk scoped packages, consider everything up to the second slash as the base package
+                int secondSlashIndex = packageName.indexOf('/', "@aws-sdk/".length());
+                return secondSlashIndex == -1 ? packageName : packageName.substring(0, secondSlashIndex);
+            } else {
+                // For other packages, use the entire name
+                return packageName;
             }
-            return VERSIONS.get(packageName);
+        }
+
+        private static String expectVersion(String packageName) {
+            String basePackageName = getBasePackageName(packageName);
+            if (!VERSIONS.containsKey(basePackageName)) {
+                throw new IllegalArgumentException("No version for " + basePackageName);
+            }
+            return VERSIONS.get(basePackageName);
         }
     }
 }
