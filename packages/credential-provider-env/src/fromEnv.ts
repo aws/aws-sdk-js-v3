@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { setCredentialFeature } from "@aws-sdk/core";
 import type { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -58,9 +58,6 @@ export const fromEnv =
         ...(accountId && { accountId }),
       } as AttributedAwsCredentialIdentity;
       setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS", "g");
-      if (accountId) {
-        setCredentialFeature(credentials, "RESOLVED_ACCOUNT_ID", "T");
-      }
       return credentials;
     }
 

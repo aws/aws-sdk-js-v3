@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { setCredentialFeature } from "@aws-sdk/core";
 import { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -48,7 +48,7 @@ export const fromTokenFile =
       roleSessionName,
     })();
 
-    if (process.env[ENV_TOKEN_FILE]) {
+    if (webIdentityTokenFile === process.env[ENV_TOKEN_FILE]) {
       setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN", "h");
     }
 

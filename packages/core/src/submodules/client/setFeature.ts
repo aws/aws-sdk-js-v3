@@ -33,7 +33,7 @@ export function setFeature<F extends keyof AwsSdkFeatures>(
 /**
  * @internal
  *
- * sets feature attribution on the credential object.
+ * @returns the credentials with source feature attribution.
  */
 export function setCredentialFeature<F extends keyof AwsSdkCredentialsFeatures>(
   credentials: AttributedAwsCredentialIdentity,
