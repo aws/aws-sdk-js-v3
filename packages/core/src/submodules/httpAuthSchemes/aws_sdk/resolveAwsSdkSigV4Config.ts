@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
 import {
   doesIdentityRequireRefresh,
