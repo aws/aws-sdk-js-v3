@@ -55,8 +55,8 @@ export interface GetBuyerDashboardInput {
 
   /**
    * <p>Fully qualified domains that you add to the allow list for access to the generated URL that is then embedded. You can list up to two domains or subdomains in each API call.
-   *         To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under
-   *         <code>https://aws.amazon.com</code>.</p>
+   *       To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under
+   *       <code>https://aws.amazon.com</code>.</p>
    * @public
    */
   embeddingDomains: string[] | undefined;
@@ -80,8 +80,8 @@ export interface GetBuyerDashboardOutput {
 
   /**
    * <p>The fully qualified domains specified in the request. The domains enable access to the generated URL that is then embedded. You can list up to two domains or subdomains in each API call.
-   *         To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under
-   *         <code>https://aws.amazon.com</code>.</p>
+   *       To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under
+   *       <code>https://aws.amazon.com</code>.</p>
    * @public
    */
   embeddingDomains: string[] | undefined;
