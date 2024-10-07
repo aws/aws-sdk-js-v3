@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+
+### Features
+
+* **client-deadline:** Add support for using the template from a previous job during job creation and listing parameter definitions for a job. ([9c4d17d](https://github.com/aws/aws-sdk-js-v3/commit/9c4d17d06619db378e7970240adfebdaf72fb407))
+
+
+
+
+
 # [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

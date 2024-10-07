@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+
+### Features
+
+* **client-deadline:** Add support for using the template from a previous job during job creation and listing parameter definitions for a job. ([9c4d17d](https://github.com/aws/aws-sdk-js-v3/commit/9c4d17d06619db378e7970240adfebdaf72fb407))
+* **client-qconnect:** This release adds support for the following capabilities: Configuration of the Gen AI system via AIAgent and AIPrompts. Integration support for Bedrock Knowledge Base. ([ecad084](https://github.com/aws/aws-sdk-js-v3/commit/ecad084b4d70dd80c65e28a2c48be62cf3cd4bc3))
+* **client-redshift:** Add validation pattern to S3KeyPrefix on the EnableLogging API ([990f025](https://github.com/aws/aws-sdk-js-v3/commit/990f02583e171021aced5ae31731513e2389f51f))
+* **clients:** update client endpoints as of 2024-10-07 ([5b48a23](https://github.com/aws/aws-sdk-js-v3/commit/5b48a232ed0f6fc360144663c12928d4aa2b456d))
+
+
+
+
+
 # [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
 
 

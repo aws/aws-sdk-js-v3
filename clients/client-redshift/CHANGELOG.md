@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+
+### Features
+
+* **client-redshift:** Add validation pattern to S3KeyPrefix on the EnableLogging API ([990f025](https://github.com/aws/aws-sdk-js-v3/commit/990f02583e171021aced5ae31731513e2389f51f))
+
+
+
+
+
 # [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift
