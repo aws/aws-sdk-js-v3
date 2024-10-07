@@ -700,6 +700,14 @@ ListJobMembers
 </details>
 <details>
 <summary>
+ListJobParameterDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/ListJobParameterDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListJobParameterDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListJobParameterDefinitionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListJobs
 </summary>
 

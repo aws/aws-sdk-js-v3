@@ -227,6 +227,11 @@ import {
   ListJobMembersCommandInput,
   ListJobMembersCommandOutput,
 } from "./commands/ListJobMembersCommand";
+import {
+  ListJobParameterDefinitionsCommand,
+  ListJobParameterDefinitionsCommandInput,
+  ListJobParameterDefinitionsCommandOutput,
+} from "./commands/ListJobParameterDefinitionsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListLicenseEndpointsCommand,
@@ -436,6 +441,7 @@ const commands = {
   ListFleetMembersCommand,
   ListFleetsCommand,
   ListJobMembersCommand,
+  ListJobParameterDefinitionsCommand,
   ListJobsCommand,
   ListLicenseEndpointsCommand,
   ListMeteredProductsCommand,
@@ -1352,6 +1358,23 @@ export interface Deadline {
     args: ListJobMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJobMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobParameterDefinitionsCommand}
+   */
+  listJobParameterDefinitions(
+    args: ListJobParameterDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobParameterDefinitionsCommandOutput>;
+  listJobParameterDefinitions(
+    args: ListJobParameterDefinitionsCommandInput,
+    cb: (err: any, data?: ListJobParameterDefinitionsCommandOutput) => void
+  ): void;
+  listJobParameterDefinitions(
+    args: ListJobParameterDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobParameterDefinitionsCommandOutput) => void
   ): void;
 
   /**

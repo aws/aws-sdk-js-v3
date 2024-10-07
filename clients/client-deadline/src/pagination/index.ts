@@ -8,6 +8,7 @@ export * from "./ListFarmsPaginator";
 export * from "./ListFleetMembersPaginator";
 export * from "./ListFleetsPaginator";
 export * from "./ListJobMembersPaginator";
+export * from "./ListJobParameterDefinitionsPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListLicenseEndpointsPaginator";
 export * from "./ListMeteredProductsPaginator";

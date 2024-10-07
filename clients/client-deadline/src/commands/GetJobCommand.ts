@@ -86,6 +86,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     fileSystem: "COPIED" || "VIRTUAL",
  * //   },
  * //   description: "STRING_VALUE",
+ * //   sourceJobId: "STRING_VALUE",
  * // };
  *
  * ```

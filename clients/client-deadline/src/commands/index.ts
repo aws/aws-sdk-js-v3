@@ -60,6 +60,7 @@ export * from "./ListFarmsCommand";
 export * from "./ListFleetMembersCommand";
 export * from "./ListFleetsCommand";
 export * from "./ListJobMembersCommand";
+export * from "./ListJobParameterDefinitionsCommand";
 export * from "./ListJobsCommand";
 export * from "./ListLicenseEndpointsCommand";
 export * from "./ListMeteredProductsCommand";

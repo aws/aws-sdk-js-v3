@@ -41,8 +41,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   template: "STRING_VALUE", // required
- *   templateType: "JSON" || "YAML", // required
+ *   template: "STRING_VALUE",
+ *   templateType: "JSON" || "YAML",
  *   priority: Number("int"), // required
  *   parameters: { // JobParameters
  *     "<keys>": { // JobParameter Union: only one key present
@@ -71,6 +71,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   targetTaskRunStatus: "READY" || "SUSPENDED",
  *   maxFailedTasksCount: Number("int"),
  *   maxRetriesPerTask: Number("int"),
+ *   sourceJobId: "STRING_VALUE",
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);

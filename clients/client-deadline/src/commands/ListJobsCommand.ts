@@ -65,6 +65,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //       },
  * //       maxFailedTasksCount: Number("int"),
  * //       maxRetriesPerTask: Number("int"),
+ * //       sourceJobId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

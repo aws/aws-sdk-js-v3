@@ -3431,13 +3431,13 @@ export interface CreateJobRequest {
    * <p>The job template to use for this job.</p>
    * @public
    */
-  template: string | undefined;
+  template?: string;
 
   /**
    * <p>The file type for the job template.</p>
    * @public
    */
-  templateType: JobTemplateType | undefined;
+  templateType?: JobTemplateType;
 
   /**
    * <p>The priority of the job on a scale of 0 to 100. The highest priority (first scheduled)
@@ -3483,6 +3483,12 @@ export interface CreateJobRequest {
    * @public
    */
   maxRetriesPerTask?: number;
+
+  /**
+   * <p>The job ID for the source job.</p>
+   * @public
+   */
+  sourceJobId?: string;
 }
 
 /**
@@ -6282,6 +6288,12 @@ export interface GetJobResponse {
    * @public
    */
   description?: string;
+
+  /**
+   * <p>The job ID for the source job.</p>
+   * @public
+   */
+  sourceJobId?: string;
 }
 
 /**
@@ -7219,6 +7231,58 @@ export interface ListJobMembersResponse {
 /**
  * @public
  */
+export interface ListJobParameterDefinitionsRequest {
+  /**
+   * <p>The farm ID of the job to list.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The job ID to include on the list.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The queue ID to include on the list.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListJobParameterDefinitionsResponse {
+  /**
+   * <p>Lists parameter definitions of a job.</p>
+   * @public
+   */
+  jobParameterDefinitions: __DocumentType[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>The farm ID for the jobs.</p>
@@ -7393,6 +7457,12 @@ export interface JobSummary {
    * @public
    */
   maxRetriesPerTask?: number;
+
+  /**
+   * <p>The job ID for the source job.</p>
+   * @public
+   */
+  sourceJobId?: string;
 }
 
 /**
@@ -8771,52 +8841,6 @@ export interface QueueSummary {
    * @public
    */
   updatedBy?: string;
-}
-
-/**
- * @public
- */
-export interface ListQueuesResponse {
-  /**
-   * <p>The queues on the list.</p>
-   * @public
-   */
-  queues: QueueSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListStorageProfilesForQueueRequest {
-  /**
-   * <p>The farm ID of the queue's storage profile.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID for the storage profile.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number;
 }
 
 /**

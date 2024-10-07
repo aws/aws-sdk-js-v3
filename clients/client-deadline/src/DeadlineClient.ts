@@ -195,6 +195,10 @@ import { ListFarmsCommandInput, ListFarmsCommandOutput } from "./commands/ListFa
 import { ListFleetMembersCommandInput, ListFleetMembersCommandOutput } from "./commands/ListFleetMembersCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import { ListJobMembersCommandInput, ListJobMembersCommandOutput } from "./commands/ListJobMembersCommand";
+import {
+  ListJobParameterDefinitionsCommandInput,
+  ListJobParameterDefinitionsCommandOutput,
+} from "./commands/ListJobParameterDefinitionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListLicenseEndpointsCommandInput,
@@ -354,6 +358,7 @@ export type ServiceInputTypes =
   | ListFleetMembersCommandInput
   | ListFleetsCommandInput
   | ListJobMembersCommandInput
+  | ListJobParameterDefinitionsCommandInput
   | ListJobsCommandInput
   | ListLicenseEndpointsCommandInput
   | ListMeteredProductsCommandInput
@@ -461,6 +466,7 @@ export type ServiceOutputTypes =
   | ListFleetMembersCommandOutput
   | ListFleetsCommandOutput
   | ListJobMembersCommandOutput
+  | ListJobParameterDefinitionsCommandOutput
   | ListJobsCommandOutput
   | ListLicenseEndpointsCommandOutput
   | ListMeteredProductsCommandOutput

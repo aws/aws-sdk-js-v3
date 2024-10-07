@@ -6,9 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQueuesRequest } from "../models/models_0";
-import { ListQueuesResponse } from "../models/models_1";
-import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_restJson1";
+import { ListJobParameterDefinitionsRequest, ListJobParameterDefinitionsResponse } from "../models/models_0";
+import {
+  de_ListJobParameterDefinitionsCommand,
+  se_ListJobParameterDefinitionsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -18,57 +20,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListQueuesCommand}.
+ * The input for {@link ListJobParameterDefinitionsCommand}.
  */
-export interface ListQueuesCommandInput extends ListQueuesRequest {}
+export interface ListJobParameterDefinitionsCommandInput extends ListJobParameterDefinitionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListQueuesCommand}.
+ * The output of {@link ListJobParameterDefinitionsCommand}.
  */
-export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
+export interface ListJobParameterDefinitionsCommandOutput
+  extends ListJobParameterDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Lists queues.</p>
+ * <p>Lists parameter definitions of a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, ListQueuesCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, ListQueuesCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, ListJobParameterDefinitionsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, ListJobParameterDefinitionsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // ListQueuesRequest
+ * const input = { // ListJobParameterDefinitionsRequest
  *   farmId: "STRING_VALUE", // required
- *   principalId: "STRING_VALUE",
- *   status: "IDLE" || "SCHEDULING" || "SCHEDULING_BLOCKED",
+ *   jobId: "STRING_VALUE", // required
+ *   queueId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListQueuesCommand(input);
+ * const command = new ListJobParameterDefinitionsCommand(input);
  * const response = await client.send(command);
- * // { // ListQueuesResponse
- * //   queues: [ // QueueSummaries // required
- * //     { // QueueSummary
- * //       farmId: "STRING_VALUE", // required
- * //       queueId: "STRING_VALUE", // required
- * //       displayName: "STRING_VALUE", // required
- * //       status: "IDLE" || "SCHEDULING" || "SCHEDULING_BLOCKED", // required
- * //       defaultBudgetAction: "NONE" || "STOP_SCHEDULING_AND_COMPLETE_TASKS" || "STOP_SCHEDULING_AND_CANCEL_TASKS", // required
- * //       blockedReason: "NO_BUDGET_CONFIGURED" || "BUDGET_THRESHOLD_REACHED",
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //       createdBy: "STRING_VALUE", // required
- * //       updatedAt: new Date("TIMESTAMP"),
- * //       updatedBy: "STRING_VALUE",
- * //     },
+ * // { // ListJobParameterDefinitionsResponse
+ * //   jobParameterDefinitions: [ // JobParameterDefinitions // required
+ * //     "DOCUMENT_VALUE",
  * //   ],
  * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
- * @returns {@link ListQueuesCommandOutput}
- * @see {@link ListQueuesCommandInput} for command's `input` shape.
- * @see {@link ListQueuesCommandOutput} for command's `response` shape.
+ * @param ListJobParameterDefinitionsCommandInput - {@link ListJobParameterDefinitionsCommandInput}
+ * @returns {@link ListJobParameterDefinitionsCommandOutput}
+ * @see {@link ListJobParameterDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListJobParameterDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,10 +85,10 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *
  * @public
  */
-export class ListQueuesCommand extends $Command
+export class ListJobParameterDefinitionsCommand extends $Command
   .classBuilder<
-    ListQueuesCommandInput,
-    ListQueuesCommandOutput,
+    ListJobParameterDefinitionsCommandInput,
+    ListJobParameterDefinitionsCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,21 +100,21 @@ export class ListQueuesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "ListQueues", {})
-  .n("DeadlineClient", "ListQueuesCommand")
+  .s("Deadline", "ListJobParameterDefinitions", {})
+  .n("DeadlineClient", "ListJobParameterDefinitionsCommand")
   .f(void 0, void 0)
-  .ser(se_ListQueuesCommand)
-  .de(de_ListQueuesCommand)
+  .ser(se_ListJobParameterDefinitionsCommand)
+  .de(de_ListJobParameterDefinitionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListQueuesRequest;
-      output: ListQueuesResponse;
+      input: ListJobParameterDefinitionsRequest;
+      output: ListJobParameterDefinitionsResponse;
     };
     sdk: {
-      input: ListQueuesCommandInput;
-      output: ListQueuesCommandOutput;
+      input: ListJobParameterDefinitionsCommandInput;
+      output: ListJobParameterDefinitionsCommandOutput;
     };
   };
 }

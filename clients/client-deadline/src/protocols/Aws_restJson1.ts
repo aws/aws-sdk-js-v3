@@ -182,6 +182,10 @@ import { ListFarmsCommandInput, ListFarmsCommandOutput } from "../commands/ListF
 import { ListFleetMembersCommandInput, ListFleetMembersCommandOutput } from "../commands/ListFleetMembersCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import { ListJobMembersCommandInput, ListJobMembersCommandOutput } from "../commands/ListJobMembersCommand";
+import {
+  ListJobParameterDefinitionsCommandInput,
+  ListJobParameterDefinitionsCommandOutput,
+} from "../commands/ListJobParameterDefinitionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListLicenseEndpointsCommandInput,
@@ -826,6 +830,7 @@ export const se_CreateJobCommand = async (
       maxRetriesPerTask: [],
       parameters: (_) => _json(_),
       priority: [],
+      sourceJobId: [],
       storageProfileId: [],
       targetTaskRunStatus: [],
       template: [],
@@ -2089,6 +2094,36 @@ export const se_ListJobMembersCommand = async (
   b.p("farmId", () => input.farmId!, "{farmId}", false);
   b.p("queueId", () => input.queueId!, "{queueId}", false);
   b.p("jobId", () => input.jobId!, "{jobId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListJobParameterDefinitionsCommand
+ */
+export const se_ListJobParameterDefinitionsCommand = async (
+  input: ListJobParameterDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/parameter-definitions");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
+  b.p("queueId", () => input.queueId!, "{queueId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -4250,6 +4285,7 @@ export const de_GetJobCommand = async (
     name: __expectString,
     parameters: _json,
     priority: __expectInt32,
+    sourceJobId: __expectString,
     startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     storageProfileId: __expectString,
     targetTaskRunStatus: __expectString,
@@ -4797,6 +4833,28 @@ export const de_ListJobMembersCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     members: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListJobParameterDefinitionsCommand
+ */
+export const de_ListJobParameterDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobParameterDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobParameterDefinitions: (_) => de_JobParameterDefinitions(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -6595,6 +6653,25 @@ const de_JobEntity = (output: any, context: __SerdeContext): JobEntity => {
 
 // de_JobParameter omitted.
 
+/**
+ * deserializeAws_restJson1JobParameterDefinition
+ */
+const de_JobParameterDefinition = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+/**
+ * deserializeAws_restJson1JobParameterDefinitions
+ */
+const de_JobParameterDefinitions = (output: any, context: __SerdeContext): __DocumentType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobParameterDefinition(entry, context);
+    });
+  return retVal;
+};
+
 // de_JobParameters omitted.
 
 // de_JobRunAsUser omitted.
@@ -6628,6 +6705,7 @@ const de_JobSearchSummary = (output: any, context: __SerdeContext): JobSearchSum
     name: __expectString,
     priority: __expectInt32,
     queueId: __expectString,
+    sourceJobId: __expectString,
     startedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     targetTaskRunStatus: __expectString,
     taskRunStatus: __expectString,
@@ -6662,6 +6740,7 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
     maxRetriesPerTask: __expectInt32,
     name: __expectString,
     priority: __expectInt32,
+    sourceJobId: __expectString,
     startedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     targetTaskRunStatus: __expectString,
     taskRunStatus: __expectString,
