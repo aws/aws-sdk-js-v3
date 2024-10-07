@@ -33,6 +33,9 @@ describe(fromEnv.name, () => {
       sessionToken: mockSessionToken,
       expiration: new Date(mockExpiration),
       accountId: mockAccountId,
+      $source: {
+        CREDENTIALS_ENV_VARS: "g",
+      },
     });
   });
 
@@ -44,6 +47,9 @@ describe(fromEnv.name, () => {
     expect(receivedCreds).toStrictEqual({
       accessKeyId: mockAccessKeyId,
       secretAccessKey: mockSecretAccessKey,
+      $source: {
+        CREDENTIALS_ENV_VARS: "g",
+      },
     });
   });
 

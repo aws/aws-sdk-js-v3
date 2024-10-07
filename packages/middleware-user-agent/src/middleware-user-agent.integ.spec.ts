@@ -1,6 +1,5 @@
 import { CodeCatalyst } from "@aws-sdk/client-codecatalyst";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { S3 } from "@aws-sdk/client-s3";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
