@@ -2814,33 +2814,9 @@ export interface EnableLoggingMessage {
 
   /**
    * <p>The prefix applied to the log file names.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Cannot exceed 512 characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash
-   *                     (\), or control characters. The hexadecimal codes for invalid characters are: </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>x00 to x20</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>x22</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>x27</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>x5c</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>x7f or larger</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   *          <p>Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters:
+   *             underscore (<code>_</code>), period (<code>.</code>), colon (<code>:</code>), slash (<code>/</code>), equal (<code>=</code>), plus (<code>+</code>), backslash (<code>\</code>),
+   *             hyphen (<code>-</code>), at symbol (<code>@</code>).</p>
    * @public
    */
   S3KeyPrefix?: string;
