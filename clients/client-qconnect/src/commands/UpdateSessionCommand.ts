@@ -61,6 +61,11 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *       },
  *     ],
  *   },
+ *   aiAgentConfiguration: { // AIAgentConfigurationMap
+ *     "<keys>": { // AIAgentConfigurationData
+ *       aiAgentId: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new UpdateSessionCommand(input);
  * const response = await client.send(command);
@@ -95,6 +100,11 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //           tagCondition: "<TagCondition>",
  * //         },
  * //       ],
+ * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * // };

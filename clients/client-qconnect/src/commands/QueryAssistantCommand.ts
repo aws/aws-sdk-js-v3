@@ -51,7 +51,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * const client = new QConnectClient(config);
  * const input = { // QueryAssistantRequest
  *   assistantId: "STRING_VALUE", // required
- *   queryText: "STRING_VALUE", // required
+ *   queryText: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   sessionId: "STRING_VALUE",
@@ -64,6 +64,15 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *       },
  *     },
  *   ],
+ *   queryInputData: { // QueryInputData Union: only one key present
+ *     queryTextInputData: { // QueryTextInputData
+ *       text: "STRING_VALUE", // required
+ *     },
+ *     intentInputData: { // IntentInputData
+ *       intentId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   overrideKnowledgeBaseSearchType: "STRING_VALUE",
  * };
  * const command = new QueryAssistantCommand(input);
  * const response = await client.send(command);
@@ -77,6 +86,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //           knowledgeBaseId: "STRING_VALUE",
  * //           contentArn: "STRING_VALUE",
  * //           contentId: "STRING_VALUE",
+ * //           sourceURL: "STRING_VALUE",
+ * //           referenceType: "STRING_VALUE",
  * //         },
  * //         title: { // DocumentText
  * //           text: "STRING_VALUE",
@@ -105,6 +116,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //             knowledgeBaseId: "STRING_VALUE",
  * //             contentArn: "STRING_VALUE",
  * //             contentId: "STRING_VALUE",
+ * //             sourceURL: "STRING_VALUE",
+ * //             referenceType: "STRING_VALUE",
  * //           },
  * //           generativeReference: { // GenerativeReference
  * //             modelId: "STRING_VALUE",
@@ -170,6 +183,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
  * //                   },
+ * //                   intentDetectedData: { // IntentDetectedDataDetails
+ * //                     intent: "STRING_VALUE", // required
+ * //                     intentId: "STRING_VALUE", // required
+ * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
  * //                     type: "STRING_VALUE", // required
@@ -181,6 +198,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                       relevanceScore: Number("double"),
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
+ * //                     citationSpan: { // CitationSpan
+ * //                       beginOffsetInclusive: Number("int"),
+ * //                       endOffsetExclusive: Number("int"),
+ * //                     },
  * //                   },
  * //                 },
  * //               },
@@ -190,6 +211,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //               relevanceLevel: "STRING_VALUE",
  * //             },
  * //           },
+ * //           intentDetectedData: {
+ * //             intent: "STRING_VALUE", // required
+ * //             intentId: "STRING_VALUE", // required
+ * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
  * //             type: "STRING_VALUE", // required
@@ -198,6 +223,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //               excerpt: "<DocumentText>",
  * //             },
  * //             rankingData: "<RankingData>", // required
+ * //             citationSpan: {
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
  * //           },
  * //         },
  * //       },

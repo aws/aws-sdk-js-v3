@@ -65,6 +65,11 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *       },
  *     ],
  *   },
+ *   aiAgentConfiguration: { // AIAgentConfigurationMap
+ *     "<keys>": { // AIAgentConfigurationData
+ *       aiAgentId: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
@@ -99,6 +104,11 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //           tagCondition: "<TagCondition>",
  * //         },
  * //       ],
+ * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * // };

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_0";
+import {
+  UpdateKnowledgeBaseTemplateUriRequest,
+  UpdateKnowledgeBaseTemplateUriResponse,
+  UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_UpdateKnowledgeBaseTemplateUriCommand,
   se_UpdateKnowledgeBaseTemplateUriCommand,
@@ -59,12 +63,64 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * //     knowledgeBaseType: "STRING_VALUE", // required
  * //     status: "STRING_VALUE", // required
  * //     lastContentModificationTime: new Date("TIMESTAMP"),
+ * //     vectorIngestionConfiguration: { // VectorIngestionConfiguration
+ * //       chunkingConfiguration: { // ChunkingConfiguration
+ * //         chunkingStrategy: "STRING_VALUE", // required
+ * //         fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           overlapPercentage: Number("int"), // required
+ * //         },
+ * //         hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ * //           levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ * //             { // HierarchicalChunkingLevelConfiguration
+ * //               maxTokens: Number("int"), // required
+ * //             },
+ * //           ],
+ * //           overlapTokens: Number("int"), // required
+ * //         },
+ * //         semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           bufferSize: Number("int"), // required
+ * //           breakpointPercentileThreshold: Number("int"), // required
+ * //         },
+ * //       },
+ * //       parsingConfiguration: { // ParsingConfiguration
+ * //         parsingStrategy: "STRING_VALUE", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfigurationForParsing
+ * //           modelArn: "STRING_VALUE", // required
+ * //           parsingPrompt: { // ParsingPrompt
+ * //             parsingPromptText: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
  * //     sourceConfiguration: { // SourceConfiguration Union: only one key present
  * //       appIntegrations: { // AppIntegrationsConfiguration
  * //         appIntegrationArn: "STRING_VALUE", // required
  * //         objectFields: [ // ObjectFieldsList
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       managedSourceConfiguration: { // ManagedSourceConfiguration Union: only one key present
+ * //         webCrawlerConfiguration: { // WebCrawlerConfiguration
+ * //           urlConfiguration: { // UrlConfiguration
+ * //             seedUrls: [ // SeedUrls
+ * //               { // SeedUrl
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           crawlerLimits: { // WebCrawlerLimits
+ * //             rateLimit: Number("int"),
+ * //           },
+ * //           inclusionFilters: [ // UrlFilterList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exclusionFilters: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           scope: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     renderingConfiguration: { // RenderingConfiguration
@@ -77,6 +133,10 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     ingestionStatus: "STRING_VALUE",
+ * //     ingestionFailureReasons: [ // FailureReason
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
@@ -119,7 +179,7 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command
   })
   .s("WisdomService", "UpdateKnowledgeBaseTemplateUri", {})
   .n("QConnectClient", "UpdateKnowledgeBaseTemplateUriCommand")
-  .f(void 0, void 0)
+  .f(void 0, UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog)
   .ser(se_UpdateKnowledgeBaseTemplateUriCommand)
   .de(de_UpdateKnowledgeBaseTemplateUriCommand)
   .build() {

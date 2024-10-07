@@ -24,16 +24,26 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Content association data for a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step
- *         guide</a>.</p>
+ * <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
  * @public
  */
-export interface AmazonConnectGuideAssociationData {
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are a type of flow.</p>
-   * @public
+   * @internal
    */
-  flowId?: string;
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
@@ -52,6 +62,1818 @@ export interface TagCondition {
    * @public
    */
   value?: string;
+}
+
+/**
+ * <p>A list of conditions which would be applied together with an <code>OR</code>
+ *       condition.</p>
+ * @public
+ */
+export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagConditionMember | OrCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OrCondition {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *       condition.</p>
+   * @public
+   */
+  export interface AndConditionsMember {
+    andConditions: TagCondition[];
+    tagCondition?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  export interface TagConditionMember {
+    andConditions?: never;
+    tagCondition: TagCondition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    andConditions?: never;
+    tagCondition?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    andConditions: (value: TagCondition[]) => T;
+    tagCondition: (value: TagCondition) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OrCondition, visitor: Visitor<T>): T => {
+    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
+    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions.</p>
+ * @public
+ */
+export type TagFilter =
+  | TagFilter.AndConditionsMember
+  | TagFilter.OrConditionsMember
+  | TagFilter.TagConditionMember
+  | TagFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TagFilter {
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  export interface TagConditionMember {
+    tagCondition: TagCondition;
+    andConditions?: never;
+    orConditions?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *       condition.</p>
+   * @public
+   */
+  export interface AndConditionsMember {
+    tagCondition?: never;
+    andConditions: TagCondition[];
+    orConditions?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *       condition.</p>
+   * @public
+   */
+  export interface OrConditionsMember {
+    tagCondition?: never;
+    andConditions?: never;
+    orConditions: OrCondition[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    tagCondition?: never;
+    andConditions?: never;
+    orConditions?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tagCondition: (value: TagCondition) => T;
+    andConditions: (value: TagCondition[]) => T;
+    orConditions: (value: OrCondition[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TagFilter, visitor: Visitor<T>): T => {
+    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
+    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
+    if (value.orConditions !== undefined) return visitor.orConditions(value.orConditions);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseSearchType = {
+  HYBRID: "HYBRID",
+  SEMANTIC: "SEMANTIC",
+} as const;
+
+/**
+ * @public
+ */
+export type KnowledgeBaseSearchType = (typeof KnowledgeBaseSearchType)[keyof typeof KnowledgeBaseSearchType];
+
+/**
+ * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect
+ *       Assistant Association.</p>
+ * @public
+ */
+export interface KnowledgeBaseAssociationConfigurationData {
+  /**
+   * <p>An object that can be used to specify Tag conditions.</p>
+   * @public
+   */
+  contentTagFilter?: TagFilter;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The search type to be used against the Knowledge Base for this request. The values can be
+   *         <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector
+   *       embeddings and raw text</p>
+   * @public
+   */
+  overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType;
+}
+
+/**
+ * <p>A typed union of the data of the configuration for an Amazon Q in Connect Assistant
+ *       Association.</p>
+ * @public
+ */
+export type AssociationConfigurationData =
+  | AssociationConfigurationData.KnowledgeBaseAssociationConfigurationDataMember
+  | AssociationConfigurationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AssociationConfigurationData {
+  /**
+   * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect Assistant
+   *       Association.</p>
+   * @public
+   */
+  export interface KnowledgeBaseAssociationConfigurationDataMember {
+    knowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    knowledgeBaseAssociationConfigurationData?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    knowledgeBaseAssociationConfigurationData: (value: KnowledgeBaseAssociationConfigurationData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AssociationConfigurationData, visitor: Visitor<T>): T => {
+    if (value.knowledgeBaseAssociationConfigurationData !== undefined)
+      return visitor.knowledgeBaseAssociationConfigurationData(value.knowledgeBaseAssociationConfigurationData);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AIAgentAssociationConfigurationType = {
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type AIAgentAssociationConfigurationType =
+  (typeof AIAgentAssociationConfigurationType)[keyof typeof AIAgentAssociationConfigurationType];
+
+/**
+ * <p>The configuration for an Amazon Q in Connect Assistant Association.</p>
+ * @public
+ */
+export interface AssociationConfiguration {
+  /**
+   * <p>The identifier of the association for this Association Configuration.</p>
+   * @public
+   */
+  associationId?: string;
+
+  /**
+   * <p>The type of the association for this Association Configuration.</p>
+   * @public
+   */
+  associationType?: AIAgentAssociationConfigurationType;
+
+  /**
+   * <p>The data of the configuration for an Amazon Q in Connect Assistant Association.</p>
+   * @public
+   */
+  associationConfigurationData?: AssociationConfigurationData;
+}
+
+/**
+ * <p>The configuration for the <code>ANSWER_RECOMMENDATION</code> AI Agent type.</p>
+ * @public
+ */
+export interface AnswerRecommendationAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier for the Intent Labeling prompt used by the
+   *         <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * @public
+   */
+  intentLabelingGenerationAIPromptId?: string;
+
+  /**
+   * <p>The AI Prompt identifier for the Query Reformulation prompt used by the
+   *         <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * @public
+   */
+  queryReformulationAIPromptId?: string;
+
+  /**
+   * <p>The AI Prompt identifier for the Answer Generation prompt used by the
+   *         <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * @public
+   */
+  answerGenerationAIPromptId?: string;
+
+  /**
+   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * @public
+   */
+  associationConfigurations?: AssociationConfiguration[];
+}
+
+/**
+ * <p>The configuration for the <code>MANUAL_SEARCH</code> AI Agent type.</p>
+ * @public
+ */
+export interface ManualSearchAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier for the Answer Generation prompt used by the MANUAL_SEARCH AI
+   *       Agent.</p>
+   * @public
+   */
+  answerGenerationAIPromptId?: string;
+
+  /**
+   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * @public
+   */
+  associationConfigurations?: AssociationConfiguration[];
+}
+
+/**
+ * <p>A typed union that specifies the configuration based on the type of AI Agent.</p>
+ * @public
+ */
+export type AIAgentConfiguration =
+  | AIAgentConfiguration.AnswerRecommendationAIAgentConfigurationMember
+  | AIAgentConfiguration.ManualSearchAIAgentConfigurationMember
+  | AIAgentConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AIAgentConfiguration {
+  /**
+   * <p>The configuration for AI Agents of type <code>MANUAL_SEARCH</code>.</p>
+   * @public
+   */
+  export interface ManualSearchAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration;
+    answerRecommendationAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for AI Agents of type <code>ANSWER_RECOMMENDATION</code>.</p>
+   * @public
+   */
+  export interface AnswerRecommendationAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    manualSearchAIAgentConfiguration: (value: ManualSearchAIAgentConfiguration) => T;
+    answerRecommendationAIAgentConfiguration: (value: AnswerRecommendationAIAgentConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AIAgentConfiguration, visitor: Visitor<T>): T => {
+    if (value.manualSearchAIAgentConfiguration !== undefined)
+      return visitor.manualSearchAIAgentConfiguration(value.manualSearchAIAgentConfiguration);
+    if (value.answerRecommendationAIAgentConfiguration !== undefined)
+      return visitor.answerRecommendationAIAgentConfiguration(value.answerRecommendationAIAgentConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AIAgentType = {
+  ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
+  MANUAL_SEARCH: "MANUAL_SEARCH",
+} as const;
+
+/**
+ * @public
+ */
+export type AIAgentType = (typeof AIAgentType)[keyof typeof AIAgentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VisibilityStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+
+/**
+ * @public
+ */
+export type VisibilityStatus = (typeof VisibilityStatus)[keyof typeof VisibilityStatus];
+
+/**
+ * @public
+ */
+export interface CreateAIAgentRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The name of the AI Agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the AI Agent.</p>
+   * @public
+   */
+  type: AIAgentType | undefined;
+
+  /**
+   * <p>The configuration of the AI Agent.</p>
+   * @public
+   */
+  configuration: AIAgentConfiguration | undefined;
+
+  /**
+   * <p>The visibility status of the AI Agent.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The description of the AI Agent.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Origin = {
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type Origin = (typeof Origin)[keyof typeof Origin];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * <p>The data for the AI Agent.</p>
+ * @public
+ */
+export interface AIAgentData {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The identifier of the AI Agent.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI agent.</p>
+   * @public
+   */
+  aiAgentArn: string | undefined;
+
+  /**
+   * <p>The name of the AI Agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the AI Agent.</p>
+   * @public
+   */
+  type: AIAgentType | undefined;
+
+  /**
+   * <p>Configuration for the AI Agent.</p>
+   * @public
+   */
+  configuration: AIAgentConfiguration | undefined;
+
+  /**
+   * <p>The time the AI Agent was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>The description of the AI Agent.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The visibility status of the AI Agent.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies the origin of the AI Agent. <code>SYSTEM</code> for a default AI Agent created
+   *       by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation
+   *       APIs. </p>
+   * @public
+   */
+  origin?: Origin;
+
+  /**
+   * <p>The status of the AI Agent.</p>
+   * @public
+   */
+  status?: Status;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIAgentResponse {
+  /**
+   * <p>The data of the created AI Agent.</p>
+   * @public
+   */
+  aiAgent?: AIAgentData;
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The specified resource name.</p>
+   * @public
+   */
+  resourceName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * <p>You've exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use service quotas to request a service quota increase.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The throttling limit has been exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by a service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAIAgentVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The modification time of the AI Agent should be tracked for version creation. This field
+   *       should be specified to avoid version creation when simultaneous update to the underlying AI
+   *       Agent are possible. The value should be the modifiedTime returned from the request to create
+   *       or update an AI Agent so that version creation can fail if an update to the AI Agent post the
+   *       specified modification time has been made.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIAgentVersionResponse {
+  /**
+   * <p>The data of the AI Agent version.</p>
+   * @public
+   */
+  aiAgent?: AIAgentData;
+
+  /**
+   * <p>The version number of the AI Agent version.</p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIAgentRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIAgentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAIAgentVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The version number of the AI Agent version.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIAgentVersionResponse {}
+
+/**
+ * @public
+ */
+export interface GetAIAgentRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent (with or without a version qualifier).
+   *       Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAIAgentResponse {
+  /**
+   * <p>The data of the AI Agent.</p>
+   * @public
+   */
+  aiAgent?: AIAgentData;
+
+  /**
+   * <p>The version number of the AI Agent version (returned if an AI Agent version was specified
+   *       via use of a qualifier for the <code>aiAgentId</code> on the request). </p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAIAgentsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The origin of the AI Agents to be listed. <code>SYSTEM</code> for a default AI Agent
+   *       created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent
+   *       creation APIs. </p>
+   * @public
+   */
+  origin?: Origin;
+}
+
+/**
+ * <p>The summary of the AI Agent.</p>
+ * @public
+ */
+export interface AIAgentSummary {
+  /**
+   * <p>The name of the AI Agent.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The identifier of the AI Agent.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The type of the AI Agent.</p>
+   * @public
+   */
+  type: AIAgentType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI agent.</p>
+   * @public
+   */
+  aiAgentArn: string | undefined;
+
+  /**
+   * <p>The time the AI Agent was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>The visibility status of the AI Agent.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The configuration for the AI Agent.</p>
+   * @public
+   */
+  configuration?: AIAgentConfiguration;
+
+  /**
+   * <p>The origin of the AI Agent. <code>SYSTEM</code> for a default AI Agent created by Q in
+   *       Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent creation
+   *       APIs.</p>
+   * @public
+   */
+  origin?: Origin;
+
+  /**
+   * <p>The description of the AI Agent.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the AI Agent.</p>
+   * @public
+   */
+  status?: Status;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListAIAgentsResponse {
+  /**
+   * <p>The summaries of AI Agents.</p>
+   * @public
+   */
+  aiAgentSummaries: AIAgentSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAIAgentVersionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent for which versions are to be
+   *       listed.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The origin of the AI Agent versions to be listed. <code>SYSTEM</code> for a default AI
+   *       Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI
+   *       Agent creation APIs. </p>
+   * @public
+   */
+  origin?: Origin;
+}
+
+/**
+ * <p>The summary of the AI Agent version.</p>
+ * @public
+ */
+export interface AIAgentVersionSummary {
+  /**
+   * <p>The data for the summary of the AI Agent version.</p>
+   * @public
+   */
+  aiAgentSummary?: AIAgentSummary;
+
+  /**
+   * <p>The version number for this AI Agent version.</p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAIAgentVersionsResponse {
+  /**
+   * <p>The summaries of AI Agent versions.</p>
+   * @public
+   */
+  aiAgentVersionSummaries: AIAgentVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIAgentRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The visbility status of the Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The configuration of the Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  configuration?: AIAgentConfiguration;
+
+  /**
+   * <p>The description of the Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIAgentResponse {
+  /**
+   * <p>The data of the updated Amazon Q in Connect AI Agent.</p>
+   * @public
+   */
+  aiAgent?: AIAgentData;
+}
+
+/**
+ * <p>A type that specifies the AI Agent ID configuration data when mapping an AI Agents to be
+ *       used for an AI Agent type on a session or assistant.</p>
+ * @public
+ */
+export interface AIAgentConfigurationData {
+  /**
+   * <p>The ID of the AI Agent to be configured.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AIPromptAPIFormat = {
+  ANTHROPIC_CLAUDE_MESSAGES: "ANTHROPIC_CLAUDE_MESSAGES",
+  ANTHROPIC_CLAUDE_TEXT_COMPLETIONS: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type AIPromptAPIFormat = (typeof AIPromptAPIFormat)[keyof typeof AIPromptAPIFormat];
+
+/**
+ * <p>The configuration for a prompt template that supports full textual prompt configuration
+ *       using a YAML prompt.</p>
+ * @public
+ */
+export interface TextFullAIPromptEditTemplateConfiguration {
+  /**
+   * <p>The YAML text for the AI Prompt template.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>A typed union that specifies the configuration for a prompt template based on its
+ *       type.</p>
+ * @public
+ */
+export type AIPromptTemplateConfiguration =
+  | AIPromptTemplateConfiguration.TextFullAIPromptEditTemplateConfigurationMember
+  | AIPromptTemplateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AIPromptTemplateConfiguration {
+  /**
+   * <p>The configuration for a prompt template that supports full textual prompt configuration
+   *       using a YAML prompt.</p>
+   * @public
+   */
+  export interface TextFullAIPromptEditTemplateConfigurationMember {
+    textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textFullAIPromptEditTemplateConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    textFullAIPromptEditTemplateConfiguration: (value: TextFullAIPromptEditTemplateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AIPromptTemplateConfiguration, visitor: Visitor<T>): T => {
+    if (value.textFullAIPromptEditTemplateConfiguration !== undefined)
+      return visitor.textFullAIPromptEditTemplateConfiguration(value.textFullAIPromptEditTemplateConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AIPromptTemplateType = {
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type AIPromptTemplateType = (typeof AIPromptTemplateType)[keyof typeof AIPromptTemplateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIPromptType = {
+  ANSWER_GENERATION: "ANSWER_GENERATION",
+  INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
+  QUERY_REFORMULATION: "QUERY_REFORMULATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AIPromptType = (typeof AIPromptType)[keyof typeof AIPromptType];
+
+/**
+ * @public
+ */
+export interface CreateAIPromptRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The name of the AI Prompt.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of this AI Prompt.</p>
+   * @public
+   */
+  type: AIPromptType | undefined;
+
+  /**
+   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateConfiguration: AIPromptTemplateConfiguration | undefined;
+
+  /**
+   * <p>The visibility status of the AI Prompt.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The type of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateType: AIPromptTemplateType | undefined;
+
+  /**
+   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
+   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>
+   *          </p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The API Format of the AI Prompt.</p>
+   * @public
+   */
+  apiFormat: AIPromptAPIFormat | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The description of the AI Prompt.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * <p>The data for the AI Prompt</p>
+ * @public
+ */
+export interface AIPromptData {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI Prompt.</p>
+   * @public
+   */
+  aiPromptArn: string | undefined;
+
+  /**
+   * <p>The name of the AI Prompt</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of this AI Prompt.</p>
+   * @public
+   */
+  type: AIPromptType | undefined;
+
+  /**
+   * <p>The type of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateType: AIPromptTemplateType | undefined;
+
+  /**
+   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
+   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The API format used for this AI Prompt.</p>
+   * @public
+   */
+  apiFormat: AIPromptAPIFormat | undefined;
+
+  /**
+   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateConfiguration: AIPromptTemplateConfiguration | undefined;
+
+  /**
+   * <p>The time the AI Prompt was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>The description of the AI Prompt.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The visibility status of the AI Prompt.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The origin of the AI Prompt. <code>SYSTEM</code> for a default AI Prompt created by Q in
+   *       Connect or <code>CUSTOMER</code> for an AI Prompt created by calling AI Prompt creation APIs.
+   *     </p>
+   * @public
+   */
+  origin?: Origin;
+
+  /**
+   * <p>The status of the AI Prompt.</p>
+   * @public
+   */
+  status?: Status;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIPromptResponse {
+  /**
+   * <p>The data of the AI Prompt.</p>
+   * @public
+   */
+  aiPrompt?: AIPromptData;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIPromptVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The time the AI Prompt was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/https:/aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIPromptVersionResponse {
+  /**
+   * <p>The data of the AI Prompt version.</p>
+   * @public
+   */
+  aiPrompt?: AIPromptData;
+
+  /**
+   * <p>The version number of the AI Prompt version.</p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIPromptRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIPromptResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAIPromptVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The version number of the AI Prompt version to be deleted.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIPromptVersionResponse {}
+
+/**
+ * @public
+ */
+export interface GetAIPromptRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAIPromptResponse {
+  /**
+   * <p>The data of the AI Prompt.</p>
+   * @public
+   */
+  aiPrompt?: AIPromptData;
+
+  /**
+   * <p>The version number of the AI Prompt version (returned if an AI Prompt version was
+   *       specified via use of a qualifier for the <code>aiPromptId</code> on the request). </p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAIPromptsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The origin of the AI Prompts to be listed. <code>SYSTEM</code> for a default AI Agent
+   *       created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI Agent
+   *       creation APIs. </p>
+   * @public
+   */
+  origin?: Origin;
+}
+
+/**
+ * <p>The summary of the AI Prompt.</p>
+ * @public
+ */
+export interface AIPromptSummary {
+  /**
+   * <p>The name of the AI Prompt.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The type of this AI Prompt.</p>
+   * @public
+   */
+  type: AIPromptType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI Prompt.</p>
+   * @public
+   */
+  aiPromptArn: string | undefined;
+
+  /**
+   * <p>The time the AI Prompt was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date;
+
+  /**
+   * <p>The type of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateType: AIPromptTemplateType | undefined;
+
+  /**
+   * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
+   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The API format used for this AI Prompt.</p>
+   * @public
+   */
+  apiFormat: AIPromptAPIFormat | undefined;
+
+  /**
+   * <p>The visibility status of the AI Prompt.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The origin of the AI Prompt. <code>SYSTEM</code> for a default AI Prompt created by Q in
+   *       Connect or <code>CUSTOMER</code> for an AI Prompt created by calling AI Prompt creation APIs.
+   *     </p>
+   * @public
+   */
+  origin?: Origin;
+
+  /**
+   * <p>The description of the AI Prompt.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the AI Prompt.</p>
+   * @public
+   */
+  status?: Status;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListAIPromptsResponse {
+  /**
+   * <p>The summaries of the AI Prompts.</p>
+   * @public
+   */
+  aiPromptSummaries: AIPromptSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAIPromptVersionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI prompt for which versions are to be
+   *       listed.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The origin of the AI Prompt versions to be listed. <code>SYSTEM</code> for a default AI
+   *       Agent created by Q in Connect or <code>CUSTOMER</code> for an AI Agent created by calling AI
+   *       Agent creation APIs. </p>
+   * @public
+   */
+  origin?: Origin;
+}
+
+/**
+ * <p>The summary of the AI Prompt version.</p>
+ * @public
+ */
+export interface AIPromptVersionSummary {
+  /**
+   * <p>The date for the summary of the AI Prompt version.</p>
+   * @public
+   */
+  aiPromptSummary?: AIPromptSummary;
+
+  /**
+   * <p>The version number for this AI Prompt version.</p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAIPromptVersionsResponse {
+  /**
+   * <p>The summaries of the AI Prompt versions.</p>
+   * @public
+   */
+  aiPromptVersionSummaries: AIPromptVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIPromptRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field. For more information about
+   *       idempotency, see <a href="http://aws.amazon.com/https:/aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Prompt.</p>
+   * @public
+   */
+  aiPromptId: string | undefined;
+
+  /**
+   * <p>The visibility status of the Amazon Q in Connect AI prompt.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The configuration of the prompt template for this AI Prompt.</p>
+   * @public
+   */
+  templateConfiguration?: AIPromptTemplateConfiguration;
+
+  /**
+   * <p>The description of the Amazon Q in Connect AI Prompt.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIPromptResponse {
+  /**
+   * <p>The data of the updated Amazon Q in Connect AI Prompt.</p>
+   * @public
+   */
+  aiPrompt?: AIPromptData;
+}
+
+/**
+ * <p>Content association data for a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step
+ *         guide</a>.</p>
+ * @public
+ */
+export interface AmazonConnectGuideAssociationData {
+  /**
+   * <p> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are a type of flow.</p>
+   * @public
+   */
+  flowId?: string;
 }
 
 /**
@@ -87,7 +1909,7 @@ export interface AppIntegrationsConfiguration {
    *             <code>html</code>, <code>htm</code>, and <code>txt</code>. </p>
    *             </li>
    *             <li>
-   *                <p> For <a href="https://aws.amazon.com/s3/">Amazon S3</a>, the
+   *                <p> For <a href="http://aws.amazon.com/s3/">Amazon S3</a>, the
    *           ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null.
    *           The <code>SourceURI</code> of your DataIntegration must use the following format:
    *             <code>s3://your_s3_bucket_name</code>.</p>
@@ -128,29 +1950,6 @@ export interface AppIntegrationsConfiguration {
    * @public
    */
   objectFields?: string[];
-}
-
-/**
- * <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -360,74 +2159,6 @@ export interface CreateAssistantAssociationResponse {
    * @public
    */
   assistantAssociation?: AssistantAssociationData;
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The specified resource name.</p>
-   * @public
-   */
-  resourceName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by a service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -778,6 +2509,13 @@ export interface AssistantData {
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is
+   *       set on the Amazon Q in Connect Assistant.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>>;
 }
 
 /**
@@ -968,6 +2706,43 @@ export interface ContentDataDetails {
 }
 
 /**
+ * <p>Details about the detected intent.</p>
+ * @public
+ */
+export interface IntentDetectedDataDetails {
+  /**
+   * <p>The detected intent.</p>
+   * @public
+   */
+  intent: string | undefined;
+
+  /**
+   * <p>The identifier of the detected intent.</p>
+   * @public
+   */
+  intentId: string | undefined;
+}
+
+/**
+ * <p>Contains information about where the text with a citation begins and ends in the generated
+ *       output.</p>
+ * @public
+ */
+export interface CitationSpan {
+  /**
+   * <p>Where the text with a citation starts in the generated output.</p>
+   * @public
+   */
+  beginOffsetInclusive?: number;
+
+  /**
+   * <p>Where the text with a citation ends in the generated output.</p>
+   * @public
+   */
+  endOffsetExclusive?: number;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1008,7 +2783,27 @@ export interface SourceContentDataDetails {
    * @public
    */
   rankingData: RankingData | undefined;
+
+  /**
+   * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * @public
+   */
+  citationSpan?: CitationSpan;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceType = {
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+  WEB_CRAWLER: "WEB_CRAWLER",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 
 /**
  * <p>Reference information about the content.</p>
@@ -1038,6 +2833,18 @@ export interface ContentReference {
    * @public
    */
   contentId?: string;
+
+  /**
+   * <p>The web URL of the source content.</p>
+   * @public
+   */
+  sourceURL?: string;
+
+  /**
+   * <p>The type of reference content.</p>
+   * @public
+   */
+  referenceType?: ReferenceType;
 }
 
 /**
@@ -1142,6 +2949,7 @@ export interface Document {
  * @enum
  */
 export const RecommendationType = {
+  DETECTED_INTENT: "DETECTED_INTENT",
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
   GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
@@ -1372,6 +3180,13 @@ export interface AssistantSummary {
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that is
+   *       set on the Amazon Q in Connect Assistant.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>>;
 }
 
 /**
@@ -1684,6 +3499,85 @@ export namespace QueryCondition {
 }
 
 /**
+ * <p>Information about the Amazon Q intent.</p>
+ * @public
+ */
+export interface IntentInputData {
+  /**
+   * <p>The identifier of the Amazon Q intent.</p>
+   * @public
+   */
+  intentId: string | undefined;
+}
+
+/**
+ * <p>Information about the text to search for.</p>
+ * @public
+ */
+export interface QueryTextInputData {
+  /**
+   * <p>The text to search for.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Input information for the query.</p>
+ * @public
+ */
+export type QueryInputData =
+  | QueryInputData.IntentInputDataMember
+  | QueryInputData.QueryTextInputDataMember
+  | QueryInputData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QueryInputData {
+  /**
+   * <p>Input information for the query.</p>
+   * @public
+   */
+  export interface QueryTextInputDataMember {
+    queryTextInputData: QueryTextInputData;
+    intentInputData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input information for the intent.</p>
+   * @public
+   */
+  export interface IntentInputDataMember {
+    queryTextInputData?: never;
+    intentInputData: IntentInputData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    queryTextInputData?: never;
+    intentInputData?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    queryTextInputData: (value: QueryTextInputData) => T;
+    intentInputData: (value: IntentInputData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: QueryInputData, visitor: Visitor<T>): T => {
+    if (value.queryTextInputData !== undefined) return visitor.queryTextInputData(value.queryTextInputData);
+    if (value.intentInputData !== undefined) return visitor.intentInputData(value.intentInputData);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface QueryAssistantRequest {
@@ -1697,7 +3591,7 @@ export interface QueryAssistantRequest {
    * <p>The text to search for.</p>
    * @public
    */
-  queryText: string | undefined;
+  queryText?: string;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1724,6 +3618,20 @@ export interface QueryAssistantRequest {
    * @public
    */
   queryCondition?: QueryCondition[];
+
+  /**
+   * <p>Information about the query.</p>
+   * @public
+   */
+  queryInputData?: QueryInputData;
+
+  /**
+   * <p>The search type to be used against the Knowledge Base for this request. The values can be
+   *         <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector
+   *       embeddings and raw text.</p>
+   * @public
+   */
+  overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType;
 }
 
 /**
@@ -1732,6 +3640,7 @@ export interface QueryAssistantRequest {
  */
 export const QueryResultType = {
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+  INTENT_ANSWER: "INTENT_ANSWER",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
 } as const;
 
@@ -1762,6 +3671,30 @@ export class RequestTimeoutException extends __BaseException {
     Object.setPrototypeOf(this, RequestTimeoutException.prototype);
   }
 }
+
+/**
+ * @public
+ */
+export interface RemoveAssistantAIAgentRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The type of the AI Agent being removed for use by default from the Amazon Q in Connect
+   *       Assistant.</p>
+   * @public
+   */
+  aiAgentType: AIAgentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveAssistantAIAgentResponse {}
 
 /**
  * @public
@@ -1903,134 +3836,6 @@ export interface SearchSessionsResponse {
 }
 
 /**
- * <p>A list of conditions which would be applied together with an <code>OR</code>
- *       condition.</p>
- * @public
- */
-export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagConditionMember | OrCondition.$UnknownMember;
-
-/**
- * @public
- */
-export namespace OrCondition {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *       condition.</p>
-   * @public
-   */
-  export interface AndConditionsMember {
-    andConditions: TagCondition[];
-    tagCondition?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A leaf node condition which can be used to specify a tag condition.</p>
-   * @public
-   */
-  export interface TagConditionMember {
-    andConditions?: never;
-    tagCondition: TagCondition;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    andConditions?: never;
-    tagCondition?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    andConditions: (value: TagCondition[]) => T;
-    tagCondition: (value: TagCondition) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: OrCondition, visitor: Visitor<T>): T => {
-    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
-    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>An object that can be used to specify Tag conditions.</p>
- * @public
- */
-export type TagFilter =
-  | TagFilter.AndConditionsMember
-  | TagFilter.OrConditionsMember
-  | TagFilter.TagConditionMember
-  | TagFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TagFilter {
-  /**
-   * <p>A leaf node condition which can be used to specify a tag condition.</p>
-   * @public
-   */
-  export interface TagConditionMember {
-    tagCondition: TagCondition;
-    andConditions?: never;
-    orConditions?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *       condition.</p>
-   * @public
-   */
-  export interface AndConditionsMember {
-    tagCondition?: never;
-    andConditions: TagCondition[];
-    orConditions?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code>
-   *       condition.</p>
-   * @public
-   */
-  export interface OrConditionsMember {
-    tagCondition?: never;
-    andConditions?: never;
-    orConditions: OrCondition[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    tagCondition?: never;
-    andConditions?: never;
-    orConditions?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    tagCondition: (value: TagCondition) => T;
-    andConditions: (value: TagCondition[]) => T;
-    orConditions: (value: OrCondition[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: TagFilter, visitor: Visitor<T>): T => {
-    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
-    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
-    if (value.orConditions !== undefined) return visitor.orConditions(value.orConditions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @public
  */
 export interface CreateSessionRequest {
@@ -2072,6 +3877,13 @@ export interface CreateSessionRequest {
    * @public
    */
   tagFilter?: TagFilter;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+   *       should be used by Amazon Q in Connect for this Session.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>>;
 }
 
 /**
@@ -2132,6 +3944,13 @@ export interface SessionData {
    * @public
    */
   tagFilter?: TagFilter;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+   *       should be used by Amazon Q in Connect for this Session.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>>;
 }
 
 /**
@@ -2200,6 +4019,13 @@ export interface UpdateSessionRequest {
    * @public
    */
   tagFilter?: TagFilter;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+   *       should be used by Amazon Q in Connect for this Session.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>>;
 }
 
 /**
@@ -2211,6 +4037,340 @@ export interface UpdateSessionResponse {
    * @public
    */
   session?: SessionData;
+}
+
+/**
+ * <p>A union type that specifies the data stored on the session.</p>
+ * @public
+ */
+export type RuntimeSessionDataValue =
+  | RuntimeSessionDataValue.StringValueMember
+  | RuntimeSessionDataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuntimeSessionDataValue {
+  /**
+   * <p>The string value of the data stored on the session.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RuntimeSessionDataValue, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The list of key-value pairs that are stored on the session.</p>
+ * @public
+ */
+export interface RuntimeSessionData {
+  /**
+   * <p>The key of the data stored on the session.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the data stored on the session.</p>
+   * @public
+   */
+  value: RuntimeSessionDataValue | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionDataNamespace = {
+  Custom: "Custom",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionDataNamespace = (typeof SessionDataNamespace)[keyof typeof SessionDataNamespace];
+
+/**
+ * @public
+ */
+export interface UpdateSessionDataRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the
+   *       ARN.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The namespace into which the session data is stored. Supported namespaces are:
+   *       Custom</p>
+   * @public
+   */
+  namespace?: SessionDataNamespace;
+
+  /**
+   * <p>The data stored on the Amazon Q in Connect Session.</p>
+   * @public
+   */
+  data: RuntimeSessionData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionDataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The identifier of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The namespace into which the session data is stored. Supported namespaces are:
+   *       Custom</p>
+   * @public
+   */
+  namespace: SessionDataNamespace | undefined;
+
+  /**
+   * <p>Data stored in the session.</p>
+   * @public
+   */
+  data: RuntimeSessionData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssistantAIAgentRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The type of the AI Agent being updated for use by default on the Amazon Q in Connect
+   *       Assistant.</p>
+   * @public
+   */
+  aiAgentType: AIAgentType | undefined;
+
+  /**
+   * <p>The configuration of the AI Agent being updated for use by default on the Amazon Q in
+   *       Connect Assistant.</p>
+   * @public
+   */
+  configuration: AIAgentConfigurationData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssistantAIAgentResponse {
+  /**
+   * <p>The assistant data.</p>
+   * @public
+   */
+  assistant?: AssistantData;
+}
+
+/**
+ * <p>Instructions for interpreting the contents of a document.</p>
+ * @public
+ */
+export interface ParsingPrompt {
+  /**
+   * <p>Instructions for interpreting the contents of a document.</p>
+   * @public
+   */
+  parsingPromptText: string | undefined;
+}
+
+/**
+ * <p>Settings for a foundation model used to parse documents for a data source.</p>
+ * @public
+ */
+export interface BedrockFoundationModelConfigurationForParsing {
+  /**
+   * <p>The ARN of the foundation model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Instructions for interpreting the contents of a document.</p>
+   * @public
+   */
+  parsingPrompt?: ParsingPrompt;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChunkingStrategy = {
+  FIXED_SIZE: "FIXED_SIZE",
+  HIERARCHICAL: "HIERARCHICAL",
+  NONE: "NONE",
+  SEMANTIC: "SEMANTIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ChunkingStrategy = (typeof ChunkingStrategy)[keyof typeof ChunkingStrategy];
+
+/**
+ * <p>Configurations for when you choose fixed-size chunking. If you set the
+ *         <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
+ * @public
+ */
+export interface FixedSizeChunkingConfiguration {
+  /**
+   * <p>The maximum number of tokens to include in a chunk.</p>
+   * @public
+   */
+  maxTokens: number | undefined;
+
+  /**
+   * <p>The percentage of overlap between adjacent chunks of a data source.</p>
+   * @public
+   */
+  overlapPercentage: number | undefined;
+}
+
+/**
+ * <p>Token settings for each layer.</p>
+ * @public
+ */
+export interface HierarchicalChunkingLevelConfiguration {
+  /**
+   * <p>The maximum number of tokens that a chunk can contain in this layer.</p>
+   * @public
+   */
+  maxTokens: number | undefined;
+}
+
+/**
+ * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking
+ *       splits documents into layers of chunks where the first layer contains large chunks, and the
+ *       second layer contains smaller chunks derived from the first layer.</p>
+ * @public
+ */
+export interface HierarchicalChunkingConfiguration {
+  /**
+   * <p>Token settings for each layer.</p>
+   * @public
+   */
+  levelConfigurations: HierarchicalChunkingLevelConfiguration[] | undefined;
+
+  /**
+   * <p>The number of tokens to repeat across chunks in the same layer.</p>
+   * @public
+   */
+  overlapTokens: number | undefined;
+}
+
+/**
+ * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a
+ *       document into smaller documents based on groups of similar content derived from the text with
+ *       natural language processing.</p>
+ * @public
+ */
+export interface SemanticChunkingConfiguration {
+  /**
+   * <p>The maximum number of tokens that a chunk can contain.</p>
+   * @public
+   */
+  maxTokens: number | undefined;
+
+  /**
+   * <p>The buffer size.</p>
+   * @public
+   */
+  bufferSize: number | undefined;
+
+  /**
+   * <p>The dissimilarity threshold for splitting chunks.</p>
+   * @public
+   */
+  breakpointPercentileThreshold: number | undefined;
+}
+
+/**
+ * <p>Details about how to chunk the documents in the data source. A chunk refers to an excerpt
+ *       from a data source that is returned when the knowledge base that it belongs to is
+ *       queried.</p>
+ * @public
+ */
+export interface ChunkingConfiguration {
+  /**
+   * <p>Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a
+   *       data source that is returned when the knowledge base that it belongs to is queried. You have
+   *       the following options for chunking your data. If you opt for <code>NONE</code>, then you may
+   *       want to pre-process your files by splitting them up such that each file corresponds to a
+   *       chunk.</p>
+   * @public
+   */
+  chunkingStrategy: ChunkingStrategy | undefined;
+
+  /**
+   * <p>Configurations for when you choose fixed-size chunking. If you set the
+   *         <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
+   * @public
+   */
+  fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration;
+
+  /**
+   * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking
+   *       splits documents into layers of chunks where the first layer contains large chunks, and the
+   *       second layer contains smaller chunks derived from the first layer.</p>
+   * @public
+   */
+  hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration;
+
+  /**
+   * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a
+   *       document into smaller documents based on groups of similar content derived from the text with
+   *       natural language processing.</p>
+   * @public
+   */
+  semanticChunkingConfiguration?: SemanticChunkingConfiguration;
 }
 
 /**
@@ -2430,27 +4590,6 @@ export interface CreateContentAssociationResponse {
    * @public
    */
   contentAssociation?: ContentAssociationData;
-}
-
-/**
- * <p>The throttling limit has been exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**
@@ -3096,6 +5235,8 @@ export interface UpdateContentResponse {
 export const KnowledgeBaseType = {
   CUSTOM: "CUSTOM",
   EXTERNAL: "EXTERNAL",
+  MANAGED: "MANAGED",
+  MESSAGE_TEMPLATES: "MESSAGE_TEMPLATES",
   QUICK_RESPONSES: "QUICK_RESPONSES",
 } as const;
 
@@ -3137,10 +5278,151 @@ export interface RenderingConfiguration {
 }
 
 /**
+ * <p>The configuration of crawl limits for the web URLs.</p>
+ * @public
+ */
+export interface WebCrawlerLimits {
+  /**
+   * <p>Rate of web URLs retrieved per minute.</p>
+   * @public
+   */
+  rateLimit?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WebScopeType = {
+  HOST_ONLY: "HOST_ONLY",
+  SUBDOMAINS: "SUBDOMAINS",
+} as const;
+
+/**
+ * @public
+ */
+export type WebScopeType = (typeof WebScopeType)[keyof typeof WebScopeType];
+
+/**
+ * <p>A URL for crawling.</p>
+ * @public
+ */
+export interface SeedUrl {
+  /**
+   * <p>URL for crawling</p>
+   * @public
+   */
+  url?: string;
+}
+
+/**
+ * <p>The configuration of the URL/URLs for the web content that you want to crawl. You should
+ *       be authorized to crawl the URLs.</p>
+ * @public
+ */
+export interface UrlConfiguration {
+  /**
+   * <p>List of URLs for crawling.</p>
+   * @public
+   */
+  seedUrls?: SeedUrl[];
+}
+
+/**
+ * <p>The configuration details for the web data source.</p>
+ * @public
+ */
+export interface WebCrawlerConfiguration {
+  /**
+   * <p>The configuration of the URL/URLs for the web content that you want to crawl. You should
+   *       be authorized to crawl the URLs.</p>
+   * @public
+   */
+  urlConfiguration: UrlConfiguration | undefined;
+
+  /**
+   * <p>The configuration of crawl limits for the web URLs.</p>
+   * @public
+   */
+  crawlerLimits?: WebCrawlerLimits;
+
+  /**
+   * <p>A list of one or more inclusion regular expression patterns to include certain URLs. If
+   *       you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion
+   *       filter takes precedence and the web content of the URL isn’t crawled.</p>
+   * @public
+   */
+  inclusionFilters?: string[];
+
+  /**
+   * <p>A list of one or more exclusion regular expression patterns to exclude certain URLs. If
+   *       you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion
+   *       filter takes precedence and the web content of the URL isn’t crawled.</p>
+   * @public
+   */
+  exclusionFilters?: string[];
+
+  /**
+   * <p>The scope of what is crawled for your URLs. You can choose to crawl only web pages that
+   *       belong to the same host or primary domain. For example, only web pages that contain the seed
+   *       URL <code>https://docs.aws.amazon.com/bedrock/latest/userguide/</code> and no other domains.
+   *       You can choose to include sub domains in addition to the host or primary domain. For example,
+   *       web pages that contain <code>aws.amazon.com</code> can also include sub domain
+   *         <code>docs.aws.amazon.com</code>.</p>
+   * @public
+   */
+  scope?: WebScopeType;
+}
+
+/**
+ * <p>Source configuration for managed resources.</p>
+ * @public
+ */
+export type ManagedSourceConfiguration =
+  | ManagedSourceConfiguration.WebCrawlerConfigurationMember
+  | ManagedSourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ManagedSourceConfiguration {
+  /**
+   * <p>Configuration data for web crawler data source.</p>
+   * @public
+   */
+  export interface WebCrawlerConfigurationMember {
+    webCrawlerConfiguration: WebCrawlerConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    webCrawlerConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    webCrawlerConfiguration: (value: WebCrawlerConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ManagedSourceConfiguration, visitor: Visitor<T>): T => {
+    if (value.webCrawlerConfiguration !== undefined)
+      return visitor.webCrawlerConfiguration(value.webCrawlerConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Configuration information about the external data source.</p>
  * @public
  */
-export type SourceConfiguration = SourceConfiguration.AppIntegrationsMember | SourceConfiguration.$UnknownMember;
+export type SourceConfiguration =
+  | SourceConfiguration.AppIntegrationsMember
+  | SourceConfiguration.ManagedSourceConfigurationMember
+  | SourceConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -3152,6 +5434,17 @@ export namespace SourceConfiguration {
    */
   export interface AppIntegrationsMember {
     appIntegrations: AppIntegrationsConfiguration;
+    managedSourceConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Source configuration for managed resources.</p>
+   * @public
+   */
+  export interface ManagedSourceConfigurationMember {
+    appIntegrations?: never;
+    managedSourceConfiguration: ManagedSourceConfiguration;
     $unknown?: never;
   }
 
@@ -3160,18 +5453,76 @@ export namespace SourceConfiguration {
    */
   export interface $UnknownMember {
     appIntegrations?: never;
+    managedSourceConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     appIntegrations: (value: AppIntegrationsConfiguration) => T;
+    managedSourceConfiguration: (value: ManagedSourceConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SourceConfiguration, visitor: Visitor<T>): T => {
     if (value.appIntegrations !== undefined) return visitor.appIntegrations(value.appIntegrations);
+    if (value.managedSourceConfiguration !== undefined)
+      return visitor.managedSourceConfiguration(value.managedSourceConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ParsingStrategy = {
+  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrategy];
+
+/**
+ * <p>Settings for parsing document contents. By default, the service converts the contents of
+ *       each document into text before splitting it into chunks. To improve processing of PDF files
+ *       with tables and images, you can configure the data source to convert the pages of text into
+ *       images and use a model to describe the contents of each page.</p>
+ * @public
+ */
+export interface ParsingConfiguration {
+  /**
+   * <p>The parsing strategy for the data source.</p>
+   * @public
+   */
+  parsingStrategy: ParsingStrategy | undefined;
+
+  /**
+   * <p>Settings for a foundation model used to parse documents for a data source.</p>
+   * @public
+   */
+  bedrockFoundationModelConfiguration?: BedrockFoundationModelConfigurationForParsing;
+}
+
+/**
+ * <p>Contains details about how to ingest the documents in a data source.</p>
+ * @public
+ */
+export interface VectorIngestionConfiguration {
+  /**
+   * <p>Details about how to chunk the documents in the data source. A chunk refers to an excerpt
+   *       from a data source that is returned when the knowledge base that it belongs to is
+   *       queried.</p>
+   * @public
+   */
+  chunkingConfiguration?: ChunkingConfiguration;
+
+  /**
+   * <p>A custom parser for data source documents.</p>
+   * @public
+   */
+  parsingConfiguration?: ParsingConfiguration;
 }
 
 /**
@@ -3215,6 +5566,12 @@ export interface CreateKnowledgeBaseRequest {
   renderingConfiguration?: RenderingConfiguration;
 
   /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration;
+
+  /**
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -3238,6 +5595,22 @@ export interface CreateKnowledgeBaseRequest {
    */
   tags?: Record<string, string>;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SyncStatus = {
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  SYNCING_IN_PROGRESS: "SYNCING_IN_PROGRESS",
+  SYNC_FAILED: "SYNC_FAILED",
+  SYNC_SUCCESS: "SYNC_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncStatus = (typeof SyncStatus)[keyof typeof SyncStatus];
 
 /**
  * @public
@@ -3300,6 +5673,12 @@ export interface KnowledgeBaseData {
   lastContentModificationTime?: Date;
 
   /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration;
+
+  /**
    * <p>Source configuration information about the knowledge base.</p>
    * @public
    */
@@ -3334,6 +5713,18 @@ export interface KnowledgeBaseData {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Status of ingestion on data source.</p>
+   * @public
+   */
+  ingestionStatus?: SyncStatus;
+
+  /**
+   * <p>List of failure reasons on ingestion per file.</p>
+   * @public
+   */
+  ingestionFailureReasons?: string[];
 }
 
 /**
@@ -4183,6 +6574,12 @@ export interface KnowledgeBaseSummary {
    * @public
    */
   sourceConfiguration?: SourceConfiguration;
+
+  /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
    * <p>Information about how to render the content.</p>
@@ -5257,6 +7654,7 @@ export interface UntagResourceResponse {}
 export type DataDetails =
   | DataDetails.ContentDataMember
   | DataDetails.GenerativeDataMember
+  | DataDetails.IntentDetectedDataMember
   | DataDetails.SourceContentDataMember
   | DataDetails.$UnknownMember;
 
@@ -5271,6 +7669,7 @@ export namespace DataDetails {
   export interface ContentDataMember {
     contentData: ContentDataDetails;
     generativeData?: never;
+    intentDetectedData?: never;
     sourceContentData?: never;
     $unknown?: never;
   }
@@ -5282,6 +7681,19 @@ export namespace DataDetails {
   export interface GenerativeDataMember {
     contentData?: never;
     generativeData: GenerativeDataDetails;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the intent data.</p>
+   * @public
+   */
+  export interface IntentDetectedDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData: IntentDetectedDataDetails;
     sourceContentData?: never;
     $unknown?: never;
   }
@@ -5293,6 +7705,7 @@ export namespace DataDetails {
   export interface SourceContentDataMember {
     contentData?: never;
     generativeData?: never;
+    intentDetectedData?: never;
     sourceContentData: SourceContentDataDetails;
     $unknown?: never;
   }
@@ -5303,6 +7716,7 @@ export namespace DataDetails {
   export interface $UnknownMember {
     contentData?: never;
     generativeData?: never;
+    intentDetectedData?: never;
     sourceContentData?: never;
     $unknown: [string, any];
   }
@@ -5310,6 +7724,7 @@ export namespace DataDetails {
   export interface Visitor<T> {
     contentData: (value: ContentDataDetails) => T;
     generativeData: (value: GenerativeDataDetails) => T;
+    intentDetectedData: (value: IntentDetectedDataDetails) => T;
     sourceContentData: (value: SourceContentDataDetails) => T;
     _: (name: string, value: any) => T;
   }
@@ -5317,6 +7732,7 @@ export namespace DataDetails {
   export const visit = <T>(value: DataDetails, visitor: Visitor<T>): T => {
     if (value.contentData !== undefined) return visitor.contentData(value.contentData);
     if (value.generativeData !== undefined) return visitor.generativeData(value.generativeData);
+    if (value.intentDetectedData !== undefined) return visitor.intentDetectedData(value.intentDetectedData);
     if (value.sourceContentData !== undefined) return visitor.sourceContentData(value.sourceContentData);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -5479,6 +7895,91 @@ export interface QueryAssistantResponse {
 /**
  * @internal
  */
+export const TextFullAIPromptEditTemplateConfigurationFilterSensitiveLog = (
+  obj: TextFullAIPromptEditTemplateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIPromptTemplateConfigurationFilterSensitiveLog = (obj: AIPromptTemplateConfiguration): any => {
+  if (obj.textFullAIPromptEditTemplateConfiguration !== undefined)
+    return {
+      textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfigurationFilterSensitiveLog(
+        obj.textFullAIPromptEditTemplateConfiguration
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateAIPromptRequestFilterSensitiveLog = (obj: CreateAIPromptRequest): any => ({
+  ...obj,
+  ...(obj.templateConfiguration && {
+    templateConfiguration: AIPromptTemplateConfigurationFilterSensitiveLog(obj.templateConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AIPromptDataFilterSensitiveLog = (obj: AIPromptData): any => ({
+  ...obj,
+  ...(obj.templateConfiguration && {
+    templateConfiguration: AIPromptTemplateConfigurationFilterSensitiveLog(obj.templateConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAIPromptResponseFilterSensitiveLog = (obj: CreateAIPromptResponse): any => ({
+  ...obj,
+  ...(obj.aiPrompt && { aiPrompt: AIPromptDataFilterSensitiveLog(obj.aiPrompt) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAIPromptVersionResponseFilterSensitiveLog = (obj: CreateAIPromptVersionResponse): any => ({
+  ...obj,
+  ...(obj.aiPrompt && { aiPrompt: AIPromptDataFilterSensitiveLog(obj.aiPrompt) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAIPromptResponseFilterSensitiveLog = (obj: GetAIPromptResponse): any => ({
+  ...obj,
+  ...(obj.aiPrompt && { aiPrompt: AIPromptDataFilterSensitiveLog(obj.aiPrompt) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAIPromptRequestFilterSensitiveLog = (obj: UpdateAIPromptRequest): any => ({
+  ...obj,
+  ...(obj.templateConfiguration && {
+    templateConfiguration: AIPromptTemplateConfigurationFilterSensitiveLog(obj.templateConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAIPromptResponseFilterSensitiveLog = (obj: UpdateAIPromptResponse): any => ({
+  ...obj,
+  ...(obj.aiPrompt && { aiPrompt: AIPromptDataFilterSensitiveLog(obj.aiPrompt) }),
+});
+
+/**
+ * @internal
+ */
 export const DocumentTextFilterSensitiveLog = (obj: DocumentText): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
@@ -5499,6 +8000,14 @@ export const TextDataFilterSensitiveLog = (obj: TextData): any => ({
 export const ContentDataDetailsFilterSensitiveLog = (obj: ContentDataDetails): any => ({
   ...obj,
   ...(obj.textData && { textData: TextDataFilterSensitiveLog(obj.textData) }),
+});
+
+/**
+ * @internal
+ */
+export const IntentDetectedDataDetailsFilterSensitiveLog = (obj: IntentDetectedDataDetails): any => ({
+  ...obj,
+  ...(obj.intent && { intent: SENSITIVE_STRING }),
 });
 
 /**
@@ -5545,10 +8054,62 @@ export const RecommendationTriggerFilterSensitiveLog = (obj: RecommendationTrigg
 /**
  * @internal
  */
+export const QueryTextInputDataFilterSensitiveLog = (obj: QueryTextInputData): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QueryInputDataFilterSensitiveLog = (obj: QueryInputData): any => {
+  if (obj.queryTextInputData !== undefined)
+    return { queryTextInputData: QueryTextInputDataFilterSensitiveLog(obj.queryTextInputData) };
+  if (obj.intentInputData !== undefined) return { intentInputData: obj.intentInputData };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const QueryAssistantRequestFilterSensitiveLog = (obj: QueryAssistantRequest): any => ({
   ...obj,
   ...(obj.queryText && { queryText: SENSITIVE_STRING }),
   ...(obj.queryCondition && { queryCondition: obj.queryCondition.map((item) => item) }),
+  ...(obj.queryInputData && { queryInputData: QueryInputDataFilterSensitiveLog(obj.queryInputData) }),
+});
+
+/**
+ * @internal
+ */
+export const RuntimeSessionDataValueFilterSensitiveLog = (obj: RuntimeSessionDataValue): any => {
+  if (obj.stringValue !== undefined) return { stringValue: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RuntimeSessionDataFilterSensitiveLog = (obj: RuntimeSessionData): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+  ...(obj.value && { value: RuntimeSessionDataValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSessionDataRequestFilterSensitiveLog = (obj: UpdateSessionDataRequest): any => ({
+  ...obj,
+  ...(obj.data && { data: obj.data.map((item) => RuntimeSessionDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSessionDataResponseFilterSensitiveLog = (obj: UpdateSessionDataResponse): any => ({
+  ...obj,
+  ...(obj.data && { data: obj.data.map((item) => RuntimeSessionDataFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -5581,6 +8142,62 @@ export const GetContentResponseFilterSensitiveLog = (obj: GetContentResponse): a
 export const UpdateContentResponseFilterSensitiveLog = (obj: UpdateContentResponse): any => ({
   ...obj,
   ...(obj.content && { content: ContentDataFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const WebCrawlerConfigurationFilterSensitiveLog = (obj: WebCrawlerConfiguration): any => ({
+  ...obj,
+  ...(obj.inclusionFilters && { inclusionFilters: SENSITIVE_STRING }),
+  ...(obj.exclusionFilters && { exclusionFilters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ManagedSourceConfigurationFilterSensitiveLog = (obj: ManagedSourceConfiguration): any => {
+  if (obj.webCrawlerConfiguration !== undefined)
+    return { webCrawlerConfiguration: WebCrawlerConfigurationFilterSensitiveLog(obj.webCrawlerConfiguration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => {
+  if (obj.appIntegrations !== undefined) return { appIntegrations: obj.appIntegrations };
+  if (obj.managedSourceConfiguration !== undefined)
+    return { managedSourceConfiguration: ManagedSourceConfigurationFilterSensitiveLog(obj.managedSourceConfiguration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseRequestFilterSensitiveLog = (obj: CreateKnowledgeBaseRequest): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseDataFilterSensitiveLog = (obj: KnowledgeBaseData): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseResponseFilterSensitiveLog = (obj: CreateKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
 });
 
 /**
@@ -5670,9 +8287,37 @@ export const GetImportJobResponseFilterSensitiveLog = (obj: GetImportJobResponse
 /**
  * @internal
  */
+export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
 export const GetQuickResponseResponseFilterSensitiveLog = (obj: GetQuickResponseResponse): any => ({
   ...obj,
   ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseSummaryFilterSensitiveLog = (obj: KnowledgeBaseSummary): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListKnowledgeBasesResponseFilterSensitiveLog = (obj: ListKnowledgeBasesResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseSummaries && {
+    knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -5762,10 +8407,22 @@ export const StartImportJobResponseFilterSensitiveLog = (obj: StartImportJobResp
 /**
  * @internal
  */
+export const UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog = (
+  obj: UpdateKnowledgeBaseTemplateUriResponse
+): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
 export const DataDetailsFilterSensitiveLog = (obj: DataDetails): any => {
   if (obj.contentData !== undefined) return { contentData: ContentDataDetailsFilterSensitiveLog(obj.contentData) };
   if (obj.generativeData !== undefined)
     return { generativeData: GenerativeDataDetailsFilterSensitiveLog(obj.generativeData) };
+  if (obj.intentDetectedData !== undefined)
+    return { intentDetectedData: IntentDetectedDataDetailsFilterSensitiveLog(obj.intentDetectedData) };
   if (obj.sourceContentData !== undefined)
     return { sourceContentData: SourceContentDataDetailsFilterSensitiveLog(obj.sourceContentData) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

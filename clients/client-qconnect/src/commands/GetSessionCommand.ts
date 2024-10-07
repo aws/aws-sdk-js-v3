@@ -73,6 +73,11 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

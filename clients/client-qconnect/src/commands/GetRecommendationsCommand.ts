@@ -68,6 +68,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //           knowledgeBaseId: "STRING_VALUE",
  * //           contentArn: "STRING_VALUE",
  * //           contentId: "STRING_VALUE",
+ * //           sourceURL: "STRING_VALUE",
+ * //           referenceType: "STRING_VALUE",
  * //         },
  * //         title: { // DocumentText
  * //           text: "STRING_VALUE",
@@ -98,6 +100,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //             knowledgeBaseId: "STRING_VALUE",
  * //             contentArn: "STRING_VALUE",
  * //             contentId: "STRING_VALUE",
+ * //             sourceURL: "STRING_VALUE",
+ * //             referenceType: "STRING_VALUE",
  * //           },
  * //           generativeReference: { // GenerativeReference
  * //             modelId: "STRING_VALUE",
@@ -163,6 +167,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
  * //                   },
+ * //                   intentDetectedData: { // IntentDetectedDataDetails
+ * //                     intent: "STRING_VALUE", // required
+ * //                     intentId: "STRING_VALUE", // required
+ * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
  * //                     type: "STRING_VALUE", // required
@@ -174,6 +182,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                       relevanceScore: Number("double"),
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
+ * //                     citationSpan: { // CitationSpan
+ * //                       beginOffsetInclusive: Number("int"),
+ * //                       endOffsetExclusive: Number("int"),
+ * //                     },
  * //                   },
  * //                 },
  * //               },
@@ -183,6 +195,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //               relevanceLevel: "STRING_VALUE",
  * //             },
  * //           },
+ * //           intentDetectedData: {
+ * //             intent: "STRING_VALUE", // required
+ * //             intentId: "STRING_VALUE", // required
+ * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
  * //             type: "STRING_VALUE", // required
@@ -191,6 +207,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //               excerpt: "<DocumentText>",
  * //             },
  * //             rankingData: "<RankingData>", // required
+ * //             citationSpan: {
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
  * //           },
  * //         },
  * //       },

@@ -28,18 +28,17 @@ export interface CreateContentAssociationCommandInput extends CreateContentAssoc
 export interface CreateContentAssociationCommandOutput extends CreateContentAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a content resource in a knowledge base and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step
- *         guides</a>. Step-by-step guides offer instructions to agents for resolving common
- *       customer issues. You create a content association to integrate Amazon Q in Connect and step-by-step
- *       guides. </p>
+ * <p>Creates an association between a content resource in a knowledge base and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step guides</a>. Step-by-step guides offer instructions to agents for resolving
+ *       common customer issues. You create a content association to integrate Amazon Q in Connect and
+ *       step-by-step guides. </p>
  *          <p>After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a
  *       recommendation to an agent based on the intent that it's detected, it also provides them with
  *       the option to start the step-by-step guide that you have associated with the content.</p>
  *          <p>Note the following limitations:</p>
  *          <ul>
  *             <li>
- *                <p>You can create only one content association for each
- *         content resource in a knowledge base.</p>
+ *                <p>You can create only one content association for each content resource in a knowledge
+ *           base.</p>
  *             </li>
  *             <li>
  *                <p>You can associate a step-by-step guide with multiple content resources.</p>

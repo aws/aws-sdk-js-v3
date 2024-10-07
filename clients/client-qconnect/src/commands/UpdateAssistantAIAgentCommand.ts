@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
-import { de_GetAssistantCommand, se_GetAssistantCommand } from "../protocols/Aws_restJson1";
+import { UpdateAssistantAIAgentRequest, UpdateAssistantAIAgentResponse } from "../models/models_0";
+import { de_UpdateAssistantAIAgentCommand, se_UpdateAssistantAIAgentCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
@@ -17,30 +17,35 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetAssistantCommand}.
+ * The input for {@link UpdateAssistantAIAgentCommand}.
  */
-export interface GetAssistantCommandInput extends GetAssistantRequest {}
+export interface UpdateAssistantAIAgentCommandInput extends UpdateAssistantAIAgentRequest {}
 /**
  * @public
  *
- * The output of {@link GetAssistantCommand}.
+ * The output of {@link UpdateAssistantAIAgentCommand}.
  */
-export interface GetAssistantCommandOutput extends GetAssistantResponse, __MetadataBearer {}
+export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an assistant.</p>
+ * <p>Updates the AI Agent that is set for use by defafult on an Amazon Q in Connect
+ *       Assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QConnectClient, GetAssistantCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
- * // const { QConnectClient, GetAssistantCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * import { QConnectClient, UpdateAssistantAIAgentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
+ * // const { QConnectClient, UpdateAssistantAIAgentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
  * const client = new QConnectClient(config);
- * const input = { // GetAssistantRequest
+ * const input = { // UpdateAssistantAIAgentRequest
  *   assistantId: "STRING_VALUE", // required
+ *   aiAgentType: "STRING_VALUE", // required
+ *   configuration: { // AIAgentConfigurationData
+ *     aiAgentId: "STRING_VALUE", // required
+ *   },
  * };
- * const command = new GetAssistantCommand(input);
+ * const command = new UpdateAssistantAIAgentCommand(input);
  * const response = await client.send(command);
- * // { // GetAssistantResponse
+ * // { // UpdateAssistantAIAgentResponse
  * //   assistant: { // AssistantData
  * //     assistantId: "STRING_VALUE", // required
  * //     assistantArn: "STRING_VALUE", // required
@@ -70,10 +75,10 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  *
  * ```
  *
- * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
- * @returns {@link GetAssistantCommandOutput}
- * @see {@link GetAssistantCommandInput} for command's `input` shape.
- * @see {@link GetAssistantCommandOutput} for command's `response` shape.
+ * @param UpdateAssistantAIAgentCommandInput - {@link UpdateAssistantAIAgentCommandInput}
+ * @returns {@link UpdateAssistantAIAgentCommandOutput}
+ * @see {@link UpdateAssistantAIAgentCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssistantAIAgentCommandOutput} for command's `response` shape.
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,6 +86,9 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
@@ -90,10 +98,10 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  *
  * @public
  */
-export class GetAssistantCommand extends $Command
+export class UpdateAssistantAIAgentCommand extends $Command
   .classBuilder<
-    GetAssistantCommandInput,
-    GetAssistantCommandOutput,
+    UpdateAssistantAIAgentCommandInput,
+    UpdateAssistantAIAgentCommandOutput,
     QConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +113,21 @@ export class GetAssistantCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WisdomService", "GetAssistant", {})
-  .n("QConnectClient", "GetAssistantCommand")
+  .s("WisdomService", "UpdateAssistantAIAgent", {})
+  .n("QConnectClient", "UpdateAssistantAIAgentCommand")
   .f(void 0, void 0)
-  .ser(se_GetAssistantCommand)
-  .de(de_GetAssistantCommand)
+  .ser(se_UpdateAssistantAIAgentCommand)
+  .de(de_UpdateAssistantAIAgentCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetAssistantRequest;
-      output: GetAssistantResponse;
+      input: UpdateAssistantAIAgentRequest;
+      output: UpdateAssistantAIAgentResponse;
     };
     sdk: {
-      input: GetAssistantCommandInput;
-      output: GetAssistantCommandOutput;
+      input: UpdateAssistantAIAgentCommandInput;
+      output: UpdateAssistantAIAgentCommandOutput;
     };
   };
 }

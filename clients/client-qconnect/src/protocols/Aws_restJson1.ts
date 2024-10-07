@@ -12,6 +12,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -31,6 +32,16 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CreateAIAgentCommandInput, CreateAIAgentCommandOutput } from "../commands/CreateAIAgentCommand";
+import {
+  CreateAIAgentVersionCommandInput,
+  CreateAIAgentVersionCommandOutput,
+} from "../commands/CreateAIAgentVersionCommand";
+import { CreateAIPromptCommandInput, CreateAIPromptCommandOutput } from "../commands/CreateAIPromptCommand";
+import {
+  CreateAIPromptVersionCommandInput,
+  CreateAIPromptVersionCommandOutput,
+} from "../commands/CreateAIPromptVersionCommand";
 import {
   CreateAssistantAssociationCommandInput,
   CreateAssistantAssociationCommandOutput,
@@ -50,6 +61,16 @@ import {
   CreateQuickResponseCommandOutput,
 } from "../commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
+import { DeleteAIAgentCommandInput, DeleteAIAgentCommandOutput } from "../commands/DeleteAIAgentCommand";
+import {
+  DeleteAIAgentVersionCommandInput,
+  DeleteAIAgentVersionCommandOutput,
+} from "../commands/DeleteAIAgentVersionCommand";
+import { DeleteAIPromptCommandInput, DeleteAIPromptCommandOutput } from "../commands/DeleteAIPromptCommand";
+import {
+  DeleteAIPromptVersionCommandInput,
+  DeleteAIPromptVersionCommandOutput,
+} from "../commands/DeleteAIPromptVersionCommand";
 import {
   DeleteAssistantAssociationCommandInput,
   DeleteAssistantAssociationCommandOutput,
@@ -69,6 +90,8 @@ import {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "../commands/DeleteQuickResponseCommand";
+import { GetAIAgentCommandInput, GetAIAgentCommandOutput } from "../commands/GetAIAgentCommand";
+import { GetAIPromptCommandInput, GetAIPromptCommandOutput } from "../commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
@@ -85,6 +108,16 @@ import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "../
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "../commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
+import { ListAIAgentsCommandInput, ListAIAgentsCommandOutput } from "../commands/ListAIAgentsCommand";
+import {
+  ListAIAgentVersionsCommandInput,
+  ListAIAgentVersionsCommandOutput,
+} from "../commands/ListAIAgentVersionsCommand";
+import { ListAIPromptsCommandInput, ListAIPromptsCommandOutput } from "../commands/ListAIPromptsCommand";
+import {
+  ListAIPromptVersionsCommandInput,
+  ListAIPromptVersionsCommandOutput,
+} from "../commands/ListAIPromptVersionsCommand";
 import {
   ListAssistantAssociationsCommandInput,
   ListAssistantAssociationsCommandOutput,
@@ -109,6 +142,10 @@ import {
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "../commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "../commands/QueryAssistantCommand";
 import {
+  RemoveAssistantAIAgentCommandInput,
+  RemoveAssistantAIAgentCommandOutput,
+} from "../commands/RemoveAssistantAIAgentCommand";
+import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "../commands/RemoveKnowledgeBaseTemplateUriCommand";
@@ -122,6 +159,12 @@ import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from 
 import { StartImportJobCommandInput, StartImportJobCommandOutput } from "../commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAIAgentCommandInput, UpdateAIAgentCommandOutput } from "../commands/UpdateAIAgentCommand";
+import { UpdateAIPromptCommandInput, UpdateAIPromptCommandOutput } from "../commands/UpdateAIPromptCommand";
+import {
+  UpdateAssistantAIAgentCommandInput,
+  UpdateAssistantAIAgentCommandOutput,
+} from "../commands/UpdateAssistantAIAgentCommand";
 import { UpdateContentCommandInput, UpdateContentCommandOutput } from "../commands/UpdateContentCommand";
 import {
   UpdateKnowledgeBaseTemplateUriCommandInput,
@@ -132,11 +175,27 @@ import {
   UpdateQuickResponseCommandOutput,
 } from "../commands/UpdateQuickResponseCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
+import { UpdateSessionDataCommandInput, UpdateSessionDataCommandOutput } from "../commands/UpdateSessionDataCommand";
 import {
   AccessDeniedException,
+  AIAgentConfiguration,
+  AIAgentConfigurationData,
+  AIAgentData,
+  AIAgentSummary,
+  AIAgentType,
+  AIAgentVersionSummary,
+  AIPromptData,
+  AIPromptSummary,
+  AIPromptTemplateConfiguration,
+  AIPromptVersionSummary,
   AmazonConnectGuideAssociationData,
+  AnswerRecommendationAIAgentConfiguration,
   AppIntegrationsConfiguration,
   AssistantAssociationInputData,
+  AssociationConfiguration,
+  AssociationConfigurationData,
+  BedrockFoundationModelConfigurationForParsing,
+  ChunkingConfiguration,
   Configuration,
   ConflictException,
   ConnectConfiguration,
@@ -148,16 +207,27 @@ import {
   DataSummary,
   ExternalSourceConfiguration,
   Filter,
+  FixedSizeChunkingConfiguration,
   GenerativeContentFeedbackData,
   GenerativeDataDetails,
   GroupingConfiguration,
+  HierarchicalChunkingConfiguration,
+  HierarchicalChunkingLevelConfiguration,
   ImportJobData,
   ImportJobSummary,
+  IntentInputData,
+  KnowledgeBaseAssociationConfigurationData,
   KnowledgeBaseData,
+  ManagedSourceConfiguration,
+  ManualSearchAIAgentConfiguration,
   OrCondition,
+  ParsingConfiguration,
+  ParsingPrompt,
   PreconditionFailedException,
   QueryCondition,
   QueryConditionItem,
+  QueryInputData,
+  QueryTextInputData,
   QuickResponseData,
   QuickResponseDataProvider,
   QuickResponseFilterField,
@@ -172,18 +242,138 @@ import {
   RequestTimeoutException,
   ResourceNotFoundException,
   ResultData,
+  RuntimeSessionData,
+  RuntimeSessionDataValue,
   SearchExpression,
+  SeedUrl,
+  SemanticChunkingConfiguration,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
   SourceConfiguration,
   SourceContentDataDetails,
   TagCondition,
   TagFilter,
+  TextFullAIPromptEditTemplateConfiguration,
   ThrottlingException,
   TooManyTagsException,
+  UrlConfiguration,
   ValidationException,
+  VectorIngestionConfiguration,
+  WebCrawlerConfiguration,
+  WebCrawlerLimits,
 } from "../models/models_0";
 import { QConnectServiceException as __BaseException } from "../models/QConnectServiceException";
+
+/**
+ * serializeAws_restJson1CreateAIAgentCommand
+ */
+export const se_CreateAIAgentCommand = async (
+  input: CreateAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiagents");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => se_AIAgentConfiguration(_, context),
+      description: [],
+      name: [],
+      tags: (_) => _json(_),
+      type: [],
+      visibilityStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAIAgentVersionCommand
+ */
+export const se_CreateAIAgentVersionCommand = async (
+  input: CreateAIAgentVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modifiedTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAIPromptCommand
+ */
+export const se_CreateAIPromptCommand = async (
+  input: CreateAIPromptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiprompts");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      apiFormat: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      modelId: [],
+      name: [],
+      tags: (_) => _json(_),
+      templateConfiguration: (_) => _json(_),
+      templateType: [],
+      type: [],
+      visibilityStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAIPromptVersionCommand
+ */
+export const se_CreateAIPromptVersionCommand = async (
+  input: CreateAIPromptVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modifiedTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateAssistantCommand
@@ -317,6 +507,7 @@ export const se_CreateKnowledgeBaseCommand = async (
       serverSideEncryptionConfiguration: (_) => _json(_),
       sourceConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
+      vectorIngestionConfiguration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -372,6 +563,7 @@ export const se_CreateSessionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      aiAgentConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
@@ -380,6 +572,76 @@ export const se_CreateSessionCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAIAgentCommand
+ */
+export const se_DeleteAIAgentCommand = async (
+  input: DeleteAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAIAgentVersionCommand
+ */
+export const se_DeleteAIAgentVersionCommand = async (
+  input: DeleteAIAgentVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}/versions/{versionNumber}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  b.p("versionNumber", () => input.versionNumber!.toString(), "{versionNumber}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAIPromptCommand
+ */
+export const se_DeleteAIPromptCommand = async (
+  input: DeleteAIPromptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAIPromptVersionCommand
+ */
+export const se_DeleteAIPromptVersionCommand = async (
+  input: DeleteAIPromptVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}/versions/{versionNumber}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  b.p("versionNumber", () => input.versionNumber!.toString(), "{versionNumber}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -498,6 +760,40 @@ export const se_DeleteQuickResponseCommand = async (
   b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAIAgentCommand
+ */
+export const se_GetAIAgentCommand = async (
+  input: GetAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAIPromptCommand
+ */
+export const se_GetAIPromptCommand = async (
+  input: GetAIPromptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -671,6 +967,92 @@ export const se_GetSessionCommand = async (
   b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIAgentsCommand
+ */
+export const se_ListAIAgentsCommand = async (
+  input: ListAIAgentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagents");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_o]: [, input[_o]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIAgentVersionsCommand
+ */
+export const se_ListAIAgentVersionsCommand = async (
+  input: ListAIAgentVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_o]: [, input[_o]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIPromptsCommand
+ */
+export const se_ListAIPromptsCommand = async (
+  input: ListAIPromptsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiprompts");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_o]: [, input[_o]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIPromptVersionsCommand
+ */
+export const se_ListAIPromptVersionsCommand = async (
+  input: ListAIPromptVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_o]: [, input[_o]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -896,12 +1278,33 @@ export const se_QueryAssistantCommand = async (
     take(input, {
       maxResults: [],
       nextToken: [],
+      overrideKnowledgeBaseSearchType: [],
       queryCondition: (_) => _json(_),
+      queryInputData: (_) => _json(_),
       queryText: [],
       sessionId: [],
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RemoveAssistantAIAgentCommand
+ */
+export const se_RemoveAssistantAIAgentCommand = async (
+  input: RemoveAssistantAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiagentConfiguration");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  const query: any = map({
+    [_aAT]: [, __expectNonNull(input[_aAT]!, `aiAgentType`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1097,6 +1500,84 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAIAgentCommand
+ */
+export const se_UpdateAIAgentCommand = async (
+  input: UpdateAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => se_AIAgentConfiguration(_, context),
+      description: [],
+      visibilityStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAIPromptCommand
+ */
+export const se_UpdateAIPromptCommand = async (
+  input: UpdateAIPromptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiprompts/{aiPromptId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiPromptId", () => input.aiPromptId!, "{aiPromptId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      templateConfiguration: (_) => _json(_),
+      visibilityStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAssistantAIAgentCommand
+ */
+export const se_UpdateAssistantAIAgentCommand = async (
+  input: UpdateAssistantAIAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiagentConfiguration");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      aiAgentType: [],
+      configuration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateContentCommand
  */
 export const se_UpdateContentCommand = async (
@@ -1200,12 +1681,124 @@ export const se_UpdateSessionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      aiAgentConfiguration: (_) => _json(_),
       description: [],
       tagFilter: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSessionDataCommand
+ */
+export const se_UpdateSessionDataCommand = async (
+  input: UpdateSessionDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/data");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      data: (_) => _json(_),
+      namespace: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateAIAgentCommand
+ */
+export const de_CreateAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIAgentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgent: (_) => de_AIAgentData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAIAgentVersionCommand
+ */
+export const de_CreateAIAgentVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIAgentVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgent: (_) => de_AIAgentData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAIPromptCommand
+ */
+export const de_CreateAIPromptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIPromptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPrompt: (_) => de_AIPromptData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAIPromptVersionCommand
+ */
+export const de_CreateAIPromptVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIPromptVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPrompt: (_) => de_AIPromptData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -1356,6 +1949,74 @@ export const de_CreateSessionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAIAgentCommand
+ */
+export const de_DeleteAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIAgentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAIAgentVersionCommand
+ */
+export const de_DeleteAIAgentVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIAgentVersionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAIPromptCommand
+ */
+export const de_DeleteAIPromptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIPromptCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAIPromptVersionCommand
+ */
+export const de_DeleteAIPromptVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIPromptVersionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAssistantCommand
  */
 export const de_DeleteAssistantCommand = async (
@@ -1471,6 +2132,50 @@ export const de_DeleteQuickResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAIAgentCommand
+ */
+export const de_GetAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAIAgentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgent: (_) => de_AIAgentData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAIPromptCommand
+ */
+export const de_GetAIPromptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAIPromptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPrompt: (_) => de_AIPromptData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1680,6 +2385,94 @@ export const de_GetSessionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     session: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIAgentsCommand
+ */
+export const de_ListAIAgentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIAgentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgentSummaries: (_) => de_AIAgentSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIAgentVersionsCommand
+ */
+export const de_ListAIAgentVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIAgentVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgentVersionSummaries: (_) => de_AIAgentVersionSummariesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIPromptsCommand
+ */
+export const de_ListAIPromptsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIPromptsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPromptSummaries: (_) => de_AIPromptSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIPromptVersionsCommand
+ */
+export const de_ListAIPromptVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIPromptVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPromptVersionSummaries: (_) => de_AIPromptVersionSummariesList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1930,6 +2723,23 @@ export const de_QueryAssistantCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RemoveAssistantAIAgentCommand
+ */
+export const de_RemoveAssistantAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveAssistantAIAgentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand
  */
 export const de_RemoveKnowledgeBaseTemplateUriCommand = async (
@@ -2092,6 +2902,69 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAIAgentCommand
+ */
+export const de_UpdateAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAIAgentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiAgent: (_) => de_AIAgentData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAIPromptCommand
+ */
+export const de_UpdateAIPromptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAIPromptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiPrompt: (_) => de_AIPromptData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAssistantAIAgentCommand
+ */
+export const de_UpdateAssistantAIAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssistantAIAgentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assistant: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateContentCommand
  */
 export const de_UpdateContentCommand = async (
@@ -2176,6 +3049,30 @@ export const de_UpdateSessionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSessionDataCommand
+ */
+export const de_UpdateSessionDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSessionDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    data: _json,
+    namespace: __expectString,
+    sessionArn: __expectString,
+    sessionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -2191,18 +3088,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.qconnect#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.qconnect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.qconnect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.qconnect#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.qconnect#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -2396,15 +3293,44 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1AIAgentConfiguration
+ */
+const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeContext): any => {
+  return AIAgentConfiguration.visit(input, {
+    answerRecommendationAIAgentConfiguration: (value) => ({ answerRecommendationAIAgentConfiguration: _json(value) }),
+    manualSearchAIAgentConfiguration: (value) => ({ manualSearchAIAgentConfiguration: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_AIAgentConfigurationData omitted.
+
+// se_AIAgentConfigurationMap omitted.
+
+// se_AIPromptTemplateConfiguration omitted.
+
 // se_AmazonConnectGuideAssociationData omitted.
 
 // se_AndConditions omitted.
+
+// se_AnswerRecommendationAIAgentConfiguration omitted.
 
 // se_AppIntegrationsConfiguration omitted.
 
 // se_AssistantAssociationInputData omitted.
 
+// se_AssociationConfiguration omitted.
+
+// se_AssociationConfigurationData omitted.
+
+// se_AssociationConfigurationList omitted.
+
+// se_BedrockFoundationModelConfigurationForParsing omitted.
+
 // se_Channels omitted.
+
+// se_ChunkingConfiguration omitted.
 
 // se_Configuration omitted.
 
@@ -2424,11 +3350,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FilterList omitted.
 
+// se_FixedSizeChunkingConfiguration omitted.
+
 // se_GenerativeContentFeedbackData omitted.
 
 // se_GroupingConfiguration omitted.
 
 // se_GroupingValues omitted.
+
+// se_HierarchicalChunkingConfiguration omitted.
+
+// se_HierarchicalChunkingLevelConfiguration omitted.
+
+// se_HierarchicalChunkingLevelConfigurations omitted.
+
+// se_IntentInputData omitted.
+
+// se_KnowledgeBaseAssociationConfigurationData omitted.
+
+// se_ManagedSourceConfiguration omitted.
+
+// se_ManualSearchAIAgentConfiguration omitted.
 
 // se_ObjectFieldsList omitted.
 
@@ -2436,11 +3378,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OrConditions omitted.
 
+// se_ParsingConfiguration omitted.
+
+// se_ParsingPrompt omitted.
+
 // se_QueryCondition omitted.
 
 // se_QueryConditionExpression omitted.
 
 // se_QueryConditionItem omitted.
+
+// se_QueryInputData omitted.
+
+// se_QueryTextInputData omitted.
 
 // se_QuickResponseDataProvider omitted.
 
@@ -2464,7 +3414,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_RenderingConfiguration omitted.
 
+// se_RuntimeSessionData omitted.
+
+// se_RuntimeSessionDataList omitted.
+
+// se_RuntimeSessionDataValue omitted.
+
 // se_SearchExpression omitted.
+
+// se_SeedUrl omitted.
+
+// se_SeedUrls omitted.
+
+// se_SemanticChunkingConfiguration omitted.
 
 // se_ServerSideEncryptionConfiguration omitted.
 
@@ -2476,9 +3438,203 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Tags omitted.
 
+// se_TextFullAIPromptEditTemplateConfiguration omitted.
+
+// se_UrlConfiguration omitted.
+
+// se_UrlFilterList omitted.
+
+// se_VectorIngestionConfiguration omitted.
+
+// se_WebCrawlerConfiguration omitted.
+
+// se_WebCrawlerLimits omitted.
+
+/**
+ * deserializeAws_restJson1AIAgentConfiguration
+ */
+const de_AIAgentConfiguration = (output: any, context: __SerdeContext): AIAgentConfiguration => {
+  if (output.answerRecommendationAIAgentConfiguration != null) {
+    return {
+      answerRecommendationAIAgentConfiguration: _json(output.answerRecommendationAIAgentConfiguration),
+    };
+  }
+  if (output.manualSearchAIAgentConfiguration != null) {
+    return {
+      manualSearchAIAgentConfiguration: _json(output.manualSearchAIAgentConfiguration),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_AIAgentConfigurationData omitted.
+
+// de_AIAgentConfigurationMap omitted.
+
+/**
+ * deserializeAws_restJson1AIAgentData
+ */
+const de_AIAgentData = (output: any, context: __SerdeContext): AIAgentData => {
+  return take(output, {
+    aiAgentArn: __expectString,
+    aiAgentId: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    configuration: (_: any) => de_AIAgentConfiguration(__expectUnion(_), context),
+    description: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    origin: __expectString,
+    status: __expectString,
+    tags: _json,
+    type: __expectString,
+    visibilityStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIAgentSummary
+ */
+const de_AIAgentSummary = (output: any, context: __SerdeContext): AIAgentSummary => {
+  return take(output, {
+    aiAgentArn: __expectString,
+    aiAgentId: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    configuration: (_: any) => de_AIAgentConfiguration(__expectUnion(_), context),
+    description: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    origin: __expectString,
+    status: __expectString,
+    tags: _json,
+    type: __expectString,
+    visibilityStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIAgentSummaryList
+ */
+const de_AIAgentSummaryList = (output: any, context: __SerdeContext): AIAgentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIAgentSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AIAgentVersionSummariesList
+ */
+const de_AIAgentVersionSummariesList = (output: any, context: __SerdeContext): AIAgentVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIAgentVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AIAgentVersionSummary
+ */
+const de_AIAgentVersionSummary = (output: any, context: __SerdeContext): AIAgentVersionSummary => {
+  return take(output, {
+    aiAgentSummary: (_: any) => de_AIAgentSummary(_, context),
+    versionNumber: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIPromptData
+ */
+const de_AIPromptData = (output: any, context: __SerdeContext): AIPromptData => {
+  return take(output, {
+    aiPromptArn: __expectString,
+    aiPromptId: __expectString,
+    apiFormat: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    description: __expectString,
+    modelId: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    origin: __expectString,
+    status: __expectString,
+    tags: _json,
+    templateConfiguration: (_: any) => _json(__expectUnion(_)),
+    templateType: __expectString,
+    type: __expectString,
+    visibilityStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIPromptSummary
+ */
+const de_AIPromptSummary = (output: any, context: __SerdeContext): AIPromptSummary => {
+  return take(output, {
+    aiPromptArn: __expectString,
+    aiPromptId: __expectString,
+    apiFormat: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    description: __expectString,
+    modelId: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    origin: __expectString,
+    status: __expectString,
+    tags: _json,
+    templateType: __expectString,
+    type: __expectString,
+    visibilityStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIPromptSummaryList
+ */
+const de_AIPromptSummaryList = (output: any, context: __SerdeContext): AIPromptSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIPromptSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_AIPromptTemplateConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1AIPromptVersionSummariesList
+ */
+const de_AIPromptVersionSummariesList = (output: any, context: __SerdeContext): AIPromptVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIPromptVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AIPromptVersionSummary
+ */
+const de_AIPromptVersionSummary = (output: any, context: __SerdeContext): AIPromptVersionSummary => {
+  return take(output, {
+    aiPromptSummary: (_: any) => de_AIPromptSummary(_, context),
+    versionNumber: __expectLong,
+  }) as any;
+};
+
 // de_AmazonConnectGuideAssociationData omitted.
 
 // de_AndConditions omitted.
+
+// de_AnswerRecommendationAIAgentConfiguration omitted.
 
 // de_AppIntegrationsConfiguration omitted.
 
@@ -2500,7 +3656,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AssistantSummary omitted.
 
+// de_AssociationConfiguration omitted.
+
+// de_AssociationConfigurationData omitted.
+
+// de_AssociationConfigurationList omitted.
+
+// de_BedrockFoundationModelConfigurationForParsing omitted.
+
 // de_Channels omitted.
+
+// de_ChunkingConfiguration omitted.
+
+// de_CitationSpan omitted.
 
 // de_Configuration omitted.
 
@@ -2572,6 +3740,11 @@ const de_DataDetails = (output: any, context: __SerdeContext): DataDetails => {
       generativeData: de_GenerativeDataDetails(output.generativeData, context),
     };
   }
+  if (output.intentDetectedData != null) {
+    return {
+      intentDetectedData: _json(output.intentDetectedData),
+    };
+  }
   if (output.sourceContentData != null) {
     return {
       sourceContentData: de_SourceContentDataDetails(output.sourceContentData, context),
@@ -2610,6 +3783,10 @@ const de_DataSummaryList = (output: any, context: __SerdeContext): DataSummary[]
 
 // de_ExternalSourceConfiguration omitted.
 
+// de_FailureReason omitted.
+
+// de_FixedSizeChunkingConfiguration omitted.
+
 // de_GenerativeContentFeedbackData omitted.
 
 /**
@@ -2630,6 +3807,12 @@ const de_GenerativeDataDetails = (output: any, context: __SerdeContext): Generat
 // de_GroupingValues omitted.
 
 // de_Headers omitted.
+
+// de_HierarchicalChunkingConfiguration omitted.
+
+// de_HierarchicalChunkingLevelConfiguration omitted.
+
+// de_HierarchicalChunkingLevelConfigurations omitted.
 
 // de_Highlight omitted.
 
@@ -2686,6 +3869,10 @@ const de_ImportJobSummary = (output: any, context: __SerdeContext): ImportJobSum
   }) as any;
 };
 
+// de_IntentDetectedDataDetails omitted.
+
+// de_KnowledgeBaseAssociationConfigurationData omitted.
+
 // de_KnowledgeBaseAssociationData omitted.
 
 /**
@@ -2694,6 +3881,8 @@ const de_ImportJobSummary = (output: any, context: __SerdeContext): ImportJobSum
 const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBaseData => {
   return take(output, {
     description: __expectString,
+    ingestionFailureReasons: _json,
+    ingestionStatus: __expectString,
     knowledgeBaseArn: __expectString,
     knowledgeBaseId: __expectString,
     knowledgeBaseType: __expectString,
@@ -2704,12 +3893,17 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
     sourceConfiguration: (_: any) => _json(__expectUnion(_)),
     status: __expectString,
     tags: _json,
+    vectorIngestionConfiguration: _json,
   }) as any;
 };
 
 // de_KnowledgeBaseList omitted.
 
 // de_KnowledgeBaseSummary omitted.
+
+// de_ManagedSourceConfiguration omitted.
+
+// de_ManualSearchAIAgentConfiguration omitted.
 
 // de_NotifyRecommendationsReceivedError omitted.
 
@@ -2720,6 +3914,10 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
 // de_OrCondition omitted.
 
 // de_OrConditions omitted.
+
+// de_ParsingConfiguration omitted.
+
+// de_ParsingPrompt omitted.
 
 // de_QueryRecommendationTriggerData omitted.
 
@@ -2898,6 +4096,18 @@ const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
   }) as any;
 };
 
+// de_RuntimeSessionData omitted.
+
+// de_RuntimeSessionDataList omitted.
+
+// de_RuntimeSessionDataValue omitted.
+
+// de_SeedUrl omitted.
+
+// de_SeedUrls omitted.
+
+// de_SemanticChunkingConfiguration omitted.
+
 // de_ServerSideEncryptionConfiguration omitted.
 
 // de_SessionData omitted.
@@ -2915,6 +4125,7 @@ const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
  */
 const de_SourceContentDataDetails = (output: any, context: __SerdeContext): SourceContentDataDetails => {
   return take(output, {
+    citationSpan: _json,
     id: __expectString,
     rankingData: (_: any) => de_RankingData(_, context),
     textData: _json,
@@ -2930,6 +4141,18 @@ const de_SourceContentDataDetails = (output: any, context: __SerdeContext): Sour
 
 // de_TextData omitted.
 
+// de_TextFullAIPromptEditTemplateConfiguration omitted.
+
+// de_UrlConfiguration omitted.
+
+// de_UrlFilterList omitted.
+
+// de_VectorIngestionConfiguration omitted.
+
+// de_WebCrawlerConfiguration omitted.
+
+// de_WebCrawlerLimits omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -2942,7 +4165,9 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aAT = "aiAgentType";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _o = "origin";
 const _tK = "tagKeys";
 const _wTS = "waitTimeSeconds";

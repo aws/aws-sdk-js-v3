@@ -53,6 +53,16 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateAIAgentCommandInput, CreateAIAgentCommandOutput } from "./commands/CreateAIAgentCommand";
+import {
+  CreateAIAgentVersionCommandInput,
+  CreateAIAgentVersionCommandOutput,
+} from "./commands/CreateAIAgentVersionCommand";
+import { CreateAIPromptCommandInput, CreateAIPromptCommandOutput } from "./commands/CreateAIPromptCommand";
+import {
+  CreateAIPromptVersionCommandInput,
+  CreateAIPromptVersionCommandOutput,
+} from "./commands/CreateAIPromptVersionCommand";
 import {
   CreateAssistantAssociationCommandInput,
   CreateAssistantAssociationCommandOutput,
@@ -72,6 +82,16 @@ import {
   CreateQuickResponseCommandOutput,
 } from "./commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
+import { DeleteAIAgentCommandInput, DeleteAIAgentCommandOutput } from "./commands/DeleteAIAgentCommand";
+import {
+  DeleteAIAgentVersionCommandInput,
+  DeleteAIAgentVersionCommandOutput,
+} from "./commands/DeleteAIAgentVersionCommand";
+import { DeleteAIPromptCommandInput, DeleteAIPromptCommandOutput } from "./commands/DeleteAIPromptCommand";
+import {
+  DeleteAIPromptVersionCommandInput,
+  DeleteAIPromptVersionCommandOutput,
+} from "./commands/DeleteAIPromptVersionCommand";
 import {
   DeleteAssistantAssociationCommandInput,
   DeleteAssistantAssociationCommandOutput,
@@ -91,6 +111,8 @@ import {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
+import { GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
+import { GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
@@ -107,6 +129,16 @@ import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./c
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { ListAIAgentsCommandInput, ListAIAgentsCommandOutput } from "./commands/ListAIAgentsCommand";
+import {
+  ListAIAgentVersionsCommandInput,
+  ListAIAgentVersionsCommandOutput,
+} from "./commands/ListAIAgentVersionsCommand";
+import { ListAIPromptsCommandInput, ListAIPromptsCommandOutput } from "./commands/ListAIPromptsCommand";
+import {
+  ListAIPromptVersionsCommandInput,
+  ListAIPromptVersionsCommandOutput,
+} from "./commands/ListAIPromptVersionsCommand";
 import {
   ListAssistantAssociationsCommandInput,
   ListAssistantAssociationsCommandOutput,
@@ -131,6 +163,10 @@ import {
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
 import {
+  RemoveAssistantAIAgentCommandInput,
+  RemoveAssistantAIAgentCommandOutput,
+} from "./commands/RemoveAssistantAIAgentCommand";
+import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
@@ -144,6 +180,12 @@ import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from 
 import { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAIAgentCommandInput, UpdateAIAgentCommandOutput } from "./commands/UpdateAIAgentCommand";
+import { UpdateAIPromptCommandInput, UpdateAIPromptCommandOutput } from "./commands/UpdateAIPromptCommand";
+import {
+  UpdateAssistantAIAgentCommandInput,
+  UpdateAssistantAIAgentCommandOutput,
+} from "./commands/UpdateAssistantAIAgentCommand";
 import { UpdateContentCommandInput, UpdateContentCommandOutput } from "./commands/UpdateContentCommand";
 import {
   UpdateKnowledgeBaseTemplateUriCommandInput,
@@ -154,6 +196,7 @@ import {
   UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
+import { UpdateSessionDataCommandInput, UpdateSessionDataCommandOutput } from "./commands/UpdateSessionDataCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -169,6 +212,10 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateAIAgentCommandInput
+  | CreateAIAgentVersionCommandInput
+  | CreateAIPromptCommandInput
+  | CreateAIPromptVersionCommandInput
   | CreateAssistantAssociationCommandInput
   | CreateAssistantCommandInput
   | CreateContentAssociationCommandInput
@@ -176,6 +223,10 @@ export type ServiceInputTypes =
   | CreateKnowledgeBaseCommandInput
   | CreateQuickResponseCommandInput
   | CreateSessionCommandInput
+  | DeleteAIAgentCommandInput
+  | DeleteAIAgentVersionCommandInput
+  | DeleteAIPromptCommandInput
+  | DeleteAIPromptVersionCommandInput
   | DeleteAssistantAssociationCommandInput
   | DeleteAssistantCommandInput
   | DeleteContentAssociationCommandInput
@@ -183,6 +234,8 @@ export type ServiceInputTypes =
   | DeleteImportJobCommandInput
   | DeleteKnowledgeBaseCommandInput
   | DeleteQuickResponseCommandInput
+  | GetAIAgentCommandInput
+  | GetAIPromptCommandInput
   | GetAssistantAssociationCommandInput
   | GetAssistantCommandInput
   | GetContentAssociationCommandInput
@@ -193,6 +246,10 @@ export type ServiceInputTypes =
   | GetQuickResponseCommandInput
   | GetRecommendationsCommandInput
   | GetSessionCommandInput
+  | ListAIAgentVersionsCommandInput
+  | ListAIAgentsCommandInput
+  | ListAIPromptVersionsCommandInput
+  | ListAIPromptsCommandInput
   | ListAssistantAssociationsCommandInput
   | ListAssistantsCommandInput
   | ListContentAssociationsCommandInput
@@ -204,6 +261,7 @@ export type ServiceInputTypes =
   | NotifyRecommendationsReceivedCommandInput
   | PutFeedbackCommandInput
   | QueryAssistantCommandInput
+  | RemoveAssistantAIAgentCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
   | SearchContentCommandInput
   | SearchQuickResponsesCommandInput
@@ -212,15 +270,23 @@ export type ServiceInputTypes =
   | StartImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAIAgentCommandInput
+  | UpdateAIPromptCommandInput
+  | UpdateAssistantAIAgentCommandInput
   | UpdateContentCommandInput
   | UpdateKnowledgeBaseTemplateUriCommandInput
   | UpdateQuickResponseCommandInput
-  | UpdateSessionCommandInput;
+  | UpdateSessionCommandInput
+  | UpdateSessionDataCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateAIAgentCommandOutput
+  | CreateAIAgentVersionCommandOutput
+  | CreateAIPromptCommandOutput
+  | CreateAIPromptVersionCommandOutput
   | CreateAssistantAssociationCommandOutput
   | CreateAssistantCommandOutput
   | CreateContentAssociationCommandOutput
@@ -228,6 +294,10 @@ export type ServiceOutputTypes =
   | CreateKnowledgeBaseCommandOutput
   | CreateQuickResponseCommandOutput
   | CreateSessionCommandOutput
+  | DeleteAIAgentCommandOutput
+  | DeleteAIAgentVersionCommandOutput
+  | DeleteAIPromptCommandOutput
+  | DeleteAIPromptVersionCommandOutput
   | DeleteAssistantAssociationCommandOutput
   | DeleteAssistantCommandOutput
   | DeleteContentAssociationCommandOutput
@@ -235,6 +305,8 @@ export type ServiceOutputTypes =
   | DeleteImportJobCommandOutput
   | DeleteKnowledgeBaseCommandOutput
   | DeleteQuickResponseCommandOutput
+  | GetAIAgentCommandOutput
+  | GetAIPromptCommandOutput
   | GetAssistantAssociationCommandOutput
   | GetAssistantCommandOutput
   | GetContentAssociationCommandOutput
@@ -245,6 +317,10 @@ export type ServiceOutputTypes =
   | GetQuickResponseCommandOutput
   | GetRecommendationsCommandOutput
   | GetSessionCommandOutput
+  | ListAIAgentVersionsCommandOutput
+  | ListAIAgentsCommandOutput
+  | ListAIPromptVersionsCommandOutput
+  | ListAIPromptsCommandOutput
   | ListAssistantAssociationsCommandOutput
   | ListAssistantsCommandOutput
   | ListContentAssociationsCommandOutput
@@ -256,6 +332,7 @@ export type ServiceOutputTypes =
   | NotifyRecommendationsReceivedCommandOutput
   | PutFeedbackCommandOutput
   | QueryAssistantCommandOutput
+  | RemoveAssistantAIAgentCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
   | SearchContentCommandOutput
   | SearchQuickResponsesCommandOutput
@@ -264,10 +341,14 @@ export type ServiceOutputTypes =
   | StartImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAIAgentCommandOutput
+  | UpdateAIPromptCommandOutput
+  | UpdateAssistantAIAgentCommandOutput
   | UpdateContentCommandOutput
   | UpdateKnowledgeBaseTemplateUriCommandOutput
   | UpdateQuickResponseCommandOutput
-  | UpdateSessionCommandOutput;
+  | UpdateSessionCommandOutput
+  | UpdateSessionDataCommandOutput;
 
 /**
  * @public
@@ -441,7 +522,21 @@ export type QConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface QConnectClientResolvedConfig extends QConnectClientResolvedConfigType {}
 
 /**
- * <note>
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html">Amazon Q
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html">Amazon Q data
+ *             types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
  *           detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full advantage of

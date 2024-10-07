@@ -3,6 +3,26 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateAIAgentCommand,
+  CreateAIAgentCommandInput,
+  CreateAIAgentCommandOutput,
+} from "./commands/CreateAIAgentCommand";
+import {
+  CreateAIAgentVersionCommand,
+  CreateAIAgentVersionCommandInput,
+  CreateAIAgentVersionCommandOutput,
+} from "./commands/CreateAIAgentVersionCommand";
+import {
+  CreateAIPromptCommand,
+  CreateAIPromptCommandInput,
+  CreateAIPromptCommandOutput,
+} from "./commands/CreateAIPromptCommand";
+import {
+  CreateAIPromptVersionCommand,
+  CreateAIPromptVersionCommandInput,
+  CreateAIPromptVersionCommandOutput,
+} from "./commands/CreateAIPromptVersionCommand";
+import {
   CreateAssistantAssociationCommand,
   CreateAssistantAssociationCommandInput,
   CreateAssistantAssociationCommandOutput,
@@ -38,6 +58,26 @@ import {
   CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
 import {
+  DeleteAIAgentCommand,
+  DeleteAIAgentCommandInput,
+  DeleteAIAgentCommandOutput,
+} from "./commands/DeleteAIAgentCommand";
+import {
+  DeleteAIAgentVersionCommand,
+  DeleteAIAgentVersionCommandInput,
+  DeleteAIAgentVersionCommandOutput,
+} from "./commands/DeleteAIAgentVersionCommand";
+import {
+  DeleteAIPromptCommand,
+  DeleteAIPromptCommandInput,
+  DeleteAIPromptCommandOutput,
+} from "./commands/DeleteAIPromptCommand";
+import {
+  DeleteAIPromptVersionCommand,
+  DeleteAIPromptVersionCommandInput,
+  DeleteAIPromptVersionCommandOutput,
+} from "./commands/DeleteAIPromptVersionCommand";
+import {
   DeleteAssistantAssociationCommand,
   DeleteAssistantAssociationCommandInput,
   DeleteAssistantAssociationCommandOutput,
@@ -72,6 +112,8 @@ import {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
+import { GetAIAgentCommand, GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
+import { GetAIPromptCommand, GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommand,
   GetAssistantAssociationCommandInput,
@@ -114,6 +156,26 @@ import {
   GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
 import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import {
+  ListAIAgentsCommand,
+  ListAIAgentsCommandInput,
+  ListAIAgentsCommandOutput,
+} from "./commands/ListAIAgentsCommand";
+import {
+  ListAIAgentVersionsCommand,
+  ListAIAgentVersionsCommandInput,
+  ListAIAgentVersionsCommandOutput,
+} from "./commands/ListAIAgentVersionsCommand";
+import {
+  ListAIPromptsCommand,
+  ListAIPromptsCommandInput,
+  ListAIPromptsCommandOutput,
+} from "./commands/ListAIPromptsCommand";
+import {
+  ListAIPromptVersionsCommand,
+  ListAIPromptVersionsCommandInput,
+  ListAIPromptVersionsCommandOutput,
+} from "./commands/ListAIPromptVersionsCommand";
 import {
   ListAssistantAssociationsCommand,
   ListAssistantAssociationsCommandInput,
@@ -166,6 +228,11 @@ import {
   QueryAssistantCommandOutput,
 } from "./commands/QueryAssistantCommand";
 import {
+  RemoveAssistantAIAgentCommand,
+  RemoveAssistantAIAgentCommandInput,
+  RemoveAssistantAIAgentCommandOutput,
+} from "./commands/RemoveAssistantAIAgentCommand";
+import {
   RemoveKnowledgeBaseTemplateUriCommand,
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
@@ -202,6 +269,21 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAIAgentCommand,
+  UpdateAIAgentCommandInput,
+  UpdateAIAgentCommandOutput,
+} from "./commands/UpdateAIAgentCommand";
+import {
+  UpdateAIPromptCommand,
+  UpdateAIPromptCommandInput,
+  UpdateAIPromptCommandOutput,
+} from "./commands/UpdateAIPromptCommand";
+import {
+  UpdateAssistantAIAgentCommand,
+  UpdateAssistantAIAgentCommandInput,
+  UpdateAssistantAIAgentCommandOutput,
+} from "./commands/UpdateAssistantAIAgentCommand";
+import {
   UpdateContentCommand,
   UpdateContentCommandInput,
   UpdateContentCommandOutput,
@@ -221,9 +303,18 @@ import {
   UpdateSessionCommandInput,
   UpdateSessionCommandOutput,
 } from "./commands/UpdateSessionCommand";
+import {
+  UpdateSessionDataCommand,
+  UpdateSessionDataCommandInput,
+  UpdateSessionDataCommandOutput,
+} from "./commands/UpdateSessionDataCommand";
 import { QConnectClient, QConnectClientConfig } from "./QConnectClient";
 
 const commands = {
+  CreateAIAgentCommand,
+  CreateAIAgentVersionCommand,
+  CreateAIPromptCommand,
+  CreateAIPromptVersionCommand,
   CreateAssistantCommand,
   CreateAssistantAssociationCommand,
   CreateContentCommand,
@@ -231,6 +322,10 @@ const commands = {
   CreateKnowledgeBaseCommand,
   CreateQuickResponseCommand,
   CreateSessionCommand,
+  DeleteAIAgentCommand,
+  DeleteAIAgentVersionCommand,
+  DeleteAIPromptCommand,
+  DeleteAIPromptVersionCommand,
   DeleteAssistantCommand,
   DeleteAssistantAssociationCommand,
   DeleteContentCommand,
@@ -238,6 +333,8 @@ const commands = {
   DeleteImportJobCommand,
   DeleteKnowledgeBaseCommand,
   DeleteQuickResponseCommand,
+  GetAIAgentCommand,
+  GetAIPromptCommand,
   GetAssistantCommand,
   GetAssistantAssociationCommand,
   GetContentCommand,
@@ -248,6 +345,10 @@ const commands = {
   GetQuickResponseCommand,
   GetRecommendationsCommand,
   GetSessionCommand,
+  ListAIAgentsCommand,
+  ListAIAgentVersionsCommand,
+  ListAIPromptsCommand,
+  ListAIPromptVersionsCommand,
   ListAssistantAssociationsCommand,
   ListAssistantsCommand,
   ListContentAssociationsCommand,
@@ -259,6 +360,7 @@ const commands = {
   NotifyRecommendationsReceivedCommand,
   PutFeedbackCommand,
   QueryAssistantCommand,
+  RemoveAssistantAIAgentCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
   SearchContentCommand,
   SearchQuickResponsesCommand,
@@ -267,13 +369,76 @@ const commands = {
   StartImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAIAgentCommand,
+  UpdateAIPromptCommand,
+  UpdateAssistantAIAgentCommand,
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
   UpdateQuickResponseCommand,
   UpdateSessionCommand,
+  UpdateSessionDataCommand,
 };
 
 export interface QConnect {
+  /**
+   * @see {@link CreateAIAgentCommand}
+   */
+  createAIAgent(args: CreateAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAIAgentCommandOutput>;
+  createAIAgent(args: CreateAIAgentCommandInput, cb: (err: any, data?: CreateAIAgentCommandOutput) => void): void;
+  createAIAgent(
+    args: CreateAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIAgentVersionCommand}
+   */
+  createAIAgentVersion(
+    args: CreateAIAgentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIAgentVersionCommandOutput>;
+  createAIAgentVersion(
+    args: CreateAIAgentVersionCommandInput,
+    cb: (err: any, data?: CreateAIAgentVersionCommandOutput) => void
+  ): void;
+  createAIAgentVersion(
+    args: CreateAIAgentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIAgentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIPromptCommand}
+   */
+  createAIPrompt(
+    args: CreateAIPromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIPromptCommandOutput>;
+  createAIPrompt(args: CreateAIPromptCommandInput, cb: (err: any, data?: CreateAIPromptCommandOutput) => void): void;
+  createAIPrompt(
+    args: CreateAIPromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIPromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIPromptVersionCommand}
+   */
+  createAIPromptVersion(
+    args: CreateAIPromptVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIPromptVersionCommandOutput>;
+  createAIPromptVersion(
+    args: CreateAIPromptVersionCommandInput,
+    cb: (err: any, data?: CreateAIPromptVersionCommandOutput) => void
+  ): void;
+  createAIPromptVersion(
+    args: CreateAIPromptVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIPromptVersionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateAssistantCommand}
    */
@@ -376,6 +541,65 @@ export interface QConnect {
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIAgentCommand}
+   */
+  deleteAIAgent(args: DeleteAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAIAgentCommandOutput>;
+  deleteAIAgent(args: DeleteAIAgentCommandInput, cb: (err: any, data?: DeleteAIAgentCommandOutput) => void): void;
+  deleteAIAgent(
+    args: DeleteAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIAgentVersionCommand}
+   */
+  deleteAIAgentVersion(
+    args: DeleteAIAgentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIAgentVersionCommandOutput>;
+  deleteAIAgentVersion(
+    args: DeleteAIAgentVersionCommandInput,
+    cb: (err: any, data?: DeleteAIAgentVersionCommandOutput) => void
+  ): void;
+  deleteAIAgentVersion(
+    args: DeleteAIAgentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIAgentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIPromptCommand}
+   */
+  deleteAIPrompt(
+    args: DeleteAIPromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIPromptCommandOutput>;
+  deleteAIPrompt(args: DeleteAIPromptCommandInput, cb: (err: any, data?: DeleteAIPromptCommandOutput) => void): void;
+  deleteAIPrompt(
+    args: DeleteAIPromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIPromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIPromptVersionCommand}
+   */
+  deleteAIPromptVersion(
+    args: DeleteAIPromptVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIPromptVersionCommandOutput>;
+  deleteAIPromptVersion(
+    args: DeleteAIPromptVersionCommandInput,
+    cb: (err: any, data?: DeleteAIPromptVersionCommandOutput) => void
+  ): void;
+  deleteAIPromptVersion(
+    args: DeleteAIPromptVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIPromptVersionCommandOutput) => void
   ): void;
 
   /**
@@ -483,6 +707,28 @@ export interface QConnect {
     args: DeleteQuickResponseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteQuickResponseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAIAgentCommand}
+   */
+  getAIAgent(args: GetAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<GetAIAgentCommandOutput>;
+  getAIAgent(args: GetAIAgentCommandInput, cb: (err: any, data?: GetAIAgentCommandOutput) => void): void;
+  getAIAgent(
+    args: GetAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAIAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAIPromptCommand}
+   */
+  getAIPrompt(args: GetAIPromptCommandInput, options?: __HttpHandlerOptions): Promise<GetAIPromptCommandOutput>;
+  getAIPrompt(args: GetAIPromptCommandInput, cb: (err: any, data?: GetAIPromptCommandOutput) => void): void;
+  getAIPrompt(
+    args: GetAIPromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAIPromptCommandOutput) => void
   ): void;
 
   /**
@@ -629,6 +875,62 @@ export interface QConnect {
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIAgentsCommand}
+   */
+  listAIAgents(args: ListAIAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAIAgentsCommandOutput>;
+  listAIAgents(args: ListAIAgentsCommandInput, cb: (err: any, data?: ListAIAgentsCommandOutput) => void): void;
+  listAIAgents(
+    args: ListAIAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIAgentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIAgentVersionsCommand}
+   */
+  listAIAgentVersions(
+    args: ListAIAgentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIAgentVersionsCommandOutput>;
+  listAIAgentVersions(
+    args: ListAIAgentVersionsCommandInput,
+    cb: (err: any, data?: ListAIAgentVersionsCommandOutput) => void
+  ): void;
+  listAIAgentVersions(
+    args: ListAIAgentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIAgentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIPromptsCommand}
+   */
+  listAIPrompts(args: ListAIPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListAIPromptsCommandOutput>;
+  listAIPrompts(args: ListAIPromptsCommandInput, cb: (err: any, data?: ListAIPromptsCommandOutput) => void): void;
+  listAIPrompts(
+    args: ListAIPromptsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIPromptsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIPromptVersionsCommand}
+   */
+  listAIPromptVersions(
+    args: ListAIPromptVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIPromptVersionsCommandOutput>;
+  listAIPromptVersions(
+    args: ListAIPromptVersionsCommandInput,
+    cb: (err: any, data?: ListAIPromptVersionsCommandOutput) => void
+  ): void;
+  listAIPromptVersions(
+    args: ListAIPromptVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIPromptVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -800,6 +1102,23 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link RemoveAssistantAIAgentCommand}
+   */
+  removeAssistantAIAgent(
+    args: RemoveAssistantAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveAssistantAIAgentCommandOutput>;
+  removeAssistantAIAgent(
+    args: RemoveAssistantAIAgentCommandInput,
+    cb: (err: any, data?: RemoveAssistantAIAgentCommandOutput) => void
+  ): void;
+  removeAssistantAIAgent(
+    args: RemoveAssistantAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveAssistantAIAgentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RemoveKnowledgeBaseTemplateUriCommand}
    */
   removeKnowledgeBaseTemplateUri(
@@ -912,6 +1231,48 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link UpdateAIAgentCommand}
+   */
+  updateAIAgent(args: UpdateAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAIAgentCommandOutput>;
+  updateAIAgent(args: UpdateAIAgentCommandInput, cb: (err: any, data?: UpdateAIAgentCommandOutput) => void): void;
+  updateAIAgent(
+    args: UpdateAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAIAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAIPromptCommand}
+   */
+  updateAIPrompt(
+    args: UpdateAIPromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAIPromptCommandOutput>;
+  updateAIPrompt(args: UpdateAIPromptCommandInput, cb: (err: any, data?: UpdateAIPromptCommandOutput) => void): void;
+  updateAIPrompt(
+    args: UpdateAIPromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAIPromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssistantAIAgentCommand}
+   */
+  updateAssistantAIAgent(
+    args: UpdateAssistantAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssistantAIAgentCommandOutput>;
+  updateAssistantAIAgent(
+    args: UpdateAssistantAIAgentCommandInput,
+    cb: (err: any, data?: UpdateAssistantAIAgentCommandOutput) => void
+  ): void;
+  updateAssistantAIAgent(
+    args: UpdateAssistantAIAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssistantAIAgentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateContentCommand}
    */
   updateContent(args: UpdateContentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContentCommandOutput>;
@@ -966,10 +1327,41 @@ export interface QConnect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSessionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateSessionDataCommand}
+   */
+  updateSessionData(
+    args: UpdateSessionDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSessionDataCommandOutput>;
+  updateSessionData(
+    args: UpdateSessionDataCommandInput,
+    cb: (err: any, data?: UpdateSessionDataCommandOutput) => void
+  ): void;
+  updateSessionData(
+    args: UpdateSessionDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSessionDataCommandOutput) => void
+  ): void;
 }
 
 /**
- * <note>
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html">Amazon Q
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html">Amazon Q data
+ *             types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
  *           detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full advantage of
