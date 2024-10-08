@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import { ProcessCredentials } from "./ProcessCredentials";
@@ -31,7 +32,7 @@ export const getValidatedProcessCredentials = (
     accountId = profiles[profileName].aws_account_id;
   }
 
-  return {
+  const credentials = {
     accessKeyId: data.AccessKeyId,
     secretAccessKey: data.SecretAccessKey,
     ...(data.SessionToken && { sessionToken: data.SessionToken }),
@@ -39,4 +40,8 @@ export const getValidatedProcessCredentials = (
     ...(data.CredentialScope && { credentialScope: data.CredentialScope }),
     ...(accountId && { accountId }),
   };
+
+  setCredentialFeature(credentials, "CREDENTIALS_PROCESS", "w");
+
+  return credentials;
 };

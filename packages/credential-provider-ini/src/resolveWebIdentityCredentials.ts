@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
@@ -36,5 +37,5 @@ export const resolveWebIdentityCredentials = async (
       roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
       logger: options.logger,
       parentClientConfig: options.parentClientConfig,
-    })()
+    })().then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN", "q"))
   );

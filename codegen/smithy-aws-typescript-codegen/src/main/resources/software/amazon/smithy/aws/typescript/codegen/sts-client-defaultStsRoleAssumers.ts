@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
@@ -115,7 +116,7 @@ export const getDefaultRoleAssumer = (
 
     const accountId = getAccountIdFromAssumedRoleUser(AssumedRoleUser);
 
-    return {
+    const credentials = {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
       sessionToken: Credentials.SessionToken,
@@ -124,6 +125,8 @@ export const getDefaultRoleAssumer = (
       ...((Credentials as any).CredentialScope && { credentialScope: (Credentials as any).CredentialScope }),
       ...(accountId && { accountId }),
     };
+    setCredentialFeature(credentials, "CREDENTIALS_STS_ASSUME_ROLE", "i");
+    return credentials;
   };
 };
 
@@ -171,7 +174,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
 
     const accountId = getAccountIdFromAssumedRoleUser(AssumedRoleUser);
 
-    return {
+    const credentials = {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
       sessionToken: Credentials.SessionToken,
@@ -180,6 +183,11 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       ...((Credentials as any).CredentialScope && { credentialScope: (Credentials as any).CredentialScope }),
       ...(accountId && { accountId }),
     };
+    if (accountId) {
+      setCredentialFeature(credentials, "RESOLVED_ACCOUNT_ID", "T");
+    }
+    setCredentialFeature(credentials, "CREDENTIALS_STS_ASSUME_ROLE_WEB_ID", "k");
+    return credentials;
   };
 };
 

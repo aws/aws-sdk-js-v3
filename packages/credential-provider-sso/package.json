@@ -24,6 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "*",
     "@aws-sdk/client-sso": "*",
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",

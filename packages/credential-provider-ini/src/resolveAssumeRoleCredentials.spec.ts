@@ -7,7 +7,7 @@ import { resolveProfileData } from "./resolveProfileData";
 
 jest.mock("@aws-sdk/client-sts", () => {
   return {
-    getDefaultRoleAssumer: jest.fn().mockReturnValue(() => {}),
+    getDefaultRoleAssumer: jest.fn().mockReturnValue(async () => ({})),
   };
 });
 jest.mock("@smithy/shared-ini-file-loader");
@@ -98,7 +98,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
   const mockProfiles = { [mockProfileName]: {} };
   const mockOptions = {
     mfaCodeProvider: jest.fn(),
-    roleAssumer: jest.fn().mockReturnValue(mockCreds),
+    roleAssumer: jest.fn().mockReturnValue(Promise.resolve(mockCreds)),
     roleAssumerWithWebIdentity: jest.fn(),
   };
   const mockCredentialSource = "mockCredentialSource";
@@ -120,7 +120,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
   beforeEach(() => {
     (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
     (resolveProfileData as jest.Mock).mockResolvedValue(mockSourceCredsFromProfile);
-    (resolveCredentialSource as jest.Mock).mockReturnValue(() => () => Promise.resolve(mockSourceCredsFromCredential));
+    (resolveCredentialSource as jest.Mock).mockReturnValue(async () => async () => mockSourceCredsFromCredential);
   });
 
   afterEach(() => {

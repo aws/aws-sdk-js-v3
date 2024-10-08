@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
@@ -103,7 +104,7 @@ export const resolveSSOCredentials = async ({
     });
   }
 
-  return {
+  const credentials = {
     accessKeyId,
     secretAccessKey,
     sessionToken,
@@ -111,4 +112,12 @@ export const resolveSSOCredentials = async ({
     ...(credentialScope && { credentialScope }),
     ...(accountId && { accountId }),
   };
+
+  if (ssoSession) {
+    setCredentialFeature(credentials, "CREDENTIALS_SSO", "s");
+  } else {
+    setCredentialFeature(credentials, "CREDENTIALS_SSO_LEGACY", "u");
+  }
+
+  return credentials;
 };

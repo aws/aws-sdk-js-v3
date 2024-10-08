@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
@@ -81,7 +82,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
       }
       try {
         const result = await requestHandler.handle(request);
-        return getCredentials(result.response);
+        return getCredentials(result.response).then((creds) => setCredentialFeature(creds, "CREDENTIALS_HTTP", "z"));
       } catch (e: unknown) {
         throw new CredentialsProviderError(String(e), { logger: options.logger });
       }

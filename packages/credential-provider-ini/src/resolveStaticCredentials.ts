@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
@@ -27,16 +28,19 @@ export const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
 /**
  * @internal
  */
-export const resolveStaticCredentials = (
+export const resolveStaticCredentials = async (
   profile: StaticCredsProfile,
   options?: FromIniInit
 ): Promise<AwsCredentialIdentity> => {
   options?.logger?.debug("@aws-sdk/credential-provider-ini - resolveStaticCredentials");
-  return Promise.resolve({
+
+  const credentials = {
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
     sessionToken: profile.aws_session_token,
     ...(profile.aws_credential_scope && { credentialScope: profile.aws_credential_scope }),
     ...(profile.aws_account_id && { accountId: profile.aws_account_id }),
-  });
+  };
+
+  return setCredentialFeature(credentials, "CREDENTIALS_PROFILE", "n");
 };

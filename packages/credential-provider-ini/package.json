@@ -24,6 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-env": "*",
     "@aws-sdk/credential-provider-http": "*",
     "@aws-sdk/credential-provider-process": "*",

@@ -1,13 +1,18 @@
 import { setFeature } from "@aws-sdk/core";
 import type { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
-import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
+import type {
+  AttributedAwsCredentialIdentity,
+  AwsHandlerExecutionContext,
+  AwsSdkCredentialsFeatures,
+} from "@aws-sdk/types";
 import type { IHttpRequest } from "@smithy/protocol-http";
-import type { BuildHandlerArguments, Provider } from "@smithy/types";
+import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } from "@smithy/types";
 
 /**
  * @internal
  */
 type PreviouslyResolved = Partial<{
+  credentials?: AwsCredentialIdentityProvider;
   accountIdEndpointMode?: Provider<AccountIdEndpointMode>;
 }>;
 
@@ -34,6 +39,16 @@ export async function checkFeatures(
       case "required":
         setFeature(context, "ACCOUNT_ID_MODE_REQUIRED", "R");
         break;
+    }
+  }
+
+  if (typeof config.credentials === "function") {
+    const credentials: AttributedAwsCredentialIdentity = await config.credentials?.();
+    if (credentials.accountId) {
+      setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
+    }
+    for (const [key, value] of Object.entries(credentials.$source ?? {})) {
+      setFeature(context, key as keyof AwsSdkCredentialsFeatures, value);
     }
   }
 }

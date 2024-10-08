@@ -29,6 +29,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "*",
     "@aws-sdk/client-cognito-identity": "*",
     "@aws-sdk/client-sso": "*",
     "@aws-sdk/client-sts": "*",

@@ -295,6 +295,9 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "ENV_ACCESS_KEY",
         secretAccessKey: "ENV_SECRET_KEY",
+        $source: {
+          CREDENTIALS_ENV_VARS: "g",
+        },
       });
     });
 
@@ -312,6 +315,9 @@ describe("credential-provider-node integration test", () => {
         expiration: new Date("2000-01-01T00:00:00.000Z"),
         sessionToken: "ENV_SESSION_TOKEN",
         credentialScope: "us-env-1",
+        $source: {
+          CREDENTIALS_ENV_VARS: "g",
+        },
       });
     });
 
@@ -331,6 +337,9 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "INI_STATIC_ACCESS_KEY",
         secretAccessKey: "INI_STATIC_SECRET_KEY",
+        $source: {
+          CREDENTIALS_PROFILE: "n",
+        },
       });
     });
   });
@@ -356,6 +365,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-sso-1-us-sso-region-1",
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_SSO_LEGACY: "u",
+        },
       });
     });
   });
@@ -371,6 +384,9 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "INI_STATIC_ACCESS_KEY",
         secretAccessKey: "INI_STATIC_SECRET_KEY",
+        $source: {
+          CREDENTIALS_PROFILE: "n",
+        },
       });
     });
 
@@ -395,6 +411,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-west-2",
+        $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
     });
 
@@ -423,6 +443,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__eu-west-1",
+        $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
     });
 
@@ -451,6 +475,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-gov-stsar-1",
+        $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
     });
 
@@ -471,29 +499,41 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsarwi-1__us-west-2",
+        $source: {
+          CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
       });
     });
 
-    it("should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is configured for web identity and the client region is not the default AWS partition", async () => {
-      sts = new STS({
-        region: "us-gov-sts-1",
-        requestHandler: mockRequestHandler,
-      });
-      Object.assign(iniProfileData.default, {
-        region: "us-gov-sts-1",
-        web_identity_token_file: "token-filepath",
-        role_arn: "ROLE_ARN",
-      });
-      await sts.getCallerIdentity({});
-      const credentials = await sts.config.credentials();
-      expect(credentials).toEqual({
-        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
-        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-        sessionToken: "STS_ARWI_SESSION_TOKEN",
-        expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsarwi-1__us-gov-sts-1",
-      });
-    });
+    it(
+      "should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is" +
+        " configured for web identity and the client region is not the default AWS partition",
+      async () => {
+        sts = new STS({
+          region: "us-gov-sts-1",
+          requestHandler: mockRequestHandler,
+        });
+        Object.assign(iniProfileData.default, {
+          region: "us-gov-sts-1",
+          web_identity_token_file: "token-filepath",
+          role_arn: "ROLE_ARN",
+        });
+        await sts.getCallerIdentity({});
+        const credentials = await sts.config.credentials();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+          secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+          sessionToken: "STS_ARWI_SESSION_TOKEN",
+          expiration: new Date("3000-01-01T00:00:00.000Z"),
+          credentialScope: "us-stsarwi-1__us-gov-sts-1",
+          $source: {
+            CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
+            CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+          },
+        });
+      }
+    );
 
     it("should resolve process credentials if the profile is a process profile", async () => {
       Object.assign(iniProfileData.default, {
@@ -506,6 +546,10 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
         sessionToken: "PROCESS_SESSION_TOKEN",
         credentialScope: "us-process-1",
+        $source: {
+          CREDENTIALS_PROCESS: "w",
+          CREDENTIALS_PROFILE_PROCESS: "v",
+        },
       });
     });
 
@@ -529,6 +573,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-sso-1-us-sso-region-1",
+        $source: {
+          CREDENTIALS_PROFILE_SSO: "r",
+          CREDENTIALS_SSO: "s",
+        },
       });
     });
 
@@ -561,6 +609,11 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-west-2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
       expect(spy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -601,6 +654,11 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-west-2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
       expect(assumeRoleArns).toEqual(["ROLE_ARN_1", "ROLE_ARN_2"]);
     });
@@ -643,6 +701,11 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-west-2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
       expect(spy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -692,6 +755,11 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-west-2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
       });
       expect(spy).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -720,6 +788,10 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
         sessionToken: "PROCESS_SESSION_TOKEN",
         credentialScope: "us-process-1",
+        $source: {
+          CREDENTIALS_PROCESS: "w",
+          CREDENTIALS_PROFILE_PROCESS: "v",
+        },
       });
     });
   });
@@ -736,6 +808,10 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsarwi-1__us-west-2",
+        $source: {
+          CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h",
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
       });
     });
   });
@@ -751,6 +827,9 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
         sessionToken: "CONTAINER_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_HTTP: "z",
+        },
       });
     });
 

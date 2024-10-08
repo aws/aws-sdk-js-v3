@@ -54,6 +54,9 @@ describe(resolveStaticCredentials.name, () => {
       sessionToken: mockProfile.aws_session_token,
       credentialScope: mockProfile.aws_credential_scope,
       accountId: mockProfile.aws_account_id,
+      $source: {
+        CREDENTIALS_PROFILE: "n",
+      },
     });
   });
 });

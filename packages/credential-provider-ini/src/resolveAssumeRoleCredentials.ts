@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
@@ -159,7 +160,7 @@ export const resolveAssumeRoleCredentials = async (
      * can use its role_arn instead of redundantly needing another role_arn at
      * this final layer.
      */
-    return sourceCredsProvider;
+    return sourceCredsProvider.then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o"));
   } else {
     const params: AssumeRoleParams = {
       RoleArn: data.role_arn!,
@@ -181,7 +182,9 @@ export const resolveAssumeRoleCredentials = async (
     }
 
     const sourceCreds = await sourceCredsProvider;
-    return options.roleAssumer!(sourceCreds, params);
+    return options.roleAssumer!(sourceCreds, params).then((creds) =>
+      setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o")
+    );
   }
 };
 

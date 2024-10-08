@@ -1,4 +1,5 @@
-import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
+import { ParsedIniData } from "@smithy/types";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
@@ -67,12 +68,15 @@ describe(getValidatedProcessCredentials.name, () => {
   });
 
   describe("returns validated Process credentials", () => {
-    const getValidatedCredentials = (data: ProcessCredentials): AwsCredentialIdentity => ({
+    const getValidatedCredentials = (data: ProcessCredentials): AttributedAwsCredentialIdentity => ({
       accessKeyId: data.AccessKeyId,
       secretAccessKey: data.SecretAccessKey,
       ...(data.SessionToken && { sessionToken: data.SessionToken }),
       ...(data.Expiration && { expiration: new Date(data.Expiration) }),
       ...(data.AccountId && { accountId: data.AccountId }),
+      $source: {
+        CREDENTIALS_PROCESS: "w",
+      },
     });
 
     it("with all values", () => {

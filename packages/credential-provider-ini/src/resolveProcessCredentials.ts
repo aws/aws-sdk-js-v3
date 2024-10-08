@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { Credentials, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
@@ -23,5 +24,5 @@ export const resolveProcessCredentials = async (options: FromIniInit, profile: s
     fromProcess({
       ...options,
       profile,
-    })()
+    })().then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_PROCESS", "v"))
   );
