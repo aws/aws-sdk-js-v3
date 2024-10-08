@@ -41,6 +41,7 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  *   GlobalReplicationGroupId: "STRING_VALUE", // required
  *   ApplyImmediately: true || false, // required
  *   CacheNodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   CacheParameterGroupName: "STRING_VALUE",
  *   GlobalReplicationGroupDescription: "STRING_VALUE",

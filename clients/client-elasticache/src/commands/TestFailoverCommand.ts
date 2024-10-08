@@ -50,7 +50,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                <p> </p>
  *             </li>
  *             <li>
- *                <p>If calling this operation multiple times on different shards in the same Redis OSS (cluster mode enabled) replication group, the first node replacement must
+ *                <p>If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must
  *                     complete before a subsequent call can be made.</p>
  *             </li>
  *             <li>
@@ -237,6 +237,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *

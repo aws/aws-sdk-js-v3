@@ -56,6 +56,8 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  *   ],
  *   SnapshotRetentionLimit: Number("int"),
  *   DailySnapshotTime: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   MajorEngineVersion: "STRING_VALUE",
  * };
  * const command = new ModifyServerlessCacheCommand(input);
  * const response = await client.send(command);

@@ -57,6 +57,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *   CacheParameterGroupName: "STRING_VALUE",
  *   NotificationTopicStatus: "STRING_VALUE",
  *   ApplyImmediately: true || false,
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   SnapshotRetentionLimit: Number("int"),

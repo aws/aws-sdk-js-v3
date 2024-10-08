@@ -28,9 +28,9 @@ export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMe
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**
- * <p>Dynamically decreases the number of replicas in a Redis OSS (cluster mode disabled)
+ * <p>Dynamically decreases the number of replicas in a Valkey or Redis OSS (cluster mode disabled)
  *             replication group or the number of replica nodes in one or more node groups (shards) of
- *             a Redis OSS (cluster mode enabled) replication group. This operation is performed with no
+ *             a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no
  *             cluster down time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +180,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
