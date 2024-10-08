@@ -2654,6 +2654,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterEndpoint: _json,
     DataTiering: __expectString,
     Description: __expectString,
+    Engine: __expectString,
     EnginePatchVersion: __expectString,
     EngineVersion: __expectString,
     KmsKeyId: __expectString,
@@ -2684,6 +2685,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
 const de_ClusterConfiguration = (output: any, context: __SerdeContext): ClusterConfiguration => {
   return take(output, {
     Description: __expectString,
+    Engine: __expectString,
     EngineVersion: __expectString,
     MaintenanceWindow: __expectString,
     Name: __expectString,
@@ -3113,6 +3115,7 @@ const de_ServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate =
     AutoUpdateStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ClusterName: __expectString,
     Description: __expectString,
+    Engine: __expectString,
     NodesUpdated: __expectString,
     ReleaseDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ServiceUpdateName: __expectString,

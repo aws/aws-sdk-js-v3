@@ -60,6 +60,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       NodeType: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
  * //       EngineVersion: "STRING_VALUE",
  * //       MaintenanceWindow: "STRING_VALUE",
  * //       TopicArn: "STRING_VALUE",

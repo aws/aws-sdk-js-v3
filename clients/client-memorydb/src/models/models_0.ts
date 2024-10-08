@@ -450,13 +450,20 @@ export interface Cluster {
   NodeType?: string;
 
   /**
-   * <p>The Redis OSS engine version used by the cluster</p>
+   * <p>
+   *          The Redis OSS or Valkey engine used by the cluster.</p>
+   * @public
+   */
+  Engine?: string;
+
+  /**
+   * <p>The Redis engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string;
 
   /**
-   * <p>The Redis OSS engine patch version used by the cluster</p>
+   * <p>The engine patch version used by the cluster</p>
    * @public
    */
   EnginePatchVersion?: string;
@@ -772,7 +779,13 @@ export interface ClusterConfiguration {
   NodeType?: string;
 
   /**
-   * <p>The Redis OSS engine version used by the cluster</p>
+   * <p>The configuration for the Redis OSS or Valkey engine used by the cluster.</p>
+   * @public
+   */
+  Engine?: string;
+
+  /**
+   * <p>The engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string;
@@ -1336,7 +1349,13 @@ export interface CreateClusterRequest {
   ACLName: string | undefined;
 
   /**
-   * <p>The version number of the Redis OSS engine to be used for the cluster.</p>
+   * <p>The name of the engine to be used for the nodes in this cluster. The value must be set to either Redis or Valkey.</p>
+   * @public
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version number of the engine to be used for the cluster.</p>
    * @public
    */
   EngineVersion?: string;
@@ -2435,7 +2454,13 @@ export interface DescribeClustersResponse {
  */
 export interface DescribeEngineVersionsRequest {
   /**
-   * <p>The Redis OSS engine version</p>
+   * <p>The engine version to return. Valid values are either valkey or redis.</p>
+   * @public
+   */
+  Engine?: string;
+
+  /**
+   * <p>The engine version.</p>
    * @public
    */
   EngineVersion?: string;
@@ -2466,10 +2491,16 @@ export interface DescribeEngineVersionsRequest {
 }
 
 /**
- * <p>Provides details of the Redis OSS engine version</p>
+ * <p>Provides details of the engine version.</p>
  * @public
  */
 export interface EngineVersionInfo {
+  /**
+   * <p>The version of the Redis OSS or Valkey engine used by the cluster.</p>
+   * @public
+   */
+  Engine?: string;
+
   /**
    * <p>The engine version</p>
    * @public
@@ -3131,6 +3162,12 @@ export interface ServiceUpdate {
    * @public
    */
   Type?: ServiceUpdateType;
+
+  /**
+   * <p>The MemoryDB engine to which the update applies. The values are either Redis or Valkey.</p>
+   * @public
+   */
+  Engine?: string;
 
   /**
    * <p>A list of nodes updated by the service update</p>
@@ -3897,6 +3934,12 @@ export interface UpdateClusterRequest {
    * @public
    */
   NodeType?: string;
+
+  /**
+   * <p>The name of the engine to be used for the nodes in this cluster. The value must be set to either Redis or Valkey.</p>
+   * @public
+   */
+  Engine?: string;
 
   /**
    * <p>The upgraded version of the engine to be run on the nodes. You can upgrade to a newer engine version, but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster and create it anew with the earlier engine version.</p>

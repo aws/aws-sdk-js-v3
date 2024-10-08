@@ -64,6 +64,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   ],
  *   SnapshotWindow: "STRING_VALUE",
  *   ACLName: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   DataTiering: true || false,
@@ -118,6 +119,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",

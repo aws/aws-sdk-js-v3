@@ -29,11 +29,6 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 
 /**
  * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
- *          <note>
- *             <p>
- *                <code>CreateSnapshot</code> permission is required to create a final snapshot.
- *          Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +89,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",

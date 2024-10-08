@@ -48,6 +48,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *   SnapshotWindow: "STRING_VALUE",
  *   SnapshotRetentionLimit: Number("int"),
  *   NodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   ReplicaConfiguration: { // ReplicaConfigurationRequest
  *     ReplicaCount: Number("int"),
@@ -107,6 +108,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",

@@ -58,6 +58,7 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * //       Description: "STRING_VALUE",
  * //       Status: "available" || "in-progress" || "complete" || "scheduled",
  * //       Type: "security-update",
+ * //       Engine: "STRING_VALUE",
  * //       NodesUpdated: "STRING_VALUE",
  * //       AutoUpdateStartDate: new Date("TIMESTAMP"),
  * //     },
