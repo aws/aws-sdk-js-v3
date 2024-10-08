@@ -43,12 +43,19 @@ export async function checkFeatures(
   }
 
   if (typeof config.credentials === "function") {
-    const credentials: AttributedAwsCredentialIdentity = await config.credentials?.();
-    if (credentials.accountId) {
-      setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
-    }
-    for (const [key, value] of Object.entries(credentials.$source ?? {})) {
-      setFeature(context, key as keyof AwsSdkCredentialsFeatures, value);
+    try {
+      const credentials: AttributedAwsCredentialIdentity = await config.credentials?.();
+      if (credentials.accountId) {
+        setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
+      }
+      for (const [key, value] of Object.entries(credentials.$source ?? {})) {
+        setFeature(context, key as keyof AwsSdkCredentialsFeatures, value);
+      }
+    } catch (e: unknown) {
+      // Sometimes config.credentials is a function but only throws
+      // as a way of informing users that something is missing.
+      // That error and any other credential retrieval errors are
+      // not relevant for feature-checking and should be ignored.
     }
   }
 }
