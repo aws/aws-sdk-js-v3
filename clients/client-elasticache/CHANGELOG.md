@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+
+### Features
+
+* **client-elasticache:** AWS ElastiCache SDK now supports using APIs with newly launched Valkey engine. Please refer to updated AWS ElastiCache public documentation for detailed information on API usage. ([1cbb8d6](https://github.com/aws/aws-sdk-js-v3/commit/1cbb8d6c6645c0783f80289021bc37d97eae6feb))
+
+
+
+
+
 # [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticache

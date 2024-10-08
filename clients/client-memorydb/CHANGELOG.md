@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+
+### Features
+
+* **client-memorydb:** Amazon MemoryDB SDK now supports all APIs for newly launched Valkey engine. Please refer to the updated Amazon MemoryDB public documentation for detailed information on API usage. ([d4a2f23](https://github.com/aws/aws-sdk-js-v3/commit/d4a2f2321e419dd25ba319c87daf1691a1183a7f))
+
+
+
+
+
 # [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
 
 **Note:** Version bump only for package @aws-sdk/client-memorydb

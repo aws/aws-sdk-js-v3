@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+
+### Bug Fixes
+
+* **middleware-user-agent:** ignore errors from inspecting credentials ([#6551](https://github.com/aws/aws-sdk-js-v3/issues/6551)) ([4ddaa97](https://github.com/aws/aws-sdk-js-v3/commit/4ddaa970800ec8487cc3403282a590b909dffb32))
+
+
+### Features
+
+* **client-elasticache:** AWS ElastiCache SDK now supports using APIs with newly launched Valkey engine. Please refer to updated AWS ElastiCache public documentation for detailed information on API usage. ([1cbb8d6](https://github.com/aws/aws-sdk-js-v3/commit/1cbb8d6c6645c0783f80289021bc37d97eae6feb))
+* **client-memorydb:** Amazon MemoryDB SDK now supports all APIs for newly launched Valkey engine. Please refer to the updated Amazon MemoryDB public documentation for detailed information on API usage. ([d4a2f23](https://github.com/aws/aws-sdk-js-v3/commit/d4a2f2321e419dd25ba319c87daf1691a1183a7f))
+* **clients:** update client endpoints as of 2024-10-08 ([8844bb2](https://github.com/aws/aws-sdk-js-v3/commit/8844bb268706006a7ec14252a99332e751b367f0))
+
+
+
+
+
 # [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
 
 
