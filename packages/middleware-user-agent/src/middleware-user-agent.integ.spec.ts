@@ -36,7 +36,7 @@ describe("middleware-user-agent", () => {
 
       requireRequestsFrom(doc).toMatch({
         headers: {
-          "user-agent": /(.*?) m\/d,O,R$/,
+          "user-agent": /(.*?) m\/d,E,O,R$/,
         },
       });
 

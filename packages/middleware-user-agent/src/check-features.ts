@@ -38,10 +38,9 @@ export async function checkFeatures(
   config: PreviouslyResolved,
   args: BuildHandlerArguments<any>
 ): Promise<void> {
-  // eslint-disable-next-line
   const request = args.request as IHttpRequest;
 
-  if (request.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
+  if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
     setFeature(context, "PROTOCOL_RPC_V2_CBOR", "M");
   }
 

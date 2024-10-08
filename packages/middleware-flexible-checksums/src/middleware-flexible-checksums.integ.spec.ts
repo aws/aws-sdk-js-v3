@@ -137,7 +137,7 @@ describe("middleware-flexible-checksums", () => {
 
           requireRequestsFrom(client).toMatch({
             headers: {
-              "user-agent": new RegExp(`(.*?) m\/${id}$`),
+              "user-agent": new RegExp(`(.*?) m\/${id},E$`),
             },
           });
 
