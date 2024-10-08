@@ -1,9 +1,4 @@
-import type {
-  AttributedAwsCredentialIdentity,
-  AwsHandlerExecutionContext,
-  AwsSdkCredentialsFeatures,
-  AwsSdkFeatures,
-} from "@aws-sdk/types";
+import type { AwsHandlerExecutionContext, AwsSdkFeatures } from "@aws-sdk/types";
 
 /**
  * @internal
@@ -28,21 +23,4 @@ export function setFeature<F extends keyof AwsSdkFeatures>(
     context.__aws_sdk_context.features = {};
   }
   context.__aws_sdk_context.features![feature] = value;
-}
-
-/**
- * @internal
- *
- * @returns the credentials with source feature attribution.
- */
-export function setCredentialFeature<F extends keyof AwsSdkCredentialsFeatures>(
-  credentials: AttributedAwsCredentialIdentity,
-  feature: F,
-  value: AwsSdkCredentialsFeatures[F]
-): AttributedAwsCredentialIdentity {
-  if (!credentials.$source) {
-    credentials.$source = {};
-  }
-  credentials.$source![feature] = value;
-  return credentials;
 }
