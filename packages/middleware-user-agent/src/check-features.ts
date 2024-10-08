@@ -18,6 +18,11 @@ type PreviouslyResolved = Partial<{
 
 /**
  * @internal
+ */
+const ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
+
+/**
+ * @internal
  * Check for features that don't have a middleware activation site but
  * may be detected on the context, client config, or request.
  */
@@ -29,6 +34,10 @@ export async function checkFeatures(
   // eslint-disable-next-line
   const request = args.request as IHttpRequest;
   if (typeof config.accountIdEndpointMode === "function") {
+    const endpointV2 = context.endpointV2;
+    if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
+      setFeature(context, "ACCOUNT_ID_ENDPOINT", "O");
+    }
     switch (await config.accountIdEndpointMode?.()) {
       case "disabled":
         setFeature(context, "ACCOUNT_ID_MODE_DISABLED", "Q");

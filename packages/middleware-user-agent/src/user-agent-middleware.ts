@@ -3,10 +3,10 @@ import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
   AbsoluteLocation,
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildHandlerOptions,
-  BuildHandlerOutput,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
+  FinalizeRequestHandlerOptions,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
@@ -41,10 +41,10 @@ import { encodeFeatures } from "./encode-features";
 export const userAgentMiddleware =
   (options: UserAgentResolvedConfig) =>
   <Output extends MetadataBearer>(
-    next: BuildHandler<any, any>,
+    next: FinalizeHandler<any, any>,
     context: HandlerExecutionContext | AwsHandlerExecutionContext
-  ): BuildHandler<any, any> =>
-  async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+  ): FinalizeHandler<any, any> =>
+  async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
     const { request } = args;
     if (!HttpRequest.isInstance(request)) {
       return next(args);
@@ -130,9 +130,9 @@ const escapeUserAgent = (userAgentPair: UserAgentPair): string => {
     }, "") as string;
 };
 
-export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
+export const getUserAgentMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
   name: "getUserAgentMiddleware",
-  step: "build",
+  step: "finalizeRequest",
   priority: "low",
   tags: ["SET_USER_AGENT", "USER_AGENT"],
   override: true,
