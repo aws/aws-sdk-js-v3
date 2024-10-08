@@ -28,7 +28,7 @@ export const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
 /**
  * @internal
  */
-export const resolveStaticCredentials = (
+export const resolveStaticCredentials = async (
   profile: StaticCredsProfile,
   options?: FromIniInit
 ): Promise<AwsCredentialIdentity> => {
@@ -42,5 +42,5 @@ export const resolveStaticCredentials = (
     ...(profile.aws_account_id && { accountId: profile.aws_account_id }),
   };
 
-  return Promise.resolve(setCredentialFeature(credentials, "CREDENTIALS_PROFILE", "n"));
+  return setCredentialFeature(credentials, "CREDENTIALS_PROFILE", "n");
 };
