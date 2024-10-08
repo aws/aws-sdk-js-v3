@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";

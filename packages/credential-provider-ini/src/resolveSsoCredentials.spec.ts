@@ -1,4 +1,4 @@
-import { fromSSO, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
+import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { AwsCredentialIdentity } from "@smithy/types";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
@@ -30,7 +30,7 @@ describe(resolveSsoCredentials.name, () => {
     (fromSSO as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
 
     try {
-      await resolveSsoCredentials(mockProfileName);
+      await resolveSsoCredentials(mockProfileName, {});
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
@@ -49,7 +49,7 @@ describe(resolveSsoCredentials.name, () => {
 
     (fromSSO as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
 
-    const receivedCreds = await resolveSsoCredentials(mockProfileName);
+    const receivedCreds = await resolveSsoCredentials(mockProfileName, {});
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(fromSSO).toHaveBeenCalledWith({
       profile: mockProfileName,

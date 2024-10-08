@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { Credentials, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";

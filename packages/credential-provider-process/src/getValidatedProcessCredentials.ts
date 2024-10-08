@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import { ProcessCredentials } from "./ProcessCredentials";

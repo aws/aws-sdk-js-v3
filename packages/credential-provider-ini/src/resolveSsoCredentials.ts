@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { SsoProfile } from "@aws-sdk/credential-provider-sso";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import type { IniSection, Profile } from "@smithy/types";

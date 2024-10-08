@@ -117,6 +117,6 @@ describe(resolveProfileData.name, () => {
     (resolveSsoCredentials as jest.Mock).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveSsoCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions);
+    expect(resolveSsoCredentials).toHaveBeenCalledWith(mockProfileName, {}, mockOptions);
   });
 });

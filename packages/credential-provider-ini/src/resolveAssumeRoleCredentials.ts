@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core";
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
