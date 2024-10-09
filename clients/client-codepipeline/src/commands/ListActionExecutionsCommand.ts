@@ -63,7 +63,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //       status: "InProgress" || "Abandoned" || "Succeeded" || "Failed",
  * //       input: { // ActionExecutionInput
  * //         actionTypeId: { // ActionTypeId
- * //           category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //           category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //           owner: "AWS" || "ThirdParty" || "Custom", // required
  * //           provider: "STRING_VALUE", // required
  * //           version: "STRING_VALUE", // required

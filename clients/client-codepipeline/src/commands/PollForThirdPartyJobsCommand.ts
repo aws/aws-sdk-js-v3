@@ -43,7 +43,7 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * const client = new CodePipelineClient(config);
  * const input = { // PollForThirdPartyJobsInput
  *   actionTypeId: { // ActionTypeId
- *     category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *     category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *     owner: "AWS" || "ThirdParty" || "Custom", // required
  *     provider: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required

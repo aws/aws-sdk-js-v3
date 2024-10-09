@@ -37,7 +37,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // CreateCustomActionTypeInput
- *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  *   settings: { // ActionTypeSettings
@@ -77,7 +77,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * // { // CreateCustomActionTypeOutput
  * //   actionType: { // ActionType
  * //     id: { // ActionTypeId
- * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //       owner: "AWS" || "ThirdParty" || "Custom", // required
  * //       provider: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

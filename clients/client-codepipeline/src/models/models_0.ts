@@ -181,6 +181,7 @@ export class InvalidClientTokenException extends __BaseException {
 export const ActionCategory = {
   Approval: "Approval",
   Build: "Build",
+  Compute: "Compute",
   Deploy: "Deploy",
   Invoke: "Invoke",
   Source: "Source",

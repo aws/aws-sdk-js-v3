@@ -60,7 +60,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *       jobTimeout: Number("int"),
  *     },
  *     id: { // ActionTypeIdentifier
- *       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *       owner: "STRING_VALUE", // required
  *       provider: "STRING_VALUE", // required
  *       version: "STRING_VALUE", // required
