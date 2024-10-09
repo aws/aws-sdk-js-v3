@@ -42,20 +42,16 @@ export async function checkFeatures(
     }
   }
 
-  if (typeof config.credentials === "function") {
-    try {
-      const credentials: AttributedAwsCredentialIdentity = await config.credentials?.();
-      if (credentials.accountId) {
-        setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
-      }
-      for (const [key, value] of Object.entries(credentials.$source ?? {})) {
-        setFeature(context, key as keyof AwsSdkCredentialsFeatures, value);
-      }
-    } catch (e: unknown) {
-      // Sometimes config.credentials is a function but only throws
-      // as a way of informing users that something is missing.
-      // That error and any other credential retrieval errors are
-      // not relevant for feature-checking and should be ignored.
+  // TODO: later version of @smithy/types has explicit typing for this.
+  const identity = (context.__smithy_context?.selectedHttpAuthScheme as any)?.identity;
+
+  if ((identity as AttributedAwsCredentialIdentity)?.$source) {
+    const credentials = identity as AttributedAwsCredentialIdentity;
+    if (credentials.accountId) {
+      setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
+    }
+    for (const [key, value] of Object.entries(credentials.$source ?? {})) {
+      setFeature(context, key as keyof AwsSdkCredentialsFeatures, value);
     }
   }
 }
