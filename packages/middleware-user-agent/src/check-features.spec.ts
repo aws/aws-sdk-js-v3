@@ -27,4 +27,8 @@ describe(checkFeatures.name, () => {
     expect(config.credentials).not.toHaveBeenCalled();
     expect(context.__aws_sdk_context?.features?.RESOLVED_ACCOUNT_ID).toBe("T");
   });
+
+  it("should not throw an error if no fields are present", async () => {
+    await checkFeatures({}, {}, {} as any);
+  });
 });
