@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+
+### Features
+
+* **client-codepipeline:** AWS CodePipeline introduces a Compute category ([3d482c5](https://github.com/aws/aws-sdk-js-v3/commit/3d482c546dc9e12bb600f02491b39cf3fea2fd23))
+
+
+
+
+
 # [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+
+### Bug Fixes
+
+* **credentials:** used selected auth scheme identity instead of calling credentials provider ([#6555](https://github.com/aws/aws-sdk-js-v3/issues/6555)) ([27f462b](https://github.com/aws/aws-sdk-js-v3/commit/27f462b20c94e92a010e41bddb08b2e83b57810f))
+
+
+
+
+
 # [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
 
 
