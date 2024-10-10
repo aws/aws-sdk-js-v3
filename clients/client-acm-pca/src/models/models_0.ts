@@ -818,33 +818,29 @@ export interface CreateCertificateAuthorityRequest {
   CertificateAuthorityConfiguration: CertificateAuthorityConfiguration | undefined;
 
   /**
-   * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to
-   * 			enable a certificate revocation list (CRL), to enable both, or to enable neither. The
-   * 			default is for both certificate validation mechanisms to be disabled. </p>
-   *          <note>
-   *             <p>The following requirements apply to revocation configurations.</p>
-   *             <ul>
-   *                <li>
-   *                   <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code>
+   * <p>Contains information to enable support for Online Certificate Status Protocol (OCSP), certificate revocation list (CRL), both protocols, or neither. By default, both certificate validation mechanisms are disabled.</p>
+   *          <p>The following requirements apply to revocation configurations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code>
    * 					parameter, and will fail if other parameters such as <code>CustomCname</code> or
    * 					<code>ExpirationInDays</code> are included.</p>
-   *                </li>
-   *                <li>
-   *                   <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to
+   *             </li>
+   *             <li>
+   *                <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to
    * 					<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Amazon S3
    * 					bucket naming rules</a>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>A configuration containing a custom Canonical
+   *             </li>
+   *             <li>
+   *                <p>A configuration containing a custom Canonical
    * 						Name (CNAME) parameter for CRLs or OCSP must conform to <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC2396</a> restrictions
    * 						on the use of special characters in a CNAME. </p>
-   *                </li>
-   *                <li>
-   *                   <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a
+   *             </li>
+   *             <li>
+   *                <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a
    * 						protocol prefix such as "http://" or "https://".</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
    *          <p> For more information, see the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
    * 			types.</p>
    * @public
@@ -2716,34 +2712,33 @@ export interface UpdateCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to
-   * 			enable a certificate revocation list (CRL), to enable both, or to enable neither. If
-   * 			this parameter is not supplied, existing capibilites remain unchanged. For more
+   * <p>Contains information to enable support for Online Certificate Status Protocol (OCSP), certificate revocation list (CRL), both protocols, or neither. If you don't supply this parameter, existing capibilites remain unchanged. For more
    * 			information, see the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a> types.</p>
-   *          <note>
-   *             <p>The following requirements apply to revocation configurations.</p>
-   *             <ul>
-   *                <li>
-   *                   <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code>
+   *          <p>The following requirements apply to revocation configurations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code>
    * 					parameter, and will fail if other parameters such as <code>CustomCname</code> or
    * 					<code>ExpirationInDays</code> are included.</p>
-   *                </li>
-   *                <li>
-   *                   <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to
+   *             </li>
+   *             <li>
+   *                <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to
    * 					<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Amazon S3
    * 					bucket naming rules</a>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>A configuration containing a custom Canonical
+   *             </li>
+   *             <li>
+   *                <p>A configuration containing a custom Canonical
    * 						Name (CNAME) parameter for CRLs or OCSP must conform to <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC2396</a> restrictions
    * 						on the use of special characters in a CNAME. </p>
-   *                </li>
-   *                <li>
-   *                   <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a
+   *             </li>
+   *             <li>
+   *                <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a
    * 						protocol prefix such as "http://" or "https://".</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p> If you update the <code>S3BucketName</code> of <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>, you can break revocation for existing certificates. In other words, if you call <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> to update the CRL configuration's S3 bucket name, Amazon Web Services Private CA only writes CRLs to the new S3 bucket. Certificates issued prior to this point will have the old S3 bucket name in your CRL Distribution Point (CDP) extension, essentially breaking revocation. If you must update the S3 bucket, you'll need to reissue old certificates to keep the revocation working. Alternatively, you can use a <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html#privateca-Type-CrlConfiguration-CustomCname">CustomCname</a> in your CRL configuration if you might need to change the S3 bucket name in the future.</p>
+   *          </important>
    * @public
    */
   RevocationConfiguration?: RevocationConfiguration;
