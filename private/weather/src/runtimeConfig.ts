@@ -3,7 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { NODE_APP_ID_CONFIG_OPTIONS, defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
@@ -33,7 +33,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentials: config?.credentials ?? credentialDefaultProvider(),
     defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ?? defaultUserAgent({ clientVersion: packageInfo.version }),
+      config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({ clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

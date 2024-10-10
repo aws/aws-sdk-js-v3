@@ -13,7 +13,7 @@ export interface PreviouslyResolved {
  * Default provider to the user agent in browsers. It's a best effort to infer
  * the device information. It uses bowser library to detect the browser and version
  */
-export const defaultUserAgent =
+export const createDefaultUserAgentProvider =
   ({ serviceId, clientVersion }: DefaultUserAgentOptions): ((config: PreviouslyResolved) => Promise<UserAgent>) =>
   async (config?: PreviouslyResolved) => {
     const parsedUA =
@@ -47,3 +47,12 @@ export const defaultUserAgent =
 
     return sections;
   };
+
+/**
+ *
+ * @internal
+ *
+ * @deprecated use createDefaultUserAgentProvider
+ *
+ */
+export const defaultUserAgent = createDefaultUserAgentProvider;

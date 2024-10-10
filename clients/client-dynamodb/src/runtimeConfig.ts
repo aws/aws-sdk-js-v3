@@ -6,7 +6,7 @@ import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/cor
 import { NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS } from "@aws-sdk/core/account-id-endpoint";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "@aws-sdk/middleware-endpoint-discovery";
-import { NODE_APP_ID_CONFIG_OPTIONS, defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -45,7 +45,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
-      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     endpointDiscoveryEnabledProvider:
       config?.endpointDiscoveryEnabledProvider ?? loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
