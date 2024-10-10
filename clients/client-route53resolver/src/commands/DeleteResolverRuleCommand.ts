@@ -58,6 +58,7 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
  * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ * //         ServerNameIndication: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",

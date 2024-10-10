@@ -2149,11 +2149,11 @@ export interface CreateResolverQueryLogConfigRequest {
    *                <p>
    *                   <b>S3 bucket</b>: </p>
    *                <p>
-   *                   <code>arn:aws:s3:::examplebucket</code>
+   *                   <code>arn:aws:s3:::amzn-s3-demo-bucket</code>
    *                </p>
    *                <p>You can optionally append a file prefix to the end of the ARN.</p>
    *                <p>
-   *                   <code>arn:aws:s3:::examplebucket/development/</code>
+   *                   <code>arn:aws:s3:::amzn-s3-demo-bucket/development/</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2408,6 +2408,15 @@ export interface TargetAddress {
    * @public
    */
   Protocol?: Protocol;
+
+  /**
+   * <p>
+   * 			The Server Name Indication of the DoH server that you want to forward queries to.
+   * 			This is only used if the Protocol of the <code>TargetAddress</code> is <code>DoH</code>.
+   * 		</p>
+   * @public
+   */
+  ServerNameIndication?: string;
 }
 
 /**
@@ -5711,6 +5720,10 @@ export interface UpdateFirewallRuleRequest {
    * 				NUMBER can be 1-65334, for
    * 				example, TYPE28. For more information, see
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
+   *                <note>
+   *                   <p>If you set up a firewall BLOCK rule with action NXDOMAIN on query type equals AAAA,
+   * 					this action will not be applied to synthetic IPv6 addresses generated when DNS64 is enabled. </p>
+   *                </note>
    *             </li>
    *          </ul>
    * @public
