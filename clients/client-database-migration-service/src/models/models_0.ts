@@ -123,6 +123,26 @@ export interface AddTagsToResourceMessage {
 export interface AddTagsToResourceResponse {}
 
 /**
+ * <p>The resource is in a state that prevents it from being used for database migration.</p>
+ * @public
+ */
+export class InvalidResourceStateFault extends __BaseException {
+  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
+    super({
+      name: "InvalidResourceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
+  }
+}
+
+/**
  * <p>The resource could not be found.</p>
  * @public
  */
@@ -365,26 +385,6 @@ export interface BatchStartRecommendationsResponse {
 }
 
 /**
- * <p>The resource is in a state that prevents it from being used for database migration.</p>
- * @public
- */
-export class InvalidResourceStateFault extends __BaseException {
-  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
-    super({
-      name: "InvalidResourceStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -563,6 +563,405 @@ export interface CancelReplicationTaskAssessmentRunResponse {
    * @public
    */
   ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MigrationTypeValue = {
+  CDC: "cdc",
+  FULL_LOAD: "full-load",
+  FULL_LOAD_AND_CDC: "full-load-and-cdc",
+} as const;
+
+/**
+ * @public
+ */
+export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
+
+/**
+ * <p>Defines settings for a source data provider for a data migration.</p>
+ * @public
+ */
+export interface SourceDataSetting {
+  /**
+   * <p>The change data capture (CDC) start position for the source data provider.</p>
+   * @public
+   */
+  CDCStartPosition?: string;
+
+  /**
+   * <p>The change data capture (CDC) start time for the source data provider.</p>
+   * @public
+   */
+  CDCStartTime?: Date;
+
+  /**
+   * <p>The change data capture (CDC) stop time for the source data provider.</p>
+   * @public
+   */
+  CDCStopTime?: Date;
+
+  /**
+   * <p>The name of the replication slot on the source data provider. This attribute is only
+   *       valid for a PostgreSQL or Aurora PostgreSQL source.</p>
+   * @public
+   */
+  SlotName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataMigrationMessage {
+  /**
+   * <p>A user-friendly name for the data migration. Data migration names
+   *       have the following constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must begin with a letter, and can only contain ASCII letters,
+   *          digits, and hyphens. </p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>Length must be from 1 to 255 characters.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DataMigrationName?: string;
+
+  /**
+   * <p>An identifier for the migration project.</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies if the data migration is full-load only, change data capture (CDC) only, or full-load and CDC.</p>
+   * @public
+   */
+  DataMigrationType: MigrationTypeValue | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the service access role that you want to use to
+   *          create the data migration.</p>
+   * @public
+   */
+  ServiceAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable CloudWatch logs for the data migration.</p>
+   * @public
+   */
+  EnableCloudwatchLogs?: boolean;
+
+  /**
+   * <p>Specifies information about the source data provider.</p>
+   * @public
+   */
+  SourceDataSettings?: SourceDataSetting[];
+
+  /**
+   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
+   * @public
+   */
+  NumberOfJobs?: number;
+
+  /**
+   * <p>One or more tags to be assigned to the data migration.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>An optional JSON string specifying what tables, views, and schemas
+   *       to include or exclude from the migration.</p>
+   * @public
+   */
+  SelectionRules?: string;
+}
+
+/**
+ * <p>Options for configuring a data migration, including whether to enable CloudWatch logs,
+ *       and the selection rules to use to include or exclude database objects from the migration.</p>
+ * @public
+ */
+export interface DataMigrationSettings {
+  /**
+   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
+   * @public
+   */
+  NumberOfJobs?: number;
+
+  /**
+   * <p>Whether to enable CloudWatch logging for the data migration.</p>
+   * @public
+   */
+  CloudwatchLogsEnabled?: boolean;
+
+  /**
+   * <p>A JSON-formatted string that defines what objects to include and exclude from the migration.</p>
+   * @public
+   */
+  SelectionRules?: string;
+}
+
+/**
+ * <p>Information about the data migration run, including start and stop time, latency, and migration progress.</p>
+ * @public
+ */
+export interface DataMigrationStatistics {
+  /**
+   * <p>The number of tables loaded in the current data migration run.</p>
+   * @public
+   */
+  TablesLoaded?: number;
+
+  /**
+   * <p>The elapsed duration of the data migration run.</p>
+   * @public
+   */
+  ElapsedTimeMillis?: number;
+
+  /**
+   * <p>The data migration's table loading progress.</p>
+   * @public
+   */
+  TablesLoading?: number;
+
+  /**
+   * <p>The data migration's progress in the full-load migration phase.</p>
+   * @public
+   */
+  FullLoadPercentage?: number;
+
+  /**
+   * <p>The current latency of the change data capture (CDC) operation.</p>
+   * @public
+   */
+  CDCLatency?: number;
+
+  /**
+   * <p>The number of tables that are waiting for processing.</p>
+   * @public
+   */
+  TablesQueued?: number;
+
+  /**
+   * <p>The number of tables that DMS failed to process.</p>
+   * @public
+   */
+  TablesErrored?: number;
+
+  /**
+   * <p>The time when the migration started.</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time when the migration stopped or failed.</p>
+   * @public
+   */
+  StopTime?: Date;
+}
+
+/**
+ * <p>This object provides information about a DMS data migration.</p>
+ * @public
+ */
+export interface DataMigration {
+  /**
+   * <p>The user-friendly name for the data migration.</p>
+   * @public
+   */
+  DataMigrationName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies this replication.</p>
+   * @public
+   */
+  DataMigrationArn?: string;
+
+  /**
+   * <p>The UTC time when DMS created the data migration.</p>
+   * @public
+   */
+  DataMigrationCreateTime?: Date;
+
+  /**
+   * <p>The UTC time when DMS started the data migration.</p>
+   * @public
+   */
+  DataMigrationStartTime?: Date;
+
+  /**
+   * <p>The UTC time when data migration ended.</p>
+   * @public
+   */
+  DataMigrationEndTime?: Date;
+
+  /**
+   * <p>The IAM role that the data migration uses to access Amazon Web Services resources.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data migration's associated migration project.</p>
+   * @public
+   */
+  MigrationProjectArn?: string;
+
+  /**
+   * <p>Specifies whether the data migration is full-load only, change data capture (CDC) only, or full-load and CDC.</p>
+   * @public
+   */
+  DataMigrationType?: MigrationTypeValue;
+
+  /**
+   * <p>Specifies CloudWatch settings and selection rules for the data migration.</p>
+   * @public
+   */
+  DataMigrationSettings?: DataMigrationSettings;
+
+  /**
+   * <p>Specifies information about the data migration's source data provider.</p>
+   * @public
+   */
+  SourceDataSettings?: SourceDataSetting[];
+
+  /**
+   * <p>Provides information about the data migration's run, including start and stop time, latency, and data migration progress.</p>
+   * @public
+   */
+  DataMigrationStatistics?: DataMigrationStatistics;
+
+  /**
+   * <p>The current status of the data migration. </p>
+   * @public
+   */
+  DataMigrationStatus?: string;
+
+  /**
+   * <p>The IP addresses of the endpoints for the data migration.</p>
+   * @public
+   */
+  PublicIpAddresses?: string[];
+
+  /**
+   * <p>Information about the data migration's most recent error or failure.</p>
+   * @public
+   */
+  LastFailureMessage?: string;
+
+  /**
+   * <p>The reason the data migration last stopped.</p>
+   * @public
+   */
+  StopReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataMigrationResponse {
+  /**
+   * <p>Information about the created data migration.</p>
+   * @public
+   */
+  DataMigration?: DataMigration;
+}
+
+/**
+ * <p>A dependency threw an exception.</p>
+ * @public
+ */
+export class FailedDependencyFault extends __BaseException {
+  readonly name: "FailedDependencyFault" = "FailedDependencyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FailedDependencyFault, __BaseException>) {
+    super({
+      name: "FailedDependencyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FailedDependencyFault.prototype);
+  }
+}
+
+/**
+ * <p>The action or operation requested isn't valid.</p>
+ * @public
+ */
+export class InvalidOperationFault extends __BaseException {
+  readonly name: "InvalidOperationFault" = "InvalidOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationFault, __BaseException>) {
+    super({
+      name: "InvalidOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationFault.prototype);
+  }
+}
+
+/**
+ * <p>The resource you are attempting to create already exists.</p>
+ * @public
+ */
+export class ResourceAlreadyExistsFault extends __BaseException {
+  readonly name: "ResourceAlreadyExistsFault" = "ResourceAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p></p>
+   * @public
+   */
+  resourceArn?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsFault.prototype);
+    this.resourceArn = opts.resourceArn;
+  }
+}
+
+/**
+ * <p>The quota for this resource quota has been exceeded.</p>
+ * @public
+ */
+export class ResourceQuotaExceededFault extends __BaseException {
+  readonly name: "ResourceQuotaExceededFault" = "ResourceQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ResourceQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -1219,53 +1618,6 @@ export interface CreateDataProviderResponse {
    * @public
    */
   DataProvider?: DataProvider;
-}
-
-/**
- * <p>The resource you are attempting to create already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsFault extends __BaseException {
-  readonly name: "ResourceAlreadyExistsFault" = "ResourceAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * <p></p>
-   * @public
-   */
-  resourceArn?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsFault.prototype);
-    this.resourceArn = opts.resourceArn;
-  }
-}
-
-/**
- * <p>The quota for this resource quota has been exceeded.</p>
- * @public
- */
-export class ResourceQuotaExceededFault extends __BaseException {
-  readonly name: "ResourceQuotaExceededFault" = "ResourceQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ResourceQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -4593,7 +4945,9 @@ export interface CreateEndpointMessage {
    *           <code>"aurora-postgresql"</code>, <code>"opensearch"</code>, <code>"redshift"</code>, <code>"s3"</code>,
    *          <code>"db2"</code>, <code>"db2-zos"</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
-   *          <code>"sqlserver"</code>, <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
+   *          <code>"sqlserver"</code>, <code>"neptune"</code>, <code>"babelfish"</code>,
+   *          <code>redshift-serverless</code>, <code>aurora-serverless</code>, <code>aurora-postgresql-serverless</code>,
+   *          <code>gcp-mysql</code>, <code>azure-sql-managed-instance</code>, <code>redis</code>, <code>dms-transfer</code>.</p>
    * @public
    */
   EngineName: string | undefined;
@@ -6005,11 +6359,9 @@ export interface ComputeConfig {
    * <p>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS
    *          Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value
    *          allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU
-   *          value that you can specify for DMS Serverless is 1. You don't have to specify a value for the
-   *          <code>MinCapacityUnits</code> parameter. If you don't set this value, DMS scans the current activity
-   *          of available source tables to identify an optimum setting for this parameter. If there is no current
-   *          source activity or DMS can't otherwise identify a more appropriate value, it sets this parameter to
-   *          the minimum DCU value allowed, 1.</p>
+   *          value that you can specify for DMS Serverless is 1. If you don't set this value, DMS sets this parameter to the
+   *          minimum DCU value allowed, 1. If there is no current source activity, DMS scales down your replication until it
+   *          reaches the value specified in <code>MinCapacityUnits</code>.</p>
    * @public
    */
   MinCapacityUnits?: number;
@@ -6047,21 +6399,6 @@ export interface ComputeConfig {
    */
   VpcSecurityGroupIds?: string[];
 }
-
-/**
- * @public
- * @enum
- */
-export const MigrationTypeValue = {
-  CDC: "cdc",
-  FULL_LOAD: "full-load",
-  FULL_LOAD_AND_CDC: "full-load-and-cdc",
-} as const;
-
-/**
- * @public
- */
-export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
 
 /**
  * <p></p>
@@ -6947,7 +7284,7 @@ export interface CreateReplicationSubnetGroupMessage {
   /**
    * <p>The name for the replication subnet group. This value is stored as a lowercase
    *          string.</p>
-   *          <p>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces,
+   *          <p>Constraints: Must contain no more than 255 alphanumeric characters, periods,
    *          underscores, or hyphens. Must not be "default".</p>
    *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
@@ -7728,6 +8065,28 @@ export interface DeleteConnectionResponse {
 /**
  * @public
  */
+export interface DeleteDataMigrationMessage {
+  /**
+   * <p>The identifier (name or ARN) of the data migration to delete.</p>
+   * @public
+   */
+  DataMigrationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataMigrationResponse {
+  /**
+   * <p>The deleted data migration.</p>
+   * @public
+   */
+  DataMigration?: DataMigration;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDataProviderMessage {
   /**
    * <p>The identifier of the data provider to delete.</p>
@@ -7846,26 +8205,6 @@ export interface DeleteFleetAdvisorDatabasesResponse {
    * @public
    */
   DatabaseIds?: string[];
-}
-
-/**
- * <p>The action or operation requested isn't valid.</p>
- * @public
- */
-export class InvalidOperationFault extends __BaseException {
-  readonly name: "InvalidOperationFault" = "InvalidOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationFault, __BaseException>) {
-    super({
-      name: "InvalidOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationFault.prototype);
-  }
 }
 
 /**
@@ -8288,6 +8627,66 @@ export interface DescribeConversionConfigurationResponse {
    * @public
    */
   ConversionConfiguration?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataMigrationsMessage {
+  /**
+   * <p>Filters applied to the data migrations.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *          <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   * @public
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string;
+
+  /**
+   * <p>An option to set to avoid returning information about settings. Use this to reduce
+   *          overhead when setting information is too large. To use this option, choose
+   *          <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+   * @public
+   */
+  WithoutSettings?: boolean;
+
+  /**
+   * <p>An option to set to avoid returning information about statistics. Use this to reduce
+   *          overhead when statistics information is too large. To use this option, choose
+   *          <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+   * @public
+   */
+  WithoutStatistics?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataMigrationsResponse {
+  /**
+   * <p>Returns information about the data migrations used in the project.</p>
+   * @public
+   */
+  DataMigrations?: DataMigration[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string;
 }
 
 /**
@@ -12307,210 +12706,39 @@ export interface DescribeTableStatisticsResponse {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const AssessmentReportType = {
-  CSV: "csv",
-  PDF: "pdf",
-} as const;
+export const CreateDataMigrationMessageFilterSensitiveLog = (obj: CreateDataMigrationMessage): any => ({
+  ...obj,
+  ...(obj.SelectionRules && { SelectionRules: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type AssessmentReportType = (typeof AssessmentReportType)[keyof typeof AssessmentReportType];
+export const DataMigrationSettingsFilterSensitiveLog = (obj: DataMigrationSettings): any => ({
+  ...obj,
+  ...(obj.SelectionRules && { SelectionRules: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface ExportMetadataModelAssessmentMessage {
-  /**
-   * <p>The migration project name or Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  MigrationProjectIdentifier: string | undefined;
-
-  /**
-   * <p>A value that specifies the database objects to assess.</p>
-   * @public
-   */
-  SelectionRules: string | undefined;
-
-  /**
-   * <p>The name of the assessment file to create in your Amazon S3 bucket.</p>
-   * @public
-   */
-  FileName?: string;
-
-  /**
-   * <p>The file format of the assessment file.</p>
-   * @public
-   */
-  AssessmentReportTypes?: AssessmentReportType[];
-}
+export const DataMigrationFilterSensitiveLog = (obj: DataMigration): any => ({
+  ...obj,
+  ...(obj.DataMigrationSettings && {
+    DataMigrationSettings: DataMigrationSettingsFilterSensitiveLog(obj.DataMigrationSettings),
+  }),
+  ...(obj.PublicIpAddresses && { PublicIpAddresses: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Provides information about an exported metadata model assessment.</p>
- * @public
+ * @internal
  */
-export interface ExportMetadataModelAssessmentResultEntry {
-  /**
-   * <p>The object key for the object containing the exported metadata model assessment.</p>
-   * @public
-   */
-  S3ObjectKey?: string;
-
-  /**
-   * <p>The URL for the object containing the exported metadata model assessment.</p>
-   * @public
-   */
-  ObjectURL?: string;
-}
-
-/**
- * @public
- */
-export interface ExportMetadataModelAssessmentResponse {
-  /**
-   * <p>The Amazon S3 details for an assessment exported in PDF format.</p>
-   * @public
-   */
-  PdfReport?: ExportMetadataModelAssessmentResultEntry;
-
-  /**
-   * <p>The Amazon S3 details for an assessment exported in CSV format.</p>
-   * @public
-   */
-  CsvReport?: ExportMetadataModelAssessmentResultEntry;
-}
-
-/**
- * @public
- */
-export interface ImportCertificateMessage {
-  /**
-   * <p>A customer-assigned name for the certificate. Identifiers must begin with a letter and
-   *          must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or
-   *          contain two consecutive hyphens.</p>
-   * @public
-   */
-  CertificateIdentifier: string | undefined;
-
-  /**
-   * <p>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</p>
-   * @public
-   */
-  CertificatePem?: string;
-
-  /**
-   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
-   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
-   *          <p>Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
-   *          </p>
-   * @public
-   */
-  CertificateWallet?: Uint8Array;
-
-  /**
-   * <p>The tags associated with the certificate.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface ImportCertificateResponse {
-  /**
-   * <p>The certificate to be uploaded.</p>
-   * @public
-   */
-  Certificate?: Certificate;
-}
-
-/**
- * <p>The certificate was not valid.</p>
- * @public
- */
-export class InvalidCertificateFault extends __BaseException {
-  readonly name: "InvalidCertificateFault" = "InvalidCertificateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCertificateFault, __BaseException>) {
-    super({
-      name: "InvalidCertificateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCertificateFault.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface ListTagsForResourceMessage {
-  /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to
-   *          list tags for. This returns a list of keys (names of tags) created for the resource and
-   *          their associated tag values.</p>
-   * @public
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>List of ARNs that identify multiple DMS resources that you want to list tags for. This
-   *          returns a list of keys (tag names) and their associated tag values. It also returns each
-   *          tag's associated <code>ResourceArn</code> value, which is the ARN of the resource for which
-   *          each listed tag is created. </p>
-   * @public
-   */
-  ResourceArnList?: string[];
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>A list of tags for the resource.</p>
-   * @public
-   */
-  TagList?: Tag[];
-}
-
-/**
- * @public
- */
-export interface ModifyConversionConfigurationMessage {
-  /**
-   * <p>The migration project name or Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  MigrationProjectIdentifier: string | undefined;
-
-  /**
-   * <p>The new conversion configuration.</p>
-   * @public
-   */
-  ConversionConfiguration: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyConversionConfigurationResponse {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of  the modified configuration.</p>
-   * @public
-   */
-  MigrationProjectIdentifier?: string;
-}
+export const CreateDataMigrationResponseFilterSensitiveLog = (obj: CreateDataMigrationResponse): any => ({
+  ...obj,
+  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
+});
 
 /**
  * @internal
@@ -12665,6 +12893,14 @@ export const CreateEndpointResponseFilterSensitiveLog = (obj: CreateEndpointResp
 /**
  * @internal
  */
+export const DeleteDataMigrationResponseFilterSensitiveLog = (obj: DeleteDataMigrationResponse): any => ({
+  ...obj,
+  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
+});
+
+/**
+ * @internal
+ */
 export const DeleteEndpointResponseFilterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
   ...obj,
   ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
@@ -12673,15 +12909,17 @@ export const DeleteEndpointResponseFilterSensitiveLog = (obj: DeleteEndpointResp
 /**
  * @internal
  */
-export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
+export const DescribeDataMigrationsResponseFilterSensitiveLog = (obj: DescribeDataMigrationsResponse): any => ({
   ...obj,
-  ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => EndpointFilterSensitiveLog(item)) }),
+  ...(obj.DataMigrations && {
+    DataMigrations: obj.DataMigrations.map((item) => DataMigrationFilterSensitiveLog(item)),
+  }),
 });
 
 /**
  * @internal
  */
-export const ImportCertificateMessageFilterSensitiveLog = (obj: ImportCertificateMessage): any => ({
+export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
   ...obj,
-  ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
+  ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => EndpointFilterSensitiveLog(item)) }),
 });

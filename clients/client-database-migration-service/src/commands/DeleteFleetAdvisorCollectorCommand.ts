@@ -54,6 +54,10 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * @see {@link DeleteFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link CollectorNotFoundFault} (client fault)
  *  <p>The specified collector doesn't exist.</p>
  *

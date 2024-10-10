@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyConversionConfigurationMessage, ModifyConversionConfigurationResponse } from "../models/models_0";
+import { ModifyConversionConfigurationMessage, ModifyConversionConfigurationResponse } from "../models/models_1";
 import {
   de_ModifyConversionConfigurationCommand,
   se_ModifyConversionConfigurationCommand,

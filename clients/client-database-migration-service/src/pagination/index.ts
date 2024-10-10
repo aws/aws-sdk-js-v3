@@ -4,6 +4,8 @@ export * from "./DescribeCertificatesPaginator";
 
 export * from "./DescribeConnectionsPaginator";
 
+export * from "./DescribeDataMigrationsPaginator";
+
 export * from "./DescribeDataProvidersPaginator";
 
 export * from "./DescribeEndpointSettingsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeEndpointsPaginator";
 export * from "./DescribeEngineVersionsPaginator";
 
 export * from "./DescribeEventSubscriptionsPaginator";
-
-export * from "./DescribeEventsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeEventsPaginator";
 export * from "./DescribeExtensionPackAssociationsPaginator";
 export * from "./DescribeFleetAdvisorCollectorsPaginator";
 export * from "./DescribeFleetAdvisorDatabasesPaginator";

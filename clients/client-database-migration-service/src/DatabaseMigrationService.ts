@@ -23,6 +23,11 @@ import {
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
 import {
+  CreateDataMigrationCommand,
+  CreateDataMigrationCommandInput,
+  CreateDataMigrationCommandOutput,
+} from "./commands/CreateDataMigrationCommand";
+import {
   CreateDataProviderCommand,
   CreateDataProviderCommandInput,
   CreateDataProviderCommandOutput,
@@ -82,6 +87,11 @@ import {
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteDataMigrationCommand,
+  DeleteDataMigrationCommandInput,
+  DeleteDataMigrationCommandOutput,
+} from "./commands/DeleteDataMigrationCommand";
 import {
   DeleteDataProviderCommand,
   DeleteDataProviderCommandInput,
@@ -167,6 +177,11 @@ import {
   DescribeConversionConfigurationCommandInput,
   DescribeConversionConfigurationCommandOutput,
 } from "./commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataMigrationsCommand,
+  DescribeDataMigrationsCommandInput,
+  DescribeDataMigrationsCommandOutput,
+} from "./commands/DescribeDataMigrationsCommand";
 import {
   DescribeDataProvidersCommand,
   DescribeDataProvidersCommandInput,
@@ -378,6 +393,11 @@ import {
   ModifyConversionConfigurationCommandOutput,
 } from "./commands/ModifyConversionConfigurationCommand";
 import {
+  ModifyDataMigrationCommand,
+  ModifyDataMigrationCommandInput,
+  ModifyDataMigrationCommandOutput,
+} from "./commands/ModifyDataMigrationCommand";
+import {
   ModifyDataProviderCommand,
   ModifyDataProviderCommandInput,
   ModifyDataProviderCommandOutput,
@@ -458,6 +478,11 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartDataMigrationCommand,
+  StartDataMigrationCommandInput,
+  StartDataMigrationCommandOutput,
+} from "./commands/StartDataMigrationCommand";
+import {
   StartExtensionPackAssociationCommand,
   StartExtensionPackAssociationCommandInput,
   StartExtensionPackAssociationCommandOutput,
@@ -513,6 +538,11 @@ import {
   StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
 import {
+  StopDataMigrationCommand,
+  StopDataMigrationCommandInput,
+  StopDataMigrationCommandOutput,
+} from "./commands/StopDataMigrationCommand";
+import {
   StopReplicationCommand,
   StopReplicationCommandInput,
   StopReplicationCommandOutput,
@@ -539,6 +569,7 @@ const commands = {
   ApplyPendingMaintenanceActionCommand,
   BatchStartRecommendationsCommand,
   CancelReplicationTaskAssessmentRunCommand,
+  CreateDataMigrationCommand,
   CreateDataProviderCommand,
   CreateEndpointCommand,
   CreateEventSubscriptionCommand,
@@ -551,6 +582,7 @@ const commands = {
   CreateReplicationTaskCommand,
   DeleteCertificateCommand,
   DeleteConnectionCommand,
+  DeleteDataMigrationCommand,
   DeleteDataProviderCommand,
   DeleteEndpointCommand,
   DeleteEventSubscriptionCommand,
@@ -568,6 +600,7 @@ const commands = {
   DescribeCertificatesCommand,
   DescribeConnectionsCommand,
   DescribeConversionConfigurationCommand,
+  DescribeDataMigrationsCommand,
   DescribeDataProvidersCommand,
   DescribeEndpointsCommand,
   DescribeEndpointSettingsCommand,
@@ -610,6 +643,7 @@ const commands = {
   ImportCertificateCommand,
   ListTagsForResourceCommand,
   ModifyConversionConfigurationCommand,
+  ModifyDataMigrationCommand,
   ModifyDataProviderCommand,
   ModifyEndpointCommand,
   ModifyEventSubscriptionCommand,
@@ -626,6 +660,7 @@ const commands = {
   ReloadTablesCommand,
   RemoveTagsFromResourceCommand,
   RunFleetAdvisorLsaAnalysisCommand,
+  StartDataMigrationCommand,
   StartExtensionPackAssociationCommand,
   StartMetadataModelAssessmentCommand,
   StartMetadataModelConversionCommand,
@@ -637,6 +672,7 @@ const commands = {
   StartReplicationTaskCommand,
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentRunCommand,
+  StopDataMigrationCommand,
   StopReplicationCommand,
   StopReplicationTaskCommand,
   TestConnectionCommand,
@@ -711,6 +747,23 @@ export interface DatabaseMigrationService {
     args: CancelReplicationTaskAssessmentRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataMigrationCommand}
+   */
+  createDataMigration(
+    args: CreateDataMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataMigrationCommandOutput>;
+  createDataMigration(
+    args: CreateDataMigrationCommandInput,
+    cb: (err: any, data?: CreateDataMigrationCommandOutput) => void
+  ): void;
+  createDataMigration(
+    args: CreateDataMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataMigrationCommandOutput) => void
   ): void;
 
   /**
@@ -913,6 +966,23 @@ export interface DatabaseMigrationService {
     args: DeleteConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataMigrationCommand}
+   */
+  deleteDataMigration(
+    args: DeleteDataMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataMigrationCommandOutput>;
+  deleteDataMigration(
+    args: DeleteDataMigrationCommandInput,
+    cb: (err: any, data?: DeleteDataMigrationCommandOutput) => void
+  ): void;
+  deleteDataMigration(
+    args: DeleteDataMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataMigrationCommandOutput) => void
   ): void;
 
   /**
@@ -1203,6 +1273,24 @@ export interface DatabaseMigrationService {
     args: DescribeConversionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeConversionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDataMigrationsCommand}
+   */
+  describeDataMigrations(): Promise<DescribeDataMigrationsCommandOutput>;
+  describeDataMigrations(
+    args: DescribeDataMigrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataMigrationsCommandOutput>;
+  describeDataMigrations(
+    args: DescribeDataMigrationsCommandInput,
+    cb: (err: any, data?: DescribeDataMigrationsCommandOutput) => void
+  ): void;
+  describeDataMigrations(
+    args: DescribeDataMigrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataMigrationsCommandOutput) => void
   ): void;
 
   /**
@@ -1941,6 +2029,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link ModifyDataMigrationCommand}
+   */
+  modifyDataMigration(
+    args: ModifyDataMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDataMigrationCommandOutput>;
+  modifyDataMigration(
+    args: ModifyDataMigrationCommandInput,
+    cb: (err: any, data?: ModifyDataMigrationCommandOutput) => void
+  ): void;
+  modifyDataMigration(
+    args: ModifyDataMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDataMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyDataProviderCommand}
    */
   modifyDataProvider(
@@ -2202,6 +2307,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link StartDataMigrationCommand}
+   */
+  startDataMigration(
+    args: StartDataMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDataMigrationCommandOutput>;
+  startDataMigration(
+    args: StartDataMigrationCommandInput,
+    cb: (err: any, data?: StartDataMigrationCommandOutput) => void
+  ): void;
+  startDataMigration(
+    args: StartDataMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDataMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartExtensionPackAssociationCommand}
    */
   startExtensionPackAssociation(
@@ -2386,6 +2508,23 @@ export interface DatabaseMigrationService {
     args: StartReplicationTaskAssessmentRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopDataMigrationCommand}
+   */
+  stopDataMigration(
+    args: StopDataMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDataMigrationCommandOutput>;
+  stopDataMigration(
+    args: StopDataMigrationCommandInput,
+    cb: (err: any, data?: StopDataMigrationCommandOutput) => void
+  ): void;
+  stopDataMigration(
+    args: StopDataMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDataMigrationCommandOutput) => void
   ): void;
 
   /**

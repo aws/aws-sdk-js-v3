@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse } from "../models/models_0";
+import { ExportMetadataModelAssessmentMessage, ExportMetadataModelAssessmentResponse } from "../models/models_1";
 import {
   de_ExportMetadataModelAssessmentCommand,
   se_ExportMetadataModelAssessmentCommand,

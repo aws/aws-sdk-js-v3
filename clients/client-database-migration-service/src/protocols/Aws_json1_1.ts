@@ -19,6 +19,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -42,6 +43,10 @@ import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "../commands/CancelReplicationTaskAssessmentRunCommand";
+import {
+  CreateDataMigrationCommandInput,
+  CreateDataMigrationCommandOutput,
+} from "../commands/CreateDataMigrationCommand";
 import { CreateDataProviderCommandInput, CreateDataProviderCommandOutput } from "../commands/CreateDataProviderCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "../commands/CreateEndpointCommand";
 import {
@@ -78,6 +83,10 @@ import {
 } from "../commands/CreateReplicationTaskCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import {
+  DeleteDataMigrationCommandInput,
+  DeleteDataMigrationCommandOutput,
+} from "../commands/DeleteDataMigrationCommand";
 import { DeleteDataProviderCommandInput, DeleteDataProviderCommandOutput } from "../commands/DeleteDataProviderCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "../commands/DeleteEndpointCommand";
 import {
@@ -140,6 +149,10 @@ import {
   DescribeConversionConfigurationCommandInput,
   DescribeConversionConfigurationCommandOutput,
 } from "../commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataMigrationsCommandInput,
+  DescribeDataMigrationsCommandOutput,
+} from "../commands/DescribeDataMigrationsCommand";
 import {
   DescribeDataProvidersCommandInput,
   DescribeDataProvidersCommandOutput,
@@ -296,6 +309,10 @@ import {
   ModifyConversionConfigurationCommandInput,
   ModifyConversionConfigurationCommandOutput,
 } from "../commands/ModifyConversionConfigurationCommand";
+import {
+  ModifyDataMigrationCommandInput,
+  ModifyDataMigrationCommandOutput,
+} from "../commands/ModifyDataMigrationCommand";
 import { ModifyDataProviderCommandInput, ModifyDataProviderCommandOutput } from "../commands/ModifyDataProviderCommand";
 import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "../commands/ModifyEndpointCommand";
 import {
@@ -348,6 +365,7 @@ import {
   RunFleetAdvisorLsaAnalysisCommandInput,
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "../commands/RunFleetAdvisorLsaAnalysisCommand";
+import { StartDataMigrationCommandInput, StartDataMigrationCommandOutput } from "../commands/StartDataMigrationCommand";
 import {
   StartExtensionPackAssociationCommandInput,
   StartExtensionPackAssociationCommandOutput,
@@ -389,6 +407,7 @@ import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "../commands/StartReplicationTaskCommand";
+import { StopDataMigrationCommandInput, StopDataMigrationCommandOutput } from "../commands/StopDataMigrationCommand";
 import { StopReplicationCommandInput, StopReplicationCommandOutput } from "../commands/StopReplicationCommand";
 import {
   StopReplicationTaskCommandInput,
@@ -405,13 +424,14 @@ import {
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
   ApplyPendingMaintenanceActionResponse,
-  AssessmentReportType,
   BatchStartRecommendationsRequest,
   CancelReplicationTaskAssessmentRunMessage,
   CancelReplicationTaskAssessmentRunResponse,
   Certificate,
   CollectorNotFoundFault,
   ComputeConfig,
+  CreateDataMigrationMessage,
+  CreateDataMigrationResponse,
   CreateDataProviderMessage,
   CreateDataProviderResponse,
   CreateEndpointMessage,
@@ -428,6 +448,8 @@ import {
   CreateReplicationSubnetGroupMessage,
   CreateReplicationTaskMessage,
   CreateReplicationTaskResponse,
+  DataMigration,
+  DataMigrationStatistics,
   DataProvider,
   DataProviderDescriptorDefinition,
   DataProviderSettings,
@@ -435,6 +457,8 @@ import {
   DeleteCertificateResponse,
   DeleteCollectorRequest,
   DeleteConnectionMessage,
+  DeleteDataMigrationMessage,
+  DeleteDataMigrationResponse,
   DeleteDataProviderMessage,
   DeleteDataProviderResponse,
   DeleteEndpointMessage,
@@ -459,6 +483,8 @@ import {
   DescribeCertificatesResponse,
   DescribeConnectionsMessage,
   DescribeConversionConfigurationMessage,
+  DescribeDataMigrationsMessage,
+  DescribeDataMigrationsResponse,
   DescribeDataProvidersMessage,
   DescribeDataProvidersResponse,
   DescribeEndpointSettingsMessage,
@@ -522,15 +548,12 @@ import {
   ElasticsearchSettings,
   EngineVersion,
   Event,
-  ExportMetadataModelAssessmentMessage,
+  FailedDependencyFault,
   Filter,
   GcpMySQLSettings,
   IBMDb2Settings,
-  ImportCertificateMessage,
-  ImportCertificateResponse,
   InstanceProfile,
   InsufficientResourceCapacityFault,
-  InvalidCertificateFault,
   InvalidOperationFault,
   InvalidResourceStateFault,
   InvalidSubnet,
@@ -542,12 +565,10 @@ import {
   KMSKeyNotAccessibleFault,
   KMSNotFoundFault,
   KMSThrottlingFault,
-  ListTagsForResourceMessage,
   MariaDbDataProviderSettings,
   MicrosoftSqlServerDataProviderSettings,
   MicrosoftSQLServerSettings,
   MigrationProject,
-  ModifyConversionConfigurationMessage,
   MongoDbDataProviderSettings,
   MongoDbSettings,
   MySqlDataProviderSettings,
@@ -590,6 +611,7 @@ import {
   SchemaResponse,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
+  SourceDataSetting,
   StartRecommendationsRequestEntry,
   StorageQuotaExceededFault,
   SybaseSettings,
@@ -598,7 +620,16 @@ import {
   TimestreamSettings,
 } from "../models/models_0";
 import {
+  AssessmentReportType,
+  ExportMetadataModelAssessmentMessage,
+  ImportCertificateMessage,
+  ImportCertificateResponse,
+  InvalidCertificateFault,
   KMSFault,
+  ListTagsForResourceMessage,
+  ModifyConversionConfigurationMessage,
+  ModifyDataMigrationMessage,
+  ModifyDataMigrationResponse,
   ModifyDataProviderMessage,
   ModifyDataProviderResponse,
   ModifyEndpointMessage,
@@ -623,6 +654,8 @@ import {
   ReloadReplicationTablesMessage,
   ReloadTablesMessage,
   RemoveTagsFromResourceMessage,
+  StartDataMigrationMessage,
+  StartDataMigrationResponse,
   StartExtensionPackAssociationMessage,
   StartMetadataModelAssessmentMessage,
   StartMetadataModelConversionMessage,
@@ -638,6 +671,8 @@ import {
   StartReplicationTaskAssessmentRunResponse,
   StartReplicationTaskMessage,
   StartReplicationTaskResponse,
+  StopDataMigrationMessage,
+  StopDataMigrationResponse,
   StopReplicationMessage,
   StopReplicationResponse,
   StopReplicationTaskMessage,
@@ -698,6 +733,19 @@ export const se_CancelReplicationTaskAssessmentRunCommand = async (
   const headers: __HeaderBag = sharedHeaders("CancelReplicationTaskAssessmentRun");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateDataMigrationCommand
+ */
+export const se_CreateDataMigrationCommand = async (
+  input: CreateDataMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDataMigration");
+  let body: any;
+  body = JSON.stringify(se_CreateDataMigrationMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -852,6 +900,19 @@ export const se_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteConnection");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDataMigrationCommand
+ */
+export const se_DeleteDataMigrationCommand = async (
+  input: DeleteDataMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDataMigration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1073,6 +1134,19 @@ export const se_DescribeConversionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeConversionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDataMigrationsCommand
+ */
+export const se_DescribeDataMigrationsCommand = async (
+  input: DescribeDataMigrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDataMigrations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1625,6 +1699,19 @@ export const se_ModifyConversionConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ModifyDataMigrationCommand
+ */
+export const se_ModifyDataMigrationCommand = async (
+  input: ModifyDataMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyDataMigration");
+  let body: any;
+  body = JSON.stringify(se_ModifyDataMigrationMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ModifyDataProviderCommand
  */
 export const se_ModifyDataProviderCommand = async (
@@ -1832,6 +1919,19 @@ export const se_RunFleetAdvisorLsaAnalysisCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartDataMigrationCommand
+ */
+export const se_StartDataMigrationCommand = async (
+  input: StartDataMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartDataMigration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartExtensionPackAssociationCommand
  */
 export const se_StartExtensionPackAssociationCommand = async (
@@ -1975,6 +2075,19 @@ export const se_StartReplicationTaskAssessmentRunCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StopDataMigrationCommand
+ */
+export const se_StopDataMigrationCommand = async (
+  input: StopDataMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopDataMigration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StopReplicationCommand
  */
 export const se_StopReplicationCommand = async (
@@ -2100,6 +2213,26 @@ export const de_CancelReplicationTaskAssessmentRunCommand = async (
   let contents: any = {};
   contents = de_CancelReplicationTaskAssessmentRunResponse(data, context);
   const response: CancelReplicationTaskAssessmentRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataMigrationCommand
+ */
+export const de_CreateDataMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDataMigrationResponse(data, context);
+  const response: CreateDataMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2340,6 +2473,26 @@ export const de_DeleteConnectionCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDataMigrationCommand
+ */
+export const de_DeleteDataMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDataMigrationResponse(data, context);
+  const response: DeleteDataMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2677,6 +2830,26 @@ export const de_DescribeConversionConfigurationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DescribeConversionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataMigrationsCommand
+ */
+export const de_DescribeDataMigrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataMigrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataMigrationsResponse(data, context);
+  const response: DescribeDataMigrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3524,6 +3697,26 @@ export const de_ModifyConversionConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ModifyDataMigrationCommand
+ */
+export const de_ModifyDataMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDataMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDataMigrationResponse(data, context);
+  const response: ModifyDataMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ModifyDataProviderCommand
  */
 export const de_ModifyDataProviderCommand = async (
@@ -3844,6 +4037,26 @@ export const de_RunFleetAdvisorLsaAnalysisCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartDataMigrationCommand
+ */
+export const de_StartDataMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDataMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartDataMigrationResponse(data, context);
+  const response: StartDataMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartExtensionPackAssociationCommand
  */
 export const de_StartExtensionPackAssociationCommand = async (
@@ -4061,6 +4274,26 @@ export const de_StartReplicationTaskAssessmentRunCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StopDataMigrationCommand
+ */
+export const de_StopDataMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDataMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopDataMigrationResponse(data, context);
+  const response: StopDataMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopReplicationCommand
  */
 export const de_StopReplicationCommand = async (
@@ -4150,15 +4383,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
       throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "FailedDependencyFault":
+    case "com.amazonaws.databasemigrationservice#FailedDependencyFault":
+      throw await de_FailedDependencyFaultRes(parsedOutput, context);
+    case "InvalidOperationFault":
+    case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
+      throw await de_InvalidOperationFaultRes(parsedOutput, context);
     case "ResourceAlreadyExistsFault":
     case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
       throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
@@ -4210,9 +4449,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CollectorNotFoundFault":
     case "com.amazonaws.databasemigrationservice#CollectorNotFoundFault":
       throw await de_CollectorNotFoundFaultRes(parsedOutput, context);
-    case "InvalidOperationFault":
-    case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
-      throw await de_InvalidOperationFaultRes(parsedOutput, context);
     case "InvalidCertificateFault":
     case "com.amazonaws.databasemigrationservice#InvalidCertificateFault":
       throw await de_InvalidCertificateFaultRes(parsedOutput, context);
@@ -4258,6 +4494,22 @@ const de_CollectorNotFoundFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new CollectorNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1FailedDependencyFaultRes
+ */
+const de_FailedDependencyFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FailedDependencyFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new FailedDependencyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4625,6 +4877,23 @@ const de_UpgradeDependencyFailureFaultRes = async (
 
 // se_ComputeConfig omitted.
 
+/**
+ * serializeAws_json1_1CreateDataMigrationMessage
+ */
+const se_CreateDataMigrationMessage = (input: CreateDataMigrationMessage, context: __SerdeContext): any => {
+  return take(input, {
+    DataMigrationName: [],
+    DataMigrationType: [],
+    EnableCloudwatchLogs: [],
+    MigrationProjectIdentifier: [],
+    NumberOfJobs: [],
+    SelectionRules: [],
+    ServiceAccessRoleArn: [],
+    SourceDataSettings: (_) => se_SourceDataSettings(_, context),
+    Tags: _json,
+  });
+};
+
 // se_CreateDataProviderMessage omitted.
 
 // se_CreateEndpointMessage omitted.
@@ -4676,6 +4945,8 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 
 // se_DeleteConnectionMessage omitted.
 
+// se_DeleteDataMigrationMessage omitted.
+
 // se_DeleteDataProviderMessage omitted.
 
 // se_DeleteEndpointMessage omitted.
@@ -4707,6 +4978,8 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 // se_DescribeConnectionsMessage omitted.
 
 // se_DescribeConversionConfigurationMessage omitted.
+
+// se_DescribeDataMigrationsMessage omitted.
 
 // se_DescribeDataProvidersMessage omitted.
 
@@ -4857,6 +5130,22 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 
 // se_ModifyConversionConfigurationMessage omitted.
 
+/**
+ * serializeAws_json1_1ModifyDataMigrationMessage
+ */
+const se_ModifyDataMigrationMessage = (input: ModifyDataMigrationMessage, context: __SerdeContext): any => {
+  return take(input, {
+    DataMigrationIdentifier: [],
+    DataMigrationName: [],
+    DataMigrationType: [],
+    EnableCloudwatchLogs: [],
+    NumberOfJobs: [],
+    SelectionRules: [],
+    ServiceAccessRoleArn: [],
+    SourceDataSettings: (_) => se_SourceDataSettings(_, context),
+  });
+};
+
 // se_ModifyDataProviderMessage omitted.
 
 // se_ModifyEndpointMessage omitted.
@@ -4932,7 +5221,32 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 
 // se_SCApplicationAttributes omitted.
 
+/**
+ * serializeAws_json1_1SourceDataSetting
+ */
+const se_SourceDataSetting = (input: SourceDataSetting, context: __SerdeContext): any => {
+  return take(input, {
+    CDCStartPosition: [],
+    CDCStartTime: __serializeDateTime,
+    CDCStopTime: __serializeDateTime,
+    SlotName: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1SourceDataSettings
+ */
+const se_SourceDataSettings = (input: SourceDataSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SourceDataSetting(entry, context);
+    });
+};
+
 // se_SourceIdsList omitted.
+
+// se_StartDataMigrationMessage omitted.
 
 // se_StartExtensionPackAssociationMessage omitted.
 
@@ -4981,6 +5295,8 @@ const se_StartReplicationTaskMessage = (input: StartReplicationTaskMessage, cont
     StartReplicationTaskType: [],
   });
 };
+
+// se_StopDataMigrationMessage omitted.
 
 // se_StopReplicationMessage omitted.
 
@@ -5101,6 +5417,15 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
 // de_ConnectionList omitted.
 
 /**
+ * deserializeAws_json1_1CreateDataMigrationResponse
+ */
+const de_CreateDataMigrationResponse = (output: any, context: __SerdeContext): CreateDataMigrationResponse => {
+  return take(output, {
+    DataMigration: (_: any) => de_DataMigration(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateDataProviderResponse
  */
 const de_CreateDataProviderResponse = (output: any, context: __SerdeContext): CreateDataProviderResponse => {
@@ -5174,6 +5499,60 @@ const de_CreateReplicationTaskResponse = (output: any, context: __SerdeContext):
 // de_DatabaseShortInfoResponse omitted.
 
 /**
+ * deserializeAws_json1_1DataMigration
+ */
+const de_DataMigration = (output: any, context: __SerdeContext): DataMigration => {
+  return take(output, {
+    DataMigrationArn: __expectString,
+    DataMigrationCreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataMigrationEndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataMigrationName: __expectString,
+    DataMigrationSettings: _json,
+    DataMigrationStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataMigrationStatistics: (_: any) => de_DataMigrationStatistics(_, context),
+    DataMigrationStatus: __expectString,
+    DataMigrationType: __expectString,
+    LastFailureMessage: __expectString,
+    MigrationProjectArn: __expectString,
+    PublicIpAddresses: _json,
+    ServiceAccessRoleArn: __expectString,
+    SourceDataSettings: (_: any) => de_SourceDataSettings(_, context),
+    StopReason: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataMigrations
+ */
+const de_DataMigrations = (output: any, context: __SerdeContext): DataMigration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataMigration(entry, context);
+    });
+  return retVal;
+};
+
+// de_DataMigrationSettings omitted.
+
+/**
+ * deserializeAws_json1_1DataMigrationStatistics
+ */
+const de_DataMigrationStatistics = (output: any, context: __SerdeContext): DataMigrationStatistics => {
+  return take(output, {
+    CDCLatency: __expectInt32,
+    ElapsedTimeMillis: __expectLong,
+    FullLoadPercentage: __expectInt32,
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    StopTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    TablesErrored: __expectInt32,
+    TablesLoaded: __expectInt32,
+    TablesLoading: __expectInt32,
+    TablesQueued: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DataProvider
  */
 const de_DataProvider = (output: any, context: __SerdeContext): DataProvider => {
@@ -5217,6 +5596,15 @@ const de_DeleteCertificateResponse = (output: any, context: __SerdeContext): Del
 };
 
 // de_DeleteConnectionResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteDataMigrationResponse
+ */
+const de_DeleteDataMigrationResponse = (output: any, context: __SerdeContext): DeleteDataMigrationResponse => {
+  return take(output, {
+    DataMigration: (_: any) => de_DataMigration(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DeleteDataProviderResponse
@@ -5312,6 +5700,16 @@ const de_DescribeCertificatesResponse = (output: any, context: __SerdeContext): 
 // de_DescribeConnectionsResponse omitted.
 
 // de_DescribeConversionConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeDataMigrationsResponse
+ */
+const de_DescribeDataMigrationsResponse = (output: any, context: __SerdeContext): DescribeDataMigrationsResponse => {
+  return take(output, {
+    DataMigrations: (_: any) => de_DataMigrations(_, context),
+    Marker: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeDataProvidersResponse
@@ -5662,6 +6060,8 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
 
 // de_ExportSqlDetails omitted.
 
+// de_FailedDependencyFault omitted.
+
 // de_FleetAdvisorLsaAnalysisResponse omitted.
 
 // de_FleetAdvisorLsaAnalysisResponseList omitted.
@@ -5802,6 +6202,15 @@ const de_MigrationProjectList = (output: any, context: __SerdeContext): Migratio
 };
 
 // de_ModifyConversionConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1ModifyDataMigrationResponse
+ */
+const de_ModifyDataMigrationResponse = (output: any, context: __SerdeContext): ModifyDataMigrationResponse => {
+  return take(output, {
+    DataMigration: (_: any) => de_DataMigration(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ModifyDataProviderResponse
@@ -5948,6 +6357,8 @@ const de_ProvisionData = (output: any, context: __SerdeContext): ProvisionData =
     ReasonForNewProvisioningData: __expectString,
   }) as any;
 };
+
+// de_PublicIpAddressList omitted.
 
 /**
  * deserializeAws_json1_1RdsConfiguration
@@ -6452,7 +6863,40 @@ const de_SchemaResponse = (output: any, context: __SerdeContext): SchemaResponse
 
 // de_SNSNoAuthorizationFault omitted.
 
+/**
+ * deserializeAws_json1_1SourceDataSetting
+ */
+const de_SourceDataSetting = (output: any, context: __SerdeContext): SourceDataSetting => {
+  return take(output, {
+    CDCStartPosition: __expectString,
+    CDCStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    CDCStopTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SlotName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SourceDataSettings
+ */
+const de_SourceDataSettings = (output: any, context: __SerdeContext): SourceDataSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SourceDataSetting(entry, context);
+    });
+  return retVal;
+};
+
 // de_SourceIdsList omitted.
+
+/**
+ * deserializeAws_json1_1StartDataMigrationResponse
+ */
+const de_StartDataMigrationResponse = (output: any, context: __SerdeContext): StartDataMigrationResponse => {
+  return take(output, {
+    DataMigration: (_: any) => de_DataMigration(_, context),
+  }) as any;
+};
 
 // de_StartExtensionPackAssociationResponse omitted.
 
@@ -6505,6 +6949,15 @@ const de_StartReplicationTaskAssessmentRunResponse = (
 const de_StartReplicationTaskResponse = (output: any, context: __SerdeContext): StartReplicationTaskResponse => {
   return take(output, {
     ReplicationTask: (_: any) => de_ReplicationTask(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopDataMigrationResponse
+ */
+const de_StopDataMigrationResponse = (output: any, context: __SerdeContext): StopDataMigrationResponse => {
+  return take(output, {
+    DataMigration: (_: any) => de_DataMigration(_, context),
   }) as any;
 };
 

@@ -200,6 +200,9 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
  *  <p>The resource you are attempting to create already exists.</p>
  *

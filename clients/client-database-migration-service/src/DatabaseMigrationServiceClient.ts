@@ -66,6 +66,10 @@ import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
+import {
+  CreateDataMigrationCommandInput,
+  CreateDataMigrationCommandOutput,
+} from "./commands/CreateDataMigrationCommand";
 import { CreateDataProviderCommandInput, CreateDataProviderCommandOutput } from "./commands/CreateDataProviderCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
@@ -102,6 +106,10 @@ import {
 } from "./commands/CreateReplicationTaskCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteDataMigrationCommandInput,
+  DeleteDataMigrationCommandOutput,
+} from "./commands/DeleteDataMigrationCommand";
 import { DeleteDataProviderCommandInput, DeleteDataProviderCommandOutput } from "./commands/DeleteDataProviderCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
@@ -164,6 +172,10 @@ import {
   DescribeConversionConfigurationCommandInput,
   DescribeConversionConfigurationCommandOutput,
 } from "./commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataMigrationsCommandInput,
+  DescribeDataMigrationsCommandOutput,
+} from "./commands/DescribeDataMigrationsCommand";
 import {
   DescribeDataProvidersCommandInput,
   DescribeDataProvidersCommandOutput,
@@ -320,6 +332,10 @@ import {
   ModifyConversionConfigurationCommandInput,
   ModifyConversionConfigurationCommandOutput,
 } from "./commands/ModifyConversionConfigurationCommand";
+import {
+  ModifyDataMigrationCommandInput,
+  ModifyDataMigrationCommandOutput,
+} from "./commands/ModifyDataMigrationCommand";
 import { ModifyDataProviderCommandInput, ModifyDataProviderCommandOutput } from "./commands/ModifyDataProviderCommand";
 import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand";
 import {
@@ -372,6 +388,7 @@ import {
   RunFleetAdvisorLsaAnalysisCommandInput,
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
+import { StartDataMigrationCommandInput, StartDataMigrationCommandOutput } from "./commands/StartDataMigrationCommand";
 import {
   StartExtensionPackAssociationCommandInput,
   StartExtensionPackAssociationCommandOutput,
@@ -413,6 +430,7 @@ import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
+import { StopDataMigrationCommandInput, StopDataMigrationCommandOutput } from "./commands/StopDataMigrationCommand";
 import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
 import {
   StopReplicationTaskCommandInput,
@@ -442,6 +460,7 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | BatchStartRecommendationsCommandInput
   | CancelReplicationTaskAssessmentRunCommandInput
+  | CreateDataMigrationCommandInput
   | CreateDataProviderCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
@@ -454,6 +473,7 @@ export type ServiceInputTypes =
   | CreateReplicationTaskCommandInput
   | DeleteCertificateCommandInput
   | DeleteConnectionCommandInput
+  | DeleteDataMigrationCommandInput
   | DeleteDataProviderCommandInput
   | DeleteEndpointCommandInput
   | DeleteEventSubscriptionCommandInput
@@ -471,6 +491,7 @@ export type ServiceInputTypes =
   | DescribeCertificatesCommandInput
   | DescribeConnectionsCommandInput
   | DescribeConversionConfigurationCommandInput
+  | DescribeDataMigrationsCommandInput
   | DescribeDataProvidersCommandInput
   | DescribeEndpointSettingsCommandInput
   | DescribeEndpointTypesCommandInput
@@ -513,6 +534,7 @@ export type ServiceInputTypes =
   | ImportCertificateCommandInput
   | ListTagsForResourceCommandInput
   | ModifyConversionConfigurationCommandInput
+  | ModifyDataMigrationCommandInput
   | ModifyDataProviderCommandInput
   | ModifyEndpointCommandInput
   | ModifyEventSubscriptionCommandInput
@@ -529,6 +551,7 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | RunFleetAdvisorLsaAnalysisCommandInput
+  | StartDataMigrationCommandInput
   | StartExtensionPackAssociationCommandInput
   | StartMetadataModelAssessmentCommandInput
   | StartMetadataModelConversionCommandInput
@@ -540,6 +563,7 @@ export type ServiceInputTypes =
   | StartReplicationTaskAssessmentCommandInput
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
+  | StopDataMigrationCommandInput
   | StopReplicationCommandInput
   | StopReplicationTaskCommandInput
   | TestConnectionCommandInput
@@ -553,6 +577,7 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | BatchStartRecommendationsCommandOutput
   | CancelReplicationTaskAssessmentRunCommandOutput
+  | CreateDataMigrationCommandOutput
   | CreateDataProviderCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
@@ -565,6 +590,7 @@ export type ServiceOutputTypes =
   | CreateReplicationTaskCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteDataMigrationCommandOutput
   | DeleteDataProviderCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEventSubscriptionCommandOutput
@@ -582,6 +608,7 @@ export type ServiceOutputTypes =
   | DescribeCertificatesCommandOutput
   | DescribeConnectionsCommandOutput
   | DescribeConversionConfigurationCommandOutput
+  | DescribeDataMigrationsCommandOutput
   | DescribeDataProvidersCommandOutput
   | DescribeEndpointSettingsCommandOutput
   | DescribeEndpointTypesCommandOutput
@@ -624,6 +651,7 @@ export type ServiceOutputTypes =
   | ImportCertificateCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyConversionConfigurationCommandOutput
+  | ModifyDataMigrationCommandOutput
   | ModifyDataProviderCommandOutput
   | ModifyEndpointCommandOutput
   | ModifyEventSubscriptionCommandOutput
@@ -640,6 +668,7 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | RunFleetAdvisorLsaAnalysisCommandOutput
+  | StartDataMigrationCommandOutput
   | StartExtensionPackAssociationCommandOutput
   | StartMetadataModelAssessmentCommandOutput
   | StartMetadataModelConversionCommandOutput
@@ -651,6 +680,7 @@ export type ServiceOutputTypes =
   | StartReplicationTaskAssessmentCommandOutput
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
+  | StopDataMigrationCommandOutput
   | StopReplicationCommandOutput
   | StopReplicationTaskCommandOutput
   | TestConnectionCommandOutput

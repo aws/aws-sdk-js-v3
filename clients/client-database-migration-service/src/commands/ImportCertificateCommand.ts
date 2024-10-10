@@ -14,7 +14,7 @@ import {
   ImportCertificateMessage,
   ImportCertificateMessageFilterSensitiveLog,
   ImportCertificateResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**

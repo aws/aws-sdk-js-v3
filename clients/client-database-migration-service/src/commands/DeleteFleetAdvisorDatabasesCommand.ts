@@ -62,6 +62,10 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * @see {@link DeleteFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link InvalidOperationFault} (client fault)
  *  <p>The action or operation requested isn't valid.</p>
  *

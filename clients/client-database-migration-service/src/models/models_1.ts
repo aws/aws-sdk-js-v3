@@ -4,8 +4,11 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
 
 import {
+  Certificate,
   ComputeConfig,
   Connection,
+  DataMigration,
+  DataMigrationFilterSensitiveLog,
   DataProvider,
   DataProviderDescriptorDefinition,
   DataProviderSettings,
@@ -54,10 +57,282 @@ import {
   ReplicationTaskAssessmentRun,
   S3Settings,
   SCApplicationAttributes,
+  SourceDataSetting,
   SybaseSettings,
   SybaseSettingsFilterSensitiveLog,
+  Tag,
   TimestreamSettings,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentReportType = {
+  CSV: "csv",
+  PDF: "pdf",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentReportType = (typeof AssessmentReportType)[keyof typeof AssessmentReportType];
+
+/**
+ * @public
+ */
+export interface ExportMetadataModelAssessmentMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>A value that specifies the database objects to assess.</p>
+   * @public
+   */
+  SelectionRules: string | undefined;
+
+  /**
+   * <p>The name of the assessment file to create in your Amazon S3 bucket.</p>
+   * @public
+   */
+  FileName?: string;
+
+  /**
+   * <p>The file format of the assessment file.</p>
+   * @public
+   */
+  AssessmentReportTypes?: AssessmentReportType[];
+}
+
+/**
+ * <p>Provides information about an exported metadata model assessment.</p>
+ * @public
+ */
+export interface ExportMetadataModelAssessmentResultEntry {
+  /**
+   * <p>The object key for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  S3ObjectKey?: string;
+
+  /**
+   * <p>The URL for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  ObjectURL?: string;
+}
+
+/**
+ * @public
+ */
+export interface ExportMetadataModelAssessmentResponse {
+  /**
+   * <p>The Amazon S3 details for an assessment exported in PDF format.</p>
+   * @public
+   */
+  PdfReport?: ExportMetadataModelAssessmentResultEntry;
+
+  /**
+   * <p>The Amazon S3 details for an assessment exported in CSV format.</p>
+   * @public
+   */
+  CsvReport?: ExportMetadataModelAssessmentResultEntry;
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateMessage {
+  /**
+   * <p>A customer-assigned name for the certificate. Identifiers must begin with a letter and
+   *          must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or
+   *          contain two consecutive hyphens.</p>
+   * @public
+   */
+  CertificateIdentifier: string | undefined;
+
+  /**
+   * <p>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</p>
+   * @public
+   */
+  CertificatePem?: string;
+
+  /**
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
+   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
+   *          <p>Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
+   *          </p>
+   * @public
+   */
+  CertificateWallet?: Uint8Array;
+
+  /**
+   * <p>The tags associated with the certificate.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateResponse {
+  /**
+   * <p>The certificate to be uploaded.</p>
+   * @public
+   */
+  Certificate?: Certificate;
+}
+
+/**
+ * <p>The certificate was not valid.</p>
+ * @public
+ */
+export class InvalidCertificateFault extends __BaseException {
+  readonly name: "InvalidCertificateFault" = "InvalidCertificateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCertificateFault, __BaseException>) {
+    super({
+      name: "InvalidCertificateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCertificateFault.prototype);
+  }
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListTagsForResourceMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to
+   *          list tags for. This returns a list of keys (names of tags) created for the resource and
+   *          their associated tag values.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>List of ARNs that identify multiple DMS resources that you want to list tags for. This
+   *          returns a list of keys (tag names) and their associated tag values. It also returns each
+   *          tag's associated <code>ResourceArn</code> value, which is the ARN of the resource for which
+   *          each listed tag is created. </p>
+   * @public
+   */
+  ResourceArnList?: string[];
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tags for the resource.</p>
+   * @public
+   */
+  TagList?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyConversionConfigurationMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The new conversion configuration.</p>
+   * @public
+   */
+  ConversionConfiguration: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyConversionConfigurationResponse {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of  the modified configuration.</p>
+   * @public
+   */
+  MigrationProjectIdentifier?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataMigrationMessage {
+  /**
+   * <p>The identifier (name or ARN) of the data migration to modify.</p>
+   * @public
+   */
+  DataMigrationIdentifier: string | undefined;
+
+  /**
+   * <p>The new name for the data migration.</p>
+   * @public
+   */
+  DataMigrationName?: string;
+
+  /**
+   * <p>Whether to enable Cloudwatch logs for the data migration.</p>
+   * @public
+   */
+  EnableCloudwatchLogs?: boolean;
+
+  /**
+   * <p>The new service access role ARN for the data migration.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string;
+
+  /**
+   * <p>The new migration type for the data migration.</p>
+   * @public
+   */
+  DataMigrationType?: MigrationTypeValue;
+
+  /**
+   * <p>The new information about the source data provider for the data migration.</p>
+   * @public
+   */
+  SourceDataSettings?: SourceDataSetting[];
+
+  /**
+   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
+   * @public
+   */
+  NumberOfJobs?: number;
+
+  /**
+   * <p>A JSON-formatted string that defines what objects to include and exclude from the migration.</p>
+   * @public
+   */
+  SelectionRules?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataMigrationResponse {
+  /**
+   * <p>Information about the modified data migration.</p>
+   * @public
+   */
+  DataMigration?: DataMigration;
+}
 
 /**
  * @public
@@ -1300,6 +1575,51 @@ export interface RunFleetAdvisorLsaAnalysisResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const StartReplicationMigrationTypeValue = {
+  RELOAD_TARGET: "reload-target",
+  RESUME_PROCESSING: "resume-processing",
+  START_REPLICATION: "start-replication",
+} as const;
+
+/**
+ * @public
+ */
+export type StartReplicationMigrationTypeValue =
+  (typeof StartReplicationMigrationTypeValue)[keyof typeof StartReplicationMigrationTypeValue];
+
+/**
+ * @public
+ */
+export interface StartDataMigrationMessage {
+  /**
+   * <p>The identifier (name or ARN) of the data migration to start.</p>
+   * @public
+   */
+  DataMigrationIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the start type for the data migration. Valid values include
+   *          <code>start-replication</code>, <code>reload-target</code>, and <code>resume-processing</code>.</p>
+   * @public
+   */
+  StartType: StartReplicationMigrationTypeValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDataMigrationResponse {
+  /**
+   * <p>The data migration that DMS started.</p>
+   * @public
+   */
+  DataMigration?: DataMigration;
+}
+
+/**
+ * @public
  */
 export interface StartExtensionPackAssociationMessage {
   /**
@@ -1834,6 +2154,28 @@ export interface StartReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * @public
+ */
+export interface StopDataMigrationMessage {
+  /**
+   * <p>The identifier (name or ARN) of the data migration to stop.</p>
+   * @public
+   */
+  DataMigrationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopDataMigrationResponse {
+  /**
+   * <p>The data migration that DMS stopped.</p>
+   * @public
+   */
+  DataMigration?: DataMigration;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -1941,6 +2283,30 @@ export interface UpdateSubscriptionsToEventBridgeResponse {
 /**
  * @internal
  */
+export const ImportCertificateMessageFilterSensitiveLog = (obj: ImportCertificateMessage): any => ({
+  ...obj,
+  ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyDataMigrationMessageFilterSensitiveLog = (obj: ModifyDataMigrationMessage): any => ({
+  ...obj,
+  ...(obj.SelectionRules && { SelectionRules: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyDataMigrationResponseFilterSensitiveLog = (obj: ModifyDataMigrationResponse): any => ({
+  ...obj,
+  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
+});
+
+/**
+ * @internal
+ */
 export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -1966,4 +2332,20 @@ export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessa
 export const ModifyEndpointResponseFilterSensitiveLog = (obj: ModifyEndpointResponse): any => ({
   ...obj,
   ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
+});
+
+/**
+ * @internal
+ */
+export const StartDataMigrationResponseFilterSensitiveLog = (obj: StartDataMigrationResponse): any => ({
+  ...obj,
+  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
+});
+
+/**
+ * @internal
+ */
+export const StopDataMigrationResponseFilterSensitiveLog = (obj: StopDataMigrationResponse): any => ({
+  ...obj,
+  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
 });
