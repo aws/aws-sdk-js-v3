@@ -4,7 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { NODE_APP_ID_CONFIG_OPTIONS, defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -41,7 +41,7 @@ export const getRuntimeConfig = (config: DirectoryServiceDataClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
-      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

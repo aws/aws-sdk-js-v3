@@ -8,7 +8,7 @@ import {
   WebSocketFetchHandler as WebSocketRequestHandler,
   eventStreamPayloadHandlerProvider,
 } from "@aws-sdk/middleware-websocket";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
+import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler as HttpRequestHandler, streamCollector } from "@smithy/fetch-http-handler";
@@ -37,7 +37,7 @@ export const getRuntimeConfig = (config: RekognitionStreamingClientConfig) => {
       config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
-      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
