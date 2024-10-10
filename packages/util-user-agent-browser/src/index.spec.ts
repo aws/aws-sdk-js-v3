@@ -1,4 +1,4 @@
-import { defaultUserAgent, PreviouslyResolved } from ".";
+import { createDefaultUserAgentProvider, PreviouslyResolved } from ".";
 
 const ua =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36";
@@ -7,7 +7,7 @@ const mockConfig: PreviouslyResolved = {
   userAgentAppId: jest.fn().mockResolvedValue(undefined),
 };
 
-describe("defaultUserAgent", () => {
+describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
     jest.spyOn(window.navigator, "userAgent", "get").mockReturnValue(ua);
   });
@@ -17,7 +17,7 @@ describe("defaultUserAgent", () => {
   });
 
   it("should populate metrics", async () => {
-    const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
+    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
     expect(userAgent[0]).toEqual(["aws-sdk-js", "0.1.0"]);
     expect(userAgent[1]).toEqual(["ua", "2.1"]);
     expect(userAgent[2]).toEqual(["os/macOS", "10.15.7"]);
@@ -28,7 +28,9 @@ describe("defaultUserAgent", () => {
   });
 
   it("should populate metrics when service id not available", async () => {
-    const userAgent = await defaultUserAgent({ serviceId: undefined, clientVersion: "0.1.0" })(mockConfig);
+    const userAgent = await createDefaultUserAgentProvider({ serviceId: undefined, clientVersion: "0.1.0" })(
+      mockConfig
+    );
     expect(userAgent).not.toContainEqual(["api/s3", "0.1.0"]);
     expect(userAgent.length).toBe(5);
   });
@@ -37,13 +39,15 @@ describe("defaultUserAgent", () => {
     const configWithAppId: PreviouslyResolved = {
       userAgentAppId: jest.fn().mockResolvedValue("test-app-id"),
     };
-    const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })(configWithAppId);
+    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(
+      configWithAppId
+    );
     expect(userAgent[6]).toEqual(["app/test-app-id"]);
     expect(userAgent.length).toBe(7);
   });
 
   it("should not include appId when not provided", async () => {
-    const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
+    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
     expect(userAgent).not.toContainEqual(expect.arrayContaining(["app/"]));
     expect(userAgent.length).toBe(6);
   });
