@@ -29,6 +29,10 @@ import {
   AcceptAddressTransferCommandOutput,
 } from "../commands/AcceptAddressTransferCommand";
 import {
+  AcceptCapacityReservationBillingOwnershipCommandInput,
+  AcceptCapacityReservationBillingOwnershipCommandOutput,
+} from "../commands/AcceptCapacityReservationBillingOwnershipCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "../commands/AcceptReservedInstancesExchangeQuoteCommand";
@@ -76,6 +80,10 @@ import {
   AssignPrivateNatGatewayAddressCommandOutput,
 } from "../commands/AssignPrivateNatGatewayAddressCommand";
 import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "../commands/AssociateAddressCommand";
+import {
+  AssociateCapacityReservationBillingOwnerCommandInput,
+  AssociateCapacityReservationBillingOwnerCommandOutput,
+} from "../commands/AssociateCapacityReservationBillingOwnerCommand";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
   AssociateClientVpnTargetNetworkCommandOutput,
@@ -770,6 +778,10 @@ import {
   DescribeCapacityBlockOfferingsCommandOutput,
 } from "../commands/DescribeCapacityBlockOfferingsCommand";
 import {
+  DescribeCapacityReservationBillingRequestsCommandInput,
+  DescribeCapacityReservationBillingRequestsCommandOutput,
+} from "../commands/DescribeCapacityReservationBillingRequestsCommand";
+import {
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
 } from "../commands/DescribeCapacityReservationFleetsCommand";
@@ -1354,6 +1366,10 @@ import {
   DisassociateAddressCommandInput,
   DisassociateAddressCommandOutput,
 } from "../commands/DisassociateAddressCommand";
+import {
+  DisassociateCapacityReservationBillingOwnerCommandInput,
+  DisassociateCapacityReservationBillingOwnerCommandOutput,
+} from "../commands/DisassociateCapacityReservationBillingOwnerCommand";
 import {
   DisassociateClientVpnTargetNetworkCommandInput,
   DisassociateClientVpnTargetNetworkCommandOutput,
@@ -1973,6 +1989,10 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "../commands/RegisterTransitGatewayMulticastGroupSourcesCommand";
 import {
+  RejectCapacityReservationBillingOwnershipCommandInput,
+  RejectCapacityReservationBillingOwnershipCommandOutput,
+} from "../commands/RejectCapacityReservationBillingOwnershipCommand";
+import {
   RejectTransitGatewayMulticastDomainAssociationsCommandInput,
   RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "../commands/RejectTransitGatewayMulticastDomainAssociationsCommand";
@@ -2154,7 +2174,6 @@ import {
 import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "../commands/WithdrawByoipCidrCommand";
 import { EC2ServiceException as __BaseException } from "../models/EC2ServiceException";
 import {
-  _InstanceType,
   AcceleratorCount,
   AcceleratorCountRequest,
   AcceleratorManufacturer,
@@ -2164,6 +2183,8 @@ import {
   AcceleratorType,
   AcceptAddressTransferRequest,
   AcceptAddressTransferResult,
+  AcceptCapacityReservationBillingOwnershipRequest,
+  AcceptCapacityReservationBillingOwnershipResult,
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult,
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
@@ -2219,6 +2240,8 @@ import {
   AssignPrivateNatGatewayAddressResult,
   AssociateAddressRequest,
   AssociateAddressResult,
+  AssociateCapacityReservationBillingOwnerRequest,
+  AssociateCapacityReservationBillingOwnerResult,
   AssociateClientVpnTargetNetworkRequest,
   AssociateClientVpnTargetNetworkResult,
   AssociateDhcpOptionsRequest,
@@ -2307,7 +2330,6 @@ import {
   CopySnapshotRequest,
   CopySnapshotResult,
   CreateCapacityReservationBySplittingRequest,
-  CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   DeviceOptions,
@@ -2347,7 +2369,6 @@ import {
   Protocol,
   PtrUpdateStatus,
   ReferencedSecurityGroup,
-  ReservationFleetInstanceSpecification,
   ReservedInstancesListing,
   ResourceStatement,
   ResourceStatementRequest,
@@ -2393,6 +2414,7 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
+  _InstanceType,
   AttributeValue,
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
@@ -2413,6 +2435,7 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationFleetRequest,
   CreateCapacityReservationFleetResult,
   CreateCarrierGatewayRequest,
@@ -2486,7 +2509,6 @@ import {
   CreateNetworkInsightsAccessScopeRequest,
   CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
-  CreateNetworkInsightsPathResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2505,7 +2527,6 @@ import {
   ExportToS3Task,
   ExportToS3TaskSpecification,
   FederatedAuthenticationRequest,
-  FilterPortRange,
   FleetCapacityReservation,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
@@ -2597,12 +2618,10 @@ import {
   NetworkBandwidthGbpsRequest,
   NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
-  NetworkInsightsPath,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
-  PathFilter,
   PathRequestFilter,
   Placement,
   PlacementResponse,
@@ -2612,6 +2631,7 @@ import {
   RequestFilterPortRange,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
+  ReservationFleetInstanceSpecification,
   ResponseLaunchTemplateData,
   SpotOptionsRequest,
   StateReason,
@@ -2633,6 +2653,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateNetworkInsightsPathResult,
   CreateNetworkInterfacePermissionRequest,
   CreateNetworkInterfacePermissionResult,
   CreateNetworkInterfaceRequest,
@@ -2770,11 +2791,10 @@ import {
   DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
   DeleteLaunchTemplateVersionsRequest,
-  DeleteLaunchTemplateVersionsResponseErrorItem,
-  DeleteLaunchTemplateVersionsResponseSuccessItem,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
+  FilterPortRange,
   GroupIdentifier,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
@@ -2782,6 +2802,7 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
@@ -2789,6 +2810,7 @@ import {
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
+  PathFilter,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsListValue,
@@ -2806,7 +2828,6 @@ import {
   PrivateDnsNameConfiguration,
   PropagatingVgw,
   ReplaceRootVolumeTask,
-  ResponseError,
   Route,
   RouteTable,
   RouteTableAssociation,
@@ -2873,7 +2894,9 @@ import {
   AvailableCapacity,
   Byoasn,
   CapacityBlockOffering,
+  CapacityReservationBillingRequest,
   CapacityReservationFleet,
+  CapacityReservationInfo,
   CapacityReservationOptions,
   CertificateAuthentication,
   ClassicLinkInstance,
@@ -2887,6 +2910,8 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteLaunchTemplateVersionsResponseErrorItem,
+  DeleteLaunchTemplateVersionsResponseSuccessItem,
   DeleteLaunchTemplateVersionsResult,
   DeleteLocalGatewayRouteRequest,
   DeleteLocalGatewayRouteResult,
@@ -3015,6 +3040,8 @@ import {
   DescribeByoipCidrsResult,
   DescribeCapacityBlockOfferingsRequest,
   DescribeCapacityBlockOfferingsResult,
+  DescribeCapacityReservationBillingRequestsRequest,
+  DescribeCapacityReservationBillingRequestsResult,
   DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
@@ -3081,8 +3108,6 @@ import {
   DescribeIdentityIdFormatResult,
   DescribeIdFormatRequest,
   DescribeIdFormatResult,
-  DescribeImageAttributeRequest,
-  DescribeImagesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3112,7 +3137,6 @@ import {
   HostProperties,
   HostReservation,
   IdFormat,
-  ImageAttribute,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
@@ -3120,11 +3144,11 @@ import {
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
-  LaunchPermission,
   LoadPermission,
   OnDemandOptions,
   PciId,
   ProductCode,
+  ResponseError,
   SpotOptions,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
@@ -3138,11 +3162,11 @@ import {
   AttributeBooleanValue,
   BootModeType,
   CapacityReservationSpecificationResponse,
-  ClassicLoadBalancer,
-  ClassicLoadBalancersConfig,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeImageAttributeRequest,
+  DescribeImagesRequest,
   DescribeImagesResult,
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
@@ -3293,6 +3317,7 @@ import {
   HibernationOptions,
   HistoryRecord,
   Image,
+  ImageAttribute,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportSnapshotTask,
@@ -3312,7 +3337,6 @@ import {
   InstanceNetworkInterface,
   InstanceNetworkInterfaceAssociation,
   InstanceNetworkInterfaceAttachment,
-  InstanceNetworkInterfaceSpecification,
   InstancePrivateIpAddress,
   InstanceState,
   InstanceStatus,
@@ -3325,8 +3349,7 @@ import {
   InstanceTypeOffering,
   Ipv6Pool,
   KeyPairInfo,
-  LaunchTemplateConfig,
-  LaunchTemplateOverrides,
+  LaunchPermission,
   LicenseConfiguration,
   LocalGateway,
   LocalGatewayVirtualInterface,
@@ -3379,13 +3402,8 @@ import {
   SnapshotDetail,
   SnapshotTaskDetail,
   SnapshotTierStatus,
-  SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
-  SpotFleetTagSpecification,
-  SpotPlacement,
   SupportedAdditionalProcessorFeature,
-  TargetGroup,
-  TargetGroupsConfig,
   UsageClassType,
   UserBucketDetails,
   VCpuInfo,
@@ -3393,9 +3411,9 @@ import {
 } from "../models/models_4";
 import {
   AssociatedRole,
-  AthenaIntegration,
-  CapacityReservationGroup,
   ClassicLinkDnsSupport,
+  ClassicLoadBalancer,
+  ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   DataQuery,
@@ -3531,6 +3549,8 @@ import {
   DisableVpcClassicLinkRequest,
   DisableVpcClassicLinkResult,
   DisassociateAddressRequest,
+  DisassociateCapacityReservationBillingOwnerRequest,
+  DisassociateCapacityReservationBillingOwnerResult,
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
   DisassociateEnclaveCertificateIamRoleRequest,
@@ -3627,37 +3647,35 @@ import {
   GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
-  GetFlowLogsIntegrationTemplateRequest,
-  GetFlowLogsIntegrationTemplateResult,
-  GetGroupsForCapacityReservationRequest,
-  GetGroupsForCapacityReservationResult,
-  GetHostReservationPurchasePreviewRequest,
-  GetHostReservationPurchasePreviewResult,
-  GetImageBlockPublicAccessStateRequest,
-  GetImageBlockPublicAccessStateResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
+  InstanceNetworkInterfaceSpecification,
   InstanceUsage,
-  IntegrateServices,
   Ipv6CidrAssociation,
   LaunchSpecification,
+  LaunchTemplateConfig,
+  LaunchTemplateOverrides,
   LoadBalancersConfig,
   MetricPoint,
   PrivateDnsDetails,
-  Purchase,
   RunInstancesMonitoringEnabled,
   ServiceDetail,
   SpotCapacityRebalance,
+  SpotFleetLaunchSpecification,
   SpotFleetRequestConfig,
   SpotFleetRequestConfigData,
+  SpotFleetTagSpecification,
   SpotInstanceRequest,
   SpotInstanceStatus,
   SpotMaintenanceStrategies,
+  SpotPlacement,
   SpotPrice,
   StaleIpPermission,
   StaleSecurityGroup,
   StoreImageTaskResult,
   TagDescription,
+  TargetGroup,
+  TargetGroupsConfig,
   TransitGatewayAttachment,
   TransitGatewayAttachmentAssociation,
   TransitGatewayPropagation,
@@ -3678,7 +3696,9 @@ import {
   VpcEndpointConnection,
 } from "../models/models_5";
 import {
+  AthenaIntegration,
   BlobAttributeValue,
+  CapacityReservationGroup,
   CapacityReservationSpecification,
   ClientData,
   CreateVolumePermissionModifications,
@@ -3686,6 +3706,14 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetFlowLogsIntegrationTemplateRequest,
+  GetFlowLogsIntegrationTemplateResult,
+  GetGroupsForCapacityReservationRequest,
+  GetGroupsForCapacityReservationResult,
+  GetHostReservationPurchasePreviewRequest,
+  GetHostReservationPurchasePreviewResult,
+  GetImageBlockPublicAccessStateRequest,
+  GetImageBlockPublicAccessStateResult,
   GetInstanceMetadataDefaultsRequest,
   GetInstanceMetadataDefaultsResult,
   GetInstanceTpmEkPubRequest,
@@ -3777,6 +3805,7 @@ import {
   InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
+  IntegrateServices,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
@@ -3909,20 +3938,10 @@ import {
   ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
-  ModifyVpcEndpointServicePayerResponsibilityRequest,
-  ModifyVpcEndpointServicePayerResponsibilityResult,
-  ModifyVpcEndpointServicePermissionsRequest,
-  ModifyVpcEndpointServicePermissionsResult,
-  ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsResult,
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyResult,
-  ModifyVpnConnectionRequest,
   NetworkInterfaceAttachmentChanges,
-  PeeringConnectionOptions,
-  PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
+  Purchase,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3971,8 +3990,17 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcEndpointServicePayerResponsibilityRequest,
+  ModifyVpcEndpointServicePayerResponsibilityResult,
+  ModifyVpcEndpointServicePermissionsRequest,
+  ModifyVpcEndpointServicePermissionsResult,
+  ModifyVpcPeeringConnectionOptionsRequest,
+  ModifyVpcPeeringConnectionOptionsResult,
+  ModifyVpcTenancyRequest,
+  ModifyVpcTenancyResult,
   ModifyVpnConnectionOptionsRequest,
   ModifyVpnConnectionOptionsResult,
+  ModifyVpnConnectionRequest,
   ModifyVpnConnectionResult,
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
@@ -3987,6 +4015,8 @@ import {
   MoveByoipCidrToIpamResult,
   MoveCapacityReservationInstancesRequest,
   MoveCapacityReservationInstancesResult,
+  PeeringConnectionOptions,
+  PeeringConnectionOptionsRequest,
   PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
@@ -4015,6 +4045,8 @@ import {
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
+  RejectCapacityReservationBillingOwnershipRequest,
+  RejectCapacityReservationBillingOwnershipResult,
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
   RejectTransitGatewayPeeringAttachmentRequest,
@@ -4144,6 +4176,23 @@ export const se_AcceptAddressTransferCommand = async (
   body = buildFormUrlencodedString({
     ...se_AcceptAddressTransferRequest(input, context),
     [_A]: _AAT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2AcceptCapacityReservationBillingOwnershipCommand
+ */
+export const se_AcceptCapacityReservationBillingOwnershipCommand = async (
+  input: AcceptCapacityReservationBillingOwnershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AcceptCapacityReservationBillingOwnershipRequest(input, context),
+    [_A]: _ACRBO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4399,6 +4448,23 @@ export const se_AssociateAddressCommand = async (
   body = buildFormUrlencodedString({
     ...se_AssociateAddressRequest(input, context),
     [_A]: _AAs,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2AssociateCapacityReservationBillingOwnerCommand
+ */
+export const se_AssociateCapacityReservationBillingOwnerCommand = async (
+  input: AssociateCapacityReservationBillingOwnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AssociateCapacityReservationBillingOwnerRequest(input, context),
+    [_A]: _ACRBOs,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8077,6 +8143,23 @@ export const se_DescribeCapacityBlockOfferingsCommand = async (
 };
 
 /**
+ * serializeAws_ec2DescribeCapacityReservationBillingRequestsCommand
+ */
+export const se_DescribeCapacityReservationBillingRequestsCommand = async (
+  input: DescribeCapacityReservationBillingRequestsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityReservationBillingRequestsRequest(input, context),
+    [_A]: _DCRBR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DescribeCapacityReservationFleetsCommand
  */
 export const se_DescribeCapacityReservationFleetsCommand = async (
@@ -10876,6 +10959,23 @@ export const se_DisassociateAddressCommand = async (
   body = buildFormUrlencodedString({
     ...se_DisassociateAddressRequest(input, context),
     [_A]: _DAi,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DisassociateCapacityReservationBillingOwnerCommand
+ */
+export const se_DisassociateCapacityReservationBillingOwnerCommand = async (
+  input: DisassociateCapacityReservationBillingOwnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisassociateCapacityReservationBillingOwnerRequest(input, context),
+    [_A]: _DCRBO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13891,6 +13991,23 @@ export const se_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
 };
 
 /**
+ * serializeAws_ec2RejectCapacityReservationBillingOwnershipCommand
+ */
+export const se_RejectCapacityReservationBillingOwnershipCommand = async (
+  input: RejectCapacityReservationBillingOwnershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_RejectCapacityReservationBillingOwnershipRequest(input, context),
+    [_A]: _RCRBO,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommand
  */
 export const se_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
@@ -14829,6 +14946,26 @@ export const de_AcceptAddressTransferCommand = async (
 };
 
 /**
+ * deserializeAws_ec2AcceptCapacityReservationBillingOwnershipCommand
+ */
+export const de_AcceptCapacityReservationBillingOwnershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptCapacityReservationBillingOwnershipCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AcceptCapacityReservationBillingOwnershipResult(data, context);
+  const response: AcceptCapacityReservationBillingOwnershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand
  */
 export const de_AcceptReservedInstancesExchangeQuoteCommand = async (
@@ -15122,6 +15259,26 @@ export const de_AssociateAddressCommand = async (
   let contents: any = {};
   contents = de_AssociateAddressResult(data, context);
   const response: AssociateAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2AssociateCapacityReservationBillingOwnerCommand
+ */
+export const de_AssociateCapacityReservationBillingOwnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateCapacityReservationBillingOwnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateCapacityReservationBillingOwnerResult(data, context);
+  const response: AssociateCapacityReservationBillingOwnerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -19368,6 +19525,26 @@ export const de_DescribeCapacityBlockOfferingsCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeCapacityReservationBillingRequestsCommand
+ */
+export const de_DescribeCapacityReservationBillingRequestsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationBillingRequestsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityReservationBillingRequestsResult(data, context);
+  const response: DescribeCapacityReservationBillingRequestsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribeCapacityReservationFleetsCommand
  */
 export const de_DescribeCapacityReservationFleetsCommand = async (
@@ -22648,6 +22825,26 @@ export const de_DisassociateAddressCommand = async (
   await collectBody(output.body, context);
   const response: DisassociateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisassociateCapacityReservationBillingOwnerCommand
+ */
+export const de_DisassociateCapacityReservationBillingOwnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateCapacityReservationBillingOwnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateCapacityReservationBillingOwnerResult(data, context);
+  const response: DisassociateCapacityReservationBillingOwnerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -26154,6 +26351,26 @@ export const de_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
 };
 
 /**
+ * deserializeAws_ec2RejectCapacityReservationBillingOwnershipCommand
+ */
+export const de_RejectCapacityReservationBillingOwnershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectCapacityReservationBillingOwnershipCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RejectCapacityReservationBillingOwnershipResult(data, context);
+  const response: RejectCapacityReservationBillingOwnershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommand
  */
 export const de_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
@@ -27346,6 +27563,23 @@ const se_AcceptAddressTransferRequest = (input: AcceptAddressTransferRequest, co
 };
 
 /**
+ * serializeAws_ec2AcceptCapacityReservationBillingOwnershipRequest
+ */
+const se_AcceptCapacityReservationBillingOwnershipRequest = (
+  input: AcceptCapacityReservationBillingOwnershipRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CRI] != null) {
+    entries[_CRI] = input[_CRI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest
  */
 const se_AcceptReservedInstancesExchangeQuoteRequest = (
@@ -28007,6 +28241,26 @@ const se_AssociateAddressRequest = (input: AssociateAddressRequest, context: __S
   }
   if (input[_ARl] != null) {
     entries[_ARl] = input[_ARl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2AssociateCapacityReservationBillingOwnerRequest
+ */
+const se_AssociateCapacityReservationBillingOwnerRequest = (
+  input: AssociateCapacityReservationBillingOwnerRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CRI] != null) {
+    entries[_CRI] = input[_CRI];
+  }
+  if (input[_URBOI] != null) {
+    entries[_URBOI] = input[_URBOI];
   }
   return entries;
 };
@@ -34821,6 +35075,43 @@ const se_DescribeCapacityBlockOfferingsRequest = (
 };
 
 /**
+ * serializeAws_ec2DescribeCapacityReservationBillingRequestsRequest
+ */
+const se_DescribeCapacityReservationBillingRequestsRequest = (
+  input: DescribeCapacityReservationBillingRequestsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_CRIa] != null) {
+    const memberEntries = se_CapacityReservationIdSet(input[_CRIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Ro] != null) {
+    entries[_Ro] = input[_Ro];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DescribeCapacityReservationFleetsRequest
  */
 const se_DescribeCapacityReservationFleetsRequest = (
@@ -39716,6 +40007,26 @@ const se_DisassociateAddressRequest = (input: DisassociateAddressRequest, contex
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DisassociateCapacityReservationBillingOwnerRequest
+ */
+const se_DisassociateCapacityReservationBillingOwnerRequest = (
+  input: DisassociateCapacityReservationBillingOwnerRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CRI] != null) {
+    entries[_CRI] = input[_CRI];
+  }
+  if (input[_URBOI] != null) {
+    entries[_URBOI] = input[_URBOI];
   }
   return entries;
 };
@@ -49543,6 +49854,23 @@ const se_RegisterTransitGatewayMulticastGroupSourcesRequest = (
 };
 
 /**
+ * serializeAws_ec2RejectCapacityReservationBillingOwnershipRequest
+ */
+const se_RejectCapacityReservationBillingOwnershipRequest = (
+  input: RejectCapacityReservationBillingOwnershipRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CRI] != null) {
+    entries[_CRI] = input[_CRI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsRequest
  */
 const se_RejectTransitGatewayMulticastDomainAssociationsRequest = (
@@ -54397,6 +54725,20 @@ const de_AcceptAddressTransferResult = (output: any, context: __SerdeContext): A
 };
 
 /**
+ * deserializeAws_ec2AcceptCapacityReservationBillingOwnershipResult
+ */
+const de_AcceptCapacityReservationBillingOwnershipResult = (
+  output: any,
+  context: __SerdeContext
+): AcceptCapacityReservationBillingOwnershipResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult
  */
 const de_AcceptReservedInstancesExchangeQuoteResult = (
@@ -55331,6 +55673,20 @@ const de_AssociateAddressResult = (output: any, context: __SerdeContext): Associ
   const contents: any = {};
   if (output[_aIs] != null) {
     contents[_AIss] = __expectString(output[_aIs]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2AssociateCapacityReservationBillingOwnerResult
+ */
+const de_AssociateCapacityReservationBillingOwnerResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateCapacityReservationBillingOwnerResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
   }
   return contents;
 };
@@ -56507,7 +56863,56 @@ const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityR
   if (output[_rT] != null) {
     contents[_RTe] = __expectString(output[_rT]);
   }
+  if (output[_uRBOI] != null) {
+    contents[_URBOI] = __expectString(output[_uRBOI]);
+  }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2CapacityReservationBillingRequest
+ */
+const de_CapacityReservationBillingRequest = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationBillingRequest => {
+  const contents: any = {};
+  if (output[_cRI] != null) {
+    contents[_CRI] = __expectString(output[_cRI]);
+  }
+  if (output[_rB] != null) {
+    contents[_RB] = __expectString(output[_rB]);
+  }
+  if (output[_uRBOI] != null) {
+    contents[_URBOI] = __expectString(output[_uRBOI]);
+  }
+  if (output[_lUT] != null) {
+    contents[_LUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lUT]));
+  }
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  if (output[_sM] != null) {
+    contents[_SM] = __expectString(output[_sM]);
+  }
+  if (output[_cRIa] != null) {
+    contents[_CRIap] = de_CapacityReservationInfo(output[_cRIa], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CapacityReservationBillingRequestSet
+ */
+const de_CapacityReservationBillingRequestSet = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationBillingRequest[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityReservationBillingRequest(entry, context);
+    });
 };
 
 /**
@@ -56626,6 +57031,23 @@ const de_CapacityReservationGroupSet = (output: any, context: __SerdeContext): C
     .map((entry: any) => {
       return de_CapacityReservationGroup(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2CapacityReservationInfo
+ */
+const de_CapacityReservationInfo = (output: any, context: __SerdeContext): CapacityReservationInfo => {
+  const contents: any = {};
+  if (output[_iT] != null) {
+    contents[_IT] = __expectString(output[_iT]);
+  }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_t] != null) {
+    contents[_Te] = __expectString(output[_t]);
+  }
+  return contents;
 };
 
 /**
@@ -58048,7 +58470,7 @@ const de_CreateLaunchTemplateVersionResult = (
 const de_CreateLocalGatewayRouteResult = (output: any, context: __SerdeContext): CreateLocalGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_LocalGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_LocalGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -58520,7 +58942,7 @@ const de_CreateTransitGatewayResult = (output: any, context: __SerdeContext): Cr
 const de_CreateTransitGatewayRouteResult = (output: any, context: __SerdeContext): CreateTransitGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_TransitGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_TransitGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -59245,7 +59667,7 @@ const de_DeleteLaunchTemplateVersionsResult = (
 const de_DeleteLocalGatewayRouteResult = (output: any, context: __SerdeContext): DeleteLocalGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_LocalGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_LocalGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -59595,7 +60017,7 @@ const de_DeleteTransitGatewayResult = (output: any, context: __SerdeContext): De
 const de_DeleteTransitGatewayRouteResult = (output: any, context: __SerdeContext): DeleteTransitGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_TransitGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_TransitGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -60017,6 +60439,25 @@ const de_DescribeCapacityBlockOfferingsResult = (
 };
 
 /**
+ * deserializeAws_ec2DescribeCapacityReservationBillingRequestsResult
+ */
+const de_DescribeCapacityReservationBillingRequestsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityReservationBillingRequestsResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (output.capacityReservationBillingRequestSet === "") {
+    contents[_CRBR] = [];
+  } else if (output[_cRBRS] != null && output[_cRBRS][_i] != null) {
+    contents[_CRBR] = de_CapacityReservationBillingRequestSet(__getArrayIfSingleItem(output[_cRBRS][_i]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeCapacityReservationFleetsResult
  */
 const de_DescribeCapacityReservationFleetsResult = (
@@ -60152,9 +60593,9 @@ const de_DescribeClientVpnEndpointsResult = (
 const de_DescribeClientVpnRoutesResult = (output: any, context: __SerdeContext): DescribeClientVpnRoutesResult => {
   const contents: any = {};
   if (output.routes === "") {
-    contents[_Rou] = [];
+    contents[_Rout] = [];
   } else if (output[_rou] != null && output[_rou][_i] != null) {
-    contents[_Rou] = de_ClientVpnRouteSet(__getArrayIfSingleItem(output[_rou][_i]), context);
+    contents[_Rout] = de_ClientVpnRouteSet(__getArrayIfSingleItem(output[_rou][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -63187,6 +63628,20 @@ const de_DisableVpcClassicLinkDnsSupportResult = (
  * deserializeAws_ec2DisableVpcClassicLinkResult
  */
 const de_DisableVpcClassicLinkResult = (output: any, context: __SerdeContext): DisableVpcClassicLinkResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DisassociateCapacityReservationBillingOwnerResult
+ */
+const de_DisassociateCapacityReservationBillingOwnerResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateCapacityReservationBillingOwnerResult => {
   const contents: any = {};
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
@@ -72424,7 +72879,7 @@ const de_ModifyLaunchTemplateResult = (output: any, context: __SerdeContext): Mo
 const de_ModifyLocalGatewayRouteResult = (output: any, context: __SerdeContext): ModifyLocalGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_LocalGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_LocalGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -75375,6 +75830,20 @@ const de_RegisterTransitGatewayMulticastGroupSourcesResult = (
 };
 
 /**
+ * deserializeAws_ec2RejectCapacityReservationBillingOwnershipResult
+ */
+const de_RejectCapacityReservationBillingOwnershipResult = (
+  output: any,
+  context: __SerdeContext
+): RejectCapacityReservationBillingOwnershipResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsResult
  */
 const de_RejectTransitGatewayMulticastDomainAssociationsResult = (
@@ -75577,7 +76046,7 @@ const de_ReplaceTransitGatewayRouteResult = (
 ): ReplaceTransitGatewayRouteResult => {
   const contents: any = {};
   if (output[_ro] != null) {
-    contents[_Ro] = de_TransitGatewayRoute(output[_ro], context);
+    contents[_Rou] = de_TransitGatewayRoute(output[_ro], context);
   }
   return contents;
 };
@@ -76491,9 +76960,9 @@ const de_RouteTable = (output: any, context: __SerdeContext): RouteTable => {
     contents[_RTI] = __expectString(output[_rTI]);
   }
   if (output.routeSet === "") {
-    contents[_Rou] = [];
+    contents[_Rout] = [];
   } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rou] = de_RouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+    contents[_Rout] = de_RouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -76850,9 +77319,9 @@ const de_ScheduledInstanceSet = (output: any, context: __SerdeContext): Schedule
 const de_SearchLocalGatewayRoutesResult = (output: any, context: __SerdeContext): SearchLocalGatewayRoutesResult => {
   const contents: any = {};
   if (output.routeSet === "") {
-    contents[_Rou] = [];
+    contents[_Rout] = [];
   } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rou] = de_LocalGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+    contents[_Rout] = de_LocalGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -76888,9 +77357,9 @@ const de_SearchTransitGatewayRoutesResult = (
 ): SearchTransitGatewayRoutesResult => {
   const contents: any = {};
   if (output.routeSet === "") {
-    contents[_Rou] = [];
+    contents[_Rout] = [];
   } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rou] = de_TransitGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+    contents[_Rout] = de_TransitGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
   }
   if (output[_aRAd] != null) {
     contents[_ARAd] = __parseBoolean(output[_aRAd]);
@@ -81074,8 +81543,8 @@ const de_VerifiedAccessEndpoint = (output: any, context: __SerdeContext): Verifi
   if (output[_cTre] != null) {
     contents[_CTre] = __expectString(output[_cTre]);
   }
-  if (output[_lUT] != null) {
-    contents[_LUT] = __expectString(output[_lUT]);
+  if (output[_lUTa] != null) {
+    contents[_LUTa] = __expectString(output[_lUTa]);
   }
   if (output[_dT] != null) {
     contents[_DTel] = __expectString(output[_dT]);
@@ -81195,8 +81664,8 @@ const de_VerifiedAccessGroup = (output: any, context: __SerdeContext): VerifiedA
   if (output[_cTre] != null) {
     contents[_CTre] = __expectString(output[_cTre]);
   }
-  if (output[_lUT] != null) {
-    contents[_LUT] = __expectString(output[_lUT]);
+  if (output[_lUTa] != null) {
+    contents[_LUTa] = __expectString(output[_lUTa]);
   }
   if (output[_dT] != null) {
     contents[_DTel] = __expectString(output[_dT]);
@@ -81242,8 +81711,8 @@ const de_VerifiedAccessInstance = (output: any, context: __SerdeContext): Verifi
   if (output[_cTre] != null) {
     contents[_CTre] = __expectString(output[_cTre]);
   }
-  if (output[_lUT] != null) {
-    contents[_LUT] = __expectString(output[_lUT]);
+  if (output[_lUTa] != null) {
+    contents[_LUTa] = __expectString(output[_lUTa]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -81447,8 +81916,8 @@ const de_VerifiedAccessTrustProvider = (output: any, context: __SerdeContext): V
   if (output[_cTre] != null) {
     contents[_CTre] = __expectString(output[_cTre]);
   }
-  if (output[_lUT] != null) {
-    contents[_LUT] = __expectString(output[_lUT]);
+  if (output[_lUTa] != null) {
+    contents[_LUTa] = __expectString(output[_lUTa]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -82394,9 +82863,9 @@ const de_VpnConnection = (output: any, context: __SerdeContext): VpnConnection =
     contents[_O] = de_VpnConnectionOptions(output[_op], context);
   }
   if (output.routes === "") {
-    contents[_Rou] = [];
+    contents[_Rout] = [];
   } else if (output[_rou] != null && output[_rou][_i] != null) {
-    contents[_Rou] = de_VpnStaticRouteList(__getArrayIfSingleItem(output[_rou][_i]), context);
+    contents[_Rout] = de_VpnStaticRouteList(__getArrayIfSingleItem(output[_rou][_i]), context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -82671,6 +83140,8 @@ const _ABHP = "ActualBlockHourlyPrice";
 const _AC = "AllowedCidrs";
 const _ACIA = "AssociateCarrierIpAddress";
 const _ACLV = "AttachClassicLinkVpc";
+const _ACRBO = "AcceptCapacityReservationBillingOwnership";
+const _ACRBOs = "AssociateCapacityReservationBillingOwner";
 const _ACT = "ArchivalCompleteTime";
 const _ACVI = "AuthorizeClientVpnIngress";
 const _ACVTN = "AssociateClientVpnTargetNetwork";
@@ -83036,6 +83507,7 @@ const _CPIo = "CoipPoolId";
 const _CPo = "CoipPools";
 const _CR = "CreateRoute";
 const _CRA = "CapacityReservationArn";
+const _CRBR = "CapacityReservationBillingRequests";
 const _CRCC = "ClientRootCertificateChain";
 const _CRCCA = "ClientRootCertificateChainArn";
 const _CRF = "CapacityReservationFleets";
@@ -83048,6 +83520,7 @@ const _CRIL = "CancelReservedInstancesListing";
 const _CRILr = "CreateReservedInstancesListing";
 const _CRIT = "CreateRestoreImageTask";
 const _CRIa = "CapacityReservationIds";
+const _CRIap = "CapacityReservationInfo";
 const _CRL = "CertificateRevocationList";
 const _CRO = "CapacityReservationOptions";
 const _CRP = "CapacityReservationPreference";
@@ -83183,6 +83656,8 @@ const _DCLV = "DetachClassicLinkVpc";
 const _DCP = "DeleteCoipPool";
 const _DCPe = "DescribeCoipPools";
 const _DCR = "DescribeCapacityReservations";
+const _DCRBO = "DisassociateCapacityReservationBillingOwner";
+const _DCRBR = "DescribeCapacityReservationBillingRequests";
 const _DCRF = "DescribeCapacityReservationFleets";
 const _DCRI = "DestinationCapacityReservationId";
 const _DCRe = "DestinationCapacityReservation";
@@ -84127,7 +84602,8 @@ const _LTau = "LaunchTemplates";
 const _LTaun = "LaunchTime";
 const _LTi = "LicenseType";
 const _LTo = "LocalTarget";
-const _LUT = "LastUpdatedTime";
+const _LUT = "LastUpdateTime";
+const _LUTa = "LastUpdatedTime";
 const _LV = "LogVersion";
 const _LVN = "LatestVersionNumber";
 const _La = "Latest";
@@ -84565,10 +85041,12 @@ const _RATC = "RestoreAddressToClassic";
 const _RAe = "ResolveAlias";
 const _RAo = "RoleArn";
 const _RAu = "RuleAction";
+const _RB = "RequestedBy";
 const _RBET = "RecycleBinEnterTime";
 const _RBETe = "RecycleBinExitTime";
 const _RBUI = "RestorableByUserIds";
 const _RC = "ResourceCidr";
+const _RCRBO = "RejectCapacityReservationBillingOwnership";
 const _RCS = "ResourceComplianceStatus";
 const _RCVI = "RevokeClientVpnIngress";
 const _RCe = "ReasonCodes";
@@ -84721,8 +85199,9 @@ const _Res = "Resource";
 const _Rese = "Reservations";
 const _Resu = "Result";
 const _Ret = "Return";
-const _Ro = "Route";
-const _Rou = "Routes";
+const _Ro = "Role";
+const _Rou = "Route";
+const _Rout = "Routes";
 const _S = "Source";
 const _SA = "StartupAction";
 const _SAI = "SecondaryAllocationIds";
@@ -85103,6 +85582,7 @@ const _UPNGA = "UnassignPrivateNatGatewayAddress";
 const _UPS = "UploadPolicySignature";
 const _UPp = "UpfrontPrice";
 const _UPs = "UsagePrice";
+const _URBOI = "UnusedReservationBillingOwnerId";
 const _US = "UnlockSnapshot";
 const _USGRDE = "UpdateSecurityGroupRuleDescriptionsEgress";
 const _USGRDI = "UpdateSecurityGroupRuleDescriptionsIngress";
@@ -85459,12 +85939,14 @@ const _cPI = "coipPoolId";
 const _cPS = "coipPoolSet";
 const _cR = "capacityReservation";
 const _cRA = "capacityReservationArn";
+const _cRBRS = "capacityReservationBillingRequestSet";
 const _cRCC = "clientRootCertificateChain";
 const _cRFA = "capacityReservationFleetArn";
 const _cRFI = "capacityReservationFleetId";
 const _cRFS = "capacityReservationFleetSet";
 const _cRGS = "capacityReservationGroupSet";
 const _cRI = "capacityReservationId";
+const _cRIa = "capacityReservationInfo";
 const _cRL = "certificateRevocationList";
 const _cRO = "capacityReservationOptions";
 const _cRP = "capacityReservationPreference";
@@ -86059,7 +86541,8 @@ const _lTa = "launchTemplates";
 const _lTau = "launchTime";
 const _lTi = "licenseType";
 const _lTo = "locationType";
-const _lUT = "lastUpdatedTime";
+const _lUT = "lastUpdateTime";
+const _lUTa = "lastUpdatedTime";
 const _lV = "logVersion";
 const _lVN = "latestVersionNumber";
 const _lo = "location";
@@ -86358,6 +86841,7 @@ const _pu = "public";
 const _pur = "purchase";
 const _r = "return";
 const _rA = "ruleAction";
+const _rB = "requestedBy";
 const _rBET = "recycleBinEnterTime";
 const _rBETe = "recycleBinExitTime";
 const _rC = "returnCode";
@@ -86770,6 +87254,7 @@ const _uP = "upfrontPrice";
 const _uPS = "uploadPolicySignature";
 const _uPp = "uploadPolicy";
 const _uPs = "usagePrice";
+const _uRBOI = "unusedReservationBillingOwnerId";
 const _uS = "usageStrategy";
 const _uST = "udpStreamTimeout";
 const _uT = "updateTime";

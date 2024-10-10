@@ -2,45 +2,37 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  _InstanceType,
   ActiveInstance,
   AlternatePathHint,
   AttachmentStatus,
   CurrencyCodeValues,
   Explanation,
   IamInstanceProfile,
-  IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   IpPermission,
   PathComponent,
   ReservedInstancesListing,
-  ResourceType,
   SecurityGroupRule,
   Tag,
 } from "./models_0";
 
 import {
+  _InstanceType,
   AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
-  ConnectionTrackingSpecificationRequest,
   Ec2InstanceConnectEndpoint,
-  EnaSrdSpecificationRequest,
-  FleetLaunchTemplateSpecification,
   HostnameType,
   InstanceIpv6Address,
-  InstanceRequirements,
   InternetGateway,
   Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
   IpamResourceDiscovery,
   IpamScope,
-  Ipv4PrefixSpecificationRequest,
-  Ipv6PrefixSpecificationRequest,
   KeyType,
   LaunchTemplate,
   LaunchTemplateVersion,
@@ -52,16 +44,15 @@ import {
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
-  NetworkInsightsPath,
   Placement,
   PlatformValues,
-  PrivateIpAddressSpecification,
   StateReason,
   Tenancy,
 } from "./models_1";
 
 import {
   GroupIdentifier,
+  NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
@@ -76,20 +67,518 @@ import {
 } from "./models_2";
 
 import {
-  ArchitectureValues,
-  BootModeValues,
   Byoasn,
-  DeviceType,
   EventInformation,
   Filter,
-  HypervisorType,
   IdFormat,
-  ImageTypeValues,
-  ImdsSupportValues,
+  ImageAttributeName,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Contains the parameters for DescribeImageAttribute.</p>
+ * @public
+ */
+export interface DescribeImageAttributeRequest {
+  /**
+   * <p>The AMI attribute.</p>
+   *          <p>
+   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
+   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
+   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
+   * @public
+   */
+  Attribute: ImageAttributeName | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a launch permission.</p>
+ * @public
+ */
+export interface LaunchPermission {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization.</p>
+   * @public
+   */
+  OrganizationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU).</p>
+   * @public
+   */
+  OrganizationalUnitArn?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  Group?: PermissionGroup;
+}
+
+/**
+ * <p>Describes an image attribute.</p>
+ * @public
+ */
+export interface ImageAttribute {
+  /**
+   * <p>A description for the AMI.</p>
+   * @public
+   */
+  Description?: AttributeValue;
+
+  /**
+   * <p>The kernel ID.</p>
+   * @public
+   */
+  KernelId?: AttributeValue;
+
+  /**
+   * <p>The RAM disk ID.</p>
+   * @public
+   */
+  RamdiskId?: AttributeValue;
+
+  /**
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   * @public
+   */
+  SriovNetSupport?: AttributeValue;
+
+  /**
+   * <p>The boot mode.</p>
+   * @public
+   */
+  BootMode?: AttributeValue;
+
+  /**
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>
+   * @public
+   */
+  TpmSupport?: AttributeValue;
+
+  /**
+   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
+   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
+   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  UefiData?: AttributeValue;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
+   *          <note>
+   *             <p>
+   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
+   *          </note>
+   * @public
+   */
+  LastLaunchedTime?: AttributeValue;
+
+  /**
+   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
+   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
+   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
+   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImdsSupport?: AttributeValue;
+
+  /**
+   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+   * @public
+   */
+  DeregistrationProtection?: AttributeValue;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The launch permissions.</p>
+   * @public
+   */
+  LaunchPermissions?: LaunchPermission[];
+
+  /**
+   * <p>The product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The block device mapping entries.</p>
+   * @public
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeImagesRequest {
+  /**
+   * <p>Scopes the images by users with explicit launch permissions.
+   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
+   * 				or <code>all</code> (public AMIs).</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
+   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
+   *           are shared with the account’s organization or organizational unit (OU) are not
+   *           returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
+   *           shared with your account are returned. In addition, AMIs that are shared with the
+   *           organization or OU of which you are member are also returned. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExecutableUsers?: string[];
+
+  /**
+   * <p>The image IDs.</p>
+   *          <p>Default: Describes all images available to you.</p>
+   * @public
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Scopes the results to images with the specified owners. You can specify a combination of
+   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+   *       If you omit this parameter, the results include all images for which you have launch permissions,
+   *       regardless of ownership.</p>
+   * @public
+   */
+  Owners?: string[];
+
+  /**
+   * <p>Specifies whether to include deprecated AMIs.</p>
+   *          <p>Default: No deprecated AMIs are included in the response.</p>
+   *          <note>
+   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
+   *         you specify for this parameter.</p>
+   *          </note>
+   * @public
+   */
+  IncludeDeprecated?: boolean;
+
+  /**
+   * <p>Specifies whether to include disabled AMIs.</p>
+   *          <p>Default: No disabled AMIs are included in the response.</p>
+   * @public
+   */
+  IncludeDisabled?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> |
+   *           <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
+   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
+   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
+   *           volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
+   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
+   *           </code>| <code>st1</code> | <code>standard</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2021-09-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - The description of the image (provided during image
+   *           creation).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
+   *           with ENA is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
+   *           <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-id</code> - The ID of the image.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
+   *             <code>ramdisk</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kernel-id</code> - The kernel ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manifest-location</code> - The location of the image manifest.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
+   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
+   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
+   *         	request parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
+   *       		<b>Owner</b> request parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-code</code> - The product code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
+   *             <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-instance-id</code> - The ID of the instance that the AMI was created from
+   *           if the AMI was created using CreateImage. This filter is applicable only if the AMI was
+   *           created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
+   *           | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state-reason-message</code> - The message for the state change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
+   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
+   *             <code>hvm</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ArchitectureValues = {
+  arm64: "arm64",
+  arm64_mac: "arm64_mac",
+  i386: "i386",
+  x86_64: "x86_64",
+  x86_64_mac: "x86_64_mac",
+} as const;
+
+/**
+ * @public
+ */
+export type ArchitectureValues = (typeof ArchitectureValues)[keyof typeof ArchitectureValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const BootModeValues = {
+  legacy_bios: "legacy-bios",
+  uefi: "uefi",
+  uefi_preferred: "uefi-preferred",
+} as const;
+
+/**
+ * @public
+ */
+export type BootModeValues = (typeof BootModeValues)[keyof typeof BootModeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const HypervisorType = {
+  ovm: "ovm",
+  xen: "xen",
+} as const;
+
+/**
+ * @public
+ */
+export type HypervisorType = (typeof HypervisorType)[keyof typeof HypervisorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageTypeValues = {
+  kernel: "kernel",
+  machine: "machine",
+  ramdisk: "ramdisk",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageTypeValues = (typeof ImageTypeValues)[keyof typeof ImageTypeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImdsSupportValues = {
+  v2_0: "v2.0",
+} as const;
+
+/**
+ * @public
+ */
+export type ImdsSupportValues = (typeof ImdsSupportValues)[keyof typeof ImdsSupportValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceType = {
+  ebs: "ebs",
+  instance_store: "instance-store",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
 
 /**
  * @public
@@ -1538,11 +2027,6 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>iam-instance-profile.name</code> - The instance profile associated with
-   *                     the instance. Specified as an name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>image-id</code> - The ID of the image used to launch the
    *                     instance.</p>
    *             </li>
@@ -2192,8 +2676,7 @@ export type InstanceBootModeValues = (typeof InstanceBootModeValues)[keyof typeo
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
  * @public
@@ -2226,7 +2709,10 @@ export interface ElasticGpuAssociation {
 }
 
 /**
- * <p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p>
  *             Describes the association between an instance and an elastic inference accelerator.
  *         </p>
  * @public
@@ -3007,16 +3493,17 @@ export interface Instance {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
   ElasticGpuAssociations?: ElasticGpuAssociation[];
 
   /**
-   * <p>The elastic inference accelerator associated with the instance.</p>
+   * <p>Deprecated</p>
+   *          <note>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
+   *          </note>
    * @public
    */
   ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
@@ -4608,7 +5095,10 @@ export const InstanceTypeHypervisor = {
 export type InstanceTypeHypervisor = (typeof InstanceTypeHypervisor)[keyof typeof InstanceTypeHypervisor];
 
 /**
- * <p>Describes the memory available to the inference accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p>Describes the memory available to the inference accelerator.</p>
  * @public
  */
 export interface InferenceDeviceMemoryInfo {
@@ -4620,7 +5110,10 @@ export interface InferenceDeviceMemoryInfo {
 }
 
 /**
- * <p>Describes the Inference accelerators for the instance type.</p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p>Describes the Inference accelerators for the instance type.</p>
  * @public
  */
 export interface InferenceDeviceInfo {
@@ -4650,7 +5143,10 @@ export interface InferenceDeviceInfo {
 }
 
 /**
- * <p>Describes the Inference accelerators for the instance type.</p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p>Describes the Inference accelerators for the instance type.</p>
  * @public
  */
 export interface InferenceAcceleratorInfo {
@@ -11852,545 +12348,6 @@ export interface SpotFleetMonitoring {
 }
 
 /**
- * <p>Describes a network interface.</p>
- * @public
- */
-export interface InstanceNetworkInterfaceSpecification {
-  /**
-   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The
-   *             public IP address can only be assigned to a network interface for eth0, and can only be
-   *             assigned to a new network interface, not an existing one. You cannot specify more than one
-   *             network interface in the request. If launching into a default subnet, the default value is
-   *             <code>true</code>.</p>
-   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
-   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
-   * @public
-   */
-  AssociatePublicIpAddress?: boolean;
-
-  /**
-   * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated. You can
-   *             specify <code>true</code> only if creating a new network interface when launching an
-   *             instance.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The description of the network interface. Applies only if creating a network interface when launching an instance.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The position of the network interface in the attachment order.
-   *           A primary network interface has a device index of 0.</p>
-   *          <p>If you specify a network interface when launching an instance,
-   *           you must specify the device index.</p>
-   * @public
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.</p>
-   * @public
-   */
-  Groups?: string[];
-
-  /**
-   * <p>A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses
-   *             the IPv6 addresses from the range of the subnet. You cannot specify this option and the
-   *             option to assign specific IPv6 addresses in the same request. You can specify this
-   *             option if you've specified a minimum number of instances to launch.</p>
-   * @public
-   */
-  Ipv6AddressCount?: number;
-
-  /**
-   * <p>The IPv6 addresses to assign to the network interface. You cannot specify
-   *             this option and the option to assign a number of IPv6 addresses in the same request. You
-   *             cannot specify this option if you've specified a minimum number of instances to
-   *             launch.</p>
-   * @public
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   *          <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching
-   *         	more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
-   * @public
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
-   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
-   * @public
-   */
-  PrivateIpAddresses?: PrivateIpAddressSpecification[];
-
-  /**
-   * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
-   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
-   * @public
-   */
-  SecondaryPrivateIpAddressCount?: number;
-
-  /**
-   * <p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>Indicates whether to assign a carrier IP address to the network interface.</p>
-   *          <p>You can only assign a carrier IP address to a network interface that is in a subnet in
-   *             a Wavelength Zone. For more information about carrier IP addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP address</a> in the <i>Amazon Web Services Wavelength Developer
-   *                 Guide</i>.</p>
-   * @public
-   */
-  AssociateCarrierIpAddress?: boolean;
-
-  /**
-   * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code>
-   *          </p>
-   * @public
-   */
-  InterfaceType?: string;
-
-  /**
-   * <p>The index of the network card. Some instance types support multiple network cards.
-   *             The primary network interface must be assigned to network card index 0.
-   *             The default is network card index 0.</p>
-   *          <p>If you are using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a> to create Spot Instances, omit this parameter because
-   *             you can’t specify the network card index when using this API. To specify the network
-   *             card index, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
-   * @public
-   */
-  NetworkCardIndex?: number;
-
-  /**
-   * <p>The IPv4 delegated prefixes to be assigned to the network interface. You cannot
-   *             use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
-   * @public
-   */
-  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
-
-  /**
-   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the network interface.
-   *             You cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
-   * @public
-   */
-  Ipv4PrefixCount?: number;
-
-  /**
-   * <p>The IPv6 delegated prefixes to be assigned to the network interface. You cannot
-   *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
-   * @public
-   */
-  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
-
-  /**
-   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network interface.
-   *             You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
-   * @public
-   */
-  Ipv6PrefixCount?: number;
-
-  /**
-   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
-   * @public
-   */
-  PrimaryIpv6?: boolean;
-
-  /**
-   * <p>Specifies the ENA Express settings for the network interface that's attached to
-   * 			the instance.</p>
-   * @public
-   */
-  EnaSrdSpecification?: EnaSrdSpecificationRequest;
-
-  /**
-   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
-}
-
-/**
- * <p>Describes Spot Instance placement.</p>
- * @public
- */
-export interface SpotPlacement {
-  /**
-   * <p>The Availability Zone.</p>
-   *          <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
-   *             for example, "us-west-2a, us-west-2b".</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The name of the placement group.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
-   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-   *             tenancy is not supported for Spot Instances.</p>
-   * @public
-   */
-  Tenancy?: Tenancy;
-}
-
-/**
- * <p>The tags for a Spot Fleet resource.</p>
- * @public
- */
-export interface SpotFleetTagSpecification {
-  /**
-   * <p>The type of resource. Currently, the only resource type that is supported is
-   *                 <code>instance</code>. To tag the Spot Fleet request on creation, use the
-   *                 <code>TagSpecifications</code> parameter in <code>
-   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">SpotFleetRequestConfigData</a>
-   *             </code>.</p>
-   * @public
-   */
-  ResourceType?: ResourceType;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * <p>Describes the launch specification for one or more Spot Instances. If you include
- *           On-Demand capacity in your fleet request or want to specify an EFA network device, you
- *           can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
- * @public
- */
-export interface SpotFleetLaunchSpecification {
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AddressingType?: string;
-
-  /**
-   * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
-   *             a snapshot ID and an encryption value. This is because only blank volumes can be
-   *             encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its
-   *             encryption status is used for the volume encryption status.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string;
-
-  /**
-   * <p>Enable or disable monitoring for the instances.</p>
-   * @public
-   */
-  Monitoring?: SpotFleetMonitoring;
-
-  /**
-   * <p>The network interfaces.</p>
-   *          <note>
-   *             <p>
-   *                <code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA).
-   *              You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p>
-   *          </note>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
-
-  /**
-   * <p>The placement information.</p>
-   * @public
-   */
-  Placement?: SpotPlacement;
-
-  /**
-   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel
-   *           requirements for information about whether you need to specify a RAM disk. To find kernel
-   *           requirements, refer to the Amazon Web Services Resource Center and search for the kernel ID.</p>
-   * @public
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
-   *           increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
-   *          them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
-   *          <p>If you specify a network interface, you must specify any subnets as part of the
-   *          network interface instead of using this parameter.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   * @public
-   */
-  UserData?: string;
-
-  /**
-   * <p>The number of units provided by the specified instance type. These are the same units
-   *         that you chose to set the target capacity in terms of instances, or a performance
-   *         characteristic such as vCPUs, memory, or I/O.</p>
-   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
-   *         number of instances to the next whole number. If this value is not specified, the default
-   *         is 1.</p>
-   *          <note>
-   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
-   *            <code>priceCapacityOptimized</code> allocation strategies is per
-   *            <i>unit</i> hour (where the instance price is divided by the specified
-   *            weight). However, if all the specified weights are above the requested
-   *            <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
-   *            used is per <i>instance</i> hour.</p>
-   *          </note>
-   * @public
-   */
-  WeightedCapacity?: number;
-
-  /**
-   * <p>The tags to apply during creation.</p>
-   * @public
-   */
-  TagSpecifications?: SpotFleetTagSpecification[];
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceType</code>.</p>
-   *          </note>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirements;
-
-  /**
-   * <p>The security groups.</p>
-   *          <p>If you specify a network interface, you must specify any security groups as part of
-   *         the network interface instead of using this parameter.</p>
-   * @public
-   */
-  SecurityGroups?: GroupIdentifier[];
-}
-
-/**
- * <p>Describes overrides for a launch template.</p>
- * @public
- */
-export interface LaunchTemplateOverrides {
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
-   *          increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instances.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The Availability Zone in which to launch the instances.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of units provided by the specified instance type. These are the same units
-   *          that you chose to set the target capacity in terms of instances, or a performance
-   *          characteristic such as vCPUs, memory, or I/O.</p>
-   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
-   *          number of instances to the next whole number. If this value is not specified, the default
-   *          is 1.</p>
-   *          <note>
-   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
-   *             <code>priceCapacityOptimized</code> allocation strategies is per
-   *             <i>unit</i> hour (where the instance price is divided by the specified
-   *             weight). However, if all the specified weights are above the requested
-   *             <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
-   *             used is per <i>instance</i> hour.</p>
-   *          </note>
-   * @public
-   */
-  WeightedCapacity?: number;
-
-  /**
-   * <p>The priority for the launch template override. The highest priority is launched
-   *          first.</p>
-   *          <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
-   *          uses priority to determine which launch template override to use first in fulfilling
-   *          On-Demand capacity.</p>
-   *          <p>If the Spot <code>AllocationStrategy</code> is set to
-   *          <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
-   *          to determine which launch template override to use in fulfilling Spot capacity, but
-   *          optimizes for capacity first.</p>
-   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
-   *          higher the priority. If no number is set, the launch template override has the lowest
-   *          priority. You can set the same priority for different launch template overrides.</p>
-   * @public
-   */
-  Priority?: number;
-
-  /**
-   * <p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify
-   *          instance types with the provided requirements, and then use your On-Demand and Spot
-   *          allocation strategies to launch instances from these instance types, in the same way as
-   *          when you specify a list of instance types.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceType</code>.</p>
-   *          </note>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirements;
-}
-
-/**
- * <p>Describes a launch template and overrides.</p>
- * @public
- */
-export interface LaunchTemplateConfig {
-  /**
-   * <p>The launch template to use. Make sure that the launch template does not contain the
-   *             <code>NetworkInterfaceId</code> parameter because you can't specify a network interface
-   *          ID in a Spot Fleet.</p>
-   * @public
-   */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
-
-  /**
-   * <p>Any parameters that you specify override the same parameters in the launch
-   *          template.</p>
-   * @public
-   */
-  Overrides?: LaunchTemplateOverrides[];
-}
-
-/**
- * <p>Describes a Classic Load Balancer.</p>
- * @public
- */
-export interface ClassicLoadBalancer {
-  /**
-   * <p>The name of the load balancer.</p>
-   * @public
-   */
-  Name?: string;
-}
-
-/**
- * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
- *             the running Spot Instances with these Classic Load Balancers.</p>
- * @public
- */
-export interface ClassicLoadBalancersConfig {
-  /**
-   * <p>One or more Classic Load Balancers.</p>
-   * @public
-   */
-  ClassicLoadBalancers?: ClassicLoadBalancer[];
-}
-
-/**
- * <p>Describes a load balancer target group.</p>
- * @public
- */
-export interface TargetGroup {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
-   * @public
-   */
-  Arn?: string;
-}
-
-/**
- * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
- *             running Spot Instances with these target groups.</p>
- * @public
- */
-export interface TargetGroupsConfig {
-  /**
-   * <p>One or more target groups.</p>
-   * @public
-   */
-  TargetGroups?: TargetGroup[];
-}
-
-/**
  * @internal
  */
 export const SnapshotDetailFilterSensitiveLog = (obj: SnapshotDetail): any => ({
@@ -12451,12 +12408,4 @@ export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
   ...(obj.LaunchTemplateVersions && {
     LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });

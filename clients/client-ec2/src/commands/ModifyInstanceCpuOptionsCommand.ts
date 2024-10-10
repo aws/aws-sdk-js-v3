@@ -32,7 +32,7 @@ export interface ModifyInstanceCpuOptionsCommandOutput extends ModifyInstanceCpu
  * 			configure the number of active vCPUs for the instance, it can help you save on licensing costs and
  * 			optimize performance. The base cost of the instance remains unchanged.</p>
  *          <p>The number of active vCPUs equals the number of threads per CPU core multiplied by the number
- * 			of cores.</p>
+ * 			of cores. The instance must be in a <code>Stopped</code> state before you make changes.</p>
  *          <note>
  *             <p>Some instance type options do not support this capability. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">Supported CPU

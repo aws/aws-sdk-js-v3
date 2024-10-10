@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateCapacityReservationBySplittingRequest,
-  CreateCapacityReservationBySplittingResult,
-} from "../models/models_0";
+import { CreateCapacityReservationBySplittingRequest } from "../models/models_0";
+import { CreateCapacityReservationBySplittingResult } from "../models/models_1";
 import {
   de_CreateCapacityReservationBySplittingCommand,
   se_CreateCapacityReservationBySplittingCommand,
@@ -100,6 +98,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -136,6 +135,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

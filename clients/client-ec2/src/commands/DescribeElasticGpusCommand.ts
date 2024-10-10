@@ -29,8 +29,7 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>Describes the Elastic Graphics accelerator associated with your instances.</p>
  * @example

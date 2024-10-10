@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVpnConnectionRequest } from "../models/models_6";
-import { ModifyVpnConnectionResult, ModifyVpnConnectionResultFilterSensitiveLog } from "../models/models_7";
+import {
+  ModifyVpnConnectionRequest,
+  ModifyVpnConnectionResult,
+  ModifyVpnConnectionResultFilterSensitiveLog,
+} from "../models/models_7";
 import { de_ModifyVpnConnectionCommand, se_ModifyVpnConnectionCommand } from "../protocols/Aws_ec2";
 
 /**

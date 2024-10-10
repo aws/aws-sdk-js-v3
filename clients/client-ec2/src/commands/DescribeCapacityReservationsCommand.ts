@@ -94,6 +94,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //         },
  * //       ],
  * //       ReservationType: "default" || "capacity-block",
+ * //       UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

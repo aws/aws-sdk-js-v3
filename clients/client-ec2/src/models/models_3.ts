@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  _InstanceType,
   AccountAttribute,
   AccountAttributeName,
   ActiveInstance,
@@ -22,7 +21,6 @@ import {
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
-  FleetInstanceMatchCriteria,
   HostMaintenance,
   HostRecovery,
   IamInstanceProfileAssociation,
@@ -36,8 +34,7 @@ import {
 } from "./models_0";
 
 import {
-  AttributeValue,
-  BlockDeviceMapping,
+  _InstanceType,
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
@@ -54,6 +51,7 @@ import {
   FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
+  FleetInstanceMatchCriteria,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
   FleetOnDemandAllocationStrategy,
@@ -76,8 +74,6 @@ import {
 } from "./models_1";
 
 import {
-  DeleteLaunchTemplateVersionsResponseErrorItem,
-  DeleteLaunchTemplateVersionsResponseSuccessItem,
   FleetStateCode,
   GroupIdentifier,
   SubnetCidrReservation,
@@ -93,6 +89,97 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * <p>Describes a launch template version that was successfully deleted.</p>
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   * @public
+   */
+  VersionNumber?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateErrorCode = {
+  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST: "launchTemplateIdDoesNotExist",
+  LAUNCH_TEMPLATE_ID_MALFORMED: "launchTemplateIdMalformed",
+  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST: "launchTemplateNameDoesNotExist",
+  LAUNCH_TEMPLATE_NAME_MALFORMED: "launchTemplateNameMalformed",
+  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST: "launchTemplateVersionDoesNotExist",
+  UNEXPECTED_ERROR: "unexpectedError",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateErrorCode = (typeof LaunchTemplateErrorCode)[keyof typeof LaunchTemplateErrorCode];
+
+/**
+ * <p>Describes the error that's returned when you cannot delete a launch template
+ *             version.</p>
+ * @public
+ */
+export interface ResponseError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code?: LaunchTemplateErrorCode;
+
+  /**
+   * <p>The error message, if applicable.</p>
+   * @public
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Describes a launch template version that could not be deleted.</p>
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResponseErrorItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   * @public
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>Information about the error.</p>
+   * @public
+   */
+  ResponseError?: ResponseError;
+}
 
 /**
  * @public
@@ -3149,6 +3236,203 @@ export interface DescribeCapacityBlockOfferingsResult {
 
 /**
  * @public
+ * @enum
+ */
+export const CallerRole = {
+  odcr_owner: "odcr-owner",
+  unused_reservation_billing_owner: "unused-reservation-billing-owner",
+} as const;
+
+/**
+ * @public
+ */
+export type CallerRole = (typeof CallerRole)[keyof typeof CallerRole];
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationBillingRequestsRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[];
+
+  /**
+   * <p>Specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>odcr-owner</code> - If you are the Capacity Reservation owner, specify this
+   * 					value to view requests that you have initiated. Not supported with the <code>requested-by</code>
+   * 					filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unused-reservation-billing-owner</code> - If you are the consumer account,
+   * 					specify this value to view requests that have been sent to you. Not supported with the
+   * 					<code>unused-reservation-billing-owner</code> filter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Role: CallerRole | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the request (<code>pending</code> | <code>accepted</code> |
+   * 					<code>rejected</code> | <code>cancelled</code> | <code>revoked</code> | <code>expired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>requested-by</code> - The account ID of the Capacity Reservation owner that initiated
+   * 					the request. Not supported if you specify <code>requested-by</code> for <b>Role</b>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unused-reservation-billing-owner</code> - The ID of the consumer account to which the
+   * 					request was sent. Not supported if you specify <code>unused-reservation-billing-owner</code> for
+   * 					<b>Role</b>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Information about a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationInfo {
+  /**
+   * <p>The instance type for the Capacity Reservation.</p>
+   * @public
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The Availability Zone for the Capacity Reservation.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The tenancy of the Capacity Reservation.</p>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationBillingRequestStatus = {
+  accepted: "accepted",
+  cancelled: "cancelled",
+  expired: "expired",
+  pending: "pending",
+  rejected: "rejected",
+  revoked: "revoked",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationBillingRequestStatus =
+  (typeof CapacityReservationBillingRequestStatus)[keyof typeof CapacityReservationBillingRequestStatus];
+
+/**
+ * <p>Information about a request to assign billing of the unused capacity of a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationBillingRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that initiated the request.</p>
+   * @public
+   */
+  RequestedBy?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account to which the request was sent.</p>
+   * @public
+   */
+  UnusedReservationBillingOwnerId?: string;
+
+  /**
+   * <p>The date and time, in UTC time format, at which the request was initiated.</p>
+   * @public
+   */
+  LastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-billing-transfers.html">
+   * 			View billing assignment requests for a shared Amazon EC2 Capacity Reservation</a>.</p>
+   * @public
+   */
+  Status?: CapacityReservationBillingRequestStatus;
+
+  /**
+   * <p>Information about the status.</p>
+   * @public
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Information about the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationInfo?: CapacityReservationInfo;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationBillingRequestsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the request.</p>
+   * @public
+   */
+  CapacityReservationBillingRequests?: CapacityReservationBillingRequest[];
+}
+
+/**
+ * @public
  */
 export interface DescribeCapacityReservationFleetsRequest {
   /**
@@ -5333,8 +5617,7 @@ export type ElasticGpuStatus = (typeof ElasticGpuStatus)[keyof typeof ElasticGpu
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>Describes the status of an Elastic Graphics accelerator.</p>
  * @public
@@ -5362,8 +5645,7 @@ export type ElasticGpuState = (typeof ElasticGpuState)[keyof typeof ElasticGpuSt
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>Describes an Elastic Graphics accelerator.</p>
  * @public
@@ -8510,509 +8792,6 @@ export const ImageAttributeName = {
  * @public
  */
 export type ImageAttributeName = (typeof ImageAttributeName)[keyof typeof ImageAttributeName];
-
-/**
- * <p>Contains the parameters for DescribeImageAttribute.</p>
- * @public
- */
-export interface DescribeImageAttributeRequest {
-  /**
-   * <p>The AMI attribute.</p>
-   *          <p>
-   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
-   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
-   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
-   * @public
-   */
-  Attribute: ImageAttributeName | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a launch permission.</p>
- * @public
- */
-export interface LaunchPermission {
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organization.</p>
-   * @public
-   */
-  OrganizationArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU).</p>
-   * @public
-   */
-  OrganizationalUnitArn?: string;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
-   * @public
-   */
-  UserId?: string;
-
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: PermissionGroup;
-}
-
-/**
- * <p>Describes an image attribute.</p>
- * @public
- */
-export interface ImageAttribute {
-  /**
-   * <p>A description for the AMI.</p>
-   * @public
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The kernel ID.</p>
-   * @public
-   */
-  KernelId?: AttributeValue;
-
-  /**
-   * <p>The RAM disk ID.</p>
-   * @public
-   */
-  RamdiskId?: AttributeValue;
-
-  /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   * @public
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>The boot mode.</p>
-   * @public
-   */
-  BootMode?: AttributeValue;
-
-  /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>
-   * @public
-   */
-  TpmSupport?: AttributeValue;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
-   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  UefiData?: AttributeValue;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
-   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
-   *          <note>
-   *             <p>
-   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
-   *          </note>
-   * @public
-   */
-  LastLaunchedTime?: AttributeValue;
-
-  /**
-   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
-   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
-   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
-   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ImdsSupport?: AttributeValue;
-
-  /**
-   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
-   * @public
-   */
-  DeregistrationProtection?: AttributeValue;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The launch permissions.</p>
-   * @public
-   */
-  LaunchPermissions?: LaunchPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The block device mapping entries.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-}
-
-/**
- * @public
- */
-export interface DescribeImagesRequest {
-  /**
-   * <p>Scopes the images by users with explicit launch permissions.
-   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
-   * 				or <code>all</code> (public AMIs).</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
-   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
-   *           are shared with the account’s organization or organizational unit (OU) are not
-   *           returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
-   *           shared with your account are returned. In addition, AMIs that are shared with the
-   *           organization or OU of which you are member are also returned. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ExecutableUsers?: string[];
-
-  /**
-   * <p>The image IDs.</p>
-   *          <p>Default: Describes all images available to you.</p>
-   * @public
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
-   *       If you omit this parameter, the results include all images for which you have launch permissions,
-   *       regardless of ownership.</p>
-   * @public
-   */
-  Owners?: string[];
-
-  /**
-   * <p>Specifies whether to include deprecated AMIs.</p>
-   *          <p>Default: No deprecated AMIs are included in the response.</p>
-   *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
-   *         you specify for this parameter.</p>
-   *          </note>
-   * @public
-   */
-  IncludeDeprecated?: boolean;
-
-  /**
-   * <p>Specifies whether to include disabled AMIs.</p>
-   *          <p>Default: No disabled AMIs are included in the response.</p>
-   * @public
-   */
-  IncludeDisabled?: boolean;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> |
-   *           <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
-   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
-   *           volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
-   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
-   *           </code>| <code>st1</code> | <code>standard</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
-   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2021-09-29T*</code>, which matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the image (provided during image
-   *           creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
-   *           with ENA is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
-   *           <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-id</code> - The ID of the image.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
-   *             <code>ramdisk</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manifest-location</code> - The location of the image manifest.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
-   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
-   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
-   *         	request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
-   *       		<b>Owner</b> request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
-   *             <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-instance-id</code> - The ID of the instance that the AMI was created from
-   *           if the AMI was created using CreateImage. This filter is applicable only if the AMI was
-   *           created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
-   *           | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-message</code> - The message for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
-   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
-   *             <code>hvm</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ArchitectureValues = {
-  arm64: "arm64",
-  arm64_mac: "arm64_mac",
-  i386: "i386",
-  x86_64: "x86_64",
-  x86_64_mac: "x86_64_mac",
-} as const;
-
-/**
- * @public
- */
-export type ArchitectureValues = (typeof ArchitectureValues)[keyof typeof ArchitectureValues];
-
-/**
- * @public
- * @enum
- */
-export const BootModeValues = {
-  legacy_bios: "legacy-bios",
-  uefi: "uefi",
-  uefi_preferred: "uefi-preferred",
-} as const;
-
-/**
- * @public
- */
-export type BootModeValues = (typeof BootModeValues)[keyof typeof BootModeValues];
-
-/**
- * @public
- * @enum
- */
-export const HypervisorType = {
-  ovm: "ovm",
-  xen: "xen",
-} as const;
-
-/**
- * @public
- */
-export type HypervisorType = (typeof HypervisorType)[keyof typeof HypervisorType];
-
-/**
- * @public
- * @enum
- */
-export const ImageTypeValues = {
-  kernel: "kernel",
-  machine: "machine",
-  ramdisk: "ramdisk",
-} as const;
-
-/**
- * @public
- */
-export type ImageTypeValues = (typeof ImageTypeValues)[keyof typeof ImageTypeValues];
-
-/**
- * @public
- * @enum
- */
-export const ImdsSupportValues = {
-  v2_0: "v2.0",
-} as const;
-
-/**
- * @public
- */
-export type ImdsSupportValues = (typeof ImdsSupportValues)[keyof typeof ImdsSupportValues];
-
-/**
- * @public
- * @enum
- */
-export const DeviceType = {
-  ebs: "ebs",
-  instance_store: "instance-store",
-} as const;
-
-/**
- * @public
- */
-export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
 
 /**
  * @internal

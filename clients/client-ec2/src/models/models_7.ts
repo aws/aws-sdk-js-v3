@@ -2,7 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  _InstanceType,
+  AddedPrincipal,
   AddressAttribute,
   AddressAttributeName,
   ByoipCidr,
@@ -25,6 +25,7 @@ import {
 } from "./models_0";
 
 import {
+  _InstanceType,
   AmdSevSnpSpecification,
   BlockDeviceMapping,
   CreditSpecificationRequest,
@@ -44,6 +45,7 @@ import {
 
 import {
   IKEVersionsRequestListValue,
+  PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
   Phase1IntegrityAlgorithmsRequestListValue,
@@ -58,25 +60,18 @@ import {
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
+import { Byoasn, ClientVpnConnectionStatus, Filter, InstanceTagNotificationAttribute, IpamPoolCidr } from "./models_3";
+
 import {
   ArchitectureValues,
   BootModeValues,
-  Byoasn,
-  ClientVpnConnectionStatus,
-  Filter,
-  ImdsSupportValues,
-  InstanceTagNotificationAttribute,
-  IpamPoolCidr,
-} from "./models_3";
-
-import {
   HttpTokensState,
+  ImdsSupportValues,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
-  InstanceNetworkInterfaceSpecification,
   InstanceState,
   Monitoring,
   NetworkInsightsAccessScopeAnalysis,
@@ -84,20 +79,296 @@ import {
   PublicIpv4PoolRange,
   ScheduledInstance,
   SnapshotAttributeName,
-  SpotPlacement,
   TpmSupportValues,
 } from "./models_4";
 
 import {
-  Purchase,
+  InstanceNetworkInterfaceSpecification,
   RunInstancesMonitoringEnabled,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
+  SpotPlacement,
 } from "./models_5";
 
-import { CapacityReservationSpecification } from "./models_6";
+import { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
+   *             If you set the payer responsibility to the service owner, you cannot set it back to the
+   *             endpoint owner.</p>
+   * @public
+   */
+  PayerResponsibility: PayerResponsibility | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePayerResponsibilityResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePermissionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the principals.
+   * 	        Permissions are granted to the principals in this list.
+   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
+   * @public
+   */
+  AddAllowedPrincipals?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the principals.
+   * 	        Permissions are revoked for principals in this list.</p>
+   * @public
+   */
+  RemoveAllowedPrincipals?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePermissionsResult {
+  /**
+   * <p>Information about the added principals.</p>
+   * @public
+   */
+  AddedPrincipals?: AddedPrincipal[];
+
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean;
+}
+
+/**
+ * <p>The VPC peering connection options.</p>
+ * @public
+ */
+export interface PeeringConnectionOptionsRequest {
+  /**
+   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
+   *         when queried from instances in the peer VPC.</p>
+   * @public
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcPeeringConnectionOptionsRequest {
+  /**
+   * <p>The VPC peering connection options for the accepter VPC.</p>
+   * @public
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The VPC peering connection options for the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+/**
+ * <p>Describes the VPC peering connection options.</p>
+ * @public
+ */
+export interface PeeringConnectionOptions {
+  /**
+   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
+   *             IP addresses when queried from instances in the peer VPC.</p>
+   * @public
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   * @public
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
+
+  /**
+   * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcTenancy = {
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcTenancy = (typeof VpcTenancy)[keyof typeof VpcTenancy];
+
+/**
+ * @public
+ */
+export interface ModifyVpcTenancyRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The instance tenancy attribute for the VPC. </p>
+   * @public
+   */
+  InstanceTenancy: VpcTenancy | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcTenancyResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
+   *             error.</p>
+   * @public
+   */
+  ReturnValue?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnConnectionRequest {
+  /**
+   * <p>The ID of the VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
+   * @public
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
+   * @public
+   */
+  VpnGatewayId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -1645,6 +1916,34 @@ export interface RegisterTransitGatewayMulticastGroupSourcesResult {
    * @public
    */
   RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
+}
+
+/**
+ * @public
+ */
+export interface RejectCapacityReservationBillingOwnershipRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the Capacity Reservation for which to reject the request.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectCapacityReservationBillingOwnershipResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean;
 }
 
 /**
@@ -3482,7 +3781,10 @@ export interface CpuOptionsRequest {
 }
 
 /**
- * <p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p>
  *            Describes an elastic inference accelerator.
  *         </p>
  * @public
@@ -3968,8 +4270,7 @@ export interface RunInstancesRequest {
   /**
    * <p>An elastic inference accelerator to associate with the instance.</p>
    *          <note>
-   *             <p>Amazon Elastic Inference (EI) is no longer available to new customers. For more
-   *             information, see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon Elastic Inference FAQs</a>.</p>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
    *          </note>
    * @public
    */

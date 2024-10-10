@@ -11,6 +11,7 @@ import {
   InstanceEventWindowState,
   Ipv4PrefixSpecification,
   Ipv6SupportValue,
+  Protocol,
   ReservedInstancesListing,
   RouteTableAssociationState,
   SecurityGroupReferencingSupportValue,
@@ -56,6 +57,156 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a port range.</p>
+ * @public
+ */
+export interface FilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   * @public
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   * @public
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *           there can be multiple resulting paths.</p>
+ * @public
+ */
+export interface PathFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   * @public
+   */
+  SourceAddress?: string;
+
+  /**
+   * <p>The source port range.</p>
+   * @public
+   */
+  SourcePortRange?: FilterPortRange;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   * @public
+   */
+  DestinationAddress?: string;
+
+  /**
+   * <p>The destination port range.</p>
+   * @public
+   */
+  DestinationPortRange?: FilterPortRange;
+}
+
+/**
+ * <p>Describes a path.</p>
+ * @public
+ */
+export interface NetworkInsightsPath {
+  /**
+   * <p>The ID of the path.</p>
+   * @public
+   */
+  NetworkInsightsPathId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the path.</p>
+   * @public
+   */
+  NetworkInsightsPathArn?: string;
+
+  /**
+   * <p>The time stamp when the path was created.</p>
+   * @public
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The ID of the source.</p>
+   * @public
+   */
+  Source?: string;
+
+  /**
+   * <p>The ID of the destination.</p>
+   * @public
+   */
+  Destination?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   * @public
+   */
+  DestinationArn?: string;
+
+  /**
+   * <p>The IP address of the source.</p>
+   * @public
+   */
+  SourceIp?: string;
+
+  /**
+   * <p>The IP address of the destination.</p>
+   * @public
+   */
+  DestinationIp?: string;
+
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: Protocol;
+
+  /**
+   * <p>The destination port.</p>
+   * @public
+   */
+  DestinationPort?: number;
+
+  /**
+   * <p>The tags associated with the path.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source.</p>
+   * @public
+   */
+  FilterAtSource?: PathFilter;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
+   * @public
+   */
+  FilterAtDestination?: PathFilter;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsPathResult {
+  /**
+   * <p>Information about the path.</p>
+   * @public
+   */
+  NetworkInsightsPath?: NetworkInsightsPath;
+}
 
 /**
  * @public
@@ -4954,7 +5105,7 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
 
   /**
    * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.</p>
-   *          <p>This option is enabled by default. However, security group referencing is disabled by default at the transit gateway level.</p>
+   *          <p>This option is set to <code>enable</code> by default. However, at the transit gateway level the default is set to <code>disable</code>.</p>
    *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing </a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
    * @public
    */
@@ -9265,97 +9416,6 @@ export interface DeleteLaunchTemplateVersionsRequest {
    * @public
    */
   Versions: string[] | undefined;
-}
-
-/**
- * <p>Describes a launch template version that was successfully deleted.</p>
- * @public
- */
-export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   * @public
-   */
-  VersionNumber?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const LaunchTemplateErrorCode = {
-  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST: "launchTemplateIdDoesNotExist",
-  LAUNCH_TEMPLATE_ID_MALFORMED: "launchTemplateIdMalformed",
-  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST: "launchTemplateNameDoesNotExist",
-  LAUNCH_TEMPLATE_NAME_MALFORMED: "launchTemplateNameMalformed",
-  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST: "launchTemplateVersionDoesNotExist",
-  UNEXPECTED_ERROR: "unexpectedError",
-} as const;
-
-/**
- * @public
- */
-export type LaunchTemplateErrorCode = (typeof LaunchTemplateErrorCode)[keyof typeof LaunchTemplateErrorCode];
-
-/**
- * <p>Describes the error that's returned when you cannot delete a launch template
- *             version.</p>
- * @public
- */
-export interface ResponseError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: LaunchTemplateErrorCode;
-
-  /**
-   * <p>The error message, if applicable.</p>
-   * @public
-   */
-  Message?: string;
-}
-
-/**
- * <p>Describes a launch template version that could not be deleted.</p>
- * @public
- */
-export interface DeleteLaunchTemplateVersionsResponseErrorItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   * @public
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   * @public
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>Information about the error.</p>
-   * @public
-   */
-  ResponseError?: ResponseError;
 }
 
 /**

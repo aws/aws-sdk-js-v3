@@ -8,6 +8,8 @@ export * from "./DescribeByoipCidrsPaginator";
 
 export * from "./DescribeCapacityBlockOfferingsPaginator";
 
+export * from "./DescribeCapacityReservationBillingRequestsPaginator";
+
 export * from "./DescribeCapacityReservationFleetsPaginator";
 
 export * from "./DescribeCapacityReservationsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeCapacityReservationsPaginator";
 export * from "./DescribeCarrierGatewaysPaginator";
 
 export * from "./DescribeClassicLinkInstancesPaginator";
-
-export * from "./DescribeClientVpnAuthorizationRulesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientVpnAuthorizationRulesPaginator";
 export * from "./DescribeClientVpnConnectionsPaginator";
 export * from "./DescribeClientVpnEndpointsPaginator";
 export * from "./DescribeClientVpnRoutesPaginator";

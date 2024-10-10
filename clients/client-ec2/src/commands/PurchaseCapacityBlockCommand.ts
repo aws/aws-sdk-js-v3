@@ -90,6 +90,7 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * // };
  *

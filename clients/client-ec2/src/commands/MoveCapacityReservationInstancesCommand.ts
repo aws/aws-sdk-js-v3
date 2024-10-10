@@ -106,6 +106,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -142,6 +143,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

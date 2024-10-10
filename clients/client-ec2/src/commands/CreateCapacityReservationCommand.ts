@@ -115,6 +115,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
+ * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
  * //   },
  * // };
  *

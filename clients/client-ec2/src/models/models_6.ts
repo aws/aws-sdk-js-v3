@@ -2,15 +2,14 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  _InstanceType,
   AccessScopeAnalysisFinding,
-  AddedPrincipal,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressAttribute,
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
+  CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
   EndDateType,
@@ -37,6 +36,7 @@ import {
 } from "./models_0";
 
 import {
+  _InstanceType,
   AttributeValue,
   CapacityReservationPreference,
   CapacityReservationTarget,
@@ -78,7 +78,6 @@ import {
   DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
   IpAddressType,
-  PayerResponsibility,
   SubnetCidrReservation,
   SubnetConfiguration,
   TrafficDirection,
@@ -98,22 +97,22 @@ import {
 } from "./models_2";
 
 import {
-  ArchitectureValues,
-  BootModeValues,
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
   IpamPoolCidr,
-  LaunchPermission,
+  PaymentOption,
   PermissionGroup,
 } from "./models_3";
 
 import {
   AnalysisStatus,
   ArchitectureType,
+  ArchitectureValues,
   AttributeBooleanValue,
+  BootModeValues,
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   HttpTokensState,
@@ -125,7 +124,7 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceStatusEvent,
-  LaunchTemplateConfig,
+  LaunchPermission,
   LockState,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
@@ -138,12 +137,308 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
+  LaunchTemplateConfig,
+  PartitionLoadFrequency,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * <p>Describes integration options for Amazon Athena.</p>
+ * @public
+ */
+export interface AthenaIntegration {
+  /**
+   * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
+   * @public
+   */
+  IntegrationResultS3DestinationArn: string | undefined;
+
+  /**
+   * <p>The schedule for adding new partitions to the table.</p>
+   * @public
+   */
+  PartitionLoadFrequency: PartitionLoadFrequency | undefined;
+
+  /**
+   * <p>The start date for the partition.</p>
+   * @public
+   */
+  PartitionStartDate?: Date;
+
+  /**
+   * <p>The end date for the partition.</p>
+   * @public
+   */
+  PartitionEndDate?: Date;
+}
+
+/**
+ * <p>Describes service integrations with VPC Flow logs.</p>
+ * @public
+ */
+export interface IntegrateServices {
+  /**
+   * <p>Information about the integration with Amazon Athena.</p>
+   * @public
+   */
+  AthenaIntegrations?: AthenaIntegration[];
+}
+
+/**
+ * @public
+ */
+export interface GetFlowLogsIntegrationTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the flow log.</p>
+   * @public
+   */
+  FlowLogId: string | undefined;
+
+  /**
+   * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
+   * @public
+   */
+  ConfigDeliveryS3DestinationArn: string | undefined;
+
+  /**
+   * <p>Information about the service integration.</p>
+   * @public
+   */
+  IntegrateServices: IntegrateServices | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFlowLogsIntegrationTemplateResult {
+  /**
+   * <p>The generated CloudFormation template.</p>
+   * @public
+   */
+  Result?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupsForCapacityReservationRequest {
+  /**
+   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared
+   * 			with you, the operation returns only Capacity Reservation groups that you own.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+ * @public
+ */
+export interface CapacityReservationGroup {
+  /**
+   * <p>The ARN of the resource group.</p>
+   * @public
+   */
+  GroupArn?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
+   * @public
+   */
+  OwnerId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupsForCapacityReservationResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
+   * @public
+   */
+  CapacityReservationGroups?: CapacityReservationGroup[];
+}
+
+/**
+ * @public
+ */
+export interface GetHostReservationPurchasePreviewRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
+   * @public
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The offering ID of the reservation.</p>
+   * @public
+   */
+  OfferingId: string | undefined;
+}
+
+/**
+ * <p>Describes the result of the purchase.</p>
+ * @public
+ */
+export interface Purchase {
+  /**
+   * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
+   *             amounts are specified. At this time, the only supported currency is
+   *             <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues;
+
+  /**
+   * <p>The duration of the reservation's term in seconds.</p>
+   * @public
+   */
+  Duration?: number;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   * @public
+   */
+  HostIdSet?: string[];
+
+  /**
+   * <p>The ID of the reservation.</p>
+   * @public
+   */
+  HostReservationId?: string;
+
+  /**
+   * <p>The hourly price of the reservation per hour.</p>
+   * @public
+   */
+  HourlyPrice?: string;
+
+  /**
+   * <p>The instance family on the Dedicated Host that the reservation can be associated
+   *             with.</p>
+   * @public
+   */
+  InstanceFamily?: string;
+
+  /**
+   * <p>The payment option for the reservation.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption;
+
+  /**
+   * <p>The upfront price of the reservation.</p>
+   * @public
+   */
+  UpfrontPrice?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetHostReservationPurchasePreviewResult {
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code> and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues;
+
+  /**
+   * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
+   *             associated with it.</p>
+   * @public
+   */
+  Purchase?: Purchase[];
+
+  /**
+   * <p>The potential total hourly price of the reservation per hour.</p>
+   * @public
+   */
+  TotalHourlyPrice?: string;
+
+  /**
+   * <p>The potential total upfront price. This is billed immediately.</p>
+   * @public
+   */
+  TotalUpfrontPrice?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetImageBlockPublicAccessStateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetImageBlockPublicAccessStateResult {
+  /**
+   * <p>The current state of block public access for AMIs at the account level in the specified
+   *       Amazon Web Services Region.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the
+   *           specified Region is blocked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unblocked</code> - Your AMIs in the specified Region can be publicly
+   *           shared.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ImageBlockPublicAccessState?: string;
+}
 
 /**
  * @public
@@ -7633,10 +7928,9 @@ export interface ModifySubnetAttributeRequest {
   /**
    * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   *          <p>You must first configure a NAT gateway in a public subnet (separate from the subnet
-   *            containing the IPv6-only workloads). For example, the subnet containing the NAT gateway
-   *            should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more
-   *            information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          <note>
+   *             <p>You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
    * @public
    */
   EnableDns64?: AttributeBooleanValue;
@@ -9202,282 +9496,6 @@ export interface ModifyVpcEndpointServiceConfigurationResult {
    * @public
    */
   Return?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
-   *             If you set the payer responsibility to the service owner, you cannot set it back to the
-   *             endpoint owner.</p>
-   * @public
-   */
-  PayerResponsibility: PayerResponsibility | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePayerResponsibilityResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePermissionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the principals.
-   * 	        Permissions are granted to the principals in this list.
-   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
-   * @public
-   */
-  AddAllowedPrincipals?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the principals.
-   * 	        Permissions are revoked for principals in this list.</p>
-   * @public
-   */
-  RemoveAllowedPrincipals?: string[];
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePermissionsResult {
-  /**
-   * <p>Information about the added principals.</p>
-   * @public
-   */
-  AddedPrincipals?: AddedPrincipal[];
-
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean;
-}
-
-/**
- * <p>The VPC peering connection options.</p>
- * @public
- */
-export interface PeeringConnectionOptionsRequest {
-  /**
-   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
-   *         when queried from instances in the peer VPC.</p>
-   * @public
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcPeeringConnectionOptionsRequest {
-  /**
-   * <p>The VPC peering connection options for the accepter VPC.</p>
-   * @public
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The VPC peering connection options for the requester VPC.</p>
-   * @public
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-/**
- * <p>Describes the VPC peering connection options.</p>
- * @public
- */
-export interface PeeringConnectionOptions {
-  /**
-   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
-   *             IP addresses when queried from instances in the peer VPC.</p>
-   * @public
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
-   * @public
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
-
-  /**
-   * <p>Information about the VPC peering connection options for the requester VPC.</p>
-   * @public
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
-}
-
-/**
- * @public
- * @enum
- */
-export const VpcTenancy = {
-  default: "default",
-} as const;
-
-/**
- * @public
- */
-export type VpcTenancy = (typeof VpcTenancy)[keyof typeof VpcTenancy];
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The instance tenancy attribute for the VPC. </p>
-   * @public
-   */
-  InstanceTenancy: VpcTenancy | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
-   *             error.</p>
-   * @public
-   */
-  ReturnValue?: boolean;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   * @public
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   * @public
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**

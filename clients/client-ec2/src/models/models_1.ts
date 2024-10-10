@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  _InstanceType,
   AcceleratorCount,
   AcceleratorCountRequest,
   AcceleratorManufacturer,
@@ -16,14 +15,13 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
+  CapacityReservation,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
-  FleetInstanceMatchCriteria,
   InstanceEventWindow,
   NatGatewayAddress,
   PortRange,
   Protocol,
-  ReservationFleetInstanceSpecification,
   ResourceType,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -33,6 +31,950 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationBySplittingResult {
+  /**
+   * <p>
+   * 			Information about the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservation?: CapacityReservation;
+
+  /**
+   * <p>
+   * 			Information about the destination Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  DestinationCapacityReservation?: CapacityReservation;
+
+  /**
+   * <p>
+   * 			The number of instances in the new Capacity Reservation. The number of instances in the source Capacity Reservation was reduced by this amount.
+   * 		</p>
+   * @public
+   */
+  InstanceCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetInstanceMatchCriteria = {
+  open: "open",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetInstanceMatchCriteria = (typeof FleetInstanceMatchCriteria)[keyof typeof FleetInstanceMatchCriteria];
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  a1_2xlarge: "a1.2xlarge",
+  a1_4xlarge: "a1.4xlarge",
+  a1_large: "a1.large",
+  a1_medium: "a1.medium",
+  a1_metal: "a1.metal",
+  a1_xlarge: "a1.xlarge",
+  c1_medium: "c1.medium",
+  c1_xlarge: "c1.xlarge",
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_metal: "c5.metal",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5ad_12xlarge: "c5ad.12xlarge",
+  c5ad_16xlarge: "c5ad.16xlarge",
+  c5ad_24xlarge: "c5ad.24xlarge",
+  c5ad_2xlarge: "c5ad.2xlarge",
+  c5ad_4xlarge: "c5ad.4xlarge",
+  c5ad_8xlarge: "c5ad.8xlarge",
+  c5ad_large: "c5ad.large",
+  c5ad_xlarge: "c5ad.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_metal: "c5d.metal",
+  c5d_xlarge: "c5d.xlarge",
+  c5n_18xlarge: "c5n.18xlarge",
+  c5n_2xlarge: "c5n.2xlarge",
+  c5n_4xlarge: "c5n.4xlarge",
+  c5n_9xlarge: "c5n.9xlarge",
+  c5n_large: "c5n.large",
+  c5n_metal: "c5n.metal",
+  c5n_xlarge: "c5n.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_32xlarge: "c6a.32xlarge",
+  c6a_48xlarge: "c6a.48xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_metal: "c6a.metal",
+  c6a_xlarge: "c6a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_metal: "c6g.metal",
+  c6g_xlarge: "c6g.xlarge",
+  c6gd_12xlarge: "c6gd.12xlarge",
+  c6gd_16xlarge: "c6gd.16xlarge",
+  c6gd_2xlarge: "c6gd.2xlarge",
+  c6gd_4xlarge: "c6gd.4xlarge",
+  c6gd_8xlarge: "c6gd.8xlarge",
+  c6gd_large: "c6gd.large",
+  c6gd_medium: "c6gd.medium",
+  c6gd_metal: "c6gd.metal",
+  c6gd_xlarge: "c6gd.xlarge",
+  c6gn_12xlarge: "c6gn.12xlarge",
+  c6gn_16xlarge: "c6gn.16xlarge",
+  c6gn_2xlarge: "c6gn.2xlarge",
+  c6gn_4xlarge: "c6gn.4xlarge",
+  c6gn_8xlarge: "c6gn.8xlarge",
+  c6gn_large: "c6gn.large",
+  c6gn_medium: "c6gn.medium",
+  c6gn_xlarge: "c6gn.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_32xlarge: "c6i.32xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_metal: "c6i.metal",
+  c6i_xlarge: "c6i.xlarge",
+  c6id_12xlarge: "c6id.12xlarge",
+  c6id_16xlarge: "c6id.16xlarge",
+  c6id_24xlarge: "c6id.24xlarge",
+  c6id_2xlarge: "c6id.2xlarge",
+  c6id_32xlarge: "c6id.32xlarge",
+  c6id_4xlarge: "c6id.4xlarge",
+  c6id_8xlarge: "c6id.8xlarge",
+  c6id_large: "c6id.large",
+  c6id_metal: "c6id.metal",
+  c6id_xlarge: "c6id.xlarge",
+  c6in_12xlarge: "c6in.12xlarge",
+  c6in_16xlarge: "c6in.16xlarge",
+  c6in_24xlarge: "c6in.24xlarge",
+  c6in_2xlarge: "c6in.2xlarge",
+  c6in_32xlarge: "c6in.32xlarge",
+  c6in_4xlarge: "c6in.4xlarge",
+  c6in_8xlarge: "c6in.8xlarge",
+  c6in_large: "c6in.large",
+  c6in_metal: "c6in.metal",
+  c6in_xlarge: "c6in.xlarge",
+  c7a_12xlarge: "c7a.12xlarge",
+  c7a_16xlarge: "c7a.16xlarge",
+  c7a_24xlarge: "c7a.24xlarge",
+  c7a_2xlarge: "c7a.2xlarge",
+  c7a_32xlarge: "c7a.32xlarge",
+  c7a_48xlarge: "c7a.48xlarge",
+  c7a_4xlarge: "c7a.4xlarge",
+  c7a_8xlarge: "c7a.8xlarge",
+  c7a_large: "c7a.large",
+  c7a_medium: "c7a.medium",
+  c7a_metal_48xl: "c7a.metal-48xl",
+  c7a_xlarge: "c7a.xlarge",
+  c7g_12xlarge: "c7g.12xlarge",
+  c7g_16xlarge: "c7g.16xlarge",
+  c7g_2xlarge: "c7g.2xlarge",
+  c7g_4xlarge: "c7g.4xlarge",
+  c7g_8xlarge: "c7g.8xlarge",
+  c7g_large: "c7g.large",
+  c7g_medium: "c7g.medium",
+  c7g_metal: "c7g.metal",
+  c7g_xlarge: "c7g.xlarge",
+  c7gd_12xlarge: "c7gd.12xlarge",
+  c7gd_16xlarge: "c7gd.16xlarge",
+  c7gd_2xlarge: "c7gd.2xlarge",
+  c7gd_4xlarge: "c7gd.4xlarge",
+  c7gd_8xlarge: "c7gd.8xlarge",
+  c7gd_large: "c7gd.large",
+  c7gd_medium: "c7gd.medium",
+  c7gd_metal: "c7gd.metal",
+  c7gd_xlarge: "c7gd.xlarge",
+  c7gn_12xlarge: "c7gn.12xlarge",
+  c7gn_16xlarge: "c7gn.16xlarge",
+  c7gn_2xlarge: "c7gn.2xlarge",
+  c7gn_4xlarge: "c7gn.4xlarge",
+  c7gn_8xlarge: "c7gn.8xlarge",
+  c7gn_large: "c7gn.large",
+  c7gn_medium: "c7gn.medium",
+  c7gn_metal: "c7gn.metal",
+  c7gn_xlarge: "c7gn.xlarge",
+  c7i_12xlarge: "c7i.12xlarge",
+  c7i_16xlarge: "c7i.16xlarge",
+  c7i_24xlarge: "c7i.24xlarge",
+  c7i_2xlarge: "c7i.2xlarge",
+  c7i_48xlarge: "c7i.48xlarge",
+  c7i_4xlarge: "c7i.4xlarge",
+  c7i_8xlarge: "c7i.8xlarge",
+  c7i_flex_2xlarge: "c7i-flex.2xlarge",
+  c7i_flex_4xlarge: "c7i-flex.4xlarge",
+  c7i_flex_8xlarge: "c7i-flex.8xlarge",
+  c7i_flex_large: "c7i-flex.large",
+  c7i_flex_xlarge: "c7i-flex.xlarge",
+  c7i_large: "c7i.large",
+  c7i_metal_24xl: "c7i.metal-24xl",
+  c7i_metal_48xl: "c7i.metal-48xl",
+  c7i_xlarge: "c7i.xlarge",
+  cc1_4xlarge: "cc1.4xlarge",
+  cc2_8xlarge: "cc2.8xlarge",
+  cg1_4xlarge: "cg1.4xlarge",
+  cr1_8xlarge: "cr1.8xlarge",
+  d2_2xlarge: "d2.2xlarge",
+  d2_4xlarge: "d2.4xlarge",
+  d2_8xlarge: "d2.8xlarge",
+  d2_xlarge: "d2.xlarge",
+  d3_2xlarge: "d3.2xlarge",
+  d3_4xlarge: "d3.4xlarge",
+  d3_8xlarge: "d3.8xlarge",
+  d3_xlarge: "d3.xlarge",
+  d3en_12xlarge: "d3en.12xlarge",
+  d3en_2xlarge: "d3en.2xlarge",
+  d3en_4xlarge: "d3en.4xlarge",
+  d3en_6xlarge: "d3en.6xlarge",
+  d3en_8xlarge: "d3en.8xlarge",
+  d3en_xlarge: "d3en.xlarge",
+  dl1_24xlarge: "dl1.24xlarge",
+  dl2q_24xlarge: "dl2q.24xlarge",
+  f1_16xlarge: "f1.16xlarge",
+  f1_2xlarge: "f1.2xlarge",
+  f1_4xlarge: "f1.4xlarge",
+  g2_2xlarge: "g2.2xlarge",
+  g2_8xlarge: "g2.8xlarge",
+  g3_16xlarge: "g3.16xlarge",
+  g3_4xlarge: "g3.4xlarge",
+  g3_8xlarge: "g3.8xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4ad_16xlarge: "g4ad.16xlarge",
+  g4ad_2xlarge: "g4ad.2xlarge",
+  g4ad_4xlarge: "g4ad.4xlarge",
+  g4ad_8xlarge: "g4ad.8xlarge",
+  g4ad_xlarge: "g4ad.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_metal: "g4dn.metal",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_12xlarge: "g5.12xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_24xlarge: "g5.24xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_48xlarge: "g5.48xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+  g5g_16xlarge: "g5g.16xlarge",
+  g5g_2xlarge: "g5g.2xlarge",
+  g5g_4xlarge: "g5g.4xlarge",
+  g5g_8xlarge: "g5g.8xlarge",
+  g5g_metal: "g5g.metal",
+  g5g_xlarge: "g5g.xlarge",
+  g6_12xlarge: "g6.12xlarge",
+  g6_16xlarge: "g6.16xlarge",
+  g6_24xlarge: "g6.24xlarge",
+  g6_2xlarge: "g6.2xlarge",
+  g6_48xlarge: "g6.48xlarge",
+  g6_4xlarge: "g6.4xlarge",
+  g6_8xlarge: "g6.8xlarge",
+  g6_xlarge: "g6.xlarge",
+  g6e_12xlarge: "g6e.12xlarge",
+  g6e_16xlarge: "g6e.16xlarge",
+  g6e_24xlarge: "g6e.24xlarge",
+  g6e_2xlarge: "g6e.2xlarge",
+  g6e_48xlarge: "g6e.48xlarge",
+  g6e_4xlarge: "g6e.4xlarge",
+  g6e_8xlarge: "g6e.8xlarge",
+  g6e_xlarge: "g6e.xlarge",
+  gr6_4xlarge: "gr6.4xlarge",
+  gr6_8xlarge: "gr6.8xlarge",
+  h1_16xlarge: "h1.16xlarge",
+  h1_2xlarge: "h1.2xlarge",
+  h1_4xlarge: "h1.4xlarge",
+  h1_8xlarge: "h1.8xlarge",
+  hi1_4xlarge: "hi1.4xlarge",
+  hpc6a_48xlarge: "hpc6a.48xlarge",
+  hpc6id_32xlarge: "hpc6id.32xlarge",
+  hpc7a_12xlarge: "hpc7a.12xlarge",
+  hpc7a_24xlarge: "hpc7a.24xlarge",
+  hpc7a_48xlarge: "hpc7a.48xlarge",
+  hpc7a_96xlarge: "hpc7a.96xlarge",
+  hpc7g_16xlarge: "hpc7g.16xlarge",
+  hpc7g_4xlarge: "hpc7g.4xlarge",
+  hpc7g_8xlarge: "hpc7g.8xlarge",
+  hs1_8xlarge: "hs1.8xlarge",
+  i2_2xlarge: "i2.2xlarge",
+  i2_4xlarge: "i2.4xlarge",
+  i2_8xlarge: "i2.8xlarge",
+  i2_xlarge: "i2.xlarge",
+  i3_16xlarge: "i3.16xlarge",
+  i3_2xlarge: "i3.2xlarge",
+  i3_4xlarge: "i3.4xlarge",
+  i3_8xlarge: "i3.8xlarge",
+  i3_large: "i3.large",
+  i3_metal: "i3.metal",
+  i3_xlarge: "i3.xlarge",
+  i3en_12xlarge: "i3en.12xlarge",
+  i3en_24xlarge: "i3en.24xlarge",
+  i3en_2xlarge: "i3en.2xlarge",
+  i3en_3xlarge: "i3en.3xlarge",
+  i3en_6xlarge: "i3en.6xlarge",
+  i3en_large: "i3en.large",
+  i3en_metal: "i3en.metal",
+  i3en_xlarge: "i3en.xlarge",
+  i4g_16xlarge: "i4g.16xlarge",
+  i4g_2xlarge: "i4g.2xlarge",
+  i4g_4xlarge: "i4g.4xlarge",
+  i4g_8xlarge: "i4g.8xlarge",
+  i4g_large: "i4g.large",
+  i4g_xlarge: "i4g.xlarge",
+  i4i_12xlarge: "i4i.12xlarge",
+  i4i_16xlarge: "i4i.16xlarge",
+  i4i_24xlarge: "i4i.24xlarge",
+  i4i_2xlarge: "i4i.2xlarge",
+  i4i_32xlarge: "i4i.32xlarge",
+  i4i_4xlarge: "i4i.4xlarge",
+  i4i_8xlarge: "i4i.8xlarge",
+  i4i_large: "i4i.large",
+  i4i_metal: "i4i.metal",
+  i4i_xlarge: "i4i.xlarge",
+  im4gn_16xlarge: "im4gn.16xlarge",
+  im4gn_2xlarge: "im4gn.2xlarge",
+  im4gn_4xlarge: "im4gn.4xlarge",
+  im4gn_8xlarge: "im4gn.8xlarge",
+  im4gn_large: "im4gn.large",
+  im4gn_xlarge: "im4gn.xlarge",
+  inf1_24xlarge: "inf1.24xlarge",
+  inf1_2xlarge: "inf1.2xlarge",
+  inf1_6xlarge: "inf1.6xlarge",
+  inf1_xlarge: "inf1.xlarge",
+  inf2_24xlarge: "inf2.24xlarge",
+  inf2_48xlarge: "inf2.48xlarge",
+  inf2_8xlarge: "inf2.8xlarge",
+  inf2_xlarge: "inf2.xlarge",
+  is4gen_2xlarge: "is4gen.2xlarge",
+  is4gen_4xlarge: "is4gen.4xlarge",
+  is4gen_8xlarge: "is4gen.8xlarge",
+  is4gen_large: "is4gen.large",
+  is4gen_medium: "is4gen.medium",
+  is4gen_xlarge: "is4gen.xlarge",
+  m1_large: "m1.large",
+  m1_medium: "m1.medium",
+  m1_small: "m1.small",
+  m1_xlarge: "m1.xlarge",
+  m2_2xlarge: "m2.2xlarge",
+  m2_4xlarge: "m2.4xlarge",
+  m2_xlarge: "m2.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_16xlarge: "m4.16xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_metal: "m5.metal",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m5ad_12xlarge: "m5ad.12xlarge",
+  m5ad_16xlarge: "m5ad.16xlarge",
+  m5ad_24xlarge: "m5ad.24xlarge",
+  m5ad_2xlarge: "m5ad.2xlarge",
+  m5ad_4xlarge: "m5ad.4xlarge",
+  m5ad_8xlarge: "m5ad.8xlarge",
+  m5ad_large: "m5ad.large",
+  m5ad_xlarge: "m5ad.xlarge",
+  m5d_12xlarge: "m5d.12xlarge",
+  m5d_16xlarge: "m5d.16xlarge",
+  m5d_24xlarge: "m5d.24xlarge",
+  m5d_2xlarge: "m5d.2xlarge",
+  m5d_4xlarge: "m5d.4xlarge",
+  m5d_8xlarge: "m5d.8xlarge",
+  m5d_large: "m5d.large",
+  m5d_metal: "m5d.metal",
+  m5d_xlarge: "m5d.xlarge",
+  m5dn_12xlarge: "m5dn.12xlarge",
+  m5dn_16xlarge: "m5dn.16xlarge",
+  m5dn_24xlarge: "m5dn.24xlarge",
+  m5dn_2xlarge: "m5dn.2xlarge",
+  m5dn_4xlarge: "m5dn.4xlarge",
+  m5dn_8xlarge: "m5dn.8xlarge",
+  m5dn_large: "m5dn.large",
+  m5dn_metal: "m5dn.metal",
+  m5dn_xlarge: "m5dn.xlarge",
+  m5n_12xlarge: "m5n.12xlarge",
+  m5n_16xlarge: "m5n.16xlarge",
+  m5n_24xlarge: "m5n.24xlarge",
+  m5n_2xlarge: "m5n.2xlarge",
+  m5n_4xlarge: "m5n.4xlarge",
+  m5n_8xlarge: "m5n.8xlarge",
+  m5n_large: "m5n.large",
+  m5n_metal: "m5n.metal",
+  m5n_xlarge: "m5n.xlarge",
+  m5zn_12xlarge: "m5zn.12xlarge",
+  m5zn_2xlarge: "m5zn.2xlarge",
+  m5zn_3xlarge: "m5zn.3xlarge",
+  m5zn_6xlarge: "m5zn.6xlarge",
+  m5zn_large: "m5zn.large",
+  m5zn_metal: "m5zn.metal",
+  m5zn_xlarge: "m5zn.xlarge",
+  m6a_12xlarge: "m6a.12xlarge",
+  m6a_16xlarge: "m6a.16xlarge",
+  m6a_24xlarge: "m6a.24xlarge",
+  m6a_2xlarge: "m6a.2xlarge",
+  m6a_32xlarge: "m6a.32xlarge",
+  m6a_48xlarge: "m6a.48xlarge",
+  m6a_4xlarge: "m6a.4xlarge",
+  m6a_8xlarge: "m6a.8xlarge",
+  m6a_large: "m6a.large",
+  m6a_metal: "m6a.metal",
+  m6a_xlarge: "m6a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_metal: "m6g.metal",
+  m6g_xlarge: "m6g.xlarge",
+  m6gd_12xlarge: "m6gd.12xlarge",
+  m6gd_16xlarge: "m6gd.16xlarge",
+  m6gd_2xlarge: "m6gd.2xlarge",
+  m6gd_4xlarge: "m6gd.4xlarge",
+  m6gd_8xlarge: "m6gd.8xlarge",
+  m6gd_large: "m6gd.large",
+  m6gd_medium: "m6gd.medium",
+  m6gd_metal: "m6gd.metal",
+  m6gd_xlarge: "m6gd.xlarge",
+  m6i_12xlarge: "m6i.12xlarge",
+  m6i_16xlarge: "m6i.16xlarge",
+  m6i_24xlarge: "m6i.24xlarge",
+  m6i_2xlarge: "m6i.2xlarge",
+  m6i_32xlarge: "m6i.32xlarge",
+  m6i_4xlarge: "m6i.4xlarge",
+  m6i_8xlarge: "m6i.8xlarge",
+  m6i_large: "m6i.large",
+  m6i_metal: "m6i.metal",
+  m6i_xlarge: "m6i.xlarge",
+  m6id_12xlarge: "m6id.12xlarge",
+  m6id_16xlarge: "m6id.16xlarge",
+  m6id_24xlarge: "m6id.24xlarge",
+  m6id_2xlarge: "m6id.2xlarge",
+  m6id_32xlarge: "m6id.32xlarge",
+  m6id_4xlarge: "m6id.4xlarge",
+  m6id_8xlarge: "m6id.8xlarge",
+  m6id_large: "m6id.large",
+  m6id_metal: "m6id.metal",
+  m6id_xlarge: "m6id.xlarge",
+  m6idn_12xlarge: "m6idn.12xlarge",
+  m6idn_16xlarge: "m6idn.16xlarge",
+  m6idn_24xlarge: "m6idn.24xlarge",
+  m6idn_2xlarge: "m6idn.2xlarge",
+  m6idn_32xlarge: "m6idn.32xlarge",
+  m6idn_4xlarge: "m6idn.4xlarge",
+  m6idn_8xlarge: "m6idn.8xlarge",
+  m6idn_large: "m6idn.large",
+  m6idn_metal: "m6idn.metal",
+  m6idn_xlarge: "m6idn.xlarge",
+  m6in_12xlarge: "m6in.12xlarge",
+  m6in_16xlarge: "m6in.16xlarge",
+  m6in_24xlarge: "m6in.24xlarge",
+  m6in_2xlarge: "m6in.2xlarge",
+  m6in_32xlarge: "m6in.32xlarge",
+  m6in_4xlarge: "m6in.4xlarge",
+  m6in_8xlarge: "m6in.8xlarge",
+  m6in_large: "m6in.large",
+  m6in_metal: "m6in.metal",
+  m6in_xlarge: "m6in.xlarge",
+  m7a_12xlarge: "m7a.12xlarge",
+  m7a_16xlarge: "m7a.16xlarge",
+  m7a_24xlarge: "m7a.24xlarge",
+  m7a_2xlarge: "m7a.2xlarge",
+  m7a_32xlarge: "m7a.32xlarge",
+  m7a_48xlarge: "m7a.48xlarge",
+  m7a_4xlarge: "m7a.4xlarge",
+  m7a_8xlarge: "m7a.8xlarge",
+  m7a_large: "m7a.large",
+  m7a_medium: "m7a.medium",
+  m7a_metal_48xl: "m7a.metal-48xl",
+  m7a_xlarge: "m7a.xlarge",
+  m7g_12xlarge: "m7g.12xlarge",
+  m7g_16xlarge: "m7g.16xlarge",
+  m7g_2xlarge: "m7g.2xlarge",
+  m7g_4xlarge: "m7g.4xlarge",
+  m7g_8xlarge: "m7g.8xlarge",
+  m7g_large: "m7g.large",
+  m7g_medium: "m7g.medium",
+  m7g_metal: "m7g.metal",
+  m7g_xlarge: "m7g.xlarge",
+  m7gd_12xlarge: "m7gd.12xlarge",
+  m7gd_16xlarge: "m7gd.16xlarge",
+  m7gd_2xlarge: "m7gd.2xlarge",
+  m7gd_4xlarge: "m7gd.4xlarge",
+  m7gd_8xlarge: "m7gd.8xlarge",
+  m7gd_large: "m7gd.large",
+  m7gd_medium: "m7gd.medium",
+  m7gd_metal: "m7gd.metal",
+  m7gd_xlarge: "m7gd.xlarge",
+  m7i_12xlarge: "m7i.12xlarge",
+  m7i_16xlarge: "m7i.16xlarge",
+  m7i_24xlarge: "m7i.24xlarge",
+  m7i_2xlarge: "m7i.2xlarge",
+  m7i_48xlarge: "m7i.48xlarge",
+  m7i_4xlarge: "m7i.4xlarge",
+  m7i_8xlarge: "m7i.8xlarge",
+  m7i_flex_2xlarge: "m7i-flex.2xlarge",
+  m7i_flex_4xlarge: "m7i-flex.4xlarge",
+  m7i_flex_8xlarge: "m7i-flex.8xlarge",
+  m7i_flex_large: "m7i-flex.large",
+  m7i_flex_xlarge: "m7i-flex.xlarge",
+  m7i_large: "m7i.large",
+  m7i_metal_24xl: "m7i.metal-24xl",
+  m7i_metal_48xl: "m7i.metal-48xl",
+  m7i_xlarge: "m7i.xlarge",
+  mac1_metal: "mac1.metal",
+  mac2_m1ultra_metal: "mac2-m1ultra.metal",
+  mac2_m2_metal: "mac2-m2.metal",
+  mac2_m2pro_metal: "mac2-m2pro.metal",
+  mac2_metal: "mac2.metal",
+  p2_16xlarge: "p2.16xlarge",
+  p2_8xlarge: "p2.8xlarge",
+  p2_xlarge: "p2.xlarge",
+  p3_16xlarge: "p3.16xlarge",
+  p3_2xlarge: "p3.2xlarge",
+  p3_8xlarge: "p3.8xlarge",
+  p3dn_24xlarge: "p3dn.24xlarge",
+  p4d_24xlarge: "p4d.24xlarge",
+  p4de_24xlarge: "p4de.24xlarge",
+  p5_48xlarge: "p5.48xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_metal: "r5.metal",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5ad_12xlarge: "r5ad.12xlarge",
+  r5ad_16xlarge: "r5ad.16xlarge",
+  r5ad_24xlarge: "r5ad.24xlarge",
+  r5ad_2xlarge: "r5ad.2xlarge",
+  r5ad_4xlarge: "r5ad.4xlarge",
+  r5ad_8xlarge: "r5ad.8xlarge",
+  r5ad_large: "r5ad.large",
+  r5ad_xlarge: "r5ad.xlarge",
+  r5b_12xlarge: "r5b.12xlarge",
+  r5b_16xlarge: "r5b.16xlarge",
+  r5b_24xlarge: "r5b.24xlarge",
+  r5b_2xlarge: "r5b.2xlarge",
+  r5b_4xlarge: "r5b.4xlarge",
+  r5b_8xlarge: "r5b.8xlarge",
+  r5b_large: "r5b.large",
+  r5b_metal: "r5b.metal",
+  r5b_xlarge: "r5b.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_metal: "r5d.metal",
+  r5d_xlarge: "r5d.xlarge",
+  r5dn_12xlarge: "r5dn.12xlarge",
+  r5dn_16xlarge: "r5dn.16xlarge",
+  r5dn_24xlarge: "r5dn.24xlarge",
+  r5dn_2xlarge: "r5dn.2xlarge",
+  r5dn_4xlarge: "r5dn.4xlarge",
+  r5dn_8xlarge: "r5dn.8xlarge",
+  r5dn_large: "r5dn.large",
+  r5dn_metal: "r5dn.metal",
+  r5dn_xlarge: "r5dn.xlarge",
+  r5n_12xlarge: "r5n.12xlarge",
+  r5n_16xlarge: "r5n.16xlarge",
+  r5n_24xlarge: "r5n.24xlarge",
+  r5n_2xlarge: "r5n.2xlarge",
+  r5n_4xlarge: "r5n.4xlarge",
+  r5n_8xlarge: "r5n.8xlarge",
+  r5n_large: "r5n.large",
+  r5n_metal: "r5n.metal",
+  r5n_xlarge: "r5n.xlarge",
+  r6a_12xlarge: "r6a.12xlarge",
+  r6a_16xlarge: "r6a.16xlarge",
+  r6a_24xlarge: "r6a.24xlarge",
+  r6a_2xlarge: "r6a.2xlarge",
+  r6a_32xlarge: "r6a.32xlarge",
+  r6a_48xlarge: "r6a.48xlarge",
+  r6a_4xlarge: "r6a.4xlarge",
+  r6a_8xlarge: "r6a.8xlarge",
+  r6a_large: "r6a.large",
+  r6a_metal: "r6a.metal",
+  r6a_xlarge: "r6a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_metal: "r6g.metal",
+  r6g_xlarge: "r6g.xlarge",
+  r6gd_12xlarge: "r6gd.12xlarge",
+  r6gd_16xlarge: "r6gd.16xlarge",
+  r6gd_2xlarge: "r6gd.2xlarge",
+  r6gd_4xlarge: "r6gd.4xlarge",
+  r6gd_8xlarge: "r6gd.8xlarge",
+  r6gd_large: "r6gd.large",
+  r6gd_medium: "r6gd.medium",
+  r6gd_metal: "r6gd.metal",
+  r6gd_xlarge: "r6gd.xlarge",
+  r6i_12xlarge: "r6i.12xlarge",
+  r6i_16xlarge: "r6i.16xlarge",
+  r6i_24xlarge: "r6i.24xlarge",
+  r6i_2xlarge: "r6i.2xlarge",
+  r6i_32xlarge: "r6i.32xlarge",
+  r6i_4xlarge: "r6i.4xlarge",
+  r6i_8xlarge: "r6i.8xlarge",
+  r6i_large: "r6i.large",
+  r6i_metal: "r6i.metal",
+  r6i_xlarge: "r6i.xlarge",
+  r6id_12xlarge: "r6id.12xlarge",
+  r6id_16xlarge: "r6id.16xlarge",
+  r6id_24xlarge: "r6id.24xlarge",
+  r6id_2xlarge: "r6id.2xlarge",
+  r6id_32xlarge: "r6id.32xlarge",
+  r6id_4xlarge: "r6id.4xlarge",
+  r6id_8xlarge: "r6id.8xlarge",
+  r6id_large: "r6id.large",
+  r6id_metal: "r6id.metal",
+  r6id_xlarge: "r6id.xlarge",
+  r6idn_12xlarge: "r6idn.12xlarge",
+  r6idn_16xlarge: "r6idn.16xlarge",
+  r6idn_24xlarge: "r6idn.24xlarge",
+  r6idn_2xlarge: "r6idn.2xlarge",
+  r6idn_32xlarge: "r6idn.32xlarge",
+  r6idn_4xlarge: "r6idn.4xlarge",
+  r6idn_8xlarge: "r6idn.8xlarge",
+  r6idn_large: "r6idn.large",
+  r6idn_metal: "r6idn.metal",
+  r6idn_xlarge: "r6idn.xlarge",
+  r6in_12xlarge: "r6in.12xlarge",
+  r6in_16xlarge: "r6in.16xlarge",
+  r6in_24xlarge: "r6in.24xlarge",
+  r6in_2xlarge: "r6in.2xlarge",
+  r6in_32xlarge: "r6in.32xlarge",
+  r6in_4xlarge: "r6in.4xlarge",
+  r6in_8xlarge: "r6in.8xlarge",
+  r6in_large: "r6in.large",
+  r6in_metal: "r6in.metal",
+  r6in_xlarge: "r6in.xlarge",
+  r7a_12xlarge: "r7a.12xlarge",
+  r7a_16xlarge: "r7a.16xlarge",
+  r7a_24xlarge: "r7a.24xlarge",
+  r7a_2xlarge: "r7a.2xlarge",
+  r7a_32xlarge: "r7a.32xlarge",
+  r7a_48xlarge: "r7a.48xlarge",
+  r7a_4xlarge: "r7a.4xlarge",
+  r7a_8xlarge: "r7a.8xlarge",
+  r7a_large: "r7a.large",
+  r7a_medium: "r7a.medium",
+  r7a_metal_48xl: "r7a.metal-48xl",
+  r7a_xlarge: "r7a.xlarge",
+  r7g_12xlarge: "r7g.12xlarge",
+  r7g_16xlarge: "r7g.16xlarge",
+  r7g_2xlarge: "r7g.2xlarge",
+  r7g_4xlarge: "r7g.4xlarge",
+  r7g_8xlarge: "r7g.8xlarge",
+  r7g_large: "r7g.large",
+  r7g_medium: "r7g.medium",
+  r7g_metal: "r7g.metal",
+  r7g_xlarge: "r7g.xlarge",
+  r7gd_12xlarge: "r7gd.12xlarge",
+  r7gd_16xlarge: "r7gd.16xlarge",
+  r7gd_2xlarge: "r7gd.2xlarge",
+  r7gd_4xlarge: "r7gd.4xlarge",
+  r7gd_8xlarge: "r7gd.8xlarge",
+  r7gd_large: "r7gd.large",
+  r7gd_medium: "r7gd.medium",
+  r7gd_metal: "r7gd.metal",
+  r7gd_xlarge: "r7gd.xlarge",
+  r7i_12xlarge: "r7i.12xlarge",
+  r7i_16xlarge: "r7i.16xlarge",
+  r7i_24xlarge: "r7i.24xlarge",
+  r7i_2xlarge: "r7i.2xlarge",
+  r7i_48xlarge: "r7i.48xlarge",
+  r7i_4xlarge: "r7i.4xlarge",
+  r7i_8xlarge: "r7i.8xlarge",
+  r7i_large: "r7i.large",
+  r7i_metal_24xl: "r7i.metal-24xl",
+  r7i_metal_48xl: "r7i.metal-48xl",
+  r7i_xlarge: "r7i.xlarge",
+  r7iz_12xlarge: "r7iz.12xlarge",
+  r7iz_16xlarge: "r7iz.16xlarge",
+  r7iz_2xlarge: "r7iz.2xlarge",
+  r7iz_32xlarge: "r7iz.32xlarge",
+  r7iz_4xlarge: "r7iz.4xlarge",
+  r7iz_8xlarge: "r7iz.8xlarge",
+  r7iz_large: "r7iz.large",
+  r7iz_metal_16xl: "r7iz.metal-16xl",
+  r7iz_metal_32xl: "r7iz.metal-32xl",
+  r7iz_xlarge: "r7iz.xlarge",
+  r8g_12xlarge: "r8g.12xlarge",
+  r8g_16xlarge: "r8g.16xlarge",
+  r8g_24xlarge: "r8g.24xlarge",
+  r8g_2xlarge: "r8g.2xlarge",
+  r8g_48xlarge: "r8g.48xlarge",
+  r8g_4xlarge: "r8g.4xlarge",
+  r8g_8xlarge: "r8g.8xlarge",
+  r8g_large: "r8g.large",
+  r8g_medium: "r8g.medium",
+  r8g_metal_24xl: "r8g.metal-24xl",
+  r8g_metal_48xl: "r8g.metal-48xl",
+  r8g_xlarge: "r8g.xlarge",
+  t1_micro: "t1.micro",
+  t2_2xlarge: "t2.2xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_nano: "t2.nano",
+  t2_small: "t2.small",
+  t2_xlarge: "t2.xlarge",
+  t3_2xlarge: "t3.2xlarge",
+  t3_large: "t3.large",
+  t3_medium: "t3.medium",
+  t3_micro: "t3.micro",
+  t3_nano: "t3.nano",
+  t3_small: "t3.small",
+  t3_xlarge: "t3.xlarge",
+  t3a_2xlarge: "t3a.2xlarge",
+  t3a_large: "t3a.large",
+  t3a_medium: "t3a.medium",
+  t3a_micro: "t3a.micro",
+  t3a_nano: "t3a.nano",
+  t3a_small: "t3a.small",
+  t3a_xlarge: "t3a.xlarge",
+  t4g_2xlarge: "t4g.2xlarge",
+  t4g_large: "t4g.large",
+  t4g_medium: "t4g.medium",
+  t4g_micro: "t4g.micro",
+  t4g_nano: "t4g.nano",
+  t4g_small: "t4g.small",
+  t4g_xlarge: "t4g.xlarge",
+  trn1_2xlarge: "trn1.2xlarge",
+  trn1_32xlarge: "trn1.32xlarge",
+  trn1n_32xlarge: "trn1n.32xlarge",
+  u7i_12tb_224xlarge: "u7i-12tb.224xlarge",
+  u7ib_12tb_224xlarge: "u7ib-12tb.224xlarge",
+  u7in_16tb_224xlarge: "u7in-16tb.224xlarge",
+  u7in_24tb_224xlarge: "u7in-24tb.224xlarge",
+  u7in_32tb_224xlarge: "u7in-32tb.224xlarge",
+  u_12tb1_112xlarge: "u-12tb1.112xlarge",
+  u_12tb1_metal: "u-12tb1.metal",
+  u_18tb1_112xlarge: "u-18tb1.112xlarge",
+  u_18tb1_metal: "u-18tb1.metal",
+  u_24tb1_112xlarge: "u-24tb1.112xlarge",
+  u_24tb1_metal: "u-24tb1.metal",
+  u_3tb1_56xlarge: "u-3tb1.56xlarge",
+  u_6tb1_112xlarge: "u-6tb1.112xlarge",
+  u_6tb1_56xlarge: "u-6tb1.56xlarge",
+  u_6tb1_metal: "u-6tb1.metal",
+  u_9tb1_112xlarge: "u-9tb1.112xlarge",
+  u_9tb1_metal: "u-9tb1.metal",
+  vt1_24xlarge: "vt1.24xlarge",
+  vt1_3xlarge: "vt1.3xlarge",
+  vt1_6xlarge: "vt1.6xlarge",
+  x1_16xlarge: "x1.16xlarge",
+  x1_32xlarge: "x1.32xlarge",
+  x1e_16xlarge: "x1e.16xlarge",
+  x1e_2xlarge: "x1e.2xlarge",
+  x1e_32xlarge: "x1e.32xlarge",
+  x1e_4xlarge: "x1e.4xlarge",
+  x1e_8xlarge: "x1e.8xlarge",
+  x1e_xlarge: "x1e.xlarge",
+  x2gd_12xlarge: "x2gd.12xlarge",
+  x2gd_16xlarge: "x2gd.16xlarge",
+  x2gd_2xlarge: "x2gd.2xlarge",
+  x2gd_4xlarge: "x2gd.4xlarge",
+  x2gd_8xlarge: "x2gd.8xlarge",
+  x2gd_large: "x2gd.large",
+  x2gd_medium: "x2gd.medium",
+  x2gd_metal: "x2gd.metal",
+  x2gd_xlarge: "x2gd.xlarge",
+  x2idn_16xlarge: "x2idn.16xlarge",
+  x2idn_24xlarge: "x2idn.24xlarge",
+  x2idn_32xlarge: "x2idn.32xlarge",
+  x2idn_metal: "x2idn.metal",
+  x2iedn_16xlarge: "x2iedn.16xlarge",
+  x2iedn_24xlarge: "x2iedn.24xlarge",
+  x2iedn_2xlarge: "x2iedn.2xlarge",
+  x2iedn_32xlarge: "x2iedn.32xlarge",
+  x2iedn_4xlarge: "x2iedn.4xlarge",
+  x2iedn_8xlarge: "x2iedn.8xlarge",
+  x2iedn_metal: "x2iedn.metal",
+  x2iedn_xlarge: "x2iedn.xlarge",
+  x2iezn_12xlarge: "x2iezn.12xlarge",
+  x2iezn_2xlarge: "x2iezn.2xlarge",
+  x2iezn_4xlarge: "x2iezn.4xlarge",
+  x2iezn_6xlarge: "x2iezn.6xlarge",
+  x2iezn_8xlarge: "x2iezn.8xlarge",
+  x2iezn_metal: "x2iezn.metal",
+  z1d_12xlarge: "z1d.12xlarge",
+  z1d_2xlarge: "z1d.2xlarge",
+  z1d_3xlarge: "z1d.3xlarge",
+  z1d_6xlarge: "z1d.6xlarge",
+  z1d_large: "z1d.large",
+  z1d_metal: "z1d.metal",
+  z1d_xlarge: "z1d.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
+ * @public
+ */
+export interface ReservationFleetInstanceSpecification {
+  /**
+   * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
+   * @public
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform;
+
+  /**
+   * <p>The number of capacity units provided by the specified instance type. This value, together
+   * 			with the total target capacity that you specify for the Fleet determine the number of
+   * 			instances for which the Fleet reserves capacity. Both values are based on units that
+   * 			make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Weight?: number;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity
+   * 			Reservation Fleet can't span Availability Zones. All instance type specifications that you specify
+   * 			for the Fleet must use the same Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
+   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you
+   * 			specify for the Fleet must use the same Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This
+   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack
+   * 			to provide optimal I/O performance. This optimization isn't available with all instance types. Additional
+   * 			usage charges apply when using EBS-optimized instance types.</p>
+   * @public
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The priority to assign to the instance type. This value is used to determine which of the
+   * 			instance types specified for the Fleet should be prioritized for use. A lower value
+   * 			indicates a high priority. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Priority?: number;
+}
 
 /**
  * @public
@@ -2356,9 +3298,6 @@ export interface InstanceRequirementsRequest {
    *             <li>
    *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
    *             </li>
-   *             <li>
-   *                <p>To include instance types with inference hardware, specify <code>inference</code>.</p>
-   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    * @public
@@ -3813,9 +4752,6 @@ export interface InstanceRequirements {
    *             <li>
    *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
    *             </li>
-   *             <li>
-   *                <p>For instance types with inference accelerators, specify <code>inference</code>.</p>
-   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    * @public
@@ -4461,8 +5397,8 @@ export interface CreateFlowLogsRequest {
    * <p>The fields to include in the flow log record. List the fields in the order in which
    *             they should appear. If you omit this parameter, the flow log is created using the
    *             default format. If you specify this parameter, you must include at least one
-   *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow log records</a>
-   *             in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
+   *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log
+   *                 records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
    *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
    *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces.</p>
    * @public
@@ -7110,8 +8046,7 @@ export interface CreditSpecificationRequest {
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
- *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  *          <p>A specification for an Elastic Graphics accelerator.</p>
  * @public
@@ -7125,7 +8060,10 @@ export interface ElasticGpuSpecification {
 }
 
 /**
- * <p> Describes an elastic inference accelerator. </p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p> Describes an elastic inference accelerator.</p>
  * @public
  */
 export interface LaunchTemplateElasticInferenceAccelerator {
@@ -8125,27 +9063,16 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
 
   /**
-   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
-   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
-   *             your Deep Learning (DL) inference workloads.</p>
-   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   * <p>Deprecated.</p>
    *          <note>
-   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
-   *                 options that offer better price and performance. After April 15, 2023, new customers
-   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
-   *                 the past 30-day period are considered current customers and will be able to continue
-   *                 using the service.</p>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
    *          </note>
    * @public
    */
@@ -8687,29 +9614,25 @@ export interface CreditSpecification {
 }
 
 /**
- * <p>Deprecated.</p>
- *          <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
+ *          <p>Describes an elastic GPU.</p>
  * @public
  */
 export interface ElasticGpuSpecificationResponse {
   /**
-   * <p>Deprecated.</p>
-   *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
-   *          </note>
+   * <p>The elastic GPU type.</p>
    * @public
    */
   Type?: string;
 }
 
 /**
- * <p> Describes an elastic inference accelerator. </p>
+ * <note>
+ *             <p>Amazon Elastic Inference is no longer available.</p>
+ *          </note>
+ *          <p> Describes an elastic inference accelerator. </p>
  * @public
  */
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
@@ -9466,27 +10389,16 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[];
 
   /**
-   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
-   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
-   *             your Deep Learning (DL) inference workloads.</p>
-   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   * <p>Deprecated.</p>
    *          <note>
-   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
-   *                 options that offer better price and performance. After April 15, 2023, new customers
-   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
-   *                 the past 30-day period are considered current customers and will be able to continue
-   *                 using the service.</p>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
    *          </note>
    * @public
    */
@@ -10450,7 +11362,7 @@ export interface CreateNatGatewayRequest {
   PrivateIpAddress?: string;
 
   /**
-   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
+   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
    *             in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
@@ -10458,14 +11370,14 @@ export interface CreateNatGatewayRequest {
 
   /**
    * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see
-   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
   SecondaryPrivateIpAddresses?: string[];
 
   /**
    * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
-   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
+   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
    *             in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
@@ -11194,156 +12106,6 @@ export interface CreateNetworkInsightsPathRequest {
    * @public
    */
   FilterAtDestination?: PathRequestFilter;
-}
-
-/**
- * <p>Describes a port range.</p>
- * @public
- */
-export interface FilterPortRange {
-  /**
-   * <p>The first port in the range.</p>
-   * @public
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The last port in the range.</p>
-   * @public
-   */
-  ToPort?: number;
-}
-
-/**
- * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
- *           there can be multiple resulting paths.</p>
- * @public
- */
-export interface PathFilter {
-  /**
-   * <p>The source IPv4 address.</p>
-   * @public
-   */
-  SourceAddress?: string;
-
-  /**
-   * <p>The source port range.</p>
-   * @public
-   */
-  SourcePortRange?: FilterPortRange;
-
-  /**
-   * <p>The destination IPv4 address.</p>
-   * @public
-   */
-  DestinationAddress?: string;
-
-  /**
-   * <p>The destination port range.</p>
-   * @public
-   */
-  DestinationPortRange?: FilterPortRange;
-}
-
-/**
- * <p>Describes a path.</p>
- * @public
- */
-export interface NetworkInsightsPath {
-  /**
-   * <p>The ID of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathArn?: string;
-
-  /**
-   * <p>The time stamp when the path was created.</p>
-   * @public
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The ID of the source.</p>
-   * @public
-   */
-  Source?: string;
-
-  /**
-   * <p>The ID of the destination.</p>
-   * @public
-   */
-  Destination?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   * @public
-   */
-  DestinationArn?: string;
-
-  /**
-   * <p>The IP address of the source.</p>
-   * @public
-   */
-  SourceIp?: string;
-
-  /**
-   * <p>The IP address of the destination.</p>
-   * @public
-   */
-  DestinationIp?: string;
-
-  /**
-   * <p>The protocol.</p>
-   * @public
-   */
-  Protocol?: Protocol;
-
-  /**
-   * <p>The destination port.</p>
-   * @public
-   */
-  DestinationPort?: number;
-
-  /**
-   * <p>The tags associated with the path.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the source.</p>
-   * @public
-   */
-  FilterAtSource?: PathFilter;
-
-  /**
-   * <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
-   * @public
-   */
-  FilterAtDestination?: PathFilter;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsPathResult {
-  /**
-   * <p>Information about the path.</p>
-   * @public
-   */
-  NetworkInsightsPath?: NetworkInsightsPath;
 }
 
 /**

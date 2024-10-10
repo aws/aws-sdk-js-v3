@@ -8,6 +8,11 @@ import {
   AcceptAddressTransferCommandOutput,
 } from "./commands/AcceptAddressTransferCommand";
 import {
+  AcceptCapacityReservationBillingOwnershipCommand,
+  AcceptCapacityReservationBillingOwnershipCommandInput,
+  AcceptCapacityReservationBillingOwnershipCommandOutput,
+} from "./commands/AcceptCapacityReservationBillingOwnershipCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
@@ -82,6 +87,11 @@ import {
   AssociateAddressCommandInput,
   AssociateAddressCommandOutput,
 } from "./commands/AssociateAddressCommand";
+import {
+  AssociateCapacityReservationBillingOwnerCommand,
+  AssociateCapacityReservationBillingOwnerCommandInput,
+  AssociateCapacityReservationBillingOwnerCommandOutput,
+} from "./commands/AssociateCapacityReservationBillingOwnerCommand";
 import {
   AssociateClientVpnTargetNetworkCommand,
   AssociateClientVpnTargetNetworkCommandInput,
@@ -1119,6 +1129,11 @@ import {
   DescribeCapacityBlockOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockOfferingsCommand";
 import {
+  DescribeCapacityReservationBillingRequestsCommand,
+  DescribeCapacityReservationBillingRequestsCommandInput,
+  DescribeCapacityReservationBillingRequestsCommandOutput,
+} from "./commands/DescribeCapacityReservationBillingRequestsCommand";
+import {
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
@@ -1943,6 +1958,11 @@ import {
   DisassociateAddressCommandInput,
   DisassociateAddressCommandOutput,
 } from "./commands/DisassociateAddressCommand";
+import {
+  DisassociateCapacityReservationBillingOwnerCommand,
+  DisassociateCapacityReservationBillingOwnerCommandInput,
+  DisassociateCapacityReservationBillingOwnerCommandOutput,
+} from "./commands/DisassociateCapacityReservationBillingOwnerCommand";
 import {
   DisassociateClientVpnTargetNetworkCommand,
   DisassociateClientVpnTargetNetworkCommandInput,
@@ -2805,6 +2825,11 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand";
 import {
+  RejectCapacityReservationBillingOwnershipCommand,
+  RejectCapacityReservationBillingOwnershipCommandInput,
+  RejectCapacityReservationBillingOwnershipCommandOutput,
+} from "./commands/RejectCapacityReservationBillingOwnershipCommand";
+import {
   RejectTransitGatewayMulticastDomainAssociationsCommand,
   RejectTransitGatewayMulticastDomainAssociationsCommandInput,
   RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
@@ -3078,6 +3103,7 @@ import { EC2Client, EC2ClientConfig } from "./EC2Client";
 
 const commands = {
   AcceptAddressTransferCommand,
+  AcceptCapacityReservationBillingOwnershipCommand,
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptTransitGatewayMulticastDomainAssociationsCommand,
   AcceptTransitGatewayPeeringAttachmentCommand,
@@ -3093,6 +3119,7 @@ const commands = {
   AssignPrivateIpAddressesCommand,
   AssignPrivateNatGatewayAddressCommand,
   AssociateAddressCommand,
+  AssociateCapacityReservationBillingOwnerCommand,
   AssociateClientVpnTargetNetworkCommand,
   AssociateDhcpOptionsCommand,
   AssociateEnclaveCertificateIamRoleCommand,
@@ -3309,6 +3336,7 @@ const commands = {
   DescribeBundleTasksCommand,
   DescribeByoipCidrsCommand,
   DescribeCapacityBlockOfferingsCommand,
+  DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
   DescribeCarrierGatewaysCommand,
@@ -3474,6 +3502,7 @@ const commands = {
   DisableVpcClassicLinkCommand,
   DisableVpcClassicLinkDnsSupportCommand,
   DisassociateAddressCommand,
+  DisassociateCapacityReservationBillingOwnerCommand,
   DisassociateClientVpnTargetNetworkCommand,
   DisassociateEnclaveCertificateIamRoleCommand,
   DisassociateIamInstanceProfileCommand,
@@ -3651,6 +3680,7 @@ const commands = {
   RegisterInstanceEventNotificationAttributesCommand,
   RegisterTransitGatewayMulticastGroupMembersCommand,
   RegisterTransitGatewayMulticastGroupSourcesCommand,
+  RejectCapacityReservationBillingOwnershipCommand,
   RejectTransitGatewayMulticastDomainAssociationsCommand,
   RejectTransitGatewayPeeringAttachmentCommand,
   RejectTransitGatewayVpcAttachmentCommand,
@@ -3723,6 +3753,23 @@ export interface EC2 {
     args: AcceptAddressTransferCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcceptCapacityReservationBillingOwnershipCommand}
+   */
+  acceptCapacityReservationBillingOwnership(
+    args: AcceptCapacityReservationBillingOwnershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptCapacityReservationBillingOwnershipCommandOutput>;
+  acceptCapacityReservationBillingOwnership(
+    args: AcceptCapacityReservationBillingOwnershipCommandInput,
+    cb: (err: any, data?: AcceptCapacityReservationBillingOwnershipCommandOutput) => void
+  ): void;
+  acceptCapacityReservationBillingOwnership(
+    args: AcceptCapacityReservationBillingOwnershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptCapacityReservationBillingOwnershipCommandOutput) => void
   ): void;
 
   /**
@@ -3972,6 +4019,23 @@ export interface EC2 {
     args: AssociateAddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateCapacityReservationBillingOwnerCommand}
+   */
+  associateCapacityReservationBillingOwner(
+    args: AssociateCapacityReservationBillingOwnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateCapacityReservationBillingOwnerCommandOutput>;
+  associateCapacityReservationBillingOwner(
+    args: AssociateCapacityReservationBillingOwnerCommandInput,
+    cb: (err: any, data?: AssociateCapacityReservationBillingOwnerCommandOutput) => void
+  ): void;
+  associateCapacityReservationBillingOwner(
+    args: AssociateCapacityReservationBillingOwnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateCapacityReservationBillingOwnerCommandOutput) => void
   ): void;
 
   /**
@@ -7499,6 +7563,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeCapacityReservationBillingRequestsCommand}
+   */
+  describeCapacityReservationBillingRequests(
+    args: DescribeCapacityReservationBillingRequestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationBillingRequestsCommandOutput>;
+  describeCapacityReservationBillingRequests(
+    args: DescribeCapacityReservationBillingRequestsCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationBillingRequestsCommandOutput) => void
+  ): void;
+  describeCapacityReservationBillingRequests(
+    args: DescribeCapacityReservationBillingRequestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationBillingRequestsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCapacityReservationFleetsCommand}
    */
   describeCapacityReservationFleets(): Promise<DescribeCapacityReservationFleetsCommandOutput>;
@@ -10379,6 +10460,23 @@ export interface EC2 {
     args: DisassociateAddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateCapacityReservationBillingOwnerCommand}
+   */
+  disassociateCapacityReservationBillingOwner(
+    args: DisassociateCapacityReservationBillingOwnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateCapacityReservationBillingOwnerCommandOutput>;
+  disassociateCapacityReservationBillingOwner(
+    args: DisassociateCapacityReservationBillingOwnerCommandInput,
+    cb: (err: any, data?: DisassociateCapacityReservationBillingOwnerCommandOutput) => void
+  ): void;
+  disassociateCapacityReservationBillingOwner(
+    args: DisassociateCapacityReservationBillingOwnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateCapacityReservationBillingOwnerCommandOutput) => void
   ): void;
 
   /**
@@ -13317,6 +13415,23 @@ export interface EC2 {
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectCapacityReservationBillingOwnershipCommand}
+   */
+  rejectCapacityReservationBillingOwnership(
+    args: RejectCapacityReservationBillingOwnershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectCapacityReservationBillingOwnershipCommandOutput>;
+  rejectCapacityReservationBillingOwnership(
+    args: RejectCapacityReservationBillingOwnershipCommandInput,
+    cb: (err: any, data?: RejectCapacityReservationBillingOwnershipCommandOutput) => void
+  ): void;
+  rejectCapacityReservationBillingOwnership(
+    args: RejectCapacityReservationBillingOwnershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectCapacityReservationBillingOwnershipCommandOutput) => void
   ): void;
 
   /**
