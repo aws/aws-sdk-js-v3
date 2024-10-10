@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+
+### Features
+
+* **client-neptune-graph:** Support for 16 m-NCU graphs available through account allowlisting ([60ba33d](https://github.com/aws/aws-sdk-js-v3/commit/60ba33d6cbef1d15518a879f58e39d776b58c9c4))
+
+
+
+
+
 # [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

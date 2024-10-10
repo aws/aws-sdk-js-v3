@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+
+### Features
+
+* **client-database-migration-service:** Introduces DescribeDataMigrations, CreateDataMigration, ModifyDataMigration, DeleteDataMigration, StartDataMigration, StopDataMigration operations to SDK. Provides FailedDependencyFault error message. ([f477263](https://github.com/aws/aws-sdk-js-v3/commit/f47726349d83ca49aa194a20d1fbde388c2d82e3))
+
+
+
+
+
 # [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-database-migration-service

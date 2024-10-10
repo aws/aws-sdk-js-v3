@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-user-agent",
-  "version": "3.668.0",
+  "version": "3.669.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-user-agent",

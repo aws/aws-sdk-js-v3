@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+
+### Features
+
+* **client-database-migration-service:** Introduces DescribeDataMigrations, CreateDataMigration, ModifyDataMigration, DeleteDataMigration, StartDataMigration, StopDataMigration operations to SDK. Provides FailedDependencyFault error message. ([f477263](https://github.com/aws/aws-sdk-js-v3/commit/f47726349d83ca49aa194a20d1fbde388c2d82e3))
+* **client-ec2:** This release adds support for assigning the billing of shared Amazon EC2 On-Demand Capacity Reservations. ([88ca256](https://github.com/aws/aws-sdk-js-v3/commit/88ca2562eaf47545a2759bf132de91ea8c9a2208))
+* **client-iotfleetwise:** Refine campaign related API validations ([9695325](https://github.com/aws/aws-sdk-js-v3/commit/9695325a17f5ea1ff7dc96ec1094765b93c2dcb3))
+* **client-neptune-graph:** Support for 16 m-NCU graphs available through account allowlisting ([60ba33d](https://github.com/aws/aws-sdk-js-v3/commit/60ba33d6cbef1d15518a879f58e39d776b58c9c4))
+* **client-outposts:** Adding new "DELIVERED" enum value for Outposts Order status ([c9ca816](https://github.com/aws/aws-sdk-js-v3/commit/c9ca8165641fd0fb1635731bc88f65d8cceebb88))
+* **client-route53resolver:** Route 53 Resolver Forwarding Rules can now include a server name indication (SNI) in the target address for rules that use the DNS-over-HTTPS (DoH) protocol. When a DoH-enabled Outbound Resolver Endpoint forwards a request to a DoH server, it will provide the SNI in the TLS handshake. ([278471b](https://github.com/aws/aws-sdk-js-v3/commit/278471b3a1b8889c52d00455aea5cd1ae913fe3a))
+* **client-socialmessaging:** This release for AWS End User Messaging includes a public SDK, providing a suite of APIs that enable sending WhatsApp messages to end users. ([9e43f51](https://github.com/aws/aws-sdk-js-v3/commit/9e43f51a827c5b6c59dc71278aaa0a9b58a5f1b6))
+* **client-timestream-influxdb:** This release updates our regex based validation rules in regards to valid DbInstance and DbParameterGroup name. ([a5a89e3](https://github.com/aws/aws-sdk-js-v3/commit/a5a89e3af7259b8ad973ea7db4580cb9885db36c))
+
+
+
+
+
 # [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
 
 

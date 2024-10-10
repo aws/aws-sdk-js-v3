@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+
+### Features
+
+* **client-outposts:** Adding new "DELIVERED" enum value for Outposts Order status ([c9ca816](https://github.com/aws/aws-sdk-js-v3/commit/c9ca8165641fd0fb1635731bc88f65d8cceebb88))
+
+
+
+
+
 # [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts
