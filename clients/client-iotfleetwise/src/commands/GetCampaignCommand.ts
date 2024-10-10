@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import { GetCampaignRequest, GetCampaignResponse } from "../models/models_0";
+import { GetCampaignRequest, GetCampaignResponse, GetCampaignResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetCampaignCommand, se_GetCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -138,7 +138,7 @@ export class GetCampaignCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "GetCampaign", {})
   .n("IoTFleetWiseClient", "GetCampaignCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetCampaignResponseFilterSensitiveLog)
   .ser(se_GetCampaignCommand)
   .de(de_GetCampaignCommand)
   .build() {

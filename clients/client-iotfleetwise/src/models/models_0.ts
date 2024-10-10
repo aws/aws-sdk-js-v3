@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
 
@@ -1229,6 +1229,8 @@ export interface CreateCampaignRequest {
   compression?: Compression;
 
   /**
+   * @deprecated
+   *
    * <p>(Optional) A number indicating the priority of one campaign over another campaign for
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
@@ -5420,3 +5422,55 @@ export interface UpdateDecoderManifestRequest {
    */
   status?: ManifestStatus;
 }
+
+/**
+ * @internal
+ */
+export const ConditionBasedCollectionSchemeFilterSensitiveLog = (obj: ConditionBasedCollectionScheme): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CollectionSchemeFilterSensitiveLog = (obj: CollectionScheme): any => {
+  if (obj.timeBasedCollectionScheme !== undefined) return { timeBasedCollectionScheme: obj.timeBasedCollectionScheme };
+  if (obj.conditionBasedCollectionScheme !== undefined)
+    return {
+      conditionBasedCollectionScheme: ConditionBasedCollectionSchemeFilterSensitiveLog(
+        obj.conditionBasedCollectionScheme
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.signalsToCollect && { signalsToCollect: SENSITIVE_STRING }),
+  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+  ...(obj.dataDestinationConfigs && { dataDestinationConfigs: obj.dataDestinationConfigs.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignResponseFilterSensitiveLog = (obj: GetCampaignResponse): any => ({
+  ...obj,
+  ...(obj.signalsToCollect && { signalsToCollect: SENSITIVE_STRING }),
+  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+  ...(obj.dataDestinationConfigs && { dataDestinationConfigs: obj.dataDestinationConfigs.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.dataExtraDimensions && { dataExtraDimensions: SENSITIVE_STRING }),
+});
