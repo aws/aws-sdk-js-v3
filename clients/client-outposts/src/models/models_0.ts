@@ -872,6 +872,7 @@ export type OrderType = (typeof OrderType)[keyof typeof OrderType];
 export const OrderStatus = {
   CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
+  DELIVERED: "DELIVERED",
   ERROR: "ERROR",
   FULFILLED: "FULFILLED",
   INSTALLING: "INSTALLING",
@@ -913,8 +914,12 @@ export interface Order {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get
+   *                   <code>IN_PROGRESS</code> - Order is either being built or shipped. To get
    *           more details, see the line item status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELIVERED</code> - Order was delivered to the Outpost site.</p>
    *             </li>
    *             <li>
    *                <p>

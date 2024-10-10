@@ -48,7 +48,7 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * //       OutpostId: "STRING_VALUE",
  * //       OrderId: "STRING_VALUE",
  * //       OrderType: "OUTPOST" || "REPLACEMENT",
- * //       Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //       Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //       LineItemCountsByStatus: { // LineItemStatusCounts
  * //         "<keys>": Number("int"),
  * //       },

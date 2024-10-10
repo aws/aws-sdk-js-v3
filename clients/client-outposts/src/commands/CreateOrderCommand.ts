@@ -52,7 +52,7 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * //   Order: { // Order
  * //     OutpostId: "STRING_VALUE",
  * //     OrderId: "STRING_VALUE",
- * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //     LineItems: [ // LineItemListDefinition
  * //       { // LineItem
  * //         CatalogItemId: "STRING_VALUE",
