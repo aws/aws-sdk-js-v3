@@ -93,7 +93,7 @@ describe("middleware-s3-express", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "user-agent": /(.*?) m\/J$/,
+          "user-agent": /(.*?) m\/J,E$/,
         },
       });
 

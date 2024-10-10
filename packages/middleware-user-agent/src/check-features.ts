@@ -6,7 +6,13 @@ import type {
   AwsSdkCredentialsFeatures,
 } from "@aws-sdk/types";
 import type { IHttpRequest } from "@smithy/protocol-http";
-import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } from "@smithy/types";
+import type {
+  AwsCredentialIdentityProvider,
+  BuildHandlerArguments,
+  Provider,
+  RetryStrategy,
+  RetryStrategyV2,
+} from "@smithy/types";
 
 /**
  * @internal
@@ -14,7 +20,13 @@ import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } f
 type PreviouslyResolved = Partial<{
   credentials?: AwsCredentialIdentityProvider;
   accountIdEndpointMode?: Provider<AccountIdEndpointMode>;
+  retryStrategy?: Provider<RetryStrategy | RetryStrategyV2>;
 }>;
+
+/**
+ * @internal
+ */
+const ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
 
 /**
  * @internal
@@ -26,9 +38,30 @@ export async function checkFeatures(
   config: PreviouslyResolved,
   args: BuildHandlerArguments<any>
 ): Promise<void> {
-  // eslint-disable-next-line
   const request = args.request as IHttpRequest;
+
+  if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
+    setFeature(context, "PROTOCOL_RPC_V2_CBOR", "M");
+  }
+
+  if (typeof config.retryStrategy === "function") {
+    const retryStrategy = await config.retryStrategy();
+    if (typeof (retryStrategy as RetryStrategyV2).acquireInitialRetryToken === "function") {
+      if (retryStrategy.constructor?.name?.includes("Adaptive")) {
+        setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
+      } else {
+        setFeature(context, "RETRY_MODE_STANDARD", "E");
+      }
+    } else {
+      setFeature(context, "RETRY_MODE_LEGACY", "D");
+    }
+  }
+
   if (typeof config.accountIdEndpointMode === "function") {
+    const endpointV2 = context.endpointV2;
+    if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
+      setFeature(context, "ACCOUNT_ID_ENDPOINT", "O");
+    }
     switch (await config.accountIdEndpointMode?.()) {
       case "disabled":
         setFeature(context, "ACCOUNT_ID_MODE_DISABLED", "Q");

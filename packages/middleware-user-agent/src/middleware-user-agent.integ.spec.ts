@@ -27,22 +27,23 @@ describe("middleware-user-agent", () => {
   });
 
   describe("features", () => {
-    it("should detect DDB mapper, and account id mode", async () => {
+    it("should detect DDB mapper, account id, and account id mode", async () => {
       const client = new DynamoDB({
-        credentials: {
-          accessKeyId: "",
-          secretAccessKey: "",
-          accountId: "123",
-        },
-        accountIdEndpointMode: async () => "preferred" as const,
+        accountIdEndpointMode: async () => "required" as const,
       });
 
       const doc = DynamoDBDocument.from(client);
 
       requireRequestsFrom(doc).toMatch({
         headers: {
-          "user-agent": /(.*?) m\/d,P$/,
+          "user-agent": /(.*?) m\/d,E,O,R$/,
         },
+      });
+
+      client.config.credentials = async () => ({
+        accessKeyId: "",
+        secretAccessKey: "",
+        accountId: "123456789012",
       });
 
       await doc.get({
