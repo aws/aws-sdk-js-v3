@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Features
+
+* **client-guardduty:** Added a new field for network connection details. ([6f6d4ac](https://github.com/aws/aws-sdk-js-v3/commit/6f6d4ac2b1a6bfb029389bc23b9a84337243277c))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

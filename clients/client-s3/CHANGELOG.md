@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Bug Fixes
+
+* **client-s3:** correct shape type of two shapes from union to structure ([#6561](https://github.com/aws/aws-sdk-js-v3/issues/6561)) ([9d746f6](https://github.com/aws/aws-sdk-js-v3/commit/9d746f60ecafe2e6789bdb1c80e206219bad2e32))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** missing @aws-sdk/core dependency in lib-dynamodb ([#6557](https://github.com/aws/aws-sdk-js-v3/issues/6557)) ([e4f9d59](https://github.com/aws/aws-sdk-js-v3/commit/e4f9d596929a7b12535645cd00fa1eed275dbcc2))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 **Note:** Version bump only for package @aws-sdk/lib-dynamodb

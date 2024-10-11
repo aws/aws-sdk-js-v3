@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Add zonal_shift.config.enabled attribute. Add new AdministrativeOverride construct in the describe-target-health API response to include information about the override status applied to a target. ([809828e](https://github.com/aws/aws-sdk-js-v3/commit/809828e6675d1c4b2ae4fde815c06826f7f4c36e))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

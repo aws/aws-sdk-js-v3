@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Bug Fixes
+
+* **client-s3:** correct shape type of two shapes from union to structure ([#6561](https://github.com/aws/aws-sdk-js-v3/issues/6561)) ([9d746f6](https://github.com/aws/aws-sdk-js-v3/commit/9d746f60ecafe2e6789bdb1c80e206219bad2e32))
+* **lib-dynamodb:** missing @aws-sdk/core dependency in lib-dynamodb ([#6557](https://github.com/aws/aws-sdk-js-v3/issues/6557)) ([e4f9d59](https://github.com/aws/aws-sdk-js-v3/commit/e4f9d596929a7b12535645cd00fa1eed275dbcc2))
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** Add zonal_shift.config.enabled attribute. Add new AdministrativeOverride construct in the describe-target-health API response to include information about the override status applied to a target. ([809828e](https://github.com/aws/aws-sdk-js-v3/commit/809828e6675d1c4b2ae4fde815c06826f7f4c36e))
+* **client-emr:** This release provides new parameter "Context" in instance fleet clusters. ([bbad384](https://github.com/aws/aws-sdk-js-v3/commit/bbad384162b7b67ccdde9031442ac5cb30978ca5))
+* **client-guardduty:** Added a new field for network connection details. ([6f6d4ac](https://github.com/aws/aws-sdk-js-v3/commit/6f6d4ac2b1a6bfb029389bc23b9a84337243277c))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 

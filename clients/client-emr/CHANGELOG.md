@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+
+### Features
+
+* **client-emr:** This release provides new parameter "Context" in instance fleet clusters. ([bbad384](https://github.com/aws/aws-sdk-js-v3/commit/bbad384162b7b67ccdde9031442ac5cb30978ca5))
+
+
+
+
+
 # [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-emr
