@@ -26031,7 +26031,7 @@
       }
     },
     "com.amazonaws.s3#LifecycleRuleFilter": {
-      "type": "union",
+      "type": "structure",
       "members": {
         "Prefix": {
           "target": "com.amazonaws.s3#Prefix",
@@ -32240,7 +32240,7 @@
       }
     },
     "com.amazonaws.s3#ReplicationRuleFilter": {
-      "type": "union",
+      "type": "structure",
       "members": {
         "Prefix": {
           "target": "com.amazonaws.s3#Prefix",

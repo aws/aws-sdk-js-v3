@@ -6454,39 +6454,19 @@ const se_LifecycleRuleAndOperator = (input: LifecycleRuleAndOperator, context: _
  */
 const se_LifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
   const bn = new __XmlNode(_LRF);
-  LifecycleRuleFilter.visit(input, {
-    Prefix: (value) => {
-      if (input[_P] != null) {
-        bn.c(__XmlNode.of(_P, value).n(_P));
-      }
-    },
-    Tag: (value) => {
-      if (input[_Ta] != null) {
-        bn.c(se_Tag(value, context).n(_Ta));
-      }
-    },
-    ObjectSizeGreaterThan: (value) => {
-      if (input[_OSGT] != null) {
-        bn.c(__XmlNode.of(_OSGTB, String(value)).n(_OSGT));
-      }
-    },
-    ObjectSizeLessThan: (value) => {
-      if (input[_OSLT] != null) {
-        bn.c(__XmlNode.of(_OSLTB, String(value)).n(_OSLT));
-      }
-    },
-    And: (value) => {
-      if (input[_A] != null) {
-        bn.c(se_LifecycleRuleAndOperator(value, context).n(_A));
-      }
-    },
-    _: (name: string, value: any) => {
-      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
-        throw new Error("Unable to serialize unknown union members in XML.");
-      }
-      bn.c(new __XmlNode(name).c(value));
-    },
-  });
+  bn.cc(input, _P);
+  if (input[_Ta] != null) {
+    bn.c(se_Tag(input[_Ta], context).n(_Ta));
+  }
+  if (input[_OSGT] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGT])).n(_OSGT));
+  }
+  if (input[_OSLT] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLT])).n(_OSLT));
+  }
+  if (input[_A] != null) {
+    bn.c(se_LifecycleRuleAndOperator(input[_A], context).n(_A));
+  }
   return bn;
 };
 
@@ -6985,29 +6965,13 @@ const se_ReplicationRuleAndOperator = (input: ReplicationRuleAndOperator, contex
  */
 const se_ReplicationRuleFilter = (input: ReplicationRuleFilter, context: __SerdeContext): any => {
   const bn = new __XmlNode(_RRF);
-  ReplicationRuleFilter.visit(input, {
-    Prefix: (value) => {
-      if (input[_P] != null) {
-        bn.c(__XmlNode.of(_P, value).n(_P));
-      }
-    },
-    Tag: (value) => {
-      if (input[_Ta] != null) {
-        bn.c(se_Tag(value, context).n(_Ta));
-      }
-    },
-    And: (value) => {
-      if (input[_A] != null) {
-        bn.c(se_ReplicationRuleAndOperator(value, context).n(_A));
-      }
-    },
-    _: (name: string, value: any) => {
-      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
-        throw new Error("Unable to serialize unknown union members in XML.");
-      }
-      bn.c(new __XmlNode(name).c(value));
-    },
-  });
+  bn.cc(input, _P);
+  if (input[_Ta] != null) {
+    bn.c(se_Tag(input[_Ta], context).n(_Ta));
+  }
+  if (input[_A] != null) {
+    bn.c(se_ReplicationRuleAndOperator(input[_A], context).n(_A));
+  }
   return bn;
 };
 
@@ -8472,10 +8436,8 @@ const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule =
   if (output[_P] != null) {
     contents[_P] = __expectString(output[_P]);
   }
-  if (output.Filter === "") {
-    // Pass empty tags.
-  } else if (output[_F] != null) {
-    contents[_F] = de_LifecycleRuleFilter(__expectUnion(output[_F]), context);
+  if (output[_F] != null) {
+    contents[_F] = de_LifecycleRuleFilter(output[_F], context);
   }
   if (output[_S] != null) {
     contents[_S] = __expectString(output[_S]);
@@ -8525,32 +8487,23 @@ const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): Life
  * deserializeAws_restXmlLifecycleRuleFilter
  */
 const de_LifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
+  const contents: any = {};
   if (output[_P] != null) {
-    return {
-      Prefix: __expectString(output[_P]) as any,
-    };
+    contents[_P] = __expectString(output[_P]);
   }
   if (output[_Ta] != null) {
-    return {
-      Tag: de_Tag(output[_Ta], context),
-    };
+    contents[_Ta] = de_Tag(output[_Ta], context);
   }
   if (output[_OSGT] != null) {
-    return {
-      ObjectSizeGreaterThan: __strictParseLong(output[_OSGT]) as number,
-    };
+    contents[_OSGT] = __strictParseLong(output[_OSGT]) as number;
   }
   if (output[_OSLT] != null) {
-    return {
-      ObjectSizeLessThan: __strictParseLong(output[_OSLT]) as number,
-    };
+    contents[_OSLT] = __strictParseLong(output[_OSLT]) as number;
   }
   if (output[_A] != null) {
-    return {
-      And: de_LifecycleRuleAndOperator(output[_A], context),
-    };
+    contents[_A] = de_LifecycleRuleAndOperator(output[_A], context);
   }
-  return { $unknown: Object.entries(output)[0] };
+  return contents;
 };
 
 /**
@@ -9211,10 +9164,8 @@ const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRu
   if (output[_P] != null) {
     contents[_P] = __expectString(output[_P]);
   }
-  if (output.Filter === "") {
-    // Pass empty tags.
-  } else if (output[_F] != null) {
-    contents[_F] = de_ReplicationRuleFilter(__expectUnion(output[_F]), context);
+  if (output[_F] != null) {
+    contents[_F] = de_ReplicationRuleFilter(output[_F], context);
   }
   if (output[_S] != null) {
     contents[_S] = __expectString(output[_S]);
@@ -9254,22 +9205,17 @@ const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): Re
  * deserializeAws_restXmlReplicationRuleFilter
  */
 const de_ReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
+  const contents: any = {};
   if (output[_P] != null) {
-    return {
-      Prefix: __expectString(output[_P]) as any,
-    };
+    contents[_P] = __expectString(output[_P]);
   }
   if (output[_Ta] != null) {
-    return {
-      Tag: de_Tag(output[_Ta], context),
-    };
+    contents[_Ta] = de_Tag(output[_Ta], context);
   }
   if (output[_A] != null) {
-    return {
-      And: de_ReplicationRuleAndOperator(output[_A], context),
-    };
+    contents[_A] = de_ReplicationRuleAndOperator(output[_A], context);
   }
-  return { $unknown: Object.entries(output)[0] };
+  return contents;
 };
 
 /**
