@@ -513,9 +513,9 @@ export interface UploadConfiguration {
   /**
    * <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the
    *          simulation output location to determine the final path. </p>
-   *          <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your
+   *          <p> For example, if your simulation output location is <code>s3://amzn-s3-demo-bucket</code> and your
    *          upload configuration name is <code>robot-test</code>, your files will be uploaded to
-   *             <code>s3://my-bucket/<simid>/<runid>/robot-test</code>. </p>
+   *             <code>s3://amzn-s3-demo-bucket/<simid>/<runid>/robot-test</code>. </p>
    * @public
    */
   name: string | undefined;
@@ -657,6 +657,9 @@ export interface SimulationApplicationConfig {
 
   /**
    * <p>A list of world configurations.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    * @public
    */
   worldConfigs?: WorldConfig[];
@@ -1641,18 +1644,18 @@ export type RobotSoftwareSuiteVersionType =
   (typeof RobotSoftwareSuiteVersionType)[keyof typeof RobotSoftwareSuiteVersionType];
 
 /**
- * <p>Information about a robot software suite (ROS distribution).</p>
+ * <p>Information about a robot software suite.</p>
  * @public
  */
 export interface RobotSoftwareSuite {
   /**
-   * <p>The name of the robot software suite (ROS distribution).</p>
+   * <p>The name of the robot software suite. <code>General</code> is the only supported value.</p>
    * @public
    */
   name?: RobotSoftwareSuiteType;
 
   /**
-   * <p>The version of the robot software suite (ROS distribution).</p>
+   * <p>The version of the robot software suite. Not applicable for General software suite.</p>
    * @public
    */
   version?: RobotSoftwareSuiteVersionType;
@@ -1699,7 +1702,7 @@ export interface CreateRobotApplicationRequest {
   sources?: SourceConfig[];
 
   /**
-   * <p>The robot software suite (ROS distribuition) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite: RobotSoftwareSuite | undefined;
@@ -1778,7 +1781,7 @@ export interface CreateRobotApplicationResponse {
   sources?: Source[];
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -1870,7 +1873,7 @@ export interface CreateRobotApplicationVersionResponse {
   sources?: Source[];
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -1949,13 +1952,13 @@ export type SimulationSoftwareSuiteType =
  */
 export interface SimulationSoftwareSuite {
   /**
-   * <p>The name of the simulation software suite.</p>
+   * <p>The name of the simulation software suite. <code>SimulationRuntime</code> is the only supported value.</p>
    * @public
    */
   name?: SimulationSoftwareSuiteType;
 
   /**
-   * <p>The version of the simulation software suite.</p>
+   * <p>The version of the simulation software suite. Not applicable for <code>SimulationRuntime</code>.</p>
    * @public
    */
   version?: string;
@@ -1984,7 +1987,7 @@ export interface CreateSimulationApplicationRequest {
   simulationSoftwareSuite: SimulationSoftwareSuite | undefined;
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the simulation application.</p>
+   * <p>The robot software suite used by the simulation application.</p>
    * @public
    */
   robotSoftwareSuite: RobotSoftwareSuite | undefined;
@@ -2045,7 +2048,7 @@ export interface CreateSimulationApplicationResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
-   * <p>Information about the robot software suite (ROS distribution).</p>
+   * <p>Information about the robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -2150,7 +2153,7 @@ export interface CreateSimulationApplicationVersionResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
-   * <p>Information about the robot software suite (ROS distribution).</p>
+   * <p>Information about the robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -3799,7 +3802,7 @@ export interface DescribeRobotApplicationResponse {
   sources?: Source[];
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -3889,7 +3892,7 @@ export interface DescribeSimulationApplicationResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
-   * <p>Information about the robot software suite (ROS distribution).</p>
+   * <p>Information about the robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -5157,7 +5160,7 @@ export interface RobotApplicationSummary {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>Information about a robot software suite (ROS distribution).</p>
+   * <p>Information about a robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -5314,7 +5317,7 @@ export interface SimulationApplicationSummary {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>Information about a robot software suite (ROS distribution).</p>
+   * <p>Information about a robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -5390,8 +5393,8 @@ export interface SimulationJobBatchSummary {
   arn?: string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the simulation job batch was last
-   *          updated.</p>
+   * <p>The time, in milliseconds since the epoch, when the simulation job batch was last updated.
+   *       </p>
    * @public
    */
   lastUpdatedAt?: Date;
@@ -6401,7 +6404,7 @@ export interface UpdateRobotApplicationRequest {
   sources?: SourceConfig[];
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite: RobotSoftwareSuite | undefined;
@@ -6448,7 +6451,7 @@ export interface UpdateRobotApplicationResponse {
   sources?: Source[];
 
   /**
-   * <p>The robot software suite (ROS distribution) used by the robot application.</p>
+   * <p>The robot software suite used by the robot application.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
@@ -6496,7 +6499,7 @@ export interface UpdateSimulationApplicationRequest {
   simulationSoftwareSuite: SimulationSoftwareSuite | undefined;
 
   /**
-   * <p>Information about the robot software suite (ROS distribution).</p>
+   * <p>Information about the robot software suite.</p>
    * @public
    */
   robotSoftwareSuite: RobotSoftwareSuite | undefined;
@@ -6555,7 +6558,7 @@ export interface UpdateSimulationApplicationResponse {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 
   /**
-   * <p>Information about the robot software suite (ROS distribution).</p>
+   * <p>Information about the robot software suite.</p>
    * @public
    */
   robotSoftwareSuite?: RobotSoftwareSuite;
