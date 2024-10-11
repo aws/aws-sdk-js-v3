@@ -691,11 +691,6 @@ export interface SalesforceMetadata {
    *             after you log in to your Salesforce account and authorize Amazon AppFlow to access
    *             your records.</p>
    *             </dd>
-   *             <dt>CLIENT_CREDENTIALS</dt>
-   *             <dd>
-   *                <p>Amazon AppFlow passes client credentials (a client ID and client secret) when
-   *             it requests the access token from Salesforce. You provide these credentials to Amazon AppFlow when you define the connection to your Salesforce account.</p>
-   *             </dd>
    *             <dt>JWT_BEARER</dt>
    *             <dd>
    *                <p>Amazon AppFlow passes a JSON web token (JWT) when it requests the access token
@@ -705,6 +700,9 @@ export interface SalesforceMetadata {
    *             records.</p>
    *             </dd>
    *          </dl>
+   *          <note>
+   *             <p>The CLIENT_CREDENTIALS value is not supported for Salesforce.</p>
+   *          </note>
    * @public
    */
   oauth2GrantTypesSupported?: OAuth2GrantType[];
@@ -3377,11 +3375,6 @@ export interface SalesforceConnectorProfileCredentials {
    *             after you log in to your Salesforce account and authorize Amazon AppFlow to access
    *             your records.</p>
    *             </dd>
-   *             <dt>CLIENT_CREDENTIALS</dt>
-   *             <dd>
-   *                <p>Amazon AppFlow passes client credentials (a client ID and client secret) when
-   *             it requests the access token from Salesforce. You provide these credentials to Amazon AppFlow when you define the connection to your Salesforce account.</p>
-   *             </dd>
    *             <dt>JWT_BEARER</dt>
    *             <dd>
    *                <p>Amazon AppFlow passes a JSON web token (JWT) when it requests the access token
@@ -3391,6 +3384,9 @@ export interface SalesforceConnectorProfileCredentials {
    *             records.</p>
    *             </dd>
    *          </dl>
+   *          <note>
+   *             <p>The CLIENT_CREDENTIALS value is not supported for Salesforce.</p>
+   *          </note>
    * @public
    */
   oAuth2GrantType?: OAuth2GrantType;
