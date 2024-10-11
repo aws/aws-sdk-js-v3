@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
@@ -6874,18 +6873,7 @@ export interface LifecycleRuleAndOperator {
  *          <code>And</code> specified. If the <code>Filter</code> element is left empty, the Lifecycle Rule applies to all objects in the bucket.</p>
  * @public
  */
-export type LifecycleRuleFilter =
-  | LifecycleRuleFilter.AndMember
-  | LifecycleRuleFilter.ObjectSizeGreaterThanMember
-  | LifecycleRuleFilter.ObjectSizeLessThanMember
-  | LifecycleRuleFilter.PrefixMember
-  | LifecycleRuleFilter.TagMember
-  | LifecycleRuleFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace LifecycleRuleFilter {
+export interface LifecycleRuleFilter {
   /**
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
    *          <important>
@@ -6895,53 +6883,25 @@ export namespace LifecycleRuleFilter {
    *          </important>
    * @public
    */
-  export interface PrefixMember {
-    Prefix: string;
-    Tag?: never;
-    ObjectSizeGreaterThan?: never;
-    ObjectSizeLessThan?: never;
-    And?: never;
-    $unknown?: never;
-  }
+  Prefix?: string;
 
   /**
    * <p>This tag must exist in the object's tag set in order for the rule to apply.</p>
    * @public
    */
-  export interface TagMember {
-    Prefix?: never;
-    Tag: Tag;
-    ObjectSizeGreaterThan?: never;
-    ObjectSizeLessThan?: never;
-    And?: never;
-    $unknown?: never;
-  }
+  Tag?: Tag;
 
   /**
    * <p>Minimum object size to which the rule applies.</p>
    * @public
    */
-  export interface ObjectSizeGreaterThanMember {
-    Prefix?: never;
-    Tag?: never;
-    ObjectSizeGreaterThan: number;
-    ObjectSizeLessThan?: never;
-    And?: never;
-    $unknown?: never;
-  }
+  ObjectSizeGreaterThan?: number;
 
   /**
    * <p>Maximum object size to which the rule applies.</p>
    * @public
    */
-  export interface ObjectSizeLessThanMember {
-    Prefix?: never;
-    Tag?: never;
-    ObjectSizeGreaterThan?: never;
-    ObjectSizeLessThan: number;
-    And?: never;
-    $unknown?: never;
-  }
+  ObjectSizeLessThan?: number;
 
   /**
    * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more
@@ -6949,44 +6909,7 @@ export namespace LifecycleRuleFilter {
    *          configured inside the And operator.</p>
    * @public
    */
-  export interface AndMember {
-    Prefix?: never;
-    Tag?: never;
-    ObjectSizeGreaterThan?: never;
-    ObjectSizeLessThan?: never;
-    And: LifecycleRuleAndOperator;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Prefix?: never;
-    Tag?: never;
-    ObjectSizeGreaterThan?: never;
-    ObjectSizeLessThan?: never;
-    And?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Prefix: (value: string) => T;
-    Tag: (value: Tag) => T;
-    ObjectSizeGreaterThan: (value: number) => T;
-    ObjectSizeLessThan: (value: number) => T;
-    And: (value: LifecycleRuleAndOperator) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: LifecycleRuleFilter, visitor: Visitor<T>): T => {
-    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
-    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
-    if (value.ObjectSizeGreaterThan !== undefined) return visitor.ObjectSizeGreaterThan(value.ObjectSizeGreaterThan);
-    if (value.ObjectSizeLessThan !== undefined) return visitor.ObjectSizeLessThan(value.ObjectSizeLessThan);
-    if (value.And !== undefined) return visitor.And(value.And);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
+  And?: LifecycleRuleAndOperator;
 }
 
 /**
@@ -8386,16 +8309,7 @@ export interface ReplicationRuleAndOperator {
  *          an <code>And</code> child element.</p>
  * @public
  */
-export type ReplicationRuleFilter =
-  | ReplicationRuleFilter.AndMember
-  | ReplicationRuleFilter.PrefixMember
-  | ReplicationRuleFilter.TagMember
-  | ReplicationRuleFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ReplicationRuleFilter {
+export interface ReplicationRuleFilter {
   /**
    * <p>An object key name prefix that identifies the subset of objects to which the rule
    *          applies.</p>
@@ -8406,24 +8320,14 @@ export namespace ReplicationRuleFilter {
    *          </important>
    * @public
    */
-  export interface PrefixMember {
-    Prefix: string;
-    Tag?: never;
-    And?: never;
-    $unknown?: never;
-  }
+  Prefix?: string;
 
   /**
    * <p>A container for specifying a tag key and value. </p>
    *          <p>The rule applies only to objects that have the tag in their tag set.</p>
    * @public
    */
-  export interface TagMember {
-    Prefix?: never;
-    Tag: Tag;
-    And?: never;
-    $unknown?: never;
-  }
+  Tag?: Tag;
 
   /**
    * <p>A container for specifying rule filters. The filters determine the subset of objects to
@@ -8441,36 +8345,7 @@ export namespace ReplicationRuleFilter {
    *          </ul>
    * @public
    */
-  export interface AndMember {
-    Prefix?: never;
-    Tag?: never;
-    And: ReplicationRuleAndOperator;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Prefix?: never;
-    Tag?: never;
-    And?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Prefix: (value: string) => T;
-    Tag: (value: Tag) => T;
-    And: (value: ReplicationRuleAndOperator) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ReplicationRuleFilter, visitor: Visitor<T>): T => {
-    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
-    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
-    if (value.And !== undefined) return visitor.And(value.And);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
+  And?: ReplicationRuleAndOperator;
 }
 
 /**

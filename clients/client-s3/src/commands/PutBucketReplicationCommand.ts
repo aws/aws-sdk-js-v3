@@ -120,7 +120,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *         ID: "STRING_VALUE",
  *         Priority: Number("int"),
  *         Prefix: "STRING_VALUE",
- *         Filter: { // ReplicationRuleFilter Union: only one key present
+ *         Filter: { // ReplicationRuleFilter
  *           Prefix: "STRING_VALUE",
  *           Tag: { // Tag
  *             Key: "STRING_VALUE", // required

@@ -113,7 +113,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * //       },
  * //       ID: "STRING_VALUE",
  * //       Prefix: "STRING_VALUE",
- * //       Filter: { // LifecycleRuleFilter Union: only one key present
+ * //       Filter: { // LifecycleRuleFilter
  * //         Prefix: "STRING_VALUE",
  * //         Tag: { // Tag
  * //           Key: "STRING_VALUE", // required
