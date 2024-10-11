@@ -442,6 +442,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               IpAddressV4: "STRING_VALUE",
  * //               IpAddressV6: "STRING_VALUE",
  * //             },
+ * //             LocalNetworkInterface: "STRING_VALUE",
  * //             RemoteIpDetails: {
  * //               City: {
  * //                 CityName: "STRING_VALUE",

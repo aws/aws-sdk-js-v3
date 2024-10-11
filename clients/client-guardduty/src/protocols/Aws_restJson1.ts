@@ -5873,6 +5873,7 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
     Blocked: [, __expectBoolean, `blocked`],
     ConnectionDirection: [, __expectString, `connectionDirection`],
     LocalIpDetails: [, (_: any) => de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalNetworkInterface: [, __expectString, `localNetworkInterface`],
     LocalPortDetails: [, (_: any) => de_LocalPortDetails(_, context), `localPortDetails`],
     Protocol: [, __expectString, `protocol`],
     RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],

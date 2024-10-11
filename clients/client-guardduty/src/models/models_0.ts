@@ -952,6 +952,12 @@ export interface NetworkConnectionAction {
   LocalIpDetails?: LocalIpDetails;
 
   /**
+   * <p>The EC2 instance's local elastic network interface utilized for the connection.</p>
+   * @public
+   */
+  LocalNetworkInterface?: string;
+
+  /**
    * <p>The remote IP information of the connection.</p>
    * @public
    */
