@@ -118,6 +118,7 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  *         },
  *       },
  *     },
+ *     Context: "STRING_VALUE",
  *   },
  * };
  * const command = new AddInstanceFleetCommand(input);

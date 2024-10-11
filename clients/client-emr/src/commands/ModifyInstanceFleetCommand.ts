@@ -103,6 +103,7 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  *         Priority: Number("double"),
  *       },
  *     ],
+ *     Context: "STRING_VALUE",
  *   },
  * };
  * const command = new ModifyInstanceFleetCommand(input);

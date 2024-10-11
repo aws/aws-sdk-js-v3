@@ -6860,6 +6860,12 @@ export interface InstanceFleet {
    * @public
    */
   ResizeSpecifications?: InstanceFleetResizingSpecifications;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string;
 }
 
 /**
@@ -6946,6 +6952,12 @@ export interface InstanceFleetConfig {
    * @public
    */
   ResizeSpecifications?: InstanceFleetResizingSpecifications;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string;
 }
 
 /**
@@ -6989,6 +7001,12 @@ export interface InstanceFleetModifyConfig {
    * @public
    */
   InstanceTypeConfigs?: InstanceTypeConfig[];
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string;
 }
 
 /**

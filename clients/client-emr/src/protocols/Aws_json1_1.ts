@@ -2407,6 +2407,7 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
  */
 const se_InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeContext): any => {
   return take(input, {
+    Context: [],
     InstanceFleetType: [],
     InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
     LaunchSpecifications: _json,
@@ -2433,6 +2434,7 @@ const se_InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __Ser
  */
 const se_InstanceFleetModifyConfig = (input: InstanceFleetModifyConfig, context: __SerdeContext): any => {
   return take(input, {
+    Context: [],
     InstanceFleetId: [],
     InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
     ResizeSpecifications: _json,
@@ -3210,6 +3212,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
  */
 const de_InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
   return take(output, {
+    Context: __expectString,
     Id: __expectString,
     InstanceFleetType: __expectString,
     InstanceTypeSpecifications: (_: any) => de_InstanceTypeSpecificationList(_, context),

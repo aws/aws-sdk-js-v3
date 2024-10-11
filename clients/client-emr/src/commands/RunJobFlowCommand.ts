@@ -209,6 +209,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             },
  *           },
  *         },
+ *         Context: "STRING_VALUE",
  *       },
  *     ],
  *     Ec2KeyName: "STRING_VALUE",
