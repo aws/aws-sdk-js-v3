@@ -144,6 +144,7 @@ import {
   AddTagsOutput,
   AddTrustStoreRevocationsInput,
   AddTrustStoreRevocationsOutput,
+  AdministrativeOverride,
   AllocationIdNotFoundException,
   ALPNPolicyNotSupportedException,
   AnomalyDetection,
@@ -5564,6 +5565,23 @@ const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_queryAdministrativeOverride
+ */
+const de_AdministrativeOverride = (output: any, context: __SerdeContext): AdministrativeOverride => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryAllocationIdNotFoundException
  */
 const de_AllocationIdNotFoundException = (output: any, context: __SerdeContext): AllocationIdNotFoundException => {
@@ -5601,8 +5619,8 @@ const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext
  */
 const de_AnomalyDetection = (output: any, context: __SerdeContext): AnomalyDetection => {
   const contents: any = {};
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   if (output[_MIE] != null) {
     contents[_MIE] = __expectString(output[_MIE]);
@@ -6843,8 +6861,8 @@ const de_LoadBalancerState = (output: any, context: __SerdeContext): LoadBalance
   if (output[_Cod] != null) {
     contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   return contents;
 };
@@ -7649,8 +7667,8 @@ const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => 
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
@@ -7674,6 +7692,9 @@ const de_TargetHealthDescription = (output: any, context: __SerdeContext): Targe
   }
   if (output[_AD] != null) {
     contents[_AD] = de_AnomalyDetection(output[_AD], context);
+  }
+  if (output[_AO] != null) {
+    contents[_AO] = de_AdministrativeOverride(output[_AO], context);
   }
   return contents;
 };
@@ -8023,6 +8044,7 @@ const _AD = "AnomalyDetection";
 const _AE = "AuthorizationEndpoint";
 const _AI = "AllocationId";
 const _ALC = "AddListenerCertificates";
+const _AO = "AdministrativeOverride";
 const _AOC = "AuthenticateOidcConfig";
 const _AP = "AlpnPolicy";
 const _AREP = "AuthenticationRequestExtraParams";
@@ -8153,7 +8175,7 @@ const _Pol = "Policy";
 const _Pr = "Priority";
 const _Q = "Query";
 const _QSC = "QueryStringConfig";
-const _R = "Result";
+const _R = "Reason";
 const _RA = "ResourceArns";
 const _RAe = "ResourceArn";
 const _RAu = "RuleArn";
@@ -8168,7 +8190,7 @@ const _RT = "RegisterTargets";
 const _RTSR = "RemoveTrustStoreRevocations";
 const _RTe = "RemoveTags";
 const _RTev = "RevocationType";
-const _Re = "Reason";
+const _Re = "Result";
 const _Ru = "Rules";
 const _S = "Scope";
 const _SB = "S3Bucket";

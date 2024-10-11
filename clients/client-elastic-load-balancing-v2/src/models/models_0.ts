@@ -923,6 +923,64 @@ export class TooManyTrustStoreRevocationEntriesException extends __BaseException
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TargetAdministrativeOverrideReasonEnum = {
+  INTERNAL_ERROR: "AdministrativeOverride.Unknown",
+  NO_OVERRIDE_ENGAGED: "AdministrativeOverride.NoOverride",
+  ZONAL_SHIFT_DELEGATED_TO_DNS: "AdministrativeOverride.ZonalShiftDelegatedToDns",
+  ZONAL_SHIFT_ENGAGED: "AdministrativeOverride.ZonalShiftActive",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetAdministrativeOverrideReasonEnum =
+  (typeof TargetAdministrativeOverrideReasonEnum)[keyof typeof TargetAdministrativeOverrideReasonEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetAdministrativeOverrideStateEnum = {
+  NO_OVERRIDE: "no_override",
+  UNKNOWN: "unknown",
+  ZONAL_SHIFT_ACTIVE: "zonal_shift_active",
+  ZONAL_SHIFT_DELEGATED_TO_DNS: "zonal_shift_delegated_to_dns",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetAdministrativeOverrideStateEnum =
+  (typeof TargetAdministrativeOverrideStateEnum)[keyof typeof TargetAdministrativeOverrideStateEnum];
+
+/**
+ * <p>Information about the override status applied to a target.</p>
+ * @public
+ */
+export interface AdministrativeOverride {
+  /**
+   * <p>The state of the override.</p>
+   * @public
+   */
+  State?: TargetAdministrativeOverrideStateEnum;
+
+  /**
+   * <p>The reason code for the state.</p>
+   * @public
+   */
+  Reason?: TargetAdministrativeOverrideReasonEnum;
+
+  /**
+   * <p>A description of the override state that provides additional details.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
  * <p>The specified allocation ID does not exist.</p>
  * @public
  */
@@ -3884,6 +3942,12 @@ export interface LoadBalancerAttribute {
    *           <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity,
    *           and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zonal_shift.config.enabled</code> - Indicates whether zonal shift is
+   *           enabled. The possible values are <code>true</code> and <code>false</code>. The
+   *           default is <code>false</code>.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -4639,6 +4703,12 @@ export interface TargetHealthDescription {
    * @public
    */
   AnomalyDetection?: AnomalyDetection;
+
+  /**
+   * <p>The administrative override information for the target.</p>
+   * @public
+   */
+  AdministrativeOverride?: AdministrativeOverride;
 }
 
 /**

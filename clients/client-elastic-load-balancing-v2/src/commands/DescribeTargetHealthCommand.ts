@@ -72,6 +72,11 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * //         Result: "anomalous" || "normal",
  * //         MitigationInEffect: "yes" || "no",
  * //       },
+ * //       AdministrativeOverride: { // AdministrativeOverride
+ * //         State: "unknown" || "no_override" || "zonal_shift_active" || "zonal_shift_delegated_to_dns",
+ * //         Reason: "AdministrativeOverride.Unknown" || "AdministrativeOverride.NoOverride" || "AdministrativeOverride.ZonalShiftActive" || "AdministrativeOverride.ZonalShiftDelegatedToDns",
+ * //         Description: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
