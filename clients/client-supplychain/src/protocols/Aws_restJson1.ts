@@ -11,6 +11,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -36,6 +37,7 @@ import {
   CreateDataLakeDatasetCommandInput,
   CreateDataLakeDatasetCommandOutput,
 } from "../commands/CreateDataLakeDatasetCommand";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "../commands/CreateInstanceCommand";
 import {
   DeleteDataIntegrationFlowCommandInput,
   DeleteDataIntegrationFlowCommandOutput,
@@ -44,6 +46,7 @@ import {
   DeleteDataLakeDatasetCommandInput,
   DeleteDataLakeDatasetCommandOutput,
 } from "../commands/DeleteDataLakeDatasetCommand";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand";
 import {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
@@ -53,6 +56,7 @@ import {
   GetDataIntegrationFlowCommandOutput,
 } from "../commands/GetDataIntegrationFlowCommand";
 import { GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput } from "../commands/GetDataLakeDatasetCommand";
+import { GetInstanceCommandInput, GetInstanceCommandOutput } from "../commands/GetInstanceCommand";
 import {
   ListDataIntegrationFlowsCommandInput,
   ListDataIntegrationFlowsCommandOutput,
@@ -61,6 +65,7 @@ import {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "../commands/ListDataLakeDatasetsCommand";
+import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -79,6 +84,7 @@ import {
   UpdateDataLakeDatasetCommandInput,
   UpdateDataLakeDatasetCommandOutput,
 } from "../commands/UpdateDataLakeDatasetCommand";
+import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "../commands/UpdateInstanceCommand";
 import {
   AccessDeniedException,
   ConflictException,
@@ -96,6 +102,7 @@ import {
   DataLakeDataset,
   DataLakeDatasetSchema,
   DataLakeDatasetSchemaField,
+  Instance,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -183,6 +190,32 @@ export const se_CreateDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateInstanceCommand
+ */
+export const se_CreateInstanceCommand = async (
+  input: CreateInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/api/instance");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      instanceDescription: [],
+      instanceName: [],
+      kmsKeyArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDataIntegrationFlowCommand
  */
 export const se_DeleteDataIntegrationFlowCommand = async (
@@ -212,6 +245,22 @@ export const se_DeleteDataLakeDatasetCommand = async (
   b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   b.p("namespace", () => input.namespace!, "{namespace}", false);
   b.p("name", () => input.name!, "{name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteInstanceCommand
+ */
+export const se_DeleteInstanceCommand = async (
+  input: DeleteInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/instance/{instanceId}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -270,6 +319,22 @@ export const se_GetDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetInstanceCommand
+ */
+export const se_GetInstanceCommand = async (
+  input: GetInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/instance/{instanceId}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDataIntegrationFlowsCommand
  */
 export const se_ListDataIntegrationFlowsCommand = async (
@@ -304,6 +369,27 @@ export const se_ListDataLakeDatasetsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInstancesCommand
+ */
+export const se_ListInstancesCommand = async (
+  input: ListInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/api/instance");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_iNF]: [() => input.instanceNameFilter !== void 0, () => input[_iNF]! || []],
+    [_iSF]: [() => input.instanceStateFilter !== void 0, () => input[_iSF]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -447,6 +533,30 @@ export const se_UpdateDataLakeDatasetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateInstanceCommand
+ */
+export const se_UpdateInstanceCommand = async (
+  input: UpdateInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/api/instance/{instanceId}");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      instanceDescription: [],
+      instanceName: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restJson1CreateBillOfMaterialsImportJobCommand
  */
 export const de_CreateBillOfMaterialsImportJobCommand = async (
@@ -511,6 +621,27 @@ export const de_CreateDataLakeDatasetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateInstanceCommand
+ */
+export const de_CreateInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instance: (_) => de_Instance(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataIntegrationFlowCommand
  */
 export const de_DeleteDataIntegrationFlowCommand = async (
@@ -550,6 +681,27 @@ export const de_DeleteDataLakeDatasetCommand = async (
     instanceId: __expectString,
     name: __expectString,
     namespace: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteInstanceCommand
+ */
+export const de_DeleteInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instance: (_) => de_Instance(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -619,6 +771,27 @@ export const de_GetDataLakeDatasetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInstanceCommand
+ */
+export const de_GetInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instance: (_) => de_Instance(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListDataIntegrationFlowsCommand
  */
 export const de_ListDataIntegrationFlowsCommand = async (
@@ -656,6 +829,28 @@ export const de_ListDataLakeDatasetsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     datasets: (_) => de_DataLakeDatasetList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInstancesCommand
+ */
+export const de_ListInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInstancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instances: (_) => de_InstanceList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -775,6 +970,27 @@ export const de_UpdateDataLakeDatasetCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     dataset: (_) => de_DataLakeDataset(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateInstanceCommand
+ */
+export const de_UpdateInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    instance: (_) => de_Instance(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1068,6 +1284,36 @@ const de_DataLakeDatasetList = (output: any, context: __SerdeContext): DataLakeD
 
 // de_DataLakeDatasetSchemaFieldList omitted.
 
+/**
+ * deserializeAws_restJson1Instance
+ */
+const de_Instance = (output: any, context: __SerdeContext): Instance => {
+  return take(output, {
+    awsAccountId: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    instanceDescription: __expectString,
+    instanceId: __expectString,
+    instanceName: __expectString,
+    kmsKeyArn: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: __expectString,
+    versionNumber: __limitedParseDouble,
+    webAppDnsDomain: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InstanceList
+ */
+const de_InstanceList = (output: any, context: __SerdeContext): Instance[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Instance(entry, context);
+    });
+  return retVal;
+};
+
 // de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1082,6 +1328,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _iNF = "instanceNameFilter";
+const _iSF = "instanceStateFilter";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _tK = "tagKeys";

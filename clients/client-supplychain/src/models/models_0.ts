@@ -788,6 +788,138 @@ export interface CreateDataLakeDatasetResponse {
 }
 
 /**
+ * <p>The request parameters for CreateInstance.</p>
+ * @public
+ */
+export interface CreateInstanceRequest {
+  /**
+   * <p>The AWS Supply Chain instance name.</p>
+   * @public
+   */
+  instanceName?: string;
+
+  /**
+   * <p>The AWS Supply Chain instance description.</p>
+   * @public
+   */
+  instanceDescription?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon Web Services owned KMS key. If you don't provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key.</p>
+   * @public
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The Amazon Web Services tags of an instance to be created.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The client token for idempotency.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceState = {
+  ACTIVE: "Active",
+  CREATE_FAILED: "CreateFailed",
+  DELETED: "Deleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  INITIALIZING: "Initializing",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
+
+/**
+ * <p>The details of the instance.</p>
+ * @public
+ */
+export interface Instance {
+  /**
+   * <p>The Amazon Web Services Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the instance.</p>
+   * @public
+   */
+  awsAccountId: string | undefined;
+
+  /**
+   * <p>The state of the instance.</p>
+   * @public
+   */
+  state: InstanceState | undefined;
+
+  /**
+   * <p>The WebApp DNS domain name of the instance.</p>
+   * @public
+   */
+  webAppDnsDomain?: string;
+
+  /**
+   * <p>The instance creation timestamp.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>The instance last modified timestamp.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Web Services Supply Chain instance name.</p>
+   * @public
+   */
+  instanceName?: string;
+
+  /**
+   * <p>The Amazon Web Services Supply Chain instance description.</p>
+   * @public
+   */
+  instanceDescription?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you optionally provided for encryption. If you did not provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key and nothing is returned.</p>
+   * @public
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The version number of the instance.</p>
+   * @public
+   */
+  versionNumber?: number;
+}
+
+/**
+ * <p>The response parameters for CreateInstance.</p>
+ * @public
+ */
+export interface CreateInstanceResponse {
+  /**
+   * <p>The AWS Supply Chain instance resource data details.</p>
+   * @public
+   */
+  instance: Instance | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1286,6 +1418,138 @@ export interface UpdateDataLakeDatasetResponse {
    * @public
    */
   dataset: DataLakeDataset | undefined;
+}
+
+/**
+ * <p>The request parameters for DeleteInstance.</p>
+ * @public
+ */
+export interface DeleteInstanceRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+}
+
+/**
+ * <p>The response parameters for DeleteInstance.</p>
+ * @public
+ */
+export interface DeleteInstanceResponse {
+  /**
+   * <p>The AWS Supply Chain instance resource data details.</p>
+   * @public
+   */
+  instance: Instance | undefined;
+}
+
+/**
+ * <p>The request parameters for GetInstance.</p>
+ * @public
+ */
+export interface GetInstanceRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier</p>
+   * @public
+   */
+  instanceId: string | undefined;
+}
+
+/**
+ * <p>The response parameters for GetInstance.</p>
+ * @public
+ */
+export interface GetInstanceResponse {
+  /**
+   * <p>The instance resource data details.</p>
+   * @public
+   */
+  instance: Instance | undefined;
+}
+
+/**
+ * <p>The request parameters for ListInstances.</p>
+ * @public
+ */
+export interface ListInstancesRequest {
+  /**
+   * <p>The pagination token to fetch the next page of instances.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Specify the maximum number of instances to fetch in this paginated request.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The filter to ListInstances based on their names.</p>
+   * @public
+   */
+  instanceNameFilter?: string[];
+
+  /**
+   * <p>The filter to ListInstances based on their state.</p>
+   * @public
+   */
+  instanceStateFilter?: InstanceState[];
+}
+
+/**
+ * <p>The response parameters for ListInstances.</p>
+ * @public
+ */
+export interface ListInstancesResponse {
+  /**
+   * <p>The list of instances resource data details.</p>
+   * @public
+   */
+  instances: Instance[] | undefined;
+
+  /**
+   * <p>The pagination token to fetch the next page of instances.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The request parameters for UpdateInstance.</p>
+ * @public
+ */
+export interface UpdateInstanceRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The AWS Supply Chain instance name.</p>
+   * @public
+   */
+  instanceName?: string;
+
+  /**
+   * <p>The AWS Supply Chain instance description.</p>
+   * @public
+   */
+  instanceDescription?: string;
+}
+
+/**
+ * <p>The response parameters for UpdateInstance.</p>
+ * @public
+ */
+export interface UpdateInstanceResponse {
+  /**
+   * <p>The instance resource data details.</p>
+   * @public
+   */
+  instance: Instance | undefined;
 }
 
 /**

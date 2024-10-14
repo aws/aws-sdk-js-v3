@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupplyChainClient` and
-the commands you need, for example `ListTagsForResourceCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
-const { SupplyChainClient, ListTagsForResourceCommand } = require("@aws-sdk/client-supplychain");
+const { SupplyChainClient, ListInstancesCommand } = require("@aws-sdk/client-supplychain");
 ```
 
 ```ts
 // ES6+ example
-import { SupplyChainClient, ListTagsForResourceCommand } from "@aws-sdk/client-supplychain";
+import { SupplyChainClient, ListInstancesCommand } from "@aws-sdk/client-supplychain";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new SupplyChainClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListTagsForResourceCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.SupplyChain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTagsForResource(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .listTagsForResource(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.listTagsForResource(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -235,6 +235,14 @@ CreateDataLakeDataset
 </details>
 <details>
 <summary>
+CreateInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDataIntegrationFlow
 </summary>
 
@@ -247,6 +255,14 @@ DeleteDataLakeDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteInstanceCommandOutput/)
 
 </details>
 <details>
@@ -275,6 +291,14 @@ GetDataLakeDataset
 </details>
 <details>
 <summary>
+GetInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDataIntegrationFlows
 </summary>
 
@@ -287,6 +311,14 @@ ListDataLakeDatasets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataLakeDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListInstancesCommandOutput/)
 
 </details>
 <details>
@@ -335,5 +367,13 @@ UpdateDataLakeDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateInstanceCommandOutput/)
 
 </details>

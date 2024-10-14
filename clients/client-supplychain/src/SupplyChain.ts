@@ -18,6 +18,11 @@ import {
   CreateDataLakeDatasetCommandOutput,
 } from "./commands/CreateDataLakeDatasetCommand";
 import {
+  CreateInstanceCommand,
+  CreateInstanceCommandInput,
+  CreateInstanceCommandOutput,
+} from "./commands/CreateInstanceCommand";
+import {
   DeleteDataIntegrationFlowCommand,
   DeleteDataIntegrationFlowCommandInput,
   DeleteDataIntegrationFlowCommandOutput,
@@ -27,6 +32,11 @@ import {
   DeleteDataLakeDatasetCommandInput,
   DeleteDataLakeDatasetCommandOutput,
 } from "./commands/DeleteDataLakeDatasetCommand";
+import {
+  DeleteInstanceCommand,
+  DeleteInstanceCommandInput,
+  DeleteInstanceCommandOutput,
+} from "./commands/DeleteInstanceCommand";
 import {
   GetBillOfMaterialsImportJobCommand,
   GetBillOfMaterialsImportJobCommandInput,
@@ -42,6 +52,7 @@ import {
   GetDataLakeDatasetCommandInput,
   GetDataLakeDatasetCommandOutput,
 } from "./commands/GetDataLakeDatasetCommand";
+import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   ListDataIntegrationFlowsCommand,
   ListDataIntegrationFlowsCommandInput,
@@ -52,6 +63,11 @@ import {
   ListDataLakeDatasetsCommandInput,
   ListDataLakeDatasetsCommandOutput,
 } from "./commands/ListDataLakeDatasetsCommand";
+import {
+  ListInstancesCommand,
+  ListInstancesCommandInput,
+  ListInstancesCommandOutput,
+} from "./commands/ListInstancesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -78,25 +94,35 @@ import {
   UpdateDataLakeDatasetCommandInput,
   UpdateDataLakeDatasetCommandOutput,
 } from "./commands/UpdateDataLakeDatasetCommand";
+import {
+  UpdateInstanceCommand,
+  UpdateInstanceCommandInput,
+  UpdateInstanceCommandOutput,
+} from "./commands/UpdateInstanceCommand";
 import { SupplyChainClient, SupplyChainClientConfig } from "./SupplyChainClient";
 
 const commands = {
   CreateBillOfMaterialsImportJobCommand,
   CreateDataIntegrationFlowCommand,
   CreateDataLakeDatasetCommand,
+  CreateInstanceCommand,
   DeleteDataIntegrationFlowCommand,
   DeleteDataLakeDatasetCommand,
+  DeleteInstanceCommand,
   GetBillOfMaterialsImportJobCommand,
   GetDataIntegrationFlowCommand,
   GetDataLakeDatasetCommand,
+  GetInstanceCommand,
   ListDataIntegrationFlowsCommand,
   ListDataLakeDatasetsCommand,
+  ListInstancesCommand,
   ListTagsForResourceCommand,
   SendDataIntegrationEventCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDataIntegrationFlowCommand,
   UpdateDataLakeDatasetCommand,
+  UpdateInstanceCommand,
 };
 
 export interface SupplyChain {
@@ -152,6 +178,21 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link CreateInstanceCommand}
+   */
+  createInstance(): Promise<CreateInstanceCommandOutput>;
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceCommandOutput>;
+  createInstance(args: CreateInstanceCommandInput, cb: (err: any, data?: CreateInstanceCommandOutput) => void): void;
+  createInstance(
+    args: CreateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataIntegrationFlowCommand}
    */
   deleteDataIntegrationFlow(
@@ -183,6 +224,20 @@ export interface SupplyChain {
     args: DeleteDataLakeDatasetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInstanceCommand}
+   */
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceCommandOutput>;
+  deleteInstance(args: DeleteInstanceCommandInput, cb: (err: any, data?: DeleteInstanceCommandOutput) => void): void;
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): void;
 
   /**
@@ -237,6 +292,17 @@ export interface SupplyChain {
   ): void;
 
   /**
+   * @see {@link GetInstanceCommand}
+   */
+  getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
+  getInstance(args: GetInstanceCommandInput, cb: (err: any, data?: GetInstanceCommandOutput) => void): void;
+  getInstance(
+    args: GetInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDataIntegrationFlowsCommand}
    */
   listDataIntegrationFlows(
@@ -268,6 +334,18 @@ export interface SupplyChain {
     args: ListDataLakeDatasetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataLakeDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   */
+  listInstances(): Promise<ListInstancesCommandOutput>;
+  listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
+  listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
+  listInstances(
+    args: ListInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
   /**
@@ -358,6 +436,20 @@ export interface SupplyChain {
     args: UpdateDataLakeDatasetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataLakeDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInstanceCommand}
+   */
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceCommandOutput>;
+  updateInstance(args: UpdateInstanceCommandInput, cb: (err: any, data?: UpdateInstanceCommandOutput) => void): void;
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): void;
 }
 
