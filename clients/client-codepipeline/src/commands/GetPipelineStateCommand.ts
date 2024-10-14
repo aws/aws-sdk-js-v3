@@ -54,13 +54,13 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       stageName: "STRING_VALUE",
  * //       inboundExecution: { // StageExecution
  * //         pipelineExecutionId: "STRING_VALUE", // required
- * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded" || "Skipped", // required
  * //         type: "STANDARD" || "ROLLBACK",
  * //       },
  * //       inboundExecutions: [ // StageExecutionList
  * //         {
  * //           pipelineExecutionId: "STRING_VALUE", // required
- * //           status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //           status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded" || "Skipped", // required
  * //           type: "STANDARD" || "ROLLBACK",
  * //         },
  * //       ],
@@ -99,7 +99,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       ],
  * //       latestExecution: {
  * //         pipelineExecutionId: "STRING_VALUE", // required
- * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded" || "Skipped", // required
  * //         type: "STANDARD" || "ROLLBACK",
  * //       },
  * //       beforeEntryConditionState: { // StageConditionState
@@ -224,6 +224,11 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //             ],
  * //           },
  * //         ],
+ * //       },
+ * //       retryStageMetadata: { // RetryStageMetadata
+ * //         autoStageRetryAttempt: Number("int"),
+ * //         manualStageRetryAttempt: Number("int"),
+ * //         latestRetryTrigger: "AutomatedStageRetry" || "ManualStageRetry",
  * //       },
  * //     },
  * //   ],

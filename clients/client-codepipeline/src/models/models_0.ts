@@ -412,7 +412,8 @@ export interface OutputArtifact {
   name: string | undefined;
 
   /**
-   * <p>The files that you want to associate with the output artifact that will be exported from the compute action.</p>
+   * <p>The files that you want to associate with the output artifact that will be exported
+   *             from the compute action.</p>
    * @public
    */
   files?: string[];
@@ -460,12 +461,11 @@ export interface ActionDeclaration {
   configuration?: Record<string, string>;
 
   /**
-   * <p>The shell commands to run with your compute action in CodePipeline. All commands are
-   *             supported except multi-line formats. While CodeBuild logs and permissions are used, you
-   *             do not need to create any resources in CodeBuild.</p>
+   * <p>The shell commands to run with your compute action in CodePipeline. All commands
+   *             are supported except multi-line formats. While CodeBuild logs and permissions
+   *             are used, you do not need to create any resources in CodeBuild.</p>
    *          <note>
-   *             <p>Using compute time for this action will incur separate charges in
-   *                 CodeBuild.</p>
+   *             <p>Using compute time for this action will incur separate charges in CodeBuild.</p>
    *          </note>
    * @public
    */
@@ -486,7 +486,8 @@ export interface ActionDeclaration {
   inputArtifacts?: InputArtifact[];
 
   /**
-   * <p>The list of variables that are to be exported from the compute action. This is specifically CodeBuild environment variables as used for that action.</p>
+   * <p>The list of variables that are to be exported from the compute action. This is
+   *             specifically CodeBuild environment variables as used for that action.</p>
    * @public
    */
   outputVariables?: string[];
@@ -1776,7 +1777,9 @@ export interface AWSSessionCredentials {
  */
 export const Result = {
   FAIL: "FAIL",
+  RETRY: "RETRY",
   ROLLBACK: "ROLLBACK",
+  SKIP: "SKIP",
 } as const;
 
 /**
@@ -1811,20 +1814,21 @@ export const RuleOwner = {
 export type RuleOwner = (typeof RuleOwner)[keyof typeof RuleOwner];
 
 /**
- * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+ * <p>The ID for the rule type, which is made up of the combined values for category, owner,
+ *             provider, and version.</p>
  * @public
  */
 export interface RuleTypeId {
   /**
-   * <p>A category defines what kind of rule can be run in the stage, and constrains the provider
-   *             type for the rule. The valid category is <code>Rule</code>. </p>
+   * <p>A category defines what kind of rule can be run in the stage, and constrains the
+   *             provider type for the rule. The valid category is <code>Rule</code>. </p>
    * @public
    */
   category: RuleCategory | undefined;
 
   /**
-   * <p>The creator of the rule being called. The valid value for the
-   *                 <code>Owner</code> field in the rule category is <code>AWS</code>. </p>
+   * <p>The creator of the rule being called. The valid value for the <code>Owner</code> field
+   *             in the rule category is <code>AWS</code>. </p>
    * @public
    */
   owner?: RuleOwner;
@@ -1843,18 +1847,22 @@ export interface RuleTypeId {
 }
 
 /**
- * <p>Represents information about the rule to be created for an associated condition. An example would be creating a new rule for an entry condition, such as a rule that checks for a test result before allowing the run to enter the deployment stage.</p>
+ * <p>Represents information about the rule to be created for an associated condition. An
+ *             example would be creating a new rule for an entry condition, such as a rule that checks
+ *             for a test result before allowing the run to enter the deployment stage.</p>
  * @public
  */
 export interface RuleDeclaration {
   /**
-   * <p>The name of the rule that is created for the condition, such as CheckAllResults.</p>
+   * <p>The name of the rule that is created for the condition, such as
+   *             CheckAllResults.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+   * <p>The ID for the rule type, which is made up of the combined values for category, owner,
+   *             provider, and version.</p>
    * @public
    */
   ruleTypeId: RuleTypeId | undefined;
@@ -1866,7 +1874,8 @@ export interface RuleDeclaration {
   configuration?: Record<string, string>;
 
   /**
-   * <p>The input artifacts fields for the rule, such as specifying an input file for the rule.</p>
+   * <p>The input artifacts fields for the rule, such as specifying an input file for the
+   *             rule.</p>
    * @public
    */
   inputArtifacts?: InputArtifact[];
@@ -1891,12 +1900,14 @@ export interface RuleDeclaration {
 }
 
 /**
- * <p>The condition for the stage. A condition is made up of the rules and the result for the condition.</p>
+ * <p>The condition for the stage. A condition is made up of the rules and the result for
+ *             the condition.</p>
  * @public
  */
 export interface Condition {
   /**
-   * <p>The action to be done when the condition is met. For example, rolling back an execution for a failure condition.</p>
+   * <p>The action to be done when the condition is met. For example, rolling back an
+   *             execution for a failure condition.</p>
    * @public
    */
   result?: Result;
@@ -2161,6 +2172,35 @@ export const PipelineType = {
 export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
 
 /**
+ * @public
+ * @enum
+ */
+export const StageRetryMode = {
+  ALL_ACTIONS: "ALL_ACTIONS",
+  FAILED_ACTIONS: "FAILED_ACTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type StageRetryMode = (typeof StageRetryMode)[keyof typeof StageRetryMode];
+
+/**
+ * <p>The retry configuration specifies automatic retry for a failed stage, along with the
+ *             configured retry mode.</p>
+ * @public
+ */
+export interface RetryConfiguration {
+  /**
+   * <p>The method that you want to configure for automatic stage retry on stage
+   *             failure. You can specify to retry only failed action in the stage or all actions in the
+   *             stage.</p>
+   * @public
+   */
+  retryMode?: StageRetryMode;
+}
+
+/**
  * <p>The configuration that specifies the result, such as rollback, to occur upon stage
  *             failure. </p>
  * @public
@@ -2172,6 +2212,13 @@ export interface FailureConditions {
    * @public
    */
   result?: Result;
+
+  /**
+   * <p>The retry configuration specifies automatic retry for a failed stage, along with the
+   *             configured retry mode.</p>
+   * @public
+   */
+  retryConfiguration?: RetryConfiguration;
 
   /**
    * <p>The conditions that are configured as failure conditions.</p>
@@ -2224,14 +2271,15 @@ export interface StageDeclaration {
   onFailure?: FailureConditions;
 
   /**
-   * <p>The method to use when a stage has succeeded. For example,
-   *             configuring this field for conditions will allow the stage to succeed when the conditions are met.</p>
+   * <p>The method to use when a stage has succeeded. For example, configuring this field for
+   *             conditions will allow the stage to succeed when the conditions are met.</p>
    * @public
    */
   onSuccess?: SuccessConditions;
 
   /**
-   * <p>The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.</p>
+   * <p>The method to use when a stage allows entry. For example, configuring this field for
+   *             conditions will allow entry to the stage when the conditions are met.</p>
    * @public
    */
   beforeEntry?: BeforeEntryConditions;
@@ -3603,22 +3651,21 @@ export interface ConditionExecution {
  */
 export interface RuleRevision {
   /**
-   * <p>The system-generated unique ID that identifies the revision number of the
-   *             rule.</p>
+   * <p>The system-generated unique ID that identifies the revision number of the rule.</p>
    * @public
    */
   revisionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the change that set the state to this revision (for
-   *             example, a deployment ID or timestamp).</p>
+   * <p>The unique identifier of the change that set the state to this revision (for example,
+   *             a deployment ID or timestamp).</p>
    * @public
    */
   revisionChangeId: string | undefined;
 
   /**
-   * <p>The date and time when the most recent version of the rule was created, in
-   *             timestamp format.</p>
+   * <p>The date and time when the most recent version of the rule was created, in timestamp
+   *             format.</p>
    * @public
    */
   created: Date | undefined;
@@ -3641,7 +3688,8 @@ export const RuleExecutionStatus = {
 export type RuleExecutionStatus = (typeof RuleExecutionStatus)[keyof typeof RuleExecutionStatus];
 
 /**
- * <p>Represents information about each time a rule is run as part of the pipeline execution for a pipeline configured with conditions.</p>
+ * <p>Represents information about each time a rule is run as part of the pipeline execution
+ *             for a pipeline configured with conditions.</p>
  * @public
  */
 export interface RuleExecution {
@@ -3704,7 +3752,8 @@ export interface RuleExecution {
 /**
  * <p>Returns information about the state of a rule.</p>
  *          <note>
- *             <p>Values returned in the <code>revisionId</code> field indicate the rule revision information, such as the commit ID, for the current state.</p>
+ *             <p>Values returned in the <code>revisionId</code> field indicate the rule revision
+ *                 information, such as the commit ID, for the current state.</p>
  *          </note>
  * @public
  */
@@ -3729,7 +3778,8 @@ export interface RuleState {
   latestExecution?: RuleExecution;
 
   /**
-   * <p>A URL link for more information about the state of the action, such as a details page.</p>
+   * <p>A URL link for more information about the state of the action, such as a details
+   *             page.</p>
    * @public
    */
   entityUrl?: string;
@@ -3804,6 +3854,7 @@ export const StageExecutionStatus = {
   Cancelled: "Cancelled",
   Failed: "Failed",
   InProgress: "InProgress",
+  Skipped: "Skipped",
   Stopped: "Stopped",
   Stopping: "Stopping",
   Succeeded: "Succeeded",
@@ -3878,6 +3929,44 @@ export interface TransitionState {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RetryTrigger = {
+  AutomatedStageRetry: "AutomatedStageRetry",
+  ManualStageRetry: "ManualStageRetry",
+} as const;
+
+/**
+ * @public
+ */
+export type RetryTrigger = (typeof RetryTrigger)[keyof typeof RetryTrigger];
+
+/**
+ * <p>The details of a specific automatic retry on stage failure, including the attempt number and trigger.</p>
+ * @public
+ */
+export interface RetryStageMetadata {
+  /**
+   * <p>The number of attempts for a specific stage with automatic retry on stage failure. One attempt is allowed for automatic stage retry on failure.</p>
+   * @public
+   */
+  autoStageRetryAttempt?: number;
+
+  /**
+   * <p>The number of attempts for a specific stage where manual retries have been made upon stage failure.</p>
+   * @public
+   */
+  manualStageRetryAttempt?: number;
+
+  /**
+   * <p>The latest trigger for a specific stage where manual or automatic retries have been made upon stage failure.</p>
+   * @public
+   */
+  latestRetryTrigger?: RetryTrigger;
+}
+
+/**
  * <p>Represents information about the state of the stage.</p>
  * @public
  */
@@ -3936,6 +4025,12 @@ export interface StageState {
    * @public
    */
   onFailureConditionState?: StageConditionState;
+
+  /**
+   * <p>he details of a specific automatic retry on stage failure, including the attempt number and trigger.</p>
+   * @public
+   */
+  retryStageMetadata?: RetryStageMetadata;
 }
 
 /**
@@ -4632,9 +4727,8 @@ export interface ListRuleExecutionsInput {
   maxResults?: number;
 
   /**
-   * <p>The token that was returned from the previous <code>ListRuleExecutions</code>
-   *             call, which can be used to return the next set of rule executions in the
-   *             list.</p>
+   * <p>The token that was returned from the previous <code>ListRuleExecutions</code> call,
+   *             which can be used to return the next set of rule executions in the list.</p>
    * @public
    */
   nextToken?: string;
@@ -4646,13 +4740,15 @@ export interface ListRuleExecutionsInput {
  */
 export interface RuleExecutionInput {
   /**
-   * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+   * <p>The ID for the rule type, which is made up of the combined values for category, owner,
+   *             provider, and version.</p>
    * @public
    */
   ruleTypeId?: RuleTypeId;
 
   /**
-   * <p>Configuration data for a rule execution, such as the resolved values for that run.</p>
+   * <p>Configuration data for a rule execution, such as the resolved values for that
+   *             run.</p>
    * @public
    */
   configuration?: Record<string, string>;
@@ -4678,8 +4774,7 @@ export interface RuleExecutionInput {
   region?: string;
 
   /**
-   * <p>Details of input artifacts of the rule that correspond to the rule
-   *             execution.</p>
+   * <p>Details of input artifacts of the rule that correspond to the rule execution.</p>
    * @public
    */
   inputArtifacts?: ArtifactDetail[];
@@ -4717,22 +4812,20 @@ export interface RuleExecutionResult {
 }
 
 /**
- * <p>Output details listed for a rule execution, such as the rule execution
- *             result.</p>
+ * <p>Output details listed for a rule execution, such as the rule execution result.</p>
  * @public
  */
 export interface RuleExecutionOutput {
   /**
-   * <p>Execution result information listed in the output details for a rule
-   *             execution.</p>
+   * <p>Execution result information listed in the output details for a rule execution.</p>
    * @public
    */
   executionResult?: RuleExecutionResult;
 }
 
 /**
- * <p>The details of the runs for a rule and the results produced on an artifact as it passes
- *             through stages in the pipeline.</p>
+ * <p>The details of the runs for a rule and the results produced on an artifact as it
+ *             passes through stages in the pipeline.</p>
  * @public
  */
 export interface RuleExecutionDetail {
@@ -4788,8 +4881,7 @@ export interface RuleExecutionDetail {
 
   /**
    * <p>The status of the rule execution. Status categories are <code>InProgress</code>,
-   *                 <code>Succeeded</code>, and <code>Failed</code>.
-   * </p>
+   *                 <code>Succeeded</code>, and <code>Failed</code>. </p>
    * @public
    */
   status?: RuleExecutionStatus;
@@ -4819,9 +4911,9 @@ export interface ListRuleExecutionsOutput {
   ruleExecutionDetails?: RuleExecutionDetail[];
 
   /**
-   * <p>A token that can be used in the next <code>ListRuleExecutions</code> call. To
-   *             view all items in the list, continue to call this operation with each subsequent token
-   *             until no more nextToken values are returned.</p>
+   * <p>A token that can be used in the next <code>ListRuleExecutions</code> call. To view all
+   *             items in the list, continue to call this operation with each subsequent token until no
+   *             more nextToken values are returned.</p>
    * @public
    */
   nextToken?: string;
@@ -4893,7 +4985,8 @@ export interface RuleConfigurationProperty {
 
   /**
    * <p>Indicates whether the property can be queried.</p>
-   *          <p>If you create a pipeline with a condition and rule, and that rule contains a queryable property, the value for that configuration property is subject to other
+   *          <p>If you create a pipeline with a condition and rule, and that rule contains a
+   *             queryable property, the value for that configuration property is subject to other
    *             restrictions. The value must be less than or equal to twenty (20) characters. The value
    *             can contain only alphanumeric characters, underscores, and hyphens.</p>
    * @public
@@ -4920,8 +5013,8 @@ export interface RuleConfigurationProperty {
  */
 export interface RuleTypeSettings {
   /**
-   * <p>The URL of a sign-up page where users can sign up for an external service and
-   *             perform initial configuration of the action provided by that service.</p>
+   * <p>The URL of a sign-up page where users can sign up for an external service and perform
+   *             initial configuration of the action provided by that service.</p>
    * @public
    */
   thirdPartyConfigurationUrl?: string;
@@ -4953,7 +5046,8 @@ export interface RuleTypeSettings {
 }
 
 /**
- * <p>The rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+ * <p>The rule type, which is made up of the combined values for category, owner, provider,
+ *             and version.</p>
  * @public
  */
 export interface RuleType {
@@ -5447,7 +5541,8 @@ export interface OverrideStageConditionInput {
   pipelineExecutionId: string | undefined;
 
   /**
-   * <p>The type of condition to override for the stage, such as entry conditions, failure conditions, or success conditions.</p>
+   * <p>The type of condition to override for the stage, such as entry conditions, failure
+   *             conditions, or success conditions.</p>
    * @public
    */
   conditionType: ConditionType | undefined;
@@ -6058,20 +6153,6 @@ export interface RegisterWebhookWithThirdPartyInput {
 export interface RegisterWebhookWithThirdPartyOutput {}
 
 /**
- * @public
- * @enum
- */
-export const StageRetryMode = {
-  ALL_ACTIONS: "ALL_ACTIONS",
-  FAILED_ACTIONS: "FAILED_ACTIONS",
-} as const;
-
-/**
- * @public
- */
-export type StageRetryMode = (typeof StageRetryMode)[keyof typeof StageRetryMode];
-
-/**
  * <p>Represents the input of a <code>RetryStageExecution</code> action.</p>
  * @public
  */
@@ -6235,9 +6316,9 @@ export type SourceRevisionType = (typeof SourceRevisionType)[keyof typeof Source
  *             execution that's being started. A source revision is the version with all the changes to
  *             your application code, or source artifact, for the pipeline execution.</p>
  *          <note>
- *             <p>For the <code>S3_OBJECT_VERSION_ID</code> and <code>S3_OBJECT_KEY</code> types of source revisions, either
- *                 of the types can be used independently, or they can be used together to override the
- *                 source with a specific ObjectKey and VersionID.</p>
+ *             <p>For the <code>S3_OBJECT_VERSION_ID</code> and <code>S3_OBJECT_KEY</code> types of
+ *                 source revisions, either of the types can be used independently, or they can be used
+ *                 together to override the source with a specific ObjectKey and VersionID.</p>
  *          </note>
  * @public
  */

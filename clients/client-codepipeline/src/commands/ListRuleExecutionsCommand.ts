@@ -28,7 +28,8 @@ export interface ListRuleExecutionsCommandInput extends ListRuleExecutionsInput 
 export interface ListRuleExecutionsCommandOutput extends ListRuleExecutionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the rule executions that have occurred in a pipeline configured for conditions with rules.</p>
+ * <p>Lists the rule executions that have occurred in a pipeline configured for conditions
+ *             with rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

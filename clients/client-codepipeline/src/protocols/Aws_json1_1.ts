@@ -263,6 +263,7 @@ import {
   RegisterWebhookWithThirdPartyInput,
   RequestFailedException,
   ResourceNotFoundException,
+  RetryConfiguration,
   RetryStageExecutionInput,
   RollbackStageInput,
   RuleDeclaration,
@@ -2719,6 +2720,8 @@ const se_PutThirdPartyJobSuccessResultInput = (
 
 // se_RegisterWebhookWithThirdPartyInput omitted.
 
+// se_RetryConfiguration omitted.
+
 // se_RetryStageExecutionInput omitted.
 
 // se_RollbackStageInput omitted.
@@ -3405,7 +3408,11 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 
 // de_ResourceNotFoundException omitted.
 
+// de_RetryConfiguration omitted.
+
 // de_RetryStageExecutionOutput omitted.
+
+// de_RetryStageMetadata omitted.
 
 // de_RollbackStageOutput omitted.
 
@@ -3566,6 +3573,7 @@ const de_StageState = (output: any, context: __SerdeContext): StageState => {
     latestExecution: _json,
     onFailureConditionState: (_: any) => de_StageConditionState(_, context),
     onSuccessConditionState: (_: any) => de_StageConditionState(_, context),
+    retryStageMetadata: _json,
     stageName: __expectString,
   }) as any;
 };

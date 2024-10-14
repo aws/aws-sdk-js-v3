@@ -113,10 +113,13 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //           },
  * //         ],
  * //         onFailure: { // FailureConditions
- * //           result: "ROLLBACK" || "FAIL",
+ * //           result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
+ * //           retryConfiguration: { // RetryConfiguration
+ * //             retryMode: "FAILED_ACTIONS" || "ALL_ACTIONS",
+ * //           },
  * //           conditions: [ // ConditionList
  * //             { // Condition
- * //               result: "ROLLBACK" || "FAIL",
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
  * //               rules: [ // RuleDeclarationList
  * //                 { // RuleDeclaration
  * //                   name: "STRING_VALUE", // required
@@ -145,7 +148,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //         onSuccess: { // SuccessConditions
  * //           conditions: [ // required
  * //             {
- * //               result: "ROLLBACK" || "FAIL",
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
  * //               rules: [
  * //                 {
  * //                   name: "STRING_VALUE", // required
@@ -174,7 +177,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //         beforeEntry: { // BeforeEntryConditions
  * //           conditions: [ // required
  * //             {
- * //               result: "ROLLBACK" || "FAIL",
+ * //               result: "ROLLBACK" || "FAIL" || "RETRY" || "SKIP",
  * //               rules: [
  * //                 {
  * //                   name: "STRING_VALUE", // required
