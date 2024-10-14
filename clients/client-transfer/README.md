@@ -13,7 +13,7 @@ Additionally, you can use Applicability Statement 2 (AS2) to transfer files into
 Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
 with existing authentication systems, and providing DNS routing with Amazon Route 53 so
 nothing changes for your customers and partners, or their applications. With your data in
-Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
 archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
 set up.</p>
 
@@ -498,6 +498,14 @@ ListExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/ListExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListExecutionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListFileTransferResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/ListFileTransferResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListFileTransferResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/ListFileTransferResultsCommandOutput/)
 
 </details>
 <details>

@@ -35,6 +35,7 @@ export * from "./ListAgreementsCommand";
 export * from "./ListCertificatesCommand";
 export * from "./ListConnectorsCommand";
 export * from "./ListExecutionsCommand";
+export * from "./ListFileTransferResultsCommand";
 export * from "./ListHostKeysCommand";
 export * from "./ListProfilesCommand";
 export * from "./ListSecurityPoliciesCommand";

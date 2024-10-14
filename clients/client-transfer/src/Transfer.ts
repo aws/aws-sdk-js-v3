@@ -175,6 +175,11 @@ import {
   ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
 import {
+  ListFileTransferResultsCommand,
+  ListFileTransferResultsCommandInput,
+  ListFileTransferResultsCommandOutput,
+} from "./commands/ListFileTransferResultsCommand";
+import {
   ListHostKeysCommand,
   ListHostKeysCommandInput,
   ListHostKeysCommandOutput,
@@ -309,6 +314,7 @@ const commands = {
   ListCertificatesCommand,
   ListConnectorsCommand,
   ListExecutionsCommand,
+  ListFileTransferResultsCommand,
   ListHostKeysCommand,
   ListProfilesCommand,
   ListSecurityPoliciesCommand,
@@ -841,6 +847,23 @@ export interface Transfer {
   ): void;
 
   /**
+   * @see {@link ListFileTransferResultsCommand}
+   */
+  listFileTransferResults(
+    args: ListFileTransferResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFileTransferResultsCommandOutput>;
+  listFileTransferResults(
+    args: ListFileTransferResultsCommandInput,
+    cb: (err: any, data?: ListFileTransferResultsCommandOutput) => void
+  ): void;
+  listFileTransferResults(
+    args: ListFileTransferResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFileTransferResultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListHostKeysCommand}
    */
   listHostKeys(args: ListHostKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListHostKeysCommandOutput>;
@@ -1168,7 +1191,7 @@ export interface Transfer {
  *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
  *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
  *       nothing changes for your customers and partners, or their applications. With your data in
- *       Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+ *       Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning, and
  *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
  *       set up.</p>
  * @public

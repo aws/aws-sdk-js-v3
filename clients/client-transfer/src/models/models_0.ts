@@ -93,7 +93,7 @@ export interface CreateAgreementRequest {
   /**
    * <p>The landing directory (folder) for files transferred by using the AS2 protocol.</p>
    *          <p>A <code>BaseDirectory</code> example is
-   *           <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.</p>
+   *       <code>/<i>amzn-s3-demo-bucket</i>/home/mydirectory</code>.</p>
    * @public
    */
   BaseDirectory: string | undefined;
@@ -601,7 +601,7 @@ export interface UpdateAgreementRequest {
   /**
    * <p>To change the landing directory (folder) for files that are transferred, provide the
    *       bucket folder that you want to use; for example,
-   *           <code>/<i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>
+   *       <code>/<i>amzn-s3-demo-bucket</i>/<i>home</i>/<i>mydirectory</i>
    *             </code>.</p>
    * @public
    */
@@ -1305,6 +1305,53 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransferTableStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
+
+/**
+ * @public
+ */
+export type TransferTableStatus = (typeof TransferTableStatus)[keyof typeof TransferTableStatus];
+
+/**
+ * <p>A structure that contains the details for files transferred using an SFTP connector, during a single transfer.</p>
+ * @public
+ */
+export interface ConnectorFileTransferResult {
+  /**
+   * <p>The filename and path to where the file was sent to or retrieved from.</p>
+   * @public
+   */
+  FilePath: string | undefined;
+
+  /**
+   * <p>The current status for the transfer.</p>
+   * @public
+   */
+  StatusCode: TransferTableStatus | undefined;
+
+  /**
+   * <p>For transfers that fail, this parameter contains a code indicating the reason. For example, <code>RETRIEVE_FILE_NOT_FOUND</code>
+   *          </p>
+   * @public
+   */
+  FailureCode?: string;
+
+  /**
+   * <p>For transfers that fail, this parameter describes the reason for the failure.</p>
+   * @public
+   */
+  FailureMessage?: string;
 }
 
 /**
@@ -2179,13 +2226,18 @@ export type Domain = (typeof Domain)[keyof typeof Domain];
  *       endpoint.</p>
  *          <note>
  *             <p> After May 19, 2021, you won't be able to create a server using
- *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
+ *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account if your account hasn't already
  *       done so before May 19, 2021. If you have already created servers with
- *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
+ *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021,
  *         you will not be affected. After this date, use
  *         <code>EndpointType</code>=<code>VPC</code>.</p>
  *             <p>For more information, see
  *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
+ *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
+ *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
+ *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
+ *         restrict traffic by the client's public IP address. This is not possible with
+ *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
  *          </note>
  * @public
  */
@@ -2584,6 +2636,10 @@ export interface WorkflowDetails {
    *          <p>
    *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
    *          </p>
+   *          <note>
+   *             <p>
+   *                <code>OnUpload</code> can contain a maximum of one <code>WorkflowDetail</code> object.</p>
+   *          </note>
    * @public
    */
   OnUpload?: WorkflowDetail[];
@@ -2592,6 +2648,10 @@ export interface WorkflowDetails {
    * <p>A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server
    *   that executes whenever there is a partial upload.</p>
    *          <p>A <i>partial upload</i> occurs when a file is open when the session disconnects.</p>
+   *          <note>
+   *             <p>
+   *                <code>OnPartialUpload</code> can contain a maximum of one <code>WorkflowDetail</code> object.</p>
+   *          </note>
    * @public
    */
   OnPartialUpload?: WorkflowDetail[];
@@ -5574,6 +5634,77 @@ export interface ListExecutionsResponse {
 /**
  * @public
  */
+export interface ListFileTransferResultsRequest {
+  /**
+   * <p>A unique identifier for a connector. This value should match the value supplied to the corresponding <code>StartFileTransfer</code> call.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>A unique identifier for a file transfer. This value should match the value supplied to the corresponding <code>StartFileTransfer</code> call.</p>
+   * @public
+   */
+  TransferId: string | undefined;
+
+  /**
+   * <p>If there are more file details than returned in this call, use this value for a subsequent call to <code>ListFileTransferResults</code> to retrieve them.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of files to return in a single page. Note that currently you can specify a maximum of 10 file paths in a single
+   *       <a href="https://docs.aws.amazon.com/transfer/latest/APIReference/API_StartFileTransfer.html">StartFileTransfer</a> operation. Thus, the maximum
+   *       number of file transfer results that can be returned in a single page is 10.
+   *     </p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListFileTransferResultsResponse {
+  /**
+   * <p>Returns the details for the files transferred in the transfer identified by the <code>TransferId</code> and <code>ConnectorId</code> specified.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FilePath</code>: the filename and path to where the file was sent to or retrieved from.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StatusCode</code>: current status for the transfer. The status returned is one of the following values:<code>QUEUED</code>,
+   *           <code>IN_PROGRESS</code>, <code>COMPLETED</code>, or <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FailureCode</code>: for transfers that fail, this parameter contains a code indicating the reason. For example, <code>RETRIEVE_FILE_NOT_FOUND</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FailureMessage</code>: for transfers that fail, this parameter describes the reason for the failure.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FileTransferResults: ConnectorFileTransferResult[] | undefined;
+
+  /**
+   * <p>Returns a token that you can use to call <code>ListFileTransferResults</code> again and receive
+   *       additional results, if there are any (against the same <code>TransferId</code>.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListHostKeysRequest {
   /**
    * <p>The maximum number of host keys to return.</p>
@@ -6041,9 +6172,9 @@ export interface UpdateServerRequest {
    *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
    *          <note>
    *             <p> After May 19, 2021, you won't be able to create a server using
-   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account if your account hasn't already
    *       done so before May 19, 2021. If you have already created servers with
-   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021,
    *         you will not be affected. After this date, use
    *         <code>EndpointType</code>=<code>VPC</code>.</p>
    *             <p>For more information, see
@@ -6297,12 +6428,12 @@ export interface StartFileTransferRequest {
   /**
    * <p>One or more source paths for the Amazon S3 storage. Each string represents a source
    *       file path for one outbound file transfer. For example,
-   *           <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i>
+   *       <code>
+   *                <i>amzn-s3-demo-bucket</i>/<i>myfile.txt</i>
    *             </code>.</p>
    *          <note>
    *             <p>Replace <code>
-   *                   <i>DOC-EXAMPLE-BUCKET</i>
+   *                   <i>amzn-s3-demo-bucket</i>
    *                </code> with one of your actual buckets.</p>
    *          </note>
    * @public

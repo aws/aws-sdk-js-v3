@@ -61,6 +61,10 @@ import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "../comm
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
+import {
+  ListFileTransferResultsCommandInput,
+  ListFileTransferResultsCommandOutput,
+} from "../commands/ListFileTransferResultsCommand";
 import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "../commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import {
@@ -162,6 +166,7 @@ import {
   ListedCertificate,
   ListedHostKey,
   ListExecutionsRequest,
+  ListFileTransferResultsRequest,
   ListHostKeysRequest,
   ListHostKeysResponse,
   ListProfilesRequest,
@@ -670,6 +675,19 @@ export const se_ListExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListExecutions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListFileTransferResultsCommand
+ */
+export const se_ListFileTransferResultsCommand = async (
+  input: ListFileTransferResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFileTransferResults");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1678,6 +1696,26 @@ export const de_ListExecutionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListFileTransferResultsCommand
+ */
+export const de_ListFileTransferResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileTransferResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFileTransferResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListHostKeysCommand
  */
 export const de_ListHostKeysCommand = async (
@@ -2446,6 +2484,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_ListExecutionsRequest omitted.
 
+// se_ListFileTransferResultsRequest omitted.
+
 // se_ListHostKeysRequest omitted.
 
 // se_ListProfilesRequest omitted.
@@ -2561,6 +2601,10 @@ const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: _
 // de_CertificateIds omitted.
 
 // de_ConflictException omitted.
+
+// de_ConnectorFileTransferResult omitted.
+
+// de_ConnectorFileTransferResults omitted.
 
 // de_CopyStepDetails omitted.
 
@@ -2836,6 +2880,8 @@ const de_ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[
 // de_ListedWorkflows omitted.
 
 // de_ListExecutionsResponse omitted.
+
+// de_ListFileTransferResultsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListHostKeysResponse

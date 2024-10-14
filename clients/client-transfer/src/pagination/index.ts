@@ -5,6 +5,7 @@ export * from "./ListAgreementsPaginator";
 export * from "./ListCertificatesPaginator";
 export * from "./ListConnectorsPaginator";
 export * from "./ListExecutionsPaginator";
+export * from "./ListFileTransferResultsPaginator";
 export * from "./ListProfilesPaginator";
 export * from "./ListSecurityPoliciesPaginator";
 export * from "./ListServersPaginator";
