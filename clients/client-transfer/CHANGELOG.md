@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
+
+
+### Features
+
+* **client-transfer:** This release enables customers using SFTP connectors to query the transfer status of their files to meet their monitoring needs as well as orchestrate post transfer actions. ([d227a3e](https://github.com/aws/aws-sdk-js-v3/commit/d227a3e907598a66f38c49e8ae49385cb62833d8))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
+
+
+### Features
+
+* **client-securitylake:** This release updates request validation regex for resource ARNs. ([11d60ef](https://github.com/aws/aws-sdk-js-v3/commit/11d60ef96a50e6d9d4ff2bb8f5ab766f7d2abd96))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-securitylake

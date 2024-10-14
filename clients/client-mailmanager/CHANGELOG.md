@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
+
+
+### Features
+
+* **client-mailmanager:** Mail Manager support for viewing and exporting metadata of archived messages. ([1f6506b](https://github.com/aws/aws-sdk-js-v3/commit/1f6506b0802d410f4c725f07474ffd313c9201bc))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-mailmanager

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
+
+
+### Features
+
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support automatically retrying failed stages and skipping stage for failed entry conditions. ([f2da7b7](https://github.com/aws/aws-sdk-js-v3/commit/f2da7b7bc80a2a66f318e40665f1a23b9cd236f7))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

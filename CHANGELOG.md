@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
+
+
+### Features
+
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support automatically retrying failed stages and skipping stage for failed entry conditions. ([f2da7b7](https://github.com/aws/aws-sdk-js-v3/commit/f2da7b7bc80a2a66f318e40665f1a23b9cd236f7))
+* **client-mailmanager:** Mail Manager support for viewing and exporting metadata of archived messages. ([1f6506b](https://github.com/aws/aws-sdk-js-v3/commit/1f6506b0802d410f4c725f07474ffd313c9201bc))
+* **client-securitylake:** This release updates request validation regex for resource ARNs. ([11d60ef](https://github.com/aws/aws-sdk-js-v3/commit/11d60ef96a50e6d9d4ff2bb8f5ab766f7d2abd96))
+* **client-supplychain:** This release adds AWS Supply Chain instance management functionality. Specifically adding CreateInstance, DeleteInstance, GetInstance, ListInstances, and UpdateInstance APIs. ([4d99777](https://github.com/aws/aws-sdk-js-v3/commit/4d99777fbb4b9016ccf3a0c2ec92a762b5ee4cc2))
+* **client-transfer:** This release enables customers using SFTP connectors to query the transfer status of their files to meet their monitoring needs as well as orchestrate post transfer actions. ([d227a3e](https://github.com/aws/aws-sdk-js-v3/commit/d227a3e907598a66f38c49e8ae49385cb62833d8))
+* **clients:** update client endpoints as of 2024-10-14 ([dc65a93](https://github.com/aws/aws-sdk-js-v3/commit/dc65a93b8eb88c5cee1331f098794dcb591e3ae5))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 
