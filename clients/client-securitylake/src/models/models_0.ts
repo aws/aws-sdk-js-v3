@@ -48,18 +48,18 @@ export const AccessType = {
 export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
- * <p>The AWS identity.</p>
+ * <p>The Amazon Web Services identity.</p>
  * @public
  */
 export interface AwsIdentity {
   /**
-   * <p>The AWS identity principal.</p>
+   * <p>The Amazon Web Services identity principal.</p>
    * @public
    */
   principal: string | undefined;
 
   /**
-   * <p>The external ID used to estalish trust relationship with the AWS identity.</p>
+   * <p>The external ID used to establish trust relationship with the Amazon Web Services identity.</p>
    * @public
    */
   externalId: string | undefined;
@@ -86,7 +86,8 @@ export const AwsLogSourceName = {
 export type AwsLogSourceName = (typeof AwsLogSourceName)[keyof typeof AwsLogSourceName];
 
 /**
- * <p>The Security Lake logs source configuration file describes the information needed to generate Security Lake logs. </p>
+ * <p>To add a natively-supported Amazon Web Services service as a log source, use these
+ *          parameters to specify the configuration settings for the log source. </p>
  * @public
  */
 export interface AwsLogSourceConfiguration {
@@ -103,20 +104,21 @@ export interface AwsLogSourceConfiguration {
   regions: string[] | undefined;
 
   /**
-   * <p>The name for a Amazon Web Services source. This must be a Regionally unique value.</p>
+   * <p>The name for a Amazon Web Services source. </p>
    * @public
    */
   sourceName: AwsLogSourceName | undefined;
 
   /**
-   * <p>The version for a Amazon Web Services source. This must be a Regionally unique value.</p>
+   * <p>The version for a Amazon Web Services source. </p>
    * @public
    */
   sourceVersion?: string;
 }
 
 /**
- * <p>Amazon Security Lake can collect logs and events from natively-supported Amazon Web Services services.</p>
+ * <p>Amazon Security Lake can collect logs and events from natively-supported Amazon Web Services
+ *          services.</p>
  * @public
  */
 export interface AwsLogSourceResource {
@@ -206,7 +208,7 @@ export interface CreateAwsLogSourceRequest {
  */
 export interface CreateAwsLogSourceResponse {
   /**
-   * <p>Lists all accounts in which enabling a natively supported Amazon Web Service as
+   * <p>Lists all accounts in which enabling a natively supported Amazon Web Services service as
    *          a Security Lake source failed. The failure occurred as these accounts are not part of an
    *          organization.</p>
    * @public
@@ -315,7 +317,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The configuration for the Glue Crawler for the third-party custom source.</p>
+ * <p>The configuration used for the Glue Crawler for a third-party custom source.</p>
  * @public
  */
 export interface CustomLogSourceCrawlerConfiguration {
@@ -338,12 +340,12 @@ export interface CustomLogSourceCrawlerConfiguration {
 }
 
 /**
- * <p>The configuration for the third-party custom source.</p>
+ * <p>The configuration used for the third-party custom source.</p>
  * @public
  */
 export interface CustomLogSourceConfiguration {
   /**
-   * <p>The configuration for the Glue Crawler for the third-party custom source.</p>
+   * <p>The configuration used for the Glue Crawler for a third-party custom source.</p>
    * @public
    */
   crawlerConfiguration: CustomLogSourceCrawlerConfiguration | undefined;
@@ -361,7 +363,12 @@ export interface CustomLogSourceConfiguration {
 export interface CreateCustomLogSourceRequest {
   /**
    * <p>Specify the name for a third-party custom source. This must be a Regionally unique
-   *          value.</p>
+   *          value. The <code>sourceName</code> you enter here, is used in the
+   *             <code>LogProviderRole</code> name which follows the convention
+   *             <code>AmazonSecurityLake-Provider-\{name of the custom source\}-\{region\}</code>. You must
+   *          use a <code>CustomLogSource</code> name that is shorter than or equal to 20 characters.
+   *          This ensures that the <code>LogProviderRole</code> name is below the 64 character
+   *          limit.</p>
    * @public
    */
   sourceName: string | undefined;
@@ -528,7 +535,7 @@ export interface CreateCustomLogSourceRequest {
   eventClasses?: string[];
 
   /**
-   * <p>The configuration for the third-party custom source.</p>
+   * <p>The configuration used for the third-party custom source.</p>
    * @public
    */
   configuration: CustomLogSourceConfiguration | undefined;
@@ -616,7 +623,7 @@ export interface CustomLogSourceResource {
  */
 export interface CreateCustomLogSourceResponse {
   /**
-   * <p>The created third-party custom source.</p>
+   * <p>The third-party custom source that was created.</p>
    * @public
    */
   source?: CustomLogSourceResource;
@@ -628,7 +635,7 @@ export interface CreateCustomLogSourceResponse {
  */
 export interface DataLakeEncryptionConfiguration {
   /**
-   * <p>The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake
+   * <p>The identifier of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake
    *          object.</p>
    * @public
    */
@@ -906,7 +913,7 @@ export interface DataLakeResource {
   replicationConfiguration?: DataLakeReplicationConfiguration;
 
   /**
-   * <p>Retrieves the status of the configuration operation for an account in Amazon Security Lake.</p>
+   * <p>Retrieves the status of the <code>CreateDatalake</code> API call for an account in Amazon Security Lake.</p>
    * @public
    */
   createStatus?: DataLakeStatus;
@@ -947,7 +954,7 @@ export interface CreateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string | undefined;
 
   /**
-   * <p>The expiration period and time-to-live (TTL).</p>
+   * <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p>
    * @public
    */
   exceptionTimeToLive?: number;
@@ -996,7 +1003,7 @@ export interface CreateDataLakeOrganizationConfigurationResponse {}
 
 /**
  * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
- *          For a list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+ *          For a list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  * @public
  */
 export type LogSourceResource =
@@ -1009,7 +1016,7 @@ export type LogSourceResource =
  */
 export namespace LogSourceResource {
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
   export interface AwsLogSourceMember {
@@ -1073,8 +1080,8 @@ export interface CreateSubscriberRequest {
   subscriberDescription?: string;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected.
-   *          Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected.
+   *          Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
    * @public
    */
   sources: LogSourceResource[] | undefined;
@@ -1149,7 +1156,7 @@ export interface SubscriberResource {
   subscriberDescription?: string;
 
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/source-management.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/source-management.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
   sources: LogSourceResource[] | undefined;
@@ -1244,7 +1251,7 @@ export const HttpMethod = {
 export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
 
 /**
- * <p>The configurations for HTTPS subscriber notification.</p>
+ * <p>The configurations used for HTTPS subscriber notification.</p>
  * @public
  */
 export interface HttpsNotificationConfiguration {
@@ -1283,7 +1290,7 @@ export interface HttpsNotificationConfiguration {
 }
 
 /**
- * <p>The configurations for SQS subscriber notification.</p>
+ * <p>The configurations used for EventBridge subscriber notification.</p>
  * @public
  */
 export interface SqsNotificationConfiguration {}
@@ -1314,7 +1321,7 @@ export namespace NotificationConfiguration {
   }
 
   /**
-   * <p>The configurations for HTTPS subscriber notification.</p>
+   * <p>The configurations used for HTTPS subscriber notification.</p>
    * @public
    */
   export interface HttpsNotificationConfigurationMember {
@@ -1464,7 +1471,7 @@ export interface GetDataLakeOrganizationConfigurationRequest {}
  */
 export interface GetDataLakeOrganizationConfigurationResponse {
   /**
-   * <p>The configuration for new accounts.</p>
+   * <p>The configuration used for new accounts in Security Lake.</p>
    * @public
    */
   autoEnableNewAccount?: DataLakeAutoEnableNewAccountConfiguration[];
@@ -1533,8 +1540,8 @@ export interface DataLakeSourceStatus {
 }
 
 /**
- * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services and
- *          custom sources. For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+ * <p>Amazon Security Lake collects logs and events from supported Amazon Web Services services and
+ *          custom sources. For the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  * @public
  */
 export interface DataLakeSource {
@@ -1545,8 +1552,8 @@ export interface DataLakeSource {
   account?: string;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected.
-   *          Amazon Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected.
+   *          Amazon Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
    * @public
    */
   sourceName?: string;
@@ -1844,7 +1851,7 @@ export interface ListLogSourcesResponse {
  */
 export interface UpdateDataLakeRequest {
   /**
-   * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
+   * <p>Specifies the Region or Regions that will contribute data to the rollup region.</p>
    * @public
    */
   configurations: DataLakeConfiguration[] | undefined;
@@ -1973,7 +1980,7 @@ export interface GetDataLakeExceptionSubscriptionResponse {
   notificationEndpoint?: string;
 
   /**
-   * <p>The expiration period and time-to-live (TTL).</p>
+   * <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p>
    * @public
    */
   exceptionTimeToLive?: number;
@@ -2013,13 +2020,13 @@ export interface ListDataLakeExceptionsRequest {
   regions?: string[];
 
   /**
-   * <p>List the maximum number of failures in Security Lake.</p>
+   * <p>Lists the maximum number of failures in Security Lake.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
    *          token for each page. Repeat the call using the returned token to retrieve the next page.
    *          Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
@@ -2034,13 +2041,13 @@ export interface ListDataLakeExceptionsRequest {
  */
 export interface ListDataLakeExceptionsResponse {
   /**
-   * <p>Lists the failures that cannot be retried in the current Region.</p>
+   * <p>Lists the failures that cannot be retried.</p>
    * @public
    */
   exceptions?: DataLakeException[];
 
   /**
-   * <p>List if there are more results available. The value of nextToken is a unique pagination
+   * <p>Lists if there are more results available. The value of nextToken is a unique pagination
    *          token for each page. Repeat the call using the returned token to retrieve the next page.
    *          Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will
@@ -2135,7 +2142,7 @@ export interface UpdateSubscriberRequest {
   subscriberId: string | undefined;
 
   /**
-   * <p>The AWS identity used to access your data.</p>
+   * <p>The Amazon Web Services identity used to access your data.</p>
    * @public
    */
   subscriberIdentity?: AwsIdentity;
@@ -2153,8 +2160,8 @@ export interface UpdateSubscriberRequest {
   subscriberDescription?: string;
 
   /**
-   * <p>The supported Amazon Web Services from which logs and events are collected. For
-   *          the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+   * <p>The supported Amazon Web Services services from which logs and events are collected. For
+   *          the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    * @public
    */
   sources?: LogSourceResource[];
@@ -2261,7 +2268,7 @@ export interface UpdateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string | undefined;
 
   /**
-   * <p>The time-to-live (TTL) for the exception message to remain.</p>
+   * <p>The time-to-live (TTL) for the exception message to remain. It is the duration of time until which the exception message remains. </p>
    * @public
    */
   exceptionTimeToLive?: number;

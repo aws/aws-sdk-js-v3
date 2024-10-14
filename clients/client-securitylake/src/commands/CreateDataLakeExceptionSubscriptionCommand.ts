@@ -37,7 +37,7 @@ export interface CreateDataLakeExceptionSubscriptionCommandOutput
 
 /**
  * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
- *          you specify.</p>
+ *          you specify. The notification subscription is created for exceptions that cannot be resolved by Security Lake automatically.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

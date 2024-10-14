@@ -33,7 +33,7 @@ export interface DeleteSubscriberNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+ * <p>Deletes the specified subscription notification in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

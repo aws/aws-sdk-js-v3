@@ -33,7 +33,7 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
+ * <p>Retrieves the protocol and endpoint that were provided when subscribing to Amazon SNS topics for exception notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
