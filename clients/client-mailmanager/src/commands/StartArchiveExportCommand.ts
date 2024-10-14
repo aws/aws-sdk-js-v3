@@ -42,7 +42,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       { // ArchiveFilterCondition Union: only one key present
  *         StringExpression: { // ArchiveStringExpression
  *           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // StringValueList // required
@@ -61,7 +61,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       {//  Union: only one key present
  *         StringExpression: {
  *           Evaluate: {//  Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // required
@@ -85,6 +85,7 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *       S3Location: "STRING_VALUE",
  *     },
  *   },
+ *   IncludeMetadata: true || false,
  * };
  * const command = new StartArchiveExportCommand(input);
  * const response = await client.send(command);

@@ -47,7 +47,7 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  * //       { // ArchiveFilterCondition Union: only one key present
  * //         StringExpression: { // ArchiveStringExpression
  * //           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  * //           },
  * //           Operator: "CONTAINS", // required
  * //           Values: [ // StringValueList // required
@@ -66,7 +66,7 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  * //       {//  Union: only one key present
  * //         StringExpression: {
  * //           Evaluate: {//  Union: only one key present
- * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  * //           },
  * //           Operator: "CONTAINS", // required
  * //           Values: [ // required

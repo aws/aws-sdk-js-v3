@@ -162,6 +162,7 @@ import {
   GetArchiveExportResponse,
   GetArchiveMessageContentRequest,
   GetArchiveMessageRequest,
+  GetArchiveMessageResponse,
   GetArchiveRequest,
   GetArchiveResponse,
   GetArchiveSearchRequest,
@@ -205,6 +206,7 @@ import {
   ListRuleSetsResponse,
   ListTagsForResourceRequest,
   ListTrafficPoliciesRequest,
+  Metadata,
   NoAuthentication,
   PolicyCondition,
   PolicyStatement,
@@ -1236,7 +1238,7 @@ export const de_GetArchiveMessageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_GetArchiveMessageResponse(data, context);
   const response: GetArchiveMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2252,6 +2254,7 @@ const se_StartArchiveExportRequest = (input: StartArchiveExportRequest, context:
     ExportDestinationConfiguration: _json,
     Filters: _json,
     FromTimestamp: (_) => _.getTime() / 1_000,
+    IncludeMetadata: [],
     MaxResults: [],
     ToTimestamp: (_) => _.getTime() / 1_000,
   });
@@ -2440,6 +2443,8 @@ const de_ArchivesList = (output: any, context: __SerdeContext): Archive[] => {
 
 // de_EmailReceivedHeadersList omitted.
 
+// de_Envelope omitted.
+
 // de_ExportDestinationConfiguration omitted.
 
 /**
@@ -2516,7 +2521,16 @@ const de_GetArchiveExportResponse = (output: any, context: __SerdeContext): GetA
 
 // de_GetArchiveMessageContentResponse omitted.
 
-// de_GetArchiveMessageResponse omitted.
+/**
+ * deserializeAws_json1_0GetArchiveMessageResponse
+ */
+const de_GetArchiveMessageResponse = (output: any, context: __SerdeContext): GetArchiveMessageResponse => {
+  return take(output, {
+    Envelope: _json,
+    MessageDownloadLink: __expectString,
+    Metadata: (_: any) => de_Metadata(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0GetArchiveResponse
@@ -2748,6 +2762,22 @@ const de_ListRuleSetsResponse = (output: any, context: __SerdeContext): ListRule
 
 // de_MessageBody omitted.
 
+/**
+ * deserializeAws_json1_0Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
+  return take(output, {
+    IngressPointId: __expectString,
+    RuleSetId: __expectString,
+    SenderHostname: __expectString,
+    SenderIpAddress: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TlsCipherSuite: __expectString,
+    TlsProtocol: __expectString,
+    TrafficPolicyId: __expectString,
+  }) as any;
+};
+
 // de_NoAuthentication omitted.
 
 // de_PolicyCondition omitted.
@@ -2799,12 +2829,16 @@ const de_Row = (output: any, context: __SerdeContext): Row => {
     ArchivedMessageId: __expectString,
     Cc: __expectString,
     Date: __expectString,
+    Envelope: _json,
     From: __expectString,
     HasAttachments: __expectBoolean,
     InReplyTo: __expectString,
+    IngressPointId: __expectString,
     MessageId: __expectString,
     ReceivedHeaders: _json,
     ReceivedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SenderHostname: __expectString,
+    SenderIpAddress: __expectString,
     Subject: __expectString,
     To: __expectString,
     XMailer: __expectString,

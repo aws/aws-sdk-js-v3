@@ -681,6 +681,8 @@ export interface ArchiveBooleanExpression {
  */
 export const ArchiveStringEmailAttribute = {
   CC: "CC",
+  ENVELOPE_FROM: "ENVELOPE_FROM",
+  ENVELOPE_TO: "ENVELOPE_TO",
   FROM: "FROM",
   SUBJECT: "SUBJECT",
   TO: "TO",
@@ -3147,6 +3149,30 @@ export interface DeleteTrafficPolicyRequest {
 export interface DeleteTrafficPolicyResponse {}
 
 /**
+ * <p>The SMTP envelope information of the email.</p>
+ * @public
+ */
+export interface Envelope {
+  /**
+   * <p>The HELO used by the host from which the email was received.</p>
+   * @public
+   */
+  Helo?: string;
+
+  /**
+   * <p>The RCPT FROM given by the host from which the email was received.</p>
+   * @public
+   */
+  From?: string;
+
+  /**
+   * <p>All SMTP TO entries given by the host from which the email was received.</p>
+   * @public
+   */
+  To?: string[];
+}
+
+/**
  * <p>The configuration for exporting email data to an Amazon S3 bucket.</p>
  * @public
  */
@@ -3337,6 +3363,60 @@ export interface GetArchiveMessageRequest {
 }
 
 /**
+ * <p>The metadata about the email.</p>
+ * @public
+ */
+export interface Metadata {
+  /**
+   * <p>The timestamp of when the email was received.</p>
+   * @public
+   */
+  Timestamp?: Date;
+
+  /**
+   * <p>The ID of the ingress endpoint through which the email was received.</p>
+   * @public
+   */
+  IngressPointId?: string;
+
+  /**
+   * <p>The ID of the traffic policy that was in effect when the email was received.</p>
+   * @public
+   */
+  TrafficPolicyId?: string;
+
+  /**
+   * <p>The ID of the rule set that processed the email.</p>
+   * @public
+   */
+  RuleSetId?: string;
+
+  /**
+   * <p>The name of the host from which the email was received.</p>
+   * @public
+   */
+  SenderHostname?: string;
+
+  /**
+   * <p>The IP address of the host from which the email was received.</p>
+   * @public
+   */
+  SenderIpAddress?: string;
+
+  /**
+   * <p>The TLS cipher suite used to communicate with the host from which the email was received.</p>
+   * @public
+   */
+  TlsCipherSuite?: string;
+
+  /**
+   * <p>The TLS protocol used to communicate with the host from which the email was received.</p>
+   * @public
+   */
+  TlsProtocol?: string;
+}
+
+/**
  * <p>The response containing details about the requested archived email message.</p>
  * @public
  */
@@ -3346,6 +3426,18 @@ export interface GetArchiveMessageResponse {
    * @public
    */
   MessageDownloadLink?: string;
+
+  /**
+   * <p>The metadata about the email.</p>
+   * @public
+   */
+  Metadata?: Metadata;
+
+  /**
+   * <p>The SMTP envelope information of the email.</p>
+   * @public
+   */
+  Envelope?: Envelope;
 }
 
 /**
@@ -3597,6 +3689,30 @@ export interface Row {
    * @public
    */
   XPriority?: string;
+
+  /**
+   * <p>The ID of the ingress endpoint through which the email was received.</p>
+   * @public
+   */
+  IngressPointId?: string;
+
+  /**
+   * <p>The name of the host from which the email was received.</p>
+   * @public
+   */
+  SenderHostname?: string;
+
+  /**
+   * <p>The IP address of the host from which the email was received.</p>
+   * @public
+   */
+  SenderIpAddress?: string;
+
+  /**
+   * <p>The SMTP envelope information of the email.</p>
+   * @public
+   */
+  Envelope?: Envelope;
 }
 
 /**
@@ -4496,6 +4612,12 @@ export interface StartArchiveExportRequest {
    * @public
    */
   ExportDestinationConfiguration: ExportDestinationConfiguration | undefined;
+
+  /**
+   * <p>Whether to include message metadata as JSON files in the export.</p>
+   * @public
+   */
+  IncludeMetadata?: boolean;
 }
 
 /**
@@ -4795,6 +4917,38 @@ export const CreateTrafficPolicyRequestFilterSensitiveLog = (obj: CreateTrafficP
   ...obj,
   ...(obj.PolicyStatements && { PolicyStatements: obj.PolicyStatements.map((item) => item) }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
+  ...obj,
+  ...(obj.SenderIpAddress && { SenderIpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetArchiveMessageResponseFilterSensitiveLog = (obj: GetArchiveMessageResponse): any => ({
+  ...obj,
+  ...(obj.Metadata && { Metadata: MetadataFilterSensitiveLog(obj.Metadata) }),
+});
+
+/**
+ * @internal
+ */
+export const RowFilterSensitiveLog = (obj: Row): any => ({
+  ...obj,
+  ...(obj.SenderIpAddress && { SenderIpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetArchiveSearchResultsResponseFilterSensitiveLog = (obj: GetArchiveSearchResultsResponse): any => ({
+  ...obj,
+  ...(obj.Rows && { Rows: obj.Rows.map((item) => RowFilterSensitiveLog(item)) }),
 });
 
 /**

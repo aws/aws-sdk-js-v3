@@ -42,7 +42,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  *       { // ArchiveFilterCondition Union: only one key present
  *         StringExpression: { // ArchiveStringExpression
  *           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // StringValueList // required
@@ -61,7 +61,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  *       {//  Union: only one key present
  *         StringExpression: {
  *           Evaluate: {//  Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // required
