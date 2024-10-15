@@ -28,7 +28,8 @@ export interface ListResourceScansCommandInput extends ListResourceScansInput {}
 export interface ListResourceScansCommandOutput extends ListResourceScansOutput, __MetadataBearer {}
 
 /**
- * <p>List the resource scans from newest to oldest. By default it will return up to 10 resource scans.</p>
+ * <p>List the resource scans from newest to oldest. By default it will return up to 10 resource
+ *       scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

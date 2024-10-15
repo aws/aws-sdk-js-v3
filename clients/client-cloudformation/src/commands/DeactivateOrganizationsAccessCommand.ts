@@ -33,8 +33,9 @@ export interface DeactivateOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deactivates trusted access with Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your
- *    organization.</p>
+ * <p>Deactivates trusted access with Organizations. If trusted access is deactivated,
+ *       the management account does not have permissions to create and manage
+ *       service-managed StackSets for your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

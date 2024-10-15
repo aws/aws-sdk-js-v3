@@ -28,9 +28,10 @@ export interface GetGeneratedTemplateCommandInput extends GetGeneratedTemplateIn
 export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a generated template. If the template is in an <code>InProgress</code> or <code>Pending</code> status
- *    then the template returned will be the template when the template was last in a <code>Complete</code> status. If the
- *    template has not yet been in a <code>Complete</code> status then an empty template will be returned.</p>
+ * <p>Retrieves a generated template. If the template is in an <code>InProgress</code> or
+ *         <code>Pending</code> status then the template returned will be the template when the
+ *       template was last in a <code>Complete</code> status. If the template has not yet been in a
+ *         <code>Complete</code> status then an empty template will be returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

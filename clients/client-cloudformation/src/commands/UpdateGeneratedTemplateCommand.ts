@@ -28,9 +28,10 @@ export interface UpdateGeneratedTemplateCommandInput extends UpdateGeneratedTemp
 export interface UpdateGeneratedTemplateCommandOutput extends UpdateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a generated template. This can be used to change the name, add and remove resources, refresh resources,
- *    and change the <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code> settings. You can check the status of
- *    the update to the generated template using the <code>DescribeGeneratedTemplate</code> API action.</p>
+ * <p>Updates a generated template. This can be used to change the name, add and remove
+ *       resources, refresh resources, and change the <code>DeletionPolicy</code> and
+ *         <code>UpdateReplacePolicy</code> settings. You can check the status of the update to the
+ *       generated template using the <code>DescribeGeneratedTemplate</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

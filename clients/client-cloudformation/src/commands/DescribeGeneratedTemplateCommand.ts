@@ -28,9 +28,10 @@ export interface DescribeGeneratedTemplateCommandInput extends DescribeGenerated
 export interface DescribeGeneratedTemplateCommandOutput extends DescribeGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Describes a generated template. The output includes details about the progress of the creation of a generated
- *    template started by a <code>CreateGeneratedTemplate</code> API action or the update of a generated template started
- *    with an <code>UpdateGeneratedTemplate</code> API action.</p>
+ * <p>Describes a generated template. The output includes details about the progress of the
+ *       creation of a generated template started by a <code>CreateGeneratedTemplate</code> API action
+ *       or the update of a generated template started with an <code>UpdateGeneratedTemplate</code> API
+ *       action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

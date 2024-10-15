@@ -28,7 +28,8 @@ export interface ListTypesCommandInput extends ListTypesInput {}
 export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
+ * <p>Returns summary information about extension that have been registered with
+ *       CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

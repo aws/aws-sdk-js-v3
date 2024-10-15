@@ -29,8 +29,8 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
 
 /**
  * <p>Returns descriptions of all resources of the specified stack.</p>
- *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been
- *    deleted.</p>
+ *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
+ *       after the stack has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

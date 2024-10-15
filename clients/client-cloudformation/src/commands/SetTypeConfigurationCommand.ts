@@ -28,14 +28,19 @@ export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationIn
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Specifies the configuration data for a registered CloudFormation extension, in the given account and Region.</p>
- *          <p>To view the current configuration data for an extension, refer to the <code>ConfigurationSchema</code> element
- *    of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring extensions at
- *     the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Specifies the configuration data for a registered CloudFormation extension, in the given
+ *       account and Region.</p>
+ *          <p>To view the current configuration data for an extension, refer to the
+ *         <code>ConfigurationSchema</code> element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For
+ *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
+ *         data for extensions in your account</a> in the
+ *       <i>CloudFormation User Guide</i>.</p>
  *          <important>
- *             <p>It's strongly recommended that you use dynamic references to restrict sensitive configuration definitions, such
- *     as third-party credentials. For more details on dynamic references, see <a href="https://docs.aws.amazon.com/">Using
- *     dynamic references to specify template values</a> in the <i>CloudFormation User Guide</i>.</p>
+ *             <p>It's strongly recommended that you use dynamic references to restrict sensitive
+ *         configuration definitions, such as third-party credentials. For more details on dynamic
+ *         references, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html">Specify values stored in
+ *           other services using dynamic references</a> in the
+ *           <i>CloudFormation User Guide</i>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

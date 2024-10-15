@@ -28,8 +28,9 @@ export interface CreateGeneratedTemplateCommandInput extends CreateGeneratedTemp
 export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a template from existing resources that are not already managed with CloudFormation. You can check the status of
- *    the template generation using the <code>DescribeGeneratedTemplate</code> API action.</p>
+ * <p>Creates a template from existing resources that are not already managed with CloudFormation.
+ *       You can check the status of the template generation using the
+ *         <code>DescribeGeneratedTemplate</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

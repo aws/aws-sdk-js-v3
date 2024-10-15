@@ -28,11 +28,11 @@ export interface ListExportsCommandInput extends ListExportsInput {}
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all exported output values in the account and Region in which you call this action. Use this action to see
- *    the exported output values that you can import into other stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
- *    Fn::ImportValue</a> function.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html"> CloudFormation export stack output
- *    values</a>.</p>
+ * <p>Lists all exported output values in the account and Region in which you call this action.
+ *       Use this action to see the exported output values that you can import into other stacks. To
+ *       import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
+ *         Fn::ImportValue</a> function.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">Get exported outputs from a deployed CloudFormation stack</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

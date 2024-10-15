@@ -28,9 +28,9 @@ export interface ActivateOrganizationsAccessCommandInput extends ActivateOrganiz
 export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Activate trusted access with Organizations. With trusted access between StackSets and Organizations
- *    activated, the management account has permissions to create and manage StackSets for your
- *    organization.</p>
+ * <p>Activate trusted access with Organizations. With trusted access between StackSets
+ *       and Organizations activated, the management account has permissions to create
+ *       and manage StackSets for your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

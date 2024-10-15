@@ -33,8 +33,8 @@ export interface ListResourceScanRelatedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the related resources for a list of resources from a resource scan. The response indicates whether each
- *    returned resource is already managed by CloudFormation.</p>
+ * <p>Lists the related resources for a list of resources from a resource scan. The response
+ *       indicates whether each returned resource is already managed by CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,8 @@ export interface StartResourceScanCommandInput extends StartResourceScanInput {}
 export interface StartResourceScanCommandOutput extends StartResourceScanOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a scan of the resources in this account in this Region. You can the status of a scan using the
- *    <code>ListResourceScans</code> API action.</p>
+ * <p>Starts a scan of the resources in this account in this Region. You can the status of a
+ *       scan using the <code>ListResourceScans</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

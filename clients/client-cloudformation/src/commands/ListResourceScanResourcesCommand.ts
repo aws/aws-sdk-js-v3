@@ -28,9 +28,10 @@ export interface ListResourceScanResourcesCommandInput extends ListResourceScanR
 export interface ListResourceScanResourcesCommandOutput extends ListResourceScanResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the resources from a resource scan. The results can be filtered by resource identifier, resource type
- *    prefix, tag key, and tag value. Only resources that match all specified filters are returned. The response indicates
- *    whether each returned resource is already managed by CloudFormation.</p>
+ * <p>Lists the resources from a resource scan. The results can be filtered by resource
+ *       identifier, resource type prefix, tag key, and tag value. Only resources that match all
+ *       specified filters are returned. The response indicates whether each returned resource is
+ *       already managed by CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

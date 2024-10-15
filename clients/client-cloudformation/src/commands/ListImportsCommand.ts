@@ -28,10 +28,10 @@ export interface ListImportsCommandInput extends ListImportsInput {}
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all stacks that are importing an exported output value. To modify or remove an exported output value,
- *    first use this action to see which stacks are using it. To see the exported output values in your account, see <a>ListExports</a>.</p>
- *          <p>For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">Fn::ImportValue</a>
- *    function.</p>
+ * <p>Lists all stacks that are importing an exported output value. To modify or remove an
+ *       exported output value, first use this action to see which stacks are using it. To see the
+ *       exported output values in your account, see <a>ListExports</a>.</p>
+ *          <p>For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">Fn::ImportValue</a> function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,9 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  * <p>Returns drift information for resources in a stack instance.</p>
  *          <note>
  *             <p>
- *                <code>ListStackInstanceResourceDrifts</code> returns drift information for the most recent drift detection
- *     operation. If an operation is in progress, it may only return partial results.</p>
+ *                <code>ListStackInstanceResourceDrifts</code> returns drift information for the most
+ *         recent drift detection operation. If an operation is in progress, it may only return partial
+ *         results.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
