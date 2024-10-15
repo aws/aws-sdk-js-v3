@@ -1983,6 +1983,7 @@ const de__Stream = (output: any, context: __SerdeContext): _Stream => {
  */
 const de_StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
   return take(output, {
+    code: __expectString,
     eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     type: __expectString,

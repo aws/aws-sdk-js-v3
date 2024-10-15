@@ -1579,6 +1579,33 @@ export interface StreamEvent {
    * @public
    */
   eventTime?: Date;
+
+  /**
+   * <p>Provides additional details about the stream event. There are several values; note that
+   * 			the long descriptions are provided in the IVS console but not delivered through
+   * 	  	    the IVS API or EventBridge:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>StreamTakeoverMediaMismatch</code> — The broadcast client attempted to take over
+   * 			with different media properties (e.g., codec, resolution, or video track type) from the
+   * 			original stream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StreamTakeoverInvalidPriority</code> — The broadcast client attempted a takeover
+   * 			with either a priority integer value equal to or lower than the original stream's value or a value outside
+   * 			the allowed range of 1 to 2,147,483,647.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StreamTakeoverLimitBreached</code> — The broadcast client reached the maximum allowed
+   * 			takeover attempts for this stream.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  code?: string;
 }
 
 /**
