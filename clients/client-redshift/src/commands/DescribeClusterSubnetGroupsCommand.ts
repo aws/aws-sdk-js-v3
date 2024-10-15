@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterSubnetGroupMessage, DescribeClusterSubnetGroupsMessage } from "../models/models_0";
+import { ClusterSubnetGroupMessage } from "../models/models_0";
+import { DescribeClusterSubnetGroupsMessage } from "../models/models_1";
 import { de_DescribeClusterSubnetGroupsCommand, se_DescribeClusterSubnetGroupsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

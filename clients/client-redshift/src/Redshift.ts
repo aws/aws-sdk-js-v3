@@ -109,6 +109,11 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateIntegrationCommand,
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import {
   CreateRedshiftIdcApplicationCommand,
   CreateRedshiftIdcApplicationCommandInput,
   CreateRedshiftIdcApplicationCommandOutput,
@@ -194,6 +199,11 @@ import {
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
+import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
 import {
   DeletePartnerCommand,
   DeletePartnerCommandInput,
@@ -350,6 +360,11 @@ import {
   DescribeInboundIntegrationsCommandInput,
   DescribeInboundIntegrationsCommandOutput,
 } from "./commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommand,
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import {
   DescribeLoggingStatusCommand,
   DescribeLoggingStatusCommandInput,
@@ -556,6 +571,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyIntegrationCommand,
+  ModifyIntegrationCommandInput,
+  ModifyIntegrationCommandOutput,
+} from "./commands/ModifyIntegrationCommand";
+import {
   ModifyRedshiftIdcApplicationCommand,
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
@@ -680,6 +700,7 @@ const commands = {
   CreateEventSubscriptionCommand,
   CreateHsmClientCertificateCommand,
   CreateHsmConfigurationCommand,
+  CreateIntegrationCommand,
   CreateRedshiftIdcApplicationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCopyGrantCommand,
@@ -698,6 +719,7 @@ const commands = {
   DeleteEventSubscriptionCommand,
   DeleteHsmClientCertificateCommand,
   DeleteHsmConfigurationCommand,
+  DeleteIntegrationCommand,
   DeletePartnerCommand,
   DeleteRedshiftIdcApplicationCommand,
   DeleteResourcePolicyCommand,
@@ -730,6 +752,7 @@ const commands = {
   DescribeHsmClientCertificatesCommand,
   DescribeHsmConfigurationsCommand,
   DescribeInboundIntegrationsCommand,
+  DescribeIntegrationsCommand,
   DescribeLoggingStatusCommand,
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
@@ -771,6 +794,7 @@ const commands = {
   ModifyCustomDomainAssociationCommand,
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
+  ModifyIntegrationCommand,
   ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
@@ -1151,6 +1175,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateIntegrationCommand}
+   */
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationCommandOutput>;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRedshiftIdcApplicationCommand}
    */
   createRedshiftIdcApplication(
@@ -1443,6 +1484,23 @@ export interface Redshift {
     args: DeleteHsmConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHsmConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -1994,6 +2052,24 @@ export interface Redshift {
     args: DescribeInboundIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   */
+  describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
   ): void;
 
   /**
@@ -2678,6 +2754,23 @@ export interface Redshift {
     args: ModifyEventSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIntegrationCommand}
+   */
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIntegrationCommandOutput>;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
   ): void;
 
   /**

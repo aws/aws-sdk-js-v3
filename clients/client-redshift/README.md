@@ -402,6 +402,14 @@ CreateHsmConfiguration
 </details>
 <details>
 <summary>
+CreateIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/CreateIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/CreateIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/CreateIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRedshiftIdcApplication
 </summary>
 
@@ -542,6 +550,14 @@ DeleteHsmConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/DeleteHsmConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DeleteHsmConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DeleteHsmConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/DeleteIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DeleteIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DeleteIntegrationCommandOutput/)
 
 </details>
 <details>
@@ -798,6 +814,14 @@ DescribeInboundIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/DescribeInboundIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DescribeInboundIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DescribeInboundIntegrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/DescribeIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DescribeIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/DescribeIntegrationsCommandOutput/)
 
 </details>
 <details>
@@ -1126,6 +1150,14 @@ ModifyEventSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/ModifyEventSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyEventSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyEventSubscriptionCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/ModifyIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyIntegrationCommandOutput/)
 
 </details>
 <details>

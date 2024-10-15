@@ -4491,8 +4491,8 @@ export interface CreateClusterMessage {
    *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
    *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
    *          <p>Valid Values:
-   *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *                 <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
+   *             <code>ra3.large</code> |  <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
    */
@@ -6305,6 +6305,273 @@ export class HsmConfigurationQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ */
+export interface CreateIntegrationMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Redshift data warehouse to use as the target for replication.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The name of the integration.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>An Key Management Service (KMS) key identifier for the key to use to
+   *             encrypt the integration. If you don't specify an encryption key, the default
+   *             Amazon Web Services owned key is used.</p>
+   * @public
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  TagList?: Tag[];
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual
+   *             information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *                 context</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                     Guide</i>.</p>
+   *          <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * <p>The error of an inbound integration.</p>
+ * @public
+ */
+export interface IntegrationError {
+  /**
+   * <p>The error code of an inbound integration error.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message of an inbound integration error.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ZeroETLIntegrationStatus = {
+  ACTIVE: "active",
+  CREATING: "creating",
+  DELETING: "deleting",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  NEEDS_ATTENTION: "needs_attention",
+  SYNCING: "syncing",
+} as const;
+
+/**
+ * @public
+ */
+export type ZeroETLIntegrationStatus = (typeof ZeroETLIntegrationStatus)[keyof typeof ZeroETLIntegrationStatus];
+
+/**
+ * @public
+ */
+export interface Integration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string;
+
+  /**
+   * <p>The name of the integration.</p>
+   * @public
+   */
+  IntegrationName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database used as the source for
+   *             replication.</p>
+   * @public
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Redshift data warehouse to use as the target for replication.</p>
+   * @public
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The current status of the integration.</p>
+   * @public
+   */
+  Status?: ZeroETLIntegrationStatus;
+
+  /**
+   * <p>Any errors associated with the integration.</p>
+   * @public
+   */
+  Errors?: IntegrationError[];
+
+  /**
+   * <p>The time (UTC) when the integration was created.</p>
+   * @public
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The description of the integration.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The Key Management Service (KMS) key identifier for the key used to
+   *             encrypt the integration.</p>
+   * @public
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>The encryption context for the integration. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * <p>The list of tags associated with the integration.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>The integration you are trying to create already exists.</p>
+ * @public
+ */
+export class IntegrationAlreadyExistsFault extends __BaseException {
+  readonly name: "IntegrationAlreadyExistsFault" = "IntegrationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "IntegrationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * <p>A conflicting conditional operation is currently in progress against this resource.
+ *             This typically occurs when there are multiple requests being made to the same resource at the same time,
+ *             and these requests conflict with each other.</p>
+ * @public
+ */
+export class IntegrationConflictOperationFault extends __BaseException {
+  readonly name: "IntegrationConflictOperationFault" = "IntegrationConflictOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationConflictOperationFault, __BaseException>) {
+    super({
+      name: "IntegrationConflictOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationConflictOperationFault.prototype);
+  }
+}
+
+/**
+ * <p>You can't create any more zero-ETL integrations because the quota has been reached.</p>
+ * @public
+ */
+export class IntegrationQuotaExceededFault extends __BaseException {
+  readonly name: "IntegrationQuotaExceededFault" = "IntegrationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "IntegrationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified integration source can't be found.</p>
+ * @public
+ */
+export class IntegrationSourceNotFoundFault extends __BaseException {
+  readonly name: "IntegrationSourceNotFoundFault" = "IntegrationSourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationSourceNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationSourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationSourceNotFoundFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified integration target can't be found.</p>
+ * @public
+ */
+export class IntegrationTargetNotFoundFault extends __BaseException {
+  readonly name: "IntegrationTargetNotFoundFault" = "IntegrationTargetNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationTargetNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationTargetNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationTargetNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ServiceAuthorization = {
@@ -8024,6 +8291,57 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
 /**
  * @public
  */
+export interface DeleteIntegrationMessage {
+  /**
+   * <p>The unique identifier of the integration to delete.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+}
+
+/**
+ * <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ * @public
+ */
+export class IntegrationConflictStateFault extends __BaseException {
+  readonly name: "IntegrationConflictStateFault" = "IntegrationConflictStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationConflictStateFault, __BaseException>) {
+    super({
+      name: "IntegrationConflictStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationConflictStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The integration can't be found.</p>
+ * @public
+ */
+export class IntegrationNotFoundFault extends __BaseException {
+  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteRedshiftIdcApplicationMessage {
   /**
    * <p>The ARN for a deleted Amazon Redshift IAM Identity Center application.</p>
@@ -8442,454 +8760,6 @@ export interface DescribeClustersMessage {
    * @public
    */
   TagValues?: string[];
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeClusterSecurityGroupsMessage {
-  /**
-   * <p>The name of a cluster security group for which you are requesting details. You must
-   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
-   *          <p> Example: <code>securitygroup1</code>
-   *          </p>
-   * @public
-   */
-  ClusterSecurityGroupName?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSecurityGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   *          <p>Constraints: You must specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
-   * @public
-   */
-  Marker?: string;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching cluster security groups
-   *             that are associated with the specified key or keys. For example, suppose that you have
-   *             security groups that are tagged with keys called <code>owner</code> and
-   *                 <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the security groups that have either or both of these
-   *             tag keys associated with them.</p>
-   * @public
-   */
-  TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching cluster security
-   *             groups that are associated with the specified tag value or values. For example, suppose
-   *             that you have security groups that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the security groups that have either or both of these tag values
-   *             associated with them.</p>
-   * @public
-   */
-  TagValues?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const SnapshotAttributeToSortBy = {
-  CREATE_TIME: "CREATE_TIME",
-  SOURCE_TYPE: "SOURCE_TYPE",
-  TOTAL_SIZE: "TOTAL_SIZE",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotAttributeToSortBy = (typeof SnapshotAttributeToSortBy)[keyof typeof SnapshotAttributeToSortBy];
-
-/**
- * @public
- * @enum
- */
-export const SortByOrder = {
-  ASCENDING: "ASC",
-  DESCENDING: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortByOrder = (typeof SortByOrder)[keyof typeof SortByOrder];
-
-/**
- * <p>Describes a sorting entity</p>
- * @public
- */
-export interface SnapshotSortingEntity {
-  /**
-   * <p>The category for sorting the snapshots.</p>
-   * @public
-   */
-  Attribute: SnapshotAttributeToSortBy | undefined;
-
-  /**
-   * <p>The order for listing the attributes.</p>
-   * @public
-   */
-  SortOrder?: SortByOrder;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeClusterSnapshotsMessage {
-  /**
-   * <p>The identifier of the cluster which generated the requested snapshots.</p>
-   * @public
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The snapshot identifier of the snapshot about which to return
-   *             information.</p>
-   * @public
-   */
-  SnapshotIdentifier?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe cluster snapshots.</p>
-   * @public
-   */
-  SnapshotArn?: string;
-
-  /**
-   * <p>The type of snapshots for which you are requesting information. By default,
-   *             snapshots of all types are returned.</p>
-   *          <p>Valid Values: <code>automated</code> | <code>manual</code>
-   *          </p>
-   * @public
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>A value that requests only snapshots created at or after the specified time. The
-   *             time value is specified in ISO 8601 format. For more information about ISO 8601, go to
-   *             the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *          </p>
-   *          <p>Example: <code>2012-07-16T18:00:00Z</code>
-   *          </p>
-   * @public
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>A time value that requests only snapshots created at or before the specified time.
-   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
-   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
-   *                 page.</a>
-   *          </p>
-   *          <p>Example: <code>2012-07-16T18:00:00Z</code>
-   *          </p>
-   * @public
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSnapshots</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   * @public
-   */
-  Marker?: string;
-
-  /**
-   * <p>The Amazon Web Services account used to create or copy the snapshot. Use this field to
-   *             filter the results to snapshots owned by a particular account. To describe snapshots you
-   *             own, either specify your Amazon Web Services account, or do not specify the
-   *             parameter.</p>
-   * @public
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching cluster snapshots that
-   *             are associated with the specified key or keys. For example, suppose that you have
-   *             snapshots that are tagged with keys called <code>owner</code> and
-   *                 <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the snapshots that have either or both of these tag
-   *             keys associated with them.</p>
-   * @public
-   */
-  TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching cluster snapshots
-   *             that are associated with the specified tag value or values. For example, suppose that
-   *             you have snapshots that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the snapshots that have either or both of these tag values
-   *             associated with them.</p>
-   * @public
-   */
-  TagValues?: string[];
-
-  /**
-   * <p>A value that indicates whether to return snapshots only for an existing cluster.
-   *             You can perform table-level restore only by using a snapshot of an existing cluster,
-   *             that is, a cluster that has not been deleted. Values for this parameter work as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>If <code>ClusterExists</code> is set to <code>true</code>,
-   *                         <code>ClusterIdentifier</code> is required.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
-   *                         <code>ClusterIdentifier</code> isn't specified, all snapshots
-   *                     associated with deleted clusters (orphaned snapshots) are returned. </p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
-   *                         <code>ClusterIdentifier</code> is specified for a deleted cluster, snapshots
-   *                     associated with that cluster are returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
-   *                         <code>ClusterIdentifier</code> is specified for an existing cluster, no
-   *                     snapshots are returned. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ClusterExists?: boolean;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  SortingEntities?: SnapshotSortingEntity[];
-}
-
-/**
- * <p>Contains the output from the <a>DescribeClusterSnapshots</a> action.
- *         </p>
- * @public
- */
-export interface SnapshotMessage {
-  /**
-   * <p>A value that indicates the starting point for the next set of response records in a
-   *             subsequent request. If a value is returned in a response, you can retrieve the next set
-   *             of records by providing this returned marker value in the <code>Marker</code> parameter
-   *             and retrying the command. If the <code>Marker</code> field is empty, all response
-   *             records have been retrieved for the request. </p>
-   * @public
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <a>Snapshot</a> instances. </p>
-   * @public
-   */
-  Snapshots?: Snapshot[];
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeClusterSubnetGroupsMessage {
-  /**
-   * <p>The name of the cluster subnet group for which information is requested.</p>
-   * @public
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   * @public
-   */
-  Marker?: string;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching cluster subnet groups
-   *             that are associated with the specified key or keys. For example, suppose that you have
-   *             subnet groups that are tagged with keys called <code>owner</code> and
-   *                 <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the subnet groups that have either or both of these
-   *             tag keys associated with them.</p>
-   * @public
-   */
-  TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching cluster subnet
-   *             groups that are associated with the specified tag value or values. For example, suppose
-   *             that you have subnet groups that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the subnet groups that have either or both of these tag values
-   *             associated with them.</p>
-   * @public
-   */
-  TagValues?: string[];
-}
-
-/**
- * @public
- */
-export interface DescribeClusterTracksMessage {
-  /**
-   * <p>The name of the maintenance track. </p>
-   * @public
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>An integer value for the maximum number of maintenance tracks to return.</p>
-   * @public
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <code>DescribeClusterTracks</code> request exceed the
-   *             value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   * @public
-   */
-  Marker?: string;
-}
-
-/**
- * <p>Describes the operations that are allowed on a maintenance track.</p>
- * @public
- */
-export interface SupportedOperation {
-  /**
-   * <p>A list of the supported operations.</p>
-   * @public
-   */
-  OperationName?: string;
-}
-
-/**
- * <p>A maintenance track that you can switch the current track to.</p>
- * @public
- */
-export interface UpdateTarget {
-  /**
-   * <p>The name of the new maintenance track.</p>
-   * @public
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The cluster version for the new maintenance track.</p>
-   * @public
-   */
-  DatabaseVersion?: string;
-
-  /**
-   * <p>A list of operations supported by the maintenance track.</p>
-   * @public
-   */
-  SupportedOperations?: SupportedOperation[];
-}
-
-/**
- * <p>Defines a maintenance track that determines which Amazon Redshift version to apply
- *             during a maintenance window. If the value for <code>MaintenanceTrack</code> is
- *                 <code>current</code>, the cluster is updated to the most recently certified
- *             maintenance release. If the value is <code>trailing</code>, the cluster is updated to
- *             the previously certified maintenance release. </p>
- * @public
- */
-export interface MaintenanceTrack {
-  /**
-   * <p>The name of the maintenance track. Possible values are <code>current</code> and
-   *                 <code>trailing</code>.</p>
-   * @public
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The version number for the cluster release.</p>
-   * @public
-   */
-  DatabaseVersion?: string;
-
-  /**
-   * <p>An array of <a>UpdateTarget</a> objects to update with the maintenance
-   *             track. </p>
-   * @public
-   */
-  UpdateTargets?: UpdateTarget[];
-}
-
-/**
- * @public
- */
-export interface TrackListMessage {
-  /**
-   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
-   *             operation. </p>
-   * @public
-   */
-  MaintenanceTracks?: MaintenanceTrack[];
-
-  /**
-   * <p>The starting point to return a set of response tracklist records. You can retrieve the
-   *             next set of response records by providing the returned marker value in the
-   *                 <code>Marker</code> parameter and retrying the request.</p>
-   * @public
-   */
-  Marker?: string;
 }
 
 /**

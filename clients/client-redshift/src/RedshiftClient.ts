@@ -129,6 +129,7 @@ import {
   CreateHsmConfigurationCommandInput,
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
 import {
   CreateRedshiftIdcApplicationCommandInput,
   CreateRedshiftIdcApplicationCommandOutput,
@@ -192,6 +193,7 @@ import {
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
 import {
   DeleteRedshiftIdcApplicationCommandInput,
@@ -302,6 +304,10 @@ import {
   DescribeInboundIntegrationsCommandInput,
   DescribeInboundIntegrationsCommandOutput,
 } from "./commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import {
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
@@ -439,6 +445,7 @@ import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
+import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "./commands/ModifyIntegrationCommand";
 import {
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
@@ -535,6 +542,7 @@ export type ServiceInputTypes =
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
   | CreateHsmConfigurationCommandInput
+  | CreateIntegrationCommandInput
   | CreateRedshiftIdcApplicationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCopyGrantCommandInput
@@ -553,6 +561,7 @@ export type ServiceInputTypes =
   | DeleteEventSubscriptionCommandInput
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
+  | DeleteIntegrationCommandInput
   | DeletePartnerCommandInput
   | DeleteRedshiftIdcApplicationCommandInput
   | DeleteResourcePolicyCommandInput
@@ -585,6 +594,7 @@ export type ServiceInputTypes =
   | DescribeHsmClientCertificatesCommandInput
   | DescribeHsmConfigurationsCommandInput
   | DescribeInboundIntegrationsCommandInput
+  | DescribeIntegrationsCommandInput
   | DescribeLoggingStatusCommandInput
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
@@ -626,6 +636,7 @@ export type ServiceInputTypes =
   | ModifyCustomDomainAssociationCommandInput
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
+  | ModifyIntegrationCommandInput
   | ModifyRedshiftIdcApplicationCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
@@ -673,6 +684,7 @@ export type ServiceOutputTypes =
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
   | CreateHsmConfigurationCommandOutput
+  | CreateIntegrationCommandOutput
   | CreateRedshiftIdcApplicationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCopyGrantCommandOutput
@@ -691,6 +703,7 @@ export type ServiceOutputTypes =
   | DeleteEventSubscriptionCommandOutput
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
+  | DeleteIntegrationCommandOutput
   | DeletePartnerCommandOutput
   | DeleteRedshiftIdcApplicationCommandOutput
   | DeleteResourcePolicyCommandOutput
@@ -723,6 +736,7 @@ export type ServiceOutputTypes =
   | DescribeHsmClientCertificatesCommandOutput
   | DescribeHsmConfigurationsCommandOutput
   | DescribeInboundIntegrationsCommandOutput
+  | DescribeIntegrationsCommandOutput
   | DescribeLoggingStatusCommandOutput
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
@@ -764,6 +778,7 @@ export type ServiceOutputTypes =
   | ModifyCustomDomainAssociationCommandOutput
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
+  | ModifyIntegrationCommandOutput
   | ModifyRedshiftIdcApplicationCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput

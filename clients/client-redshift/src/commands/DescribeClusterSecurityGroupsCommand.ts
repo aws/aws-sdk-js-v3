@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/models_0";
+import { ClusterSecurityGroupMessage } from "../models/models_0";
+import { DescribeClusterSecurityGroupsMessage } from "../models/models_1";
 import {
   de_DescribeClusterSecurityGroupsCommand,
   se_DescribeClusterSecurityGroupsCommand,
