@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.672.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.671.0...v3.672.0) (2024-10-15)
+
+
+### Features
+
+* **client-amplify:** Added sourceUrlType field to StartDeployment request ([1191ab7](https://github.com/aws/aws-sdk-js-v3/commit/1191ab702c4a91f255de6380ee824cd7ce07d8fd))
+* **client-codebuild:** Enable proxy for reserved capacity fleet. ([f16069b](https://github.com/aws/aws-sdk-js-v3/commit/f16069bcd088e724a31e5b216218e6aeec048f28))
+* **client-ivs:** On a channel that you own, you can now replace an ongoing stream with a new stream by streaming up with the priority parameter appended to the stream key. ([0141b42](https://github.com/aws/aws-sdk-js-v3/commit/0141b4298d91784f32e3704759c8c9402599da43))
+* **client-qbusiness:** Amazon Q Business now supports embedding the Amazon Q Business web experience on third-party websites. ([8f3697f](https://github.com/aws/aws-sdk-js-v3/commit/8f3697f4029fd285d4bd93ae7a83ff78e26547f1))
+* **client-redshift:** This release launches the CreateIntegration, DeleteIntegration, DescribeIntegrations and ModifyIntegration APIs to create and manage Amazon Redshift Zero-ETL Integrations. ([3b1ffd3](https://github.com/aws/aws-sdk-js-v3/commit/3b1ffd3e45565871a94e89cd1e818b5d9354b75f))
+* **client-resiliencehub:** AWS Resilience Hub now integrates with the myApplications platform, enabling customers to easily assess the resilience of applications defined in myApplications. The new Resiliency widget provides visibility into application resilience and actionable recommendations for improvement. ([d4a0fb6](https://github.com/aws/aws-sdk-js-v3/commit/d4a0fb607f4bd4c6807abef954801072c38b269b))
+* **client-sesv2:** This release adds support for email maximum delivery seconds that allows senders to control the time within which their emails are attempted for delivery. ([60af417](https://github.com/aws/aws-sdk-js-v3/commit/60af4171f2a40b39e4e5a5905da8e7a7a2f94e40))
+* **client-transcribe-streaming:** We are expanding support for 40 new locales in AWS Transcribe Streaming. ([73471ab](https://github.com/aws/aws-sdk-js-v3/commit/73471ab2d2ea02065a1b09905721f299553f5722))
+* **clients:** update client endpoints as of 2024-10-15 ([18d2184](https://github.com/aws/aws-sdk-js-v3/commit/18d2184f4d40454ac47e594f73f44760c33a3869))
+
+
+
+
+
 # [3.671.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.670.0...v3.671.0) (2024-10-14)
 
 

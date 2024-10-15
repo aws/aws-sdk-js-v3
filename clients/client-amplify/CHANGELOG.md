@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.672.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.671.0...v3.672.0) (2024-10-15)
+
+
+### Features
+
+* **client-amplify:** Added sourceUrlType field to StartDeployment request ([1191ab7](https://github.com/aws/aws-sdk-js-v3/commit/1191ab702c4a91f255de6380ee824cd7ce07d8fd))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-amplify
