@@ -1668,6 +1668,7 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      MaxDeliverySeconds: [],
       SendingPoolName: [],
       TlsPolicy: [],
     })

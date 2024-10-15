@@ -1357,6 +1357,15 @@ export interface DeliveryOptions {
    * @public
    */
   SendingPoolName?: string;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number;
 }
 
 /**
@@ -7024,6 +7033,15 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    * @public
    */
   SendingPoolName?: string;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number;
 }
 
 /**

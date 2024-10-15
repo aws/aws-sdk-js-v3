@@ -48,6 +48,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   TlsPolicy: "REQUIRE" || "OPTIONAL",
  *   SendingPoolName: "STRING_VALUE",
+ *   MaxDeliverySeconds: Number("long"),
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);

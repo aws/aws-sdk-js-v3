@@ -56,6 +56,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * //   DeliveryOptions: { // DeliveryOptions
  * //     TlsPolicy: "REQUIRE" || "OPTIONAL",
  * //     SendingPoolName: "STRING_VALUE",
+ * //     MaxDeliverySeconds: Number("long"),
  * //   },
  * //   ReputationOptions: { // ReputationOptions
  * //     ReputationMetricsEnabled: true || false,
