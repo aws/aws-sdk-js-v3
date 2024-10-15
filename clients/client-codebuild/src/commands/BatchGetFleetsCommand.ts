@@ -79,6 +79,18 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       proxyConfiguration: { // ProxyConfiguration
+ * //         defaultBehavior: "ALLOW_ALL" || "DENY_ALL",
+ * //         orderedProxyRules: [ // FleetProxyRules
+ * //           { // FleetProxyRule
+ * //             type: "DOMAIN" || "IP", // required
+ * //             effect: "ALLOW" || "DENY", // required
+ * //             entities: [ // FleetProxyRuleEntities // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
  * //       imageId: "STRING_VALUE",
  * //       fleetServiceRole: "STRING_VALUE",
  * //       tags: [ // TagList

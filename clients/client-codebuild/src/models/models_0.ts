@@ -2734,6 +2734,90 @@ export type FleetOverflowBehavior = (typeof FleetOverflowBehavior)[keyof typeof 
  * @public
  * @enum
  */
+export const FleetProxyRuleBehavior = {
+  ALLOW_ALL: "ALLOW_ALL",
+  DENY_ALL: "DENY_ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetProxyRuleBehavior = (typeof FleetProxyRuleBehavior)[keyof typeof FleetProxyRuleBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetProxyRuleEffectType = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetProxyRuleEffectType = (typeof FleetProxyRuleEffectType)[keyof typeof FleetProxyRuleEffectType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetProxyRuleType = {
+  DOMAIN: "DOMAIN",
+  IP: "IP",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetProxyRuleType = (typeof FleetProxyRuleType)[keyof typeof FleetProxyRuleType];
+
+/**
+ * <p>Information about the proxy rule for your reserved capacity instances.</p>
+ * @public
+ */
+export interface FleetProxyRule {
+  /**
+   * <p>The type of proxy rule.</p>
+   * @public
+   */
+  type: FleetProxyRuleType | undefined;
+
+  /**
+   * <p>The behavior of the proxy rule.</p>
+   * @public
+   */
+  effect: FleetProxyRuleEffectType | undefined;
+
+  /**
+   * <p>The destination of the proxy rule.</p>
+   * @public
+   */
+  entities: string[] | undefined;
+}
+
+/**
+ * <p>Information about the proxy configurations that apply network access control to your reserved capacity instances.</p>
+ * @public
+ */
+export interface ProxyConfiguration {
+  /**
+   * <p>The default behavior of outgoing traffic.</p>
+   * @public
+   */
+  defaultBehavior?: FleetProxyRuleBehavior;
+
+  /**
+   * <p>An array of <code>FleetProxyRule</code> objects that represent the specified destination domains or IPs to allow or deny network access control to.</p>
+   * @public
+   */
+  orderedProxyRules?: FleetProxyRule[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const FleetScalingType = {
   TARGET_TRACKING_SCALING: "TARGET_TRACKING_SCALING",
 } as const;
@@ -3126,6 +3210,12 @@ export interface Fleet {
   vpcConfig?: VpcConfig;
 
   /**
+   * <p>The proxy configuration of the compute fleet.</p>
+   * @public
+   */
+  proxyConfiguration?: ProxyConfiguration;
+
+  /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
    * @public
    */
@@ -3500,6 +3590,7 @@ export const WebhookFilterType = {
   FILE_PATH: "FILE_PATH",
   HEAD_REF: "HEAD_REF",
   RELEASE_NAME: "RELEASE_NAME",
+  REPOSITORY_NAME: "REPOSITORY_NAME",
   TAG_NAME: "TAG_NAME",
   WORKFLOW_NAME: "WORKFLOW_NAME",
 } as const;
@@ -4747,6 +4838,12 @@ export interface CreateFleetInput {
    * @public
    */
   vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The proxy configuration of the compute fleet.</p>
+   * @public
+   */
+  proxyConfiguration?: ProxyConfiguration;
 
   /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
@@ -7953,6 +8050,12 @@ export interface UpdateFleetInput {
    * @public
    */
   vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The proxy configuration of the compute fleet.</p>
+   * @public
+   */
+  proxyConfiguration?: ProxyConfiguration;
 
   /**
    * <p>The Amazon Machine Image (AMI) of the compute fleet.</p>

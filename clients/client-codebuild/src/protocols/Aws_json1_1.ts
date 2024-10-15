@@ -170,6 +170,7 @@ import {
   DescribeTestCasesOutput,
   EnvironmentVariable,
   Fleet,
+  FleetProxyRule,
   GetReportGroupTrendInput,
   GetResourcePolicyInput,
   GitSubmodulesConfig,
@@ -200,6 +201,7 @@ import {
   ProjectFleet,
   ProjectSource,
   ProjectSourceVersion,
+  ProxyConfiguration,
   PutResourcePolicyInput,
   RegistryCredential,
   Report,
@@ -2049,6 +2051,7 @@ const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): 
     imageId: [],
     name: [],
     overflowBehavior: [],
+    proxyConfiguration: _json,
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
     vpcConfig: _json,
@@ -2103,6 +2106,12 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_FilterGroups omitted.
 
 // se_FleetNames omitted.
+
+// se_FleetProxyRule omitted.
+
+// se_FleetProxyRuleEntities omitted.
+
+// se_FleetProxyRules omitted.
 
 // se_GetReportGroupTrendInput omitted.
 
@@ -2169,6 +2178,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_ProjectSources omitted.
 
 // se_ProjectSourceVersion omitted.
+
+// se_ProxyConfiguration omitted.
 
 // se_PutResourcePolicyInput omitted.
 
@@ -2262,6 +2273,7 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
     fleetServiceRole: [],
     imageId: [],
     overflowBehavior: [],
+    proxyConfiguration: _json,
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
     vpcConfig: _json,
@@ -2728,6 +2740,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
     lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     overflowBehavior: __expectString,
+    proxyConfiguration: _json,
     scalingConfiguration: (_: any) => de_ScalingConfigurationOutput(_, context),
     status: _json,
     tags: _json,
@@ -2738,6 +2751,12 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
 // de_FleetArns omitted.
 
 // de_FleetNames omitted.
+
+// de_FleetProxyRule omitted.
+
+// de_FleetProxyRuleEntities omitted.
+
+// de_FleetProxyRules omitted.
 
 /**
  * deserializeAws_json1_1Fleets
@@ -2886,6 +2905,8 @@ const de_Projects = (output: any, context: __SerdeContext): Project[] => {
 // de_ProjectSources omitted.
 
 // de_ProjectSourceVersion omitted.
+
+// de_ProxyConfiguration omitted.
 
 // de_PutResourcePolicyOutput omitted.
 
