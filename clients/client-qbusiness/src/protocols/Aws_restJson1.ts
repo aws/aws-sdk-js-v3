@@ -541,6 +541,7 @@ export const se_CreateWebExperienceCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       identityProviderConfiguration: (_) => _json(_),
+      origins: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -1489,6 +1490,7 @@ export const se_UpdateWebExperienceCommand = async (
     take(input, {
       authenticationConfiguration: (_) => _json(_),
       identityProviderConfiguration: (_) => _json(_),
+      origins: (_) => _json(_),
       roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
@@ -2166,6 +2168,7 @@ export const de_GetWebExperienceCommand = async (
     defaultEndpoint: __expectString,
     error: _json,
     identityProviderConfiguration: (_) => _json(__expectUnion(_)),
+    origins: _json,
     roleArn: __expectString,
     samplePromptsControlMode: __expectString,
     status: __expectString,
@@ -3488,6 +3491,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_WebExperienceAuthConfiguration omitted.
 
+// se_WebExperienceOrigins omitted.
+
 /**
  * deserializeAws_restJson1ActionExecution
  */
@@ -4157,6 +4162,8 @@ const de_WebExperience = (output: any, context: __SerdeContext): WebExperience =
 };
 
 // de_WebExperienceAuthConfiguration omitted.
+
+// de_WebExperienceOrigins omitted.
 
 /**
  * deserializeAws_restJson1WebExperiences

@@ -53,6 +53,9 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  * //   subtitle: "STRING_VALUE",
  * //   welcomeMessage: "STRING_VALUE",
  * //   samplePromptsControlMode: "ENABLED" || "DISABLED",
+ * //   origins: [ // WebExperienceOrigins
+ * //     "STRING_VALUE",
+ * //   ],
  * //   roleArn: "STRING_VALUE",
  * //   identityProviderConfiguration: { // IdentityProviderConfiguration Union: only one key present
  * //     samlConfiguration: { // SamlProviderConfiguration

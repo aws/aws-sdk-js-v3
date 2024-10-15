@@ -760,12 +760,13 @@ export const QAppsControlMode = {
 export type QAppsControlMode = (typeof QAppsControlMode)[keyof typeof QAppsControlMode];
 
 /**
- * <p>Configuration information about Amazon Q Apps. (preview feature)</p>
+ * <p>Configuration information about Amazon Q Apps.</p>
  * @public
  */
 export interface QAppsConfiguration {
   /**
-   * <p>Status information about whether end users can create and use Amazon Q Apps in the web experience.</p>
+   * <p>Status information about whether end users can create and use Amazon Q Apps in the web
+   *             experience.</p>
    * @public
    */
   qAppsControlMode: QAppsControlMode | undefined;
@@ -805,7 +806,8 @@ export interface CreateApplicationRequest {
 
   /**
    * <p> The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon
-   *                 CloudWatch logs and metrics.</p>
+   *                 CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions">service linked role (SLR)</a> and use it as the
+   *             application's role.</p>
    * @public
    */
   roleArn?: string;
@@ -4136,6 +4138,22 @@ export interface CreateWebExperienceRequest {
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode;
 
   /**
+   * <p>Sets the website domain origins that
+   *             are allowed to embed the Amazon Q Business web experience.
+   *
+   *             The <i>domain origin</i> refers to the
+   *             base URL for accessing a website including the protocol
+   *             (<code>http/https</code>), the domain name, and the port number (if specified).
+   *         </p>
+   *          <note>
+   *             <p>You must only submit a <i>base URL</i> and
+   *             not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p>
+   *          </note>
+   * @public
+   */
+  origins?: string[];
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the service role attached to your web
    *             experience.</p>
    *          <note>
@@ -4396,6 +4414,18 @@ export interface GetWebExperienceResponse {
   samplePromptsControlMode?: WebExperienceSamplePromptsControlMode;
 
   /**
+   * <p>Gets the website domain origins that
+   *             are allowed to embed the Amazon Q Business web experience.
+   *
+   *             The <i>domain origin</i> refers to the
+   *             base URL for accessing a website including the protocol
+   *             (<code>http/https</code>), the domain name, and the port number (if specified).
+   *         </p>
+   * @public
+   */
+  origins?: string[];
+
+  /**
    * <p> The Amazon Resource Name (ARN) of the service role attached to your web
    *             experience.</p>
    * @public
@@ -4571,6 +4601,29 @@ export interface UpdateWebExperienceRequest {
    * @public
    */
   identityProviderConfiguration?: IdentityProviderConfiguration;
+
+  /**
+   * <p>Updates the website domain origins that
+   *             are allowed to embed the Amazon Q Business web experience.
+   *
+   *             The <i>domain origin</i> refers to the
+   *             <i>base URL</i> for accessing a website including the protocol
+   *             (<code>http/https</code>), the domain name, and the port number (if specified).</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>Any values except <code>null</code> submitted as part of this
+   *                 update will replace all previous values.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You must only submit a <i>base URL</i> and
+   *                     not a full path. For example, <code>https://docs.aws.amazon.com</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  origins?: string[];
 }
 
 /**
@@ -6010,7 +6063,7 @@ export const ResponseScope = {
 export type ResponseScope = (typeof ResponseScope)[keyof typeof ResponseScope];
 
 /**
- * <p>Provides information about users and groups associated with a topic control
+ * <p>Provides information about users and group names associated with a topic control
  *             rule.</p>
  * @public
  */
@@ -6022,7 +6075,7 @@ export interface UsersAndGroups {
   userIds?: string[];
 
   /**
-   * <p>The user groups associated with a topic control rule.</p>
+   * <p>The user group names associated with a topic control rule.</p>
    * @public
    */
   userGroups?: string[];
@@ -7263,7 +7316,7 @@ export interface ChatSyncInput {
   userId?: string;
 
   /**
-   * <p>The groups that a user associated with the chat input belongs to.</p>
+   * <p>The group names that a user associated with the chat input belongs to.</p>
    * @public
    */
   userGroups?: string[];
@@ -7559,7 +7612,7 @@ export interface ChatInput {
   userId?: string;
 
   /**
-   * <p>The groups that a user associated with the chat input belongs to.</p>
+   * <p>The group names that a user associated with the chat input belongs to.</p>
    * @public
    */
   userGroups?: string[];

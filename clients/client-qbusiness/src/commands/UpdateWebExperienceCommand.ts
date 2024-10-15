@@ -60,6 +60,9 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  *       secretsRole: "STRING_VALUE", // required
  *     },
  *   },
+ *   origins: [ // WebExperienceOrigins
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateWebExperienceCommand(input);
  * const response = await client.send(command);
