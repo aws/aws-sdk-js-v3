@@ -29,7 +29,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
 
 /**
  * <p>Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
- *             not connected to a repository. </p>
+ *             not connected to a Git repository. </p>
  *          <p>The maximum duration between the <code>CreateDeployment</code> call and the
  *                 <code>StartDeployment</code> call cannot exceed 8 hours. If the duration exceeds 8
  *             hours, the <code>StartDeployment</code> call and the associated <code>Job</code> will

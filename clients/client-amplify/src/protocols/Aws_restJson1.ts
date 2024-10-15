@@ -713,6 +713,7 @@ export const se_StartDeploymentCommand = async (
     take(input, {
       jobId: [],
       sourceUrl: [],
+      sourceUrlType: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2107,6 +2108,8 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
     jobArn: __expectString,
     jobId: __expectString,
     jobType: __expectString,
+    sourceUrl: __expectString,
+    sourceUrlType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
   }) as any;

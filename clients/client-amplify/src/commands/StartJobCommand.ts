@@ -58,6 +58,8 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * //     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
  * //     endTime: new Date("TIMESTAMP"),
  * //     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ * //     sourceUrl: "STRING_VALUE",
+ * //     sourceUrlType: "ZIP" || "BUCKET_PREFIX",
  * //   },
  * // };
  *

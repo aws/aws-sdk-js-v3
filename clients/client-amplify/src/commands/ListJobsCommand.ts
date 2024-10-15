@@ -55,6 +55,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * //       status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
  * //       endTime: new Date("TIMESTAMP"),
  * //       jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ * //       sourceUrl: "STRING_VALUE",
+ * //       sourceUrlType: "ZIP" || "BUCKET_PREFIX",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
