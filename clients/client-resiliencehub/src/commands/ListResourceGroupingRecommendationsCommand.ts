@@ -65,7 +65,7 @@ export interface ListResourceGroupingRecommendationsCommandOutput
  * //           resourceType: "STRING_VALUE", // required
  * //           physicalResourceId: { // PhysicalResourceId
  * //             identifier: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "Arn" || "Native", // required
  * //             awsRegion: "STRING_VALUE",
  * //             awsAccountId: "STRING_VALUE",
  * //           },
@@ -85,10 +85,10 @@ export interface ListResourceGroupingRecommendationsCommandOutput
  * //       recommendationReasons: [ // required
  * //         "STRING_VALUE",
  * //       ],
- * //       status: "STRING_VALUE", // required
- * //       confidenceLevel: "STRING_VALUE", // required
+ * //       status: "Accepted" || "Rejected" || "PendingDecision", // required
+ * //       confidenceLevel: "High" || "Medium", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       rejectionReason: "STRING_VALUE",
+ * //       rejectionReason: "DistinctBusinessPurpose" || "SeparateDataConcern" || "DistinctUserGroupHandling" || "Other",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

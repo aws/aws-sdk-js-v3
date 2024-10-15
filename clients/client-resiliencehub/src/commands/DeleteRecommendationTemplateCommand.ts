@@ -49,7 +49,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  * const response = await client.send(command);
  * // { // DeleteRecommendationTemplateResponse
  * //   recommendationTemplateArn: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * // };
  *
  * ```

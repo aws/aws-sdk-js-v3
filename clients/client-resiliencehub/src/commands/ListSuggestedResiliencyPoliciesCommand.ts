@@ -57,9 +57,9 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
  * //       policyArn: "STRING_VALUE",
  * //       policyName: "STRING_VALUE",
  * //       policyDescription: "STRING_VALUE",
- * //       dataLocationConstraint: "STRING_VALUE",
- * //       tier: "STRING_VALUE",
- * //       estimatedCostTier: "STRING_VALUE",
+ * //       dataLocationConstraint: "AnyLocation" || "SameContinent" || "SameCountry",
+ * //       tier: "MissionCritical" || "Critical" || "Important" || "CoreServices" || "NonCritical" || "NotApplicable",
+ * //       estimatedCostTier: "L1" || "L2" || "L3" || "L4",
  * //       policy: { // DisruptionPolicy
  * //         "<keys>": { // FailurePolicy
  * //           rtoInSecs: Number("int"), // required

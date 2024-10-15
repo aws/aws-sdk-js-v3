@@ -57,7 +57,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * //   appArn: "STRING_VALUE", // required
  * //   appVersion: "STRING_VALUE", // required
  * //   resolutionId: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   errorMessage: "STRING_VALUE",
  * // };
  *

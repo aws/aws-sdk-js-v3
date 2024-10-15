@@ -58,9 +58,9 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
- *   assessmentSchedule: "STRING_VALUE",
+ *   assessmentSchedule: "Disabled" || "Daily",
  *   permissionModel: { // PermissionModel
- *     type: "STRING_VALUE", // required
+ *     type: "LegacyIAMUser" || "RoleBased", // required
  *     invokerRoleName: "STRING_VALUE",
  *     crossAccountRoleArns: [ // IamRoleArnList
  *       "STRING_VALUE",
@@ -69,10 +69,11 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *   eventSubscriptions: [ // EventSubscriptionList
  *     { // EventSubscription
  *       name: "STRING_VALUE", // required
- *       eventType: "STRING_VALUE", // required
+ *       eventType: "ScheduledAssessmentFailure" || "DriftDetected", // required
  *       snsTopicArn: "STRING_VALUE",
  *     },
  *   ],
+ *   awsApplicationArn: "STRING_VALUE",
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
@@ -83,17 +84,17 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * //     description: "STRING_VALUE",
  * //     policyArn: "STRING_VALUE",
  * //     creationTime: new Date("TIMESTAMP"), // required
- * //     status: "STRING_VALUE",
- * //     complianceStatus: "STRING_VALUE",
+ * //     status: "Active" || "Deleting",
+ * //     complianceStatus: "PolicyBreached" || "PolicyMet" || "NotAssessed" || "ChangesDetected" || "NotApplicable" || "MissingPolicy",
  * //     lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
  * //     resiliencyScore: Number("double"),
  * //     lastResiliencyScoreEvaluationTime: new Date("TIMESTAMP"),
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     assessmentSchedule: "STRING_VALUE",
+ * //     assessmentSchedule: "Disabled" || "Daily",
  * //     permissionModel: { // PermissionModel
- * //       type: "STRING_VALUE", // required
+ * //       type: "LegacyIAMUser" || "RoleBased", // required
  * //       invokerRoleName: "STRING_VALUE",
  * //       crossAccountRoleArns: [ // IamRoleArnList
  * //         "STRING_VALUE",
@@ -102,14 +103,15 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * //     eventSubscriptions: [ // EventSubscriptionList
  * //       { // EventSubscription
  * //         name: "STRING_VALUE", // required
- * //         eventType: "STRING_VALUE", // required
+ * //         eventType: "ScheduledAssessmentFailure" || "DriftDetected", // required
  * //         snsTopicArn: "STRING_VALUE",
  * //       },
  * //     ],
- * //     driftStatus: "STRING_VALUE",
+ * //     driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
  * //     rtoInSecs: Number("int"),
  * //     rpoInSecs: Number("int"),
+ * //     awsApplicationArn: "STRING_VALUE",
  * //   },
  * // };
  *

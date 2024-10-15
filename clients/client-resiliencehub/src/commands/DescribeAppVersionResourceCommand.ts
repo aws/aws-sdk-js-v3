@@ -86,7 +86,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * //     },
  * //     physicalResourceId: { // PhysicalResourceId
  * //       identifier: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "Arn" || "Native", // required
  * //       awsRegion: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //     },
@@ -109,7 +109,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * //       ],
  * //     },
  * //     excluded: true || false,
- * //     sourceType: "STRING_VALUE",
+ * //     sourceType: "AppTemplate" || "Discovered",
  * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };

@@ -52,7 +52,7 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  *         targetRegion: "STRING_VALUE",
  *       },
  *       excluded: true || false, // required
- *       excludeReason: "STRING_VALUE",
+ *       excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  *     },
  *   ],
  * };
@@ -70,7 +70,7 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  * //         targetRegion: "STRING_VALUE",
  * //       },
  * //       excluded: true || false, // required
- * //       excludeReason: "STRING_VALUE",
+ * //       excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  * //     },
  * //   ],
  * //   failedEntries: [ // BatchUpdateRecommendationStatusFailedEntries // required

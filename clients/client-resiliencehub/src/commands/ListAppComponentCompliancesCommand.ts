@@ -53,7 +53,7 @@ export interface ListAppComponentCompliancesCommandOutput
  * //       cost: { // Cost
  * //         amount: Number("double"), // required
  * //         currency: "STRING_VALUE", // required
- * //         frequency: "STRING_VALUE", // required
+ * //         frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //       },
  * //       appComponentName: "STRING_VALUE",
  * //       compliance: { // AssessmentCompliance
@@ -65,13 +65,13 @@ export interface ListAppComponentCompliancesCommandOutput
  * //           currentRpoInSecs: Number("int"),
  * //           rpoReferenceId: "STRING_VALUE",
  * //           rpoDescription: "STRING_VALUE",
- * //           complianceStatus: "STRING_VALUE", // required
+ * //           complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //           achievableRpoInSecs: Number("int"),
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
  * //       message: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
  * //       resiliencyScore: { // ResiliencyScore
  * //         score: Number("double"), // required
  * //         disruptionScore: { // DisruptionResiliencyScore // required

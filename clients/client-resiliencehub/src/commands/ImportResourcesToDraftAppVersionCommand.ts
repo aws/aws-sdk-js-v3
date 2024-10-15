@@ -52,7 +52,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  *       s3StateFileUrl: "STRING_VALUE", // required
  *     },
  *   ],
- *   importStrategy: "STRING_VALUE",
+ *   importStrategy: "AddOnly" || "ReplaceAll",
  *   eksSources: [ // EksSourceList
  *     { // EksSource
  *       eksClusterArn: "STRING_VALUE", // required
@@ -70,7 +70,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * //   sourceArns: [ // ArnList
  * //     "STRING_VALUE",
  * //   ],
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   terraformSources: [ // TerraformSourceList
  * //     { // TerraformSource
  * //       s3StateFileUrl: "STRING_VALUE", // required

@@ -52,7 +52,7 @@ export interface StartResourceGroupingRecommendationTaskCommandOutput
  * // { // StartResourceGroupingRecommendationTaskResponse
  * //   appArn: "STRING_VALUE", // required
  * //   groupingId: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   errorMessage: "STRING_VALUE",
  * // };
  *

@@ -52,7 +52,7 @@ export interface DescribeResourceGroupingRecommendationTaskCommandOutput
  * const response = await client.send(command);
  * // { // DescribeResourceGroupingRecommendationTaskResponse
  * //   groupingId: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   errorMessage: "STRING_VALUE",
  * // };
  *

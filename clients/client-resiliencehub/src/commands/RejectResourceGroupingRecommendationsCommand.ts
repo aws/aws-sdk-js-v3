@@ -49,7 +49,7 @@ export interface RejectResourceGroupingRecommendationsCommandOutput
  *   entries: [ // RejectGroupingRecommendationEntries // required
  *     { // RejectGroupingRecommendationEntry
  *       groupingRecommendationId: "STRING_VALUE", // required
- *       rejectionReason: "STRING_VALUE",
+ *       rejectionReason: "DistinctBusinessPurpose" || "SeparateDataConcern" || "DistinctUserGroupHandling" || "Other",
  *     },
  *   ],
  * };

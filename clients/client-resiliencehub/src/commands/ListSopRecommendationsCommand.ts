@@ -46,7 +46,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //   nextToken: "STRING_VALUE",
  * //   sopRecommendations: [ // SopRecommendationList // required
  * //     { // SopRecommendation
- * //       serviceType: "STRING_VALUE", // required
+ * //       serviceType: "SSM", // required
  * //       appComponentName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       recommendationId: "STRING_VALUE", // required
@@ -58,12 +58,12 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  * //         },
  * //       ],
  * //       referenceId: "STRING_VALUE", // required
  * //       prerequisite: "STRING_VALUE",
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * // };

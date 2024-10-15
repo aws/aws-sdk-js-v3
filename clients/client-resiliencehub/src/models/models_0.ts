@@ -1032,6 +1032,15 @@ export interface App {
    * @public
    */
   rpoInSecs?: number;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  awsApplicationArn?: string;
 }
 
 /**
@@ -1688,7 +1697,10 @@ export interface AppAssessment {
   driftStatus?: DriftStatus;
 
   /**
-   * <p>Indicates a concise summary that provides an overview of the Resilience Hub assessment.</p>
+   * <p>Indicates the AI-generated summary for the Resilience Hub assessment, providing a concise overview that highlights the top risks and recommendations.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
    * @public
    */
   summary?: AssessmentSummary;
@@ -2034,6 +2046,15 @@ export interface AppSummary {
    * @public
    */
   rpoInSecs?: number;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  awsApplicationArn?: string;
 }
 
 /**
@@ -2114,7 +2135,7 @@ export interface UpdateRecommendationStatusRequestEntry {
    * <p>The operational recommendation item.</p>
    * @public
    */
-  item: UpdateRecommendationStatusItem | undefined;
+  item?: UpdateRecommendationStatusItem;
 
   /**
    * <p>Indicates if the operational recommendation needs to be excluded. If set to True, the
@@ -2197,7 +2218,7 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
    * <p>The operational recommendation item.</p>
    * @public
    */
-  item: UpdateRecommendationStatusItem | undefined;
+  item?: UpdateRecommendationStatusItem;
 
   /**
    * <p>Indicates if the operational recommendation was successfully excluded.</p>
@@ -2300,6 +2321,15 @@ export interface CreateAppRequest {
    * @public
    */
   eventSubscriptions?: EventSubscription[];
+
+  /**
+   * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  awsApplicationArn?: string;
 }
 
 /**
@@ -3954,6 +3984,18 @@ export interface DescribeDraftAppVersionResourcesImportStatusRequest {
 }
 
 /**
+ * <p>Indicates the error that was encountered while importing a resource.</p>
+ * @public
+ */
+export interface ErrorDetail {
+  /**
+   * <p>Provides additional information about the error.</p>
+   * @public
+   */
+  errorMessage?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4002,10 +4044,16 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   statusChangeTime: Date | undefined;
 
   /**
-   * <p>The returned error message for the request.</p>
+   * <p>The error message returned for the resource request.</p>
    * @public
    */
   errorMessage?: string;
+
+  /**
+   * <p>List of errors that were encountered while importing resources.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetail[];
 }
 
 /**
@@ -4979,6 +5027,15 @@ export interface ListAppsRequest {
    * @public
    */
   reverseOrder?: boolean;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of  Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  awsApplicationArn?: string;
 }
 
 /**
@@ -6721,8 +6778,7 @@ export interface UpdateAppRequest {
   assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
-   * <p>Defines the roles and credentials that Resilience Hub would use while creating
-   *       an
+   * <p>Defines the roles and credentials that Resilience Hub would use while creating an
    *       application, importing its resources, and running an assessment.</p>
    * @public
    */

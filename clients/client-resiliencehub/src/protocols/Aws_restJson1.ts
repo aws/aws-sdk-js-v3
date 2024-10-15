@@ -356,6 +356,7 @@ export const se_CreateAppCommand = async (
   body = JSON.stringify(
     take(input, {
       assessmentSchedule: [],
+      awsApplicationArn: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       eventSubscriptions: (_) => _json(_),
@@ -1102,6 +1103,7 @@ export const se_ListAppsCommand = async (
     [_fLAT]: [() => input.fromLastAssessmentTime !== void 0, () => __serializeDateTime(input[_fLAT]!).toString()],
     [_tLAT]: [() => input.toLastAssessmentTime !== void 0, () => __serializeDateTime(input[_tLAT]!).toString()],
     [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
+    [_aAA]: [, input[_aAA]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2235,6 +2237,7 @@ export const de_DescribeDraftAppVersionResourcesImportStatusCommand = async (
   const doc = take(data, {
     appArn: __expectString,
     appVersion: __expectString,
+    errorDetails: _json,
     errorMessage: __expectString,
     status: __expectString,
     statusChangeTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3319,6 +3322,7 @@ const de_App = (output: any, context: __SerdeContext): App => {
   return take(output, {
     appArn: __expectString,
     assessmentSchedule: __expectString,
+    awsApplicationArn: __expectString,
     complianceStatus: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
@@ -3430,6 +3434,7 @@ const de_AppSummary = (output: any, context: __SerdeContext): AppSummary => {
   return take(output, {
     appArn: __expectString,
     assessmentSchedule: __expectString,
+    awsApplicationArn: __expectString,
     complianceStatus: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
@@ -3604,6 +3609,10 @@ const de_DisruptionResiliencyScore = (
 // de_EksSourceClusterNamespace omitted.
 
 // de_EksSourceList omitted.
+
+// de_ErrorDetail omitted.
+
+// de_ErrorDetailList omitted.
 
 // de_EventSubscription omitted.
 
@@ -3834,6 +3843,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _aA = "appArn";
+const _aAA = "awsApplicationArn";
 const _aAs = "assessmentArn";
 const _aN = "assessmentName";
 const _aS = "assessmentStatus";

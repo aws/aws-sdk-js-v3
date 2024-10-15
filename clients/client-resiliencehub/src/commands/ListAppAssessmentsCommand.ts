@@ -40,10 +40,10 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  *   appArn: "STRING_VALUE",
  *   assessmentName: "STRING_VALUE",
  *   assessmentStatus: [ // AssessmentStatusList
- *     "STRING_VALUE",
+ *     "Pending" || "InProgress" || "Failed" || "Success",
  *   ],
- *   complianceStatus: "STRING_VALUE",
- *   invoker: "STRING_VALUE",
+ *   complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
+ *   invoker: "User" || "System",
  *   reverseOrder: true || false,
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -56,22 +56,22 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * //     { // AppAssessmentSummary
  * //       appArn: "STRING_VALUE",
  * //       appVersion: "STRING_VALUE",
- * //       assessmentStatus: "STRING_VALUE", // required
- * //       invoker: "STRING_VALUE",
+ * //       assessmentStatus: "Pending" || "InProgress" || "Failed" || "Success", // required
+ * //       invoker: "User" || "System",
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
  * //       message: "STRING_VALUE",
  * //       assessmentName: "STRING_VALUE",
  * //       assessmentArn: "STRING_VALUE", // required
- * //       complianceStatus: "STRING_VALUE",
+ * //       complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
  * //       cost: { // Cost
  * //         amount: Number("double"), // required
  * //         currency: "STRING_VALUE", // required
- * //         frequency: "STRING_VALUE", // required
+ * //         frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //       },
  * //       resiliencyScore: Number("double"),
  * //       versionName: "STRING_VALUE",
- * //       driftStatus: "STRING_VALUE",
+ * //       driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //     },
  * //   ],
  * // };

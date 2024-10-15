@@ -44,7 +44,7 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * const response = await client.send(command);
  * // { // DeleteAppAssessmentResponse
  * //   assessmentArn: "STRING_VALUE", // required
- * //   assessmentStatus: "STRING_VALUE", // required
+ * //   assessmentStatus: "Pending" || "InProgress" || "Failed" || "Success", // required
  * // };
  *
  * ```

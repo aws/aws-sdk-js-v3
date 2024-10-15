@@ -64,7 +64,7 @@ export interface ListAppAssessmentResourceDriftsCommandOutput
  * //         },
  * //         resourceType: "STRING_VALUE",
  * //       },
- * //       diffType: "STRING_VALUE",
+ * //       diffType: "NotEqual" || "Added" || "Removed",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

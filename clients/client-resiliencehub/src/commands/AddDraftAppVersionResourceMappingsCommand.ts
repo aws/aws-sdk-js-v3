@@ -56,10 +56,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *       logicalStackName: "STRING_VALUE",
  *       appRegistryAppName: "STRING_VALUE",
  *       resourceGroupName: "STRING_VALUE",
- *       mappingType: "STRING_VALUE", // required
+ *       mappingType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  *       physicalResourceId: { // PhysicalResourceId
  *         identifier: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
+ *         type: "Arn" || "Native", // required
  *         awsRegion: "STRING_VALUE",
  *         awsAccountId: "STRING_VALUE",
  *       },
@@ -79,10 +79,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * //       logicalStackName: "STRING_VALUE",
  * //       appRegistryAppName: "STRING_VALUE",
  * //       resourceGroupName: "STRING_VALUE",
- * //       mappingType: "STRING_VALUE", // required
+ * //       mappingType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  * //       physicalResourceId: { // PhysicalResourceId
  * //         identifier: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "Arn" || "Native", // required
  * //         awsRegion: "STRING_VALUE",
  * //         awsAccountId: "STRING_VALUE",
  * //       },

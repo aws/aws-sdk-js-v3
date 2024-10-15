@@ -52,6 +52,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *   fromLastAssessmentTime: new Date("TIMESTAMP"),
  *   toLastAssessmentTime: new Date("TIMESTAMP"),
  *   reverseOrder: true || false,
+ *   awsApplicationArn: "STRING_VALUE",
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
@@ -62,14 +63,15 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       complianceStatus: "STRING_VALUE",
+ * //       complianceStatus: "PolicyBreached" || "PolicyMet" || "NotAssessed" || "ChangesDetected" || "NotApplicable" || "MissingPolicy",
  * //       resiliencyScore: Number("double"),
- * //       assessmentSchedule: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       driftStatus: "STRING_VALUE",
+ * //       assessmentSchedule: "Disabled" || "Daily",
+ * //       status: "Active" || "Deleting",
+ * //       driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //       lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
  * //       rtoInSecs: Number("int"),
  * //       rpoInSecs: Number("int"),
+ * //       awsApplicationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

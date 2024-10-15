@@ -55,11 +55,11 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //   assessment: { // AppAssessment
  * //     appArn: "STRING_VALUE",
  * //     appVersion: "STRING_VALUE",
- * //     invoker: "STRING_VALUE", // required
+ * //     invoker: "User" || "System", // required
  * //     cost: { // Cost
  * //       amount: Number("double"), // required
  * //       currency: "STRING_VALUE", // required
- * //       frequency: "STRING_VALUE", // required
+ * //       frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //     },
  * //     resiliencyScore: { // ResiliencyScore
  * //       score: Number("double"), // required
@@ -84,13 +84,13 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //         currentRpoInSecs: Number("int"),
  * //         rpoReferenceId: "STRING_VALUE",
  * //         rpoDescription: "STRING_VALUE",
- * //         complianceStatus: "STRING_VALUE", // required
+ * //         complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //         achievableRpoInSecs: Number("int"),
  * //         message: "STRING_VALUE",
  * //       },
  * //     },
- * //     complianceStatus: "STRING_VALUE",
- * //     assessmentStatus: "STRING_VALUE", // required
+ * //     complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy",
+ * //     assessmentStatus: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     message: "STRING_VALUE",
@@ -100,9 +100,9 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //       policyArn: "STRING_VALUE",
  * //       policyName: "STRING_VALUE",
  * //       policyDescription: "STRING_VALUE",
- * //       dataLocationConstraint: "STRING_VALUE",
- * //       tier: "STRING_VALUE",
- * //       estimatedCostTier: "STRING_VALUE",
+ * //       dataLocationConstraint: "AnyLocation" || "SameContinent" || "SameCountry",
+ * //       tier: "MissionCritical" || "Critical" || "Important" || "CoreServices" || "NonCritical" || "NotApplicable",
+ * //       estimatedCostTier: "L1" || "L2" || "L3" || "L4",
  * //       policy: { // DisruptionPolicy
  * //         "<keys>": { // FailurePolicy
  * //           rtoInSecs: Number("int"), // required
@@ -128,7 +128,7 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //       hasMoreErrors: true || false,
  * //     },
  * //     versionName: "STRING_VALUE",
- * //     driftStatus: "STRING_VALUE",
+ * //     driftStatus: "NotChecked" || "NotDetected" || "Detected",
  * //     summary: { // AssessmentSummary
  * //       summary: "STRING_VALUE",
  * //       riskRecommendations: [ // AssessmentRiskRecommendationList

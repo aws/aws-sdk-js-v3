@@ -51,8 +51,8 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //       appComponentName: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       intent: "STRING_VALUE",
- * //       risk: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       risk: "Small" || "Medium" || "High",
+ * //       type: "Software" || "Hardware" || "AZ" || "Region",
  * //       description: "STRING_VALUE",
  * //       items: [ // RecommendationItemList
  * //         { // RecommendationItem
@@ -61,14 +61,14 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",
  * //       dependsOnAlarms: [ // AlarmReferenceIdList
  * //         "STRING_VALUE",
  * //       ],
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * // };

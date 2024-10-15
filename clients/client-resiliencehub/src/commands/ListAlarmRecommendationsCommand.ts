@@ -49,7 +49,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * //       referenceId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       type: "STRING_VALUE", // required
+ * //       type: "Metric" || "Composite" || "Canary" || "Logs" || "Event", // required
  * //       appComponentName: "STRING_VALUE",
  * //       items: [ // RecommendationItemList
  * //         { // RecommendationItem
@@ -58,14 +58,14 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",
  * //       appComponentNames: [ // AppComponentNameList
  * //         "STRING_VALUE",
  * //       ],
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

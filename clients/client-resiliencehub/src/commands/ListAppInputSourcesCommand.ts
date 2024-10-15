@@ -49,7 +49,7 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * //   appInputSources: [ // AppInputSourceList // required
  * //     { // AppInputSource
  * //       sourceName: "STRING_VALUE",
- * //       importType: "STRING_VALUE", // required
+ * //       importType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  * //       sourceArn: "STRING_VALUE",
  * //       terraformSource: { // TerraformSource
  * //         s3StateFileUrl: "STRING_VALUE", // required

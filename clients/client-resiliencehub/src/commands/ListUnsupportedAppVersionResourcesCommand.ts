@@ -66,7 +66,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * //       },
  * //       physicalResourceId: { // PhysicalResourceId
  * //         identifier: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "Arn" || "Native", // required
  * //         awsRegion: "STRING_VALUE",
  * //         awsAccountId: "STRING_VALUE",
  * //       },

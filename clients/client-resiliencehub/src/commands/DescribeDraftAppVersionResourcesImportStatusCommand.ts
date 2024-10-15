@@ -59,9 +59,14 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * // { // DescribeDraftAppVersionResourcesImportStatusResponse
  * //   appArn: "STRING_VALUE", // required
  * //   appVersion: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //   statusChangeTime: new Date("TIMESTAMP"), // required
  * //   errorMessage: "STRING_VALUE",
+ * //   errorDetails: [ // ErrorDetailList
+ * //     { // ErrorDetail
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

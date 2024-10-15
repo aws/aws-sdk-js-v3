@@ -48,7 +48,7 @@ export interface ListRecommendationTemplatesCommandOutput
  *   assessmentArn: "STRING_VALUE",
  *   reverseOrder: true || false,
  *   status: [ // RecommendationTemplateStatusList
- *     "STRING_VALUE",
+ *     "Pending" || "InProgress" || "Failed" || "Success",
  *   ],
  *   recommendationTemplateArn: "STRING_VALUE",
  *   name: "STRING_VALUE",
@@ -71,12 +71,12 @@ export interface ListRecommendationTemplatesCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       recommendationTypes: [ // RenderRecommendationTypeList // required
- * //         "STRING_VALUE",
+ * //         "Alarm" || "Sop" || "Test",
  * //       ],
- * //       format: "STRING_VALUE", // required
+ * //       format: "CfnYaml" || "CfnJson", // required
  * //       recommendationTemplateArn: "STRING_VALUE", // required
  * //       message: "STRING_VALUE",
- * //       status: "STRING_VALUE", // required
+ * //       status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //       name: "STRING_VALUE", // required
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),

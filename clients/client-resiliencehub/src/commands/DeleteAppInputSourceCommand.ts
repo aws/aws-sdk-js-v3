@@ -54,7 +54,7 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * //   appArn: "STRING_VALUE",
  * //   appInputSource: { // AppInputSource
  * //     sourceName: "STRING_VALUE",
- * //     importType: "STRING_VALUE", // required
+ * //     importType: "CfnStack" || "Resource" || "AppRegistryApp" || "ResourceGroup" || "Terraform" || "EKS", // required
  * //     sourceArn: "STRING_VALUE",
  * //     terraformSource: { // TerraformSource
  * //       s3StateFileUrl: "STRING_VALUE", // required

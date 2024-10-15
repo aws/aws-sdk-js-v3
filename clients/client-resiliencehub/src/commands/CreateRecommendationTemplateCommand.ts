@@ -49,9 +49,9 @@ export interface CreateRecommendationTemplateCommandOutput
  *   recommendationIds: [ // RecommendationIdList
  *     "STRING_VALUE",
  *   ],
- *   format: "STRING_VALUE",
+ *   format: "CfnYaml" || "CfnJson",
  *   recommendationTypes: [ // RenderRecommendationTypeList
- *     "STRING_VALUE",
+ *     "Alarm" || "Sop" || "Test",
  *   ],
  *   assessmentArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
@@ -75,12 +75,12 @@ export interface CreateRecommendationTemplateCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     recommendationTypes: [ // RenderRecommendationTypeList // required
- * //       "STRING_VALUE",
+ * //       "Alarm" || "Sop" || "Test",
  * //     ],
- * //     format: "STRING_VALUE", // required
+ * //     format: "CfnYaml" || "CfnJson", // required
  * //     recommendationTemplateArn: "STRING_VALUE", // required
  * //     message: "STRING_VALUE",
- * //     status: "STRING_VALUE", // required
+ * //     status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //     name: "STRING_VALUE", // required
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
