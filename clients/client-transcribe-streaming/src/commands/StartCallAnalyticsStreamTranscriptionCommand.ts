@@ -209,7 +209,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  *  <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used not valid values. Check the specified parameters and try your request again.</p>
+ *       used unsupported values. Check the specified parameters and try your request again.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>A new stream started with the same session ID. The current stream has been terminated.</p>

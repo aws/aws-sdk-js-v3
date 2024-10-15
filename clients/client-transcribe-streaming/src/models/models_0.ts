@@ -219,13 +219,16 @@ export const ContentRedactionOutput = {
 export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
- * <p>Allows you to specify additional settings for your streaming Call Analytics
- *       post-call request, including output locations for your redacted and unredacted
- *       transcript, which IAM role to use, and, optionally, which encryption key to
- *       use.</p>
+ * <p>Allows you to specify additional settings for your Call Analytics post-call request,
+ *       including output locations for your redacted transcript, which IAM role to use,
+ *       and which encryption key to use.</p>
  *          <p>
- *             <code>ContentRedactionOutput</code>, <code>DataAccessRoleArn</code>, and
- *       <code>OutputLocation</code> are required fields.</p>
+ *             <code>DataAccessRoleArn</code> and <code>OutputLocation</code> are required
+ *       fields.</p>
+ *          <p>
+ *             <code>PostCallAnalyticsSettings</code> provides you with the same insights as a
+ *       Call Analytics post-call transcription. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html">Post-call analytics</a> for more information
+ *       on this feature.</p>
  * @public
  */
 export interface PostCallAnalyticsSettings {
@@ -309,8 +312,8 @@ export interface PostCallAnalyticsSettings {
    *           <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
    *             </li>
    *          </ol>
-   *          <p>Note that the user making the  request must
-   *       have permission to use the specified KMS key.</p>
+   *          <p>Note that the role making the
+   *       request must have permission to use the specified KMS key.</p>
    * @public
    */
   OutputEncryptionKMSKeyId?: string;
@@ -329,7 +332,11 @@ export interface ConfigurationEvent {
 
   /**
    * <p>Provides additional optional settings for your Call Analytics post-call request, including
-   *       encryption and output locations for your redacted and unredacted transcript.</p>
+   *       encryption and output locations for your redacted transcript.</p>
+   *          <p>
+   *             <code>PostCallAnalyticsSettings</code> provides you with the same insights as a
+   *       Call Analytics post-call transcription. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html">Post-call analytics</a> for more information
+   *       on this feature.</p>
    * @public
    */
   PostCallAnalyticsSettings?: PostCallAnalyticsSettings;
@@ -398,7 +405,7 @@ export namespace AudioStream {
  * <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used not valid values. Check the specified parameters and try your request again.</p>
+ *       used unsupported values. Check the specified parameters and try your request again.</p>
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -808,7 +815,7 @@ export interface UtteranceEvent {
 }
 
 /**
- * <p>Contains detailed information about your Call Analytics streaming session. These details are
+ * <p>Contains detailed information about your real-time Call Analytics session. These details are
  *       provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>
  * @public
  */
@@ -863,7 +870,7 @@ export namespace CallAnalyticsTranscriptResultStream {
    * <p>One or more arguments to the <code>StartStreamTranscription</code>,
    *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
    *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
-   *       used not valid values. Check the specified parameters and try your request again.</p>
+   *       used unsupported values. Check the specified parameters and try your request again.</p>
    * @public
    */
   export interface BadRequestExceptionMember {
@@ -1009,20 +1016,60 @@ export type ContentRedactionType = (typeof ContentRedactionType)[keyof typeof Co
  * @enum
  */
 export const LanguageCode = {
+  AF_ZA: "af-ZA",
+  AR_AE: "ar-AE",
+  AR_SA: "ar-SA",
+  CA_ES: "ca-ES",
+  CS_CZ: "cs-CZ",
+  DA_DK: "da-DK",
+  DE_CH: "de-CH",
   DE_DE: "de-DE",
+  EL_GR: "el-GR",
+  EN_AB: "en-AB",
   EN_AU: "en-AU",
   EN_GB: "en-GB",
+  EN_IE: "en-IE",
+  EN_IN: "en-IN",
+  EN_NZ: "en-NZ",
   EN_US: "en-US",
+  EN_WL: "en-WL",
+  EN_ZA: "en-ZA",
+  ES_ES: "es-ES",
   ES_US: "es-US",
+  EU_ES: "eu-ES",
+  FA_IR: "fa-IR",
+  FI_FI: "fi-FI",
   FR_CA: "fr-CA",
   FR_FR: "fr-FR",
+  GL_ES: "gl-ES",
+  HE_IL: "he-IL",
   HI_IN: "hi-IN",
+  HR_HR: "hr-HR",
+  ID_ID: "id-ID",
   IT_IT: "it-IT",
   JA_JP: "ja-JP",
   KO_KR: "ko-KR",
+  LV_LV: "lv-LV",
+  MS_MY: "ms-MY",
+  NL_NL: "nl-NL",
+  NO_NO: "no-NO",
+  PL_PL: "pl-PL",
   PT_BR: "pt-BR",
+  PT_PT: "pt-PT",
+  RO_RO: "ro-RO",
+  RU_RU: "ru-RU",
+  SK_SK: "sk-SK",
+  SO_SO: "so-SO",
+  SR_RS: "sr-RS",
+  SV_SE: "sv-SE",
   TH_TH: "th-TH",
+  TL_PH: "tl-PH",
+  UK_UA: "uk-UA",
+  VI_VN: "vi-VN",
   ZH_CN: "zh-CN",
+  ZH_HK: "zh-HK",
+  ZH_TW: "zh-TW",
+  ZU_ZA: "zu-ZA",
 } as const;
 
 /**
@@ -1325,7 +1372,7 @@ export namespace MedicalTranscriptResultStream {
    * <p>One or more arguments to the <code>StartStreamTranscription</code>,
    *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
    *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
-   *       used not valid values. Check the specified parameters and try your request again.</p>
+   *       used unsupported values. Check the specified parameters and try your request again.</p>
    * @public
    */
   export interface BadRequestExceptionMember {
@@ -1550,9 +1597,7 @@ export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeo
 export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
-   *          <p>If you're unsure of the language spoken in your audio, consider using
-   *       <code>IdentifyLanguage</code> to enable automatic language identification.</p>
-   *          <p>For a list of languages supported with streaming Call Analytics, refer to the
+   *          <p>For a list of languages supported with real-time Call Analytics, refer to the
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
    * @public
@@ -1598,7 +1643,6 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Specify a name for your Call Analytics transcription session. If you don't include this parameter
    *       in your request, Amazon Transcribe generates an ID and returns it in the response.</p>
-   *          <p>You can use a session ID to retry a streaming session.</p>
    * @public
    */
   SessionId?: string;
@@ -1665,7 +1709,8 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content identification is performed at the segment level; PII specified in
-   *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>
+   *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment. If you don't
+   *       include <code>PiiEntityTypes</code> in your request, all PII is identified.</p>
    *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>
    *       in the same request. If you set both, your request returns a
    *       <code>BadRequestException</code>.</p>
@@ -1678,10 +1723,10 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content redaction is performed at the segment level; PII specified in
-   *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>
+   *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment. If you don't
+   *       include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
    *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>
-   *       in the same request. If you set both, your request returns a
-   *       <code>BadRequestException</code>.</p>
+   *       in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    * @public
@@ -1692,14 +1737,17 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
    *       transcript. You can include as many types as you'd like, or you can select
    *       <code>ALL</code>.</p>
-   *          <p>To include <code>PiiEntityTypes</code> in your Call Analytics request, you must also include
-   *       either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
-   *          <p>Values must be comma-separated and can include:
+   *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>,
    *       <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,
-   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>,
-   *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
-   *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+   *       <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
+   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
+   *       <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>,
    *       <code>SSN</code>, or <code>ALL</code>.</p>
+   *          <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include
+   *       <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
+   *          <p>If you include <code>ContentRedactionType</code> or
+   *       <code>ContentIdentificationType</code> in your request, but do not include
+   *       <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>
    * @public
    */
   PiiEntityTypes?: string;
@@ -1710,7 +1758,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
  */
 export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
-   * <p>Provides the identifier for your Call Analytics streaming request.</p>
+   * <p>Provides the identifier for your real-time Call Analytics request.</p>
    * @public
    */
   RequestId?: string;
@@ -1746,7 +1794,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   SessionId?: string;
 
   /**
-   * <p>Provides detailed information about your Call Analytics streaming session.</p>
+   * <p>Provides detailed information about your real-time Call Analytics session.</p>
    * @public
    */
   CallAnalyticsTranscriptResultStream?: AsyncIterable<CallAnalyticsTranscriptResultStream>;
@@ -1889,7 +1937,6 @@ export interface StartMedicalStreamTranscriptionRequest {
    * <p>Specify a name for your transcription session. If you don't include this parameter in
    *             your request, Amazon Transcribe Medical generates an ID and returns it in the
    *             response.</p>
-   *          <p>You can use a session ID to retry a streaming session.</p>
    * @public
    */
   SessionId?: string;
@@ -1908,14 +1955,19 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             the output for each channel into one transcript.</p>
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio is
    *             transcribed in a continuous manner and your transcript is not separated by channel.</p>
+   *          <p>If you include <code>EnableChannelIdentification</code> in your request, you must also
+   *             include <code>NumberOfChannels</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
    * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * <p>Specify the number of channels in your audio stream. Up to two channels are
-   *             supported.</p>
+   * <p>Specify the number of channels in your audio stream. This value must be
+   *             <code>2</code>, as only two channels are supported. If your audio doesn't contain
+   *             multiple channels, do not include this parameter in your request.</p>
+   *          <p>If you include <code>NumberOfChannels</code> in your request, you must also
+   *             include <code>EnableChannelIdentification</code>.</p>
    * @public
    */
   NumberOfChannels?: number;
@@ -2075,7 +2127,6 @@ export interface StartStreamTranscriptionRequest {
   /**
    * <p>Specify a name for your transcription session. If you don't include this parameter in your request,
    *       Amazon Transcribe generates an ID and returns it in the response.</p>
-   *          <p>You can use a session ID to retry a streaming session.</p>
    * @public
    */
   SessionId?: string;
@@ -2128,14 +2179,19 @@ export interface StartStreamTranscriptionRequest {
    *       output for each channel into one transcript.</p>
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio is
    *       transcribed in a continuous manner and your transcript is not separated by channel.</p>
+   *          <p>If you include <code>EnableChannelIdentification</code> in your request, you must also
+   *       include <code>NumberOfChannels</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
    * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * <p>Specify the number of channels in your audio stream. Up to two channels are
-   *       supported.</p>
+   * <p>Specify the number of channels in your audio stream. This value must be
+   *       <code>2</code>, as only two channels are supported. If your audio doesn't contain
+   *       multiple channels, do not include this parameter in your request.</p>
+   *          <p>If you include <code>NumberOfChannels</code> in your request, you must also
+   *       include <code>EnableChannelIdentification</code>.</p>
    * @public
    */
   NumberOfChannels?: number;
@@ -2163,7 +2219,8 @@ export interface StartStreamTranscriptionRequest {
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content identification is performed at the segment level; PII specified in
-   *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>
+   *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment. If you don't
+   *       include <code>PiiEntityTypes</code> in your request, all PII is identified.</p>
    *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>
    *       in the same request. If you set both, your request returns a
    *       <code>BadRequestException</code>.</p>
@@ -2176,10 +2233,10 @@ export interface StartStreamTranscriptionRequest {
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content redaction is performed at the segment level; PII specified in
-   *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>
+   *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment. If you don't
+   *       include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
    *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>
-   *       in the same request. If you set both, your request returns a
-   *       <code>BadRequestException</code>.</p>
+   *       in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    * @public
@@ -2190,14 +2247,17 @@ export interface StartStreamTranscriptionRequest {
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
    *       transcript. You can include as many types as you'd like, or you can select
    *       <code>ALL</code>.</p>
-   *          <p>To include <code>PiiEntityTypes</code> in your request, you must also include either
-   *       <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
-   *          <p>Values must be comma-separated and can include:
+   *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>,
    *       <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,
-   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>,
-   *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
-   *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+   *       <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
+   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
+   *       <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>,
    *       <code>SSN</code>, or <code>ALL</code>.</p>
+   *          <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include
+   *       <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
+   *          <p>If you include <code>ContentRedactionType</code> or
+   *       <code>ContentIdentificationType</code> in your request, but do not include
+   *       <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>
    * @public
    */
   PiiEntityTypes?: string;
@@ -2215,9 +2275,9 @@ export interface StartStreamTranscriptionRequest {
 
   /**
    * <p>Enables automatic language identification for your transcription.</p>
-   *          <p>If you include <code>IdentifyLanguage</code>, you can optionally include a list of
+   *          <p>If you include <code>IdentifyLanguage</code>, you must include a list of
    *       language codes, using <code>LanguageOptions</code>, that you think may be present in
-   *       your audio stream. Including language options can improve transcription accuracy.</p>
+   *       your audio stream. </p>
    *          <p>You can also include a preferred language using <code>PreferredLanguage</code>. Adding a
    *       preferred language can help Amazon Transcribe identify the language faster than if you omit this
    *       parameter.</p>
@@ -2235,11 +2295,10 @@ export interface StartStreamTranscriptionRequest {
 
   /**
    * <p>Specify two or more language codes that represent the languages you think may be present
-   *       in your media; including more than five is not recommended. If you're unsure what languages are present, do
-   *       not include this parameter.</p>
+   *       in your media; including more than five is not recommended.</p>
    *          <p>Including language options can improve the accuracy of language identification.</p>
    *          <p>If you include <code>LanguageOptions</code> in your request, you must also include
-   *       <code>IdentifyLanguage</code>.</p>
+   *       <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code>.</p>
    *          <p>For a list of languages supported with Amazon Transcribe streaming, refer to the
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
@@ -2262,7 +2321,7 @@ export interface StartStreamTranscriptionRequest {
 
   /**
    * <p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>
-   *          <p>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream. Including <code>LanguageOptions</code> restricts <code>IdentifyMultipleLanguages</code> to only the language options that you specify, which can improve transcription accuracy.</p>
+   *          <p>If you include <code>IdentifyMultipleLanguages</code>, you must include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream.</p>
    *          <p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic multiple language identification request, include <code>VocabularyNames</code> or <code>VocabularyFilterNames</code>.</p>
    *          <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
    * @public
@@ -2551,7 +2610,7 @@ export interface StartStreamTranscriptionResponse {
   ShowSpeakerLabel?: boolean;
 
   /**
-   * <p>Shows whether  channel identification was enabled for your transcription.</p>
+   * <p>Shows whether channel identification was enabled for your transcription.</p>
    * @public
    */
   EnableChannelIdentification?: boolean;
