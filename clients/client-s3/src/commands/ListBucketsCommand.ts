@@ -45,6 +45,8 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * const input = { // ListBucketsRequest
  *   MaxBuckets: Number("int"),
  *   ContinuationToken: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   BucketRegion: "STRING_VALUE",
  * };
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
@@ -53,6 +55,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * //     { // Bucket
  * //       Name: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
+ * //       BucketRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Owner: { // Owner
@@ -60,6 +63,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * //     ID: "STRING_VALUE",
  * //   },
  * //   ContinuationToken: "STRING_VALUE",
+ * //   Prefix: "STRING_VALUE",
  * // };
  *
  * ```

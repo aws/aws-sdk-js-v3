@@ -1880,6 +1880,8 @@ export const se_ListBucketsCommand = async (
     [_xi]: [, "ListBuckets"],
     [_mb]: [() => input.MaxBuckets !== void 0, () => input[_MB]!.toString()],
     [_ct_]: [, input[_CTo]!],
+    [_pr]: [, input[_P]!],
+    [_br]: [, input[_BR]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4496,6 +4498,9 @@ export const de_ListBucketsCommand = async (
   }
   if (data[_O] != null) {
     contents[_O] = de_Owner(data[_O], context);
+  }
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
   return contents;
 };
@@ -7644,6 +7649,9 @@ const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
   if (output[_CDr] != null) {
     contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
+  if (output[_BR] != null) {
+    contents[_BR] = __expectString(output[_BR]);
+  }
   return contents;
 };
 
@@ -10101,6 +10109,7 @@ const _ac = "accelerate";
 const _acl = "acl";
 const _ar = "accept-ranges";
 const _at = "attributes";
+const _br = "bucket-region";
 const _c = "cors";
 const _cc = "cache-control";
 const _cd = "content-disposition";

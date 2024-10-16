@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import {
@@ -29,6 +30,7 @@ import {
   StorageClass,
   Tag,
 } from "./models_0";
+
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
@@ -784,10 +786,10 @@ export interface PutObjectRequest {
    *          Content-MD5 mechanism as an end-to-end integrity check. For more information about REST
    *          request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
    *          <note>
-   *             <p>The <code>Content-MD5</code> header is required for any request to upload an
+   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an
    *          object with a retention period configured using Amazon S3 Object Lock. For more
-   *          information about Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock
-   *             Overview</a> in the <i>Amazon S3 User Guide</i>. </p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket
+   *          </a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -842,8 +844,12 @@ export interface PutObjectRequest {
    *             <code>ChecksumAlgorithm</code> parameter and uses the checksum algorithm that matches the provided value in <code>x-amz-checksum-<i>algorithm</i>
    *             </code>.</p>
    *          <note>
-   *             <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an
+   *          object with a retention period configured using Amazon S3 Object Lock. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket
+   *          </a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
+   *          <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
    * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm;
@@ -1106,10 +1112,13 @@ export interface PutObjectRequest {
    *          <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key
    *          (<code>aws/s3</code>) to protect the data.</p>
    *          <p>
-   *             <b>Directory buckets</b> - If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code>
-   *          x-amz-server-side-encryption-aws-kms-key-id</code> header with the ID (Key ID or Key ARN) of the KMS
-   *          symmetric encryption customer managed key to use. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket for the lifetime of the bucket.
-   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported.
+   *             <b>Directory buckets</b> - If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, the <code>
+   *          x-amz-server-side-encryption-aws-kms-key-id</code> header is implicitly assigned the ID of the KMS
+   *          symmetric encryption customer managed key that's configured for your directory bucket's default encryption setting.
+   *          If you want to specify the <code>
+   *          x-amz-server-side-encryption-aws-kms-key-id</code> header explicitly, you can only specify it with the ID (Key ID or Key ARN) of the KMS
+   *          customer managed key that's configured for your directory bucket's default encryption setting. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket for the lifetime of the bucket.
+   * The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported.
    * </p>
    * @public
    */
@@ -2211,13 +2220,7 @@ export interface OutputSerialization {
 }
 
 /**
- * <important>
- *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
- *             </p>
- *          </important>
- *          <p>Describes the parameters for Select job types.</p>
- *          <p>Learn <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">How to optimize querying your data in Amazon S3</a>  using
- *          <a href="https://docs.aws.amazon.com/athena/latest/ug/what-is.html">Amazon Athena</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">S3 Object Lambda</a>, or client-side filtering.</p>
+ * <p>Describes the parameters for Select job types.</p>
  * @public
  */
 export interface SelectParameters {
@@ -2234,11 +2237,7 @@ export interface SelectParameters {
   ExpressionType: ExpressionType | undefined;
 
   /**
-   * <important>
-   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
-   *             </p>
-   *          </important>
-   *          <p>The expression that is used to query the object.</p>
+   * <p>The expression that is used to query the object.</p>
    * @public
    */
   Expression: string | undefined;
@@ -2285,11 +2284,7 @@ export interface RestoreRequest {
   GlacierJobParameters?: GlacierJobParameters;
 
   /**
-   * <important>
-   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
-   *             </p>
-   *          </important>
-   *          <p>Type of restore request.</p>
+   * <p>Type of restore request.</p>
    * @public
    */
   Type?: RestoreRequestType;
@@ -2307,11 +2302,7 @@ export interface RestoreRequest {
   Description?: string;
 
   /**
-   * <important>
-   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
-   *             </p>
-   *          </important>
-   *          <p>Describes the parameters for Select job types.</p>
+   * <p>Describes the parameters for Select job types.</p>
    * @public
    */
   SelectParameters?: SelectParameters;
@@ -2662,11 +2653,7 @@ export interface ScanRange {
 }
 
 /**
- * <note>
- *             <p>Learn Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
- *             </p>
- *          </note>
- *          <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
+ * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
  *          Language (SQL) statement. In the request, along with the SQL expression, you must specify a
  *          data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data
  *          into records. It returns only records that match the specified SQL expression. You must
