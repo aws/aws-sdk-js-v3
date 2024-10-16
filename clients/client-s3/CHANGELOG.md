@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.673.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.672.0...v3.673.0) (2024-10-16)
+
+
+### Features
+
+* **client-s3:** Add support for the new optional bucket-region and prefix query parameters in the ListBuckets API. For ListBuckets requests that express pagination, Amazon S3 will now return both the bucket names and associated AWS regions in the response. ([e7f10a2](https://github.com/aws/aws-sdk-js-v3/commit/e7f10a29ebea728d73919aa6eb80ea194ec8e0e9))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 
