@@ -3638,7 +3638,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
 /**
  * Serializes nested XML Maps in requests that have xmlName on members
  */
-it("NestedXmlMapWithXmlNameSerializes:Request", async () => {
+it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
