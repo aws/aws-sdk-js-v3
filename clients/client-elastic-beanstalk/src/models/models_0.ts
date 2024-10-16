@@ -2992,7 +2992,7 @@ export interface DescribeEnvironmentHealthResult {
    *         <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>.</p>
    * @public
    */
-  Status?: EnvironmentHealth;
+  Status?: EnvironmentStatus;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health color</a> of the
