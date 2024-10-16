@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.DEV_DEPENDENCY;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.NORMAL_DEPENDENCY;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.PEER_DEPENDENCY;
 
@@ -59,8 +58,14 @@ public enum AwsDependency implements Dependency {
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder"),
-    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
-    UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^9.0.4"),
+    /**
+     * @deprecated use SmithyDependency.UUID.
+     */
+    @Deprecated UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
+    /**
+     * @deprecated use SmithyDependency.UUID_TYPES.
+     */
+    @Deprecated UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),

@@ -320,15 +320,20 @@ import {
 } from "./commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "./commands/TestBodyStructureCommand";
 import {
-  TestNoInputNoPayloadCommandInput,
-  TestNoInputNoPayloadCommandOutput,
-} from "./commands/TestNoInputNoPayloadCommand";
-import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "./commands/TestNoPayloadCommand";
+  TestGetNoInputNoPayloadCommandInput,
+  TestGetNoInputNoPayloadCommandOutput,
+} from "./commands/TestGetNoInputNoPayloadCommand";
+import { TestGetNoPayloadCommandInput, TestGetNoPayloadCommandOutput } from "./commands/TestGetNoPayloadCommand";
 import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "./commands/TestPayloadBlobCommand";
 import {
   TestPayloadStructureCommandInput,
   TestPayloadStructureCommandOutput,
 } from "./commands/TestPayloadStructureCommand";
+import {
+  TestPostNoInputNoPayloadCommandInput,
+  TestPostNoInputNoPayloadCommandOutput,
+} from "./commands/TestPostNoInputNoPayloadCommand";
+import { TestPostNoPayloadCommandInput, TestPostNoPayloadCommandOutput } from "./commands/TestPostNoPayloadCommand";
 import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -436,10 +441,12 @@ export type ServiceInputTypes =
   | StreamingTraitsRequireLengthCommandInput
   | StreamingTraitsWithMediaTypeCommandInput
   | TestBodyStructureCommandInput
-  | TestNoInputNoPayloadCommandInput
-  | TestNoPayloadCommandInput
+  | TestGetNoInputNoPayloadCommandInput
+  | TestGetNoPayloadCommandInput
   | TestPayloadBlobCommandInput
   | TestPayloadStructureCommandInput
+  | TestPostNoInputNoPayloadCommandInput
+  | TestPostNoPayloadCommandInput
   | TimestampFormatHeadersCommandInput
   | UnitInputAndOutputCommandInput;
 
@@ -540,10 +547,12 @@ export type ServiceOutputTypes =
   | StreamingTraitsRequireLengthCommandOutput
   | StreamingTraitsWithMediaTypeCommandOutput
   | TestBodyStructureCommandOutput
-  | TestNoInputNoPayloadCommandOutput
-  | TestNoPayloadCommandOutput
+  | TestGetNoInputNoPayloadCommandOutput
+  | TestGetNoPayloadCommandOutput
   | TestPayloadBlobCommandOutput
   | TestPayloadStructureCommandOutput
+  | TestPostNoInputNoPayloadCommandOutput
+  | TestPostNoPayloadCommandOutput
   | TimestampFormatHeadersCommandOutput
   | UnitInputAndOutputCommandOutput;
 

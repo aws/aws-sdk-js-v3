@@ -448,15 +448,15 @@ import {
   TestBodyStructureCommandOutput,
 } from "./commands/TestBodyStructureCommand";
 import {
-  TestNoInputNoPayloadCommand,
-  TestNoInputNoPayloadCommandInput,
-  TestNoInputNoPayloadCommandOutput,
-} from "./commands/TestNoInputNoPayloadCommand";
+  TestGetNoInputNoPayloadCommand,
+  TestGetNoInputNoPayloadCommandInput,
+  TestGetNoInputNoPayloadCommandOutput,
+} from "./commands/TestGetNoInputNoPayloadCommand";
 import {
-  TestNoPayloadCommand,
-  TestNoPayloadCommandInput,
-  TestNoPayloadCommandOutput,
-} from "./commands/TestNoPayloadCommand";
+  TestGetNoPayloadCommand,
+  TestGetNoPayloadCommandInput,
+  TestGetNoPayloadCommandOutput,
+} from "./commands/TestGetNoPayloadCommand";
 import {
   TestPayloadBlobCommand,
   TestPayloadBlobCommandInput,
@@ -467,6 +467,16 @@ import {
   TestPayloadStructureCommandInput,
   TestPayloadStructureCommandOutput,
 } from "./commands/TestPayloadStructureCommand";
+import {
+  TestPostNoInputNoPayloadCommand,
+  TestPostNoInputNoPayloadCommandInput,
+  TestPostNoInputNoPayloadCommandOutput,
+} from "./commands/TestPostNoInputNoPayloadCommand";
+import {
+  TestPostNoPayloadCommand,
+  TestPostNoPayloadCommandInput,
+  TestPostNoPayloadCommandOutput,
+} from "./commands/TestPostNoPayloadCommand";
 import {
   TimestampFormatHeadersCommand,
   TimestampFormatHeadersCommandInput,
@@ -573,10 +583,12 @@ const commands = {
   StreamingTraitsRequireLengthCommand,
   StreamingTraitsWithMediaTypeCommand,
   TestBodyStructureCommand,
-  TestNoInputNoPayloadCommand,
-  TestNoPayloadCommand,
+  TestGetNoInputNoPayloadCommand,
+  TestGetNoPayloadCommand,
   TestPayloadBlobCommand,
   TestPayloadStructureCommand,
+  TestPostNoInputNoPayloadCommand,
+  TestPostNoPayloadCommand,
   TimestampFormatHeadersCommand,
   UnitInputAndOutputCommand,
 };
@@ -2116,33 +2128,39 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
-   * @see {@link TestNoInputNoPayloadCommand}
+   * @see {@link TestGetNoInputNoPayloadCommand}
    */
-  testNoInputNoPayload(): Promise<TestNoInputNoPayloadCommandOutput>;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
+  testGetNoInputNoPayload(): Promise<TestGetNoInputNoPayloadCommandOutput>;
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<TestNoInputNoPayloadCommandOutput>;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
-    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
+  ): Promise<TestGetNoInputNoPayloadCommandOutput>;
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
+    cb: (err: any, data?: TestGetNoInputNoPayloadCommandOutput) => void
   ): void;
-  testNoInputNoPayload(
-    args: TestNoInputNoPayloadCommandInput,
+  testGetNoInputNoPayload(
+    args: TestGetNoInputNoPayloadCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
+    cb: (err: any, data?: TestGetNoInputNoPayloadCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link TestNoPayloadCommand}
+   * @see {@link TestGetNoPayloadCommand}
    */
-  testNoPayload(): Promise<TestNoPayloadCommandOutput>;
-  testNoPayload(args: TestNoPayloadCommandInput, options?: __HttpHandlerOptions): Promise<TestNoPayloadCommandOutput>;
-  testNoPayload(args: TestNoPayloadCommandInput, cb: (err: any, data?: TestNoPayloadCommandOutput) => void): void;
-  testNoPayload(
-    args: TestNoPayloadCommandInput,
+  testGetNoPayload(): Promise<TestGetNoPayloadCommandOutput>;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestGetNoPayloadCommandOutput>;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
+    cb: (err: any, data?: TestGetNoPayloadCommandOutput) => void
+  ): void;
+  testGetNoPayload(
+    args: TestGetNoPayloadCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TestNoPayloadCommandOutput) => void
+    cb: (err: any, data?: TestGetNoPayloadCommandOutput) => void
   ): void;
 
   /**
@@ -2176,6 +2194,42 @@ export interface RestJsonProtocol {
     args: TestPayloadStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TestPayloadStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestPostNoInputNoPayloadCommand}
+   */
+  testPostNoInputNoPayload(): Promise<TestPostNoInputNoPayloadCommandOutput>;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPostNoInputNoPayloadCommandOutput>;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    cb: (err: any, data?: TestPostNoInputNoPayloadCommandOutput) => void
+  ): void;
+  testPostNoInputNoPayload(
+    args: TestPostNoInputNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPostNoInputNoPayloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestPostNoPayloadCommand}
+   */
+  testPostNoPayload(): Promise<TestPostNoPayloadCommandOutput>;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPostNoPayloadCommandOutput>;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    cb: (err: any, data?: TestPostNoPayloadCommandOutput) => void
+  ): void;
+  testPostNoPayload(
+    args: TestPostNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPostNoPayloadCommandOutput) => void
   ): void;
 
   /**

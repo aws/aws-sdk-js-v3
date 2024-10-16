@@ -144,6 +144,10 @@ import {
   InputAndOutputWithHeadersCommandOutput,
 } from "../commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "../commands/NestedXmlMapsCommand";
+import {
+  NestedXmlMapWithXmlNameCommandInput,
+  NestedXmlMapWithXmlNameCommandOutput,
+} from "../commands/NestedXmlMapWithXmlNameCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
 import {
@@ -1015,6 +1019,29 @@ export const se_NestedXmlMapsCommand = async (
   const bn = new __XmlNode(_NXMR);
   bn.l(input, "flatNestedMap", "flatNestedMap", () => se_NestedMap(input[_fNM]!, context));
   bn.lc(input, "nestedMap", "nestedMap", () => se_NestedMap(input[_nM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameCommand
+ */
+export const se_NestedXmlMapWithXmlNameCommand = async (
+  input: NestedXmlMapWithXmlNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/NestedXmlMapWithXmlName");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_NXMWXNIO);
+  bn.lc(input, "nestedXmlMapWithXmlNameMap", "nestedXmlMapWithXmlNameMap", () =>
+    se_NestedXmlMapWithXmlNameMap(input[_nXMWXNM]!, context)
+  );
   body += bn.toString();
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -2400,6 +2427,28 @@ export const de_NestedXmlMapsCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameCommand
+ */
+export const de_NestedXmlMapWithXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NestedXmlMapWithXmlNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nestedXmlMapWithXmlNameMap === "") {
+    contents[_nXMWXNM] = {};
+  } else if (data[_nXMWXNM] != null && data[_nXMWXNM][_en] != null) {
+    contents[_nXMWXNM] = de_NestedXmlMapWithXmlNameMap(__getArrayIfSingleItem(data[_nXMWXNM][_en]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlNoInputAndNoOutputCommand
  */
 export const de_NoInputAndNoOutputCommand = async (
@@ -3342,6 +3391,44 @@ const se_NestedPayload = (input: NestedPayload, context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameInnerMap
+ */
+const se_NestedXmlMapWithXmlNameInnerMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of(_S, key).n("InnerKey");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_S, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_IV));
+      return entryNode;
+    });
+};
+
+/**
+ * serializeAws_restXmlNestedXmlMapWithXmlNameMap
+ */
+const se_NestedXmlMapWithXmlNameMap = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of(_S, key).n("OuterKey");
+      entryNode.c(keyNode);
+      let n;
+      n = se_NestedXmlMapWithXmlNameInnerMap(input[key as keyof typeof input]!, context);
+      entryNode.c(
+        n.reduce((acc: __XmlNode, workingNode: any) => {
+          return acc.c(workingNode);
+        }, new __XmlNode(_v))
+      );
+      return entryNode;
+    });
+};
+
+/**
  * serializeAws_restXmlPayloadWithXmlName
  */
 const se_PayloadWithXmlName = (input: PayloadWithXmlName, context: __SerdeContext): any => {
@@ -3919,6 +4006,35 @@ const de_NestedPayload = (output: any, context: __SerdeContext): NestedPayload =
 };
 
 /**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameInnerMap
+ */
+const de_NestedXmlMapWithXmlNameInnerMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["InnerValue"] === null) {
+      return acc;
+    }
+    acc[pair["InnerKey"]] = __expectString(pair["InnerValue"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restXmlNestedXmlMapWithXmlNameMap
+ */
+const de_NestedXmlMapWithXmlNameMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Record<string, string>> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
+      return acc;
+    }
+    acc[pair["OuterKey"]] = de_NestedXmlMapWithXmlNameInnerMap(__getArrayIfSingleItem(pair["value"]["entry"]), context);
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_restXmlPayloadWithXmlName
  */
 const de_PayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWithXmlName => {
@@ -4395,12 +4511,14 @@ const _IE = "IntegerEnum";
 const _IEL = "IntegerEnumList";
 const _IL = "IntegerList";
 const _IS = "IntegerSet";
+const _IV = "InnerValue";
 const _KVP = "KVP";
 const _L = "Long";
 const _M = "Message";
 const _N = "Null";
 const _NP = "NestedPayload";
 const _NXMR = "NestedXmlMapsRequest";
+const _NXMWXNIO = "NestedXmlMapWithXmlNameInputOutput";
 const _Ne = "Nested";
 const _PWCEI = "PutWithContentEncodingInput";
 const _PWXN = "PayloadWithXmlNamespace";
@@ -4522,6 +4640,7 @@ const _n = "nested";
 const _nM = "nestedMap";
 const _nSL = "nestedStringList";
 const _nV = "nullValue";
+const _nXMWXNM = "nestedXmlMapWithXmlNameMap";
 const _na = "name";
 const _no = "normal";
 const _o = "other";

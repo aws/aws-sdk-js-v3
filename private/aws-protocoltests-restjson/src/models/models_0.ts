@@ -1414,6 +1414,7 @@ export interface SimpleScalarPropertiesInputOutput {
  */
 export interface SparseJsonListsInputOutput {
   sparseStringList?: string[];
+  sparseShortList?: number[];
 }
 
 /**

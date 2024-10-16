@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { TestNoPayloadInputOutput } from "../models/models_0";
-import { de_TestNoPayloadCommand, se_TestNoPayloadCommand } from "../protocols/Aws_restJson1";
+import { de_TestGetNoInputNoPayloadCommand, se_TestGetNoInputNoPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -15,18 +15,18 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TestNoPayloadCommand}.
+ * The input for {@link TestGetNoInputNoPayloadCommand}.
  */
-export interface TestNoPayloadCommandInput extends TestNoPayloadInputOutput {}
+export interface TestGetNoInputNoPayloadCommandInput {}
 /**
  * @public
  *
- * The output of {@link TestNoPayloadCommand}.
+ * The output of {@link TestGetNoInputNoPayloadCommand}.
  */
-export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __MetadataBearer {}
+export interface TestGetNoInputNoPayloadCommandOutput extends TestNoPayloadInputOutput, __MetadataBearer {}
 
 /**
- * This example operation serializes a request without an HTTP body.
+ * This example GET operation has no input and serializes a request without a HTTP body.
  *
  * These tests are to ensure we do not attach a body or related headers
  * (Content-Length, Content-Type) to operations that semantically
@@ -35,13 +35,11 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, TestNoPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, TestNoPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, TestGetNoInputNoPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, TestGetNoInputNoPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = { // TestNoPayloadInputOutput
- *   testId: "STRING_VALUE",
- * };
- * const command = new TestNoPayloadCommand(input);
+ * const input = {};
+ * const command = new TestGetNoInputNoPayloadCommand(input);
  * const response = await client.send(command);
  * // { // TestNoPayloadInputOutput
  * //   testId: "STRING_VALUE",
@@ -49,10 +47,10 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  *
  * ```
  *
- * @param TestNoPayloadCommandInput - {@link TestNoPayloadCommandInput}
- * @returns {@link TestNoPayloadCommandOutput}
- * @see {@link TestNoPayloadCommandInput} for command's `input` shape.
- * @see {@link TestNoPayloadCommandOutput} for command's `response` shape.
+ * @param TestGetNoInputNoPayloadCommandInput - {@link TestGetNoInputNoPayloadCommandInput}
+ * @returns {@link TestGetNoInputNoPayloadCommandOutput}
+ * @see {@link TestGetNoInputNoPayloadCommandInput} for command's `input` shape.
+ * @see {@link TestGetNoInputNoPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  * @throws {@link RestJsonProtocolServiceException}
@@ -60,10 +58,10 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  *
  * @public
  */
-export class TestNoPayloadCommand extends $Command
+export class TestGetNoInputNoPayloadCommand extends $Command
   .classBuilder<
-    TestNoPayloadCommandInput,
-    TestNoPayloadCommandOutput,
+    TestGetNoInputNoPayloadCommandInput,
+    TestGetNoInputNoPayloadCommandOutput,
     RestJsonProtocolClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -71,21 +69,21 @@ export class TestNoPayloadCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
-  .s("RestJson", "TestNoPayload", {})
-  .n("RestJsonProtocolClient", "TestNoPayloadCommand")
+  .s("RestJson", "TestGetNoInputNoPayload", {})
+  .n("RestJsonProtocolClient", "TestGetNoInputNoPayloadCommand")
   .f(void 0, void 0)
-  .ser(se_TestNoPayloadCommand)
-  .de(de_TestNoPayloadCommand)
+  .ser(se_TestGetNoInputNoPayloadCommand)
+  .de(de_TestGetNoInputNoPayloadCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TestNoPayloadInputOutput;
+      input: {};
       output: TestNoPayloadInputOutput;
     };
     sdk: {
-      input: TestNoPayloadCommandInput;
-      output: TestNoPayloadCommandOutput;
+      input: TestGetNoInputNoPayloadCommandInput;
+      output: TestGetNoInputNoPayloadCommandOutput;
     };
   };
 }

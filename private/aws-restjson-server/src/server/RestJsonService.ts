@@ -385,17 +385,31 @@ import {
   TestBodyStructureServerInput,
 } from "./operations/TestBodyStructure";
 import {
-  TestNoInputNoPayload,
-  TestNoInputNoPayloadSerializer,
-  TestNoInputNoPayloadServerInput,
-} from "./operations/TestNoInputNoPayload";
-import { TestNoPayload, TestNoPayloadSerializer, TestNoPayloadServerInput } from "./operations/TestNoPayload";
+  TestGetNoInputNoPayload,
+  TestGetNoInputNoPayloadSerializer,
+  TestGetNoInputNoPayloadServerInput,
+} from "./operations/TestGetNoInputNoPayload";
+import {
+  TestGetNoPayload,
+  TestGetNoPayloadSerializer,
+  TestGetNoPayloadServerInput,
+} from "./operations/TestGetNoPayload";
 import { TestPayloadBlob, TestPayloadBlobSerializer, TestPayloadBlobServerInput } from "./operations/TestPayloadBlob";
 import {
   TestPayloadStructure,
   TestPayloadStructureSerializer,
   TestPayloadStructureServerInput,
 } from "./operations/TestPayloadStructure";
+import {
+  TestPostNoInputNoPayload,
+  TestPostNoInputNoPayloadSerializer,
+  TestPostNoInputNoPayloadServerInput,
+} from "./operations/TestPostNoInputNoPayload";
+import {
+  TestPostNoPayload,
+  TestPostNoPayloadSerializer,
+  TestPostNoPayloadServerInput,
+} from "./operations/TestPostNoPayload";
 import {
   TimestampFormatHeaders,
   TimestampFormatHeadersSerializer,
@@ -501,10 +515,12 @@ export type RestJsonServiceOperations =
   | "StreamingTraitsRequireLength"
   | "StreamingTraitsWithMediaType"
   | "TestBodyStructure"
-  | "TestNoInputNoPayload"
-  | "TestNoPayload"
+  | "TestGetNoInputNoPayload"
+  | "TestGetNoPayload"
   | "TestPayloadBlob"
   | "TestPayloadStructure"
+  | "TestPostNoInputNoPayload"
+  | "TestPostNoPayload"
   | "TimestampFormatHeaders"
   | "UnitInputAndOutput";
 export interface RestJsonService<Context> {
@@ -601,10 +617,12 @@ export interface RestJsonService<Context> {
   StreamingTraitsRequireLength: StreamingTraitsRequireLength<Context>;
   StreamingTraitsWithMediaType: StreamingTraitsWithMediaType<Context>;
   TestBodyStructure: TestBodyStructure<Context>;
-  TestNoInputNoPayload: TestNoInputNoPayload<Context>;
-  TestNoPayload: TestNoPayload<Context>;
+  TestGetNoInputNoPayload: TestGetNoInputNoPayload<Context>;
+  TestGetNoPayload: TestGetNoPayload<Context>;
   TestPayloadBlob: TestPayloadBlob<Context>;
   TestPayloadStructure: TestPayloadStructure<Context>;
+  TestPostNoInputNoPayload: TestPostNoInputNoPayload<Context>;
+  TestPostNoPayload: TestPostNoPayload<Context>;
   TimestampFormatHeaders: TimestampFormatHeaders<Context>;
   UnitInputAndOutput: UnitInputAndOutput<Context>;
 }
@@ -1814,27 +1832,27 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
-      case "TestNoInputNoPayload": {
+      case "TestGetNoInputNoPayload": {
         return handle(
           request,
           context,
-          "TestNoInputNoPayload",
-          this.serializerFactory("TestNoInputNoPayload"),
-          this.service.TestNoInputNoPayload,
+          "TestGetNoInputNoPayload",
+          this.serializerFactory("TestGetNoInputNoPayload"),
+          this.service.TestGetNoInputNoPayload,
           this.serializeFrameworkException,
-          TestNoInputNoPayloadServerInput.validate,
+          TestGetNoInputNoPayloadServerInput.validate,
           this.validationCustomizer
         );
       }
-      case "TestNoPayload": {
+      case "TestGetNoPayload": {
         return handle(
           request,
           context,
-          "TestNoPayload",
-          this.serializerFactory("TestNoPayload"),
-          this.service.TestNoPayload,
+          "TestGetNoPayload",
+          this.serializerFactory("TestGetNoPayload"),
+          this.service.TestGetNoPayload,
           this.serializeFrameworkException,
-          TestNoPayloadServerInput.validate,
+          TestGetNoPayloadServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1859,6 +1877,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.TestPayloadStructure,
           this.serializeFrameworkException,
           TestPayloadStructureServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "TestPostNoInputNoPayload": {
+        return handle(
+          request,
+          context,
+          "TestPostNoInputNoPayload",
+          this.serializerFactory("TestPostNoInputNoPayload"),
+          this.service.TestPostNoInputNoPayload,
+          this.serializeFrameworkException,
+          TestPostNoInputNoPayloadServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "TestPostNoPayload": {
+        return handle(
+          request,
+          context,
+          "TestPostNoPayload",
+          this.serializerFactory("TestPostNoPayload"),
+          this.service.TestPostNoPayload,
+          this.serializeFrameworkException,
+          TestPostNoPayloadServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -2466,16 +2508,18 @@ export const getRestJsonServiceHandler = <Context>(
       service: "RestJson",
       operation: "TestBodyStructure",
     }),
-    new httpbinding.UriSpec<"RestJson", "TestNoInputNoPayload">(
+    new httpbinding.UriSpec<"RestJson", "TestGetNoInputNoPayload">(
       "GET",
       [{ type: "path_literal", value: "no_input_no_payload" }],
       [],
-      { service: "RestJson", operation: "TestNoInputNoPayload" }
+      { service: "RestJson", operation: "TestGetNoInputNoPayload" }
     ),
-    new httpbinding.UriSpec<"RestJson", "TestNoPayload">("GET", [{ type: "path_literal", value: "no_payload" }], [], {
-      service: "RestJson",
-      operation: "TestNoPayload",
-    }),
+    new httpbinding.UriSpec<"RestJson", "TestGetNoPayload">(
+      "GET",
+      [{ type: "path_literal", value: "no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestGetNoPayload" }
+    ),
     new httpbinding.UriSpec<"RestJson", "TestPayloadBlob">(
       "POST",
       [{ type: "path_literal", value: "blob_payload" }],
@@ -2487,6 +2531,18 @@ export const getRestJsonServiceHandler = <Context>(
       [{ type: "path_literal", value: "payload" }],
       [],
       { service: "RestJson", operation: "TestPayloadStructure" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPostNoInputNoPayload">(
+      "POST",
+      [{ type: "path_literal", value: "no_input_no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPostNoInputNoPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPostNoPayload">(
+      "POST",
+      [{ type: "path_literal", value: "no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPostNoPayload" }
     ),
     new httpbinding.UriSpec<"RestJson", "TimestampFormatHeaders">(
       "POST",
@@ -2691,14 +2747,18 @@ export const getRestJsonServiceHandler = <Context>(
         return new StreamingTraitsWithMediaTypeSerializer();
       case "TestBodyStructure":
         return new TestBodyStructureSerializer();
-      case "TestNoInputNoPayload":
-        return new TestNoInputNoPayloadSerializer();
-      case "TestNoPayload":
-        return new TestNoPayloadSerializer();
+      case "TestGetNoInputNoPayload":
+        return new TestGetNoInputNoPayloadSerializer();
+      case "TestGetNoPayload":
+        return new TestGetNoPayloadSerializer();
       case "TestPayloadBlob":
         return new TestPayloadBlobSerializer();
       case "TestPayloadStructure":
         return new TestPayloadStructureSerializer();
+      case "TestPostNoInputNoPayload":
+        return new TestPostNoInputNoPayloadSerializer();
+      case "TestPostNoPayload":
+        return new TestPostNoPayloadSerializer();
       case "TimestampFormatHeaders":
         return new TimestampFormatHeadersSerializer();
       case "UnitInputAndOutput":

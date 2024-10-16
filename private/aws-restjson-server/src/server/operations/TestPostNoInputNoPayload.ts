@@ -24,55 +24,60 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { TestNoPayloadInputOutput } from "../../models/models_0";
 import {
-  deserializeTestNoPayloadRequest,
+  deserializeTestPostNoInputNoPayloadRequest,
   serializeFrameworkException,
-  serializeTestNoPayloadResponse,
+  serializeTestPostNoInputNoPayloadResponse,
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type TestNoPayload<Context> = __Operation<TestNoPayloadServerInput, TestNoPayloadServerOutput, Context>;
+export type TestPostNoInputNoPayload<Context> = __Operation<
+  TestPostNoInputNoPayloadServerInput,
+  TestPostNoInputNoPayloadServerOutput,
+  Context
+>;
 
-export interface TestNoPayloadServerInput extends TestNoPayloadInputOutput {}
-export namespace TestNoPayloadServerInput {
+export interface TestPostNoInputNoPayloadServerInput {}
+export namespace TestPostNoInputNoPayloadServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof TestNoPayloadInputOutput.validate>[0]) => __ValidationFailure[] =
-    TestNoPayloadInputOutput.validate;
+  export const validate: () => __ValidationFailure[] = () => [];
 }
-export interface TestNoPayloadServerOutput extends TestNoPayloadInputOutput {}
+export interface TestPostNoInputNoPayloadServerOutput extends TestNoPayloadInputOutput {}
 
-export type TestNoPayloadErrors = never;
+export type TestPostNoInputNoPayloadErrors = never;
 
-export class TestNoPayloadSerializer
-  implements __OperationSerializer<RestJsonService<any>, "TestNoPayload", TestNoPayloadErrors>
+export class TestPostNoInputNoPayloadSerializer
+  implements __OperationSerializer<RestJsonService<any>, "TestPostNoInputNoPayload", TestPostNoInputNoPayloadErrors>
 {
-  serialize = serializeTestNoPayloadResponse;
-  deserialize = deserializeTestNoPayloadRequest;
+  serialize = serializeTestPostNoInputNoPayloadResponse;
+  deserialize = deserializeTestPostNoInputNoPayloadRequest;
 
-  isOperationError(error: any): error is TestNoPayloadErrors {
+  isOperationError(error: any): error is TestPostNoInputNoPayloadErrors {
     return false;
   }
 
-  serializeError(error: TestNoPayloadErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
+  serializeError(error: TestPostNoInputNoPayloadErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
 }
 
-export const getTestNoPayloadHandler = <Context>(
-  operation: __Operation<TestNoPayloadServerInput, TestNoPayloadServerOutput, Context>,
-  customizer: __ValidationCustomizer<"TestNoPayload">
+export const getTestPostNoInputNoPayloadHandler = <Context>(
+  operation: __Operation<TestPostNoInputNoPayloadServerInput, TestPostNoInputNoPayloadServerOutput, Context>,
+  customizer: __ValidationCustomizer<"TestPostNoInputNoPayload">
 ): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
-  const mux = new httpbinding.HttpBindingMux<"RestJson", "TestNoPayload">([
-    new httpbinding.UriSpec<"RestJson", "TestNoPayload">("GET", [{ type: "path_literal", value: "no_payload" }], [], {
-      service: "RestJson",
-      operation: "TestNoPayload",
-    }),
+  const mux = new httpbinding.HttpBindingMux<"RestJson", "TestPostNoInputNoPayload">([
+    new httpbinding.UriSpec<"RestJson", "TestPostNoInputNoPayload">(
+      "POST",
+      [{ type: "path_literal", value: "no_input_no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPostNoInputNoPayload" }
+    ),
   ]);
-  return new TestNoPayloadHandler(
+  return new TestPostNoInputNoPayloadHandler(
     operation,
     mux,
-    new TestNoPayloadSerializer(),
+    new TestPostNoInputNoPayloadSerializer(),
     serializeFrameworkException,
     customizer
   );
@@ -127,30 +132,42 @@ async function handle<S, O extends keyof S & string, Context>(
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
-export class TestNoPayloadHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<TestNoPayloadServerInput, TestNoPayloadServerOutput, Context>;
-  private readonly mux: __Mux<"RestJson", "TestNoPayload">;
-  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "TestNoPayload", TestNoPayloadErrors>;
+export class TestPostNoInputNoPayloadHandler<Context> implements __ServiceHandler<Context> {
+  private readonly operation: __Operation<
+    TestPostNoInputNoPayloadServerInput,
+    TestPostNoInputNoPayloadServerOutput,
+    Context
+  >;
+  private readonly mux: __Mux<"RestJson", "TestPostNoInputNoPayload">;
+  private readonly serializer: __OperationSerializer<
+    RestJsonService<Context>,
+    "TestPostNoInputNoPayload",
+    TestPostNoInputNoPayloadErrors
+  >;
   private readonly serializeFrameworkException: (
     e: __SmithyFrameworkException,
     ctx: __ServerSerdeContext
   ) => Promise<__HttpResponse>;
-  private readonly validationCustomizer: __ValidationCustomizer<"TestNoPayload">;
+  private readonly validationCustomizer: __ValidationCustomizer<"TestPostNoInputNoPayload">;
   /**
-   * Construct a TestNoPayload handler.
-   * @param operation The {@link __Operation} implementation that supplies the business logic for TestNoPayload
+   * Construct a TestPostNoInputNoPayload handler.
+   * @param operation The {@link __Operation} implementation that supplies the business logic for TestPostNoInputNoPayload
    * @param mux The {@link __Mux} that verifies which service and operation are being invoked by a given {@link __HttpRequest}
-   * @param serializer An {@link __OperationSerializer} for TestNoPayload that
+   * @param serializer An {@link __OperationSerializer} for TestPostNoInputNoPayload that
    *                   handles deserialization of requests and serialization of responses
    * @param serializeFrameworkException A function that can serialize {@link __SmithyFrameworkException}s
    * @param validationCustomizer A {@link __ValidationCustomizer} for turning validation failures into {@link __SmithyFrameworkException}s
    */
   constructor(
-    operation: __Operation<TestNoPayloadServerInput, TestNoPayloadServerOutput, Context>,
-    mux: __Mux<"RestJson", "TestNoPayload">,
-    serializer: __OperationSerializer<RestJsonService<Context>, "TestNoPayload", TestNoPayloadErrors>,
+    operation: __Operation<TestPostNoInputNoPayloadServerInput, TestPostNoInputNoPayloadServerOutput, Context>,
+    mux: __Mux<"RestJson", "TestPostNoInputNoPayload">,
+    serializer: __OperationSerializer<
+      RestJsonService<Context>,
+      "TestPostNoInputNoPayload",
+      TestPostNoInputNoPayloadErrors
+    >,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
-    validationCustomizer: __ValidationCustomizer<"TestNoPayload">
+    validationCustomizer: __ValidationCustomizer<"TestPostNoInputNoPayload">
   ) {
     this.operation = operation;
     this.mux = mux;
@@ -162,18 +179,18 @@ export class TestNoPayloadHandler<Context> implements __ServiceHandler<Context> 
     const target = this.mux.match(request);
     if (target === undefined) {
       console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.TestNoPayload. This indicates a misconfiguration."
+        "Received a request that did not match aws.protocoltests.restjson#RestJson.TestPostNoInputNoPayload. This indicates a misconfiguration."
       );
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
     return handle(
       request,
       context,
-      "TestNoPayload",
+      "TestPostNoInputNoPayload",
       this.serializer,
       this.operation,
       this.serializeFrameworkException,
-      TestNoPayloadServerInput.validate,
+      TestPostNoInputNoPayloadServerInput.validate,
       this.validationCustomizer
     );
   }
