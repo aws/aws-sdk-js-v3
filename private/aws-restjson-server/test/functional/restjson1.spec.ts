@@ -222,10 +222,12 @@ import {
   StreamingTraitsWithMediaTypeServerOutput,
 } from "../../src/server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructure } from "../../src/server/operations/TestBodyStructure";
-import { TestNoInputNoPayload } from "../../src/server/operations/TestNoInputNoPayload";
-import { TestNoPayload } from "../../src/server/operations/TestNoPayload";
+import { TestGetNoInputNoPayload } from "../../src/server/operations/TestGetNoInputNoPayload";
+import { TestGetNoPayload } from "../../src/server/operations/TestGetNoPayload";
 import { TestPayloadBlob } from "../../src/server/operations/TestPayloadBlob";
 import { TestPayloadStructure } from "../../src/server/operations/TestPayloadStructure";
+import { TestPostNoInputNoPayload } from "../../src/server/operations/TestPostNoInputNoPayload";
+import { TestPostNoPayload } from "../../src/server/operations/TestPostNoPayload";
 import {
   TimestampFormatHeaders,
   TimestampFormatHeadersSerializer,
@@ -29684,7 +29686,9 @@ it("RestJsonSparseListsSerializeNull:ServerRequest", async () => {
     headers: {
       "content-type": "application/json",
     },
-    body: Readable.from(['{\n    "sparseStringList": [\n        null,\n        "hi"\n    ]\n}']),
+    body: Readable.from([
+      '{\n    "sparseStringList": [\n        null,\n        "hi"\n    ],\n    "sparseShortList": [\n        null,\n        2\n    ]\n}',
+    ]),
   });
   await handler.handle(request, {});
 
@@ -29694,6 +29698,7 @@ it("RestJsonSparseListsSerializeNull:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       sparseStringList: [null, "hi"],
+      sparseShortList: [null, 2],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -29710,6 +29715,7 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
     SparseJsonLists(input: any, ctx: {}): Promise<SparseJsonListsServerOutput> {
       const response = {
         sparseStringList: [null, "hi"],
+        sparseShortList: [null, 2],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
     }
@@ -29757,6 +29763,10 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
                                                                                                                                                                 \"sparseStringList\": [
                                                                                                                                                                     null,
                                                                                                                                                                     \"hi\"
+                                                                                                                                                                ],
+                                                                                                                                                                \"sparseShortList\": [
+                                                                                                                                                                    null,
+                                                                                                                                                                    2
                                                                                                                                                                 ]
                                                                                                                                                             }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -30875,11 +30885,11 @@ it("RestJsonHttpWithEmptyBody:ServerRequest", async () => {
 /**
  * Serializes a GET request for an operation with no input, and therefore no modeled body
  */
-it("RestJsonHttpWithNoInput:ServerRequest", async () => {
+it("RestJsonHttpGetWithNoInput:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
-    TestNoInputNoPayload: testFunction as TestNoInputNoPayload<{}>,
+    TestGetNoInputNoPayload: testFunction as TestGetNoInputNoPayload<{}>,
   };
   const handler = getRestJsonServiceHandler(
     testService as RestJsonService<{}>,
@@ -30907,11 +30917,11 @@ it("RestJsonHttpWithNoInput:ServerRequest", async () => {
 /**
  * Serializes a GET request with no modeled body
  */
-it("RestJsonHttpWithNoModeledBody:ServerRequest", async () => {
+it("RestJsonHttpGetWithNoModeledBody:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
-    TestNoPayload: testFunction as TestNoPayload<{}>,
+    TestGetNoPayload: testFunction as TestGetNoPayload<{}>,
   };
   const handler = getRestJsonServiceHandler(
     testService as RestJsonService<{}>,
@@ -30939,11 +30949,11 @@ it("RestJsonHttpWithNoModeledBody:ServerRequest", async () => {
 /**
  * Serializes a GET request with header member but no modeled body
  */
-it("RestJsonHttpWithHeaderMemberNoModeledBody:ServerRequest", async () => {
+it("RestJsonHttpGetWithHeaderMemberNoModeledBody:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
-    TestNoPayload: testFunction as TestNoPayload<{}>,
+    TestGetNoPayload: testFunction as TestGetNoPayload<{}>,
   };
   const handler = getRestJsonServiceHandler(
     testService as RestJsonService<{}>,
@@ -31003,9 +31013,7 @@ it("RestJsonHttpWithEmptyBlobPayload:ServerRequest", async () => {
     hostname: "foo.example.com",
     path: "/blob_payload",
     query: {},
-    headers: {
-      "content-type": "application/octet-stream",
-    },
+    headers: {},
     body: Readable.from([""]),
   });
   await handler.handle(request, {});
@@ -31167,6 +31175,114 @@ it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
       "content-type": "application/json",
     },
     body: Readable.from(["{}"]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      testId: "t-12345",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes a POST request for an operation with no input, and therefore no modeled body
+ */
+it("RestJsonHttpPostWithNoInput:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    TestPostNoInputNoPayload: testFunction as TestPostNoInputNoPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/no_input_no_payload",
+    query: {},
+    headers: {},
+    body: Readable.from([""]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+});
+
+/**
+ * Serializes a POST request with no modeled body
+ */
+it("RestJsonHttpPostWithNoModeledBody:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    TestPostNoPayload: testFunction as TestPostNoPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/no_payload",
+    query: {},
+    headers: {},
+    body: Readable.from([""]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+});
+
+/**
+ * Serializes a POST request with header member but no modeled body
+ */
+it("RestJsonHttpWithPostHeaderMemberNoModeledBody:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    TestPostNoPayload: testFunction as TestPostNoPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/no_payload",
+    query: {},
+    headers: {
+      "x-amz-test-id": "t-12345",
+    },
+    body: Readable.from([""]),
   });
   await handler.handle(request, {});
 

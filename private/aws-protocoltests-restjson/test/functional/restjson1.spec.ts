@@ -64,10 +64,12 @@ import { StreamingTraitsCommand } from "../../src/commands/StreamingTraitsComman
 import { StreamingTraitsRequireLengthCommand } from "../../src/commands/StreamingTraitsRequireLengthCommand";
 import { StreamingTraitsWithMediaTypeCommand } from "../../src/commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommand } from "../../src/commands/TestBodyStructureCommand";
-import { TestNoInputNoPayloadCommand } from "../../src/commands/TestNoInputNoPayloadCommand";
-import { TestNoPayloadCommand } from "../../src/commands/TestNoPayloadCommand";
+import { TestGetNoInputNoPayloadCommand } from "../../src/commands/TestGetNoInputNoPayloadCommand";
+import { TestGetNoPayloadCommand } from "../../src/commands/TestGetNoPayloadCommand";
 import { TestPayloadBlobCommand } from "../../src/commands/TestPayloadBlobCommand";
 import { TestPayloadStructureCommand } from "../../src/commands/TestPayloadStructureCommand";
+import { TestPostNoInputNoPayloadCommand } from "../../src/commands/TestPostNoInputNoPayloadCommand";
+import { TestPostNoPayloadCommand } from "../../src/commands/TestPostNoPayloadCommand";
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
 import { UnitInputAndOutputCommand } from "../../src/commands/UnitInputAndOutputCommand";
 import { RestJsonProtocolClient } from "../../src/RestJsonProtocolClient";
@@ -6717,7 +6719,7 @@ it("RestJsonNoInputAndOutputNoPayload:Response", async () => {
 });
 
 /**
- * Do not send null values, empty strings, or empty lists over the wire in headers
+ * Do not send null values, but do send empty strings and empty lists over the wire in headers
  */
 it.skip("RestJsonNullAndEmptyHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
@@ -6744,8 +6746,11 @@ it.skip("RestJsonNullAndEmptyHeaders:Request", async () => {
     expect(r.path).toBe("/NullAndEmptyHeadersClient");
 
     expect(r.headers["x-a"]).toBeUndefined();
-    expect(r.headers["x-b"]).toBeUndefined();
-    expect(r.headers["x-c"]).toBeUndefined();
+
+    expect(r.headers["x-b"]).toBeDefined();
+    expect(r.headers["x-b"]).toBe("");
+    expect(r.headers["x-c"]).toBeDefined();
+    expect(r.headers["x-c"]).toBe("");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -7258,7 +7263,7 @@ it.skip("RestJsonClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Re
       defaultDocumentBoolean: false,
       defaultDocumentList: ["b"],
       defaultNullDocument: "notNull",
-      defaultTimestamp: new Date(1 * 1000),
+      defaultTimestamp: new Date(2 * 1000),
       defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
       defaultByte: 2,
       defaultShort: 2,
@@ -8613,6 +8618,7 @@ it("RestJsonSparseListsSerializeNull:Request", async () => {
 
   const command = new SparseJsonListsCommand({
     sparseStringList: [null, "hi"],
+    sparseShortList: [null, 2],
   } as any);
   try {
     await client.send(command);
@@ -8636,6 +8642,10 @@ it("RestJsonSparseListsSerializeNull:Request", async () => {
         \"sparseStringList\": [
             null,
             \"hi\"
+        ],
+        \"sparseShortList\": [
+            null,
+            2
         ]
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -8659,6 +8669,10 @@ it("RestJsonSparseListsSerializeNull:Response", async () => {
           "sparseStringList": [
               null,
               "hi"
+          ],
+          "sparseShortList": [
+              null,
+              2
           ]
       }`
     ),
@@ -8678,6 +8692,7 @@ it("RestJsonSparseListsSerializeNull:Response", async () => {
   const paramsToValidate: any = [
     {
       sparseStringList: [null, "hi"],
+      sparseShortList: [null, 2],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -9590,13 +9605,13 @@ it("RestJsonHttpWithEmptyBody:Request", async () => {
 /**
  * Serializes a GET request for an operation with no input, and therefore no modeled body
  */
-it("RestJsonHttpWithNoInput:Request", async () => {
+it("RestJsonHttpGetWithNoInput:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new TestNoInputNoPayloadCommand({});
+  const command = new TestGetNoInputNoPayloadCommand({});
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -9610,8 +9625,8 @@ it("RestJsonHttpWithNoInput:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/no_input_no_payload");
 
-    expect(r.headers["content-length"]).toBeUndefined();
     expect(r.headers["content-type"]).toBeUndefined();
+    expect(r.headers["content-length"]).toBeUndefined();
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9620,13 +9635,13 @@ it("RestJsonHttpWithNoInput:Request", async () => {
 /**
  * Serializes a GET request with no modeled body
  */
-it("RestJsonHttpWithNoModeledBody:Request", async () => {
+it("RestJsonHttpGetWithNoModeledBody:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new TestNoPayloadCommand({} as any);
+  const command = new TestGetNoPayloadCommand({} as any);
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -9650,13 +9665,13 @@ it("RestJsonHttpWithNoModeledBody:Request", async () => {
 /**
  * Serializes a GET request with header member but no modeled body
  */
-it("RestJsonHttpWithHeaderMemberNoModeledBody:Request", async () => {
+it("RestJsonHttpGetWithHeaderMemberNoModeledBody:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new TestNoPayloadCommand({
+  const command = new TestGetNoPayloadCommand({
     testId: "t-12345",
   } as any);
   try {
@@ -9704,9 +9719,6 @@ it("RestJsonHttpWithEmptyBlobPayload:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/blob_payload");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/octet-stream");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
@@ -9861,6 +9873,98 @@ it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a POST request for an operation with no input, and therefore no modeled body
+ */
+it("RestJsonHttpPostWithNoInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPostNoInputNoPayloadCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/no_input_no_payload");
+
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
+  }
+});
+
+/**
+ * Serializes a POST request with no modeled body
+ */
+it("RestJsonHttpPostWithNoModeledBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPostNoPayloadCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/no_payload");
+
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
+  }
+});
+
+/**
+ * Serializes a POST request with header member but no modeled body
+ */
+it("RestJsonHttpWithPostHeaderMemberNoModeledBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPostNoPayloadCommand({
+    testId: "t-12345",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/no_payload");
+
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(r.headers["x-amz-test-id"]).toBeDefined();
+    expect(r.headers["x-amz-test-id"]).toBe("t-12345");
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
   }
 });
 

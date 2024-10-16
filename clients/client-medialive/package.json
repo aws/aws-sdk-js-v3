@@ -60,13 +60,13 @@
     "@smithy/util-stream": "^3.1.9",
     "@smithy/util-utf8": "^3.0.0",
     "@smithy/util-waiter": "^3.1.6",
+    "@types/uuid": "^9.0.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@tsconfig/node16": "16.1.3",
     "@types/node": "^16.18.96",
-    "@types/uuid": "^9.0.4",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

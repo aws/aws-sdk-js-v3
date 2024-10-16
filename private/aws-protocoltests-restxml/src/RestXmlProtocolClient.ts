@@ -160,6 +160,10 @@ import {
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "./commands/NestedXmlMapsCommand";
+import {
+  NestedXmlMapWithXmlNameCommandInput,
+  NestedXmlMapWithXmlNameCommandOutput,
+} from "./commands/NestedXmlMapWithXmlNameCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
@@ -260,6 +264,7 @@ export type ServiceInputTypes =
   | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
+  | NestedXmlMapWithXmlNameCommandInput
   | NestedXmlMapsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
@@ -327,6 +332,7 @@ export type ServiceOutputTypes =
   | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
+  | NestedXmlMapWithXmlNameCommandOutput
   | NestedXmlMapsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput

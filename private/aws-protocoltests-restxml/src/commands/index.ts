@@ -32,6 +32,7 @@ export * from "./HttpResponseCodeCommand";
 export * from "./HttpStringPayloadCommand";
 export * from "./IgnoreQueryParamsInResponseCommand";
 export * from "./InputAndOutputWithHeadersCommand";
+export * from "./NestedXmlMapWithXmlNameCommand";
 export * from "./NestedXmlMapsCommand";
 export * from "./NoInputAndNoOutputCommand";
 export * from "./NoInputAndOutputCommand";

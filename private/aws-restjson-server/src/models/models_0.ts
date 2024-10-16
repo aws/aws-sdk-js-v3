@@ -5648,11 +5648,13 @@ export namespace SimpleScalarPropertiesInputOutput {
  */
 export interface SparseJsonListsInputOutput {
   sparseStringList?: string[];
+  sparseShortList?: number[];
 }
 
 export namespace SparseJsonListsInputOutput {
   const memberValidators: {
     sparseStringList?: __MultiConstraintValidator<Iterable<string>>;
+    sparseShortList?: __MultiConstraintValidator<Iterable<number>>;
   } = {};
   /**
    * @internal
@@ -5670,11 +5672,21 @@ export namespace SparseJsonListsInputOutput {
             );
             break;
           }
+          case "sparseShortList": {
+            memberValidators["sparseShortList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
         }
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("sparseStringList").validate(obj.sparseStringList, `${path}/sparseStringList`)];
+    return [
+      ...getMemberValidator("sparseStringList").validate(obj.sparseStringList, `${path}/sparseStringList`),
+      ...getMemberValidator("sparseShortList").validate(obj.sparseShortList, `${path}/sparseShortList`),
+    ];
   };
 }
 

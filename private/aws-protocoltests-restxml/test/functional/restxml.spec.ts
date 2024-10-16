@@ -40,6 +40,7 @@ import { HttpStringPayloadCommand } from "../../src/commands/HttpStringPayloadCo
 import { IgnoreQueryParamsInResponseCommand } from "../../src/commands/IgnoreQueryParamsInResponseCommand";
 import { InputAndOutputWithHeadersCommand } from "../../src/commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommand } from "../../src/commands/NestedXmlMapsCommand";
+import { NestedXmlMapWithXmlNameCommand } from "../../src/commands/NestedXmlMapWithXmlNameCommand";
 import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
 import { NullAndEmptyHeadersClientCommand } from "../../src/commands/NullAndEmptyHeadersClientCommand";
@@ -3635,6 +3636,158 @@ it("FlatNestedXmlMapResponse:Response", async () => {
 });
 
 /**
+ * Serializes nested XML Maps in requests that have xmlName on members
+ */
+it("NestedXmlMapWithXmlNameSerializes:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new NestedXmlMapWithXmlNameCommand({
+    nestedXmlMapWithXmlNameMap: {
+      foo: {
+        bar: "Baz",
+        fizz: "Buzz",
+      } as any,
+      qux: {
+        foobar: "Bar",
+        fizzbuzz: "Buzz",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/NestedXmlMapWithXmlName");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `    <NestedXmlMapWithXmlNameRequest>
+            <nestedXmlMapWithXmlNameMap>
+                <entry>
+                    <OuterKey>foo</OuterKey>
+                    <value>
+                        <entry>
+                            <InnerKey>bar</InnerKey>
+                            <InnerValue>Baz</InnerValue>
+                        </entry>
+                        <entry>
+                            <InnerKey>fizz</InnerKey>
+                            <InnerValue>Buzz</InnerValue>
+                        </entry>
+                    </value>
+                </entry>
+                <entry>
+                    <OuterKey>qux</OuterKey>
+                    <value>
+                        <entry>
+                            <InnerKey>foobar</InnerKey>
+                            <InnerValue>Bar</InnerValue>
+                        </entry>
+                        <entry>
+                            <InnerKey>fizzbuzz</InnerKey>
+                            <InnerValue>Buzz</InnerValue>
+                        </entry>
+                    </value>
+                </entry>
+            </nestedXmlMapWithXmlNameMap>
+        </NestedXmlMapWithXmlNameRequest>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes nested XML maps in responses that have xmlName on members
+ */
+it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `    <NestedXmlMapWithXmlNameResponse>
+              <nestedXmlMapWithXmlNameMap>
+                  <entry>
+                      <OuterKey>foo</OuterKey>
+                      <value>
+                          <entry>
+                              <InnerKey>bar</InnerKey>
+                              <InnerValue>Baz</InnerValue>
+                          </entry>
+                          <entry>
+                              <InnerKey>fizz</InnerKey>
+                              <InnerValue>Buzz</InnerValue>
+                          </entry>
+                      </value>
+                  </entry>
+                  <entry>
+                      <OuterKey>qux</OuterKey>
+                      <value>
+                          <entry>
+                              <InnerKey>foobar</InnerKey>
+                              <InnerValue>Bar</InnerValue>
+                          </entry>
+                          <entry>
+                              <InnerKey>fizzbuzz</InnerKey>
+                              <InnerValue>Buzz</InnerValue>
+                          </entry>
+                      </value>
+                  </entry>
+              </nestedXmlMapWithXmlNameMap>
+          </NestedXmlMapWithXmlNameResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new NestedXmlMapWithXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nestedXmlMapWithXmlNameMap: {
+        foo: {
+          bar: "Baz",
+          fizz: "Buzz",
+        },
+        qux: {
+          foobar: "Bar",
+          fizzbuzz: "Buzz",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
  * No input serializes no payload
  */
 it("NoInputAndNoOutput:Request", async () => {
@@ -3733,7 +3886,7 @@ it("NoInputAndOutput:Response", async () => {
 });
 
 /**
- * Do not send null values, empty strings, or empty lists over the wire in headers
+ * Do not send null values, but do send empty strings and empty lists over the wire in headers
  */
 it.skip("NullAndEmptyHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
@@ -3760,8 +3913,11 @@ it.skip("NullAndEmptyHeaders:Request", async () => {
     expect(r.path).toBe("/NullAndEmptyHeadersClient");
 
     expect(r.headers["x-a"]).toBeUndefined();
-    expect(r.headers["x-b"]).toBeUndefined();
-    expect(r.headers["x-c"]).toBeUndefined();
+
+    expect(r.headers["x-b"]).toBeDefined();
+    expect(r.headers["x-b"]).toBe("");
+    expect(r.headers["x-c"]).toBeDefined();
+    expect(r.headers["x-c"]).toBe("");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }

@@ -250,7 +250,7 @@ final class AwsProtocolUtils {
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
                     writer.addDependency(TypeScriptDependency.UUID);
-                    writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
+                    writer.addDependency(TypeScriptDependency.UUID_TYPES);
                     writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }

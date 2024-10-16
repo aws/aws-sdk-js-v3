@@ -489,6 +489,13 @@ export interface NestedXmlMapsResponse {
 /**
  * @public
  */
+export interface NestedXmlMapWithXmlNameInputOutput {
+  nestedXmlMapWithXmlNameMap?: Record<string, Record<string, string>>;
+}
+
+/**
+ * @public
+ */
 export interface NoInputAndOutputOutput {}
 
 /**

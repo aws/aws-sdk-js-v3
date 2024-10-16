@@ -341,15 +341,20 @@ import {
 } from "../server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructureServerInput, TestBodyStructureServerOutput } from "../server/operations/TestBodyStructure";
 import {
-  TestNoInputNoPayloadServerInput,
-  TestNoInputNoPayloadServerOutput,
-} from "../server/operations/TestNoInputNoPayload";
-import { TestNoPayloadServerInput, TestNoPayloadServerOutput } from "../server/operations/TestNoPayload";
+  TestGetNoInputNoPayloadServerInput,
+  TestGetNoInputNoPayloadServerOutput,
+} from "../server/operations/TestGetNoInputNoPayload";
+import { TestGetNoPayloadServerInput, TestGetNoPayloadServerOutput } from "../server/operations/TestGetNoPayload";
 import { TestPayloadBlobServerInput, TestPayloadBlobServerOutput } from "../server/operations/TestPayloadBlob";
 import {
   TestPayloadStructureServerInput,
   TestPayloadStructureServerOutput,
 } from "../server/operations/TestPayloadStructure";
+import {
+  TestPostNoInputNoPayloadServerInput,
+  TestPostNoInputNoPayloadServerOutput,
+} from "../server/operations/TestPostNoInputNoPayload";
+import { TestPostNoPayloadServerInput, TestPostNoPayloadServerOutput } from "../server/operations/TestPostNoPayload";
 import {
   TimestampFormatHeadersServerInput,
   TimestampFormatHeadersServerOutput,
@@ -3495,6 +3500,7 @@ export const deserializeSparseJsonListsRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    sparseShortList: (_) => de_SparseShortList(_, context),
     sparseStringList: (_) => de_SparseStringList(_, context),
   });
   Object.assign(contents, doc);
@@ -3624,10 +3630,10 @@ export const deserializeTestBodyStructureRequest = async (
   return contents;
 };
 
-export const deserializeTestNoInputNoPayloadRequest = async (
+export const deserializeTestGetNoInputNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
-): Promise<TestNoInputNoPayloadServerInput> => {
+): Promise<TestGetNoInputNoPayloadServerInput> => {
   const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
     (key) => key.toLowerCase() === "content-type"
   );
@@ -3649,10 +3655,10 @@ export const deserializeTestNoInputNoPayloadRequest = async (
   return contents;
 };
 
-export const deserializeTestNoPayloadRequest = async (
+export const deserializeTestGetNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
-): Promise<TestNoPayloadServerInput> => {
+): Promise<TestGetNoPayloadServerInput> => {
   const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
     (key) => key.toLowerCase() === "content-type"
   );
@@ -3713,6 +3719,58 @@ export const deserializeTestPayloadStructureRequest = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = de_PayloadConfig(data, context);
+  return contents;
+};
+
+export const deserializeTestPostNoInputNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoInputNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeTestPostNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -7125,6 +7183,7 @@ export const serializeSparseJsonListsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      sparseShortList: (_) => se_SparseShortList(_, context),
       sparseStringList: (_) => se_SparseStringList(_, context),
     })
   );
@@ -7347,8 +7406,8 @@ export const serializeTestBodyStructureResponse = async (
   });
 };
 
-export const serializeTestNoInputNoPayloadResponse = async (
-  input: TestNoInputNoPayloadServerOutput,
+export const serializeTestGetNoInputNoPayloadResponse = async (
+  input: TestGetNoInputNoPayloadServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -7385,8 +7444,8 @@ export const serializeTestNoInputNoPayloadResponse = async (
   });
 };
 
-export const serializeTestNoPayloadResponse = async (
-  input: TestNoPayloadServerOutput,
+export const serializeTestGetNoPayloadResponse = async (
+  input: TestGetNoPayloadServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -7488,6 +7547,82 @@ export const serializeTestPayloadStructureResponse = async (
     body = {};
   }
   body = JSON.stringify(body);
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoInputNoPayloadResponse = async (
+  input: TestPostNoInputNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoPayloadResponse = async (
+  input: TestPostNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -8197,6 +8332,13 @@ const se_NestedStringList = (input: string[][], context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restJson1SparseShortList
+ */
+const se_SparseShortList = (input: number[], context: __SerdeContext): any => {
+  return input;
+};
+
+/**
  * serializeAws_restJson1SparseStringList
  */
 const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
@@ -8887,6 +9029,19 @@ const de_NestedStringList = (output: any, context: __SerdeContext): string[][] =
       );
     }
     return de_StringList(entry, context);
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1SparseShortList
+ */
+const de_SparseShortList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectShort(entry) as any;
   });
   return retVal;
 };

@@ -38,12 +38,18 @@ export interface SparseJsonListsCommandOutput extends SparseJsonListsInputOutput
  *   sparseStringList: [ // SparseStringList
  *     "STRING_VALUE",
  *   ],
+ *   sparseShortList: [ // SparseShortList
+ *     Number("short"),
+ *   ],
  * };
  * const command = new SparseJsonListsCommand(input);
  * const response = await client.send(command);
  * // { // SparseJsonListsInputOutput
  * //   sparseStringList: [ // SparseStringList
  * //     "STRING_VALUE",
+ * //   ],
+ * //   sparseShortList: [ // SparseShortList
+ * //     Number("short"),
  * //   ],
  * // };
  *

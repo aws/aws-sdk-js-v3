@@ -173,6 +173,11 @@ import {
   NestedXmlMapsCommandOutput,
 } from "./commands/NestedXmlMapsCommand";
 import {
+  NestedXmlMapWithXmlNameCommand,
+  NestedXmlMapWithXmlNameCommandInput,
+  NestedXmlMapWithXmlNameCommandOutput,
+} from "./commands/NestedXmlMapWithXmlNameCommand";
+import {
   NoInputAndNoOutputCommand,
   NoInputAndNoOutputCommandInput,
   NoInputAndNoOutputCommandOutput,
@@ -325,6 +330,7 @@ const commands = {
   IgnoreQueryParamsInResponseCommand,
   InputAndOutputWithHeadersCommand,
   NestedXmlMapsCommand,
+  NestedXmlMapWithXmlNameCommand,
   NoInputAndNoOutputCommand,
   NoInputAndOutputCommand,
   NullAndEmptyHeadersClientCommand,
@@ -941,6 +947,24 @@ export interface RestXmlProtocol {
     args: NestedXmlMapsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link NestedXmlMapWithXmlNameCommand}
+   */
+  nestedXmlMapWithXmlName(): Promise<NestedXmlMapWithXmlNameCommandOutput>;
+  nestedXmlMapWithXmlName(
+    args: NestedXmlMapWithXmlNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NestedXmlMapWithXmlNameCommandOutput>;
+  nestedXmlMapWithXmlName(
+    args: NestedXmlMapWithXmlNameCommandInput,
+    cb: (err: any, data?: NestedXmlMapWithXmlNameCommandOutput) => void
+  ): void;
+  nestedXmlMapWithXmlName(
+    args: NestedXmlMapWithXmlNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NestedXmlMapWithXmlNameCommandOutput) => void
   ): void;
 
   /**
