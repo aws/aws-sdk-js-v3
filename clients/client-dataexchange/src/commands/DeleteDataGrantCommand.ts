@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteRevisionRequest } from "../models/models_0";
-import { de_DeleteRevisionCommand, se_DeleteRevisionCommand } from "../protocols/Aws_restJson1";
+import { DeleteDataGrantRequest } from "../models/models_0";
+import { de_DeleteDataGrantCommand, se_DeleteDataGrantCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,46 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRevisionCommand}.
+ * The input for {@link DeleteDataGrantCommand}.
  */
-export interface DeleteRevisionCommandInput extends DeleteRevisionRequest {}
+export interface DeleteDataGrantCommandInput extends DeleteDataGrantRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteRevisionCommand}.
+ * The output of {@link DeleteDataGrantCommand}.
  */
-export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
+export interface DeleteDataGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation deletes a revision.</p>
+ * <p>This operation deletes a data grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, DeleteRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, DeleteRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, DeleteDataGrantCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, DeleteDataGrantCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = { // DeleteRevisionRequest
- *   DataSetId: "STRING_VALUE", // required
- *   RevisionId: "STRING_VALUE", // required
+ * const input = { // DeleteDataGrantRequest
+ *   DataGrantId: "STRING_VALUE", // required
  * };
- * const command = new DeleteRevisionCommand(input);
+ * const command = new DeleteDataGrantCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteRevisionCommandInput - {@link DeleteRevisionCommandInput}
- * @returns {@link DeleteRevisionCommandOutput}
- * @see {@link DeleteRevisionCommandInput} for command's `input` shape.
- * @see {@link DeleteRevisionCommandOutput} for command's `response` shape.
+ * @param DeleteDataGrantCommandInput - {@link DeleteDataGrantCommandInput}
+ * @returns {@link DeleteDataGrantCommandOutput}
+ * @see {@link DeleteDataGrantCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataGrantCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access to the resource is denied.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -75,10 +70,10 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRevisionCommand extends $Command
+export class DeleteDataGrantCommand extends $Command
   .classBuilder<
-    DeleteRevisionCommandInput,
-    DeleteRevisionCommandOutput,
+    DeleteDataGrantCommandInput,
+    DeleteDataGrantCommandOutput,
     DataExchangeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,21 +85,21 @@ export class DeleteRevisionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataExchange", "DeleteRevision", {})
-  .n("DataExchangeClient", "DeleteRevisionCommand")
+  .s("DataExchange", "DeleteDataGrant", {})
+  .n("DataExchangeClient", "DeleteDataGrantCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteRevisionCommand)
-  .de(de_DeleteRevisionCommand)
+  .ser(se_DeleteDataGrantCommand)
+  .de(de_DeleteDataGrantCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRevisionRequest;
+      input: DeleteDataGrantRequest;
       output: {};
     };
     sdk: {
-      input: DeleteRevisionCommandInput;
-      output: DeleteRevisionCommandOutput;
+      input: DeleteDataGrantCommandInput;
+      output: DeleteDataGrantCommandOutput;
     };
   };
 }

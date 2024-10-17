@@ -2,7 +2,17 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  AcceptDataGrantCommand,
+  AcceptDataGrantCommandInput,
+  AcceptDataGrantCommandOutput,
+} from "./commands/AcceptDataGrantCommand";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import {
+  CreateDataGrantCommand,
+  CreateDataGrantCommandInput,
+  CreateDataGrantCommandOutput,
+} from "./commands/CreateDataGrantCommand";
 import {
   CreateDataSetCommand,
   CreateDataSetCommandInput,
@@ -21,6 +31,11 @@ import {
 } from "./commands/CreateRevisionCommand";
 import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
+  DeleteDataGrantCommand,
+  DeleteDataGrantCommandInput,
+  DeleteDataGrantCommandOutput,
+} from "./commands/DeleteDataGrantCommand";
+import {
   DeleteDataSetCommand,
   DeleteDataSetCommandInput,
   DeleteDataSetCommandOutput,
@@ -36,6 +51,11 @@ import {
   DeleteRevisionCommandOutput,
 } from "./commands/DeleteRevisionCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import {
+  GetDataGrantCommand,
+  GetDataGrantCommandInput,
+  GetDataGrantCommandOutput,
+} from "./commands/GetDataGrantCommand";
 import { GetDataSetCommand, GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
 import {
   GetEventActionCommand,
@@ -43,7 +63,17 @@ import {
   GetEventActionCommandOutput,
 } from "./commands/GetEventActionCommand";
 import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import {
+  GetReceivedDataGrantCommand,
+  GetReceivedDataGrantCommandInput,
+  GetReceivedDataGrantCommandOutput,
+} from "./commands/GetReceivedDataGrantCommand";
 import { GetRevisionCommand, GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import {
+  ListDataGrantsCommand,
+  ListDataGrantsCommandInput,
+  ListDataGrantsCommandOutput,
+} from "./commands/ListDataGrantsCommand";
 import {
   ListDataSetRevisionsCommand,
   ListDataSetRevisionsCommandInput,
@@ -60,6 +90,11 @@ import {
   ListEventActionsCommandOutput,
 } from "./commands/ListEventActionsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListReceivedDataGrantsCommand,
+  ListReceivedDataGrantsCommandInput,
+  ListReceivedDataGrantsCommandOutput,
+} from "./commands/ListReceivedDataGrantsCommand";
 import {
   ListRevisionAssetsCommand,
   ListRevisionAssetsCommandInput,
@@ -111,24 +146,31 @@ import {
 import { DataExchangeClient, DataExchangeClientConfig } from "./DataExchangeClient";
 
 const commands = {
+  AcceptDataGrantCommand,
   CancelJobCommand,
+  CreateDataGrantCommand,
   CreateDataSetCommand,
   CreateEventActionCommand,
   CreateJobCommand,
   CreateRevisionCommand,
   DeleteAssetCommand,
+  DeleteDataGrantCommand,
   DeleteDataSetCommand,
   DeleteEventActionCommand,
   DeleteRevisionCommand,
   GetAssetCommand,
+  GetDataGrantCommand,
   GetDataSetCommand,
   GetEventActionCommand,
   GetJobCommand,
+  GetReceivedDataGrantCommand,
   GetRevisionCommand,
+  ListDataGrantsCommand,
   ListDataSetRevisionsCommand,
   ListDataSetsCommand,
   ListEventActionsCommand,
   ListJobsCommand,
+  ListReceivedDataGrantsCommand,
   ListRevisionAssetsCommand,
   ListTagsForResourceCommand,
   RevokeRevisionCommand,
@@ -145,6 +187,20 @@ const commands = {
 
 export interface DataExchange {
   /**
+   * @see {@link AcceptDataGrantCommand}
+   */
+  acceptDataGrant(
+    args: AcceptDataGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptDataGrantCommandOutput>;
+  acceptDataGrant(args: AcceptDataGrantCommandInput, cb: (err: any, data?: AcceptDataGrantCommandOutput) => void): void;
+  acceptDataGrant(
+    args: AcceptDataGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptDataGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CancelJobCommand}
    */
   cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
@@ -153,6 +209,20 @@ export interface DataExchange {
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataGrantCommand}
+   */
+  createDataGrant(
+    args: CreateDataGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataGrantCommandOutput>;
+  createDataGrant(args: CreateDataGrantCommandInput, cb: (err: any, data?: CreateDataGrantCommandOutput) => void): void;
+  createDataGrant(
+    args: CreateDataGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataGrantCommandOutput) => void
   ): void;
 
   /**
@@ -220,6 +290,20 @@ export interface DataExchange {
   ): void;
 
   /**
+   * @see {@link DeleteDataGrantCommand}
+   */
+  deleteDataGrant(
+    args: DeleteDataGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataGrantCommandOutput>;
+  deleteDataGrant(args: DeleteDataGrantCommandInput, cb: (err: any, data?: DeleteDataGrantCommandOutput) => void): void;
+  deleteDataGrant(
+    args: DeleteDataGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataSetCommand}
    */
   deleteDataSet(args: DeleteDataSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDataSetCommandOutput>;
@@ -273,6 +357,17 @@ export interface DataExchange {
   ): void;
 
   /**
+   * @see {@link GetDataGrantCommand}
+   */
+  getDataGrant(args: GetDataGrantCommandInput, options?: __HttpHandlerOptions): Promise<GetDataGrantCommandOutput>;
+  getDataGrant(args: GetDataGrantCommandInput, cb: (err: any, data?: GetDataGrantCommandOutput) => void): void;
+  getDataGrant(
+    args: GetDataGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataSetCommand}
    */
   getDataSet(args: GetDataSetCommandInput, options?: __HttpHandlerOptions): Promise<GetDataSetCommandOutput>;
@@ -309,6 +404,23 @@ export interface DataExchange {
   ): void;
 
   /**
+   * @see {@link GetReceivedDataGrantCommand}
+   */
+  getReceivedDataGrant(
+    args: GetReceivedDataGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReceivedDataGrantCommandOutput>;
+  getReceivedDataGrant(
+    args: GetReceivedDataGrantCommandInput,
+    cb: (err: any, data?: GetReceivedDataGrantCommandOutput) => void
+  ): void;
+  getReceivedDataGrant(
+    args: GetReceivedDataGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReceivedDataGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRevisionCommand}
    */
   getRevision(args: GetRevisionCommandInput, options?: __HttpHandlerOptions): Promise<GetRevisionCommandOutput>;
@@ -317,6 +429,21 @@ export interface DataExchange {
     args: GetRevisionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataGrantsCommand}
+   */
+  listDataGrants(): Promise<ListDataGrantsCommandOutput>;
+  listDataGrants(
+    args: ListDataGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataGrantsCommandOutput>;
+  listDataGrants(args: ListDataGrantsCommandInput, cb: (err: any, data?: ListDataGrantsCommandOutput) => void): void;
+  listDataGrants(
+    args: ListDataGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataGrantsCommandOutput) => void
   ): void;
 
   /**
@@ -376,6 +503,24 @@ export interface DataExchange {
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReceivedDataGrantsCommand}
+   */
+  listReceivedDataGrants(): Promise<ListReceivedDataGrantsCommandOutput>;
+  listReceivedDataGrants(
+    args: ListReceivedDataGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReceivedDataGrantsCommandOutput>;
+  listReceivedDataGrants(
+    args: ListReceivedDataGrantsCommandInput,
+    cb: (err: any, data?: ListReceivedDataGrantsCommandOutput) => void
+  ): void;
+  listReceivedDataGrants(
+    args: ListReceivedDataGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReceivedDataGrantsCommandOutput) => void
   ): void;
 
   /**
@@ -542,21 +687,23 @@ export interface DataExchange {
 }
 
 /**
- * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
- *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
- *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
- *          Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and machine
- *          learning services.</p>
- *          <p>As a provider, you can create and manage your data sets that you would like to publish to a
- *          product. Being able to package and provide your data sets into products requires a few
+ * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in
+ *          the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access
+ *          file-based data set in the AWS Cloud.</p>
+ *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to
+ *          through a subscription. You can use the APIs to download or copy your entitled data sets to
+ *          Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
+ *          machine learning services.</p>
+ *          <p>As a provider, you can create and manage your data sets that you would like to publish
+ *          to a product. Being able to package and provide your data sets into products requires a few
  *          steps to determine eligibility. For more information, visit the <i>AWS Data Exchange
  *             User Guide</i>.</p>
- *          <p>A data set is a collection of data that can be changed or updated over time. Data sets can be
- *          updated using revisions, which represent a new version or incremental change to a data set.
- *          A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data
- *          that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS Lake
- *          Formation data permission, or Amazon S3 data access. The asset can be a structured data
- *          file, an image file, or some other data file. Jobs are asynchronous import or export
+ *          <p>A data set is a collection of data that can be changed or updated over time. Data sets
+ *          can be updated using revisions, which represent a new version or incremental change to a
+ *          data set. A revision contains one or more assets. An asset in AWS Data Exchange is a piece
+ *          of data that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS
+ *          Lake Formation data permission, or Amazon S3 data access. The asset can be a structured
+ *          data file, an image file, or some other data file. Jobs are asynchronous import or export
  *          operations used to create or copy assets.</p>
  * @public
  */

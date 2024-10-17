@@ -28,7 +28,8 @@ export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsReques
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+ * <p>This operation lists a revision's assets sorted alphabetically in descending
+ *          order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

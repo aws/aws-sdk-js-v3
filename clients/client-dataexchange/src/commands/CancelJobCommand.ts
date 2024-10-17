@@ -28,7 +28,8 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
+ * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING
+ *          state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +52,8 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

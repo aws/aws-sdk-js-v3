@@ -28,7 +28,8 @@ export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
+ * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by
+ *          CreatedAt in descending order. When listing by origin ENTITLED, there is no order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //       Origin: "STRING_VALUE", // required
  * //       OriginDetails: { // OriginDetails
  * //         ProductId: "STRING_VALUE",
+ * //         DataGrantId: "STRING_VALUE",
  * //       },
  * //       SourceId: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"), // required

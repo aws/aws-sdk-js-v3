@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRevisionRequest, UpdateRevisionResponse } from "../models/models_0";
-import { de_UpdateRevisionCommand, se_UpdateRevisionCommand } from "../protocols/Aws_restJson1";
+import { AcceptDataGrantRequest, AcceptDataGrantResponse } from "../models/models_0";
+import { de_AcceptDataGrantCommand, se_AcceptDataGrantCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,52 +17,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateRevisionCommand}.
+ * The input for {@link AcceptDataGrantCommand}.
  */
-export interface UpdateRevisionCommandInput extends UpdateRevisionRequest {}
+export interface AcceptDataGrantCommandInput extends AcceptDataGrantRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateRevisionCommand}.
+ * The output of {@link AcceptDataGrantCommand}.
  */
-export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __MetadataBearer {}
+export interface AcceptDataGrantCommandOutput extends AcceptDataGrantResponse, __MetadataBearer {}
 
 /**
- * <p>This operation updates a revision.</p>
+ * <p>This operation accepts a data grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, UpdateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, UpdateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, AcceptDataGrantCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, AcceptDataGrantCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = { // UpdateRevisionRequest
- *   Comment: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE", // required
- *   Finalized: true || false,
- *   RevisionId: "STRING_VALUE", // required
+ * const input = { // AcceptDataGrantRequest
+ *   DataGrantArn: "STRING_VALUE", // required
  * };
- * const command = new UpdateRevisionCommand(input);
+ * const command = new AcceptDataGrantCommand(input);
  * const response = await client.send(command);
- * // { // UpdateRevisionResponse
- * //   Arn: "STRING_VALUE",
- * //   Comment: "STRING_VALUE",
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   DataSetId: "STRING_VALUE",
- * //   Finalized: true || false,
- * //   Id: "STRING_VALUE",
- * //   SourceId: "STRING_VALUE",
- * //   UpdatedAt: new Date("TIMESTAMP"),
- * //   RevocationComment: "STRING_VALUE",
- * //   Revoked: true || false,
- * //   RevokedAt: new Date("TIMESTAMP"),
+ * // { // AcceptDataGrantResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   SenderPrincipal: "STRING_VALUE",
+ * //   ReceiverPrincipal: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   AcceptanceState: "STRING_VALUE", // required
+ * //   AcceptedAt: new Date("TIMESTAMP"),
+ * //   EndsAt: new Date("TIMESTAMP"),
+ * //   GrantDistributionScope: "STRING_VALUE", // required
+ * //   DataSetId: "STRING_VALUE", // required
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   UpdatedAt: new Date("TIMESTAMP"), // required
  * // };
  *
  * ```
  *
- * @param UpdateRevisionCommandInput - {@link UpdateRevisionCommandInput}
- * @returns {@link UpdateRevisionCommandOutput}
- * @see {@link UpdateRevisionCommandInput} for command's `input` shape.
- * @see {@link UpdateRevisionCommandOutput} for command's `response` shape.
+ * @param AcceptDataGrantCommandInput - {@link AcceptDataGrantCommandInput}
+ * @returns {@link AcceptDataGrantCommandOutput}
+ * @see {@link AcceptDataGrantCommandInput} for command's `input` shape.
+ * @see {@link AcceptDataGrantCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -89,10 +88,10 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  *
  * @public
  */
-export class UpdateRevisionCommand extends $Command
+export class AcceptDataGrantCommand extends $Command
   .classBuilder<
-    UpdateRevisionCommandInput,
-    UpdateRevisionCommandOutput,
+    AcceptDataGrantCommandInput,
+    AcceptDataGrantCommandOutput,
     DataExchangeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,21 +103,21 @@ export class UpdateRevisionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataExchange", "UpdateRevision", {})
-  .n("DataExchangeClient", "UpdateRevisionCommand")
+  .s("DataExchange", "AcceptDataGrant", {})
+  .n("DataExchangeClient", "AcceptDataGrantCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateRevisionCommand)
-  .de(de_UpdateRevisionCommand)
+  .ser(se_AcceptDataGrantCommand)
+  .de(de_AcceptDataGrantCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateRevisionRequest;
-      output: UpdateRevisionResponse;
+      input: AcceptDataGrantRequest;
+      output: AcceptDataGrantResponse;
     };
     sdk: {
-      input: UpdateRevisionCommandInput;
-      output: UpdateRevisionCommandOutput;
+      input: AcceptDataGrantCommandInput;
+      output: AcceptDataGrantCommandOutput;
     };
   };
 }

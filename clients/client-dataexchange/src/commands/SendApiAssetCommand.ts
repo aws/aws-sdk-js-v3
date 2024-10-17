@@ -28,7 +28,8 @@ export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**
- * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
+ * <p>This operation invokes an API Gateway API asset. The request is proxied to the
+ *          provider’s API Gateway API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

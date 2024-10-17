@@ -53,20 +53,29 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { AcceptDataGrantCommandInput, AcceptDataGrantCommandOutput } from "./commands/AcceptDataGrantCommand";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateDataGrantCommandInput, CreateDataGrantCommandOutput } from "./commands/CreateDataGrantCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "./commands/CreateEventActionCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "./commands/CreateRevisionCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import { DeleteDataGrantCommandInput, DeleteDataGrantCommandOutput } from "./commands/DeleteDataGrantCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "./commands/DeleteEventActionCommand";
 import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "./commands/DeleteRevisionCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import { GetDataGrantCommandInput, GetDataGrantCommandOutput } from "./commands/GetDataGrantCommand";
 import { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
 import { GetEventActionCommandInput, GetEventActionCommandOutput } from "./commands/GetEventActionCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import {
+  GetReceivedDataGrantCommandInput,
+  GetReceivedDataGrantCommandOutput,
+} from "./commands/GetReceivedDataGrantCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import { ListDataGrantsCommandInput, ListDataGrantsCommandOutput } from "./commands/ListDataGrantsCommand";
 import {
   ListDataSetRevisionsCommandInput,
   ListDataSetRevisionsCommandOutput,
@@ -74,6 +83,10 @@ import {
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
 import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "./commands/ListEventActionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListReceivedDataGrantsCommandInput,
+  ListReceivedDataGrantsCommandOutput,
+} from "./commands/ListReceivedDataGrantsCommand";
 import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "./commands/ListRevisionAssetsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -107,24 +120,31 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptDataGrantCommandInput
   | CancelJobCommandInput
+  | CreateDataGrantCommandInput
   | CreateDataSetCommandInput
   | CreateEventActionCommandInput
   | CreateJobCommandInput
   | CreateRevisionCommandInput
   | DeleteAssetCommandInput
+  | DeleteDataGrantCommandInput
   | DeleteDataSetCommandInput
   | DeleteEventActionCommandInput
   | DeleteRevisionCommandInput
   | GetAssetCommandInput
+  | GetDataGrantCommandInput
   | GetDataSetCommandInput
   | GetEventActionCommandInput
   | GetJobCommandInput
+  | GetReceivedDataGrantCommandInput
   | GetRevisionCommandInput
+  | ListDataGrantsCommandInput
   | ListDataSetRevisionsCommandInput
   | ListDataSetsCommandInput
   | ListEventActionsCommandInput
   | ListJobsCommandInput
+  | ListReceivedDataGrantsCommandInput
   | ListRevisionAssetsCommandInput
   | ListTagsForResourceCommandInput
   | RevokeRevisionCommandInput
@@ -142,24 +162,31 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptDataGrantCommandOutput
   | CancelJobCommandOutput
+  | CreateDataGrantCommandOutput
   | CreateDataSetCommandOutput
   | CreateEventActionCommandOutput
   | CreateJobCommandOutput
   | CreateRevisionCommandOutput
   | DeleteAssetCommandOutput
+  | DeleteDataGrantCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteEventActionCommandOutput
   | DeleteRevisionCommandOutput
   | GetAssetCommandOutput
+  | GetDataGrantCommandOutput
   | GetDataSetCommandOutput
   | GetEventActionCommandOutput
   | GetJobCommandOutput
+  | GetReceivedDataGrantCommandOutput
   | GetRevisionCommandOutput
+  | ListDataGrantsCommandOutput
   | ListDataSetRevisionsCommandOutput
   | ListDataSetsCommandOutput
   | ListEventActionsCommandOutput
   | ListJobsCommandOutput
+  | ListReceivedDataGrantsCommandOutput
   | ListRevisionAssetsCommandOutput
   | ListTagsForResourceCommandOutput
   | RevokeRevisionCommandOutput
@@ -345,21 +372,23 @@ export type DataExchangeClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface DataExchangeClientResolvedConfig extends DataExchangeClientResolvedConfigType {}
 
 /**
- * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
- *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
- *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
- *          Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and machine
- *          learning services.</p>
- *          <p>As a provider, you can create and manage your data sets that you would like to publish to a
- *          product. Being able to package and provide your data sets into products requires a few
+ * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in
+ *          the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access
+ *          file-based data set in the AWS Cloud.</p>
+ *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to
+ *          through a subscription. You can use the APIs to download or copy your entitled data sets to
+ *          Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
+ *          machine learning services.</p>
+ *          <p>As a provider, you can create and manage your data sets that you would like to publish
+ *          to a product. Being able to package and provide your data sets into products requires a few
  *          steps to determine eligibility. For more information, visit the <i>AWS Data Exchange
  *             User Guide</i>.</p>
- *          <p>A data set is a collection of data that can be changed or updated over time. Data sets can be
- *          updated using revisions, which represent a new version or incremental change to a data set.
- *          A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data
- *          that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS Lake
- *          Formation data permission, or Amazon S3 data access. The asset can be a structured data
- *          file, an image file, or some other data file. Jobs are asynchronous import or export
+ *          <p>A data set is a collection of data that can be changed or updated over time. Data sets
+ *          can be updated using revisions, which represent a new version or incremental change to a
+ *          data set. A revision contains one or more assets. An asset in AWS Data Exchange is a piece
+ *          of data that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS
+ *          Lake Formation data permission, or Amazon S3 data access. The asset can be a structured
+ *          data file, an image file, or some other data file. Jobs are asynchronous import or export
  *          operations used to create or copy assets.</p>
  * @public
  */

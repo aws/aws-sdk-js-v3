@@ -4,6 +4,142 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { DataExchangeServiceException as __BaseException } from "./DataExchangeServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AcceptanceStateFilterValue = {
+  ACCEPTED: "ACCEPTED",
+  PENDING_RECEIVER_ACCEPTANCE: "PENDING_RECEIVER_ACCEPTANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceptanceStateFilterValue = (typeof AcceptanceStateFilterValue)[keyof typeof AcceptanceStateFilterValue];
+
+/**
+ * @public
+ */
+export interface AcceptDataGrantRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant to accept.</p>
+   * @public
+   */
+  DataGrantArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataGrantAcceptanceState = {
+  ACCEPTED: "ACCEPTED",
+  PENDING_RECEIVER_ACCEPTANCE: "PENDING_RECEIVER_ACCEPTANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataGrantAcceptanceState = (typeof DataGrantAcceptanceState)[keyof typeof DataGrantAcceptanceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const GrantDistributionScope = {
+  AWS_ORGANIZATION: "AWS_ORGANIZATION",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GrantDistributionScope = (typeof GrantDistributionScope)[keyof typeof GrantDistributionScope];
+
+/**
+ * @public
+ */
+export interface AcceptDataGrantResponse {
+  /**
+   * <p>The name of the accepted data grant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The description of the accepted data grant.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The distribution scope for the data grant.</p>
+   * @public
+   */
+  GrantDistributionScope: GrantDistributionScope | undefined;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accepted data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
  * <p>Access to the resource is denied.</p>
  * @public
  */
@@ -33,598 +169,9 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
-export const ServerSideEncryptionTypes = {
-  AES256: "AES256",
-  aws_kms: "aws:kms",
-} as const;
-
-/**
- * @public
- */
-export type ServerSideEncryptionTypes = (typeof ServerSideEncryptionTypes)[keyof typeof ServerSideEncryptionTypes];
-
-/**
- * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
- * @public
- */
-export interface ExportServerSideEncryption {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
-   * @public
-   */
-  KmsKeyArn?: string;
-
-  /**
-   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
-   * @public
-   */
-  Type: ServerSideEncryptionTypes | undefined;
-}
-
-/**
- * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
- * @public
- */
-export interface AutoExportRevisionDestinationEntry {
-  /**
-   * <p>The Amazon S3 bucket that is the destination for the event action.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
-   * @public
-   */
-  KeyPattern?: string;
-}
-
-/**
- * <p>Details of the operation to be performed by the job.</p>
- * @public
- */
-export interface AutoExportRevisionToS3RequestDetails {
-  /**
-   * <p>Encryption configuration for the auto export job.</p>
-   * @public
-   */
-  Encryption?: ExportServerSideEncryption;
-
-  /**
-   * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
-   * @public
-   */
-  RevisionDestination: AutoExportRevisionDestinationEntry | undefined;
-}
-
-/**
- * <p>What occurs after a certain event.</p>
- * @public
- */
-export interface Action {
-  /**
-   * <p>Details for the export revision to Amazon S3 action.</p>
-   * @public
-   */
-  ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProtocolType = {
-  REST: "REST",
-} as const;
-
-/**
- * @public
- */
-export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
-
-/**
- * <p>The API Gateway API that is the asset.</p>
- * @public
- */
-export interface ApiGatewayApiAsset {
-  /**
-   * <p>The API description of the API asset.</p>
-   * @public
-   */
-  ApiDescription?: string;
-
-  /**
-   * <p>The API endpoint of the API asset.</p>
-   * @public
-   */
-  ApiEndpoint?: string;
-
-  /**
-   * <p>The unique identifier of the API asset.</p>
-   * @public
-   */
-  ApiId?: string;
-
-  /**
-   * <p>The API key of the API asset.</p>
-   * @public
-   */
-  ApiKey?: string;
-
-  /**
-   * <p>The API name of the API asset.</p>
-   * @public
-   */
-  ApiName?: string;
-
-  /**
-   * <p>The download URL of the API specification of the API asset.</p>
-   * @public
-   */
-  ApiSpecificationDownloadUrl?: string;
-
-  /**
-   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
-   * @public
-   */
-  ApiSpecificationDownloadUrlExpiresAt?: Date;
-
-  /**
-   * <p>The protocol type of the API asset.</p>
-   * @public
-   */
-  ProtocolType?: ProtocolType;
-
-  /**
-   * <p>The stage of the API asset.</p>
-   * @public
-   */
-  Stage?: string;
-}
-
-/**
- * <p>The destination for the asset.</p>
- * @public
- */
-export interface AssetDestinationEntry {
-  /**
-   * <p>The unique identifier for the asset.</p>
-   * @public
-   */
-  AssetId: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket that is the destination for the asset.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The name of the object in Amazon S3 for the asset.</p>
-   * @public
-   */
-  Key?: string;
-}
-
-/**
- * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
- * @public
- */
-export interface LFTag {
-  /**
-   * <p>The key name for the LF-tag.</p>
-   * @public
-   */
-  TagKey: string | undefined;
-
-  /**
-   * <p>A list of LF-tag values.</p>
-   * @public
-   */
-  TagValues: string[] | undefined;
-}
-
-/**
- * <p>The LF-tag policy for database resources.</p>
- * @public
- */
-export interface DatabaseLFTagPolicy {
-  /**
-   * <p>A list of LF-tag conditions that apply to database resources.</p>
-   * @public
-   */
-  Expression: LFTag[] | undefined;
-}
-
-/**
- * <p>The LF-tag policy for a table resource.</p>
- * @public
- */
-export interface TableLFTagPolicy {
-  /**
-   * <p>A list of LF-tag conditions that apply to table resources.</p>
-   * @public
-   */
-  Expression: LFTag[] | undefined;
-}
-
-/**
- * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>
- * @public
- */
-export interface LFResourceDetails {
-  /**
-   * <p>Details about the database resource included in the AWS Lake Formation data permission.</p>
-   * @public
-   */
-  Database?: DatabaseLFTagPolicy;
-
-  /**
-   * <p>Details about the table resource included in the AWS Lake Formation data permission.</p>
-   * @public
-   */
-  Table?: TableLFTagPolicy;
-}
-
-/**
- * @public
- * @enum
- */
-export const LFResourceType = {
-  DATABASE: "DATABASE",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type LFResourceType = (typeof LFResourceType)[keyof typeof LFResourceType];
-
-/**
- * <p>Details about the LF-tag policy.</p>
- * @public
- */
-export interface LFTagPolicyDetails {
-  /**
-   * <p>The identifier for the AWS Glue Data Catalog.</p>
-   * @public
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The resource type for which the LF-tag policy applies.</p>
-   * @public
-   */
-  ResourceType: LFResourceType | undefined;
-
-  /**
-   * <p>Details for the Lake Formation Resources included in the LF-tag policy.</p>
-   * @public
-   */
-  ResourceDetails: LFResourceDetails | undefined;
-}
-
-/**
- * <p>Details about the AWS Lake Formation data permission.</p>
- * @public
- */
-export interface LakeFormationDataPermissionDetails {
-  /**
-   * <p>Details about the LF-tag policy.</p>
-   * @public
-   */
-  LFTagPolicy?: LFTagPolicyDetails;
-}
-
-/**
- * @public
- * @enum
- */
-export const LakeFormationDataPermissionType = {
-  LFTagPolicy: "LFTagPolicy",
-} as const;
-
-/**
- * @public
- */
-export type LakeFormationDataPermissionType =
-  (typeof LakeFormationDataPermissionType)[keyof typeof LakeFormationDataPermissionType];
-
-/**
- * @public
- * @enum
- */
-export const LFPermission = {
-  DESCRIBE: "DESCRIBE",
-  SELECT: "SELECT",
-} as const;
-
-/**
- * @public
- */
-export type LFPermission = (typeof LFPermission)[keyof typeof LFPermission];
-
-/**
- * <p>The AWS Lake Formation data permission asset.</p>
- * @public
- */
-export interface LakeFormationDataPermissionAsset {
-  /**
-   * <p>Details about the AWS Lake Formation data permission.</p>
-   * @public
-   */
-  LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetails | undefined;
-
-  /**
-   * <p>The data permission type.</p>
-   * @public
-   */
-  LakeFormationDataPermissionType: LakeFormationDataPermissionType | undefined;
-
-  /**
-   * <p>The permissions granted to the subscribers on the resource.</p>
-   * @public
-   */
-  Permissions: LFPermission[] | undefined;
-
-  /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
-   * @public
-   */
-  RoleArn?: string;
-}
-
-/**
- * <p>The Amazon Redshift datashare asset.</p>
- * @public
- */
-export interface RedshiftDataShareAsset {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3
- *          objects.</p>
- * @public
- */
-export interface KmsKeyToGrant {
-  /**
-   * <p>The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects
-   *          in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to
-   *          allow them to access and decrypt their entitled data that is encrypted using this KMS key
-   *          specified.</p>
-   * @public
-   */
-  KmsKeyArn: string | undefined;
-}
-
-/**
- * <p>The Amazon S3 data access that is the asset.</p>
- * @public
- */
-export interface S3DataAccessAsset {
-  /**
-   * <p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
-   * @public
-   */
-  KeyPrefixes?: string[];
-
-  /**
-   * <p>S3 keys made available using this asset.</p>
-   * @public
-   */
-  Keys?: string[];
-
-  /**
-   * <p>The automatically-generated bucket-style alias for your Amazon S3 Access Point. Customers can access their entitled data using the S3 Access Point alias.</p>
-   * @public
-   */
-  S3AccessPointAlias?: string;
-
-  /**
-   * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.</p>
-   * @public
-   */
-  S3AccessPointArn?: string;
-
-  /**
-   * <p> List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
-   *          encrypt S3 objects being shared in this S3 Data Access asset. Providers must include all
-   *          AWS KMS keys used to encrypt these shared S3 objects.</p>
-   * @public
-   */
-  KmsKeysToGrant?: KmsKeyToGrant[];
-}
-
-/**
- * <p>The Amazon S3 object that is the asset.</p>
- * @public
- */
-export interface S3SnapshotAsset {
-  /**
-   * <p>The size of the Amazon S3 object that is the object.</p>
-   * @public
-   */
-  Size: number | undefined;
-}
-
-/**
- * <p>Details about the asset.</p>
- * @public
- */
-export interface AssetDetails {
-  /**
-   * <p>The Amazon S3 object that is the asset.</p>
-   * @public
-   */
-  S3SnapshotAsset?: S3SnapshotAsset;
-
-  /**
-   * <p>The Amazon Redshift datashare that is the asset.</p>
-   * @public
-   */
-  RedshiftDataShareAsset?: RedshiftDataShareAsset;
-
-  /**
-   * <p>Information about the API Gateway API asset.</p>
-   * @public
-   */
-  ApiGatewayApiAsset?: ApiGatewayApiAsset;
-
-  /**
-   * <p>The Amazon S3 data access that is the asset.</p>
-   * @public
-   */
-  S3DataAccessAsset?: S3DataAccessAsset;
-
-  /**
-   * <p>The AWS Lake Formation data permission that is the asset.</p>
-   * @public
-   */
-  LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetType = {
-  API_GATEWAY_API: "API_GATEWAY_API",
-  LAKE_FORMATION_DATA_PERMISSION: "LAKE_FORMATION_DATA_PERMISSION",
-  REDSHIFT_DATA_SHARE: "REDSHIFT_DATA_SHARE",
-  S3_DATA_ACCESS: "S3_DATA_ACCESS",
-  S3_SNAPSHOT: "S3_SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type AssetType = (typeof AssetType)[keyof typeof AssetType];
-
-/**
- * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of
- *          fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation
- *          data permission, or Amazon S3 data access). The asset can be a structured data file, an
- *          image file, or some other data file that can be stored as an Amazon S3 object, an Amazon
- *          API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or
- *          an Amazon S3 data access. When you create an import job for your files, API Gateway APIs,
- *          Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access,
- *          you create an asset in AWS Data Exchange.</p>
- * @public
- */
-export interface AssetEntry {
-  /**
-   * <p>The ARN for the asset.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>Details about the asset.</p>
-   * @public
-   */
-  AssetDetails: AssetDetails | undefined;
-
-  /**
-   * <p>The type of asset that is added to a data set.</p>
-   * @public
-   */
-  AssetType: AssetType | undefined;
-
-  /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the asset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
-   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
-   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
-   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
-   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
-   *          included in LF-tag policy" or "Table(s) included in LF-tag policy" are used as the asset
-   *          name.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
-   * @public
-   */
-  RevisionId: string | undefined;
-
-  /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
-   * @public
-   */
-  SourceId?: string;
-
-  /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
-   * @public
-   */
-  UpdatedAt: Date | undefined;
-}
-
-/**
- * <p>The source of the assets.</p>
- * @public
- */
-export interface AssetSourceEntry {
-  /**
-   * <p>The Amazon S3 bucket that's part of the source of the asset.</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The name of the object in Amazon S3 for the asset.</p>
-   * @public
-   */
-  Key: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelJobRequest {
-  /**
-   * <p>The unique identifier for a job.</p>
-   * @public
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
 export const ResourceType = {
   ASSET: "ASSET",
+  DATA_GRANT: "DATA_GRANT",
   DATA_SET: "DATA_SET",
   EVENT_ACTION: "EVENT_ACTION",
   JOB: "JOB",
@@ -637,14 +184,16 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ * <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+   * <p>The request couldn't be completed because it conflicted with the current state of the
+   *          resource.</p>
    * @public
    */
   Message: string | undefined;
@@ -819,6 +368,609 @@ export class ValidationException extends __BaseException {
  * @public
  * @enum
  */
+export const ServerSideEncryptionTypes = {
+  AES256: "AES256",
+  aws_kms: "aws:kms",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerSideEncryptionTypes = (typeof ServerSideEncryptionTypes)[keyof typeof ServerSideEncryptionTypes];
+
+/**
+ * <p>Encryption configuration of the export job. Includes the encryption type in addition to
+ *          the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
+ * @public
+ */
+export interface ExportServerSideEncryption {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon
+   *          S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
+   * @public
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
+   * @public
+   */
+  Type: ServerSideEncryptionTypes | undefined;
+}
+
+/**
+ * <p>A revision destination is the Amazon S3 bucket folder destination to where the export
+ *          will be sent.</p>
+ * @public
+ */
+export interface AutoExportRevisionDestinationEntry {
+  /**
+   * <p>The Amazon S3 bucket that is the destination for the event action.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>A string representing the pattern for generated names of the individual assets in the
+   *          revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   * @public
+   */
+  KeyPattern?: string;
+}
+
+/**
+ * <p>Details of the operation to be performed by the job.</p>
+ * @public
+ */
+export interface AutoExportRevisionToS3RequestDetails {
+  /**
+   * <p>Encryption configuration for the auto export job.</p>
+   * @public
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
+   * <p>A revision destination is the Amazon S3 bucket folder destination to where the export
+   *          will be sent.</p>
+   * @public
+   */
+  RevisionDestination: AutoExportRevisionDestinationEntry | undefined;
+}
+
+/**
+ * <p>What occurs after a certain event.</p>
+ * @public
+ */
+export interface Action {
+  /**
+   * <p>Details for the export revision to Amazon S3 action.</p>
+   * @public
+   */
+  ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtocolType = {
+  REST: "REST",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
+
+/**
+ * <p>The API Gateway API that is the asset.</p>
+ * @public
+ */
+export interface ApiGatewayApiAsset {
+  /**
+   * <p>The API description of the API asset.</p>
+   * @public
+   */
+  ApiDescription?: string;
+
+  /**
+   * <p>The API endpoint of the API asset.</p>
+   * @public
+   */
+  ApiEndpoint?: string;
+
+  /**
+   * <p>The unique identifier of the API asset.</p>
+   * @public
+   */
+  ApiId?: string;
+
+  /**
+   * <p>The API key of the API asset.</p>
+   * @public
+   */
+  ApiKey?: string;
+
+  /**
+   * <p>The API name of the API asset.</p>
+   * @public
+   */
+  ApiName?: string;
+
+  /**
+   * <p>The download URL of the API specification of the API asset.</p>
+   * @public
+   */
+  ApiSpecificationDownloadUrl?: string;
+
+  /**
+   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
+   * @public
+   */
+  ApiSpecificationDownloadUrlExpiresAt?: Date;
+
+  /**
+   * <p>The protocol type of the API asset.</p>
+   * @public
+   */
+  ProtocolType?: ProtocolType;
+
+  /**
+   * <p>The stage of the API asset.</p>
+   * @public
+   */
+  Stage?: string;
+}
+
+/**
+ * <p>The destination for the asset.</p>
+ * @public
+ */
+export interface AssetDestinationEntry {
+  /**
+   * <p>The unique identifier for the asset.</p>
+   * @public
+   */
+  AssetId: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket that is the destination for the asset.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the object in Amazon S3 for the asset.</p>
+   * @public
+   */
+  Key?: string;
+}
+
+/**
+ * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
+ * @public
+ */
+export interface LFTag {
+  /**
+   * <p>The key name for the LF-tag.</p>
+   * @public
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of LF-tag values.</p>
+   * @public
+   */
+  TagValues: string[] | undefined;
+}
+
+/**
+ * <p>The LF-tag policy for database resources.</p>
+ * @public
+ */
+export interface DatabaseLFTagPolicy {
+  /**
+   * <p>A list of LF-tag conditions that apply to database resources.</p>
+   * @public
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * <p>The LF-tag policy for a table resource.</p>
+ * @public
+ */
+export interface TableLFTagPolicy {
+  /**
+   * <p>A list of LF-tag conditions that apply to table resources.</p>
+   * @public
+   */
+  Expression: LFTag[] | undefined;
+}
+
+/**
+ * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS
+ *          Lake Formation data permission.</p>
+ * @public
+ */
+export interface LFResourceDetails {
+  /**
+   * <p>Details about the database resource included in the AWS Lake Formation data
+   *          permission.</p>
+   * @public
+   */
+  Database?: DatabaseLFTagPolicy;
+
+  /**
+   * <p>Details about the table resource included in the AWS Lake Formation data
+   *          permission.</p>
+   * @public
+   */
+  Table?: TableLFTagPolicy;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LFResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type LFResourceType = (typeof LFResourceType)[keyof typeof LFResourceType];
+
+/**
+ * <p>Details about the LF-tag policy.</p>
+ * @public
+ */
+export interface LFTagPolicyDetails {
+  /**
+   * <p>The identifier for the AWS Glue Data Catalog.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The resource type for which the LF-tag policy applies.</p>
+   * @public
+   */
+  ResourceType: LFResourceType | undefined;
+
+  /**
+   * <p>Details for the Lake Formation Resources included in the LF-tag policy.</p>
+   * @public
+   */
+  ResourceDetails: LFResourceDetails | undefined;
+}
+
+/**
+ * <p>Details about the AWS Lake Formation data permission.</p>
+ * @public
+ */
+export interface LakeFormationDataPermissionDetails {
+  /**
+   * <p>Details about the LF-tag policy.</p>
+   * @public
+   */
+  LFTagPolicy?: LFTagPolicyDetails;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LakeFormationDataPermissionType = {
+  LFTagPolicy: "LFTagPolicy",
+} as const;
+
+/**
+ * @public
+ */
+export type LakeFormationDataPermissionType =
+  (typeof LakeFormationDataPermissionType)[keyof typeof LakeFormationDataPermissionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LFPermission = {
+  DESCRIBE: "DESCRIBE",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type LFPermission = (typeof LFPermission)[keyof typeof LFPermission];
+
+/**
+ * <p>The AWS Lake Formation data permission asset.</p>
+ * @public
+ */
+export interface LakeFormationDataPermissionAsset {
+  /**
+   * <p>Details about the AWS Lake Formation data permission.</p>
+   * @public
+   */
+  LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetails | undefined;
+
+  /**
+   * <p>The data permission type.</p>
+   * @public
+   */
+  LakeFormationDataPermissionType: LakeFormationDataPermissionType | undefined;
+
+  /**
+   * <p>The permissions granted to the subscribers on the resource.</p>
+   * @public
+   */
+  Permissions: LFPermission[] | undefined;
+
+  /**
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke
+   *          permissions to AWS Lake Formation data permissions.</p>
+   * @public
+   */
+  RoleArn?: string;
+}
+
+/**
+ * <p>The Amazon Redshift datashare asset.</p>
+ * @public
+ */
+export interface RedshiftDataShareAsset {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3
+ *          objects.</p>
+ * @public
+ */
+export interface KmsKeyToGrant {
+  /**
+   * <p>The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects
+   *          in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to
+   *          allow them to access and decrypt their entitled data that is encrypted using this KMS key
+   *          specified.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+}
+
+/**
+ * <p>The Amazon S3 data access that is the asset.</p>
+ * @public
+ */
+export interface S3DataAccessAsset {
+  /**
+   * <p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
+   * @public
+   */
+  KeyPrefixes?: string[];
+
+  /**
+   * <p>S3 keys made available using this asset.</p>
+   * @public
+   */
+  Keys?: string[];
+
+  /**
+   * <p>The automatically-generated bucket-style alias for your Amazon S3 Access Point.
+   *          Customers can access their entitled data using the S3 Access Point alias.</p>
+   * @public
+   */
+  S3AccessPointAlias?: string;
+
+  /**
+   * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data
+   *          using the S3 Access Point ARN.</p>
+   * @public
+   */
+  S3AccessPointArn?: string;
+
+  /**
+   * <p> List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
+   *          encrypt S3 objects being shared in this S3 Data Access asset. Providers must include all
+   *          AWS KMS keys used to encrypt these shared S3 objects.</p>
+   * @public
+   */
+  KmsKeysToGrant?: KmsKeyToGrant[];
+}
+
+/**
+ * <p>The Amazon S3 object that is the asset.</p>
+ * @public
+ */
+export interface S3SnapshotAsset {
+  /**
+   * <p>The size of the Amazon S3 object that is the object.</p>
+   * @public
+   */
+  Size: number | undefined;
+}
+
+/**
+ * <p>Details about the asset.</p>
+ * @public
+ */
+export interface AssetDetails {
+  /**
+   * <p>The Amazon S3 object that is the asset.</p>
+   * @public
+   */
+  S3SnapshotAsset?: S3SnapshotAsset;
+
+  /**
+   * <p>The Amazon Redshift datashare that is the asset.</p>
+   * @public
+   */
+  RedshiftDataShareAsset?: RedshiftDataShareAsset;
+
+  /**
+   * <p>Information about the API Gateway API asset.</p>
+   * @public
+   */
+  ApiGatewayApiAsset?: ApiGatewayApiAsset;
+
+  /**
+   * <p>The Amazon S3 data access that is the asset.</p>
+   * @public
+   */
+  S3DataAccessAsset?: S3DataAccessAsset;
+
+  /**
+   * <p>The AWS Lake Formation data permission that is the asset.</p>
+   * @public
+   */
+  LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  API_GATEWAY_API: "API_GATEWAY_API",
+  LAKE_FORMATION_DATA_PERMISSION: "LAKE_FORMATION_DATA_PERMISSION",
+  REDSHIFT_DATA_SHARE: "REDSHIFT_DATA_SHARE",
+  S3_DATA_ACCESS: "S3_DATA_ACCESS",
+  S3_SNAPSHOT: "S3_SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of
+ *          fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation
+ *          data permission, or Amazon S3 data access). The asset can be a structured data file, an
+ *          image file, or some other data file that can be stored as an Amazon S3 object, an Amazon
+ *          API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or
+ *          an Amazon S3 data access. When you create an import job for your files, API Gateway APIs,
+ *          Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access,
+ *          you create an asset in AWS Data Exchange.</p>
+ * @public
+ */
+export interface AssetEntry {
+  /**
+   * <p>The ARN for the asset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Details about the asset.</p>
+   * @public
+   */
+  AssetDetails: AssetDetails | undefined;
+
+  /**
+   * <p>The type of asset that is added to a data set.</p>
+   * @public
+   */
+  AssetType: AssetType | undefined;
+
+  /**
+   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this asset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the asset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
+   *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
+   *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
+   *          included in LF-tag policy" or "Table(s) included in LF-tag policy" are used as the asset
+   *          name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this asset.</p>
+   * @public
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This
+   *          parameter is returned when an asset owner is viewing the entitled copy of its owned
+   *          asset.</p>
+   * @public
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * <p>The source of the assets.</p>
+ * @public
+ */
+export interface AssetSourceEntry {
+  /**
+   * <p>The Amazon S3 bucket that's part of the source of the asset.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the object in Amazon S3 for the asset.</p>
+   * @public
+   */
+  Key: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelJobRequest {
+  /**
+   * <p>The unique identifier for a job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Code = {
   ACCESS_DENIED_EXCEPTION: "ACCESS_DENIED_EXCEPTION",
   INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
@@ -837,127 +989,143 @@ export type Code = (typeof Code)[keyof typeof Code];
 /**
  * @public
  */
-export interface CreateDataSetRequest {
+export interface CreateDataGrantRequest {
   /**
-   * <p>The type of asset that is added to a data set.</p>
-   * @public
-   */
-  AssetType: AssetType | undefined;
-
-  /**
-   * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The name of the data set.</p>
+   * <p>The name of the data grant.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   * <p>The distribution scope of the data grant.</p>
    * @public
    */
-  Tags?: Record<string, string>;
-}
+  GrantDistributionScope: GrantDistributionScope | undefined;
 
-/**
- * @public
- * @enum
- */
-export const Origin = {
-  ENTITLED: "ENTITLED",
-  OWNED: "OWNED",
-} as const;
-
-/**
- * @public
- */
-export type Origin = (typeof Origin)[keyof typeof Origin];
-
-/**
- * <p>Details about the origin of the data set.</p>
- * @public
- */
-export interface OriginDetails {
   /**
-   * <p>The product ID of the origin of the data set.</p>
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
    * @public
    */
-  ProductId?: string;
-}
+  ReceiverPrincipal: string | undefined;
 
-/**
- * @public
- */
-export interface CreateDataSetResponse {
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>The ID of the data set used to create the data grant.</p>
    * @public
    */
-  Arn?: string;
+  SourceDataSetId: string | undefined;
 
   /**
-   * <p>The type of asset that is added to a data set.</p>
+   * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  AssetType?: AssetType;
+  EndsAt?: Date;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The description for the data set.</p>
+   * <p>The description of the data grant.</p>
    * @public
    */
   Description?: string;
 
   /**
-   * <p>The unique identifier for the data set.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the data set.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   * @public
-   */
-  Origin?: Origin;
-
-  /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-   * @public
-   */
-  OriginDetails?: OriginDetails;
-
-  /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-   * @public
-   */
-  SourceId?: string;
-
-  /**
-   * <p>The tags for the data set.</p>
+   * <p>The tags to add to the data grant. A tag is a key-value pair.</p>
    * @public
    */
   Tags?: Record<string, string>;
+}
 
+/**
+ * @public
+ */
+export interface CreateDataGrantResponse {
   /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * <p>The name of the data grant.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The description of the data grant.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The distribution scope for the data grant.</p>
+   * @public
+   */
+  GrantDistributionScope: GrantDistributionScope | undefined;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data set used to create the data grant.</p>
+   * @public
+   */
+  SourceDataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -966,6 +1134,7 @@ export interface CreateDataSetResponse {
  */
 export const LimitName = {
   AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
+  Active_and_pending_data_grants: "Active and pending data grants",
   Amazon_API_Gateway_API_assets_per_revision: "Amazon API Gateway API assets per revision",
   Amazon_Redshift_datashare_assets_per_import_job_from_Redshift:
     "Amazon Redshift datashare assets per import job from Redshift",
@@ -997,6 +1166,7 @@ export const LimitName = {
   Data_sets_per_account: "Data sets per account",
   Data_sets_per_product: "Data sets per product",
   Event_actions_per_account: "Event actions per account",
+  Pending_data_grants_per_consumer: "Pending data grants per consumer",
   Products_per_account: "Products per account",
   Revisions_per_AWS_Lake_Formation_data_permission_data_set:
     "Revisions per AWS Lake Formation data permission data set",
@@ -1049,6 +1219,145 @@ export class ServiceLimitExceededException extends __BaseException {
     this.LimitValue = opts.LimitValue;
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetRequest {
+  /**
+   * <p>The type of asset that is added to a data set.</p>
+   * @public
+   */
+  AssetType: AssetType | undefined;
+
+  /**
+   * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The name of the data set.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A data set tag is an optional label that you can assign to a data set when you create
+   *          it. Each tag consists of a key and an optional value, both of which you define. When you
+   *          use tagging, you can also use tag-based access control in IAM policies to control access to
+   *          these data sets and revisions.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Origin = {
+  ENTITLED: "ENTITLED",
+  OWNED: "OWNED",
+} as const;
+
+/**
+ * @public
+ */
+export type Origin = (typeof Origin)[keyof typeof Origin];
+
+/**
+ * <p>Details about the origin of the data set.</p>
+ * @public
+ */
+export interface OriginDetails {
+  /**
+   * <p>The product ID of the origin of the data set.</p>
+   * @public
+   */
+  ProductId?: string;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  DataGrantId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSetResponse {
+  /**
+   * <p>The ARN for the data set.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The type of asset that is added to a data set.</p>
+   * @public
+   */
+  AssetType?: AssetType;
+
+  /**
+   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The description for the data set.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The unique identifier for the data set.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the data set.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
+   *          to the account (for subscribers).</p>
+   * @public
+   */
+  Origin?: Origin;
+
+  /**
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
+   *          Marketplace.</p>
+   * @public
+   */
+  OriginDetails?: OriginDetails;
+
+  /**
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being
+   *          viewed. This parameter is returned when a data set owner is viewing the entitled copy of
+   *          its owned data set.</p>
+   * @public
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The tags for the data set.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   * @public
+   */
+  UpdatedAt?: Date;
 }
 
 /**
@@ -1176,7 +1485,8 @@ export interface CreateS3DataAccessFromS3BucketRequestDetails {
   AssetSource: S3DataAccessAssetSourceEntry | undefined;
 
   /**
-   * <p>The unique identifier for the data set associated with the creation of this Amazon S3 data access.</p>
+   * <p>The unique identifier for the data set associated with the creation of this Amazon S3
+   *          data access.</p>
    * @public
    */
   DataSetId: string | undefined;
@@ -1254,7 +1564,8 @@ export interface RevisionDestinationEntry {
   Bucket: string | undefined;
 
   /**
-   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   * <p>A string representing the pattern for generated names of the individual assets in the
+   *          revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
    * @public
    */
   KeyPattern?: string;
@@ -1320,7 +1631,8 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
   ApiName: string | undefined;
 
   /**
-   * <p>The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is used to ensure the integrity of the file.</p>
+   * <p>The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is used
+   *          to ensure the integrity of the file.</p>
    * @public
    */
   ApiSpecificationMd5Hash: string | undefined;
@@ -1356,7 +1668,8 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
+   *          as the asset name.</p>
    * @public
    */
   AssetName: string | undefined;
@@ -1368,7 +1681,8 @@ export interface ImportAssetFromSignedUrlRequestDetails {
   DataSetId: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
+   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at
+   *          that location.</p>
    * @public
    */
   Md5Hash: string | undefined;
@@ -1468,7 +1782,8 @@ export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
   Table?: TableLFTagPolicyAndPermissions;
 
   /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions of subscribers to AWS Lake Formation data permissions.</p>
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke
+   *          permissions of subscribers to AWS Lake Formation data permissions.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -1645,7 +1960,8 @@ export interface CreateJobRequest {
 }
 
 /**
- * <p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>
+ * <p>Details about the response of the operation to create an S3 data access from an S3
+ *          bucket.</p>
  * @public
  */
 export interface CreateS3DataAccessFromS3BucketResponseDetails {
@@ -1794,7 +2110,8 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
   ApiName: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the API asset, used to ensure the integrity of the API at that location.</p>
+   * <p>The Base64-encoded Md5 hash for the API asset, used to ensure the integrity of the API
+   *          at that location.</p>
    * @public
    */
   ApiSpecificationMd5Hash: string | undefined;
@@ -1837,7 +2154,8 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
 }
 
 /**
- * <p>The details in the response for an import request, including the signed URL and other information.</p>
+ * <p>The details in the response for an import request, including the signed URL and other
+ *          information.</p>
  * @public
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
@@ -1854,7 +2172,8 @@ export interface ImportAssetFromSignedUrlResponseDetails {
   DataSetId: string | undefined;
 
   /**
-   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
+   * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at
+   *          that location.</p>
    * @public
    */
   Md5Hash?: string;
@@ -1902,7 +2221,8 @@ export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
   Table?: TableLFTagPolicyAndPermissions;
 
   /**
-   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
+   * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke
+   *          permissions to AWS Lake Formation data permissions.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -2226,7 +2546,10 @@ export interface CreateRevisionRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+   * <p>A revision tag is an optional label that you can assign to a revision when you create
+   *          it. Each tag consists of a key and an optional value, both of which you define. When you
+   *          use tagging, you can also use tag-based access control in IAM policies to control access to
+   *          these data sets and revisions.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -2261,7 +2584,12 @@ export interface CreateRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized.
+   *          Finalizing a revision tells AWS Data Exchange that your changes to the assets in the
+   *          revision are complete. After it's in this read-only state, you can publish the revision to
+   *          your products. Finalized revisions can be published through the AWS Data Exchange console
+   *          or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API
+   *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
   Finalized?: boolean;
@@ -2273,7 +2601,9 @@ export interface CreateRevisionResponse {
   Id?: string;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being
+   *          viewed. This parameter is returned when a revision owner is viewing the entitled copy of
+   *          its owned revision.</p>
    * @public
    */
   SourceId?: string;
@@ -2291,7 +2621,8 @@ export interface CreateRevisionResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment?: string;
@@ -2330,6 +2661,17 @@ export interface DeleteAssetRequest {
    * @public
    */
   RevisionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataGrantRequest {
+  /**
+   * <p>The ID of the data grant to delete.</p>
+   * @public
+   */
+  DataGrantId: string | undefined;
 }
 
 /**
@@ -2439,9 +2781,9 @@ export interface GetAssetResponse {
    *          as the asset name. When exporting to Amazon S3, the asset name is used as default target
    *          Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as
    *          the asset name. When importing from Amazon Redshift, the datashare name is used as the
-   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s) included
-   *          in the LF-tag policy" or "Table(s) included in the LF-tag policy" are used as the asset
-   *          name.</p>
+   *          asset name. When importing from AWS Lake Formation, the static values of "Database(s)
+   *          included in the LF-tag policy" or "Table(s) included in the LF-tag policy" are used as the
+   *          asset name.</p>
    * @public
    */
   Name?: string;
@@ -2453,7 +2795,9 @@ export interface GetAssetResponse {
   RevisionId?: string;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This
+   *          parameter is returned when an asset owner is viewing the entitled copy of its owned
+   *          asset.</p>
    * @public
    */
   SourceId?: string;
@@ -2463,6 +2807,112 @@ export interface GetAssetResponse {
    * @public
    */
   UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetDataGrantRequest {
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  DataGrantId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataGrantResponse {
+  /**
+   * <p>The name of the data grant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The description of the data grant.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The distribution scope for the data grant.</p>
+   * @public
+   */
+  GrantDistributionScope: GrantDistributionScope | undefined;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data set used to create the data grant.</p>
+   * @public
+   */
+  SourceDataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -2517,19 +2967,23 @@ export interface GetDataSetResponse {
   Name?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
+   *          to the account (for subscribers).</p>
    * @public
    */
   Origin?: Origin;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
+   *          Marketplace.</p>
    * @public
    */
   OriginDetails?: OriginDetails;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being
+   *          viewed. This parameter is returned when a data set owner is viewing the entitled copy of
+   *          its owned data set.</p>
    * @public
    */
   SourceId?: string;
@@ -2666,6 +3120,100 @@ export interface GetJobResponse {
 /**
  * @public
  */
+export interface GetReceivedDataGrantRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  DataGrantArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReceivedDataGrantResponse {
+  /**
+   * <p>The name of the data grant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The description of the data grant.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The distribution scope for the data grant.</p>
+   * @public
+   */
+  GrantDistributionScope: GrantDistributionScope | undefined;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2709,7 +3257,12 @@ export interface GetRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized.
+   *          Finalizing a revision tells AWS Data Exchange that your changes to the assets in the
+   *          revision are complete. After it's in this read-only state, you can publish the revision to
+   *          your products. Finalized revisions can be published through the AWS Data Exchange console
+   *          or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API
+   *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
   Finalized?: boolean;
@@ -2721,7 +3274,9 @@ export interface GetRevisionResponse {
   Id?: string;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being
+   *          viewed. This parameter is returned when a revision owner is viewing the entitled copy of
+   *          its owned revision.</p>
    * @public
    */
   SourceId?: string;
@@ -2739,7 +3294,8 @@ export interface GetRevisionResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment?: string;
@@ -2760,6 +3316,120 @@ export interface GetRevisionResponse {
 /**
  * @public
  */
+export interface ListDataGrantsRequest {
+  /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Information about a data grant.</p>
+ * @public
+ */
+export interface DataGrantSummaryEntry {
+  /**
+   * <p>The name of the data grant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data set used to create the data grant.</p>
+   * @public
+   */
+  SourceDataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataGrantsResponse {
+  /**
+   * <p>An object that contains a list of data grant information.</p>
+   * @public
+   */
+  DataGrantSummaries?: DataGrantSummaryEntry[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListDataSetRevisionsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2774,7 +3444,8 @@ export interface ListDataSetRevisionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -2810,7 +3481,12 @@ export interface RevisionEntry {
   DataSetId: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized.
+   *          Finalizing a revision tells AWS Data Exchange that your changes to the assets in the
+   *          revision are complete. After it's in this read-only state, you can publish the revision to
+   *          your products. Finalized revisions can be published through the AWS Data Exchange console
+   *          or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API
+   *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
   Finalized?: boolean;
@@ -2822,7 +3498,9 @@ export interface RevisionEntry {
   Id: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being
+   *          viewed. This parameter is returned when a revision owner is viewing the entitled copy of
+   *          its owned revision.</p>
    * @public
    */
   SourceId?: string;
@@ -2834,7 +3512,8 @@ export interface RevisionEntry {
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment?: string;
@@ -2857,7 +3536,8 @@ export interface RevisionEntry {
  */
 export interface ListDataSetRevisionsResponse {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -2880,13 +3560,15 @@ export interface ListDataSetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
+   *          to the account (for subscribers).</p>
    * @public
    */
   Origin?: string;
@@ -2934,19 +3616,23 @@ export interface DataSetEntry {
   Name: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
+   *          to the account (for subscribers).</p>
    * @public
    */
   Origin: Origin | undefined;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
+   *          Marketplace.</p>
    * @public
    */
   OriginDetails?: OriginDetails;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being
+   *          viewed. This parameter is returned when a data set owner is viewing the entitled copy of
+   *          its owned data set.</p>
    * @public
    */
   SourceId?: string;
@@ -2969,7 +3655,8 @@ export interface ListDataSetsResponse {
   DataSets?: DataSetEntry[];
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -2992,14 +3679,16 @@ export interface ListEventActionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
 }
 
 /**
- * <p>An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.</p>
+ * <p>An event action is an object that defines the relationship between a specific event and
+ *          an automated action that will be taken on behalf of the customer.</p>
  * @public
  */
 export interface EventActionEntry {
@@ -3051,7 +3740,8 @@ export interface ListEventActionsResponse {
   EventActions?: EventActionEntry[];
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -3074,7 +3764,8 @@ export interface ListJobsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -3087,7 +3778,10 @@ export interface ListJobsRequest {
 }
 
 /**
- * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.</p>
+ * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or
+ *          copy assets. A data set owner can both import and export as they see fit. Someone with an
+ *          entitlement to a data set can only export. Jobs are deleted 90 days after they are
+ *          created.</p>
  * @public
  */
 export interface JobEntry {
@@ -3104,7 +3798,8 @@ export interface JobEntry {
   CreatedAt: Date | undefined;
 
   /**
-   * <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
+   * <p>Details of the operation to be performed by the job, such as export destination details
+   *          or import source details.</p>
    * @public
    */
   Details: ResponseDetails | undefined;
@@ -3151,7 +3846,122 @@ export interface ListJobsResponse {
   Jobs?: JobEntry[];
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListReceivedDataGrantsRequest {
+  /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The acceptance state of the data grants to list.</p>
+   * @public
+   */
+  AcceptanceState?: AcceptanceStateFilterValue[];
+}
+
+/**
+ * <p>Information about a received data grant.</p>
+ * @public
+ */
+export interface ReceivedDataGrantSummariesEntry {
+  /**
+   * <p>The name of the data grant.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant sender.</p>
+   * @public
+   */
+  SenderPrincipal: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the data grant receiver.</p>
+   * @public
+   */
+  ReceiverPrincipal: string | undefined;
+
+  /**
+   * <p>The acceptance state of the data grant.</p>
+   * @public
+   */
+  AcceptanceState: DataGrantAcceptanceState | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was accepted.</p>
+   * @public
+   */
+  AcceptedAt?: Date;
+
+  /**
+   * <p>The timestamp of when access to the associated data set ends.</p>
+   * @public
+   */
+  EndsAt?: Date;
+
+  /**
+   * <p>The ID of the data set associated to the data grant.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the data grant.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data grant.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the data grant was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReceivedDataGrantsResponse {
+  /**
+   * <p>An object that contains a list of received data grant information.</p>
+   * @public
+   */
+  DataGrantSummaries?: ReceivedDataGrantSummariesEntry[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
    * @public
    */
   NextToken?: string;
@@ -3174,7 +3984,8 @@ export interface ListRevisionAssetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -3197,7 +4008,8 @@ export interface ListRevisionAssetsResponse {
   Assets?: AssetEntry[];
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The token value retrieved from a previous call to access the next page of
+   *          results.</p>
    * @public
    */
   NextToken?: string;
@@ -3242,7 +4054,8 @@ export interface RevokeRevisionRequest {
   RevisionId: string | undefined;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment: string | undefined;
@@ -3277,7 +4090,12 @@ export interface RevokeRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized.
+   *          Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision
+   *          are complete. After it's in this read-only state, you can publish the revision to your
+   *          products. Finalized revisions can be published through the AWS Data Exchange console or the
+   *          AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action.
+   *          When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
   Finalized?: boolean;
@@ -3289,7 +4107,9 @@ export interface RevokeRevisionResponse {
   Id?: string;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being
+   *          viewed. This parameter is returned when a revision owner is viewing the entitled copy of
+   *          its owned revision.</p>
    * @public
    */
   SourceId?: string;
@@ -3301,7 +4121,8 @@ export interface RevokeRevisionResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment?: string;
@@ -3330,7 +4151,8 @@ export interface SendApiAssetRequest {
   Body?: string;
 
   /**
-   * <p>Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).</p>
+   * <p>Attach query string parameters to the end of the URI (for example,
+   *          /v1/examplePath?exampleParam=exampleValue).</p>
    * @public
    */
   QueryStringParameters?: Record<string, string>;
@@ -3348,19 +4170,24 @@ export interface SendApiAssetRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>Any header value prefixed with x-amzn-dataexchange-header- will have that stripped before sending the Asset API request. Use this when you want to override a header that AWS Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP request.</p>
+   * <p>Any header value prefixed with x-amzn-dataexchange-header- will have that stripped
+   *          before sending the Asset API request. Use this when you want to override a header that AWS
+   *          Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP
+   *          request.</p>
    * @public
    */
   RequestHeaders?: Record<string, string>;
 
   /**
-   * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.</p>
+   * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb
+   *          in your request.</p>
    * @public
    */
   Method?: string;
 
   /**
-   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/\{pathValue\}.</p>
+   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by
+   *          invoking /v1/\{pathValue\}.</p>
    * @public
    */
   Path?: string;
@@ -3432,8 +4259,8 @@ export const SchemaChangeType = {
 export type SchemaChangeType = (typeof SchemaChangeType)[keyof typeof SchemaChangeType];
 
 /**
- * <p>Object encompassing information about a schema change to a single, particular field,
- *          a notification can have up to 100 of these.</p>
+ * <p>Object encompassing information about a schema change to a single, particular field, a
+ *          notification can have up to 100 of these.</p>
  * @public
  */
 export interface SchemaChangeDetails {
@@ -3513,8 +4340,7 @@ export interface NotificationDetails {
 }
 
 /**
- * <p>Extra details specific to the affected scope in
- *          this LF data set.</p>
+ * <p>Extra details specific to the affected scope in this LF data set.</p>
  * @public
  */
 export interface LakeFormationTagPolicyDetails {
@@ -3534,8 +4360,7 @@ export interface LakeFormationTagPolicyDetails {
 }
 
 /**
- * <p>Extra details specific to the affected scope
- *          in this Redshift data set.</p>
+ * <p>Extra details specific to the affected scope in this Redshift data set.</p>
  * @public
  */
 export interface RedshiftDataShareDetails {
@@ -3585,8 +4410,7 @@ export interface RedshiftDataShareDetails {
 }
 
 /**
- * <p>Extra details specific to the affected scope in this S3 Data
- *          Access data set.</p>
+ * <p>Extra details specific to the affected scope in this S3 Data Access data set.</p>
  * @public
  */
 export interface S3DataAccessDetails {
@@ -3851,7 +4675,9 @@ export interface UpdateAssetResponse {
   RevisionId?: string;
 
   /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This
+   *          parameter is returned when an asset owner is viewing the entitled copy of its owned
+   *          asset.</p>
    * @public
    */
   SourceId?: string;
@@ -3927,19 +4753,23 @@ export interface UpdateDataSetResponse {
   Name?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
+   *          to the account (for subscribers).</p>
    * @public
    */
   Origin?: Origin;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
+   *          Marketplace.</p>
    * @public
    */
   OriginDetails?: OriginDetails;
 
   /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being
+   *          viewed. This parameter is returned when a data set owner is viewing the entitled copy of
+   *          its owned data set.</p>
    * @public
    */
   SourceId?: string;
@@ -4026,7 +4856,9 @@ export interface UpdateRevisionRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
+   * <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the
+   *          revision are complete. After it's in this read-only state, you can publish the revision to
+   *          your products.</p>
    * @public
    */
   Finalized?: boolean;
@@ -4067,7 +4899,12 @@ export interface UpdateRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized.
+   *          Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision
+   *          are complete. After it's in this read-only state, you can publish the revision to your
+   *          products. Finalized revisions can be published through the AWS Data Exchange console or the
+   *          AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action.
+   *          When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
   Finalized?: boolean;
@@ -4079,7 +4916,9 @@ export interface UpdateRevisionResponse {
   Id?: string;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being
+   *          viewed. This parameter is returned when a revision owner is viewing the entitled copy of
+   *          its owned revision.</p>
    * @public
    */
   SourceId?: string;
@@ -4091,7 +4930,8 @@ export interface UpdateRevisionResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   * <p>A required comment to inform subscribers of the reason their access to the revision was
+   *          revoked.</p>
    * @public
    */
   RevocationComment?: string;

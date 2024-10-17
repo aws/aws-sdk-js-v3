@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
-import { de_ListDataSetRevisionsCommand, se_ListDataSetRevisionsCommand } from "../protocols/Aws_restJson1";
+import { ListDataGrantsRequest, ListDataGrantsResponse } from "../models/models_0";
+import { de_ListDataGrantsCommand, se_ListDataGrantsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,58 +17,60 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDataSetRevisionsCommand}.
+ * The input for {@link ListDataGrantsCommand}.
  */
-export interface ListDataSetRevisionsCommandInput extends ListDataSetRevisionsRequest {}
+export interface ListDataGrantsCommandInput extends ListDataGrantsRequest {}
 /**
  * @public
  *
- * The output of {@link ListDataSetRevisionsCommand}.
+ * The output of {@link ListDataGrantsCommand}.
  */
-export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsResponse, __MetadataBearer {}
+export interface ListDataGrantsCommandOutput extends ListDataGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists a data set's revisions sorted by CreatedAt in descending
- *          order.</p>
+ * <p>This operation returns information about all data grants.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, ListDataSetRevisionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, ListDataSetRevisionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, ListDataGrantsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, ListDataGrantsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = { // ListDataSetRevisionsRequest
- *   DataSetId: "STRING_VALUE", // required
+ * const input = { // ListDataGrantsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListDataSetRevisionsCommand(input);
+ * const command = new ListDataGrantsCommand(input);
  * const response = await client.send(command);
- * // { // ListDataSetRevisionsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Revisions: [ // ListOfRevisionEntry
- * //     { // RevisionEntry
- * //       Arn: "STRING_VALUE", // required
- * //       Comment: "STRING_VALUE",
- * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * // { // ListDataGrantsResponse
+ * //   DataGrantSummaries: [ // ListOfDataGrantSummaryEntry
+ * //     { // DataGrantSummaryEntry
+ * //       Name: "STRING_VALUE", // required
+ * //       SenderPrincipal: "STRING_VALUE", // required
+ * //       ReceiverPrincipal: "STRING_VALUE", // required
+ * //       AcceptanceState: "STRING_VALUE", // required
+ * //       AcceptedAt: new Date("TIMESTAMP"),
+ * //       EndsAt: new Date("TIMESTAMP"),
  * //       DataSetId: "STRING_VALUE", // required
- * //       Finalized: true || false,
+ * //       SourceDataSetId: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
- * //       SourceId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       UpdatedAt: new Date("TIMESTAMP"), // required
- * //       RevocationComment: "STRING_VALUE",
- * //       Revoked: true || false,
- * //       RevokedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListDataSetRevisionsCommandInput - {@link ListDataSetRevisionsCommandInput}
- * @returns {@link ListDataSetRevisionsCommandOutput}
- * @see {@link ListDataSetRevisionsCommandInput} for command's `input` shape.
- * @see {@link ListDataSetRevisionsCommandOutput} for command's `response` shape.
+ * @param ListDataGrantsCommandInput - {@link ListDataGrantsCommandInput}
+ * @returns {@link ListDataGrantsCommandOutput}
+ * @see {@link ListDataGrantsCommandInput} for command's `input` shape.
+ * @see {@link ListDataGrantsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the resource is denied.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -87,10 +89,10 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  *
  * @public
  */
-export class ListDataSetRevisionsCommand extends $Command
+export class ListDataGrantsCommand extends $Command
   .classBuilder<
-    ListDataSetRevisionsCommandInput,
-    ListDataSetRevisionsCommandOutput,
+    ListDataGrantsCommandInput,
+    ListDataGrantsCommandOutput,
     DataExchangeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +104,21 @@ export class ListDataSetRevisionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataExchange", "ListDataSetRevisions", {})
-  .n("DataExchangeClient", "ListDataSetRevisionsCommand")
+  .s("DataExchange", "ListDataGrants", {})
+  .n("DataExchangeClient", "ListDataGrantsCommand")
   .f(void 0, void 0)
-  .ser(se_ListDataSetRevisionsCommand)
-  .de(de_ListDataSetRevisionsCommand)
+  .ser(se_ListDataGrantsCommand)
+  .de(de_ListDataGrantsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDataSetRevisionsRequest;
-      output: ListDataSetRevisionsResponse;
+      input: ListDataGrantsRequest;
+      output: ListDataGrantsResponse;
     };
     sdk: {
-      input: ListDataSetRevisionsCommandInput;
-      output: ListDataSetRevisionsCommandOutput;
+      input: ListDataGrantsCommandInput;
+      output: ListDataGrantsCommandOutput;
     };
   };
 }

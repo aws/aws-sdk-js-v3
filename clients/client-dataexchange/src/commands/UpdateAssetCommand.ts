@@ -137,7 +137,8 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *  <p>Access to the resource is denied.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the
+ *          resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
