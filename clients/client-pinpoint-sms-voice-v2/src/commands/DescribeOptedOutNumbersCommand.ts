@@ -39,7 +39,7 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  *             only those opted out numbers that meet the filter criteria. If you don't specify opted
  *             out numbers or filters, the output includes information for all opted out destination
  *             numbers in your opt-out list.</p>
- *          <p>If you specify an opted out number that isn't valid, an error is returned.</p>
+ *          <p>If you specify an opted out number that isn't valid, an exception is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -537,6 +537,7 @@ export const ValidationExceptionReason = {
   UNKNOWN_REGISTRATION_SECTION: "UNKNOWN_REGISTRATION_SECTION",
   UNKNOWN_REGISTRATION_TYPE: "UNKNOWN_REGISTRATION_TYPE",
   UNKNOWN_REGISTRATION_VERSION: "UNKNOWN_REGISTRATION_VERSION",
+  UNSPECIFIED_PARAMETER_NOT_SUPPORTED: "UNSPECIFIED_PARAMETER_NOT_SUPPORTED",
   VERIFICATION_CODE_MISMATCH: "VERIFICATION_CODE_MISMATCH",
   VOICE_CAPABILITY_NOT_AVAILABLE: "VOICE_CAPABILITY_NOT_AVAILABLE",
 } as const;
@@ -1395,6 +1396,7 @@ export const RegistrationStatus = {
   CREATED: "CREATED",
   DELETED: "DELETED",
   PROVISIONING: "PROVISIONING",
+  REQUIRES_AUTHENTICATION: "REQUIRES_AUTHENTICATION",
   REQUIRES_UPDATES: "REQUIRES_UPDATES",
   REVIEWING: "REVIEWING",
   SUBMITTED: "SUBMITTED",
@@ -1569,13 +1571,13 @@ export interface CreateRegistrationAssociationResult {
  */
 export interface CreateRegistrationAttachmentRequest {
   /**
-   * <p>The registration file to upload. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG.</p>
+   * <p>The registration file to upload. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG.</p>
    * @public
    */
   AttachmentBody?: Uint8Array;
 
   /**
-   * <p>A URL to the required registration file.  For example, you can provide the S3 object URL.</p>
+   * <p>Registration files have to be stored in an Amazon S3 bucket. The URI to use when sending is in the format <code>s3://BucketName/FileName</code>.</p>
    * @public
    */
   AttachmentUrl?: string;
@@ -1669,6 +1671,7 @@ export const RegistrationVersionStatus = {
   DENIED: "DENIED",
   DISCARDED: "DISCARDED",
   DRAFT: "DRAFT",
+  REQUIRES_AUTHENTICATION: "REQUIRES_AUTHENTICATION",
   REVIEWING: "REVIEWING",
   REVOKED: "REVOKED",
   SUBMITTED: "SUBMITTED",
@@ -3050,6 +3053,7 @@ export interface DescribeOptedOutNumbersRequest {
 
   /**
    * <p>An array of phone numbers to search for in the OptOutList.</p>
+   *          <p>If you specify an opted out number that isn't valid, an exception is returned.</p>
    * @public
    */
   OptedOutNumbers?: string[];
