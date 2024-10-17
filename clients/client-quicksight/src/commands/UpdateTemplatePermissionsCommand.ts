@@ -60,7 +60,7 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * // { // UpdateTemplatePermissionsResponse
  * //   TemplateId: "STRING_VALUE",
  * //   TemplateArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required

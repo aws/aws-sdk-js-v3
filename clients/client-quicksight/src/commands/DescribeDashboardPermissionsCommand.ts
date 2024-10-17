@@ -49,7 +49,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  * // { // DescribeDashboardPermissionsResponse
  * //   DashboardId: "STRING_VALUE",
  * //   DashboardArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -60,7 +60,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",
  * //   LinkSharingConfiguration: { // LinkSharingConfiguration
- * //     Permissions: [
+ * //     Permissions: [ // ResourcePermissionList
  * //       {
  * //         Principal: "STRING_VALUE", // required
  * //         Actions: [ // required

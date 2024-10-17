@@ -1354,6 +1354,14 @@ StartDashboardSnapshotJob
 </details>
 <details>
 <summary>
+StartDashboardSnapshotJobSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/StartDashboardSnapshotJobScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

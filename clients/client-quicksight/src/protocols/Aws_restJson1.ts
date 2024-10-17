@@ -413,6 +413,10 @@ import {
   StartDashboardSnapshotJobCommandInput,
   StartDashboardSnapshotJobCommandOutput,
 } from "../commands/StartDashboardSnapshotJobCommand";
+import {
+  StartDashboardSnapshotJobScheduleCommandInput,
+  StartDashboardSnapshotJobScheduleCommandOutput,
+} from "../commands/StartDashboardSnapshotJobScheduleCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -4092,8 +4096,11 @@ export const se_RestoreAnalysisCommand = async (
   b.bp("/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  const query: any = map({
+    [_rtf]: [() => input.RestoreToFolders !== void 0, () => input[_RTF]!.toString()],
+  });
   let body: any;
-  b.m("POST").h(headers).b(body);
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4333,6 +4340,24 @@ export const se_StartDashboardSnapshotJobCommand = async (
       UserConfiguration: (_) => _json(_),
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartDashboardSnapshotJobScheduleCommand
+ */
+export const se_StartDashboardSnapshotJobScheduleCommand = async (
+  input: StartDashboardSnapshotJobScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.p("ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -8782,6 +8807,7 @@ export const de_RestoreAnalysisCommand = async (
     AnalysisId: __expectString,
     Arn: __expectString,
     RequestId: __expectString,
+    RestorationFailedFolderArns: _json,
   });
   Object.assign(contents, doc);
   map(contents, {
@@ -9016,6 +9042,30 @@ export const de_StartDashboardSnapshotJobCommand = async (
     Arn: __expectString,
     RequestId: __expectString,
     SnapshotJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDashboardSnapshotJobScheduleCommand
+ */
+export const de_StartDashboardSnapshotJobScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDashboardSnapshotJobScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
   });
   Object.assign(contents, doc);
   map(contents, {
@@ -17955,6 +18005,8 @@ const de_Folder = (output: any, context: __SerdeContext): Folder => {
   }) as any;
 };
 
+// de_FolderArnList omitted.
+
 // de_FolderColumnList omitted.
 
 // de_FolderMember omitted.
@@ -21266,6 +21318,8 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 
 // de_UntagColumnOperation omitted.
 
+// de_UpdateResourcePermissionList omitted.
+
 // de_UploadSettings omitted.
 
 // de_User omitted.
@@ -21637,6 +21691,7 @@ const _N = "Namespace";
 const _NT = "NextToken";
 const _R = "Resolved";
 const _RD = "ResetDisabled";
+const _RTF = "RestoreToFolders";
 const _RWID = "RecoveryWindowInDays";
 const _SLIM = "SessionLifetimeInMinutes";
 const _SPE = "StatePersistenceEnabled";
@@ -21659,6 +21714,7 @@ const _n = "namespace";
 const _nt = "next-token";
 const _r = "resolved";
 const _rd = "reset-disabled";
+const _rtf = "restore-to-folders";
 const _rwid = "recovery-window-in-days";
 const _sl = "session-lifetime";
 const _spe = "state-persistence-enabled";

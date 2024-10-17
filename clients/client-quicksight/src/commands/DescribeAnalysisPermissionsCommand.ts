@@ -49,7 +49,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * // { // DescribeAnalysisPermissionsResponse
  * //   AnalysisId: "STRING_VALUE",
  * //   AnalysisArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required

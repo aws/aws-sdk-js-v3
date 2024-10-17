@@ -76,7 +76,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * // { // UpdateDashboardPermissionsResponse
  * //   DashboardArn: "STRING_VALUE",
  * //   DashboardId: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -87,7 +87,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * //   LinkSharingConfiguration: { // LinkSharingConfiguration
- * //     Permissions: [
+ * //     Permissions: [ // ResourcePermissionList
  * //       {
  * //         Principal: "STRING_VALUE", // required
  * //         Actions: [ // required

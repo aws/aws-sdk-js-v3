@@ -60,7 +60,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * // { // UpdateAnalysisPermissionsResponse
  * //   AnalysisArn: "STRING_VALUE",
  * //   AnalysisId: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required

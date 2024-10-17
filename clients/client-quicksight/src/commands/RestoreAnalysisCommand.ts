@@ -38,6 +38,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * const input = { // RestoreAnalysisRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AnalysisId: "STRING_VALUE", // required
+ *   RestoreToFolders: true || false,
  * };
  * const command = new RestoreAnalysisCommand(input);
  * const response = await client.send(command);
@@ -46,6 +47,9 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * //   Arn: "STRING_VALUE",
  * //   AnalysisId: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
+ * //   RestorationFailedFolderArns: [ // FolderArnList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
@@ -64,6 +68,12 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>

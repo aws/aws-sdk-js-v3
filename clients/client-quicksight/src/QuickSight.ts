@@ -669,6 +669,11 @@ import {
   StartDashboardSnapshotJobCommandInput,
   StartDashboardSnapshotJobCommandOutput,
 } from "./commands/StartDashboardSnapshotJobCommand";
+import {
+  StartDashboardSnapshotJobScheduleCommand,
+  StartDashboardSnapshotJobScheduleCommandInput,
+  StartDashboardSnapshotJobScheduleCommandOutput,
+} from "./commands/StartDashboardSnapshotJobScheduleCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -980,6 +985,7 @@ const commands = {
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
   StartDashboardSnapshotJobCommand,
+  StartDashboardSnapshotJobScheduleCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountCustomizationCommand,
@@ -3233,6 +3239,23 @@ export interface QuickSight {
     args: StartDashboardSnapshotJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDashboardSnapshotJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDashboardSnapshotJobScheduleCommand}
+   */
+  startDashboardSnapshotJobSchedule(
+    args: StartDashboardSnapshotJobScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDashboardSnapshotJobScheduleCommandOutput>;
+  startDashboardSnapshotJobSchedule(
+    args: StartDashboardSnapshotJobScheduleCommandInput,
+    cb: (err: any, data?: StartDashboardSnapshotJobScheduleCommandOutput) => void
+  ): void;
+  startDashboardSnapshotJobSchedule(
+    args: StartDashboardSnapshotJobScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDashboardSnapshotJobScheduleCommandOutput) => void
   ): void;
 
   /**

@@ -142,6 +142,7 @@ export * from "./SearchGroupsCommand";
 export * from "./StartAssetBundleExportJobCommand";
 export * from "./StartAssetBundleImportJobCommand";
 export * from "./StartDashboardSnapshotJobCommand";
+export * from "./StartDashboardSnapshotJobScheduleCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAccountCustomizationCommand";

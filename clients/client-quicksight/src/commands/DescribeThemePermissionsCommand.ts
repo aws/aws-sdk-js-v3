@@ -44,7 +44,7 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  * // { // DescribeThemePermissionsResponse
  * //   ThemeId: "STRING_VALUE",
  * //   ThemeArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required

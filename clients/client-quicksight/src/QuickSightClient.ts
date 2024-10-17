@@ -433,6 +433,10 @@ import {
   StartDashboardSnapshotJobCommandInput,
   StartDashboardSnapshotJobCommandOutput,
 } from "./commands/StartDashboardSnapshotJobCommand";
+import {
+  StartDashboardSnapshotJobScheduleCommandInput,
+  StartDashboardSnapshotJobScheduleCommandOutput,
+} from "./commands/StartDashboardSnapshotJobScheduleCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -700,6 +704,7 @@ export type ServiceInputTypes =
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
   | StartDashboardSnapshotJobCommandInput
+  | StartDashboardSnapshotJobScheduleCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
@@ -885,6 +890,7 @@ export type ServiceOutputTypes =
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
   | StartDashboardSnapshotJobCommandOutput
+  | StartDashboardSnapshotJobScheduleCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput

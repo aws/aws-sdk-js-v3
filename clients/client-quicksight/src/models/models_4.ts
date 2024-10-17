@@ -4010,6 +4010,12 @@ export interface RestoreAnalysisRequest {
    * @public
    */
   AnalysisId: string | undefined;
+
+  /**
+   * <p>A boolean value that determines if the analysis will be restored to folders that it previously resided in. A <code>True</code> value restores analysis back to all folders that it previously resided in. A <code>False</code> value restores the analysis but does not restore the analysis back to all previously resided folders. Restoring a restricted analysis requires this parameter to be set to <code>True</code>.</p>
+   * @public
+   */
+  RestoreToFolders?: boolean;
 }
 
 /**
@@ -4040,6 +4046,12 @@ export interface RestoreAnalysisResponse {
    * @public
    */
   RequestId?: string;
+
+  /**
+   * <p>A list of folder arns thatthe analysis failed to be restored to.</p>
+   * @public
+   */
+  RestorationFailedFolderArns?: string[];
 }
 
 /**
@@ -4712,6 +4724,49 @@ export interface StartDashboardSnapshotJobResponse {
    */
   SnapshotJobId?: string;
 
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you want to start a snapshot job schedule for.
+   *         </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon QuickSight console in the <b>Schedules</b> pane of the dashboard that the schedule is configured for.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobScheduleResponse {
   /**
    * <p>
    *             The Amazon Web Services request ID for this operation.

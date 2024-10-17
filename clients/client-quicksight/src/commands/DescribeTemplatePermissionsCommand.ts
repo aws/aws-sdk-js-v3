@@ -49,7 +49,7 @@ export interface DescribeTemplatePermissionsCommandOutput
  * // { // DescribeTemplatePermissionsResponse
  * //   TemplateId: "STRING_VALUE",
  * //   TemplateArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
