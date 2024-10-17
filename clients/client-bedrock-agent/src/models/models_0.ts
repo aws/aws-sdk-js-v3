@@ -3973,12 +3973,6 @@ export interface PromptModelInferenceConfiguration {
   topP?: number;
 
   /**
-   * <p>The number of most-likely candidates that the model considers for the next token during generation.</p>
-   * @public
-   */
-  topK?: number;
-
-  /**
    * <p>The maximum number of tokens to return in the response.</p>
    * @public
    */
@@ -7514,7 +7508,7 @@ export interface PromptVariant {
    * <p>Contains configurations for the prompt template.</p>
    * @public
    */
-  templateConfiguration?: PromptTemplateConfiguration;
+  templateConfiguration: PromptTemplateConfiguration | undefined;
 
   /**
    * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> with which to run inference on the prompt.</p>

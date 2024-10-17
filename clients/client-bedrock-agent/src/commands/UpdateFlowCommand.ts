@@ -91,7 +91,6 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *                   text: { // PromptModelInferenceConfiguration
  *                     temperature: Number("float"),
  *                     topP: Number("float"),
- *                     topK: Number("int"),
  *                     maxTokens: Number("int"),
  *                     stopSequences: [ // StopSequences
  *                       "STRING_VALUE",
@@ -218,7 +217,6 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //                   text: { // PromptModelInferenceConfiguration
  * //                     temperature: Number("float"),
  * //                     topP: Number("float"),
- * //                     topK: Number("int"),
  * //                     maxTokens: Number("int"),
  * //                     stopSequences: [ // StopSequences
  * //                       "STRING_VALUE",

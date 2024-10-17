@@ -65,7 +65,6 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * //         text: { // PromptModelInferenceConfiguration
  * //           temperature: Number("float"),
  * //           topP: Number("float"),
- * //           topK: Number("int"),
  * //           maxTokens: Number("int"),
  * //           stopSequences: [ // StopSequences
  * //             "STRING_VALUE",

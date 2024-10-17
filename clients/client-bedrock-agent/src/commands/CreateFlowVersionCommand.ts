@@ -102,7 +102,6 @@ export interface CreateFlowVersionCommandOutput extends CreateFlowVersionRespons
  * //                   text: { // PromptModelInferenceConfiguration
  * //                     temperature: Number("float"),
  * //                     topP: Number("float"),
- * //                     topK: Number("int"),
  * //                     maxTokens: Number("int"),
  * //                     stopSequences: [ // StopSequences
  * //                       "STRING_VALUE",

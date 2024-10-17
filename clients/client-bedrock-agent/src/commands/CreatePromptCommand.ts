@@ -64,7 +64,6 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *         text: { // PromptModelInferenceConfiguration
  *           temperature: Number("float"),
  *           topP: Number("float"),
- *           topK: Number("int"),
  *           maxTokens: Number("int"),
  *           stopSequences: [ // StopSequences
  *             "STRING_VALUE",
@@ -110,7 +109,6 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //         text: { // PromptModelInferenceConfiguration
  * //           temperature: Number("float"),
  * //           topP: Number("float"),
- * //           topK: Number("int"),
  * //           maxTokens: Number("int"),
  * //           stopSequences: [ // StopSequences
  * //             "STRING_VALUE",

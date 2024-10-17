@@ -3533,7 +3533,6 @@ const se_PromptModelInferenceConfiguration = (
     maxTokens: [],
     stopSequences: _json,
     temperature: __serializeFloat,
-    topK: [],
     topP: __serializeFloat,
   });
 };
@@ -4484,7 +4483,6 @@ const de_PromptModelInferenceConfiguration = (
     maxTokens: __expectInt32,
     stopSequences: _json,
     temperature: __limitedParseFloat32,
-    topK: __expectInt32,
     topP: __limitedParseFloat32,
   }) as any;
 };

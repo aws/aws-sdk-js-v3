@@ -28,7 +28,7 @@ export interface GetIngestionJobCommandInput extends GetIngestionJobRequest {}
 export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a data ingestion job. Data sources are ingested into your knowledge base so that Large Lanaguage Models (LLMs) can use your data.</p>
+ * <p>Gets information about a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
