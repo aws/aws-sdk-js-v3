@@ -26,7 +26,7 @@ declare global {
   /**
    * @public
    */
-  export interface ReadableStream {}
+  export interface ReadableStream<R = any> {}
   /**
    * @public
    */
