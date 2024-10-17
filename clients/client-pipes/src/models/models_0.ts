@@ -829,7 +829,7 @@ export interface PipeSourceDynamoDBStreamParameters {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
+   * <p>Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    * @public
    */
@@ -842,27 +842,27 @@ export interface PipeSourceDynamoDBStreamParameters {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
+   * <p>Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
+   * <p>Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    * @public
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>The number of batches to process concurrently from each shard. The default value is 1.</p>
    * @public
    */
   ParallelizationFactor?: number;
 
   /**
-   * <p>(Streams only) The position in a stream from which to start reading.</p>
+   * <p>The position in a stream from which to start reading.</p>
    * @public
    */
   StartingPosition: DynamoDBStreamStartPosition | undefined;
@@ -929,7 +929,7 @@ export interface PipeSourceKinesisStreamParameters {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
+   * <p>Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    * @public
    */
@@ -942,27 +942,27 @@ export interface PipeSourceKinesisStreamParameters {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
+   * <p>Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
+   * <p>Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    * @public
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>The number of batches to process concurrently from each shard. The default value is 1.</p>
    * @public
    */
   ParallelizationFactor?: number;
 
   /**
-   * <p>(Streams only) The position in a stream from which to start reading.</p>
+   * <p>The position in a stream from which to start reading.</p>
    * @public
    */
   StartingPosition: KinesisStreamStartPosition | undefined;
@@ -1057,7 +1057,7 @@ export interface PipeSourceManagedStreamingKafkaParameters {
   TopicName: string | undefined;
 
   /**
-   * <p>(Streams only) The position in a stream from which to start reading.</p>
+   * <p>The position in a stream from which to start reading.</p>
    * @public
    */
   StartingPosition?: MSKStartPosition;
@@ -1267,7 +1267,7 @@ export interface PipeSourceSelfManagedKafkaParameters {
   TopicName: string | undefined;
 
   /**
-   * <p>(Streams only) The position in a stream from which to start reading.</p>
+   * <p>The position in a stream from which to start reading.</p>
    * @public
    */
   StartingPosition?: SelfManagedKafkaStartPosition;
@@ -2505,7 +2505,7 @@ export interface PipeTargetTimestreamParameters {
 
   /**
    * <p>How to format the timestamps. For example,
-   *          <code>YYYY-MM-DDThh:mm:ss.sssTZD</code>.</p>
+   *          <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>.</p>
    *          <p>Required if <code>TimeFieldType</code> is specified as
    *          <code>TIMESTAMP_FORMAT</code>.</p>
    * @public
@@ -3573,7 +3573,7 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
+   * <p>Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    * @public
    */
@@ -3586,21 +3586,21 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
+   * <p>Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
+   * <p>Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    * @public
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>The number of batches to process concurrently from each shard. The default value is 1.</p>
    * @public
    */
   ParallelizationFactor?: number;
@@ -3624,7 +3624,7 @@ export interface UpdatePipeSourceKinesisStreamParameters {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
+   * <p>Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    * @public
    */
@@ -3637,21 +3637,21 @@ export interface UpdatePipeSourceKinesisStreamParameters {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
+   * <p>Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
+   * <p>Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    * @public
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>The number of batches to process concurrently from each shard. The default value is 1.</p>
    * @public
    */
   ParallelizationFactor?: number;
