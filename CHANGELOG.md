@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+
+### Features
+
+* **client-bedrock-agent:** Removing support for topK property in PromptModelInferenceConfiguration object, Making PromptTemplateConfiguration property as required, Limiting the maximum PromptVariant to 1 ([d4d3af5](https://github.com/aws/aws-sdk-js-v3/commit/d4d3af5de838c031d23b79678e4978f1bfc44d68))
+* **client-dataexchange:** This release adds Data Grant support, through which customers can programmatically create data grants to share with other AWS accounts and accept data grants from other AWS accounts. ([5180c33](https://github.com/aws/aws-sdk-js-v3/commit/5180c332309066976b9854567b7471fb15a6a401))
+* **client-pinpoint-sms-voice-v2:** Added the registrations status of REQUIRES_AUTHENTICATION ([ba96169](https://github.com/aws/aws-sdk-js-v3/commit/ba96169cd9f4a2ba765046dab7d6fe7f6537122d))
+* **client-pipes:** This release adds validation to require specifying a SecurityGroup and Subnets in the Vpc object under PipesSourceSelfManagedKafkaParameters. It also adds support for iso-e, iso-f, and other non-commercial partitions in ARN parameters. ([98a5282](https://github.com/aws/aws-sdk-js-v3/commit/98a5282390991624e8e5f91bf589a0d923041c00))
+* **client-quicksight:** Add StartDashboardSnapshotJobSchedule API. RestoreAnalysis now supports restoring analysis to folders. ([0bfe6e2](https://github.com/aws/aws-sdk-js-v3/commit/0bfe6e2598c4db0c223ab650ef12d579943ffa42))
+* **client-workspaces:** Updated the DomainName pattern for Active Directory ([f4c5267](https://github.com/aws/aws-sdk-js-v3/commit/f4c52671bcfb2d3684de52e9ce23710c549ef95a))
+
+
+
+
+
 # [3.673.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.672.0...v3.673.0) (2024-10-16)
 
 

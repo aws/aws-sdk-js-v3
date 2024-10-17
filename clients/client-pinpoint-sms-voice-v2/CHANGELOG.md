@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** Added the registrations status of REQUIRES_AUTHENTICATION ([ba96169](https://github.com/aws/aws-sdk-js-v3/commit/ba96169cd9f4a2ba765046dab7d6fe7f6537122d))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

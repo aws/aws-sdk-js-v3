@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+
+### Features
+
+* **client-quicksight:** Add StartDashboardSnapshotJobSchedule API. RestoreAnalysis now supports restoring analysis to folders. ([0bfe6e2](https://github.com/aws/aws-sdk-js-v3/commit/0bfe6e2598c4db0c223ab650ef12d579943ffa42))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight
