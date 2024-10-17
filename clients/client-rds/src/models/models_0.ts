@@ -4798,10 +4798,12 @@ export interface CreateDBClusterMessage {
    * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping isn't
    *             enabled.</p>
-   *          <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html"> IAM Database
+   *                 Authentication</a> in the <i>Amazon Aurora User Guide</i> or
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">IAM database
+   *                 authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon
+   *                 RDS User Guide</i>.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean;
@@ -14302,7 +14304,7 @@ export class DBShardGroupNotFoundFault extends __BaseException {
  */
 export interface DeleteDBShardGroupMessage {
   /**
-   * <p>Teh name of the DB shard group to delete.</p>
+   * <p>The name of the DB shard group to delete.</p>
    * @public
    */
   DBShardGroupIdentifier: string | undefined;

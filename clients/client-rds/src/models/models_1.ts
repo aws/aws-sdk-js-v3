@@ -3371,8 +3371,8 @@ export interface DescribeDBSecurityGroupsMessage {
  */
 export interface DescribeDBShardGroupsMessage {
   /**
-   * <p>The user-supplied DB shard group identifier or the Amazon Resource Name (ARN) of the DB shard group. If this parameter is specified,
-   *             information for only the specific DB shard group is returned. This parameter isn't case-sensitive.</p>
+   * <p>The user-supplied DB shard group identifier. If this parameter is specified, information for only the specific DB shard group is returned.
+   *             This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -7519,10 +7519,12 @@ export interface ModifyDBClusterMessage {
    * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping isn't
    *             enabled.</p>
-   *          <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html"> IAM Database
+   *                 Authentication</a> in the <i>Amazon Aurora User Guide</i> or
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">IAM database
+   *                 authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon
+   *                 RDS User Guide</i>.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean;
@@ -7815,7 +7817,7 @@ export interface ModifyDBClusterMessage {
    * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
    *             Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnablePerformanceInsights?: boolean;
@@ -11644,10 +11646,12 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping isn't
    *             enabled.</p>
-   *          <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html"> IAM Database
+   *                 Authentication</a> in the <i>Amazon Aurora User Guide</i> or
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html"> IAM database
+   *                 authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon
+   *                 RDS User Guide</i>.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean;
@@ -12096,10 +12100,12 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping isn't
    *             enabled.</p>
-   *          <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html"> IAM Database
+   *                 Authentication</a> in the <i>Amazon Aurora User Guide</i> or
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html"> IAM database
+   *                 authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon
+   *                 RDS User Guide</i>.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean;
@@ -15051,11 +15057,11 @@ export interface StopDBInstanceAutomatedBackupsReplicationResult {
  */
 export interface SwitchoverBlueGreenDeploymentRequest {
   /**
-   * <p>The unique identifier of the blue/green deployment.</p>
+   * <p>The resource ID of the blue/green deployment.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match an existing blue/green deployment identifier.</p>
+   *                <p>Must match an existing blue/green deployment resource ID.</p>
    *             </li>
    *          </ul>
    * @public
