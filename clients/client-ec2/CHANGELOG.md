@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Features
+
+* **client-ec2:** RequestSpotInstances and RequestSpotFleet feature release. ([a4c0494](https://github.com/aws/aws-sdk-js-v3/commit/a4c0494312674818ec78e7e3a59f81e0c5031822))
+
+
+
+
+
 # [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

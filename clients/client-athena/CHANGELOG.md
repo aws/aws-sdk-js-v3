@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Features
+
+* **client-athena:** Removing FEDERATED from Create/List/Delete/GetDataCatalog API ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
+
+
+
+
+
 # [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Features
+
+* **client-datazone:** Adding the following project member designations: PROJECT_CATALOG_VIEWER, PROJECT_CATALOG_CONSUMER and PROJECT_CATALOG_STEWARD in the CreateProjectMembership API and PROJECT_CATALOG_STEWARD designation in the AddPolicyGrant API. ([678f17d](https://github.com/aws/aws-sdk-js-v3/commit/678f17d82335dbe3dc5e01812ffdee5fc800fe54))
+
+
+
+
+
 # [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

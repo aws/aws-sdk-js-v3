@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Bug Fixes
+
+* **util-user-agent-browser:** make native interface consistent with browser ([#6575](https://github.com/aws/aws-sdk-js-v3/issues/6575)) ([c03c9a6](https://github.com/aws/aws-sdk-js-v3/commit/c03c9a6cac24a17f5b37f99b430aaaa70f58a850))
+
+
+### Features
+
+* **client-athena:** Removing FEDERATED from Create/List/Delete/GetDataCatalog API ([ca03f0c](https://github.com/aws/aws-sdk-js-v3/commit/ca03f0c2cdca4a62332cb0099e7c7c422aafb301))
+* **client-bedrock-runtime:** Added converse support for custom imported models ([ae2b967](https://github.com/aws/aws-sdk-js-v3/commit/ae2b967a7eede8123b18aad7e5365fd0ba203eda))
+* **client-bedrock:** Adding converse support to CMI API's ([46406ae](https://github.com/aws/aws-sdk-js-v3/commit/46406aead13168fc5e895d02bb282d4aafdf3a1e))
+* **client-datazone:** Adding the following project member designations: PROJECT_CATALOG_VIEWER, PROJECT_CATALOG_CONSUMER and PROJECT_CATALOG_STEWARD in the CreateProjectMembership API and PROJECT_CATALOG_STEWARD designation in the AddPolicyGrant API. ([678f17d](https://github.com/aws/aws-sdk-js-v3/commit/678f17d82335dbe3dc5e01812ffdee5fc800fe54))
+* **client-ec2:** RequestSpotInstances and RequestSpotFleet feature release. ([a4c0494](https://github.com/aws/aws-sdk-js-v3/commit/a4c0494312674818ec78e7e3a59f81e0c5031822))
+
+
+
+
+
 # [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
 
 

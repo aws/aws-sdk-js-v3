@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Features
+
+* **client-bedrock:** Adding converse support to CMI API's ([46406ae](https://github.com/aws/aws-sdk-js-v3/commit/46406aead13168fc5e895d02bb282d4aafdf3a1e))
+
+
+
+
+
 # [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

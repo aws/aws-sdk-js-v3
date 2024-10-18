@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Bug Fixes
+
+* **util-user-agent-browser:** make native interface consistent with browser ([#6575](https://github.com/aws/aws-sdk-js-v3/issues/6575)) ([c03c9a6](https://github.com/aws/aws-sdk-js-v3/commit/c03c9a6cac24a17f5b37f99b430aaaa70f58a850))
+
+
+
+
+
 # [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
 
 **Note:** Version bump only for package @aws-sdk/util-user-agent-browser
