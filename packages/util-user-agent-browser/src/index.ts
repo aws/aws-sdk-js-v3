@@ -14,7 +14,7 @@ export interface PreviouslyResolved {
  * the device information. It uses bowser library to detect the browser and version
  */
 export const createDefaultUserAgentProvider =
-  ({ serviceId, clientVersion }: DefaultUserAgentOptions): ((config: PreviouslyResolved) => Promise<UserAgent>) =>
+  ({ serviceId, clientVersion }: DefaultUserAgentOptions): ((config?: PreviouslyResolved) => Promise<UserAgent>) =>
   async (config?: PreviouslyResolved) => {
     const parsedUA =
       typeof window !== "undefined" && window?.navigator?.userAgent
@@ -49,10 +49,7 @@ export const createDefaultUserAgentProvider =
   };
 
 /**
- *
  * @internal
- *
  * @deprecated use createDefaultUserAgentProvider
- *
  */
 export const defaultUserAgent = createDefaultUserAgentProvider;
