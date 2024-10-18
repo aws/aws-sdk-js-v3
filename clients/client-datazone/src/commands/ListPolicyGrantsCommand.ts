@@ -57,7 +57,7 @@ export interface ListPolicyGrantsCommandOutput extends ListPolicyGrantsOutput, _
  * //           groupIdentifier: "STRING_VALUE",
  * //         },
  * //         project: { // ProjectPolicyGrantPrincipal
- * //           projectDesignation: "OWNER" || "CONTRIBUTOR", // required
+ * //           projectDesignation: "OWNER" || "CONTRIBUTOR" || "PROJECT_CATALOG_STEWARD", // required
  * //           projectIdentifier: "STRING_VALUE",
  * //           projectGrantFilter: { // ProjectGrantFilter Union: only one key present
  * //             domainUnitFilter: { // DomainUnitFilterForProject

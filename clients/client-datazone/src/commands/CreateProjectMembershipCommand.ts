@@ -42,7 +42,7 @@ export interface CreateProjectMembershipCommandOutput extends CreateProjectMembe
  *     userIdentifier: "STRING_VALUE",
  *     groupIdentifier: "STRING_VALUE",
  *   },
- *   designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR", // required
+ *   designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR" || "PROJECT_CATALOG_VIEWER" || "PROJECT_CATALOG_CONSUMER" || "PROJECT_CATALOG_STEWARD", // required
  * };
  * const command = new CreateProjectMembershipCommand(input);
  * const response = await client.send(command);

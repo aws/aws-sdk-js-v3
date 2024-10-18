@@ -1502,6 +1502,7 @@ export namespace GroupPolicyGrantPrincipal {
 export const ProjectDesignation = {
   CONTRIBUTOR: "CONTRIBUTOR",
   OWNER: "OWNER",
+  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
 } as const;
 
 /**
@@ -6913,6 +6914,9 @@ export interface CreateProjectOutput {
  * @enum
  */
 export const UserDesignation = {
+  PROJECT_CATALOG_CONSUMER: "PROJECT_CATALOG_CONSUMER",
+  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
+  PROJECT_CATALOG_VIEWER: "PROJECT_CATALOG_VIEWER",
   PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
   PROJECT_OWNER: "PROJECT_OWNER",
 } as const;

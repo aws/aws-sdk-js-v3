@@ -50,7 +50,7 @@ export interface AddPolicyGrantCommandOutput extends AddPolicyGrantOutput, __Met
  *       groupIdentifier: "STRING_VALUE",
  *     },
  *     project: { // ProjectPolicyGrantPrincipal
- *       projectDesignation: "OWNER" || "CONTRIBUTOR", // required
+ *       projectDesignation: "OWNER" || "CONTRIBUTOR" || "PROJECT_CATALOG_STEWARD", // required
  *       projectIdentifier: "STRING_VALUE",
  *       projectGrantFilter: { // ProjectGrantFilter Union: only one key present
  *         domainUnitFilter: { // DomainUnitFilterForProject
