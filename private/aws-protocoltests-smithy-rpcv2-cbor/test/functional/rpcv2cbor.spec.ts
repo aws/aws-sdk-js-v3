@@ -240,6 +240,8 @@ it("empty_input:Request", async () => {
 
     expect(r.headers["x-amz-target"]).toBeUndefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -695,6 +697,8 @@ it("no_input:Request", async () => {
     expect(r.headers["content-type"]).toBeUndefined();
     expect(r.headers["x-amz-target"]).toBeUndefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
@@ -818,6 +822,8 @@ it.skip("RpcV2CborClientPopulatesDefaultValuesInInput:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -854,6 +860,8 @@ it.skip("RpcV2CborClientSkipsTopLevelDefaultValuesInInput:Request", async () => 
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -918,6 +926,8 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -957,6 +967,8 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedValuesInTopLevel:Request", async (
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -995,6 +1007,8 @@ it.skip("RpcV2CborClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
     expect(r.path).toBe("/service/RpcV2Protocol/operation/OperationWithDefaults");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1156,6 +1170,8 @@ it("optional_input:Request", async () => {
 
     expect(r.headers["x-amz-target"]).toBeUndefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1235,6 +1251,8 @@ it("RpcV2CborRecursiveShapes:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RecursiveShapes");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1380,6 +1398,8 @@ it("RpcV2CborMaps:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1423,6 +1443,8 @@ it("RpcV2CborSerializesZeroValuesInMaps:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1464,6 +1486,8 @@ it("RpcV2CborSerializesDenseSetMap:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborDenseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1698,6 +1722,8 @@ it("RpcV2CborLists:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1736,6 +1762,8 @@ it("RpcV2CborListsEmpty:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -1774,6 +1802,8 @@ it("RpcV2CborListsEmptyUsingDefiniteLength:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborLists");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2004,6 +2034,8 @@ it("RpcV2CborSparseMaps:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2053,6 +2085,8 @@ it("RpcV2CborSerializesNullMapValues:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2094,6 +2128,8 @@ it("RpcV2CborSerializesSparseSetMap:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2136,6 +2172,8 @@ it("RpcV2CborSerializesSparseSetMapAndRetainsNull:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2179,6 +2217,8 @@ it("RpcV2CborSerializesZeroValuesInSparseMaps:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborSparseMaps");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2451,6 +2491,8 @@ it("RpcV2CborSimpleScalarProperties:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2489,6 +2531,8 @@ it("RpcV2CborClientDoesntSerializeNullStructureValues:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2528,6 +2572,8 @@ it("RpcV2CborSupportsNaNFloatInputs:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2567,6 +2613,8 @@ it("RpcV2CborSupportsInfinityFloatInputs:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2606,6 +2654,8 @@ it("RpcV2CborSupportsNegativeInfinityFloatInputs:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SimpleScalarProperties");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -2983,6 +3033,8 @@ it("RpcV2CborSparseMapsSerializeNullValues:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SparseNullsOperation");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
@@ -3021,6 +3073,8 @@ it("RpcV2CborSparseListsSerializeNull:Request", async () => {
     expect(r.path).toBe("/service/RpcV2Protocol/operation/SparseNullsOperation");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/cbor");
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/cbor");
     expect(r.headers["smithy-protocol"]).toBeDefined();
