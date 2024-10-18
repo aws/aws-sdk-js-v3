@@ -18,7 +18,7 @@
     "fs-extra": "^10.1.0",
     "handlebars": "^4.7.7",
     "p-map": "^5.5.0",
-    "rollup": "^3.26.3",
+    "rollup": "^3.29.5",
     "rollup-plugin-terser": "^7.0.2",
     "semver": "^7.3.7",
     "webpack": "^5.88.2"
