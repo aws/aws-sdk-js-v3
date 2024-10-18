@@ -49,10 +49,7 @@ export const createDefaultUserAgentProvider =
   };
 
 /**
- *
  * @internal
- *
  * @deprecated use createDefaultUserAgentProvider
- *
  */
 export const defaultUserAgent = createDefaultUserAgentProvider;
