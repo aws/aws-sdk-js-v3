@@ -50,10 +50,7 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * //   DataCatalogsSummary: [ // DataCatalogSummaryList
  * //     { // DataCatalogSummary
  * //       CatalogName: "STRING_VALUE",
- * //       Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED",
- * //       Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "CREATE_FAILED_CLEANUP_IN_PROGRESS" || "CREATE_FAILED_CLEANUP_COMPLETE" || "CREATE_FAILED_CLEANUP_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
- * //       ConnectionType: "DYNAMODB" || "MYSQL" || "POSTGRESQL" || "REDSHIFT" || "ORACLE" || "SYNAPSE" || "SQLSERVER" || "DB2" || "OPENSEARCH" || "BIGQUERY" || "GOOGLECLOUDSTORAGE" || "HBASE" || "DOCUMENTDB" || "MSK" || "NEPTUNE" || "CMDB" || "TPCDS" || "REDIS" || "CLOUDWATCH" || "TIMESTREAM" || "SAPHANA" || "SNOWFLAKE" || "TERADATA" || "VERTICA" || "CLOUDERAIMPALA" || "CLOUDERAHIVE" || "HORTONWORKSHIVE" || "DATALAKEGEN2" || "DB2AS400" || "CLOUDWATCHMETRICS",
- * //       Error: "STRING_VALUE",
+ * //       Type: "LAMBDA" || "GLUE" || "HIVE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
