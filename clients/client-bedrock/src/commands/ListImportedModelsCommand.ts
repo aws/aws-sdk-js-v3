@@ -55,6 +55,8 @@ export interface ListImportedModelsCommandOutput extends ListImportedModelsRespo
  * //       modelArn: "STRING_VALUE", // required
  * //       modelName: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       instructSupported: true || false,
+ * //       modelArchitecture: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

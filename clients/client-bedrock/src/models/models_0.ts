@@ -3322,6 +3322,12 @@ export interface GetImportedModelResponse {
    * @public
    */
   modelKmsKeyArn?: string;
+
+  /**
+   * <p>Specifies if the imported model supports fine tuning.</p>
+   * @public
+   */
+  instructSupported?: boolean;
 }
 
 /**
@@ -3495,7 +3501,7 @@ export interface ListImportedModelsRequest {
 }
 
 /**
- * <p>Information about tne imported model.</p>
+ * <p>Information about the imported model.</p>
  * @public
  */
 export interface ImportedModelSummary {
@@ -3516,6 +3522,18 @@ export interface ImportedModelSummary {
    * @public
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>Specifies if the imported model supports fine tuning.</p>
+   * @public
+   */
+  instructSupported?: boolean;
+
+  /**
+   * <p>The architecture of the imported model.</p>
+   * @public
+   */
+  modelArchitecture?: string;
 }
 
 /**

@@ -11,6 +11,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -1634,6 +1635,7 @@ export const de_GetImportedModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    instructSupported: __expectBoolean,
     jobArn: __expectString,
     jobName: __expectString,
     modelArchitecture: __expectString,
@@ -2842,6 +2844,8 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
 const de_ImportedModelSummary = (output: any, context: __SerdeContext): ImportedModelSummary => {
   return take(output, {
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    instructSupported: __expectBoolean,
+    modelArchitecture: __expectString,
     modelArn: __expectString,
     modelName: __expectString,
   }) as any;

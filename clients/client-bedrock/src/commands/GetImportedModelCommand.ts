@@ -53,6 +53,7 @@ export interface GetImportedModelCommandOutput extends GetImportedModelResponse,
  * //   creationTime: new Date("TIMESTAMP"),
  * //   modelArchitecture: "STRING_VALUE",
  * //   modelKmsKeyArn: "STRING_VALUE",
+ * //   instructSupported: true || false,
  * // };
  *
  * ```
