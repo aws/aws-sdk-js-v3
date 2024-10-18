@@ -1229,4 +1229,5 @@ const throwDefaultError = withBaseException(__BaseException);
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/cbor",
   "smithy-protocol": "rpc-v2-cbor",
+  accept: "application/cbor",
 };

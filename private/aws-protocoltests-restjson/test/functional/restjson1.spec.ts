@@ -2833,7 +2833,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
 });
 
 /**
- * No prefix headers are serialized because the value is empty
+ * No prefix headers are serialized because the value is not present
  */
 it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
   const client = new RestJsonProtocolClient({
@@ -2860,6 +2860,40 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
 
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
+
+    expect(!r.body || r.body === `{}`).toBeTruthy();
+  }
+});
+
+/**
+ * Serialize prefix headers were the value is present but empty
+ */
+it("RestJsonHttpPrefixEmptyHeaders:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPrefixHeadersCommand({
+    fooMap: {
+      Abc: "",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/HttpPrefixHeaders");
+
+    expect(r.headers["x-foo-abc"]).toBeDefined();
+    expect(r.headers["x-foo-abc"]).toBe("");
 
     expect(!r.body || r.body === `{}`).toBeTruthy();
   }
