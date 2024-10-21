@@ -81,7 +81,7 @@ describe("convertToAttr", () => {
 
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Use NumberValue, which is introduced from @aws-sdk/lib-dynamodb.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 
             const BigIntConstructor = BigInt;
             (BigInt as any) = undefined;
