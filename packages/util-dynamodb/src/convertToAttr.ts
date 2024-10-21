@@ -156,7 +156,7 @@ const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeB
 const convertToStringAttr = (data: string | String): { S: string } => ({ S: data.toString() });
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
-const validateBigIntAndThrow = (errorPrefix: string) => { 
+const validateBigIntAndThrow = (errorPrefix: string) => {
   throw new Error(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 };
 
