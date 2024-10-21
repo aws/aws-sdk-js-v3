@@ -5,7 +5,7 @@ import { AutoScalingServiceException as __BaseException } from "./AutoScalingSer
 
 /**
  * <p>Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when
- *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface AcceleratorCountRequest {
@@ -59,7 +59,7 @@ export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorN
 
 /**
  * <p>Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code>
- *             object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             object when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface AcceleratorTotalMemoryMiBRequest {
@@ -565,7 +565,9 @@ export interface BatchPutScheduledUpdateGroupActionAnswer {
 }
 
 /**
- * <p>Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.</p>
+ * <p>Describes information used for one or more scheduled scaling action updates in a
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_BatchPutScheduledUpdateGroupAction.html">BatchPutScheduledUpdateGroupAction</a>
+ *             operation.</p>
  * @public
  */
 export interface ScheduledUpdateGroupActionRequest {
@@ -899,7 +901,8 @@ export interface InstancesDistribution {
    *             <dd>
    *                <p>Uses price to determine which instance types are the highest priority,
    *                         launching the lowest priced instance types within an Availability Zone
-   *                         first. This is the default value for Auto Scaling groups that specify <a>InstanceRequirements</a>. </p>
+   *                         first. This is the default value for Auto Scaling groups that specify
+   *                         <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a>. </p>
    *             </dd>
    *             <dt>prioritized</dt>
    *             <dd>
@@ -909,7 +912,7 @@ export interface InstancesDistribution {
    *                         capacity cannot be fulfilled using your highest priority instance type, then
    *                         Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance
    *                         type, and so on. This is the default value for Auto Scaling groups that don't
-   *                         specify <a>InstanceRequirements</a> and cannot be used for groups
+   *                         specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> and cannot be used for groups
    *                         that do.</p>
    *             </dd>
    *          </dl>
@@ -961,7 +964,7 @@ export interface InstancesDistribution {
    *                         capacity first. Note that if the On-Demand allocation strategy is set to
    *                             <code>prioritized</code>, the same priority is applied when fulfilling
    *                         On-Demand capacity. This is not a valid value for Auto Scaling groups that specify
-   *                             <a>InstanceRequirements</a>.</p>
+   *                         <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a>.</p>
    *             </dd>
    *             <dt>lowest-price</dt>
    *             <dd>
@@ -1028,7 +1031,7 @@ export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
 
 /**
  * <p>Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object
- *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface BaselineEbsBandwidthMbpsRequest {
@@ -1120,7 +1123,7 @@ export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStora
 
 /**
  * <p>Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when
- *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface MemoryGiBPerVCpuRequest {
@@ -1139,7 +1142,7 @@ export interface MemoryGiBPerVCpuRequest {
 
 /**
  * <p>Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you
- *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface MemoryMiBRequest {
@@ -1158,7 +1161,7 @@ export interface MemoryMiBRequest {
 
 /**
  * <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object
- *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  *          <note>
  *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve
  *                 the minimum bandwidth. Amazon EC2 will identify instance types that support the specified
@@ -1184,7 +1187,7 @@ export interface NetworkBandwidthGbpsRequest {
 
 /**
  * <p>Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object
- *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface NetworkInterfaceCountRequest {
@@ -1203,7 +1206,7 @@ export interface NetworkInterfaceCountRequest {
 
 /**
  * <p>Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when
- *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface TotalLocalStorageGBRequest {
@@ -1222,7 +1225,7 @@ export interface TotalLocalStorageGBRequest {
 
 /**
  * <p>Specifies the minimum and maximum for the <code>VCpuCount</code> object when you
- *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ *             specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
  */
 export interface VCpuCountRequest {
@@ -2793,7 +2796,8 @@ export interface Filter {
   /**
    * <p>The name of the filter.</p>
    *          <p>The valid values for <code>Name</code> depend on which API operation you're using with
-   *             the filter (<a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>).</p>
+   *             the filter (<a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a> or
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTags.html">DescribeTags</a>).</p>
    *          <p>
    *             <b>DescribeAutoScalingGroups</b>
    *          </p>
@@ -3389,7 +3393,7 @@ export interface AutoScalingGroup {
   EnabledMetrics?: EnabledMetric[];
 
   /**
-   * <p>The current state of the group when the <a>DeleteAutoScalingGroup</a>
+   * <p>The current state of the group when the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteAutoScalingGroup.html">DeleteAutoScalingGroup</a>
    *             operation is in progress.</p>
    * @public
    */
@@ -7271,7 +7275,7 @@ export interface PutNotificationConfigurationType {
 
   /**
    * <p>The type of event that causes the notification to be sent. To query the notification
-   *             types supported by Amazon EC2 Auto Scaling, call the <a>DescribeAutoScalingNotificationTypes</a> API.</p>
+   *             types supported by Amazon EC2 Auto Scaling, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingNotificationTypes.html">DescribeAutoScalingNotificationTypes</a> API.</p>
    * @public
    */
   NotificationTypes: string[] | undefined;
@@ -8102,8 +8106,8 @@ export interface UpdateAutoScalingGroupType {
   HealthCheckGracePeriod?: number;
 
   /**
-   * <p>The name of an existing placement group into which to launch your instances. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+   * <p>The name of an existing placement group into which to launch your instances. To remove the placement group setting, pass an empty string for <code>placement-group</code>. For more
+   *             information about placement groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <note>
    *             <p>A <i>cluster</i> placement group is a logical grouping of instances

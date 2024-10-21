@@ -58,19 +58,20 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *             </li>
  *             <li>
  *                <p>If you need more time, record the lifecycle action heartbeat to keep the
- *                     instance in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.</p>
+ *                     instance in a wait state using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RecordLifecycleActionHeartbeat.html">RecordLifecycleActionHeartbeat</a> API call.</p>
  *             </li>
  *             <li>
  *                <p>If you finish before the timeout period ends, send a callback by using the
- *                         <a>CompleteLifecycleAction</a> API call.</p>
+ *                     <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling
  *             group, the call fails.</p>
- *          <p>You can view the lifecycle hooks for an Auto Scaling group using the <a>DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
- *             hook, you can delete it by calling the <a>DeleteLifecycleHook</a> API.</p>
+ *          <p>You can view the lifecycle hooks for an Auto Scaling group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLifecycleHooks.html">DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
+ *             hook, you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteLifecycleHook.html">DeleteLifecycleHook</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

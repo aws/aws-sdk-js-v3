@@ -36,8 +36,9 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>For more information about using predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
  *                 scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a> API call. If you are no longer using a scaling policy,
- *             you can delete it by calling the <a>DeletePolicy</a> API.</p>
+ *          <p>You can view the scaling policies for an Auto Scaling group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a> API call. If you are no longer using a scaling policy,
+ *             you can delete it by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeletePolicy.html">DeletePolicy</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

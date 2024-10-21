@@ -34,7 +34,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>,
  *                 which can describe multiple traffic sources types. We recommend using
  *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You
@@ -52,9 +52,9 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *             replace any instances that are reported as unhealthy. If no registered instances pass
  *             the health checks, the target group doesn't enter the <code>InService</code> state. </p>
  *          <p>Target groups also have an <code>InService</code> state if you attach them in the
- *                 <a>CreateAutoScalingGroup</a> API call. If your target group state is
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> API call. If your target group state is
  *                 <code>InService</code>, but it is not working properly, check the scaling activities
- *             by calling <a>DescribeScalingActivities</a> and take any corrective actions
+ *             by calling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> and take any corrective actions
  *             necessary.</p>
  *          <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
  *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
@@ -63,8 +63,8 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  *          <note>
  *             <p>You can use this operation to describe target groups that were attached by using
- *                     <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that
- *                 were attached by using <a>AttachTrafficSources</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html">AttachLoadBalancerTargetGroups</a>, but not for target groups that
+ *                 were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

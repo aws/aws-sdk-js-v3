@@ -33,7 +33,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *          </p>
  *          <p>Creates an Auto Scaling group with the specified name and attributes. </p>
  *          <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
- *             call the <a>DescribeAccountLimits</a> API. For information about updating
+ *             call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> API. For information about updating
  *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html">Get started

@@ -28,8 +28,8 @@ export interface DescribeScalingProcessTypesCommandInput {}
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
- * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
- *             and <a>SuspendProcesses</a> APIs.</p>
+ * <p>Describes the scaling process types for use with the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a>
+ *             and <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_SuspendProcesses.html">SuspendProcesses</a> APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

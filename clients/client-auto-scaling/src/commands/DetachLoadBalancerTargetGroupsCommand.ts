@@ -34,7 +34,7 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DetachTrafficSources</a>, which
  *                 can detach multiple traffic sources types. We recommend using
  *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can
@@ -44,12 +44,13 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  *          <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
  *          <p>When you detach a target group, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain
- *             running.</p>
+ *             can no longer describe the target group using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
+ *             API call. The instances remain running.</p>
  *          <note>
  *             <p>You can use this operation to detach target groups that were attached by using
- *                     <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that
- *                 were attached by using <a>AttachTrafficSources</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html">AttachLoadBalancerTargetGroups</a>, but not for target groups that
+ *                 were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

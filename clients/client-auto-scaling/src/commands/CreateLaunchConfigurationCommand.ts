@@ -30,9 +30,9 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
 /**
  * <p>Creates a launch configuration.</p>
  *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
- *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
- *             updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *             this limit, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> API.
+ *             For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
+ *             Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch
  *                 configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <note>

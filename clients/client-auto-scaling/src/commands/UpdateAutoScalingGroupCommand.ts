@@ -68,10 +68,10 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *                         <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p>
  *             </li>
  *          </ul>
- *          <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
- *             group, call the <a>DescribePolicies</a> API. If the group has scaling
- *             policies, you can update them by calling the <a>PutScalingPolicy</a>
- *             API.</p>
+ *          <p>To see which properties have been set, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a> API.
+ *             To view the scaling policies for an Auto Scaling
+ *             group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a> API. If the group has scaling
+ *             policies, you can update them by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

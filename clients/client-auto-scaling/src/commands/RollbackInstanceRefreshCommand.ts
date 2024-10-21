@@ -50,7 +50,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  *             </li>
  *          </ul>
  *          <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately
- *             begins replacing instances. You can check the status of this operation through the <a>DescribeInstanceRefreshes</a> API operation. </p>
+ *             begins replacing instances. You can check the status of this operation through the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a> API operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

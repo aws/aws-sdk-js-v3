@@ -31,7 +31,9 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
  *          <p>When you detach a traffic source, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
+ *             can no longer describe the traffic source using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>
+ *             API call. The instances continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

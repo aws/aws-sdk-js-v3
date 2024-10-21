@@ -34,7 +34,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>, which
  *                 can attach multiple traffic sources types. We recommend using
  *                     <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can
@@ -56,8 +56,9 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
- *          <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
- *             the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>
+ *          <p>To describe the target groups for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
+ *             API. To detach the target group from
+ *             the Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a> API.</p>
  *          <p>This operation is additive and does not detach existing target groups or Classic Load
  *             Balancers from the Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to

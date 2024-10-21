@@ -34,7 +34,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
 
 /**
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or
- *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
+ *             instance. This extends the timeout by the length of time defined using the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a> API call.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
  *             group:</p>
  *          <ol>
@@ -65,7 +66,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *             </li>
  *             <li>
  *                <p>If you finish before the timeout period ends, send a callback by using the
- *                         <a>CompleteLifecycleAction</a> API call.</p>
+ *                     <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle

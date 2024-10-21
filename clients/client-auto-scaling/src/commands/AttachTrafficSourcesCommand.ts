@@ -49,9 +49,10 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *          </ul>
  *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
  *             group. </p>
- *          <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to
+ *          <p>After the operation completes, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a> API to
  *             return details about the state of the attachments between traffic sources and your Auto Scaling
- *             group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
+ *             group. To detach a traffic source from the Auto Scaling group, call the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

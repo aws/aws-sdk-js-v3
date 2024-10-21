@@ -35,7 +35,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
  *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
- *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
+ *             Use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html">RollbackInstanceRefresh</a> API to roll back instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

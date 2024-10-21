@@ -34,7 +34,8 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *             those Auto Scaling groups that meet the filter criteria. If you do not specify group names or
  *             filters, the output includes information for all Auto Scaling groups. </p>
  *          <p>This operation also returns information about instances in Auto Scaling groups. To retrieve
- *             information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
+ *             information about the instances in a warm pool, you must call the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html">DescribeWarmPool</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

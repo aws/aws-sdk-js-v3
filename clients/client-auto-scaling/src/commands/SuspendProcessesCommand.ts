@@ -34,7 +34,7 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  *             it can prevent other process types from functioning properly. For more information, see
  *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume
  *                 Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
+ *          <p>To resume processes that have been suspended, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

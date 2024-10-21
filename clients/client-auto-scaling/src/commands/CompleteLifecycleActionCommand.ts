@@ -59,7 +59,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *             <li>
  *                <p>
  *                   <b>If you finish before the timeout period ends, send a
- *                         callback by using the <a>CompleteLifecycleAction</a> API
+ *                         callback by using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a> API
  *                         call.</b>
  *                </p>
  *             </li>
