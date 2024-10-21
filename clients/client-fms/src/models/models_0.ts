@@ -975,6 +975,7 @@ export const ViolationReason = {
   TrafficInspectionCrossesAZBoundary: "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
   UnexpectedFirewallRoutes: "UNEXPECTED_FIREWALL_ROUTES",
   UnexpectedTargetGatewayRoutes: "UNEXPECTED_TARGET_GATEWAY_ROUTES",
+  WebACLConfigurationOrScopeOfUse: "WEB_ACL_CONFIGURATION_OR_SCOPE_OF_USE",
   WebAclMissingRuleGroup: "WEB_ACL_MISSING_RULE_GROUP",
 } as const;
 
@@ -1511,9 +1512,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>SECURITY_GROUPS_COMMON</code>
    *                </p>
    *                <p>
-   *                   <code>"\{\"type\":\"SECURITY_GROUPS_COMMON\",\"revertManualSecurityGroupChanges\":false,\"exclusiveResourceSecurityGroupManagement\":false,
-   *                  \"applyToAllEC2InstanceENIs\":false,\"securityGroups\":[\{\"id\":\"
-   *                  sg-000e55995d61a06bd\"\}]\}"</code>
+   *                   <code>"\{\"type\":\"SECURITY_GROUPS_COMMON\",\"securityGroups\":[\{\"id\":\"sg-03b1f67d69ed00197\"\}],\"revertManualSecurityGroupChanges\":true,\"exclusiveResourceSecurityGroupManagement\":true,\"applyToAllEC2InstanceENIs\":false,\"includeSharedVPC\":true,\"enableSecurityGroupReferencesDistribution\":true\}"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1542,7 +1541,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>SECURITY_GROUPS_CONTENT_AUDIT</code>
    *                </p>
    *                <p>
-   *                   <code>"\{\"type\":\"SECURITY_GROUPS_CONTENT_AUDIT\",\"securityGroups\":[\{\"id\":\"sg-000e55995d61a06bd\"\}],\"securityGroupAction\":\{\"type\":\"ALLOW\"\}\}"</code>
+   *                   <code>"\{\"type\":\"SECURITY_GROUPS_CONTENT_AUDIT\",\"preManagedOptions\":[\{\"denyProtocolAllValue\":true\},\{\"auditSgDirection\":\{\"type\":\"ALL\"\}\}],\"securityGroups\":[\{\"id\":\"sg-049b2393a25468971\"\}],\"securityGroupAction\":\{\"type\":\"ALLOW\"\}\}"</code>
    *                </p>
    *                <p>The security group action for content audit can be <code>ALLOW</code> or
    *                  <code>DENY</code>. For <code>ALLOW</code>, all in-scope security group rules must
@@ -1554,7 +1553,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>SECURITY_GROUPS_USAGE_AUDIT</code>
    *                </p>
    *                <p>
-   *                   <code>"\{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true\}"</code>
+   *                   <code>"\{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true,\"optionalDelayForUnusedInMinutes\":60\}"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1659,7 +1658,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
    *           </p>
    *                <p>
-   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":true,\"version\":\"Version_2.0\",\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesCommonRuleSet\"\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[\{\"name\":\"NoUserAgent_HEADER\"\}]\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":\{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[\{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"\},\{\"redactedFieldType\":\"Method\"\}]\}\}"</code>
+   *                   <code>"\{\"preProcessRuleGroups\":[\{\"ruleGroupType\":\"ManagedRuleGroup\",\"overrideAction\":\{\"type\":\"NONE\"\},\"sampledRequestsEnabled\":true,\"managedRuleGroupIdentifier\":\{\"managedRuleGroupName\":\"AWSManagedRulesAdminProtectionRuleSet\",\"vendorName\":\"AWS\",\"managedRuleGroupConfigs\":null\}\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"tokenDomains\":null,\"customResponse\":null,\"type\":\"WAFV2\",\"overrideCustomerWebACLAssociation\":false,\"sampledRequestsEnabledForDefaultActions\":true,\"optimizeUnassociatedWebACL\":true,\"webACLSource\":\"RETROFIT_EXISTING\"\}"</code>
    *                </p>
    *                <p>
    *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
@@ -1683,9 +1682,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>WAF Classic</code>
    *                </p>
    *                <p>
-   *                   <code>"\{\"type\": \"WAF\", \"ruleGroups\":
-   *                  [\{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : \{\"type\":
-   *                  \"COUNT\"\}\}], \"defaultAction\": \{\"type\": \"BLOCK\"\}\}"</code>
+   *                   <code>"\{\"ruleGroups\":[\{\"id\":\"78cb36c0-1b5e-4d7d-82b2-cf48d3ad9659\",\"overrideAction\":\{\"type\":\"NONE\"\}\}],\"overrideCustomerWebACLAssociation\":true,\"defaultAction\":\{\"type\":\"ALLOW\"\},\"type\":\"WAF\"\}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2305,6 +2302,9 @@ export interface GetViolationDetailsRequest {
    * <p>The ID of the Firewall Manager policy that you want the details for. You can get violation details for the following policy types:</p>
    *          <ul>
    *             <li>
+   *                <p>WAF</p>
+   *             </li>
+   *             <li>
    *                <p>DNS Firewall</p>
    *             </li>
    *             <li>
@@ -2342,6 +2342,7 @@ export interface GetViolationDetailsRequest {
   /**
    * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
    *       Supported resource types are:
+   *       <code>AWS::WAFv2::WebACL</code>,
    *       <code>AWS::EC2::Instance</code>,
    *       <code>AWS::EC2::NetworkInterface</code>,
    *       <code>AWS::EC2::SecurityGroup</code>,
@@ -4258,6 +4259,42 @@ export interface ThirdPartyFirewallMissingSubnetViolation {
 }
 
 /**
+ * <p>The violation details for a web ACL whose configuration is incompatible with the Firewall Manager policy. </p>
+ * @public
+ */
+export interface WebACLHasIncompatibleConfigurationViolation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL. </p>
+   * @public
+   */
+  WebACLArn?: string;
+
+  /**
+   * <p>Information about the problems that Firewall Manager encountered with the web ACL configuration. </p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * <p>The violation details for a web ACL that's associated with at least one resource that's out of scope of the Firewall Manager policy. </p>
+ * @public
+ */
+export interface WebACLHasOutOfScopeResourcesViolation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL. </p>
+   * @public
+   */
+  WebACLArn?: string;
+
+  /**
+   * <p>An array of Amazon Resource Name (ARN) for the resources that are out of scope of the policy and are associated with the web ACL. </p>
+   * @public
+   */
+  OutOfScopeResourceList?: string[];
+}
+
+/**
  * <p>Violation detail based on resource type.</p>
  * @public
  */
@@ -4413,6 +4450,18 @@ export interface ResourceViolation {
    * @public
    */
   PossibleRemediationActions?: PossibleRemediationActions;
+
+  /**
+   * <p>The violation details for a web ACL whose configuration is incompatible with the Firewall Manager policy. </p>
+   * @public
+   */
+  WebACLHasIncompatibleConfigurationViolation?: WebACLHasIncompatibleConfigurationViolation;
+
+  /**
+   * <p>The violation details for a web ACL that's associated with at least one resource that's out of scope of the Firewall Manager policy. </p>
+   * @public
+   */
+  WebACLHasOutOfScopeResourcesViolation?: WebACLHasOutOfScopeResourcesViolation;
 }
 
 /**

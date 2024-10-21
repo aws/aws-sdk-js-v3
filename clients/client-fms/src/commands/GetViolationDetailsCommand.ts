@@ -581,6 +581,16 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //             },
  * //           ],
  * //         },
+ * //         WebACLHasIncompatibleConfigurationViolation: { // WebACLHasIncompatibleConfigurationViolation
+ * //           WebACLArn: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //         WebACLHasOutOfScopeResourcesViolation: { // WebACLHasOutOfScopeResourcesViolation
+ * //           WebACLArn: "STRING_VALUE",
+ * //           OutOfScopeResourceList: [ // ResourceArnList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //     ResourceTags: [ // TagList
