@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-wafv2:** Add a property to WebACL to indicate whether it's been retrofitted by Firewall Manager. ([474281e](https://github.com/aws/aws-sdk-js-v3/commit/474281eae6a37c11bc1e8b8b69dc6a90074e2615))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

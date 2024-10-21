@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-application-insights:** This feature enables customers to specify SNS Topic ARN. CloudWatch Application Insights (CWAI) will utilize this ARN to send problem notifications. ([1a73a2c](https://github.com/aws/aws-sdk-js-v3/commit/1a73a2c6e5f59e81a5e76d01be33b151c82b7e7c))
+* **client-auto-scaling:** Adds support for removing the PlacementGroup setting on an Auto Scaling Group through the UpdateAutoScalingGroup API. ([52c2bba](https://github.com/aws/aws-sdk-js-v3/commit/52c2bba06596098a2b2b027f93b5f784cb2965f8))
+* **client-bedrock-agent-runtime:** Knowledge Bases for Amazon Bedrock now supports custom prompts and model parameters in the orchestrationConfiguration of the RetrieveAndGenerate API. The modelArn field accepts Custom Models and Imported Models ARNs. ([f3c2a2c](https://github.com/aws/aws-sdk-js-v3/commit/f3c2a2c1f296420b221cb70fcc84e6344f00e798))
+* **client-database-migration-service:** Added support for tagging in StartReplicationTaskAssessmentRun API and introduced IsLatestTaskAssessmentRun and ResultStatistic fields for enhanced tracking and assessment result statistics. ([9588015](https://github.com/aws/aws-sdk-js-v3/commit/9588015cd451130f1e8530691d170c0e77cc8ff0))
+* **client-ec2:** Amazon EC2 now allows you to create network interfaces with just the EFA driver and no ENA driver by specifying the network interface type as efa-only. ([67509d4](https://github.com/aws/aws-sdk-js-v3/commit/67509d43371d9854fb3e55586d493bc16446e8c4))
+* **client-eks:** This release adds support for Amazon Application Recovery Controller (ARC) zonal shift and zonal autoshift with EKS that enhances the resiliency of multi-AZ cluster environments ([c046f87](https://github.com/aws/aws-sdk-js-v3/commit/c046f870fb76cf7e1d7752fb4ed2ce08d0c14318))
+* **client-fms:** Update AWS WAF policy - add the option to retrofit existing web ACLs instead of creating all new web ACLs. ([e4411e6](https://github.com/aws/aws-sdk-js-v3/commit/e4411e6775f10787cc383f11f4128d614c6bf274))
+* **client-payment-cryptography-data:** Adding new API to generate authenticated scripts for EMV pin change use cases. ([573b4e2](https://github.com/aws/aws-sdk-js-v3/commit/573b4e2770e0bc0816e84c752b8a80a3782b1b0e))
+* **client-wafv2:** Add a property to WebACL to indicate whether it's been retrofitted by Firewall Manager. ([474281e](https://github.com/aws/aws-sdk-js-v3/commit/474281eae6a37c11bc1e8b8b69dc6a90074e2615))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 

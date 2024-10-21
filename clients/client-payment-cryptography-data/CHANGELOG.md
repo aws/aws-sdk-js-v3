@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Adding new API to generate authenticated scripts for EMV pin change use cases. ([573b4e2](https://github.com/aws/aws-sdk-js-v3/commit/573b4e2770e0bc0816e84c752b8a80a3782b1b0e))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

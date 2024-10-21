@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-fms:** Update AWS WAF policy - add the option to retrofit existing web ACLs instead of creating all new web ACLs. ([e4411e6](https://github.com/aws/aws-sdk-js-v3/commit/e4411e6775f10787cc383f11f4128d614c6bf274))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-fms

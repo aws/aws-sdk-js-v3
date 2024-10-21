@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-auto-scaling:** Adds support for removing the PlacementGroup setting on an Auto Scaling Group through the UpdateAutoScalingGroup API. ([52c2bba](https://github.com/aws/aws-sdk-js-v3/commit/52c2bba06596098a2b2b027f93b5f784cb2965f8))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling
