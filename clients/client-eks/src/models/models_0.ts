@@ -1051,6 +1051,7 @@ export const UpdateParamType = {
   TAINTS_TO_REMOVE: "TaintsToRemove",
   UPGRADE_POLICY: "UpgradePolicy",
   VERSION: "Version",
+  ZONAL_SHIFT_CONFIG: "ZonalShiftConfig",
 } as const;
 
 /**
@@ -1108,6 +1109,7 @@ export const UpdateType = {
   UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
   VERSION_UPDATE: "VersionUpdate",
   VPC_CONFIG_UPDATE: "VpcConfigUpdate",
+  ZONAL_SHIFT_CONFIG_UPDATE: "ZonalShiftConfigUpdate",
 } as const;
 
 /**
@@ -1979,11 +1981,26 @@ export interface UpgradePolicyRequest {
 }
 
 /**
+ * <p>The configuration for zonal shift for the cluster.</p>
+ * @public
+ */
+export interface ZonalShiftConfigRequest {
+  /**
+   * <p>If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.</p>
+   * @public
+   */
+  enabled?: boolean;
+}
+
+/**
  * @public
  */
 export interface CreateClusterRequest {
   /**
-   * <p>The unique name to give to your cluster.</p>
+   * <p>The unique name to give to your cluster. The name can contain only alphanumeric characters (case-sensitive),
+   * hyphens, and underscores. It must start with an alphanumeric character and can't be longer than
+   * 100 characters. The name must be unique within the Amazon Web Services Region and Amazon Web Services account that you're
+   * creating the cluster in.</p>
    * @public
    */
   name: string | undefined;
@@ -2091,6 +2108,27 @@ export interface CreateClusterRequest {
    * @public
    */
   upgradePolicy?: UpgradePolicyRequest;
+
+  /**
+   * <p>Enable or disable ARC zonal shift for the cluster. If zonal shift is enabled, Amazon Web Services
+   *             configures zonal autoshift for the cluster.</p>
+   *          <p>Zonal shift is a feature of
+   *             Amazon Application Recovery Controller (ARC). ARC zonal shift is designed to be a temporary measure that allows you to move
+   *             traffic for a resource away from an impaired AZ until the zonal shift expires or you cancel
+   *             it. You can extend the zonal shift if necessary.</p>
+   *          <p>You can start a zonal shift for an EKS cluster, or you can allow Amazon Web Services to do it for you
+   *             by enabling <i>zonal autoshift</i>. This shift updates the flow of
+   *             east-to-west network traffic in your cluster to only consider network endpoints for Pods
+   *             running on worker nodes in healthy AZs. Additionally, any ALB or NLB handling ingress
+   *             traffic for applications in your EKS cluster will automatically route traffic to targets in
+   *             the healthy AZs. For more information about zonal shift in EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html">Learn about Amazon Application Recovery Controller (ARC)
+   *                 Zonal Shift in Amazon EKS</a> in the
+   *             <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigRequest;
 }
 
 /**
@@ -2422,6 +2460,18 @@ export interface UpgradePolicyResponse {
 }
 
 /**
+ * <p>The status of zonal shift configuration for the cluster</p>
+ * @public
+ */
+export interface ZonalShiftConfigResponse {
+  /**
+   * <p>Whether the zonal shift is enabled.</p>
+   * @public
+   */
+  enabled?: boolean;
+}
+
+/**
  * <p>An object representing an Amazon EKS cluster.</p>
  * @public
  */
@@ -2579,6 +2629,12 @@ export interface Cluster {
    * @public
    */
   upgradePolicy?: UpgradePolicyResponse;
+
+  /**
+   * <p>The configuration for zonal shift for the cluster.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigResponse;
 }
 
 /**
@@ -6526,6 +6582,27 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   upgradePolicy?: UpgradePolicyRequest;
+
+  /**
+   * <p>Enable or disable ARC zonal shift for the cluster. If zonal shift is enabled, Amazon Web Services
+   *             configures zonal autoshift for the cluster.</p>
+   *          <p>Zonal shift is a feature of
+   *             Amazon Application Recovery Controller (ARC). ARC zonal shift is designed to be a temporary measure that allows you to move
+   *             traffic for a resource away from an impaired AZ until the zonal shift expires or you cancel
+   *             it. You can extend the zonal shift if necessary.</p>
+   *          <p>You can start a zonal shift for an EKS cluster, or you can allow Amazon Web Services to do it for you
+   *             by enabling <i>zonal autoshift</i>. This shift updates the flow of
+   *             east-to-west network traffic in your cluster to only consider network endpoints for Pods
+   *             running on worker nodes in healthy AZs. Additionally, any ALB or NLB handling ingress
+   *             traffic for applications in your EKS cluster will automatically route traffic to targets in
+   *             the healthy AZs. For more information about zonal shift in EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html">Learn about Amazon Application Recovery Controller (ARC)
+   *                 Zonal Shift in Amazon EKS</a> in the
+   *             <i>
+   *                <i>Amazon EKS User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  zonalShiftConfig?: ZonalShiftConfigRequest;
 }
 
 /**

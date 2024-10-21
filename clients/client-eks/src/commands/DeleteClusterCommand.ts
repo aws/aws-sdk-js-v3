@@ -141,6 +141,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     upgradePolicy: { // UpgradePolicyResponse
  * //       supportType: "STANDARD" || "EXTENDED",
  * //     },
+ * //     zonalShiftConfig: { // ZonalShiftConfigResponse
+ * //       enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

@@ -142,6 +142,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     upgradePolicy: { // UpgradePolicyResponse
  * //       supportType: "STANDARD" || "EXTENDED",
  * //     },
+ * //     zonalShiftConfig: { // ZonalShiftConfigResponse
+ * //       enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

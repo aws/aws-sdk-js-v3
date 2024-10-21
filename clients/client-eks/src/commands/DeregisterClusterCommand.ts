@@ -136,6 +136,9 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //     upgradePolicy: { // UpgradePolicyResponse
  * //       supportType: "STANDARD" || "EXTENDED",
  * //     },
+ * //     zonalShiftConfig: { // ZonalShiftConfigResponse
+ * //       enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

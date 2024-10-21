@@ -55,6 +55,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             about the VPC requirements, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html</a> in the <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>.</p>
+ *          <p>You can also use this API operation to enable or disable ARC zonal shift. If zonal shift is enabled, Amazon Web Services
+ *             configures zonal autoshift for the cluster.</p>
  *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
@@ -97,6 +99,9 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *   upgradePolicy: { // UpgradePolicyRequest
  *     supportType: "STANDARD" || "EXTENDED",
  *   },
+ *   zonalShiftConfig: { // ZonalShiftConfigRequest
+ *     enabled: true || false,
+ *   },
  * };
  * const command = new UpdateClusterConfigCommand(input);
  * const response = await client.send(command);
@@ -104,10 +109,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate" || "UpgradePolicyUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate" || "UpgradePolicyUpdate" || "ZonalShiftConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode" || "PodIdentityAssociations" || "UpgradePolicy",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode" || "PodIdentityAssociations" || "UpgradePolicy" || "ZonalShiftConfig",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],

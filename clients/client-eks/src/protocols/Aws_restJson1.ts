@@ -231,6 +231,7 @@ import {
   UpdateTaintsPayload,
   UpgradePolicyRequest,
   VpcConfigRequest,
+  ZonalShiftConfigRequest,
 } from "../models/models_0";
 
 /**
@@ -393,6 +394,7 @@ export const se_CreateClusterCommand = async (
       tags: (_) => _json(_),
       upgradePolicy: (_) => _json(_),
       version: [],
+      zonalShiftConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1329,6 +1331,7 @@ export const se_UpdateClusterConfigCommand = async (
       logging: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
       upgradePolicy: (_) => _json(_),
+      zonalShiftConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -3064,6 +3067,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_VpcConfigRequest omitted.
 
+// se_ZonalShiftConfigRequest omitted.
+
 // de_AccessConfigResponse omitted.
 
 /**
@@ -3212,6 +3217,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     tags: _json,
     upgradePolicy: _json,
     version: __expectString,
+    zonalShiftConfig: _json,
   }) as any;
 };
 
@@ -3530,6 +3536,8 @@ const de_Update = (output: any, context: __SerdeContext): Update => {
 // de_UpgradePolicyResponse omitted.
 
 // de_VpcConfigResponse omitted.
+
+// de_ZonalShiftConfigResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
