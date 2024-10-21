@@ -215,6 +215,7 @@ export interface CreateNetworkInsightsPathResult {
 export const NetworkInterfaceCreationType = {
   branch: "branch",
   efa: "efa",
+  efa_only: "efa-only",
   trunk: "trunk",
 } as const;
 
@@ -590,6 +591,7 @@ export const NetworkInterfaceType = {
   aws_codestar_connections_managed: "aws_codestar_connections_managed",
   branch: "branch",
   efa: "efa",
+  efa_only: "efa-only",
   gateway_load_balancer: "gateway_load_balancer",
   gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
   global_accelerator_managed: "global_accelerator_managed",

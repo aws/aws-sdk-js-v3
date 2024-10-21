@@ -4172,7 +4172,7 @@ export interface AssociateCapacityReservationBillingOwnerRequest {
   CapacityReservationId: string | undefined;
 
   /**
-   * <p>The ID of the consumer account to which assign billing.</p>
+   * <p>The ID of the consumer account to which to assign billing.</p>
    * @public
    */
   UnusedReservationBillingOwnerId: string | undefined;
