@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { resolveAwsSdkSigV4AConfig } from "./resolveAwsSdkSigV4AConfig";
 
 describe(resolveAwsSdkSigV4AConfig.name, () => {

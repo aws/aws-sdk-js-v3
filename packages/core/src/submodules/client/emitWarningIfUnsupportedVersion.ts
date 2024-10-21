@@ -1,5 +1,7 @@
 // Stores whether the warning was already emitted.
-let warningEmitted = false;
+export const state = {
+  warningEmitted: false,
+};
 
 /**
  * @internal
@@ -10,8 +12,8 @@ let warningEmitted = false;
  * @param version - The Node.js version string.
  */
 export const emitWarningIfUnsupportedVersion = (version: string) => {
-  if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 18) {
-    warningEmitted = true;
+  if (version && !state.warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 18) {
+    state.warningEmitted = true;
     process.emitWarning(
       `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
 no longer support Node.js 16.x on January 6, 2025.

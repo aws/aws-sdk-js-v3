@@ -1,3 +1,5 @@
+import { test as it, describe, expect } from "vitest";
+
 import { Kinesis } from "@aws-sdk/client-kinesis";
 import { S3 } from "@aws-sdk/client-s3";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";

@@ -1,19 +1,21 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { getSkewCorrectedDate } from "./getSkewCorrectedDate";
 import { isClockSkewed } from "./isClockSkewed";
 
-jest.mock("./getSkewCorrectedDate");
+vi.mock("./getSkewCorrectedDate");
 
 describe(isClockSkewed.name, () => {
   const mockSystemClockOffset = 100;
   const mockSkewCorrectedDate = new Date();
 
   beforeEach(() => {
-    (getSkewCorrectedDate as jest.Mock).mockReturnValue(mockSkewCorrectedDate);
+    vi.mocked(getSkewCorrectedDate).mockReturnValue(mockSkewCorrectedDate);
   });
 
   afterEach(() => {
     expect(getSkewCorrectedDate).toHaveBeenCalledWith(mockSystemClockOffset);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("returns true for time difference >=300000", () => {
