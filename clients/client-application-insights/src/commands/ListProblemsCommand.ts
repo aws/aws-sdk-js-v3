@@ -56,6 +56,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * //     { // Problem
  * //       Id: "STRING_VALUE",
  * //       Title: "STRING_VALUE",
+ * //       ShortName: "STRING_VALUE",
  * //       Insights: "STRING_VALUE",
  * //       Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //       AffectedResource: "STRING_VALUE",

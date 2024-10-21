@@ -1584,6 +1584,7 @@ const de_DescribeProblemObservationsResponse = (
 const de_DescribeProblemResponse = (output: any, context: __SerdeContext): DescribeProblemResponse => {
   return take(output, {
     Problem: (_: any) => de_Problem(_, context),
+    SNSNotificationArn: __expectString,
   }) as any;
 };
 
@@ -1719,6 +1720,7 @@ const de_Problem = (output: any, context: __SerdeContext): Problem => {
     ResolutionMethod: __expectString,
     ResourceGroupName: __expectString,
     SeverityLevel: __expectString,
+    ShortName: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     Title: __expectString,

@@ -41,6 +41,8 @@ export const Tier = {
   MYSQL: "MYSQL",
   ORACLE: "ORACLE",
   POSTGRESQL: "POSTGRESQL",
+  SAP_ASE_HIGH_AVAILABILITY: "SAP_ASE_HIGH_AVAILABILITY",
+  SAP_ASE_SINGLE_NODE: "SAP_ASE_SINGLE_NODE",
   SAP_HANA_HIGH_AVAILABILITY: "SAP_HANA_HIGH_AVAILABILITY",
   SAP_HANA_MULTI_NODE: "SAP_HANA_MULTI_NODE",
   SAP_HANA_SINGLE_NODE: "SAP_HANA_SINGLE_NODE",
@@ -295,7 +297,7 @@ export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
  */
 export interface ApplicationInfo {
   /**
-   * <p>The AWS account ID for the owner of the application.</p>
+   * <p>The Amazon Web Services account ID for the owner of the application.</p>
    * @public
    */
   AccountId?: string;
@@ -318,6 +320,14 @@ export interface ApplicationInfo {
    * @public
    */
   OpsItemSNSTopicArn?: string;
+
+  /**
+   * <p>
+   *          The SNS topic ARN that is associated with SNS notifications for updates or issues.
+   *       </p>
+   * @public
+   */
+  SNSNotificationArn?: string;
 
   /**
    * <p> Indicates whether Application Insights will create opsItems for any problem detected by
@@ -450,7 +460,7 @@ export interface ConfigurationEvent {
   ResourceGroupName?: string;
 
   /**
-   * <p>The AWS account ID for the owner of the application to which the configuration event belongs.</p>
+   * <p>The Amazon Web Services account ID for the owner of the application to which the configuration event belongs.</p>
    * @public
    */
   AccountId?: string;
@@ -528,7 +538,7 @@ export type GroupingType = (typeof GroupingType)[keyof typeof GroupingType];
  *                value.</p>
  *             </li>
  *             <li>
- *                <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in any
+ *                <p>The <code>aws:</code> prefix is reserved for use by Amazon Web Services; you can’t use it in any
  *                tag keys or values that you define. In addition, you can't edit or remove tag keys or
  *                values that use this prefix. </p>
  *             </li>
@@ -583,6 +593,14 @@ export interface CreateApplicationRequest {
    * @public
    */
   OpsItemSNSTopicArn?: string;
+
+  /**
+   * <p>
+   *          The SNS notification topic ARN.
+   *       </p>
+   * @public
+   */
+  SNSNotificationArn?: string;
 
   /**
    * <p>List of tags to add to the application. tag key (<code>Key</code>) and an associated tag
@@ -721,7 +739,7 @@ export interface CreateLogPatternRequest {
    *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
    *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
    *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          AWS-provided patterns. </p>
+   *          Amazon Web Services provided patterns. </p>
    * @public
    */
   Rank: number | undefined;
@@ -767,7 +785,7 @@ export interface LogPattern {
    *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
    *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
    *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          AWS-provided patterns. </p>
+   *          Amazon Web Services provided patterns. </p>
    * @public
    */
   Rank?: number;
@@ -867,7 +885,7 @@ export interface DescribeApplicationRequest {
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -901,7 +919,7 @@ export interface DescribeComponentRequest {
   ComponentName: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -942,7 +960,7 @@ export interface DescribeComponentConfigurationRequest {
   ComponentName: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1013,7 +1031,8 @@ export interface DescribeComponentConfigurationRecommendationRequest {
   Tier: Tier | undefined;
 
   /**
-   * <p>The name of the workload.</p>
+   * <p>The name of the workload. The name of the workload is required when the tier of the application component is
+   *          <code>SAP_ASE_SINGLE_NODE</code> or <code>SAP_ASE_HIGH_AVAILABILITY</code>.</p>
    * @public
    */
   WorkloadName?: string;
@@ -1060,7 +1079,7 @@ export interface DescribeLogPatternRequest {
   PatternName: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1077,7 +1096,7 @@ export interface DescribeLogPatternResponse {
   ResourceGroupName?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1100,7 +1119,7 @@ export interface DescribeObservationRequest {
   ObservationId: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1226,32 +1245,32 @@ export interface Observation {
   CloudWatchEventDetailType?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the AWS Health Event-based observation.</p>
+   * <p> The Amazon Resource Name (ARN) of the Health Event-based observation.</p>
    * @public
    */
   HealthEventArn?: string;
 
   /**
-   * <p> The service to which the AWS Health Event belongs, such as EC2. </p>
+   * <p> The service to which the Health Event belongs, such as EC2. </p>
    * @public
    */
   HealthService?: string;
 
   /**
-   * <p> The type of the AWS Health event, for example,
+   * <p> The type of the Health event, for example,
    *             <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>
    * @public
    */
   HealthEventTypeCode?: string;
 
   /**
-   * <p> The category of the AWS Health event, such as <code>issue</code>. </p>
+   * <p> The category of the Health event, such as <code>issue</code>. </p>
    * @public
    */
   HealthEventTypeCategory?: string;
 
   /**
-   * <p> The description of the AWS Health event provided by the service, such as Amazon EC2.
+   * <p> The description of the Health event provided by the service, such as Amazon EC2.
    *       </p>
    * @public
    */
@@ -1430,7 +1449,7 @@ export interface DescribeProblemRequest {
   ProblemId: string | undefined;
 
   /**
-   * <p>The AWS account ID for the owner of the resource group affected by the problem.</p>
+   * <p>The Amazon Web Services account ID for the owner of the resource group affected by the problem.</p>
    * @public
    */
   AccountId?: string;
@@ -1544,6 +1563,14 @@ export interface Problem {
   Title?: string;
 
   /**
+   * <p>
+   *          The short name of the problem associated with the SNS notification.
+   *       </p>
+   * @public
+   */
+  ShortName?: string;
+
+  /**
    * <p>A detailed analysis of the problem using machine learning.</p>
    * @public
    */
@@ -1580,7 +1607,7 @@ export interface Problem {
   SeverityLevel?: SeverityLevel;
 
   /**
-   * <p>The AWS account ID for the owner of the resource group affected by the problem.</p>
+   * <p>The Amazon Web Services account ID for the owner of the resource group affected by the problem.</p>
    * @public
    */
   AccountId?: string;
@@ -1635,6 +1662,14 @@ export interface DescribeProblemResponse {
    * @public
    */
   Problem?: Problem;
+
+  /**
+   * <p>
+   *          The SNS notification topic ARN of the problem.
+   *       </p>
+   * @public
+   */
+  SNSNotificationArn?: string;
 }
 
 /**
@@ -1648,7 +1683,7 @@ export interface DescribeProblemObservationsRequest {
   ProblemId: string | undefined;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1700,7 +1735,7 @@ export interface DescribeWorkloadRequest {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The AWS account ID for the workload owner.</p>
+   * <p>The Amazon Web Services account ID for the workload owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1747,7 +1782,7 @@ export interface ListApplicationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1795,7 +1830,7 @@ export interface ListComponentsRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1870,7 +1905,7 @@ export interface ListConfigurationHistoryRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1927,7 +1962,7 @@ export interface ListLogPatternsRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1944,7 +1979,7 @@ export interface ListLogPatternsResponse {
   ResourceGroupName?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -1987,7 +2022,7 @@ export interface ListLogPatternSetsRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -2004,7 +2039,7 @@ export interface ListLogPatternSetsResponse {
   ResourceGroupName?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -2028,7 +2063,7 @@ export interface ListLogPatternSetsResponse {
  */
 export interface ListProblemsRequest {
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -2104,7 +2139,7 @@ export interface ListProblemsResponse {
   ResourceGroupName?: string;
 
   /**
-   * <p>The AWS account ID for the resource group owner.</p>
+   * <p>The Amazon Web Services account ID for the resource group owner.</p>
    * @public
    */
   AccountId?: string;
@@ -2165,7 +2200,7 @@ export interface ListWorkloadsRequest {
   NextToken?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the workload.</p>
+   * <p>The Amazon Web Services account ID of the owner of the workload.</p>
    * @public
    */
   AccountId?: string;
@@ -2205,6 +2240,12 @@ export interface Workload {
    * @public
    */
   WorkloadRemarks?: string;
+
+  /**
+   * <p>Indicates whether all of the component configurations required to monitor a workload were provided.</p>
+   * @public
+   */
+  MissingWorkloadConfig?: boolean;
 }
 
 /**
@@ -2366,6 +2407,14 @@ export interface UpdateApplicationRequest {
   OpsItemSNSTopicArn?: string;
 
   /**
+   * <p>
+   *          The SNS topic ARN. Allows you to receive SNS notifications for updates and issues with an application.
+   *       </p>
+   * @public
+   */
+  SNSNotificationArn?: string;
+
+  /**
    * <p> Disassociates the SNS topic from the opsItem created for detected problems.</p>
    * @public
    */
@@ -2519,7 +2568,7 @@ export interface UpdateLogPatternRequest {
    *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
    *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
    *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
-   *          AWS-provided patterns. </p>
+   *          Amazon Web Services provided patterns. </p>
    * @public
    */
   Rank?: number;

@@ -51,6 +51,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     SNSNotificationArn: "STRING_VALUE",
  * //     OpsCenterEnabled: true || false,
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",

@@ -44,6 +44,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   OpsCenterEnabled: true || false,
  *   CWEMonitorEnabled: true || false,
  *   OpsItemSNSTopicArn: "STRING_VALUE",
+ *   SNSNotificationArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -63,6 +64,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     SNSNotificationArn: "STRING_VALUE",
  * //     OpsCenterEnabled: true || false,
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",

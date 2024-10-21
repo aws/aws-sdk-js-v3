@@ -49,6 +49,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * //   Problem: { // Problem
  * //     Id: "STRING_VALUE",
  * //     Title: "STRING_VALUE",
+ * //     ShortName: "STRING_VALUE",
  * //     Insights: "STRING_VALUE",
  * //     Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //     AffectedResource: "STRING_VALUE",
@@ -65,6 +66,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * //     Visibility: "IGNORED" || "VISIBLE",
  * //     ResolutionMethod: "MANUAL" || "AUTOMATIC" || "UNRESOLVED",
  * //   },
+ * //   SNSNotificationArn: "STRING_VALUE",
  * // };
  *
  * ```
