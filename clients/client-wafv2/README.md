@@ -15,10 +15,8 @@ like endpoints and namespaces, all have the versioning information added, like "
 "v2", to distinguish from the prior version. We recommend migrating your resources to
 this version, because it has a number of significant improvements.</p>
 <p>If you used WAF prior to this release, you can't use this WAFV2 API to access any
-WAF resources that you created before. You can access your old rules, web ACLs, and
-other WAF resources only through the WAF Classic APIs. The WAF Classic APIs
-have retained the prior names, endpoints, and namespaces. </p>
-<p>For information, including how to migrate your WAF resources to this version,
+WAF resources that you created before. WAF Classic support will end on September 30, 2025. </p>
+<p>For information about WAF, including how to migrate your WAF Classic resources to this version,
 see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
 </note>
 <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
@@ -45,26 +43,6 @@ US East (N. Virginia): us-east-1.</p>
 </ul>
 <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to the
 programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
-<p>We currently provide two versions of the WAF API: this API and the prior versions,
-the classic WAF APIs. This new API provides the same functionality as the older versions,
-with the following major improvements:</p>
-<ul>
-<li>
-<p>You use one API for both global and regional applications. Where you need to
-distinguish the scope, you specify a <code>Scope</code> parameter and set it to
-<code>CLOUDFRONT</code> or <code>REGIONAL</code>. </p>
-</li>
-<li>
-<p>You can define a web ACL or rule group with a single call, and update it with a
-single call. You define all rule specifications in JSON format, and pass them to your
-rule group or web ACL calls.</p>
-</li>
-<li>
-<p>The limits WAF places on the use of rules more closely reflects the cost of
-running each type of rule. Rule groups include capacity settings, so you know the
-maximum cost of a rule group when you use it.</p>
-</li>
-</ul>
 
 ## Installing
 

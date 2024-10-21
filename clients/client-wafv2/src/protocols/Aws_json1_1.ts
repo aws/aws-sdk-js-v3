@@ -3998,6 +3998,7 @@ const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
     Name: __expectString,
     PostProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
     PreProcessFirewallManagerRuleGroups: (_: any) => de_FirewallManagerRuleGroups(_, context),
+    RetrofittedByFirewallManager: __expectBoolean,
     Rules: (_: any) => de_Rules(_, context),
     TokenDomains: _json,
     VisibilityConfig: _json,

@@ -1225,6 +1225,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //         },
  * //       },
  * //     },
+ * //     RetrofittedByFirewallManager: true || false,
  * //   },
  * // };
  *

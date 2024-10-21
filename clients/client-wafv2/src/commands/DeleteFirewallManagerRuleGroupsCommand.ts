@@ -33,9 +33,8 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes all rule groups that are managed by Firewall Manager for the specified web ACL. </p>
- *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
- *             <a>WebACL</a>. </p>
+ * <p>Deletes all rule groups that are managed by Firewall Manager from the specified <a>WebACL</a>. </p>
+ *          <p>You can only use this if <code>ManagedByFirewallManager</code> and <code>RetrofittedByFirewallManager</code> are both false in the web ACL. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1217,6 +1217,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //         },
  * //       },
  * //     },
+ * //     RetrofittedByFirewallManager: true || false,
  * //   },
  * //   LockToken: "STRING_VALUE",
  * //   ApplicationIntegrationURL: "STRING_VALUE",

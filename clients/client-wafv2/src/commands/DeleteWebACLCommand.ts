@@ -29,8 +29,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
 
 /**
  * <p>Deletes the specified <a>WebACL</a>. </p>
- *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
- *             <a>WebACL</a>. </p>
+ *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the web ACL. </p>
  *          <note>
  *             <p>Before deleting any web ACL, first disassociate it from all resources.</p>
  *             <ul>
