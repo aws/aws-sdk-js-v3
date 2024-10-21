@@ -540,7 +540,6 @@ import {
   DescribeReplicationTasksResponse,
   DescribeSchemasMessage,
   DescribeTableStatisticsMessage,
-  DescribeTableStatisticsResponse,
   DmsTransferSettings,
   DocDbDataProviderSettings,
   DocDbSettings,
@@ -621,6 +620,7 @@ import {
 } from "../models/models_0";
 import {
   AssessmentReportType,
+  DescribeTableStatisticsResponse,
   ExportMetadataModelAssessmentMessage,
   ImportCertificateMessage,
   ImportCertificateResponse,
@@ -5504,6 +5504,7 @@ const de_CreateReplicationTaskResponse = (output: any, context: __SerdeContext):
 const de_DataMigration = (output: any, context: __SerdeContext): DataMigration => {
   return take(output, {
     DataMigrationArn: __expectString,
+    DataMigrationCidrBlocks: _json,
     DataMigrationCreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     DataMigrationEndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     DataMigrationName: __expectString,
@@ -5520,6 +5521,8 @@ const de_DataMigration = (output: any, context: __SerdeContext): DataMigration =
     StopReason: __expectString,
   }) as any;
 };
+
+// de_DataMigrationCidrBlock omitted.
 
 /**
  * deserializeAws_json1_1DataMigrations
@@ -6714,6 +6717,7 @@ const de_ReplicationTaskAssessmentRun = (output: any, context: __SerdeContext): 
   return take(output, {
     AssessmentProgress: _json,
     AssessmentRunName: __expectString,
+    IsLatestTaskAssessmentRun: __expectBoolean,
     LastFailureMessage: __expectString,
     ReplicationTaskArn: __expectString,
     ReplicationTaskAssessmentRunArn: __expectString,
@@ -6722,6 +6726,7 @@ const de_ReplicationTaskAssessmentRun = (output: any, context: __SerdeContext): 
     ResultKmsKeyArn: __expectString,
     ResultLocationBucket: __expectString,
     ResultLocationFolder: __expectString,
+    ResultStatistic: _json,
     ServiceAccessRoleArn: __expectString,
     Status: __expectString,
   }) as any;
@@ -6740,6 +6745,8 @@ const de_ReplicationTaskAssessmentRunList = (output: any, context: __SerdeContex
 };
 
 // de_ReplicationTaskAssessmentRunProgress omitted.
+
+// de_ReplicationTaskAssessmentRunResultStatistic omitted.
 
 /**
  * deserializeAws_json1_1ReplicationTaskIndividualAssessment

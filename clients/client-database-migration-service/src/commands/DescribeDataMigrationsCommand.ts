@@ -98,6 +98,9 @@ export interface DescribeDataMigrationsCommandOutput extends DescribeDataMigrati
  * //       PublicIpAddresses: [ // PublicIpAddressList
  * //         "STRING_VALUE",
  * //       ],
+ * //       DataMigrationCidrBlocks: [ // DataMigrationCidrBlock
+ * //         "STRING_VALUE",
+ * //       ],
  * //       LastFailureMessage: "STRING_VALUE",
  * //       StopReason: "STRING_VALUE",
  * //     },

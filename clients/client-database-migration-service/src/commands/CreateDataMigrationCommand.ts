@@ -108,6 +108,9 @@ export interface CreateDataMigrationCommandOutput extends CreateDataMigrationRes
  * //     PublicIpAddresses: [ // PublicIpAddressList
  * //       "STRING_VALUE",
  * //     ],
+ * //     DataMigrationCidrBlocks: [ // DataMigrationCidrBlock
+ * //       "STRING_VALUE",
+ * //     ],
  * //     LastFailureMessage: "STRING_VALUE",
  * //     StopReason: "STRING_VALUE",
  * //   },

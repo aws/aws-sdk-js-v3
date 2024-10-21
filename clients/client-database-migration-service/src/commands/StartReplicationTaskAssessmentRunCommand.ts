@@ -67,6 +67,13 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  *   Exclude: [ // ExcludeTestList
  *     "STRING_VALUE",
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
@@ -87,6 +94,14 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * //     ResultEncryptionMode: "STRING_VALUE",
  * //     ResultKmsKeyArn: "STRING_VALUE",
  * //     AssessmentRunName: "STRING_VALUE",
+ * //     IsLatestTaskAssessmentRun: true || false,
+ * //     ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //       Passed: Number("int"),
+ * //       Failed: Number("int"),
+ * //       Error: Number("int"),
+ * //       Warning: Number("int"),
+ * //       Cancelled: Number("int"),
+ * //     },
  * //   },
  * // };
  *

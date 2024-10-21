@@ -10,7 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0";
+import { DescribeTableStatisticsMessage } from "../models/models_0";
+import { DescribeTableStatisticsResponse } from "../models/models_1";
 import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } from "../protocols/Aws_json1_1";
 
 /**

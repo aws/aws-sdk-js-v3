@@ -60,9 +60,36 @@ import {
   SourceDataSetting,
   SybaseSettings,
   SybaseSettingsFilterSensitiveLog,
+  TableStatistics,
   Tag,
   TimestreamSettings,
 } from "./models_0";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTableStatisticsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+   * @public
+   */
+  ReplicationTaskArn?: string;
+
+  /**
+   * <p>The table statistics.</p>
+   * @public
+   */
+  TableStatistics?: TableStatistics[];
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string;
+}
 
 /**
  * @public
@@ -2139,6 +2166,12 @@ export interface StartReplicationTaskAssessmentRunMessage {
    * @public
    */
   Exclude?: string[];
+
+  /**
+   * <p>One or more tags to be assigned to the premigration assessment run that you want to start.</p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**

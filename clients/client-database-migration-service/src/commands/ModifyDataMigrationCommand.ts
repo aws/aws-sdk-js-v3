@@ -101,6 +101,9 @@ export interface ModifyDataMigrationCommandOutput extends ModifyDataMigrationRes
  * //     PublicIpAddresses: [ // PublicIpAddressList
  * //       "STRING_VALUE",
  * //     ],
+ * //     DataMigrationCidrBlocks: [ // DataMigrationCidrBlock
+ * //       "STRING_VALUE",
+ * //     ],
  * //     LastFailureMessage: "STRING_VALUE",
  * //     StopReason: "STRING_VALUE",
  * //   },

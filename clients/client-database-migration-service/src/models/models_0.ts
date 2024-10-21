@@ -416,6 +416,44 @@ export interface ReplicationTaskAssessmentRunProgress {
 }
 
 /**
+ * <p>The object containing the result statistics for a completed assessment run.</p>
+ * @public
+ */
+export interface ReplicationTaskAssessmentRunResultStatistic {
+  /**
+   * <p>The number of individual assessments that successfully passed all checks in the assessment run.</p>
+   * @public
+   */
+  Passed?: number;
+
+  /**
+   * <p>The number of individual assessments that failed to meet the criteria defined in the assessment run.</p>
+   * @public
+   */
+  Failed?: number;
+
+  /**
+   * <p>The number of individual assessments that encountered a critical error and could not complete properly.</p>
+   * @public
+   */
+  Error?: number;
+
+  /**
+   * <p>Indicates that the recent completed AssessmentRun triggered a warning.</p>
+   * @public
+   */
+  Warning?: number;
+
+  /**
+   * <p>
+   *          The number of individual assessments that were cancelled during the assessment run.
+   *       </p>
+   * @public
+   */
+  Cancelled?: number;
+}
+
+/**
  * <p>Provides information that describes a premigration assessment run that you have started
  *          using the <code>StartReplicationTaskAssessmentRun</code> operation.</p>
  *          <p>Some of the information appears based on other operations that can return the
@@ -550,6 +588,20 @@ export interface ReplicationTaskAssessmentRun {
    * @public
    */
   AssessmentRunName?: string;
+
+  /**
+   * <p>Indicates that the following PreflightAssessmentRun is the latest for the ReplicationTask. The status is either true or false.</p>
+   * @public
+   */
+  IsLatestTaskAssessmentRun?: boolean;
+
+  /**
+   * <p>
+   *          Result statistics for a completed assessment run, showing aggregated statistics of IndividualAssessments for how many assessments were passed, failed, or encountered issues such as errors or warnings.
+   *       </p>
+   * @public
+   */
+  ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic;
 }
 
 /**
@@ -852,6 +904,12 @@ export interface DataMigration {
    * @public
    */
   PublicIpAddresses?: string[];
+
+  /**
+   * <p>The CIDR blocks of the endpoints for the data migration.</p>
+   * @public
+   */
+  DataMigrationCidrBlocks?: string[];
 
   /**
    * <p>Information about the data migration's most recent error or failure.</p>
@@ -12677,32 +12735,6 @@ export interface DescribeTableStatisticsMessage {
    * @public
    */
   Filters?: Filter[];
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeTableStatisticsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
-   * @public
-   */
-  ReplicationTaskArn?: string;
-
-  /**
-   * <p>The table statistics.</p>
-   * @public
-   */
-  TableStatistics?: TableStatistics[];
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string;
 }
 
 /**
