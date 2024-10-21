@@ -2,7 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const walk = require("../utils/walk");
 
-const paths = [path.join(__dirname, "..", "..", "packages", "core")];
+const paths = [
+  path.join(__dirname, "..", "..", "packages", "body-checksum-browser"),
+  path.join(__dirname, "..", "..", "packages", "body-checksum-node"),
+  path.join(__dirname, "..", "..", "packages", "chunked-stream-reader-node"),
+  path.join(__dirname, "..", "..", "packages", "cloudfront-signer"),
+  path.join(__dirname, "..", "..", "packages", "core"),
+];
 
 (async () => {
   for (const folder of paths) {
