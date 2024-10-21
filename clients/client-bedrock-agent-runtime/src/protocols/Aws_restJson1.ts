@@ -1122,7 +1122,7 @@ const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
     generationConfiguration: (_) => se_GenerationConfiguration(_, context),
     knowledgeBaseId: [],
     modelArn: [],
-    orchestrationConfiguration: _json,
+    orchestrationConfiguration: (_) => se_OrchestrationConfiguration(_, context),
     retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
   });
 };
@@ -1141,7 +1141,17 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
   });
 };
 
-// se_OrchestrationConfiguration omitted.
+/**
+ * serializeAws_restJson1OrchestrationConfiguration
+ */
+const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    inferenceConfig: (_) => se_InferenceConfig(_, context),
+    promptTemplate: _json,
+    queryTransformationConfiguration: _json,
+  });
+};
 
 // se_PromptSessionAttributesMap omitted.
 

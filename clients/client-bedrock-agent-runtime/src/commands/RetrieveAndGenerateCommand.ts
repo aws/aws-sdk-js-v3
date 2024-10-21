@@ -135,6 +135,22 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *         },
  *       },
  *       orchestrationConfiguration: { // OrchestrationConfiguration
+ *         promptTemplate: {
+ *           textPromptTemplate: "STRING_VALUE",
+ *         },
+ *         inferenceConfig: {
+ *           textInferenceConfig: {
+ *             temperature: Number("float"),
+ *             topP: Number("float"),
+ *             maxTokens: Number("int"),
+ *             stopSequences: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         additionalModelRequestFields: {
+ *           "<keys>": "DOCUMENT_VALUE",
+ *         },
  *         queryTransformationConfiguration: { // QueryTransformationConfiguration
  *           type: "QUERY_DECOMPOSITION", // required
  *         },

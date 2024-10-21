@@ -2604,7 +2604,7 @@ export interface OrchestrationModelInvocationOutput {
   rawResponse?: RawResponse;
 
   /**
-   * <p>Contains information about the foundation model output.</p>
+   * <p>Contains information about the foundation model output from the orchestration step.</p>
    * @public
    */
   metadata?: Metadata;
@@ -2955,13 +2955,17 @@ export interface PostProcessingModelInvocationOutput {
   parsedResponse?: PostProcessingParsedResponse;
 
   /**
-   * <p>Contains the raw output from the foundation model.</p>
+   * <p>
+   *             Details of the raw response from the foundation model output.
+   *         </p>
    * @public
    */
   rawResponse?: RawResponse;
 
   /**
-   * <p>Provides details of the foundation model.</p>
+   * <p>
+   *             Contains information about the foundation model output from the post-processing step.
+   *         </p>
    * @public
    */
   metadata?: Metadata;
@@ -3069,13 +3073,17 @@ export interface PreProcessingModelInvocationOutput {
   parsedResponse?: PreProcessingParsedResponse;
 
   /**
-   * <p>Contains the raw output from the foundation model.</p>
+   * <p>
+   *             Details of the raw response from the foundation model output.
+   *         </p>
    * @public
    */
   rawResponse?: RawResponse;
 
   /**
-   * <p>Provides details of the foundation model.</p>
+   * <p>
+   *             Contains information about the foundation model output from the pre-processing step.
+   *         </p>
    * @public
    */
   metadata?: Metadata;
@@ -4179,11 +4187,29 @@ export interface QueryTransformationConfiguration {
  */
 export interface OrchestrationConfiguration {
   /**
+   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType>;
+
+  /**
    * <p>To split up the prompt and retrieve multiple sources, set the transformation type to
    *     <code>QUERY_DECOMPOSITION</code>.</p>
    * @public
    */
-  queryTransformationConfiguration: QueryTransformationConfiguration | undefined;
+  queryTransformationConfiguration?: QueryTransformationConfiguration;
 }
 
 /**
@@ -5726,6 +5752,14 @@ export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfigu
 /**
  * @internal
  */
+export const OrchestrationConfigurationFilterSensitiveLog = (obj: OrchestrationConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
 export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGenerateOutput): any => ({
   ...obj,
 });
@@ -5828,6 +5862,9 @@ export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
   }),
   ...(obj.generationConfiguration && {
     generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+  ...(obj.orchestrationConfiguration && {
+    orchestrationConfiguration: OrchestrationConfigurationFilterSensitiveLog(obj.orchestrationConfiguration),
   }),
 });
 
