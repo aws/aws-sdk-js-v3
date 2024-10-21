@@ -63,12 +63,12 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  *   KeyIdentifier: "STRING_VALUE", // required
  *   MessageData: "STRING_VALUE", // required
  *   GenerationAttributes: { // MacAttributes Union: only one key present
- *     Algorithm: "STRING_VALUE",
+ *     Algorithm: "ISO9797_ALGORITHM1" || "ISO9797_ALGORITHM3" || "CMAC" || "HMAC_SHA224" || "HMAC_SHA256" || "HMAC_SHA384" || "HMAC_SHA512",
  *     EmvMac: { // MacAlgorithmEmv
- *       MajorKeyDerivationMode: "STRING_VALUE", // required
+ *       MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *       PanSequenceNumber: "STRING_VALUE", // required
- *       SessionKeyDerivationMode: "STRING_VALUE", // required
+ *       SessionKeyDerivationMode: "EMV_COMMON_SESSION_KEY" || "EMV2000" || "AMEX" || "MASTERCARD_SESSION_KEY" || "VISA", // required
  *       SessionKeyDerivationValue: { // SessionKeyDerivationValue Union: only one key present
  *         ApplicationCryptogram: "STRING_VALUE",
  *         ApplicationTransactionCounter: "STRING_VALUE",
@@ -76,18 +76,18 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  *     },
  *     DukptIso9797Algorithm1: { // MacAlgorithmDukpt
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *     DukptIso9797Algorithm3: {
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *     DukptCmac: {
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *   },
  *   MacLength: Number("int"),

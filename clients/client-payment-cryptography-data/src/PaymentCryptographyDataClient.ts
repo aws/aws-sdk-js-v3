@@ -60,6 +60,10 @@ import {
   GenerateCardValidationDataCommandOutput,
 } from "./commands/GenerateCardValidationDataCommand";
 import { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
+import {
+  GenerateMacEmvPinChangeCommandInput,
+  GenerateMacEmvPinChangeCommandOutput,
+} from "./commands/GenerateMacEmvPinChangeCommand";
 import { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "./commands/GeneratePinDataCommand";
 import { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "./commands/ReEncryptDataCommand";
 import { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "./commands/TranslatePinDataCommand";
@@ -92,6 +96,7 @@ export type ServiceInputTypes =
   | EncryptDataCommandInput
   | GenerateCardValidationDataCommandInput
   | GenerateMacCommandInput
+  | GenerateMacEmvPinChangeCommandInput
   | GeneratePinDataCommandInput
   | ReEncryptDataCommandInput
   | TranslatePinDataCommandInput
@@ -108,6 +113,7 @@ export type ServiceOutputTypes =
   | EncryptDataCommandOutput
   | GenerateCardValidationDataCommandOutput
   | GenerateMacCommandOutput
+  | GenerateMacEmvPinChangeCommandOutput
   | GeneratePinDataCommandOutput
   | ReEncryptDataCommandOutput
   | TranslatePinDataCommandOutput

@@ -70,7 +70,7 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  *   KeyIdentifier: "STRING_VALUE", // required
  *   TransactionData: "STRING_VALUE", // required
  *   AuthRequestCryptogram: "STRING_VALUE", // required
- *   MajorKeyDerivationMode: "STRING_VALUE", // required
+ *   MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *   SessionKeyDerivationAttributes: { // SessionKeyDerivation Union: only one key present
  *     EmvCommon: { // SessionKeyEmvCommon
  *       PrimaryAccountNumber: "STRING_VALUE", // required

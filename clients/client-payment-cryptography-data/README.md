@@ -238,6 +238,14 @@ GenerateMac
 </details>
 <details>
 <summary>
+GenerateMacEmvPinChange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateMacEmvPinChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacEmvPinChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacEmvPinChangeCommandOutput/)
+
+</details>
+<details>
+<summary>
 GeneratePinData
 </summary>
 

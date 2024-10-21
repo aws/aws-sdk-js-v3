@@ -75,11 +75,11 @@ export interface VerifyPinDataCommandOutput extends VerifyPinDataOutput, __Metad
  *   },
  *   EncryptedPinBlock: "STRING_VALUE", // required
  *   PrimaryAccountNumber: "STRING_VALUE", // required
- *   PinBlockFormat: "STRING_VALUE", // required
+ *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3", // required
  *   PinDataLength: Number("int"),
  *   DukptAttributes: { // DukptAttributes
  *     KeySerialNumber: "STRING_VALUE", // required
- *     DukptDerivationType: "STRING_VALUE", // required
+ *     DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
  *   },
  * };
  * const command = new VerifyPinDataCommand(input);

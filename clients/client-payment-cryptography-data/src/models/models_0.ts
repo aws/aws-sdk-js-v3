@@ -26,6 +26,80 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The parameter values of the current PIN to be changed on the EMV chip card.</p>
+ * @public
+ */
+export interface CurrentPinAttributes {
+  /**
+   * <p>The <code>keyArn</code> of the current PIN PEK.</p>
+   * @public
+   */
+  CurrentPinPekIdentifier: string | undefined;
+
+  /**
+   * <p>The encrypted pinblock of the current pin stored on the chip card.</p>
+   * @public
+   */
+  CurrentEncryptedPinBlock: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MajorKeyDerivationMode = {
+  EMV_OPTION_A: "EMV_OPTION_A",
+  EMV_OPTION_B: "EMV_OPTION_B",
+} as const;
+
+/**
+ * @public
+ */
+export type MajorKeyDerivationMode = (typeof MajorKeyDerivationMode)[keyof typeof MajorKeyDerivationMode];
+
+/**
+ * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Amex derivation method.</p>
+ * @public
+ */
+export interface AmexAttributes {
+  /**
+   * <p>The method to use when deriving the master key for a payment card using Amex derivation.</p>
+   * @public
+   */
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
+
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The transaction counter of the current transaction that is provided by the terminal during transaction processing.</p>
+   * @public
+   */
+  ApplicationTransactionCounter: string | undefined;
+
+  /**
+   * <p>The <code>keyArn</code> of the issuer master key for cryptogram (IMK-AC) for the payment card.</p>
+   * @public
+   */
+  AuthorizationRequestKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The encrypted pinblock of the old pin stored on the chip card.</p>
+   * @public
+   */
+  CurrentPinAttributes?: CurrentPinAttributes;
+}
+
+/**
  * <p>Card data parameters that are required to generate a Card Security Code (CSC2) for an AMEX payment card.</p>
  * @public
  */
@@ -794,7 +868,7 @@ export interface EmvEncryptionAttributes {
   PrimaryAccountNumber: string | undefined;
 
   /**
-   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN).</p>
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
    * @public
    */
   PanSequenceNumber: string | undefined;
@@ -1194,6 +1268,298 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>Parameters to derive the confidentiality and integrity keys for a payment card using EMV2000 deruv.</p>
+ * @public
+ */
+export interface Emv2000Attributes {
+  /**
+   * <p>The method to use when deriving the master key for the payment card.</p>
+   * @public
+   */
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
+
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The transaction counter of the current transaction that is provided by the terminal during transaction processing.</p>
+   * @public
+   */
+  ApplicationTransactionCounter: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PinBlockLengthPosition = {
+  FRONT_OF_PIN_BLOCK: "FRONT_OF_PIN_BLOCK",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type PinBlockLengthPosition = (typeof PinBlockLengthPosition)[keyof typeof PinBlockLengthPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const PinBlockPaddingType = {
+  ISO_IEC_7816_4: "ISO_IEC_7816_4",
+  NO_PADDING: "NO_PADDING",
+} as const;
+
+/**
+ * @public
+ */
+export type PinBlockPaddingType = (typeof PinBlockPaddingType)[keyof typeof PinBlockPaddingType];
+
+/**
+ * <p>Parameters to derive the confidentiality and integrity keys for an Emv common payment card.</p>
+ * @public
+ */
+export interface EmvCommonAttributes {
+  /**
+   * <p>The method to use when deriving the master key for the payment card.</p>
+   * @public
+   */
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
+
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The application cryptogram for the current transaction that is provided by the terminal during transaction processing.</p>
+   * @public
+   */
+  ApplicationCryptogram: string | undefined;
+
+  /**
+   * <p>The block cipher method to use for encryption.</p>
+   * @public
+   */
+  Mode: EmvEncryptionMode | undefined;
+
+  /**
+   * <p>The padding to be added to the PIN block prior to encryption.</p>
+   *          <p>Padding type should be <code>ISO_IEC_7816_4</code>, if <code>PinBlockLengthPosition</code> is set to <code>FRONT_OF_PIN_BLOCK</code>. No padding is required, if <code>PinBlockLengthPosition</code> is set to <code>NONE</code>.</p>
+   * @public
+   */
+  PinBlockPaddingType: PinBlockPaddingType | undefined;
+
+  /**
+   * <p>Specifies if PIN block length should be added to front of the pin block. </p>
+   *          <p>If value is set to <code>FRONT_OF_PIN_BLOCK</code>, then PIN block padding type should be <code>ISO_IEC_7816_4</code>.</p>
+   * @public
+   */
+  PinBlockLengthPosition: PinBlockLengthPosition | undefined;
+}
+
+/**
+ * <p>Parameters to derive the confidentiality and integrity keys for a Mastercard payment card.</p>
+ * @public
+ */
+export interface MasterCardAttributes {
+  /**
+   * <p>The method to use when deriving the master key for the payment card.</p>
+   * @public
+   */
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
+
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The application cryptogram for the current transaction that is provided by the terminal during transaction processing.</p>
+   * @public
+   */
+  ApplicationCryptogram: string | undefined;
+}
+
+/**
+ * <p>Parameters to derive the confidentiality and integrity keys for a Visa payment card.</p>
+ * @public
+ */
+export interface VisaAttributes {
+  /**
+   * <p>The method to use when deriving the master key for the payment card.</p>
+   * @public
+   */
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
+
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). Typically 00 is used, if no value is provided by the terminal.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The transaction counter of the current transaction that is provided by the terminal during transaction processing.</p>
+   * @public
+   */
+  ApplicationTransactionCounter: string | undefined;
+
+  /**
+   * <p>The <code>keyArn</code> of the issuer master key for cryptogram (IMK-AC) for the payment card.</p>
+   * @public
+   */
+  AuthorizationRequestKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The encrypted pinblock of the old pin stored on the chip card.</p>
+   * @public
+   */
+  CurrentPinAttributes?: CurrentPinAttributes;
+}
+
+/**
+ * <p>Parameters to derive the payment card specific confidentiality and integrity keys.</p>
+ * @public
+ */
+export type DerivationMethodAttributes =
+  | DerivationMethodAttributes.AmexMember
+  | DerivationMethodAttributes.Emv2000Member
+  | DerivationMethodAttributes.EmvCommonMember
+  | DerivationMethodAttributes.MastercardMember
+  | DerivationMethodAttributes.VisaMember
+  | DerivationMethodAttributes.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DerivationMethodAttributes {
+  /**
+   * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Emv common derivation method.</p>
+   * @public
+   */
+  export interface EmvCommonMember {
+    EmvCommon: EmvCommonAttributes;
+    Amex?: never;
+    Visa?: never;
+    Emv2000?: never;
+    Mastercard?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Amex derivation method.</p>
+   * @public
+   */
+  export interface AmexMember {
+    EmvCommon?: never;
+    Amex: AmexAttributes;
+    Visa?: never;
+    Emv2000?: never;
+    Mastercard?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters to derive the confidentiality and integrity keys for a a payment card using Visa derivation method.</p>
+   * @public
+   */
+  export interface VisaMember {
+    EmvCommon?: never;
+    Amex?: never;
+    Visa: VisaAttributes;
+    Emv2000?: never;
+    Mastercard?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Emv2000 derivation method.</p>
+   * @public
+   */
+  export interface Emv2000Member {
+    EmvCommon?: never;
+    Amex?: never;
+    Visa?: never;
+    Emv2000: Emv2000Attributes;
+    Mastercard?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Mastercard derivation method.</p>
+   * @public
+   */
+  export interface MastercardMember {
+    EmvCommon?: never;
+    Amex?: never;
+    Visa?: never;
+    Emv2000?: never;
+    Mastercard: MasterCardAttributes;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    EmvCommon?: never;
+    Amex?: never;
+    Visa?: never;
+    Emv2000?: never;
+    Mastercard?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    EmvCommon: (value: EmvCommonAttributes) => T;
+    Amex: (value: AmexAttributes) => T;
+    Visa: (value: VisaAttributes) => T;
+    Emv2000: (value: Emv2000Attributes) => T;
+    Mastercard: (value: MasterCardAttributes) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DerivationMethodAttributes, visitor: Visitor<T>): T => {
+    if (value.EmvCommon !== undefined) return visitor.EmvCommon(value.EmvCommon);
+    if (value.Amex !== undefined) return visitor.Amex(value.Amex);
+    if (value.Visa !== undefined) return visitor.Visa(value.Visa);
+    if (value.Emv2000 !== undefined) return visitor.Emv2000(value.Emv2000);
+    if (value.Mastercard !== undefined) return visitor.Mastercard(value.Mastercard);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Parameters that are used for Derived Unique Key Per Transaction (DUKPT) derivation algorithm.</p>
  * @public
  */
@@ -1388,20 +1754,6 @@ export interface MacAlgorithmDukpt {
    */
   DukptDerivationType?: DukptDerivationType;
 }
-
-/**
- * @public
- * @enum
- */
-export const MajorKeyDerivationMode = {
-  EMV_OPTION_A: "EMV_OPTION_A",
-  EMV_OPTION_B: "EMV_OPTION_B",
-} as const;
-
-/**
- * @public
- */
-export type MajorKeyDerivationMode = (typeof MajorKeyDerivationMode)[keyof typeof MajorKeyDerivationMode];
 
 /**
  * @public
@@ -1675,6 +2027,158 @@ export interface GenerateMacOutput {
    * @public
    */
   Mac: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PinBlockFormatForEmvPinChange = {
+  ISO_FORMAT_0: "ISO_FORMAT_0",
+  ISO_FORMAT_1: "ISO_FORMAT_1",
+  ISO_FORMAT_3: "ISO_FORMAT_3",
+} as const;
+
+/**
+ * @public
+ */
+export type PinBlockFormatForEmvPinChange =
+  (typeof PinBlockFormatForEmvPinChange)[keyof typeof PinBlockFormatForEmvPinChange];
+
+/**
+ * @public
+ */
+export interface GenerateMacEmvPinChangeInput {
+  /**
+   * <p>The <code>keyARN</code> of the PEK protecting the incoming new encrypted PIN block.</p>
+   * @public
+   */
+  NewPinPekIdentifier: string | undefined;
+
+  /**
+   * <p>The incoming new encrypted PIN block data for offline pin change on an EMV card.</p>
+   * @public
+   */
+  NewEncryptedPinBlock: string | undefined;
+
+  /**
+   * <p>The PIN encoding format of the incoming new encrypted PIN block as specified in ISO 9564.</p>
+   * @public
+   */
+  PinBlockFormat: PinBlockFormatForEmvPinChange | undefined;
+
+  /**
+   * <p>The <code>keyARN</code> of the issuer master key (IMK-SMI) used to authenticate the issuer script response.</p>
+   * @public
+   */
+  SecureMessagingIntegrityKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The <code>keyARN</code> of the issuer master key (IMK-SMC) used to protect the PIN block data in the issuer script response.</p>
+   * @public
+   */
+  SecureMessagingConfidentialityKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The message data is the APDU command from the card reader or terminal. The target encrypted PIN block, after translation to ISO2 format, is appended to this message data to generate an issuer script response.</p>
+   * @public
+   */
+  MessageData: string | undefined;
+
+  /**
+   * <p>The attributes and data values to derive payment card specific confidentiality and integrity keys.</p>
+   * @public
+   */
+  DerivationMethodAttributes: DerivationMethodAttributes | undefined;
+}
+
+/**
+ * <p>The attributes values used for Amex and Visa derivation methods.</p>
+ * @public
+ */
+export interface VisaAmexDerivationOutputs {
+  /**
+   * <p>The <code>keyArn</code> of the issuer master key for cryptogram (IMK-AC) used by the operation.</p>
+   * @public
+   */
+  AuthorizationRequestKeyArn: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the issuer master key for cryptogram (IMK-AC) used by the operation.</p>
+   * @public
+   */
+  AuthorizationRequestKeyCheckValue: string | undefined;
+
+  /**
+   * <p>The <code>keyArn</code> of the current PIN PEK.</p>
+   * @public
+   */
+  CurrentPinPekArn?: string;
+
+  /**
+   * <p>The key check value (KCV) of the current PIN PEK.</p>
+   * @public
+   */
+  CurrentPinPekKeyCheckValue?: string;
+}
+
+/**
+ * @public
+ */
+export interface GenerateMacEmvPinChangeOutput {
+  /**
+   * <p>Returns the <code>keyArn</code> of the PEK protecting the incoming new encrypted PIN block.</p>
+   * @public
+   */
+  NewPinPekArn: string | undefined;
+
+  /**
+   * <p>Returns the <code>keyArn</code> of the IMK-SMI used by the operation.</p>
+   * @public
+   */
+  SecureMessagingIntegrityKeyArn: string | undefined;
+
+  /**
+   * <p>Returns the <code>keyArn</code> of the IMK-SMC used by the operation.</p>
+   * @public
+   */
+  SecureMessagingConfidentialityKeyArn: string | undefined;
+
+  /**
+   * <p>Returns the mac of the issuer script containing message data and appended target encrypted pin block in ISO2 format.</p>
+   * @public
+   */
+  Mac: string | undefined;
+
+  /**
+   * <p>Returns the incoming new encrpted PIN block.</p>
+   * @public
+   */
+  EncryptedPinBlock: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the PEK uprotecting the incoming new encrypted PIN block.</p>
+   * @public
+   */
+  NewPinPekKeyCheckValue: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the SMI issuer master key used by the operation.</p>
+   * @public
+   */
+  SecureMessagingIntegrityKeyCheckValue: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the SMC issuer master key used by the operation.</p>
+   * @public
+   */
+  SecureMessagingConfidentialityKeyCheckValue: string | undefined;
+
+  /**
+   * <p>The attribute values used for Amex and Visa derivation methods.</p>
+   * @public
+   */
+  VisaAmexDerivationOutputs?: VisaAmexDerivationOutputs;
 }
 
 /**
@@ -3051,6 +3555,25 @@ export interface VerifyPinDataOutput {
 /**
  * @internal
  */
+export const CurrentPinAttributesFilterSensitiveLog = (obj: CurrentPinAttributes): any => ({
+  ...obj,
+  ...(obj.CurrentEncryptedPinBlock && { CurrentEncryptedPinBlock: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AmexAttributesFilterSensitiveLog = (obj: AmexAttributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.CurrentPinAttributes && {
+    CurrentPinAttributes: CurrentPinAttributesFilterSensitiveLog(obj.CurrentPinAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const AmexCardSecurityCodeVersion1FilterSensitiveLog = (obj: AmexCardSecurityCodeVersion1): any => ({
   ...obj,
   ...(obj.CardExpiryDate && { CardExpiryDate: SENSITIVE_STRING }),
@@ -3267,6 +3790,55 @@ export const DecryptDataOutputFilterSensitiveLog = (obj: DecryptDataOutput): any
 /**
  * @internal
  */
+export const Emv2000AttributesFilterSensitiveLog = (obj: Emv2000Attributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EmvCommonAttributesFilterSensitiveLog = (obj: EmvCommonAttributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.ApplicationCryptogram && { ApplicationCryptogram: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MasterCardAttributesFilterSensitiveLog = (obj: MasterCardAttributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.ApplicationCryptogram && { ApplicationCryptogram: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VisaAttributesFilterSensitiveLog = (obj: VisaAttributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.CurrentPinAttributes && {
+    CurrentPinAttributes: CurrentPinAttributesFilterSensitiveLog(obj.CurrentPinAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DerivationMethodAttributesFilterSensitiveLog = (obj: DerivationMethodAttributes): any => {
+  if (obj.EmvCommon !== undefined) return { EmvCommon: EmvCommonAttributesFilterSensitiveLog(obj.EmvCommon) };
+  if (obj.Amex !== undefined) return { Amex: AmexAttributesFilterSensitiveLog(obj.Amex) };
+  if (obj.Visa !== undefined) return { Visa: VisaAttributesFilterSensitiveLog(obj.Visa) };
+  if (obj.Emv2000 !== undefined) return { Emv2000: Emv2000AttributesFilterSensitiveLog(obj.Emv2000) };
+  if (obj.Mastercard !== undefined) return { Mastercard: MasterCardAttributesFilterSensitiveLog(obj.Mastercard) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const EncryptDataInputFilterSensitiveLog = (obj: EncryptDataInput): any => ({
   ...obj,
   ...(obj.PlainText && { PlainText: SENSITIVE_STRING }),
@@ -3351,6 +3923,27 @@ export const GenerateMacInputFilterSensitiveLog = (obj: GenerateMacInput): any =
 export const GenerateMacOutputFilterSensitiveLog = (obj: GenerateMacOutput): any => ({
   ...obj,
   ...(obj.Mac && { Mac: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateMacEmvPinChangeInputFilterSensitiveLog = (obj: GenerateMacEmvPinChangeInput): any => ({
+  ...obj,
+  ...(obj.NewEncryptedPinBlock && { NewEncryptedPinBlock: SENSITIVE_STRING }),
+  ...(obj.MessageData && { MessageData: SENSITIVE_STRING }),
+  ...(obj.DerivationMethodAttributes && {
+    DerivationMethodAttributes: DerivationMethodAttributesFilterSensitiveLog(obj.DerivationMethodAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateMacEmvPinChangeOutputFilterSensitiveLog = (obj: GenerateMacEmvPinChangeOutput): any => ({
+  ...obj,
+  ...(obj.Mac && { Mac: SENSITIVE_STRING }),
+  ...(obj.EncryptedPinBlock && { EncryptedPinBlock: SENSITIVE_STRING }),
 });
 
 /**

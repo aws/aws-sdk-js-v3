@@ -104,7 +104,7 @@ export interface GeneratePinDataCommandOutput extends GeneratePinDataOutput, __M
  *   },
  *   PinDataLength: Number("int"),
  *   PrimaryAccountNumber: "STRING_VALUE", // required
- *   PinBlockFormat: "STRING_VALUE", // required
+ *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3", // required
  * };
  * const command = new GeneratePinDataCommand(input);
  * const response = await client.send(command);
