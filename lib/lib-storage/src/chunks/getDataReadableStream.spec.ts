@@ -1,3 +1,4 @@
+import { describe, expect, test as it } from "vitest";
 // polyfill exposes the same ReadableStream API as web, allowing easy testing
 import { ReadableStream } from "web-streams-polyfill";
 

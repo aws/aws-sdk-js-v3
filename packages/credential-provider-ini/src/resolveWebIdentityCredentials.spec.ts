@@ -1,9 +1,10 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { AwsCredentialIdentity } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
 
-jest.mock("@aws-sdk/credential-provider-web-identity");
+vi.mock("@aws-sdk/credential-provider-web-identity");
 
 const getMockWebIdentityProfile = () => ({
   web_identity_token_file: "mock_web_identity_token_file",
@@ -48,19 +49,19 @@ describe(resolveWebIdentityCredentials.name, () => {
   };
 
   beforeEach(() => {
-    (fromTokenFile as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromTokenFile).mockReturnValue(() => Promise.resolve(mockCreds));
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error when fromTokenFile throws", async () => {
     const mockProfile = getMockWebIdentityProfile();
-    const mockOptions = { roleAssumerWithWebIdentity: jest.fn() };
+    const mockOptions = { roleAssumerWithWebIdentity: vi.fn() };
     const expectedError = new Error("error from fromTokenFile");
 
-    (fromTokenFile as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
+    vi.mocked(fromTokenFile).mockReturnValue(() => Promise.reject(expectedError));
 
     try {
       await resolveWebIdentityCredentials(mockProfile, mockOptions);
@@ -78,9 +79,9 @@ describe(resolveWebIdentityCredentials.name, () => {
 
   it("returns creds from fromTokenFile", async () => {
     const mockProfile = getMockWebIdentityProfile();
-    const mockOptions = { roleAssumerWithWebIdentity: jest.fn() };
+    const mockOptions = { roleAssumerWithWebIdentity: vi.fn() };
 
-    (fromTokenFile as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromTokenFile).mockReturnValue(() => Promise.resolve(mockCreds));
 
     const receivedCreds = await resolveWebIdentityCredentials(mockProfile, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);

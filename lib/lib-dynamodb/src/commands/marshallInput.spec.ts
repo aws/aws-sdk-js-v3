@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { marshallInput } from "./utils";
 
 describe("marshallInput and processObj", () => {

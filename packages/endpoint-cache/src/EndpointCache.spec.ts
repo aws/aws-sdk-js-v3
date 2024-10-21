@@ -1,9 +1,10 @@
 import LRUCache from "mnemonist/lru-cache";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { Endpoint } from "./Endpoint";
 import { EndpointCache } from "./EndpointCache";
 
-jest.mock("mnemonist/lru-cache");
+vi.mock("mnemonist/lru-cache");
 
 describe(EndpointCache.name, () => {
   let endpointCache: EndpointCache;
@@ -11,11 +12,11 @@ describe(EndpointCache.name, () => {
   const key = "key";
 
   const now = Date.now();
-  const set = jest.fn();
-  const get = jest.fn();
-  const peek = jest.fn();
-  const has = jest.fn();
-  const clear = jest.fn();
+  const set = vi.fn();
+  const get = vi.fn();
+  const peek = vi.fn();
+  const has = vi.fn();
+  const clear = vi.fn();
 
   const mockEndpoints = [
     { Address: "addressA", CachePeriodInMinutes: 1 },
@@ -32,7 +33,7 @@ describe(EndpointCache.name, () => {
     Math.max(...endpoints.map((endpoint) => endpoint.CachePeriodInMinutes));
 
   beforeEach(() => {
-    (LRUCache as unknown as jest.Mock).mockReturnValueOnce({
+    (LRUCache as unknown as any).mockReturnValueOnce({
       set,
       get,
       peek,
@@ -43,7 +44,7 @@ describe(EndpointCache.name, () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("passes capacity to LRUCache", () => {
@@ -57,7 +58,7 @@ describe(EndpointCache.name, () => {
       const endpointsWithExpiry = getEndpointsWithExpiry(mockEndpoints);
       peek.mockReturnValue(endpointsWithExpiry);
       get.mockReturnValue(endpointsWithExpiry);
-      jest.spyOn(Date, "now").mockImplementation(() => now);
+      vi.spyOn(Date, "now").mockImplementation(() => now);
     });
 
     const verifyHasAndGetCalls = () => {
@@ -96,7 +97,7 @@ describe(EndpointCache.name, () => {
 
     it("returns undefined if endpoints have expired", () => {
       const maxCachePeriod = getMaxCachePeriodInMins(mockEndpoints);
-      jest.spyOn(Date, "now").mockImplementation(() => now + (maxCachePeriod + 1) * 60 * 1000);
+      vi.spyOn(Date, "now").mockImplementation(() => now + (maxCachePeriod + 1) * 60 * 1000);
       expect(endpointCache.get(key)).toBeUndefined();
       verifyHasAndGetCalls();
       expect(set).toHaveBeenCalledTimes(1);
@@ -111,7 +112,7 @@ describe(EndpointCache.name, () => {
       });
 
       it("returns un-expired endpoint", () => {
-        jest.spyOn(Date, "now").mockImplementation(() => now + 90 * 1000);
+        vi.spyOn(Date, "now").mockImplementation(() => now + 90 * 1000);
         expect(endpointCache.getEndpoint(key)).toEqual(mockEndpoints[1].Address);
         verifyHasAndGetCalls();
         expect(set).not.toHaveBeenCalled();
@@ -119,7 +120,7 @@ describe(EndpointCache.name, () => {
 
       [0, 1].forEach((index) => {
         it(`returns un-expired endpoint at index ${index}`, () => {
-          jest.spyOn(Math, "floor").mockImplementation(() => index);
+          vi.spyOn(Math, "floor").mockImplementation(() => index);
           expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.getEndpoint(key));
           verifyHasAndGetCalls();
           expect(set).not.toHaveBeenCalled();
@@ -130,7 +131,7 @@ describe(EndpointCache.name, () => {
 
   describe("set", () => {
     beforeEach(() => {
-      jest.spyOn(Date, "now").mockImplementation(() => now);
+      vi.spyOn(Date, "now").mockImplementation(() => now);
     });
 
     it("converts CachePeriodInMinutes to Expires before caching", () => {

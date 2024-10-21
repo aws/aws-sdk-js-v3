@@ -1,11 +1,12 @@
 import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromIni } from "./fromIni";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("./resolveProfileData");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("./resolveProfileData");
 
 describe(fromIni.name, () => {
   const mockMasterProfileName = "mockMasterProfileName";
@@ -14,17 +15,17 @@ describe(fromIni.name, () => {
   const mockProfiles = { [mockProfileName]: { key: "value" } };
 
   beforeEach(() => {
-    (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-    (getProfileName as jest.Mock).mockReturnValue(mockMasterProfileName);
+    vi.mocked(parseKnownFiles).mockResolvedValue(mockProfiles);
+    vi.mocked(getProfileName).mockReturnValue(mockMasterProfileName);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("rethrows error if parsing known files fails", async () => {
     const expectedError = new Error("from parseKnownFiles");
-    (parseKnownFiles as jest.Mock).mockRejectedValue(expectedError);
+    vi.mocked(parseKnownFiles).mockRejectedValue(expectedError);
     try {
       await fromIni(mockInit)();
       fail(`expected ${expectedError}`);
@@ -38,7 +39,7 @@ describe(fromIni.name, () => {
 
   it("rethrows error if resolving process creds fails", async () => {
     const expectedError = new Error("from resolveProcessCredentials");
-    (resolveProfileData as jest.Mock).mockRejectedValue(expectedError);
+    vi.mocked(resolveProfileData).mockRejectedValue(expectedError);
     try {
       await fromIni(mockInit)();
       fail(`expected ${expectedError}`);
@@ -55,7 +56,7 @@ describe(fromIni.name, () => {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };
-    (resolveProfileData as jest.Mock).mockResolvedValue(expectedCreds);
+    vi.mocked(resolveProfileData).mockResolvedValue(expectedCreds);
     const receivedCreds = await fromIni(mockInit)();
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);

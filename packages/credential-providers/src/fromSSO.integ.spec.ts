@@ -1,4 +1,3 @@
-import { ListBucketsCommand, S3 } from "@aws-sdk/client-s3";
 import fs from "fs";
 import { homedir } from "os";
 import { join } from "path";
@@ -32,20 +31,13 @@ describe("fromSSO integration test", () => {
   it("should expand relative homedir", async () => {
     const mockReadFile = (fs.promises.readFile as jest.Mock).mockResolvedValue(SAMPLE_CONFIG);
 
-    const client = new S3({
-      region: "eu-west-1",
-      credentials: fromSSO({
+    try {
+      await fromSSO({
         profile: "dev",
         filepath: "~/custom/path/to/credentials",
         configFilepath: "~/custom/path/to/config",
-      }),
-    });
-
-    try {
-      await client.send(new ListBucketsCommand({}));
-    } catch (e) {
-      // do nothing
-    }
+      })();
+    } catch (ignored) {}
 
     expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/credentials"), "utf8");
     expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/config"), "utf8");

@@ -1,5 +1,6 @@
 import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
 import { ParsedIniData } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";

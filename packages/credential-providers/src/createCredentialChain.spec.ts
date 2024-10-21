@@ -1,5 +1,6 @@
 import { ProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { createCredentialChain } from "./createCredentialChain";
 

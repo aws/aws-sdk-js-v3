@@ -23,7 +23,10 @@ export async function bodyChecksumGenerator(
     contentHash.update(toUint8Array(body));
     treeHash.update(body);
   } else {
-    if (Boolean(body) && Object.prototype.toString.call(body) === "[object Blob]") {
+    if (
+      Boolean(body) &&
+      (Object.prototype.toString.call(body) === "[object Blob]" || body.constructor?.name === "Blob")
+    ) {
       await blobReader(
         body,
         (chunk: any) => {
@@ -33,7 +36,11 @@ export async function bodyChecksumGenerator(
         MiB
       );
     } else {
-      throw new Error("Unable to calculate checksums for non-blob streams.");
+      throw new Error(
+        `Unable to calculate checksums for non-blob streams, received: ${
+          body.constructor.name + ":" + Object.prototype.toString.call(body)
+        }.`
+      );
     }
   }
 

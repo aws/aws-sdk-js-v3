@@ -1,12 +1,13 @@
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
 describe("fromCognitoIdentity", () => {
   const identityId = "id";
   const expiration = new Date();
-  const send = jest.fn().mockResolvedValue({
+  const send = vi.fn().mockResolvedValue({
     Credentials: {
       AccessKeyId: "foo",
       SecretKey: "bar",

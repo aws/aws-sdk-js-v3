@@ -2,7 +2,27 @@ const fs = require("fs");
 const path = require("path");
 const walk = require("../utils/walk");
 
-const paths = [path.join(__dirname, "..", "..", "packages", "core")];
+const paths = [
+  path.join(__dirname, "..", "..", "lib", "lib-dynamodb"),
+  path.join(__dirname, "..", "..", "lib", "lib-storage"),
+  path.join(__dirname, "..", "..", "packages", "body-checksum-browser"),
+  path.join(__dirname, "..", "..", "packages", "body-checksum-node"),
+  path.join(__dirname, "..", "..", "packages", "chunked-stream-reader-node"),
+  path.join(__dirname, "..", "..", "packages", "cloudfront-signer"),
+  path.join(__dirname, "..", "..", "packages", "core"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-cognito-identity"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-env"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-http"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-ini"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-node"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-process"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-sso"),
+  path.join(__dirname, "..", "..", "packages", "credential-provider-web-identity"),
+  path.join(__dirname, "..", "..", "packages", "credential-providers"),
+  path.join(__dirname, "..", "..", "packages", "ec2-metadata-service"),
+  path.join(__dirname, "..", "..", "packages", "endpoint-cache"),
+  path.join(__dirname, "..", "..", "packages", "eventstream-handler-node"),
+];
 
 (async () => {
   for (const folder of paths) {
@@ -13,6 +33,7 @@ const paths = [path.join(__dirname, "..", "..", "packages", "core")];
         console.log("setting unit test to vitest");
 
         pkgJson.scripts.test = "vitest run";
+        pkgJson.scripts["test:watch"] = "vitest watch";
         fs.rmSync(path.join(folder, "jest.config.js"));
         fs.writeFileSync(
           path.join(folder, "vitest.config.ts"),
@@ -27,12 +48,15 @@ const paths = [path.join(__dirname, "..", "..", "packages", "core")];
   });
   `
         );
+      } else if (pkgJson.scripts.test.includes("vitest")) {
+        pkgJson.scripts["test:watch"] ??= "vitest watch --passWithNot";
       }
     }
 
-    for (const testType of ["integ", "e2e"]) {
+    for (const testType of [/* "integ", */ "e2e"]) {
       const script = testType === "integ" ? "integration" : testType;
       if (pkgJson.scripts[`test:${script}`]) {
+        pkgJson.scripts[`test:${script}:watch`] = `vitest watch -c vitest.config.${testType}.ts`;
         if (pkgJson.scripts[`test:${script}`].includes("jest")) {
           console.log(`setting ${testType} test to vitest`);
 
@@ -75,7 +99,11 @@ const paths = [path.join(__dirname, "..", "..", "packages", "core")];
 
         const imports = ["test as it"];
 
-        contents = contents.replace(/\((\w+) as (jest|vi).Mock\)/g, "vi.mocked($1)");
+        contents = contents
+          .replace(/\((\w+) as (jest|vi).Mock\)/g, "(vi.mocked($1))")
+          .replace(/(jest|vi)\.requireActual\((.*?);\)/g, "await vi.importActual($1) as any;")
+          .replace(/ as (vi|jest)\.Mock/g, " as any")
+          .replace(/xit/g, "it.skip");
 
         for (const [old, _new] of Object.entries(namespaces)) {
           if (contents.includes(old + ".") || contents.includes(_new + ".")) {

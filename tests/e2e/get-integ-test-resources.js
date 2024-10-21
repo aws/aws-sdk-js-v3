@@ -6,10 +6,8 @@ const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("../../c
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 
-const logger = { ...console, debug() {} };
-
 exports.getIntegTestResources = async () => {
-  const cloudformation = new CloudFormationClient({ logger });
+  const cloudformation = new CloudFormationClient({});
   const region = await cloudformation.config.region();
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 
@@ -23,8 +21,6 @@ exports.getIntegTestResources = async () => {
     new DescribeStackResourcesCommand({ StackName: stackName })
   );
 
-  console.log(`${stackName} Stack Resources: `, stackResources);
-
   const identityPoolId = stackResources.filter((resource) => resource.ResourceType === "AWS::Cognito::IdentityPool")[0]
     .PhysicalResourceId;
 
@@ -36,9 +32,9 @@ exports.getIntegTestResources = async () => {
     (resource) => resource.ResourceType === "AWS::S3::MultiRegionAccessPoint"
   )[0].PhysicalResourceId;
 
-  const sts = new STSClient({ logger });
+  const sts = new STSClient({});
   const { Account: AccountId } = await sts.send(new GetCallerIdentityCommand({}));
-  const s3Control = new S3ControlClient({ logger, region: "us-west-2" });
+  const s3Control = new S3ControlClient({ region: "us-west-2" });
   const { AccessPoints } = await s3Control.send(new ListMultiRegionAccessPointsCommand({ AccountId }));
   const { Alias } = AccessPoints.find((accesspoint) => accesspoint.Name === multiRegionAccessPointName);
   const mrapArn = `arn:aws:s3::${AccountId}:accesspoint/${Alias}`;

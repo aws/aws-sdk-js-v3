@@ -1,18 +1,19 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@aws-sdk/client-sts", () => {
+vi.mock("@aws-sdk/client-sts", () => {
   return {
-    getDefaultRoleAssumer: jest.fn().mockReturnValue(async () => ({})),
+    getDefaultRoleAssumer: vi.fn().mockReturnValue(async () => ({})),
   };
 });
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("./resolveCredentialSource");
-jest.mock("./resolveProfileData");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("./resolveCredentialSource");
+vi.mock("./resolveProfileData");
 
 const getMockAssumeRoleProfile = () => ({
   role_arn: "mock_role_arn",
@@ -97,9 +98,9 @@ describe(resolveAssumeRoleCredentials.name, () => {
   const mockProfileName = "mockProfileName";
   const mockProfiles = { [mockProfileName]: {} };
   const mockOptions = {
-    mfaCodeProvider: jest.fn(),
-    roleAssumer: jest.fn().mockReturnValue(Promise.resolve(mockCreds)),
-    roleAssumerWithWebIdentity: jest.fn(),
+    mfaCodeProvider: vi.fn(),
+    roleAssumer: vi.fn().mockReturnValue(Promise.resolve(mockCreds)),
+    roleAssumerWithWebIdentity: vi.fn(),
   };
   const mockCredentialSource = "mockCredentialSource";
 
@@ -118,13 +119,13 @@ describe(resolveAssumeRoleCredentials.name, () => {
   });
 
   beforeEach(() => {
-    (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
-    (resolveProfileData as jest.Mock).mockResolvedValue(mockSourceCredsFromProfile);
-    (resolveCredentialSource as jest.Mock).mockReturnValue(async () => async () => mockSourceCredsFromCredential);
+    vi.mocked(getProfileName).mockReturnValue(mockProfileName);
+    vi.mocked(resolveProfileData).mockResolvedValue(mockSourceCredsFromProfile);
+    vi.mocked(resolveCredentialSource).mockReturnValue(async () => async () => mockSourceCredsFromCredential);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("dynamically loads STS if roleAssumer is not available in options", async () => {
@@ -205,7 +206,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
 
   it("sets role session name if not provided", async () => {
     const mockDateNow = Date.now();
-    jest.spyOn(Date, "now").mockReturnValue(mockDateNow);
+    vi.spyOn(Date, "now").mockReturnValue(mockDateNow);
 
     const mockRoleAssumeParams = { ...getMockRoleAssumeParams(), role_session_name: undefined };
     const mockProfilesWithCredSource = getMockProfilesWithCredSource(mockRoleAssumeParams);

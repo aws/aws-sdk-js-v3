@@ -1,6 +1,8 @@
-jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@aws-sdk/credential-provider-http");
-jest.mock("@smithy/credential-provider-imds");
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+vi.mock("@aws-sdk/credential-provider-env");
+vi.mock("@aws-sdk/credential-provider-http");
+vi.mock("@smithy/credential-provider-imds");
 
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromHttp } from "@aws-sdk/credential-provider-http";
@@ -23,16 +25,16 @@ describe(resolveCredentialSource.name, () => {
   };
 
   beforeEach(() => {
-    (fromEnv as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
-    (fromContainerMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
-    (fromHttp as jest.Mock).mockReturnValue(() => {
+    vi.mocked(fromEnv).mockReturnValue(() => Promise.resolve(mockFakeCreds));
+    vi.mocked(fromContainerMetadata).mockReturnValue(() => Promise.resolve(mockFakeCreds));
+    vi.mocked(fromHttp).mockReturnValue(() => {
       throw new CredentialsProviderError("try next", {});
     });
-    (fromInstanceMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
+    vi.mocked(fromInstanceMetadata).mockReturnValue(() => Promise.resolve(mockFakeCreds));
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it.each([
@@ -40,7 +42,7 @@ describe(resolveCredentialSource.name, () => {
     ["Ec2InstanceMetadata", fromInstanceMetadata],
     ["Environment", fromEnv],
   ])("when credentialSource=%s, calls %p", async (credentialSource, fromFn) => {
-    (fromFn as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromFn).mockReturnValue(() => Promise.resolve(mockCreds));
     const providerFactory = resolveCredentialSource(credentialSource, mockProfileName);
     expect(typeof providerFactory).toEqual("function");
 

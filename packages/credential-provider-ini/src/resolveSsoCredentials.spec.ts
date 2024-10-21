@@ -1,9 +1,10 @@
 import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { AwsCredentialIdentity } from "@smithy/types";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 
-jest.mock("@aws-sdk/credential-provider-sso");
+vi.mock("@aws-sdk/credential-provider-sso");
 
 describe(isSsoProfile.name, () => {
   it("returns false for empty profile", () => {
@@ -20,14 +21,14 @@ describe(isSsoProfile.name, () => {
 
 describe(resolveSsoCredentials.name, () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error when fromSSO throws error", async () => {
     const mockProfileName = "mockProfileName";
     const expectedError = new Error("error from fromSSO");
 
-    (fromSSO as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.reject(expectedError));
 
     try {
       await resolveSsoCredentials(mockProfileName, {});
@@ -47,7 +48,7 @@ describe(resolveSsoCredentials.name, () => {
       secretAccessKey: "mockSecretAccessKey",
     };
 
-    (fromSSO as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.resolve(mockCreds));
 
     const receivedCreds = await resolveSsoCredentials(mockProfileName, {});
     expect(receivedCreds).toStrictEqual(mockCreds);
