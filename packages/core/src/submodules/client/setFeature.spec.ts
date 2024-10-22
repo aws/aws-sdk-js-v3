@@ -1,4 +1,5 @@
 import { AwsHandlerExecutionContext } from "@aws-sdk/types";
+import { describe, test as it } from "vitest";
 
 import { setFeature } from "./setFeature";
 

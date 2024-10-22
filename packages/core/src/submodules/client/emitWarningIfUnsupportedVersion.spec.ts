@@ -1,17 +1,18 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { emitWarningIfUnsupportedVersion, state } from "./emitWarningIfUnsupportedVersion";
+
 describe("emitWarningIfUnsupportedVersion", () => {
-  let emitWarningIfUnsupportedVersion: any;
   const emitWarning = process.emitWarning;
   const supportedVersion = "18.0.0";
 
-  beforeEach(() => {
-    const module = require("./emitWarningIfUnsupportedVersion");
-    emitWarningIfUnsupportedVersion = module.emitWarningIfUnsupportedVersion;
-  });
+  beforeEach(() => {});
 
   afterEach(() => {
-    jest.clearAllMocks();
-    jest.resetModules();
+    vi.clearAllMocks();
+    vi.resetModules();
     process.emitWarning = emitWarning;
+    state.warningEmitted = false;
   });
 
   describe(`emits warning for Node.js <${supportedVersion}`, () => {
@@ -31,7 +32,7 @@ describe("emitWarningIfUnsupportedVersion", () => {
         [getPreviousMajorVersion(major), 0, 0],
       ].map((arr) => `v${arr.join(".")}`)
     )(`%s`, async (unsupportedVersion) => {
-      process.emitWarning = jest.fn();
+      process.emitWarning = vi.fn() as any;
       emitWarningIfUnsupportedVersion(unsupportedVersion);
 
       // Verify that the warning was emitted.
@@ -62,7 +63,7 @@ More information can be found at: https://a.co/74kJMmI`
         [major + 1, 0, 0],
       ].map((arr) => `v${arr.join(".")}`)
     )(`%s`, async (unsupportedVersion) => {
-      process.emitWarning = jest.fn();
+      process.emitWarning = vi.fn() as any;
       emitWarningIfUnsupportedVersion(unsupportedVersion);
       expect(process.emitWarning).not.toHaveBeenCalled();
     });

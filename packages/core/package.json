@@ -12,8 +12,8 @@
     "lint": "node ./scripts/lint.js",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest",
-    "test:integration": "jest -c jest.config.integ.js"
+    "test": "vitest run",
+    "test:integration": "vitest run -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

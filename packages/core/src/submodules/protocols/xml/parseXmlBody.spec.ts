@@ -1,5 +1,6 @@
 import type { SerdeContext } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
+import { describe, expect, test as it } from "vitest";
 
 import { parseXmlBody } from "./parseXmlBody";
 

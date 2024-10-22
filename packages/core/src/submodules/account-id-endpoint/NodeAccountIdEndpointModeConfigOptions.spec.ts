@@ -1,3 +1,5 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { DEFAULT_ACCOUNT_ID_ENDPOINT_MODE } from "./AccountIdEndpointModeConstants";
 import {
   CONFIG_ACCOUNT_ID_ENDPOINT_MODE,
@@ -9,7 +11,7 @@ describe("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS", () => {
   const originalEnv = process.env;
 
   beforeEach(() => {
-    jest.resetModules();
+    vi.resetModules();
     process.env = { ...originalEnv };
   });
 
