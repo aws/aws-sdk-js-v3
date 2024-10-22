@@ -58,7 +58,7 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * //       name: "STRING_VALUE",
  * //       type: "AMI" || "DOCKER",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       osVersion: "STRING_VALUE",
  * //       state: { // ImageState
  * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",

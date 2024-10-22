@@ -56,7 +56,7 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * //     { // ImageRecipeSummary
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       parentImage: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",

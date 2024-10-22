@@ -49,7 +49,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //     description: "STRING_VALUE",
  * //     changeDescription: "STRING_VALUE",
  * //     type: "BUILD" || "TEST",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     supportedOsVersions: [ // OsVersionList
  * //       "STRING_VALUE",
  * //     ],

@@ -42,7 +42,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  *   changeDescription: "STRING_VALUE",
  *   type: "BUILD" || "TEST", // required
  *   format: "SHELL", // required
- *   platform: "Windows" || "Linux", // required
+ *   platform: "Windows" || "Linux" || "macOS", // required
  *   data: "STRING_VALUE",
  *   uri: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",

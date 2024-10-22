@@ -57,7 +57,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * //       arn: "STRING_VALUE",
  * //       containerType: "DOCKER",
  * //       name: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       parentImage: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",

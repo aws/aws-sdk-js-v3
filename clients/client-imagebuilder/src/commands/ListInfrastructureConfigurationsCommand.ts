@@ -73,6 +73,12 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       instanceProfileName: "STRING_VALUE",
+ * //       placement: { // Placement
+ * //         availabilityZone: "STRING_VALUE",
+ * //         tenancy: "default" || "dedicated" || "host",
+ * //         hostId: "STRING_VALUE",
+ * //         hostResourceGroupArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

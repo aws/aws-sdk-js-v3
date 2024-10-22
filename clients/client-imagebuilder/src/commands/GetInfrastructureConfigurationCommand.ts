@@ -80,6 +80,12 @@ export interface GetInfrastructureConfigurationCommandOutput
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     placement: { // Placement
+ * //       availabilityZone: "STRING_VALUE",
+ * //       tenancy: "default" || "dedicated" || "host",
+ * //       hostId: "STRING_VALUE",
+ * //       hostResourceGroupArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

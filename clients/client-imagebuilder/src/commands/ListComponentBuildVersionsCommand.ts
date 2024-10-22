@@ -28,17 +28,8 @@ export interface ListComponentBuildVersionsCommandInput extends ListComponentBui
 export interface ListComponentBuildVersionsCommandOutput extends ListComponentBuildVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of component build versions for the specified semantic
- * 			version.</p>
- *          <note>
- *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
- * 	You can assign values for the first three, and can filter on all of them.</p>
- *             <p>
- *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
- * 	to specify the most recent versions or nodes when selecting the base image or components for your
- * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
- * 	wildcards.</p>
- *          </note>
+ * <p>Returns the list of component build versions for the specified component
+ * 			version Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +50,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       supportedOsVersions: [ // OsVersionList
  * //         "STRING_VALUE",
  * //       ],

@@ -51,7 +51,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *   semanticVersion: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   changeDescription: "STRING_VALUE",
- *   platform: "Windows" || "Linux", // required
+ *   platform: "Windows" || "Linux" || "macOS", // required
  *   supportedOsVersions: [ // OsVersionList
  *     "STRING_VALUE",
  *   ],

@@ -64,7 +64,6 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *   keyPair: "STRING_VALUE",
  *   terminateInstanceOnFailure: true || false,
  *   snsTopicArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE", // required
  *   resourceTags: { // ResourceTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -72,6 +71,13 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *     httpTokens: "STRING_VALUE",
  *     httpPutResponseHopLimit: Number("int"),
  *   },
+ *   placement: { // Placement
+ *     availabilityZone: "STRING_VALUE",
+ *     tenancy: "default" || "dedicated" || "host",
+ *     hostId: "STRING_VALUE",
+ *     hostResourceGroupArn: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
  * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);

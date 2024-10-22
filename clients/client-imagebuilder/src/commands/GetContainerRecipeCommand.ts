@@ -47,7 +47,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * //     containerType: "DOCKER",
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     owner: "STRING_VALUE",
  * //     version: "STRING_VALUE",
  * //     components: [ // ComponentConfigurationList

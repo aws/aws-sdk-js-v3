@@ -56,7 +56,7 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       enhancedImageMetadataEnabled: true || false,
  * //       imageRecipeArn: "STRING_VALUE",
  * //       containerRecipeArn: "STRING_VALUE",

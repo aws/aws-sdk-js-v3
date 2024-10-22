@@ -76,7 +76,7 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  *   },
  *   dockerfileTemplateData: "STRING_VALUE",
  *   dockerfileTemplateUri: "STRING_VALUE",
- *   platformOverride: "Windows" || "Linux",
+ *   platformOverride: "Windows" || "Linux" || "macOS",
  *   imageOsVersionOverride: "STRING_VALUE",
  *   parentImage: "STRING_VALUE", // required
  *   tags: { // TagMap

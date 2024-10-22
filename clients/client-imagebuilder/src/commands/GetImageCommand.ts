@@ -47,7 +47,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //     type: "AMI" || "DOCKER",
  * //     name: "STRING_VALUE",
  * //     version: "STRING_VALUE",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     enhancedImageMetadataEnabled: true || false,
  * //     osVersion: "STRING_VALUE",
  * //     state: { // ImageState
@@ -59,7 +59,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       type: "AMI" || "DOCKER",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       version: "STRING_VALUE",
  * //       components: [ // ComponentConfigurationList
@@ -110,7 +110,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       containerType: "DOCKER",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       version: "STRING_VALUE",
  * //       components: [
@@ -194,6 +194,12 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       },
  * //       tags: {
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       placement: { // Placement
+ * //         availabilityZone: "STRING_VALUE",
+ * //         tenancy: "default" || "dedicated" || "host",
+ * //         hostId: "STRING_VALUE",
+ * //         hostResourceGroupArn: "STRING_VALUE",
  * //       },
  * //     },
  * //     distributionConfiguration: { // DistributionConfiguration

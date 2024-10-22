@@ -70,7 +70,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * //       name: "STRING_VALUE",
  * //       version: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       supportedOsVersions: [ // OsVersionList
  * //         "STRING_VALUE",
  * //       ],

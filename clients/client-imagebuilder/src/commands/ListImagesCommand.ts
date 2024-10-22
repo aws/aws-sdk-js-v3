@@ -61,7 +61,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * //       name: "STRING_VALUE",
  * //       type: "AMI" || "DOCKER",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       osVersion: "STRING_VALUE",
  * //       owner: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",

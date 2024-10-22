@@ -285,6 +285,7 @@ import {
   LifecyclePolicySummary,
   Logging,
   PackageVulnerabilityDetails,
+  Placement,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
   ResourceInUseException,
@@ -567,6 +568,7 @@ export const se_CreateInfrastructureConfigurationCommand = async (
       keyPair: [],
       logging: (_) => _json(_),
       name: [],
+      placement: (_) => _json(_),
       resourceTags: (_) => _json(_),
       securityGroupIds: (_) => _json(_),
       snsTopicArn: [],
@@ -1976,6 +1978,7 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
       instanceTypes: (_) => _json(_),
       keyPair: [],
       logging: (_) => _json(_),
+      placement: (_) => _json(_),
       resourceTags: (_) => _json(_),
       securityGroupIds: (_) => _json(_),
       snsTopicArn: [],
@@ -4171,6 +4174,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_OsVersionList omitted.
 
+// se_Placement omitted.
+
 // se_ResourceState omitted.
 
 // se_ResourceStateUpdateExclusionRules omitted.
@@ -4657,6 +4662,8 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
     vulnerablePackages: _json,
   }) as any;
 };
+
+// de_Placement omitted.
 
 // de_RegionList omitted.
 

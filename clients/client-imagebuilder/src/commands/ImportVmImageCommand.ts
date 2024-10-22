@@ -46,7 +46,7 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *   name: "STRING_VALUE", // required
  *   semanticVersion: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   platform: "Windows" || "Linux", // required
+ *   platform: "Windows" || "Linux" || "macOS", // required
  *   osVersion: "STRING_VALUE",
  *   vmImportTaskId: "STRING_VALUE", // required
  *   tags: { // TagMap
