@@ -157,7 +157,7 @@ const convertToStringAttr = (data: string | String): { S: string } => ({ S: data
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const validateBigIntAndThrow = (errorPrefix: string) => {
-  throw new Error(`${errorPrefix} ${typeof BigInt === "function" ? "Use BigInt." : "Pass string value instead."} `);
+  throw new Error(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 };
 
 const convertToNumberAttr = (num: number | Number): { N: string } => {

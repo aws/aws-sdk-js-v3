@@ -63,13 +63,13 @@ describe("convertToAttr", () => {
 
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Use BigInt.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 
             const BigIntConstructor = BigInt;
             (BigInt as any) = undefined;
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
             BigInt = BigIntConstructor;
           });
         });
@@ -81,13 +81,13 @@ describe("convertToAttr", () => {
 
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Use BigInt.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 
             const BigIntConstructor = BigInt;
             (BigInt as any) = undefined;
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
             BigInt = BigIntConstructor;
           });
         });
