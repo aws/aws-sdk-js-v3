@@ -2,6 +2,11 @@ import { Pluggable } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import {
+  flexibleChecksumsInputMiddleware,
+  FlexibleChecksumsInputMiddlewareConfig,
+  flexibleChecksumsInputMiddlewareOptions,
+} from "./flexibleChecksumsInputMiddleware";
+import {
   flexibleChecksumsMiddleware,
   flexibleChecksumsMiddlewareOptions,
   FlexibleChecksumsRequestMiddlewareConfig,
@@ -14,6 +19,7 @@ import {
 
 export interface FlexibleChecksumsMiddlewareConfig
   extends FlexibleChecksumsRequestMiddlewareConfig,
+    FlexibleChecksumsInputMiddlewareConfig,
     FlexibleChecksumsResponseMiddlewareConfig {}
 
 export const getFlexibleChecksumsPlugin = (
@@ -22,6 +28,10 @@ export const getFlexibleChecksumsPlugin = (
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(flexibleChecksumsMiddleware(config, middlewareConfig), flexibleChecksumsMiddlewareOptions);
+    clientStack.addRelativeTo(
+      flexibleChecksumsInputMiddleware(config, middlewareConfig),
+      flexibleChecksumsInputMiddlewareOptions
+    );
     clientStack.addRelativeTo(
       flexibleChecksumsResponseMiddleware(config, middlewareConfig),
       flexibleChecksumsResponseMiddlewareOptions
