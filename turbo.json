@@ -40,7 +40,10 @@
       "inputs": []
     },
     "test": {
-      "dependsOn": ["^build:cjs"]
+      "cache": false
+    },
+    "test:integration": {
+      "cache": false
     }
   }
 }

@@ -1,19 +1,20 @@
 import { SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromSSO } from "./fromSSO";
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("@aws-sdk/client-sso", () => ({
-  SSOClient: jest.fn(),
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@aws-sdk/client-sso", () => ({
+  SSOClient: vi.fn(),
 }));
-jest.mock("./isSsoProfile");
-jest.mock("./resolveSSOCredentials");
-jest.mock("./validateSsoProfile");
+vi.mock("./isSsoProfile");
+vi.mock("./resolveSSOCredentials");
+vi.mock("./validateSsoProfile");
 
 describe(fromSSO.name, () => {
   const mockSsoClient = {} as SSOClient;
@@ -33,18 +34,18 @@ describe(fromSSO.name, () => {
   const mockProfileName = "mockProfileName";
 
   beforeEach(() => {
-    (resolveSSOCredentials as jest.Mock).mockResolvedValue(mockCreds);
+    vi.mocked(resolveSSOCredentials).mockResolvedValue(mockCreds);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error if profile is not found", async () => {
     const mockInit = { profile: mockProfileName };
     const mockProfiles = {};
-    (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-    (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
+    vi.mocked(parseKnownFiles).mockResolvedValue(mockProfiles);
+    vi.mocked(getProfileName).mockReturnValue(mockProfileName);
     const expectedError = new CredentialsProviderError(`Profile ${mockProfileName} was not found.`);
 
     try {
@@ -61,9 +62,9 @@ describe(fromSSO.name, () => {
     const mockProfiles = { [mockProfileName]: mockSsoProfile };
 
     beforeEach(() => {
-      (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-      (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
-      (isSsoProfile as unknown as jest.Mock).mockReturnValue(true);
+      vi.mocked(parseKnownFiles).mockResolvedValue(mockProfiles);
+      vi.mocked(getProfileName).mockReturnValue(mockProfileName);
+      (isSsoProfile as unknown as any).mockReturnValue(true);
     });
 
     afterEach(() => {
@@ -73,7 +74,7 @@ describe(fromSSO.name, () => {
     });
 
     it("throws error if profile is not an Sso Profile", async () => {
-      (isSsoProfile as unknown as jest.Mock).mockReturnValue(false);
+      (isSsoProfile as unknown as any).mockReturnValue(false);
       const expectedError = new CredentialsProviderError(
         `Profile ${mockProfileName} is not configured with SSO credentials.`
       );
@@ -88,7 +89,7 @@ describe(fromSSO.name, () => {
 
     it("throws error if Sso Profile validation fails", async () => {
       const expectedError = new Error("error");
-      (validateSsoProfile as jest.Mock).mockImplementation(() => {
+      vi.mocked(validateSsoProfile).mockImplementation(() => {
         throw expectedError;
       });
 
@@ -108,7 +109,7 @@ describe(fromSSO.name, () => {
         sso_region: "mock_sso_region",
         sso_role_name: "mock_sso_role_name",
       };
-      (validateSsoProfile as jest.Mock).mockReturnValue(mockValidatedSsoProfile);
+      vi.mocked(validateSsoProfile).mockReturnValue(mockValidatedSsoProfile);
 
       const receivedCreds = await fromSSO(mockInit)();
       expect(receivedCreds).toStrictEqual(mockCreds);

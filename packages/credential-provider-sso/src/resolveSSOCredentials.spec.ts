@@ -2,14 +2,15 @@ import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
 import * as tokenProviders from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("@aws-sdk/client-sso");
-jest.mock("@aws-sdk/token-providers", () => {
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@aws-sdk/client-sso");
+vi.mock("@aws-sdk/token-providers", () => {
   return {
-    fromSso: jest.fn(() => async () => {
+    fromSso: vi.fn(() => async () => {
       return {
         token: "mockAccessToken",
         expiration: new Date(Date.now() + 6_000_000),
@@ -27,7 +28,7 @@ describe(resolveSSOCredentials.name, () => {
   const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
 
-  const mockSsoSend = jest.fn();
+  const mockSsoSend = vi.fn();
   const mockSsoClient = { send: mockSsoSend };
   const mockOptions = {
     ssoStartUrl: "mock_sso_start_url",
@@ -46,12 +47,12 @@ describe(resolveSSOCredentials.name, () => {
   };
 
   beforeEach(() => {
-    (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockToken);
+    vi.mocked(getSSOTokenFromFile).mockResolvedValue(mockToken);
     mockSsoSend.mockResolvedValue({ roleCredentials: mockCreds });
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error if getSSOTokenFromFile fails", async () => {
@@ -59,7 +60,7 @@ describe(resolveSSOCredentials.name, () => {
       `The SSO session associated with this profile is invalid. ${refreshMessage}`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
     );
-    (getSSOTokenFromFile as jest.Mock).mockRejectedValue(new Error("error"));
+    vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("error"));
 
     try {
       await resolveSSOCredentials(mockOptions);
@@ -96,7 +97,7 @@ describe(resolveSSOCredentials.name, () => {
 
     it("throws error if SSO session has expired", async () => {
       const mockExpiredToken = { ...mockToken, expiresAt: new Date(Date.now() - 60 * 1000).toISOString() };
-      (getSSOTokenFromFile as jest.Mock).mockResolvedValue(mockExpiredToken);
+      vi.mocked(getSSOTokenFromFile).mockResolvedValue(mockExpiredToken);
     });
   });
 
@@ -158,8 +159,8 @@ describe(resolveSSOCredentials.name, () => {
     });
 
     it("creates SSO client with provided region, if client is not passed", async () => {
-      const mockCustomSsoSend = jest.fn().mockResolvedValue({ roleCredentials: mockCreds });
-      (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
+      const mockCustomSsoSend = vi.fn().mockResolvedValue({ roleCredentials: mockCreds });
+      vi.mocked(SSOClient).mockReturnValue({ send: mockCustomSsoSend });
 
       await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
@@ -174,8 +175,8 @@ describe(resolveSSOCredentials.name, () => {
     });
 
     it("creates SSO client with provided region, if client is not passed, and includes accountId", async () => {
-      const mockCustomSsoSend = jest.fn().mockResolvedValue({ roleCredentials: mockCreds });
-      (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
+      const mockCustomSsoSend = vi.fn().mockResolvedValue({ roleCredentials: mockCreds });
+      vi.mocked(SSOClient).mockReturnValue({ send: mockCustomSsoSend });
 
       const result = await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(result).toHaveProperty("accountId", mockOptions.ssoAccountId);

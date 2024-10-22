@@ -3,21 +3,35 @@ import { Upload } from "@aws-sdk/lib-storage";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import { randomBytes } from "crypto";
 import { Readable } from "stream";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-const region: string | undefined = process?.env?.AWS_SMOKE_TEST_REGION;
-const credentials: AwsCredentialIdentity | undefined = (globalThis as any).credentials || undefined;
-const Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET;
-
-jest.setTimeout(45_000);
+import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
 describe("@aws-sdk/lib-storage", () => {
-  let Key = ``;
-  const data = randomBytes(20_240_000);
-  const dataString = data.toString();
+  let Key: string;
+  let client: S3;
+  let data: Uint8Array;
+  let dataString: string;
+  let Bucket: string;
+  let region: string;
+  let credentials: AwsCredentialIdentity;
 
-  const client = new S3({
-    region,
-    credentials,
+  beforeAll(async () => {
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+    credentials = (globalThis as any).credentials || undefined;
+    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+
+    Key = ``;
+    data = randomBytes(20_240_000);
+    dataString = data.toString();
+
+    client = new S3({
+      region,
+      credentials,
+    });
   });
 
   describe("Upload", () => {
@@ -28,26 +42,62 @@ describe("@aws-sdk/lib-storage", () => {
       await client.deleteObject({ Bucket, Key });
     });
 
-    for (const body of [data, dataString, Readable.from(data)]) {
-      it("should upload in parts for input type " + body.constructor.name, async () => {
-        const s3Upload = new Upload({
-          client,
-          params: {
-            Bucket,
-            Key,
-            Body: body,
-          },
-        });
-        await s3Upload.done();
-
-        const object = await client.getObject({
+    it("should upload in parts for input type bytes", async () => {
+      const s3Upload = new Upload({
+        client,
+        params: {
           Bucket,
           Key,
-        });
-
-        expect(await object.Body?.transformToString()).toEqual(dataString);
+          Body: data,
+        },
       });
-    }
+      await s3Upload.done();
+
+      const object = await client.getObject({
+        Bucket,
+        Key,
+      });
+
+      expect(await object.Body?.transformToString()).toEqual(dataString);
+    });
+
+    it("should upload in parts for input type string", async () => {
+      const s3Upload = new Upload({
+        client,
+        params: {
+          Bucket,
+          Key,
+          Body: dataString,
+        },
+      });
+      await s3Upload.done();
+
+      const object = await client.getObject({
+        Bucket,
+        Key,
+      });
+
+      expect(await object.Body?.transformToString()).toEqual(dataString);
+    });
+
+    it("should upload in parts for input type Readable", async () => {
+      const s3Upload = new Upload({
+        client,
+        params: {
+          Bucket,
+          Key,
+          Body: Readable.from(data),
+        },
+      });
+      await s3Upload.done();
+
+      const object = await client.getObject({
+        Bucket,
+        Key,
+      });
+
+      expect(await object.Body?.transformToString()).toEqual(dataString);
+    });
 
     it("should call AbortMultipartUpload if unable to complete a multipart upload.", async () => {
       class MockFailureS3 extends S3 {
@@ -109,4 +159,4 @@ describe("@aws-sdk/lib-storage", () => {
       ]);
     });
   });
-});
+}, 45_000);

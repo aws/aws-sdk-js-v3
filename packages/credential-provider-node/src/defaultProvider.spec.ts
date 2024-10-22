@@ -5,18 +5,19 @@ import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { ENV_PROFILE, loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentialsTreatedAsExpired, credentialsWillNeedRefresh, defaultProvider } from "./defaultProvider";
 import { remoteProvider } from "./remoteProvider";
 
-jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@smithy/credential-provider-imds");
-jest.mock("@aws-sdk/credential-provider-ini");
-jest.mock("@aws-sdk/credential-provider-process");
-jest.mock("@aws-sdk/credential-provider-sso");
-jest.mock("@aws-sdk/credential-provider-web-identity");
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("./remoteProvider");
+vi.mock("@aws-sdk/credential-provider-env");
+vi.mock("@smithy/credential-provider-imds");
+vi.mock("@aws-sdk/credential-provider-ini");
+vi.mock("@aws-sdk/credential-provider-process");
+vi.mock("@aws-sdk/credential-provider-sso");
+vi.mock("@aws-sdk/credential-provider-web-identity");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("./remoteProvider");
 
 describe(defaultProvider.name, () => {
   const mockCreds = {
@@ -42,12 +43,12 @@ describe(defaultProvider.name, () => {
     },
   };
 
-  const mockEnvFn = jest.fn().mockImplementation(() => credentials());
-  const mockSsoFn = jest.fn().mockImplementation(() => credentials());
-  const mockIniFn = jest.fn().mockImplementation(() => credentials());
-  const mockProcessFn = jest.fn().mockImplementation(() => credentials());
-  const mockTokenFileFn = jest.fn().mockImplementation(() => credentials());
-  const mockRemoteProviderFn = jest.fn().mockImplementation(() => finalCredentials());
+  const mockEnvFn = vi.fn().mockImplementation(() => credentials());
+  const mockSsoFn = vi.fn().mockImplementation(() => credentials());
+  const mockIniFn = vi.fn().mockImplementation(() => credentials());
+  const mockProcessFn = vi.fn().mockImplementation(() => credentials());
+  const mockTokenFileFn = vi.fn().mockImplementation(() => credentials());
+  const mockRemoteProviderFn = vi.fn().mockImplementation(() => finalCredentials());
 
   const ORIGINAL_ENV = {
     ...process.env,
@@ -68,12 +69,12 @@ describe(defaultProvider.name, () => {
       [fromTokenFile, mockTokenFileFn],
       [remoteProvider, mockRemoteProviderFn],
     ].forEach(([fromFn, mockFn]) => {
-      (fromFn as jest.Mock).mockReturnValue(mockFn);
+      vi.mocked(fromFn).mockReturnValue(mockFn);
     });
   });
 
   afterEach(async () => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     process.env = ORIGINAL_ENV;
   });
 
@@ -96,7 +97,7 @@ describe(defaultProvider.name, () => {
         expect(loadSharedConfigFiles).not.toHaveBeenCalled();
       }
 
-      jest.clearAllMocks();
+      vi.clearAllMocks();
 
       // subsequent call does not enter the chain.
       {
@@ -154,7 +155,7 @@ describe(defaultProvider.name, () => {
   describe(credentialsTreatedAsExpired.name, () => {
     const mockDateNow = Date.now();
     beforeEach(async () => {
-      jest.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
+      vi.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
     });
 
     it("returns true if expiration is defined, and creds have expired", () => {

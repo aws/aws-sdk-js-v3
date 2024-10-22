@@ -2,6 +2,7 @@ import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@smithy/protocol-http";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { bodyChecksumGenerator } from ".";
 
@@ -54,7 +55,9 @@ describe("bodyChecksumGenerator for browser", () => {
     try {
       await bodyChecksumGenerator(request, options);
     } catch (e) {
-      expect(e).toEqual(new Error("Unable to calculate checksums for non-blob streams."));
+      expect(e).toEqual(
+        new Error("Unable to calculate checksums for non-blob streams, received: Readable:[object Object].")
+      );
     }
   });
 });

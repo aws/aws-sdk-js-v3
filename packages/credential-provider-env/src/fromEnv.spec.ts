@@ -1,4 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
 
 import { ENV_ACCOUNT_ID, ENV_EXPIRATION, ENV_KEY, ENV_SECRET, ENV_SESSION, fromEnv } from "./fromEnv";
 

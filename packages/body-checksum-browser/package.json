@@ -9,7 +9,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -34,6 +35,7 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "happy-dom": "^15.7.4",
     "rimraf": "3.0.2",
     "typescript": "~4.9.5"
   },

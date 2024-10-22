@@ -1,3 +1,5 @@
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
+
 import { InMemoryStorage } from "./InMemoryStorage";
 import { localStorage as storage } from "./localStorage";
 

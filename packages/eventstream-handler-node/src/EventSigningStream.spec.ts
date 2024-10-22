@@ -1,6 +1,7 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { EventSigningStream } from "./EventSigningStream";
 
@@ -11,7 +12,7 @@ describe("EventSigningStream", () => {
     Date = originalDate;
   });
 
-  it("should sign an eventstream payload properly", (done) => {
+  it("should sign an eventstream payload properly", async () => {
     const eventStreamCodec = new EventStreamCodec(toUtf8, fromUtf8);
     const message1: Message = {
       headers: {},
@@ -40,7 +41,7 @@ describe("EventSigningStream", () => {
         },
       },
     ];
-    const mockMessageSigner = jest
+    const mockMessageSigner = vi
       .fn()
       .mockReturnValueOnce({ message: message1, signature: "7369676e617475726531" } as SignedMessage) //'signature1'
       .mockReturnValueOnce({ message: message2, signature: "7369676e617475726532" } as SignedMessage); //'signature2'
@@ -65,6 +66,10 @@ describe("EventSigningStream", () => {
     signingStream.on("data", (chunk) => {
       output.push(eventStreamCodec.decode(chunk).headers);
     });
+
+    let resolve: (value?: unknown) => void;
+    const done = new Promise((r) => (resolve = r));
+
     signingStream.on("end", () => {
       expect(output).toEqual(expected);
       expect(mockMessageSigner.mock.calls[0][0].priorSignature).toBe("initial");
@@ -75,7 +80,7 @@ describe("EventSigningStream", () => {
       expect(mockMessageSigner.mock.calls[1][1].signingDate.getTime()).toBe(
         (expected[1][":date"].value as Date).getTime()
       );
-      done();
+      resolve();
     });
     signingStream.on("error", (err) => {
       throw err;
@@ -84,5 +89,7 @@ describe("EventSigningStream", () => {
       signingStream.write(input);
     }
     signingStream.end();
+
+    await done;
   });
 });

@@ -33,9 +33,12 @@ export interface RawDataPart {
   lastPart?: boolean;
 }
 
-const MIN_PART_SIZE = 1024 * 1024 * 5;
-
 export class Upload extends EventEmitter {
+  /**
+   * @internal
+   * modified in testing only.
+   */
+  private static MIN_PART_SIZE = 1024 * 1024 * 5;
   /**
    * S3 multipart upload does not allow more than 10,000 parts.
    */
@@ -43,7 +46,7 @@ export class Upload extends EventEmitter {
 
   // Defaults.
   private readonly queueSize: number = 4;
-  private readonly partSize = MIN_PART_SIZE;
+  private readonly partSize = Upload.MIN_PART_SIZE;
   private readonly leavePartsOnError: boolean = false;
   private readonly tags: Tag[] = [];
 
@@ -428,9 +431,9 @@ export class Upload extends EventEmitter {
       throw new Error(`InputError: Upload requires a AWS client to do uploads with.`);
     }
 
-    if (this.partSize < MIN_PART_SIZE) {
+    if (this.partSize < Upload.MIN_PART_SIZE) {
       throw new Error(
-        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${MIN_PART_SIZE}] (5MB)`
+        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
       );
     }
 

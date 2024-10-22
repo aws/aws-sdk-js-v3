@@ -2,6 +2,7 @@ import { CredentialsProviderError } from "@smithy/property-provider";
 import { HttpResponse } from "@smithy/protocol-http";
 import { parseRfc3339DateTime } from "@smithy/smithy-client";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { createGetRequest, getCredentials } from "./requestHelpers";
 
