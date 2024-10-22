@@ -69,7 +69,7 @@ describe("convertToAttr", () => {
             (BigInt as any) = undefined;
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
             BigInt = BigIntConstructor;
           });
         });
@@ -87,7 +87,7 @@ describe("convertToAttr", () => {
             (BigInt as any) = undefined;
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            }).toThrowError(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
             BigInt = BigIntConstructor;
           });
         });
