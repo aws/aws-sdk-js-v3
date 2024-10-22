@@ -2,6 +2,16 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  BatchAddRoleCommand,
+  BatchAddRoleCommandInput,
+  BatchAddRoleCommandOutput,
+} from "./commands/BatchAddRoleCommand";
+import {
+  BatchRemoveRoleCommand,
+  BatchRemoveRoleCommandInput,
+  BatchRemoveRoleCommandOutput,
+} from "./commands/BatchRemoveRoleCommand";
 import { CreateSpaceCommand, CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import { DeleteSpaceCommand, DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
@@ -32,6 +42,8 @@ import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput }
 import { RepostspaceClient, RepostspaceClientConfig } from "./RepostspaceClient";
 
 const commands = {
+  BatchAddRoleCommand,
+  BatchRemoveRoleCommand,
   CreateSpaceCommand,
   DeleteSpaceCommand,
   DeregisterAdminCommand,
@@ -46,6 +58,31 @@ const commands = {
 };
 
 export interface Repostspace {
+  /**
+   * @see {@link BatchAddRoleCommand}
+   */
+  batchAddRole(args: BatchAddRoleCommandInput, options?: __HttpHandlerOptions): Promise<BatchAddRoleCommandOutput>;
+  batchAddRole(args: BatchAddRoleCommandInput, cb: (err: any, data?: BatchAddRoleCommandOutput) => void): void;
+  batchAddRole(
+    args: BatchAddRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAddRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchRemoveRoleCommand}
+   */
+  batchRemoveRole(
+    args: BatchRemoveRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchRemoveRoleCommandOutput>;
+  batchRemoveRole(args: BatchRemoveRoleCommandInput, cb: (err: any, data?: BatchRemoveRoleCommandOutput) => void): void;
+  batchRemoveRole(
+    args: BatchRemoveRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchRemoveRoleCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateSpaceCommand}
    */

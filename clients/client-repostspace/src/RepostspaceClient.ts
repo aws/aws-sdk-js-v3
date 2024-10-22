@@ -53,6 +53,8 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "./commands/BatchAddRoleCommand";
+import { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "./commands/BatchRemoveRoleCommand";
 import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "./commands/DeregisterAdminCommand";
@@ -82,6 +84,8 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchAddRoleCommandInput
+  | BatchRemoveRoleCommandInput
   | CreateSpaceCommandInput
   | DeleteSpaceCommandInput
   | DeregisterAdminCommandInput
@@ -98,6 +102,8 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchAddRoleCommandOutput
+  | BatchRemoveRoleCommandOutput
   | CreateSpaceCommandOutput
   | DeleteSpaceCommandOutput
   | DeregisterAdminCommandOutput

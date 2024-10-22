@@ -27,6 +27,300 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const Role = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+  EXPERT: "EXPERT",
+  MODERATOR: "MODERATOR",
+  SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
+} as const;
+
+/**
+ * @public
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+/**
+ * @public
+ */
+export interface BatchAddRoleInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The user or group accessor identifiers to add the role to.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The role to add to the users or groups.</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * <p>An error that occurred during a batch operation.</p>
+ * @public
+ */
+export interface BatchError {
+  /**
+   * <p>The accessor identifier that's related to the error.</p>
+   * @public
+   */
+  accessorId: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  error: number | undefined;
+
+  /**
+   * <p>Description of the error.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAddRoleOutput {
+  /**
+   * <p>An array of successfully updated accessor identifiers.</p>
+   * @public
+   */
+  addedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were added.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * <p>Unexpected error during processing of request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>Request references a resource which does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>Request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * <p>The code to identify the service.</p>
+   * @public
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>The code to identify the quota.</p>
+   * @public
+   */
+  quotaCode?: string;
+
+  /**
+   * <p> Advice to clients on when the call can be safely retried.</p>
+   * @public
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>Message describing why the field failed validation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The reason why the request failed validation.</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The field that caused the error, if applicable.</p>
+   * @public
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveRoleInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The user or group accessor identifiers to remove the role from.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The role to remove from the users or groups.</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveRoleOutput {
+  /**
+   * <p>An array of successfully updated accessor identifiers.</p>
+   * @public
+   */
+  removedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were removed.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfigurationStatus = {
   CONFIGURED: "CONFIGURED",
   UNCONFIGURED: "UNCONFIGURED",
@@ -144,68 +438,6 @@ export interface CreateSpaceOutput {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p>Request would cause a service quota to be exceeded.</p>
  * @public
  */
@@ -250,118 +482,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code to identify the service.</p>
-   * @public
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>The code to identify the quota.</p>
-   * @public
-   */
-  quotaCode?: string;
-
-  /**
-   * <p> Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>Message describing why the field failed validation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason why the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error, if applicable.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
   }
 }
 
@@ -514,16 +634,26 @@ export interface GetSpaceOutput {
   storageLimit: number | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>The list of users that are administrators of the private re:Post.</p>
    * @public
    */
   userAdmins?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>The list of groups that are administrators of the private re:Post.</p>
    * @public
    */
   groupAdmins?: string[];
+
+  /**
+   * <p>A map of accessor identifiers and their roles.</p>
+   * @public
+   */
+  roles?: Record<string, Role[]>;
 
   /**
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>

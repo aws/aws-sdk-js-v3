@@ -10,7 +10,7 @@ AWS SDK for JavaScript Repostspace Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-repostspace
+To install this package, simply type add or install @aws-sdk/client-repostspace
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-repostspace`
@@ -203,6 +203,22 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+BatchAddRole
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/repostspace/command/BatchAddRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-repostspace/Interface/BatchAddRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-repostspace/Interface/BatchAddRoleCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchRemoveRole
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/repostspace/command/BatchRemoveRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-repostspace/Interface/BatchRemoveRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-repostspace/Interface/BatchRemoveRoleCommandOutput/)
+
+</details>
 <details>
 <summary>
 CreateSpace

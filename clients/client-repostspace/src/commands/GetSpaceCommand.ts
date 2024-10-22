@@ -62,6 +62,11 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * //   groupAdmins: [ // GroupAdmins
  * //     "STRING_VALUE",
  * //   ],
+ * //   roles: { // Roles
+ * //     "<keys>": [ // RoleList
+ * //       "EXPERT" || "MODERATOR" || "ADMINISTRATOR" || "SUPPORTREQUESTOR",
+ * //     ],
+ * //   },
  * //   userKMSKey: "STRING_VALUE",
  * //   userCount: Number("int"),
  * //   contentSize: Number("long"),
