@@ -10,7 +10,7 @@ AWS SDK for JavaScript BedrockRuntime Client for Node.js, Browser and React Nati
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-bedrock-runtime
+To install this package, simply type add or install @aws-sdk/client-bedrock-runtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-bedrock-runtime`
