@@ -38,6 +38,7 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * const input = { // CancelBatchJobExecutionRequest
  *   applicationId: "STRING_VALUE", // required
  *   executionId: "STRING_VALUE", // required
+ *   authSecretsManagerArn: "STRING_VALUE",
  * };
  * const command = new CancelBatchJobExecutionCommand(input);
  * const response = await client.send(command);

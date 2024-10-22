@@ -28,7 +28,7 @@ export interface ListBatchJobRestartPointsCommandInput extends ListBatchJobResta
 export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRestartPointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the job steps for JCL files to restart a batch job. This is only applicable for Micro Focus engine with versions 8.0.6 and above.</p>
+ * <p>Lists all the job steps for a JCL file to restart a batch job. This is only applicable for Micro Focus engine with versions 8.0.6 and above.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,7 @@ export interface ListBatchJobRestartPointsCommandOutput extends ListBatchJobRest
  * const input = { // ListBatchJobRestartPointsRequest
  *   applicationId: "STRING_VALUE", // required
  *   executionId: "STRING_VALUE", // required
+ *   authSecretsManagerArn: "STRING_VALUE",
  * };
  * const command = new ListBatchJobRestartPointsCommand(input);
  * const response = await client.send(command);

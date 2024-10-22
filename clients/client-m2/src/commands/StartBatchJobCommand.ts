@@ -67,6 +67,7 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  *   jobParams: { // BatchJobParametersMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   authSecretsManagerArn: "STRING_VALUE",
  * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);

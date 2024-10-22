@@ -160,11 +160,18 @@ export const se_CancelBatchJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/applications/{applicationId}/batch-job-executions/{executionId}/cancel");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("executionId", () => input.executionId!, "{executionId}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      authSecretsManagerArn: [],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -562,8 +569,11 @@ export const se_ListBatchJobRestartPointsCommand = async (
   b.bp("/applications/{applicationId}/batch-job-executions/{executionId}/steps");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("executionId", () => input.executionId!, "{executionId}", false);
+  const query: any = map({
+    [_aSMA]: [, input[_aSMA]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -718,6 +728,7 @@ export const se_StartBatchJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      authSecretsManagerArn: [],
       batchJobIdentifier: (_) => _json(_),
       jobParams: (_) => _json(_),
     })
@@ -2263,6 +2274,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aSMA = "authSecretsManagerArn";
 const _eI = "environmentId";
 const _eIx = "executionIds";
 const _eT = "engineType";
