@@ -21306,6 +21306,9 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
   } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
     contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
   }
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
+  }
   if (output[_FSa] != null) {
     contents[_FSa] = de_FailoverState(output[_FSa], context);
   }

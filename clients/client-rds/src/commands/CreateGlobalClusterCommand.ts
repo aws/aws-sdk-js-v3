@@ -88,6 +88,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
@@ -116,7 +117,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
+ *         (unique name) to create a new global database cluster or to rename an existing one.</p>
  *
  * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
  *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>

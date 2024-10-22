@@ -80,6 +80,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * //           SynchronizationStatus: "connected" || "pending-resync",
  * //         },
  * //       ],
+ * //       Endpoint: "STRING_VALUE",
  * //       FailoverState: { // FailoverState
  * //         Status: "pending" || "failing-over" || "cancelling",
  * //         FromDbClusterArn: "STRING_VALUE",

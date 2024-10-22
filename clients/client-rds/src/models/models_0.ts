@@ -12434,6 +12434,15 @@ export interface GlobalCluster {
   GlobalClusterMembers?: GlobalClusterMember[];
 
   /**
+   * <p>
+   *          The writer endpoint for the new global database cluster. This endpoint always
+   *          points to the writer DB instance in the current primary cluster.
+   *        </p>
+   * @public
+   */
+  Endpoint?: string;
+
+  /**
    * <p>A data object containing all properties for the current state of an in-process or pending switchover or failover process for this global cluster (Aurora global database).
    *       This object is empty unless the <code>SwitchoverGlobalCluster</code> or <code>FailoverGlobalCluster</code> operation was called on this global cluster.</p>
    * @public
@@ -12463,7 +12472,8 @@ export interface CreateGlobalClusterResult {
 }
 
 /**
- * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ * <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
+ *         (unique name) to create a new global database cluster or to rename an existing one.</p>
  * @public
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
