@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+
+### Features
+
+* **client-m2:** Add AuthSecretsManagerArn optional parameter to batch job APIs, expand batch parameter limits, and introduce clientToken constraints. ([e2fcaab](https://github.com/aws/aws-sdk-js-v3/commit/e2fcaab92e7d0036a098672437b8d90ae4288073))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-m2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+
+### Features
+
+* **client-timestream-query:** This release adds support for Query Insights, a feature that provides details of query execution, enabling users to identify areas for improvement to optimize their queries, resulting in improved query performance and lower query costs. ([2caa046](https://github.com/aws/aws-sdk-js-v3/commit/2caa04627d8a3c33e12d6df156fccf748a1215ef))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-query

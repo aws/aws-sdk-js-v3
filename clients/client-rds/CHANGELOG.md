@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+
+### Features
+
+* **client-rds:** Global clusters now expose the Endpoint attribute as one of its fields. It is a Read/Write endpoint for the global cluster which resolves to the Global Cluster writer instance. ([0341681](https://github.com/aws/aws-sdk-js-v3/commit/03416814abf4e098dbd61913ed87690bc08d3a84))
+
+
+
+
+
 # [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+
+### Features
+
+* **client-bedrock-runtime:** Updating invoke regex to support imported models for converse API ([eae7a3e](https://github.com/aws/aws-sdk-js-v3/commit/eae7a3eef73e9cad4a29259f15637f0ed7cb861a))
+* **client-imagebuilder:** Add macOS platform and instance placement options ([df4c455](https://github.com/aws/aws-sdk-js-v3/commit/df4c455f54a8c38f5d04cd73b3a597250b40b581))
+* **client-m2:** Add AuthSecretsManagerArn optional parameter to batch job APIs, expand batch parameter limits, and introduce clientToken constraints. ([e2fcaab](https://github.com/aws/aws-sdk-js-v3/commit/e2fcaab92e7d0036a098672437b8d90ae4288073))
+* **client-rds:** Global clusters now expose the Endpoint attribute as one of its fields. It is a Read/Write endpoint for the global cluster which resolves to the Global Cluster writer instance. ([0341681](https://github.com/aws/aws-sdk-js-v3/commit/03416814abf4e098dbd61913ed87690bc08d3a84))
+* **client-repostspace:** Adds the BatchAddRole and BatchRemoveRole APIs. ([fa3d3d0](https://github.com/aws/aws-sdk-js-v3/commit/fa3d3d02959aeb6c692028d6d1f01e1baa589e25))
+* **client-timestream-query:** This release adds support for Query Insights, a feature that provides details of query execution, enabling users to identify areas for improvement to optimize their queries, resulting in improved query performance and lower query costs. ([2caa046](https://github.com/aws/aws-sdk-js-v3/commit/2caa04627d8a3c33e12d6df156fccf748a1215ef))
+* **clients:** update client endpoints as of 2024-10-22 ([0958ca6](https://github.com/aws/aws-sdk-js-v3/commit/0958ca6b902da332b46fb49541f9b2b3541dfda6))
+
+
+
+
+
 # [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
 
 
