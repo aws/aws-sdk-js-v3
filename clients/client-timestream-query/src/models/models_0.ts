@@ -843,6 +843,152 @@ export interface ExecutionStats {
 }
 
 /**
+ * <p>Provides insights into the table with the most sub-optimal spatial range scanned by your query.</p>
+ * @public
+ */
+export interface QuerySpatialCoverageMax {
+  /**
+   * <p>The maximum ratio of spatial coverage.</p>
+   * @public
+   */
+  Value?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table with the most sub-optimal spatial pruning.</p>
+   * @public
+   */
+  TableArn?: string;
+
+  /**
+   * <p>The partition key used for partitioning, which can be a default <code>measure_name</code> or a <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer defined partition key</a>.</p>
+   * @public
+   */
+  PartitionKey?: string[];
+}
+
+/**
+ * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning</p>
+ *          <p>For example, you can do the following with the <code>QuerySpatialCoverage</code> information:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Add measure_name or use <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer-defined partition key</a> (CDPK) predicates.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you've already done the preceding action, remove functions around them or clauses, such as <code>LIKE</code>.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface QuerySpatialCoverage {
+  /**
+   * <p>Provides insights into the spatial coverage of the executed query and the table with the most inefficient spatial pruning.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> – The maximum ratio of spatial coverage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table with sub-optimal spatial pruning.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PartitionKey</code> – The partition key used for partitioning, which can be a default <code>measure_name</code> or a CDPK.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Max?: QuerySpatialCoverageMax;
+}
+
+/**
+ * <p>Provides insights into the table with the most sub-optimal temporal pruning scanned by your query.</p>
+ * @public
+ */
+export interface QueryTemporalRangeMax {
+  /**
+   * <p>The maximum duration in nanoseconds between the start and end of the query.</p>
+   * @public
+   */
+  Value?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
+   * @public
+   */
+  TableArn?: string;
+}
+
+/**
+ * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range.</p>
+ * @public
+ */
+export interface QueryTemporalRange {
+  /**
+   * <p>Encapsulates the following properties that provide insights into the most sub-optimal performing table on the temporal axis:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> – The maximum duration in nanoseconds between the start and end of the query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Max?: QueryTemporalRangeMax;
+}
+
+/**
+ * <p>Provides various insights and metrics related to the <code>ExecuteScheduledQueryRequest</code> that was executed.</p>
+ * @public
+ */
+export interface ScheduledQueryInsightsResponse {
+  /**
+   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.</p>
+   * @public
+   */
+  QuerySpatialCoverage?: QuerySpatialCoverage;
+
+  /**
+   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Add missing time-predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Remove functions around the time predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add time predicates to all the sub-queries.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QueryTemporalRange?: QueryTemporalRange;
+
+  /**
+   * <p>Indicates the number of tables in the query.</p>
+   * @public
+   */
+  QueryTableCount?: number;
+
+  /**
+   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputRows?: number;
+
+  /**
+   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputBytes?: number;
+}
+
+/**
  * @public
  * @enum
  */
@@ -888,6 +1034,12 @@ export interface ScheduledQueryRunSummary {
    * @public
    */
   ExecutionStats?: ExecutionStats;
+
+  /**
+   * <p>Provides various insights and metrics related to the run summary of the scheduled query.</p>
+   * @public
+   */
+  QueryInsightsResponse?: ScheduledQueryInsightsResponse;
 
   /**
    * <p>S3 location for error report.</p>
@@ -1026,6 +1178,42 @@ export interface DescribeScheduledQueryResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ScheduledQueryInsightsMode = {
+  DISABLED: "DISABLED",
+  ENABLED_WITH_RATE_CONTROL: "ENABLED_WITH_RATE_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryInsightsMode = (typeof ScheduledQueryInsightsMode)[keyof typeof ScheduledQueryInsightsMode];
+
+/**
+ * <p>Encapsulates settings for enabling <code>QueryInsights</code> on an <code>ExecuteScheduledQueryRequest</code>.</p>
+ * @public
+ */
+export interface ScheduledQueryInsights {
+  /**
+   * <p>Provides the following modes to enable <code>ScheduledQueryInsights</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>ScheduledQueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Disables <code>ScheduledQueryInsights</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode: ScheduledQueryInsightsMode | undefined;
+}
+
+/**
+ * @public
  */
 export interface ExecuteScheduledQueryRequest {
   /**
@@ -1046,6 +1234,13 @@ export interface ExecuteScheduledQueryRequest {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
+   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics as a part of the Amazon SNS notification for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance and cost.</p>
+   * @public
+   */
+  QueryInsights?: ScheduledQueryInsights;
 }
 
 /**
@@ -1265,6 +1460,65 @@ export class QueryExecutionException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const QueryInsightsMode = {
+  DISABLED: "DISABLED",
+  ENABLED_WITH_RATE_CONTROL: "ENABLED_WITH_RATE_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryInsightsMode = (typeof QueryInsightsMode)[keyof typeof QueryInsightsMode];
+
+/**
+ * <p>
+ *             <code>QueryInsights</code> is a performance tuning feature that helps you optimize your queries, reducing costs and improving performance. With <code>QueryInsights</code>, you can assess the pruning efficiency of your queries and identify areas for improvement to enhance query performance. With <code>QueryInsights</code>, you can also analyze the effectiveness of your queries in terms of temporal and spatial pruning, and identify opportunities to improve performance. Specifically, you can evaluate how well your queries use time-based and partition key-based indexing strategies to optimize data retrieval. To optimize query performance, it's essential that you fine-tune both the temporal and spatial parameters that govern query execution.</p>
+ *          <p>The key metrics provided by <code>QueryInsights</code> are <code>QuerySpatialCoverage</code> and <code>QueryTemporalRange</code>. <code>QuerySpatialCoverage</code> indicates how much of the spatial axis the query scans, with lower values being more efficient. <code>QueryTemporalRange</code> shows the time range scanned, with narrower ranges being more performant.</p>
+ *          <p>
+ *             <b>Benefits of QueryInsights</b>
+ *          </p>
+ *          <p>The following are the key benefits of using <code>QueryInsights</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Identifying inefficient queries</b> – <code>QueryInsights</code> provides information on the time-based and attribute-based pruning of the tables accessed by the query. This information helps you identify the tables that are sub-optimally accessed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Optimizing your data model and partitioning</b> – You can use the <code>QueryInsights</code> information to access and fine-tune your data model and partitioning strategy.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Tuning queries</b> – <code>QueryInsights</code> highlights opportunities to use indexes more effectively.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
+ *          </note>
+ * @public
+ */
+export interface QueryInsights {
+  /**
+   * <p>Provides the following modes to enable <code>QueryInsights</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>QueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Disables <code>QueryInsights</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode: QueryInsightsMode | undefined;
+}
+
+/**
+ * @public
  */
 export interface QueryRequest {
   /**
@@ -1373,6 +1627,78 @@ export interface QueryRequest {
    * @public
    */
   MaxRows?: number;
+
+  /**
+   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
+   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics in addition to query results for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance.</p>
+   * @public
+   */
+  QueryInsights?: QueryInsights;
+}
+
+/**
+ * <p>Provides various insights and metrics related to the query that you executed.</p>
+ * @public
+ */
+export interface QueryInsightsResponse {
+  /**
+   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. </p>
+   * @public
+   */
+  QuerySpatialCoverage?: QuerySpatialCoverage;
+
+  /**
+   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Add missing time-predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Remove functions around the time predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add time predicates to all the sub-queries.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QueryTemporalRange?: QueryTemporalRange;
+
+  /**
+   * <p>Indicates the number of tables in the query.</p>
+   * @public
+   */
+  QueryTableCount?: number;
+
+  /**
+   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputRows?: number;
+
+  /**
+   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputBytes?: number;
+
+  /**
+   * <p>Indicates the partitions created by the <code>Unload</code> operation.</p>
+   * @public
+   */
+  UnloadPartitionCount?: number;
+
+  /**
+   * <p>Indicates the rows written by the <code>Unload</code> query.</p>
+   * @public
+   */
+  UnloadWrittenRows?: number;
+
+  /**
+   * <p>Indicates the size, in bytes, written by the <code>Unload</code> operation.</p>
+   * @public
+   */
+  UnloadWrittenBytes?: number;
 }
 
 /**
@@ -1728,6 +2054,12 @@ export interface QueryResponse {
    * @public
    */
   QueryStatus?: QueryStatus;
+
+  /**
+   * <p>Encapsulates <code>QueryInsights</code> containing insights and metrics related to the query that you executed.</p>
+   * @public
+   */
+  QueryInsightsResponse?: QueryInsightsResponse;
 }
 
 /**

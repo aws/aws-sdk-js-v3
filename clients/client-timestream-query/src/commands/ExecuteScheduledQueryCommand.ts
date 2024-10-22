@@ -30,6 +30,7 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> You can use this API to run a scheduled query manually. </p>
+ *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed as part of an Amazon SNS notification. <code>QueryInsights</code> helps with performance tuning of your query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +41,9 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  *   ScheduledQueryArn: "STRING_VALUE", // required
  *   InvocationTime: new Date("TIMESTAMP"), // required
  *   ClientToken: "STRING_VALUE",
+ *   QueryInsights: { // ScheduledQueryInsights
+ *     Mode: "ENABLED_WITH_RATE_CONTROL" || "DISABLED", // required
+ *   },
  * };
  * const command = new ExecuteScheduledQueryCommand(input);
  * const response = await client.send(command);
