@@ -75,11 +75,25 @@ export interface VerifyPinDataCommandOutput extends VerifyPinDataOutput, __Metad
  *   },
  *   EncryptedPinBlock: "STRING_VALUE", // required
  *   PrimaryAccountNumber: "STRING_VALUE", // required
- *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3", // required
+ *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3" || "ISO_FORMAT_4", // required
  *   PinDataLength: Number("int"),
  *   DukptAttributes: { // DukptAttributes
  *     KeySerialNumber: "STRING_VALUE", // required
  *     DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *   },
+ *   EncryptionWrappedKey: { // WrappedKey
+ *     WrappedKeyMaterial: { // WrappedKeyMaterial Union: only one key present
+ *       Tr31KeyBlock: "STRING_VALUE",
+ *       DiffieHellmanSymmetricKey: { // EcdhDerivationAttributes
+ *         CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
+ *         PublicKeyCertificate: "STRING_VALUE", // required
+ *         KeyAlgorithm: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *         KeyDerivationFunction: "NIST_SP800" || "ANSI_X963", // required
+ *         KeyDerivationHashAlgorithm: "SHA_256" || "SHA_384" || "SHA_512", // required
+ *         SharedInformation: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KeyCheckValueAlgorithm: "STRING_VALUE",
  *   },
  * };
  * const command = new VerifyPinDataCommand(input);

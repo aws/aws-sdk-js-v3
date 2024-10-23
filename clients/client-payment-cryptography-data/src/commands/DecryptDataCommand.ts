@@ -102,6 +102,14 @@ export interface DecryptDataCommandOutput extends DecryptDataOutput, __MetadataB
  *   WrappedKey: { // WrappedKey
  *     WrappedKeyMaterial: { // WrappedKeyMaterial Union: only one key present
  *       Tr31KeyBlock: "STRING_VALUE",
+ *       DiffieHellmanSymmetricKey: { // EcdhDerivationAttributes
+ *         CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
+ *         PublicKeyCertificate: "STRING_VALUE", // required
+ *         KeyAlgorithm: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *         KeyDerivationFunction: "NIST_SP800" || "ANSI_X963", // required
+ *         KeyDerivationHashAlgorithm: "SHA_256" || "SHA_384" || "SHA_512", // required
+ *         SharedInformation: "STRING_VALUE", // required
+ *       },
  *     },
  *     KeyCheckValueAlgorithm: "STRING_VALUE",
  *   },

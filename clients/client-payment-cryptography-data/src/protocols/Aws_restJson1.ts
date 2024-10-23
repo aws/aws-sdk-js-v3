@@ -71,6 +71,7 @@ import {
   DukptEncryptionAttributes,
   DynamicCardVerificationCode,
   DynamicCardVerificationValue,
+  EcdhDerivationAttributes,
   Emv2000Attributes,
   EmvCommonAttributes,
   EmvEncryptionAttributes,
@@ -256,6 +257,7 @@ export const se_GeneratePinDataCommand = async (
   body = JSON.stringify(
     take(input, {
       EncryptionKeyIdentifier: [],
+      EncryptionWrappedKey: (_) => _json(_),
       GenerationAttributes: (_) => _json(_),
       GenerationKeyIdentifier: [],
       PinBlockFormat: [],
@@ -421,6 +423,7 @@ export const se_VerifyPinDataCommand = async (
       DukptAttributes: (_) => _json(_),
       EncryptedPinBlock: [],
       EncryptionKeyIdentifier: [],
+      EncryptionWrappedKey: (_) => _json(_),
       PinBlockFormat: [],
       PinDataLength: [],
       PrimaryAccountNumber: [],
@@ -910,6 +913,8 @@ const de_VerificationFailedExceptionRes = async (
 // se_DynamicCardVerificationCode omitted.
 
 // se_DynamicCardVerificationValue omitted.
+
+// se_EcdhDerivationAttributes omitted.
 
 // se_Emv2000Attributes omitted.
 

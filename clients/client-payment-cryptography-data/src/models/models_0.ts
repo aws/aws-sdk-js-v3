@@ -1042,10 +1042,102 @@ export const KeyCheckValueAlgorithm = {
 export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
 
 /**
+ * @public
+ * @enum
+ */
+export const SymmetricKeyAlgorithm = {
+  AES_128: "AES_128",
+  AES_192: "AES_192",
+  AES_256: "AES_256",
+  TDES_2KEY: "TDES_2KEY",
+  TDES_3KEY: "TDES_3KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof SymmetricKeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyDerivationFunction = {
+  ANSI_X963: "ANSI_X963",
+  NIST_SP800: "NIST_SP800",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyDerivationFunction = (typeof KeyDerivationFunction)[keyof typeof KeyDerivationFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyDerivationHashAlgorithm = {
+  SHA_256: "SHA_256",
+  SHA_384: "SHA_384",
+  SHA_512: "SHA_512",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyDerivationHashAlgorithm = (typeof KeyDerivationHashAlgorithm)[keyof typeof KeyDerivationHashAlgorithm];
+
+/**
+ * <p>Parameters required to establish ECDH based key exchange.</p>
+ * @public
+ */
+export interface EcdhDerivationAttributes {
+  /**
+   * <p>The <code>keyArn</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * @public
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * @public
+   */
+  PublicKeyCertificate: string | undefined;
+
+  /**
+   * <p>The key algorithm of the derived ECDH key.</p>
+   * @public
+   */
+  KeyAlgorithm: SymmetricKeyAlgorithm | undefined;
+
+  /**
+   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationFunction: KeyDerivationFunction | undefined;
+
+  /**
+   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
+
+  /**
+   * <p>A byte string containing information that binds the ECDH derived key to the two parties involved or to the context of the key.</p>
+   *          <p>It may include details like identities of the two parties deriving the key, context of the operation, session IDs, and optionally a nonce. It must not contain zero bytes, and re-using shared information for multiple ECDH key derivations is not recommended.</p>
+   * @public
+   */
+  SharedInformation: string | undefined;
+}
+
+/**
  * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
  * @public
  */
-export type WrappedKeyMaterial = WrappedKeyMaterial.Tr31KeyBlockMember | WrappedKeyMaterial.$UnknownMember;
+export type WrappedKeyMaterial =
+  | WrappedKeyMaterial.DiffieHellmanSymmetricKeyMember
+  | WrappedKeyMaterial.Tr31KeyBlockMember
+  | WrappedKeyMaterial.$UnknownMember;
 
 /**
  * @public
@@ -1057,6 +1149,17 @@ export namespace WrappedKeyMaterial {
    */
   export interface Tr31KeyBlockMember {
     Tr31KeyBlock: string;
+    DiffieHellmanSymmetricKey?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameter information for deriving a ECDH shared key.</p>
+   * @public
+   */
+  export interface DiffieHellmanSymmetricKeyMember {
+    Tr31KeyBlock?: never;
+    DiffieHellmanSymmetricKey: EcdhDerivationAttributes;
     $unknown?: never;
   }
 
@@ -1065,16 +1168,20 @@ export namespace WrappedKeyMaterial {
    */
   export interface $UnknownMember {
     Tr31KeyBlock?: never;
+    DiffieHellmanSymmetricKey?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Tr31KeyBlock: (value: string) => T;
+    DiffieHellmanSymmetricKey: (value: EcdhDerivationAttributes) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: WrappedKeyMaterial, visitor: Visitor<T>): T => {
     if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
+    if (value.DiffieHellmanSymmetricKey !== undefined)
+      return visitor.DiffieHellmanSymmetricKey(value.DiffieHellmanSymmetricKey);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2462,6 +2569,7 @@ export namespace PinGenerationAttributes {
 export const PinBlockFormatForPinData = {
   ISO_FORMAT_0: "ISO_FORMAT_0",
   ISO_FORMAT_3: "ISO_FORMAT_3",
+  ISO_FORMAT_4: "ISO_FORMAT_4",
 } as const;
 
 /**
@@ -2480,7 +2588,7 @@ export interface GeneratePinDataInput {
   GenerationKeyIdentifier: string | undefined;
 
   /**
-   * <p>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses to encrypt the PIN Block.</p>
+   * <p>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses to encrypt the PIN Block. For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>
    * @public
    */
   EncryptionKeyIdentifier: string | undefined;
@@ -2510,6 +2618,12 @@ export interface GeneratePinDataInput {
    * @public
    */
   PinBlockFormat: PinBlockFormatForPinData | undefined;
+
+  /**
+   * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
+   * @public
+   */
+  EncryptionWrappedKey?: WrappedKey;
 }
 
 /**
@@ -2582,7 +2696,7 @@ export interface GeneratePinDataOutput {
   GenerationKeyCheckValue: string | undefined;
 
   /**
-   * <p>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses for encrypted pin block generation.</p>
+   * <p>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses for encrypted pin block generation. For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>
    * @public
    */
   EncryptionKeyArn: string | undefined;
@@ -2879,13 +2993,14 @@ export namespace TranslationIsoFormats {
 export interface TranslatePinDataInput {
   /**
    * <p>The <code>keyARN</code> of the encryption key under which incoming PIN block data is encrypted. This key type can be PEK or BDK.</p>
-   *          <p>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping key for PIN block. Otherwise, it is the key identifier used to perform the operation.</p>
+   *          <p>For dynamic keys, it is the <code>keyARN</code> of KEK of the TR-31 wrapped PEK. For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>
    * @public
    */
   IncomingKeyIdentifier: string | undefined;
 
   /**
    * <p>The <code>keyARN</code> of the encryption key for encrypting outgoing PIN block data. This key type can be PEK or BDK.</p>
+   *          <p>For ECDH, it is the <code>keyARN</code> of the asymmetric ECC key.</p>
    * @public
    */
   OutgoingKeyIdentifier: string | undefined;
@@ -3519,6 +3634,12 @@ export interface VerifyPinDataInput {
    * @public
    */
   DukptAttributes?: DukptAttributes;
+
+  /**
+   * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
+   * @public
+   */
+  EncryptionWrappedKey?: WrappedKey;
 }
 
 /**
@@ -3754,8 +3875,18 @@ export const EncryptionDecryptionAttributesFilterSensitiveLog = (obj: Encryption
 /**
  * @internal
  */
+export const EcdhDerivationAttributesFilterSensitiveLog = (obj: EcdhDerivationAttributes): any => ({
+  ...obj,
+  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const WrappedKeyMaterialFilterSensitiveLog = (obj: WrappedKeyMaterial): any => {
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: SENSITIVE_STRING };
+  if (obj.DiffieHellmanSymmetricKey !== undefined)
+    return { DiffieHellmanSymmetricKey: EcdhDerivationAttributesFilterSensitiveLog(obj.DiffieHellmanSymmetricKey) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -4019,6 +4150,7 @@ export const GeneratePinDataInputFilterSensitiveLog = (obj: GeneratePinDataInput
     GenerationAttributes: PinGenerationAttributesFilterSensitiveLog(obj.GenerationAttributes),
   }),
   ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.EncryptionWrappedKey && { EncryptionWrappedKey: WrappedKeyFilterSensitiveLog(obj.EncryptionWrappedKey) }),
 });
 
 /**
@@ -4254,4 +4386,5 @@ export const VerifyPinDataInputFilterSensitiveLog = (obj: VerifyPinDataInput): a
   }),
   ...(obj.EncryptedPinBlock && { EncryptedPinBlock: SENSITIVE_STRING }),
   ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
+  ...(obj.EncryptionWrappedKey && { EncryptionWrappedKey: WrappedKeyFilterSensitiveLog(obj.EncryptionWrappedKey) }),
 });
